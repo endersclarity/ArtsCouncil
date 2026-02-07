@@ -1,0 +1,297 @@
+[
+  {
+    "slug": "gold-rush-heritage",
+    "type": "experience",
+    "title": "Gold Rush Heritage Trail",
+    "subtitle": "From Empire Mine to Malakoff Diggins",
+    "description": "Follow the story of gold through Nevada County. From the deepest mines to the largest hydraulic diggings, each stop connects to the next through 170 years of history.",
+    "color": "#c8943e",
+    "theme": {
+      "basemap": "terrain",
+      "accent": "#2a8c8c",
+      "accentSecondary": "#b85c38",
+      "accentTertiary": "#7a9e7e",
+      "background": "#f2ece4",
+      "text": "#2c2c2c",
+      "dimmedMarker": "#c5bdb0",
+      "routeColor": "#b85c38"
+    },
+    "stops": [
+      {
+        "asset": "Empire Mine",
+        "order": 1,
+        "note": "One of the oldest, deepest, richest gold mines in California. 367 miles of underground tunnels produced over $120M in gold from 1850 to 1957.",
+        "connector": "The mine's superintendent needed a home befitting the operation's grandeur..."
+      },
+      {
+        "asset": "North Star House",
+        "order": 2,
+        "note": "1905 mansion designed by Julia Morgan for mine superintendent A.D. Foote.",
+        "connector": "Foote's greatest engineering feat wasn't the house - it was the powerhouse below..."
+      },
+      {
+        "asset": "North Star Mine Powerhouse",
+        "order": 3,
+        "note": "World's largest Pelton wheel, 30 feet in diameter. Built by Foote in 1895, the first complete water-powered compressed air plant of its kind.",
+        "connector": "The Pelton wheel was invented just up the road..."
+      },
+      {
+        "asset": "Miners Foundry",
+        "order": 4,
+        "note": "Founded 1856. The Pelton waterwheel was developed and manufactured here in 1878. The double-cupped bucket design revolutionized water power worldwide.",
+        "connector": "Next door, the oldest theatre on the West Coast..."
+      },
+      {
+        "asset": "Nevada Theatre",
+        "order": 5,
+        "note": "Opened September 11, 1865. Mark Twain, Emma Nevada, and Jack London all performed here. Still operating after 160 years.",
+        "connector": "West of the Gold Country towns, a republic once stood..."
+      },
+      {
+        "asset": "Rough and Ready",
+        "order": 6,
+        "note": "Founded 1849. In 1850, the town seceded from the United States to form the Great Republic of Rough and Ready. The rebellion lasted less than three months.",
+        "connector": "North into the Ridge, miners built a school for their children..."
+      },
+      {
+        "asset": "North Columbia Schoolhouse",
+        "order": 7,
+        "note": "Built by miners in 1875 on the San Juan Ridge. Now hosts artists, film screenings, poetry readings, and the Sierra Storytelling Festival.",
+        "connector": "Further into the ridge, the scars of ambition..."
+      },
+      {
+        "asset": "Malakoff Diggins",
+        "order": 8,
+        "note": "The world's largest hydraulic gold mining operation. High-pressure water cannons carved away entire mountainsides, leading to one of America's first environmental protection laws."
+      }
+    ]
+  },
+  {
+    "slug": "highway-40-overland",
+    "type": "corridor",
+    "title": "Highway 40: The Overland Trail",
+    "subtitle": "Donner Summit to Truckee's Commercial Row",
+    "description": "The most storied mountain crossing in American history. Emigrants, railroads, and highways all funneled through this pass. Every mile holds a monument to someone who tried to get over the Sierra.",
+    "color": "#5b8a72",
+    "theme": {
+      "basemap": "terrain",
+      "accent": "#2a8c8c",
+      "accentSecondary": "#b85c38",
+      "accentTertiary": "#7a9e7e",
+      "background": "#f2ece4",
+      "text": "#2c2c2c",
+      "dimmedMarker": "#c5bdb0",
+      "routeColor": "#5b8a72"
+    },
+    "stops": [
+      {
+        "asset": "China Wall at Donner Summit",
+        "order": 1,
+        "note": "Retaining walls built by Chinese railroad workers in the 1860s. Hand-cut granite, still standing after 160 years of Sierra winters.",
+        "connector": "Just below the wall, the earliest travelers left their mark..."
+      },
+      {
+        "asset": "Donner Summit",
+        "order": 2,
+        "note": "The Donner Summit Bridge and nearby petroglyphs — some carved over 1,000 years ago by the Washoe people. The oldest human traces at the pass.",
+        "connector": "The first wagons crossed here in 1844, a year before the Donner Party..."
+      },
+      {
+        "asset": "First Wagons Across the Sierra",
+        "order": 3,
+        "note": "The Stephens-Townsend-Murphy party crossed here in November 1844 — the first wagons over the Sierra Nevada. They made it. The party that followed them did not.",
+        "connector": "A mile below the pass, the story turns dark..."
+      },
+      {
+        "asset": "Donner Memorial State Park",
+        "order": 4,
+        "note": "The Donner Party was stranded here through the winter of 1846-47. Of 87 emigrants, 48 survived. The 22-foot Pioneer Monument marks the depth of that winter's snow.",
+        "connector": "The museum at the park tells the full story..."
+      },
+      {
+        "asset": "Emigrant Trail Museum",
+        "order": 5,
+        "note": "Inside Donner Memorial State Park. Chronicles the full arc of Sierra emigration — Washoe, wagon trains, railroad, and highway.",
+        "connector": "The railroad that finally tamed the pass ran straight through town..."
+      },
+      {
+        "asset": "First Transcontinental Railroad",
+        "order": 6,
+        "note": "Truckee was a critical supply point for the transcontinental railroad. Theodore Judah surveyed this route. Chinese workers built it.",
+        "connector": "The railroad made Truckee a town, and that town still stands..."
+      },
+      {
+        "asset": "Commercial Row",
+        "order": 7,
+        "note": "Truckee's Brickelltown Historic District. Built in the 1870s after fire leveled the wooden originals. The saloons, hotels, and shops that served the railroad era."
+      }
+    ]
+  },
+  {
+    "slug": "highway-20-yuba-divide",
+    "type": "corridor",
+    "title": "Highway 20: The Yuba Divide",
+    "subtitle": "Nevada City to the Town of Washington",
+    "description": "East from Nevada City, Highway 20 climbs into increasingly wild country. Gold towns gave way to timber camps, then to near-ghost towns clinging to the canyon walls of the South Yuba River.",
+    "color": "#6b4e71",
+    "theme": {
+      "basemap": "terrain",
+      "accent": "#2a8c8c",
+      "accentSecondary": "#b85c38",
+      "accentTertiary": "#7a9e7e",
+      "background": "#f2ece4",
+      "text": "#2c2c2c",
+      "dimmedMarker": "#c5bdb0",
+      "routeColor": "#6b4e71"
+    },
+    "stops": [
+      {
+        "asset": "South Yuba Canal",
+        "order": 1,
+        "note": "The South Yuba Canal Company office in Nevada City. Built 1855. The canal system delivered water to hydraulic mines across the county — 700 miles of ditches carved into the Sierra.",
+        "connector": "The water they channeled powered the mines, but it also destroyed..."
+      },
+      {
+        "asset": "Bridgeport Covered Bridge",
+        "order": 2,
+        "note": "The longest single-span covered bridge in the world when built in 1862. 233 feet across the South Yuba River. Still standing.",
+        "connector": "Past the bridge, the road narrows and the canyon deepens..."
+      },
+      {
+        "asset": "Indian Grinding Rock",
+        "order": 3,
+        "note": "Bedrock mortar holes used by the Nisenan people for thousands of years before the Gold Rush. A reminder that this land was home long before it was a highway.",
+        "connector": "The Nisenan traded along these same ridgelines..."
+      },
+      {
+        "asset": "North Columbia Schoolhouse",
+        "order": 4,
+        "note": "Built 1875 on the San Juan Ridge. The miners' children learned to read here. Now it's the cultural heart of the Ridge — poetry, film, storytelling.",
+        "connector": "Further east, the towns get smaller and the history gets stranger..."
+      },
+      {
+        "asset": "Town of Washington",
+        "order": 5,
+        "note": "Population: handful. Founded during the Gold Rush, nearly abandoned, then reborn as a quiet outpost. The Washington Hotel has been serving travelers since the 1850s.",
+        "connector": "The hotel is the town's anchor..."
+      },
+      {
+        "asset": "Washington Hotel",
+        "order": 6,
+        "note": "One of California's oldest continuously operating hotels. Wedged into the South Yuba canyon, it's the last stop before the road drops into the river gorge."
+      }
+    ]
+  },
+  {
+    "slug": "highway-49-arts-trail",
+    "type": "corridor",
+    "title": "Highway 49: The Arts Trail",
+    "subtitle": "Grass Valley to Nevada City's Creative Core",
+    "description": "Highway 49 connects two towns that transformed from mining camps into one of California's densest concentrations of working artists, theaters, and galleries. The gold is gone. What replaced it is better.",
+    "color": "#2a6496",
+    "theme": {
+      "basemap": "terrain",
+      "accent": "#2a8c8c",
+      "accentSecondary": "#b85c38",
+      "accentTertiary": "#7a9e7e",
+      "background": "#f2ece4",
+      "text": "#2c2c2c",
+      "dimmedMarker": "#c5bdb0",
+      "routeColor": "#2a6496"
+    },
+    "stops": [
+      {
+        "asset": "Center for the Arts",
+        "order": 1,
+        "note": "Grass Valley's anchor arts venue. Gallery, stage, and the hub of the Fall Colors Open Studio Tour that opens 100+ artist studios across the county each October.",
+        "connector": "A few blocks north, the town's oldest building found new purpose..."
+      },
+      {
+        "asset": "Miners Foundry",
+        "order": 2,
+        "note": "A 19th-century industrial foundry reborn as a cultural center. Concerts, theater, festivals, weddings. The building where they forged Pelton wheels now forges community.",
+        "connector": "Right next door, Mark Twain once took the stage..."
+      },
+      {
+        "asset": "Nevada Theatre",
+        "order": 3,
+        "note": "The oldest original-use theater building in California. Home to the Nevada City Film Festival, Wild & Scenic Film Festival, and more live performance per square foot than anywhere in the Sierra.",
+        "connector": "Across the street, another stage..."
+      },
+      {
+        "asset": "Off Broadstreet",
+        "order": 4,
+        "note": "Intimate black-box theater producing original plays, comedy, and community theater since 1980. Nevada City's living room stage.",
+        "connector": "Up Broad Street, the town's history is on display..."
+      },
+      {
+        "asset": "Firehouse No.1",
+        "order": 5,
+        "note": "Nevada City's 1861 firehouse, now a museum housing Donner Party artifacts, Nisenan baskets, and rotating exhibits on local history and art.",
+        "connector": "Down the hill, the filmmakers and the bartenders share a wall..."
+      },
+      {
+        "asset": "Elixart",
+        "order": 6,
+        "note": "Herbal lounge, gallery, and performance space. Live music, open mic, art shows, and craft mocktails. Nevada City's answer to the question: what if a gallery served kava?",
+        "connector": "Further south, a different kind of theater..."
+      },
+      {
+        "asset": "Onyx Theater",
+        "order": 7,
+        "note": "Small-batch cinema. Independent and art-house films in an intimate setting. The kind of theater where the projectionist knows your name."
+      }
+    ]
+  },
+  {
+    "slug": "poetry-performance-circuit",
+    "type": "experience",
+    "title": "Poetry & Performance Circuit",
+    "subtitle": "Where Nevada County Goes to Listen",
+    "description": "Spoken word, live theater, film festivals, and a poetry festival that draws writers from across the West. Nevada County has more performance venues per capita than most cities ten times its size.",
+    "color": "#8b2500",
+    "stops": [
+      {
+        "asset": "Nevada Theatre",
+        "order": 1,
+        "note": "The oldest theater in California. Mark Twain performed here in 1866. The Wild & Scenic Environmental Film Festival fills it every January.",
+        "connector": "The tradition of live performance spread next door..."
+      },
+      {
+        "asset": "Miners Foundry",
+        "order": 2,
+        "note": "From industrial forge to cultural forge. The main stage hosts Music in the Mountains, the Artisans Festival, and hundreds of concerts a year.",
+        "connector": "Across town, the intimate stages..."
+      },
+      {
+        "asset": "Off Broadstreet",
+        "order": 3,
+        "note": "Community theater at its best. Original productions, improv nights, and the kind of scrappy creativity that only happens in a 99-seat house.",
+        "connector": "Down the hill, poetry and kava..."
+      },
+      {
+        "asset": "Elixart",
+        "order": 4,
+        "note": "Open mic nights, poetry slams, and acoustic sets in an herbal lounge. The unofficial living room of Nevada City's spoken-word scene.",
+        "connector": "The festival that ties it all together..."
+      },
+      {
+        "asset": "Sierra Poetry",
+        "order": 5,
+        "note": "The Sierra Poetry Festival — drawing poets from across the western states. Workshops, readings, and the kind of deep attention that poetry demands.",
+        "connector": "Up on the Ridge, the oldest venue of them all..."
+      },
+      {
+        "asset": "North Columbia Schoolhouse",
+        "order": 6,
+        "note": "The Sierra Storytelling Festival happens here. Built by miners in 1875, now the most unlikely and perfect poetry venue in the county.",
+        "connector": "Across the summit, Truckee has its own literary outpost..."
+      },
+      {
+        "asset": "Word after Word",
+        "order": 7,
+        "note": "Truckee's independent bookstore and performance space. Author readings, book clubs, and community gatherings. Proof that the literary spirit crosses the Donner Pass."
+      }
+    ]
+  }
+]

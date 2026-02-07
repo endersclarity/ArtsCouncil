@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mockup: Dim + Highlight</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --ink: #1a1612;
+  --cream: #f5f0e8;
+  --gold: #c8943e;
+  --rust: #a0522d;
+  --deep-green: #2d4a3e;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+body { font-family: var(--font-body); background: var(--ink); color: var(--cream); overflow: hidden; height: 100vh; }
+
+#map { width: 100%; height: 100vh; }
+
+.header-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: linear-gradient(180deg, rgba(26,22,18,0.95) 0%, rgba(26,22,18,0.7) 80%, transparent 100%);
+  padding: 1.5rem 2rem 2.5rem;
+}
+
+.header-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.25rem;
+}
+
+.header-title {
+  font-family: var(--font-display);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--cream);
+  line-height: 1.2;
+}
+
+.header-subtitle {
+  font-size: 0.8rem;
+  color: rgba(245,240,232,0.5);
+  margin-top: 0.25rem;
+}
+
+.mode-label {
+  position: fixed;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  background: var(--gold);
+  color: var(--ink);
+  padding: 0.75rem 2rem;
+  border-radius: 100px;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+.toggle-btn {
+  position: fixed;
+  top: 1.5rem;
+  right: 2rem;
+  z-index: 1001;
+  background: rgba(245,240,232,0.1);
+  border: 1px solid rgba(245,240,232,0.2);
+  color: var(--cream);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.toggle-btn:hover { background: rgba(245,240,232,0.2); }
+
+/* Corridor info panel */
+.corridor-panel {
+  position: fixed;
+  bottom: 5rem;
+  left: 2rem;
+  z-index: 1000;
+  background: rgba(26,22,18,0.9);
+  border: 1px solid rgba(200,148,62,0.3);
+  border-radius: 12px;
+  padding: 1.25rem;
+  max-width: 320px;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.5s ease;
+}
+.corridor-panel.visible { opacity: 1; transform: translateY(0); }
+
+.corridor-panel h3 {
+  font-family: var(--font-display);
+  font-size: 1rem;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+.corridor-panel p {
+  font-size: 0.8rem;
+  color: rgba(245,240,232,0.7);
+  line-height: 1.5;
+}
+.corridor-panel .stop-count {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--gold);
+  letter-spacing: 0.1em;
+  margin-top: 0.75rem;
+}
+
+/* Custom marker styles */
+.leaflet-container { background: var(--ink); }
+</style>
+</head>
+<body>
+
+<div class="header-bar">
+  <div class="header-eyebrow">Curated Experience</div>
+  <div class="header-title">Gold Rush Heritage Trail</div>
+  <div class="header-subtitle">From Empire Mine to Malakoff Diggins &mdash; 8 stops across Nevada County</div>
+</div>
+
+<button class="toggle-btn" onclick="toggleCorridor()">Toggle Corridor</button>
+
+<div class="corridor-panel" id="corridorPanel">
+  <h3>Gold Rush Heritage Trail</h3>
+  <p>Follow the story of gold from the deepest mines to the hydraulic diggings. Empire Mine's 367 miles of underground tunnels, the foundry that built the Pelton wheel, the town that seceded from the Union, and the largest hydraulic mine in the world.</p>
+  <div class="stop-count">8 STOPS &bull; GRASS VALLEY TO NORTH BLOOMFIELD</div>
+</div>
+
+<div class="mode-label" id="modeLabel">DIM + HIGHLIGHT</div>
+
+<div id="map"></div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+// Corridor stops (curated)
+const corridorStops = [
+  { n: "Empire Mine", x: -121.0468, y: 39.2071, order: 1, note: "One of the oldest, deepest, richest gold mines in California" },
+  { n: "North Star House", x: -121.0764, y: 39.1944, order: 2, note: "1905 mansion designed by Julia Morgan for mine superintendent A.D. Foote" },
+  { n: "North Star Mine Powerhouse", x: -121.0698, y: 39.2083, order: 3, note: "World's largest Pelton wheel, built 1895" },
+  { n: "Miners Foundry", x: -121.0202, y: 39.2622, order: 4, note: "Founded 1856, where the Pelton waterwheel was developed" },
+  { n: "Nevada Theatre", x: -121.0201, y: 39.2628, order: 5, note: "Oldest operating theatre on the West Coast, opened 1865" },
+  { n: "Rough and Ready", x: -121.139, y: 39.2293, order: 6, note: "Seceded from the Union in 1850, the Great Republic" },
+  { n: "North Columbia Schoolhouse", x: -120.9910, y: 39.3712, order: 7, note: "1875 schoolhouse, now the creative heart of San Juan Ridge" },
+  { n: "Malakoff Diggins", x: -120.9214, y: 39.37, order: 8, note: "World's largest hydraulic gold mining operation" }
+];
+
+// Simulated "all other assets" - a sampling to show the dim effect
+const otherAssets = [
+  { n: "1849 Brewing Company", x: -121.036218, y: 39.232459 },
+  { n: "A Victorian Rose", x: -121.062542, y: 39.213915 },
+  { n: "Alibi Ale Works", x: -120.184510, y: 39.329215 },
+  { n: "Broad Street Bistro", x: -121.018, y: 39.262 },
+  { n: "Grass Valley Museum", x: -121.060, y: 39.219 },
+  { n: "Sierra Stargazing", x: -120.230, y: 39.327 },
+  { n: "Off Broad Street Players", x: -121.019, y: 39.261 },
+  { n: "Center for the Arts", x: -121.016, y: 39.262 },
+  { n: "Yuba River Inn", x: -120.870, y: 39.340 },
+  { n: "Donner Ski Ranch", x: -120.330, y: 39.318 },
+  { n: "Sugar Bowl Resort", x: -120.363, y: 39.304 },
+  { n: "Truckee Donner Hist. Society", x: -120.185, y: 39.328 },
+  { n: "InConcert Sierra", x: -121.015, y: 39.263 },
+  { n: "The Stone House", x: -121.093, y: 39.220 },
+  { n: "Del Oro Theatre", x: -121.059, y: 39.218 },
+  { n: "Holbrooke Hotel", x: -121.061, y: 39.218 },
+  { n: "Ike's Quarter Cafe", x: -121.015, y: 39.264 },
+  { n: "New Moon Cafe", x: -121.018, y: 39.261 },
+  { n: "South Pine Cafe", x: -121.019, y: 39.260 },
+  { n: "Grass Valley Brewing", x: -121.060, y: 39.217 },
+  { n: "Foothills Event Center", x: -121.063, y: 39.220 },
+  { n: "Twin Cities Church", x: -121.025, y: 39.250 },
+  { n: "Lyman Gilmore School", x: -121.060, y: 39.225 },
+  { n: "B&C Emporium", x: -121.063, y: 39.219 },
+  { n: "Cirino's", x: -121.018, y: 39.263 },
+  { n: "Truckee Hotel", x: -120.183, y: 39.328 },
+  { n: "Cottonwood Restaurant", x: -120.179, y: 39.319 },
+  { n: "Bar of America", x: -120.183, y: 39.327 },
+  { n: "Community Asian Theatre", x: -121.016, y: 39.265 },
+  { n: "KVMR", x: -121.017, y: 39.264 },
+  { n: "Cal Performances NC", x: -121.022, y: 39.261 },
+  { n: "Bear River Trail", x: -121.100, y: 39.192 },
+  { n: "Litton Trail", x: -121.088, y: 39.200 },
+  { n: "Independence Trail", x: -120.985, y: 39.295 },
+  { n: "Bridgeport Covered Bridge", x: -120.748, y: 39.290 },
+  { n: "Hilda Burton Trail", x: -121.020, y: 39.268 },
+  { n: "Deer Creek Tribute Trail", x: -121.015, y: 39.267 },
+  { n: "Empire Mine Trails", x: -121.043, y: 39.211 },
+  { n: "Art Works Gallery", x: -121.017, y: 39.263 },
+  { n: "Nevada City Winery", x: -121.016, y: 39.260 }
+];
+
+const map = L.map('map', {
+  center: [39.28, -121.0],
+  zoom: 11,
+  zoomControl: false,
+  attributionControl: false
+});
+
+L.control.zoom({ position: 'bottomright' }).addTo(map);
+
+L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+  maxZoom: 19
+}).addTo(map);
+
+// All background markers (dimmed)
+const bgMarkers = [];
+otherAssets.forEach(a => {
+  const m = L.circleMarker([a.y, a.x], {
+    radius: 4,
+    fillColor: '#f5f0e8',
+    fillOpacity: 0.15,
+    color: 'rgba(245,240,232,0.1)',
+    weight: 1,
+    className: 'bg-marker'
+  }).addTo(map);
+  m.bindTooltip(a.n, { className: 'dim-tooltip' });
+  bgMarkers.push(m);
+});
+
+// Corridor route line
+const routeCoords = corridorStops
+  .sort((a, b) => a.order - b.order)
+  .map(s => [s.y, s.x]);
+
+const routeLine = L.polyline(routeCoords, {
+  color: '#c8943e',
+  weight: 3,
+  opacity: 0.6,
+  dashArray: '8, 12',
+  lineCap: 'round'
+}).addTo(map);
+
+// Animated glow line underneath
+const routeGlow = L.polyline(routeCoords, {
+  color: '#c8943e',
+  weight: 8,
+  opacity: 0.15,
+  lineCap: 'round'
+}).addTo(map);
+
+// Corridor stop markers
+const corridorMarkers = [];
+corridorStops.forEach(s => {
+  // Outer glow
+  L.circleMarker([s.y, s.x], {
+    radius: 16,
+    fillColor: '#c8943e',
+    fillOpacity: 0.1,
+    color: '#c8943e',
+    weight: 1,
+    opacity: 0.3
+  }).addTo(map);
+
+  // Main marker
+  const m = L.circleMarker([s.y, s.x], {
+    radius: 8,
+    fillColor: '#c8943e',
+    fillOpacity: 0.9,
+    color: '#f5f0e8',
+    weight: 2
+  }).addTo(map);
+
+  // Number label
+  const icon = L.divIcon({
+    className: 'stop-number',
+    html: `<div style="
+      width: 22px; height: 22px; border-radius: 50%;
+      background: #c8943e; color: #1a1612;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700;
+      box-shadow: 0 0 12px rgba(200,148,62,0.4);
+    ">${s.order}</div>`,
+    iconSize: [22, 22],
+    iconAnchor: [11, 11]
+  });
+  L.marker([s.y, s.x], { icon }).addTo(map);
+
+  m.bindTooltip(`
+    <div style="font-family: 'DM Sans', sans-serif; padding: 4px 2px;">
+      <div style="font-family: 'JetBrains Mono', monospace; font-size: 9px; color: #c8943e; letter-spacing: 0.1em; margin-bottom: 3px;">STOP ${s.order}</div>
+      <div style="font-weight: 700; font-size: 13px; margin-bottom: 4px;">${s.n}</div>
+      <div style="font-size: 11px; color: #666; max-width: 200px;">${s.note}</div>
+    </div>
+  `, { direction: 'top', offset: [0, -12] });
+
+  corridorMarkers.push(m);
+});
+
+// Toggle state
+let corridorActive = true;
+const panel = document.getElementById('corridorPanel');
+setTimeout(() => panel.classList.add('visible'), 500);
+
+function toggleCorridor() {
+  corridorActive = !corridorActive;
+  const label = document.getElementById('modeLabel');
+
+  if (corridorActive) {
+    label.textContent = 'DIM + HIGHLIGHT';
+    panel.classList.add('visible');
+    // Dim background
+    bgMarkers.forEach(m => m.setStyle({ fillOpacity: 0.15, color: 'rgba(245,240,232,0.1)' }));
+    // Show corridor
+    routeLine.setStyle({ opacity: 0.6 });
+    routeGlow.setStyle({ opacity: 0.15 });
+    corridorMarkers.forEach(m => m.setStyle({ fillOpacity: 0.9 }));
+  } else {
+    label.textContent = 'ALL ASSETS (NO FILTER)';
+    panel.classList.remove('visible');
+    // Brighten everything equally
+    bgMarkers.forEach(m => m.setStyle({ fillOpacity: 0.6, color: 'rgba(245,240,232,0.3)' }));
+    // Hide corridor emphasis
+    routeLine.setStyle({ opacity: 0 });
+    routeGlow.setStyle({ opacity: 0 });
+    corridorMarkers.forEach(m => m.setStyle({ fillOpacity: 0.6 }));
+  }
+}
+</script>
+</body>
+</html>

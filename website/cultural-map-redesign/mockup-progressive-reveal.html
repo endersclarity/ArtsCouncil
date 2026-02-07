@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mockup: Progressive Reveal</title>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --ink: #1a1612;
+  --cream: #f5f0e8;
+  --gold: #c8943e;
+  --rust: #a0522d;
+  --deep-green: #2d4a3e;
+  --font-display: 'Playfair Display', Georgia, serif;
+  --font-body: 'DM Sans', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+body { font-family: var(--font-body); background: var(--ink); color: var(--cream); overflow-x: hidden; height: 100vh; }
+
+/* Split layout: narrative left, map right */
+.layout {
+  display: flex;
+  height: 100vh;
+}
+
+.narrative {
+  width: 400px;
+  min-width: 400px;
+  height: 100vh;
+  overflow-y: auto;
+  background: var(--ink);
+  border-right: 1px solid rgba(200,148,62,0.15);
+  scrollbar-width: thin;
+  scrollbar-color: rgba(200,148,62,0.3) transparent;
+}
+
+.narrative::-webkit-scrollbar { width: 4px; }
+.narrative::-webkit-scrollbar-track { background: transparent; }
+.narrative::-webkit-scrollbar-thumb { background: rgba(200,148,62,0.3); border-radius: 2px; }
+
+.narrative-header {
+  padding: 3rem 2rem 2rem;
+  border-bottom: 1px solid rgba(200,148,62,0.1);
+}
+
+.narrative-eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.75rem;
+}
+
+.narrative-title {
+  font-family: var(--font-display);
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--cream);
+  line-height: 1.15;
+  margin-bottom: 0.75rem;
+}
+
+.narrative-intro {
+  font-size: 0.85rem;
+  color: rgba(245,240,232,0.5);
+  line-height: 1.6;
+}
+
+.stop-card {
+  padding: 2rem;
+  border-bottom: 1px solid rgba(200,148,62,0.08);
+  cursor: pointer;
+  transition: all 0.4s ease;
+  position: relative;
+}
+
+.stop-card::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--gold);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.stop-card:hover { background: rgba(200,148,62,0.04); }
+.stop-card.active { background: rgba(200,148,62,0.08); }
+.stop-card.active::before { opacity: 1; }
+
+.stop-number-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: var(--ink);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.stop-name {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--cream);
+  margin-bottom: 0.35rem;
+}
+
+.stop-desc {
+  font-size: 0.8rem;
+  color: rgba(245,240,232,0.5);
+  line-height: 1.5;
+}
+
+.stop-connector {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 0.85rem;
+  color: rgba(200,148,62,0.6);
+  padding: 1rem 2rem;
+  text-align: center;
+  border-bottom: 1px solid rgba(200,148,62,0.08);
+}
+
+.narrative-footer {
+  padding: 2rem;
+  text-align: center;
+}
+
+.reveal-btn {
+  background: transparent;
+  border: 1px solid rgba(245,240,232,0.2);
+  color: var(--cream);
+  padding: 0.75rem 1.5rem;
+  border-radius: 100px;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.reveal-btn:hover { border-color: var(--gold); color: var(--gold); }
+.reveal-btn.revealed { background: rgba(200,148,62,0.15); border-color: var(--gold); color: var(--gold); }
+
+.reveal-hint {
+  font-size: 0.7rem;
+  color: rgba(245,240,232,0.3);
+  margin-top: 0.75rem;
+}
+
+.map-container {
+  flex: 1;
+  position: relative;
+}
+
+#map { width: 100%; height: 100%; }
+
+.mode-label {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1000;
+  background: var(--gold);
+  color: var(--ink);
+  padding: 0.6rem 1.5rem;
+  border-radius: 100px;
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  font-weight: 500;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.phase-indicator {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 1000;
+  background: rgba(26,22,18,0.85);
+  border: 1px solid rgba(200,148,62,0.2);
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  color: rgba(245,240,232,0.5);
+  text-transform: uppercase;
+  transition: all 0.5s ease;
+}
+.phase-indicator span { color: var(--gold); }
+
+.leaflet-container { background: var(--ink); }
+</style>
+</head>
+<body>
+
+<div class="layout">
+  <div class="narrative" id="narrative">
+    <div class="narrative-header">
+      <div class="narrative-eyebrow">Curated Experience &bull; 8 Stops</div>
+      <div class="narrative-title">Gold Rush Heritage Trail</div>
+      <div class="narrative-intro">From the deepest mines to the largest hydraulic diggings, follow the story of gold through Nevada County. Each stop connects to the next through 170 years of history.</div>
+    </div>
+
+    <div class="stop-card" data-stop="0">
+      <div class="stop-number-badge">1</div>
+      <div class="stop-name">Empire Mine</div>
+      <div class="stop-desc">One of the oldest, deepest, richest gold mines in California. 367 miles of underground tunnels produced over $120M in gold from 1850 to 1957.</div>
+    </div>
+    <div class="stop-connector">The mine's superintendent needed a home befitting the operation's grandeur&hellip;</div>
+
+    <div class="stop-card" data-stop="1">
+      <div class="stop-number-badge">2</div>
+      <div class="stop-name">North Star House</div>
+      <div class="stop-desc">Built in 1905 for A.D. Foote, manager of the North Star Mine. Designed by Julia Morgan, California's first licensed female architect and designer of Hearst Castle.</div>
+    </div>
+    <div class="stop-connector">Foote's greatest engineering feat wasn't the house&mdash;it was the powerhouse below&hellip;</div>
+
+    <div class="stop-card" data-stop="2">
+      <div class="stop-number-badge">3</div>
+      <div class="stop-name">North Star Mine Powerhouse</div>
+      <div class="stop-desc">The world's largest Pelton wheel, 30 feet in diameter. Built by Foote in 1895, it was the first complete water-powered compressed air plant of its kind.</div>
+    </div>
+    <div class="stop-connector">The Pelton wheel was invented just up the road&hellip;</div>
+
+    <div class="stop-card" data-stop="3">
+      <div class="stop-number-badge">4</div>
+      <div class="stop-name">Miners Foundry</div>
+      <div class="stop-desc">Founded 1856. The Pelton waterwheel was developed and manufactured here in 1878. The ingenious double-cupped bucket design revolutionized water power worldwide.</div>
+    </div>
+    <div class="stop-connector">Next door, the oldest theatre on the West Coast&hellip;</div>
+
+    <div class="stop-card" data-stop="4">
+      <div class="stop-number-badge">5</div>
+      <div class="stop-name">Nevada Theatre</div>
+      <div class="stop-desc">Opened September 11, 1865. Mark Twain, Emma Nevada, and Jack London all performed here. Still operating after 160 years of continuous use.</div>
+    </div>
+    <div class="stop-connector">West of the Gold Country towns, a republic once stood&hellip;</div>
+
+    <div class="stop-card" data-stop="5">
+      <div class="stop-number-badge">6</div>
+      <div class="stop-name">Rough and Ready</div>
+      <div class="stop-desc">Founded 1849. In 1850, the town seceded from the United States to form the Great Republic of Rough and Ready. The rebellion lasted less than three months.</div>
+    </div>
+    <div class="stop-connector">North into the Ridge, miners built a school for their children&hellip;</div>
+
+    <div class="stop-card" data-stop="6">
+      <div class="stop-number-badge">7</div>
+      <div class="stop-name">North Columbia Schoolhouse</div>
+      <div class="stop-desc">Built by miners in 1875 on the San Juan Ridge. Now the creative heart of its rural community, hosting artists, film screenings, poetry readings, and the Sierra Storytelling Festival.</div>
+    </div>
+    <div class="stop-connector">Further into the ridge, the scars of ambition&hellip;</div>
+
+    <div class="stop-card" data-stop="7">
+      <div class="stop-number-badge">8</div>
+      <div class="stop-name">Malakoff Diggins</div>
+      <div class="stop-desc">The world's largest hydraulic gold mining operation. High-pressure water cannons carved away entire mountainsides. The resulting environmental destruction led to one of the nation's first environmental protection laws.</div>
+    </div>
+
+    <div class="narrative-footer">
+      <button class="reveal-btn" id="revealBtn" onclick="revealContext()">Reveal Surrounding Assets</button>
+      <div class="reveal-hint">See what else is nearby along the trail</div>
+    </div>
+  </div>
+
+  <div class="map-container">
+    <div class="phase-indicator" id="phaseIndicator">
+      <span>Phase 1</span> &mdash; Corridor Focus
+    </div>
+    <div class="mode-label">PROGRESSIVE REVEAL</div>
+    <div id="map"></div>
+  </div>
+</div>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script>
+const corridorStops = [
+  { n: "Empire Mine", x: -121.0468, y: 39.2071, order: 1 },
+  { n: "North Star House", x: -121.0764, y: 39.1944, order: 2 },
+  { n: "North Star Mine Powerhouse", x: -121.0698, y: 39.2083, order: 3 },
+  { n: "Miners Foundry", x: -121.0202, y: 39.2622, order: 4 },
+  { n: "Nevada Theatre", x: -121.0201, y: 39.2628, order: 5 },
+  { n: "Rough and Ready", x: -121.139, y: 39.2293, order: 6 },
+  { n: "North Columbia Schoolhouse", x: -120.9910, y: 39.3712, order: 7 },
+  { n: "Malakoff Diggins", x: -120.9214, y: 39.37, order: 8 }
+];
+
+const otherAssets = [
+  { n: "1849 Brewing Company", x: -121.036218, y: 39.232459 },
+  { n: "A Victorian Rose", x: -121.062542, y: 39.213915 },
+  { n: "Broad Street Bistro", x: -121.018, y: 39.262 },
+  { n: "Grass Valley Museum", x: -121.060, y: 39.219 },
+  { n: "Off Broad Street Players", x: -121.019, y: 39.261 },
+  { n: "Center for the Arts", x: -121.016, y: 39.262 },
+  { n: "Yuba River Inn", x: -120.870, y: 39.340 },
+  { n: "InConcert Sierra", x: -121.015, y: 39.263 },
+  { n: "The Stone House", x: -121.093, y: 39.220 },
+  { n: "Del Oro Theatre", x: -121.059, y: 39.218 },
+  { n: "Holbrooke Hotel", x: -121.061, y: 39.218 },
+  { n: "Ike's Quarter Cafe", x: -121.015, y: 39.264 },
+  { n: "New Moon Cafe", x: -121.018, y: 39.261 },
+  { n: "South Pine Cafe", x: -121.019, y: 39.260 },
+  { n: "Grass Valley Brewing", x: -121.060, y: 39.217 },
+  { n: "Foothills Event Center", x: -121.063, y: 39.220 },
+  { n: "Lyman Gilmore School", x: -121.060, y: 39.225 },
+  { n: "B&C Emporium", x: -121.063, y: 39.219 },
+  { n: "Cirino's", x: -121.018, y: 39.263 },
+  { n: "KVMR", x: -121.017, y: 39.264 },
+  { n: "Bear River Trail", x: -121.100, y: 39.192 },
+  { n: "Litton Trail", x: -121.088, y: 39.200 },
+  { n: "Independence Trail", x: -120.985, y: 39.295 },
+  { n: "Bridgeport Covered Bridge", x: -120.748, y: 39.290 },
+  { n: "Hilda Burton Trail", x: -121.020, y: 39.268 },
+  { n: "Deer Creek Tribute Trail", x: -121.015, y: 39.267 },
+  { n: "Empire Mine Trails", x: -121.043, y: 39.211 },
+  { n: "Art Works Gallery", x: -121.017, y: 39.263 },
+  { n: "Nevada City Winery", x: -121.016, y: 39.260 },
+  { n: "Washington Hotel", x: -120.8001, y: 39.3592 }
+];
+
+const map = L.map('map', {
+  center: [39.28, -121.02],
+  zoom: 11,
+  zoomControl: false,
+  attributionControl: false
+});
+
+L.control.zoom({ position: 'bottomright' }).addTo(map);
+
+L.tileLayer('https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png', {
+  maxZoom: 19
+}).addTo(map);
+
+// Route line
+const routeCoords = corridorStops
+  .sort((a, b) => a.order - b.order)
+  .map(s => [s.y, s.x]);
+
+const routeGlow = L.polyline(routeCoords, {
+  color: '#c8943e',
+  weight: 10,
+  opacity: 0.1,
+  lineCap: 'round'
+}).addTo(map);
+
+const routeLine = L.polyline(routeCoords, {
+  color: '#c8943e',
+  weight: 3,
+  opacity: 0.7,
+  dashArray: '8, 12',
+  lineCap: 'round'
+}).addTo(map);
+
+// Corridor markers
+const stopMarkerPairs = [];
+corridorStops.forEach(s => {
+  // Pulse ring
+  const pulse = L.circleMarker([s.y, s.x], {
+    radius: 18,
+    fillColor: '#c8943e',
+    fillOpacity: 0.08,
+    color: '#c8943e',
+    weight: 1,
+    opacity: 0.2
+  }).addTo(map);
+
+  const marker = L.circleMarker([s.y, s.x], {
+    radius: 8,
+    fillColor: '#c8943e',
+    fillOpacity: 0.9,
+    color: '#f5f0e8',
+    weight: 2
+  }).addTo(map);
+
+  const icon = L.divIcon({
+    className: 'stop-number',
+    html: `<div style="
+      width: 22px; height: 22px; border-radius: 50%;
+      background: #c8943e; color: #1a1612;
+      display: flex; align-items: center; justify-content: center;
+      font-family: 'JetBrains Mono', monospace; font-size: 11px; font-weight: 700;
+      box-shadow: 0 0 12px rgba(200,148,62,0.4);
+    ">${s.order}</div>`,
+    iconSize: [22, 22],
+    iconAnchor: [11, 11]
+  });
+  L.marker([s.y, s.x], { icon }).addTo(map);
+
+  marker.bindTooltip(s.n, { direction: 'top', offset: [0, -12] });
+  stopMarkerPairs.push({ marker, pulse });
+});
+
+// Background markers (hidden initially)
+const bgMarkers = [];
+otherAssets.forEach(a => {
+  const m = L.circleMarker([a.y, a.x], {
+    radius: 4,
+    fillColor: '#f5f0e8',
+    fillOpacity: 0,
+    color: 'rgba(245,240,232,0)',
+    weight: 1
+  }).addTo(map);
+  m.bindTooltip(a.n, { className: 'dim-tooltip' });
+  bgMarkers.push(m);
+});
+
+// Stop card click -> pan to location
+const stopCards = document.querySelectorAll('.stop-card');
+stopCards.forEach(card => {
+  card.addEventListener('click', () => {
+    const idx = parseInt(card.dataset.stop);
+    const stop = corridorStops[idx];
+
+    // Update active state
+    stopCards.forEach(c => c.classList.remove('active'));
+    card.classList.add('active');
+
+    // Fly to stop
+    map.flyTo([stop.y, stop.x], 14, { duration: 1.2 });
+
+    // Pulse the marker
+    const pair = stopMarkerPairs[idx];
+    pair.pulse.setStyle({ fillOpacity: 0.2, opacity: 0.5 });
+    setTimeout(() => pair.pulse.setStyle({ fillOpacity: 0.08, opacity: 0.2 }), 1500);
+  });
+});
+
+// Progressive reveal
+let revealed = false;
+function revealContext() {
+  const btn = document.getElementById('revealBtn');
+  const indicator = document.getElementById('phaseIndicator');
+
+  if (!revealed) {
+    revealed = true;
+    btn.classList.add('revealed');
+    btn.textContent = 'Hide Surrounding Assets';
+    indicator.innerHTML = '<span>Phase 2</span> — Full Context';
+
+    // Animate background markers in
+    bgMarkers.forEach((m, i) => {
+      setTimeout(() => {
+        m.setStyle({
+          fillOpacity: 0.35,
+          color: 'rgba(245,240,232,0.15)'
+        });
+      }, i * 40);
+    });
+
+    // Zoom out to show everything
+    setTimeout(() => {
+      map.flyTo([39.28, -121.02], 11, { duration: 1.5 });
+    }, bgMarkers.length * 40 + 200);
+
+  } else {
+    revealed = false;
+    btn.classList.remove('revealed');
+    btn.textContent = 'Reveal Surrounding Assets';
+    indicator.innerHTML = '<span>Phase 1</span> — Corridor Focus';
+
+    bgMarkers.forEach((m, i) => {
+      setTimeout(() => {
+        m.setStyle({
+          fillOpacity: 0,
+          color: 'rgba(245,240,232,0)'
+        });
+      }, i * 20);
+    });
+  }
+}
+
+// Scroll-based active stop highlighting
+const narrative = document.getElementById('narrative');
+narrative.addEventListener('scroll', () => {
+  const cards = document.querySelectorAll('.stop-card');
+  let closestCard = null;
+  let closestDist = Infinity;
+
+  cards.forEach(card => {
+    const rect = card.getBoundingClientRect();
+    const dist = Math.abs(rect.top - 150);
+    if (dist < closestDist) {
+      closestDist = dist;
+      closestCard = card;
+    }
+  });
+
+  if (closestCard && !closestCard.classList.contains('active')) {
+    cards.forEach(c => c.classList.remove('active'));
+    closestCard.classList.add('active');
+  }
+});
+</script>
+</body>
+</html>
