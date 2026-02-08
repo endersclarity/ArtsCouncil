@@ -20,16 +20,16 @@ Enable spontaneous cultural engagement by making it effortless to discover what'
 - [ ] Fetch hours of operation from Google Places API for all 687 assets (one-time)
 - [ ] Add hours data (`h`) and place ID (`pid`) fields to data.json
 - [ ] Implement client-side hours parsing and open/closed calculation
-- [ ] Add "Open Now" filter button to map UI (both versions)
+- [ ] Add "Open Now" filter button to MapLibre map UI
 - [ ] Display "Open Now" badge on venue markers when filter is active
-- [ ] Show hours of operation in marker tooltips and detail panel
-- [ ] Works identically on both Leaflet (index.html) and MapLibre (index-maplibre.html) versions
+- [ ] Show hours of operation in marker popups and detail panel
+- [ ] MapLibre GL JS (index-maplibre.html) only — Leaflet version deferred
 
 **Phase 2: "Events Today" Filter**
 - [ ] Create events.json data structure (asset → events mapping)
 - [ ] Implement daily event fetch via cron job/GitHub Action
-- [ ] Add "Events Today" filter button to map UI (both versions)
-- [ ] Display event information in marker tooltips and detail panel
+- [ ] Add "Events Today" filter button to MapLibre map UI
+- [ ] Display event information in marker popups and detail panel
 - [ ] Show event count badge on venues with events today
 
 ### Out of Scope
@@ -63,7 +63,7 @@ Enable spontaneous cultural engagement by making it effortless to discover what'
 ## Constraints
 
 - **Tech stack**: Vanilla JS, no build system — maintain single-file HTML architecture
-- **Dual map support**: All features must work on both Leaflet and MapLibre versions with identical UI/UX
+- **MapLibre only**: Build for MapLibre GL JS (index-maplibre.html) only. Leaflet version needs overhaul, skip incremental updates.
 - **Google Places API limits**: Free tier has rate limits, need smart caching and one-time fetch strategy
 - **Static deployment**: No backend server, all logic client-side except for cron jobs
 - **Data size**: Keep data.json compact (currently uses single-letter keys), hours data must not bloat file significantly
@@ -72,6 +72,7 @@ Enable spontaneous cultural engagement by making it effortless to discover what'
 
 | Decision | Rationale | Outcome |
 |----------|-----------|---------|
+| MapLibre only, skip Leaflet | User: "leaflet is kind of a mess right now and needs so much of an overhaul there's not much of a point in the incremental upkeep". Focus on flagship version. | — Pending |
 | Hours stored in data.json, not separate file | Keeps data loading simple (one fetch), hours rarely change | — Pending |
 | One-time hours fetch, not daily refresh | Hours don't change often enough to justify daily API calls and complexity | — Pending |
 | Daily event refresh via GitHub Action | Events change frequently, need current data, GitHub Actions are free and reliable | — Pending |
