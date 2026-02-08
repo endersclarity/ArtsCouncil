@@ -2119,6 +2119,7 @@ body {
   let currentResolvedStops = [];
   let routeAnimationId = null;
   let tourTimeouts = [];
+  let activeMoveendHandler = null;  // Track for cleanup
   let dotPulseTween = null;
   let originalPaintValues = {};
 
@@ -2800,11 +2801,20 @@ body {
 
       // Wait for the camera to arrive, then show tooltip
       await new Promise(r => {
-        const onEnd = () => { map.off('moveend', onEnd); r(); };
+        const onEnd = () => {
+          map.off('moveend', onEnd);
+          activeMoveendHandler = null;  // Clear reference
+          r();
+        };
+        activeMoveendHandler = onEnd;  // Store reference
         map.on('moveend', onEnd);
         // Safety timeout in case moveend doesn't fire
         const mobile = window.matchMedia('(max-width: 900px)').matches;
-        const tid = setTimeout(() => { map.off('moveend', onEnd); r(); }, mobile ? 2000 : 4000);
+        const tid = setTimeout(() => {
+          map.off('moveend', onEnd);
+          activeMoveendHandler = null;  // Clear reference
+          r();
+        }, mobile ? 2000 : 4000);
         tourTimeouts.push(tid);
       });
 
@@ -2833,6 +2843,13 @@ body {
     tourTimeouts.forEach(t => clearTimeout(t));
     tourTimeouts = [];
     hideTourPopup();
+
+    // CRITICAL: Remove any active moveend listener
+    if (activeMoveendHandler) {
+      map.off('moveend', activeMoveendHandler);
+      activeMoveendHandler = null;
+    }
+
     const tourBtn = document.querySelector('.corridor-tour-btn');
     if (tourBtn) tourBtn.classList.remove('touring');
   }
