@@ -391,12 +391,9 @@ body {
 }
 
 .map-header {
-  padding: 4rem 3rem 2rem;
+  padding: 4rem 3rem 1.2rem;
   max-width: 1400px;
   margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
 }
 
 .map-title {
@@ -411,8 +408,177 @@ body {
   display: flex;
   gap: 0.5rem;
   flex-wrap: wrap;
-  justify-content: flex-end;
-  max-width: 600px;
+  justify-content: flex-start;
+  max-width: 980px;
+}
+
+.map-overlay-controls {
+  position: absolute;
+  top: 2.1rem;
+  left: 2.1rem;
+  right: 5.25rem;
+  z-index: 20;
+}
+
+.map-filter-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--ink);
+  background: rgba(244,239,231,0.96);
+  border: 1px solid rgba(26,22,18,0.14);
+  border-radius: 999px;
+  padding: 0.38rem 0.62rem 0.38rem 0.48rem;
+  box-shadow: 0 8px 20px rgba(26,22,18,0.16);
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.map-filter-toggle:hover {
+  transform: translateY(-1px);
+}
+
+.map-filter-toggle-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(26,22,18,0.34);
+}
+
+.map-filter-toggle-meta {
+  font-family: var(--font-mono);
+  font-size: 0.52rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(26,22,18,0.58);
+  border: 1px solid rgba(26,22,18,0.12);
+  border-radius: 999px;
+  padding: 0.12rem 0.38rem;
+}
+
+.map-filter-toggle-caret {
+  font-size: 0.68rem;
+  color: rgba(26,22,18,0.55);
+  transition: transform 0.2s ease;
+}
+
+.map-filter-panel {
+  display: none;
+  margin-top: 0.45rem;
+  max-width: min(980px, calc(100vw - 170px));
+}
+
+.map-overlay-controls.expanded .map-filter-panel {
+  display: block;
+}
+
+.map-overlay-controls.expanded .map-filter-toggle-caret {
+  transform: rotate(180deg);
+}
+
+.map-filter-panel .map-filter-bar {
+  background: rgba(244,239,231,0.92);
+  border: 1px solid rgba(26,22,18,0.12);
+  border-radius: 12px;
+  box-shadow: 0 10px 24px rgba(26,22,18,0.14);
+  padding: 0.45rem 0.55rem;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.map-overlay-secondary {
+  margin-top: 0.35rem;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.3rem;
+}
+
+.map-legend-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-body);
+  font-size: 0.63rem;
+  font-weight: 600;
+  color: rgba(26,22,18,0.72);
+  background: rgba(244,239,231,0.9);
+  border: 1px solid rgba(26,22,18,0.12);
+  border-radius: 999px;
+  padding: 0.28rem 0.5rem;
+  box-shadow: 0 6px 14px rgba(26,22,18,0.12);
+  cursor: pointer;
+}
+
+.map-legend-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(26,22,18,0.45);
+}
+
+.map-legend-panel {
+  display: none;
+  grid-template-columns: repeat(2, minmax(120px, 1fr));
+  gap: 0.32rem 0.55rem;
+  max-width: 290px;
+  padding: 0.48rem 0.56rem;
+  border: 1px solid rgba(26,22,18,0.12);
+  border-radius: 10px;
+  background: rgba(244,239,231,0.92);
+  box-shadow: 0 10px 20px rgba(26,22,18,0.12);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.map-overlay-controls.legend-expanded .map-legend-panel {
+  display: grid;
+}
+
+.map-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.32rem;
+  min-width: 0;
+  font-family: var(--font-mono);
+  font-size: 0.48rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(26,22,18,0.58);
+}
+
+.map-legend-swatch {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  border: 1px solid rgba(26,22,18,0.12);
+}
+
+.map-filter-group {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+}
+
+.map-filter-group.status-group {
+  margin-left: 0.35rem;
+  padding-left: 0.6rem;
+  border-left: 1px solid rgba(26,22,18,0.12);
+}
+
+.map-filter-group-label {
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: rgba(26,22,18,0.5);
+  margin-right: 0.05rem;
 }
 
 .filter-pill {
@@ -469,6 +635,106 @@ body {
   background: var(--neuro-bg);
   color: var(--ink);
   box-shadow: var(--shadow-inset);
+}
+
+.filter-pill.open-now-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border: 1px solid rgba(26,22,18,0.14);
+  padding: 0.45rem 0.7rem 0.45rem 0.62rem;
+}
+
+.filter-pill.open-now-pill .status-toggle-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid rgba(26,22,18,0.35);
+  background: rgba(26,22,18,0.07);
+  transition: all 0.25s ease;
+}
+
+.filter-pill.open-now-pill .status-icon {
+  font-size: 0.72rem;
+  line-height: 1;
+  opacity: 0.65;
+}
+
+.filter-pill.open-now-pill .status-text {
+  letter-spacing: 0;
+}
+
+.filter-pill.open-now-pill .status-state-badge {
+  margin-left: 0.1rem;
+  font-family: var(--font-mono);
+  font-size: 0.52rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  padding: 0.12rem 0.4rem;
+  border-radius: 999px;
+  color: rgba(26,22,18,0.62);
+  background: rgba(26,22,18,0.08);
+}
+
+.filter-pill.open-now-pill.active {
+  color: #1f7f45;
+  border-color: rgba(47,163,91,0.35);
+}
+
+.filter-pill.open-now-pill.active .status-icon {
+  opacity: 1;
+}
+
+.filter-pill.open-now-pill.active .status-toggle-indicator {
+  border-color: rgba(47,163,91,0.6);
+  background: #2fa35b;
+  box-shadow: 0 0 8px rgba(47,163,91,0.55);
+}
+
+.filter-pill.open-now-pill.active .status-state-badge {
+  color: #1f7f45;
+  background: rgba(47,163,91,0.14);
+}
+
+.hours-legend {
+  display: none;
+  align-items: center;
+  gap: 0.6rem;
+  margin-left: 0.1rem;
+  padding: 0.3rem 0.1rem;
+}
+
+.hours-legend.visible {
+  display: inline-flex;
+}
+
+.hours-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-family: var(--font-mono);
+  font-size: 0.54rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(26,22,18,0.55);
+}
+
+.hours-legend-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.hours-legend-dot.open {
+  background: #2fa35b;
+  box-shadow: 0 0 8px rgba(47, 163, 91, 0.65);
+}
+
+.hours-legend-dot.unknown {
+  background: rgba(26,22,18,0.08);
+  border: 1px solid rgba(26,22,18,0.45);
+  opacity: 0.9;
 }
 
 .map-active-banner {
@@ -581,6 +847,11 @@ body {
 }
 
 .maplibregl-ctrl-attrib a { color: var(--gold) !important; }
+
+/* Keep cooperative-gesture behavior, hide the instructional overlay text */
+.maplibregl-cooperative-gesture-screen {
+  display: none !important;
+}
 
 /* Rich tooltip popups - Heritage Neumorphism */
 .maplibregl-popup-content {
@@ -889,6 +1160,56 @@ body {
 }
 
 .detail-meta-value a:hover { border-bottom-color: var(--blue-wash); }
+
+.hours-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.45rem;
+  border-radius: 999px;
+  border: 1px solid currentColor;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.hours-pill::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: currentColor;
+  flex-shrink: 0;
+}
+
+.hours-pill.hours-open {
+  color: #1f7f45;
+  background: rgba(47,163,91,0.12);
+}
+
+.hours-pill.hours-closed {
+  color: rgba(26,22,18,0.55);
+  background: rgba(26,22,18,0.06);
+}
+
+.hours-pill.hours-unknown {
+  color: rgba(26,22,18,0.5);
+  background: rgba(26,22,18,0.03);
+}
+
+.hours-pill.hours-unknown::before {
+  background: transparent;
+  border: 1px solid currentColor;
+}
+
+.detail-hours-today {
+  margin-top: 0.35rem;
+  color: rgba(26,22,18,0.62);
+  font-size: 0.78rem;
+}
 
 .detail-flyto {
   display: flex;
@@ -1412,6 +1733,18 @@ body {
   transform: translateX(4px);
 }
 
+.explore-item.hours-mode.hours-closed {
+  opacity: 0.52;
+}
+
+.explore-item.hours-mode.hours-open .explore-item-name {
+  color: #1f7f45;
+}
+
+.explore-item-hours {
+  margin-left: auto;
+}
+
 .load-more-btn {
   display: block;
   margin: 2rem auto 0;
@@ -1508,30 +1841,109 @@ body {
 }
 
 /* ========== EXPERIENCE SELECTOR ========== */
-/* Section containers */
-.corridor-section,
-.explore-section {
+.map-addons {
   max-width: 1400px;
-  margin: 0 auto 2rem;
-  padding: 1.5rem 2rem;
+  margin: 0.45rem auto 1.3rem;
+  padding: 0 3rem;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.map-guides {
   background: var(--parchment);
-  border-radius: 16px;
+  border: 1px solid rgba(26,22,18,0.08);
+  border-radius: 14px;
   box-shadow: var(--shadow-soft);
+  overflow: hidden;
+}
+
+.map-guides > summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 0.9rem;
+  transition: background 0.25s ease;
+}
+
+.map-guides > summary::-webkit-details-marker { display: none; }
+.map-guides > summary:hover { background: rgba(26,22,18,0.03); }
+
+.map-addon-summary-right {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  flex-shrink: 0;
+}
+
+.map-addon-count {
+  font-family: var(--font-mono);
+  font-size: 0.57rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(26,22,18,0.5);
+  border: 1px solid rgba(26,22,18,0.14);
+  border-radius: 999px;
+  padding: 0.15rem 0.42rem;
+  white-space: nowrap;
+}
+
+.map-addon-caret {
+  font-size: 0.9rem;
+  color: rgba(26,22,18,0.5);
+  transform: rotate(0deg);
+  transition: transform 0.2s ease;
+}
+
+.map-guides[open] .map-addon-caret,
+.map-subaddon[open] .map-addon-caret {
+  transform: rotate(180deg);
+}
+
+.map-guides-body {
+  padding: 0 0.8rem 0.85rem;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.map-subaddon {
+  border: 1px solid rgba(26,22,18,0.12);
+  border-radius: 10px;
+  background: rgba(255,255,255,0.55);
+  overflow: hidden;
+}
+
+.map-subaddon > summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.65rem;
+  padding: 0.62rem 0.72rem;
+}
+
+.map-subaddon > summary::-webkit-details-marker { display: none; }
+
+.map-subaddon .map-addon-body {
+  padding: 0 0.72rem 0.72rem;
 }
 
 .section-header {
   font-family: var(--font-display);
-  font-size: 1.1rem;
+  font-size: 0.92rem;
   font-weight: 600;
   color: var(--ink);
-  margin-bottom: 0.75rem;
+  margin: 0;
   display: flex;
   align-items: center;
   gap: 0.5rem;
 }
 
 .section-header-tag {
-  font-size: 0.7rem;
+  font-size: 0.62rem;
   font-weight: 500;
   color: var(--gold);
   opacity: 0.8;
@@ -1543,16 +1955,18 @@ body {
 .experience-card {
   display: flex;
   align-items: center;
-  gap: 0.65rem;
-  padding: 0.55rem 1rem;
+  gap: 0.55rem;
+  padding: 0.42rem 0.68rem;
   border: none;
   background: var(--neuro-bg);
   cursor: pointer;
   transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
   position: relative;
   overflow: visible;
-  border-radius: 12px;
-  box-shadow: var(--shadow-raised);
+  border-radius: 10px;
+  box-shadow: 3px 3px 8px rgba(26,22,18,0.12), -2px -2px 6px rgba(255,255,255,0.58);
+  min-width: 205px;
+  flex: 0 0 auto;
 }
 
 .experience-card::before {
@@ -1573,8 +1987,8 @@ body {
 .experience-card.active::before { transform: scaleY(1); }
 
 .experience-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 5px 5px 10px var(--neuro-dark), -5px -5px 10px var(--neuro-light);
+  transform: translateY(-1px);
+  box-shadow: 4px 4px 10px rgba(26,22,18,0.16), -3px -3px 7px rgba(255,255,255,0.58);
 }
 
 .experience-card.active {
@@ -1601,7 +2015,7 @@ body {
 
 .experience-card-title {
   font-family: var(--font-body);
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 600;
   color: var(--ink);
   transition: color 0.3s ease;
@@ -1609,7 +2023,7 @@ body {
 
 .experience-card-meta {
   font-family: var(--font-mono);
-  font-size: 0.55rem;
+  font-size: 0.5rem;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: rgba(26,22,18,0.4);
@@ -1637,10 +2051,18 @@ body {
 
 .corridor-cards, .experience-cards {
   display: flex;
-  gap: 0.75rem;
-  flex-wrap: wrap;
+  gap: 0.5rem;
+  flex-wrap: nowrap;
   align-items: stretch;
+  overflow-x: auto;
+  padding-bottom: 0.25rem;
+  scrollbar-width: thin;
 }
+
+.corridor-cards::-webkit-scrollbar,
+.experience-cards::-webkit-scrollbar { height: 6px; }
+.corridor-cards::-webkit-scrollbar-thumb,
+.experience-cards::-webkit-scrollbar-thumb { background: rgba(26,22,18,0.16); border-radius: 999px; }
 
 /* ========== CORRIDOR INFO PANEL ========== */
 .corridor-panel {
@@ -1839,16 +2261,33 @@ body {
 /* ========== RESPONSIVE ========== */
 @media (max-width: 900px) {
   .section-intro { padding: 3rem 1.5rem; }
-  .map-header { flex-direction: column; gap: 1rem; padding: 2rem 1.5rem 1rem; align-items: flex-start; }
+  .map-header { padding: 2rem 1.5rem 0.85rem; }
   .map-filter-bar { justify-content: flex-start; }
-  .corridor-section,
-  .explore-section {
-    margin: 0 1.5rem 1.5rem;
-    padding: 1.25rem 1.5rem;
+  .map-overlay-controls {
+    top: 1.2rem;
+    left: 1.2rem;
+    right: 4.3rem;
   }
+  .map-filter-panel .map-filter-bar {
+    padding: 0.38rem 0.45rem;
+  }
+  .map-legend-panel {
+    max-width: 250px;
+    grid-template-columns: repeat(2, minmax(95px, 1fr));
+  }
+  .map-filter-group.status-group {
+    border-left: none;
+    margin-left: 0;
+    padding-left: 0;
+  }
+  .map-addons { margin: 0 0 1.25rem; padding: 0 1.5rem; }
+  .map-guides > summary { padding: 0.72rem 0.82rem; }
+  .map-guides-body { padding: 0 0.62rem 0.72rem; }
+  .map-subaddon > summary { padding: 0.55rem 0.62rem; }
+  .map-subaddon .map-addon-body { padding: 0 0.62rem 0.62rem; }
 
   .section-header {
-    font-size: 1rem;
+    font-size: 0.88rem;
   }
   .corridor-panel {
     max-width: 100%;
@@ -1907,13 +2346,34 @@ body {
 @media (max-width: 600px) {
   .detail-panel { width: 100vw; }
   .map-container { height: 60vh; min-height: 400px; margin: 1rem; padding: 0.75rem; border-width: 3px; }
-  .corridor-section,
-  .explore-section {
-    margin: 0 1rem 1.5rem;
-    padding: 1rem 1.25rem;
+  .map-overlay-controls {
+    top: 0.9rem;
+    left: 0.9rem;
+    right: 3.9rem;
   }
+  .map-filter-panel {
+    max-width: calc(100vw - 90px);
+  }
+  .map-filter-panel .map-filter-bar {
+    max-height: 42vh;
+    overflow-y: auto;
+  }
+  .map-overlay-secondary {
+    margin-top: 0.25rem;
+  }
+  .map-legend-panel {
+    max-width: calc(100vw - 96px);
+    grid-template-columns: repeat(1, minmax(120px, 1fr));
+    max-height: 36vh;
+    overflow-y: auto;
+  }
+  .map-addons { padding: 0 1rem; margin: 0 0 1rem; }
+  .map-guides > summary { padding: 0.68rem 0.72rem; }
+  .map-guides-body { padding: 0 0.55rem 0.62rem; }
+  .map-subaddon > summary { padding: 0.5rem 0.55rem; }
+  .map-subaddon .map-addon-body { padding: 0 0.55rem 0.55rem; }
   .section-header {
-    font-size: 0.95rem;
+    font-size: 0.82rem;
   }
   .corridor-stop { flex: 0 0 170px; }
   .corridor-stop-name { font-size: 0.75rem; }
@@ -1953,21 +2413,6 @@ body {
 <section class="map-section" id="mapSection">
   <div class="map-header">
     <h2 class="map-title">Explore the Map</h2>
-    <div class="map-filter-bar" id="filterBar"></div>
-  </div>
-  <!-- Cultural Corridors Section -->
-  <div class="corridor-section">
-    <h3 class="section-header">
-      Cultural Corridors
-      <span class="section-header-tag">from MUSE '26</span>
-    </h3>
-    <div class="corridor-cards" id="corridorCards"></div>
-  </div>
-
-  <!-- Curated Experiences Section -->
-  <div class="explore-section">
-    <h3 class="section-header">Curated Experiences</h3>
-    <div class="experience-cards" id="experienceCards"></div>
   </div>
   <div class="map-active-banner" id="mapActiveBanner">
     <div class="map-active-banner-inner">
@@ -1978,7 +2423,62 @@ body {
   </div>
   <div class="map-container">
     <div id="map"></div>
+    <div class="map-overlay-controls">
+      <button class="map-filter-toggle" id="mapFilterToggle" type="button" aria-expanded="false" aria-controls="mapFilterPanel">
+        <span class="map-filter-toggle-dot" aria-hidden="true"></span>
+        <span>Filters</span>
+        <span class="map-filter-toggle-meta" id="mapFilterToggleMeta">All</span>
+        <span class="map-filter-toggle-caret" aria-hidden="true">&#9662;</span>
+      </button>
+      <div class="map-filter-panel" id="mapFilterPanel">
+        <div class="map-filter-bar" id="filterBar"></div>
+      </div>
+      <div class="map-overlay-secondary">
+        <button class="map-legend-toggle" id="mapLegendToggle" type="button" aria-expanded="false" aria-controls="mapLegendPanel">
+          <span class="map-legend-dot" aria-hidden="true"></span>
+          <span>Legend</span>
+        </button>
+        <div class="map-legend-panel" id="mapLegendPanel"></div>
+      </div>
+    </div>
     <div class="corridor-panel" id="corridorPanel"></div>
+  </div>
+  <div class="map-addons" id="mapAddons">
+    <details class="map-guides" id="mapGuides">
+      <summary>
+        <h3 class="section-header">Guided Routes &amp; Experiences</h3>
+        <span class="map-addon-summary-right">
+          <span class="map-addon-count" id="mapGuidesCount">0 guides</span>
+          <span class="map-addon-caret">&#9662;</span>
+        </span>
+      </summary>
+      <div class="map-guides-body">
+        <details class="map-subaddon" id="corridorAddon">
+          <summary>
+            <h3 class="section-header">Cultural Corridors <span class="section-header-tag">from MUSE '26</span></h3>
+            <span class="map-addon-summary-right">
+              <span class="map-addon-count" id="corridorAddonCount">0 routes</span>
+              <span class="map-addon-caret">&#9662;</span>
+            </span>
+          </summary>
+          <div class="map-addon-body">
+            <div class="corridor-cards" id="corridorCards"></div>
+          </div>
+        </details>
+        <details class="map-subaddon" id="experienceAddon">
+          <summary>
+            <h3 class="section-header">Curated Experiences</h3>
+            <span class="map-addon-summary-right">
+              <span class="map-addon-count" id="experienceAddonCount">0 routes</span>
+              <span class="map-addon-caret">&#9662;</span>
+            </span>
+          </summary>
+          <div class="map-addon-body">
+            <div class="experience-cards" id="experienceCards"></div>
+          </div>
+        </details>
+      </div>
+    </details>
   </div>
 </section>
 
@@ -2194,11 +2694,18 @@ body {
   let IMAGE_DATA = {};
   let EXPERIENCES = [];
   let map;
-  let activeCategory = null;
+  let activeCategories = new Set();
+  let openNowMode = false;
+  let mapFiltersExpanded = false;
+  let mapLegendExpanded = false;
+  let hasUserInteractedWithMap = false;
+  let idlePreviewTimer = null;
+  let idlePreviewFeatureId = null;
   let activeExperience = null;
   let cardElements = [];
   let listPage = 0;
   const LIST_PAGE_SIZE = 30;
+  const PACIFIC_TZ = 'America/Los_Angeles';
 
   // Experience overlay state
   let corridorMarkers = [];
@@ -2212,6 +2719,10 @@ body {
   // Hover popup
   let hoverPopup = null;
   let hoveredFeatureId = null;
+  let labeledFeatureIds = new Set();
+  const LABEL_MAX_VISIBLE = 15;
+  const LABEL_ALL_THRESHOLD = 10;
+  const LABEL_SUBSET_COUNT = 6;
 
   // ============================================================
   // LOAD DATA
@@ -2233,6 +2744,7 @@ body {
     animateStats();
     buildCategoryGrid();
     buildFilterBar();
+    buildMapLegend();
     buildExperienceSelector();
     initMapLibre();
     buildExploreCats();
@@ -2291,15 +2803,141 @@ body {
     return `rgba(${r},${g},${b},${alpha})`;
   }
 
+  function getPacificNow() {
+    const parts = new Intl.DateTimeFormat('en-US', {
+      timeZone: PACIFIC_TZ,
+      weekday: 'long',
+      hour: 'numeric',
+      minute: '2-digit',
+      hour12: true
+    }).formatToParts(new Date());
+    const toValue = (type) => (parts.find((p) => p.type === type) || {}).value || '';
+    const weekday = toValue('weekday');
+    const hour = parseInt(toValue('hour') || '0', 10);
+    const minute = parseInt(toValue('minute') || '0', 10);
+    const dayPeriod = (toValue('dayPeriod') || '').toUpperCase();
+    let h24 = hour % 12;
+    if (dayPeriod === 'PM') h24 += 12;
+    return { weekday, minutes: (h24 * 60) + minute };
+  }
+
+  function normalizeHoursText(value) {
+    return String(value || '')
+      .replace(/[\u202f\u2009\u00a0]/g, ' ')
+      .replace(/[‐‑‒–—]/g, '-')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
+  function parseTimeToken(token, fallbackPeriod) {
+    const cleaned = normalizeHoursText(token).replace(/\./g, '');
+    const match = cleaned.match(/(\d{1,2})(?::(\d{2}))?\s*([AaPp][Mm])?/);
+    if (!match) return null;
+    const hour = parseInt(match[1], 10);
+    const minute = parseInt(match[2] || '0', 10);
+    const period = (match[3] ? match[3].toUpperCase() : (fallbackPeriod || '')).toUpperCase();
+    if (!period || (period !== 'AM' && period !== 'PM')) return null;
+    let h24 = hour % 12;
+    if (period === 'PM') h24 += 12;
+    return { minutes: (h24 * 60) + minute, period };
+  }
+
+  function getTodayHoursEntry(hours) {
+    if (!Array.isArray(hours) || hours.length === 0) return null;
+    const { weekday } = getPacificNow();
+    const prefix = `${weekday}:`.toLowerCase();
+    const line = hours.find((entry) => typeof entry === 'string' && entry.toLowerCase().startsWith(prefix));
+    return line || null;
+  }
+
+  function parseTodayRanges(todayEntry) {
+    if (!todayEntry) return null;
+    const normalized = normalizeHoursText(todayEntry);
+    const splitIdx = normalized.indexOf(':');
+    if (splitIdx < 0) return null;
+    const schedule = normalized.slice(splitIdx + 1).trim();
+    if (!schedule) return null;
+    if (/open 24 hours/i.test(schedule)) return { state: 'open', ranges: '24h', display: schedule };
+    if (/^closed$/i.test(schedule)) return { state: 'closed', ranges: [], display: schedule };
+
+    const ranges = [];
+    for (const part of schedule.split(',')) {
+      const segment = part.trim();
+      const rangeMatch = segment.match(/(.+?)\s*-\s*(.+)/);
+      if (!rangeMatch) continue;
+      const end = parseTimeToken(rangeMatch[2], null);
+      const start = parseTimeToken(rangeMatch[1], end ? end.period : null);
+      if (!start || !end) continue;
+      ranges.push({ start: start.minutes, end: end.minutes });
+    }
+    if (!ranges.length) return { state: 'unknown', ranges: [], display: schedule };
+    return { state: 'range', ranges, display: schedule };
+  }
+
+  function isOpenAtNow(ranges) {
+    const { minutes: now } = getPacificNow();
+    for (const range of ranges) {
+      if (range.start === range.end) return true;
+      if (range.start < range.end) {
+        if (now >= range.start && now < range.end) return true;
+      } else if (now >= range.start || now < range.end) {
+        return true;
+      }
+    }
+    return false;
+  }
+
+  function getHoursState(venue) {
+    const parsed = parseTodayRanges(getTodayHoursEntry(venue.h));
+    if (!parsed) return 'unknown';
+    if (parsed.state === 'open' || parsed.state === 'closed' || parsed.state === 'unknown') return parsed.state;
+    return isOpenAtNow(parsed.ranges) ? 'open' : 'closed';
+  }
+
+  function getHoursLabel(state) {
+    if (state === 'open') return 'Open now';
+    if (state === 'closed') return 'Closed now';
+    return 'Hours unknown';
+  }
+
+  function getHoursRank(state) {
+    if (state === 'open') return 0;
+    if (state === 'unknown') return 1;
+    return 2;
+  }
+
+  function getTodayHoursDisplay(venue) {
+    const parsed = parseTodayRanges(getTodayHoursEntry(venue.h));
+    if (!parsed) return null;
+    return parsed.display || null;
+  }
+
+  function escapeHTML(value) {
+    return String(value || '')
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#39;');
+  }
+
   // ============================================================
   // EXPERIENCE SELECTOR
   // ============================================================
   function buildExperienceSelector() {
-    const corridorSection = document.querySelector('.corridor-section');
-    const exploreSection = document.querySelector('.explore-section');
+    const addonsWrap = document.getElementById('mapAddons');
+    const guidesSection = document.getElementById('mapGuides');
+    const corridorSection = document.getElementById('corridorAddon');
+    const exploreSection = document.getElementById('experienceAddon');
     const corridorContainer = document.getElementById('corridorCards');
     const experienceContainer = document.getElementById('experienceCards');
+    const guidesCountEl = document.getElementById('mapGuidesCount');
+    const corridorCountEl = document.getElementById('corridorAddonCount');
+    const experienceCountEl = document.getElementById('experienceAddonCount');
+
     if (!EXPERIENCES.length) {
+      if (addonsWrap) addonsWrap.style.display = 'none';
+      if (guidesSection) guidesSection.style.display = 'none';
       if (corridorSection) corridorSection.style.display = 'none';
       if (exploreSection) exploreSection.style.display = 'none';
       return;
@@ -2307,19 +2945,34 @@ body {
 
     const corridors = EXPERIENCES.filter(e => e.type === 'corridor');
     const experiences = EXPERIENCES.filter(e => e.type !== 'corridor');
+    if (corridorContainer) corridorContainer.innerHTML = '';
+    if (experienceContainer) experienceContainer.innerHTML = '';
+
+    const hasAny = corridors.length || experiences.length;
+    if (addonsWrap) addonsWrap.style.display = hasAny ? '' : 'none';
+    if (guidesSection) {
+      guidesSection.style.display = hasAny ? '' : 'none';
+      guidesSection.open = false;
+    }
 
     // Hide sections if empty
-    if (!corridors.length && corridorSection) {
-      corridorSection.style.display = 'none';
+    if (corridorSection) {
+      corridorSection.style.display = corridors.length ? '' : 'none';
+      corridorSection.open = false;
     }
-    if (!experiences.length && exploreSection) {
-      exploreSection.style.display = 'none';
+    if (exploreSection) {
+      exploreSection.style.display = experiences.length ? '' : 'none';
+      exploreSection.open = false;
     }
+    if (guidesCountEl) guidesCountEl.textContent = `${corridors.length + experiences.length} guides`;
+    if (corridorCountEl) corridorCountEl.textContent = `${corridors.length} route${corridors.length === 1 ? '' : 's'}`;
+    if (experienceCountEl) experienceCountEl.textContent = `${experiences.length} route${experiences.length === 1 ? '' : 's'}`;
 
     function makeCard(exp, container) {
       const card = document.createElement('div');
       card.className = 'experience-card';
       card.dataset.slug = exp.slug;
+      card.dataset.expType = exp.type || 'experience';
       card.style.setProperty('--exp-color', exp.color);
       card.innerHTML = `
         <div class="experience-card-dot" style="background:${exp.color}; color:${exp.color}"></div>
@@ -2360,6 +3013,7 @@ body {
   // MAPLIBRE INITIALIZATION (Steps 2 + 3)
   // ============================================================
   function initMapLibre() {
+    const useCooperativeGestures = window.matchMedia('(pointer:fine)').matches;
     const styleUrl = MAPTILER_KEY !== 'GET_YOUR_FREE_KEY_AT_MAPTILER_COM'
       ? `https://api.maptiler.com/maps/landscape/style.json?key=${MAPTILER_KEY}`
       : {
@@ -2389,6 +3043,7 @@ body {
       zoom: 9,
       pitch: 35,
       bearing: -15,
+      cooperativeGestures: useCooperativeGestures,
       antialias: true,
       maxPitch: 70
     });
@@ -2431,15 +3086,19 @@ body {
           });
         }
 
-        map.addLayer({
-          id: 'sky',
-          type: 'sky',
-          paint: {
-            'sky-type': 'atmosphere',
-            'sky-atmosphere-sun': [0.0, 90.0],
-            'sky-atmosphere-sun-intensity': 15
-          }
-        });
+        try {
+          map.addLayer({
+            id: 'sky',
+            type: 'sky',
+            paint: {
+              'sky-type': 'atmosphere',
+              'sky-atmosphere-sun': [0.0, 90.0],
+              'sky-atmosphere-sun-intensity': 15
+            }
+          });
+        } catch (err) {
+          console.warn('[Terrain] Sky layer unsupported in this MapLibre build; skipping sky layer.', err && err.message ? err.message : err);
+        }
 
         console.log('[Terrain] Source added, terrain set, exaggeration: 2');
         console.log('[Terrain] Current terrain:', map.getTerrain());
@@ -2467,29 +3126,195 @@ body {
   // ============================================================
   // ASSET LAYERS (Step 3)
   // ============================================================
-  function addAssetLayers() {
-    const geojson = {
+  function buildAssetsGeoJSON() {
+    return {
       type: 'FeatureCollection',
-      features: DATA.filter(d => d.x && d.y).map((d, i) => ({
-        type: 'Feature',
-        id: i,
-        properties: {
-          name: d.n || '',
-          layer: d.l || '',
-          city: d.c || '',
-          address: d.a || '',
-          description: d.d || '',
-          phone: d.p || '',
-          website: d.w || '',
-          color: (CATS[d.l] || { color: '#999' }).color,
-          idx: i
-        },
-        geometry: {
-          type: 'Point',
-          coordinates: [d.x, d.y]
-        }
-      }))
+      features: DATA.filter(d => d.x && d.y).map((d, i) => {
+        const hoursState = getHoursState(d);
+        const rawLabel = d.n || '';
+        const labelName = rawLabel.length > 26 ? `${rawLabel.slice(0, 23)}...` : rawLabel;
+        return {
+          type: 'Feature',
+          id: i,
+          properties: {
+            name: d.n || '',
+            label_name: labelName,
+            layer: d.l || '',
+            city: d.c || '',
+            address: d.a || '',
+            description: d.d || '',
+            phone: d.p || '',
+            website: d.w || '',
+            hours_state: hoursState,
+            hours_label: getHoursLabel(hoursState),
+            color: (CATS[d.l] || { color: '#999' }).color,
+            idx: i
+          },
+          geometry: {
+            type: 'Point',
+            coordinates: [d.x, d.y]
+          }
+        };
+      })
     };
+  }
+
+  function refreshAssetSourceHoursStates() {
+    const source = map && map.getSource('assets');
+    if (!source || typeof source.setData !== 'function') return;
+    clearMapLabelStates();
+    source.setData(buildAssetsGeoJSON());
+    requestAnimationFrame(() => updateMapProgressiveLabels());
+  }
+
+  function buildFeatureTooltipHTML(props) {
+    const cfg = CATS[props.layer] || { color: '#999' };
+    const imgInfo = IMAGE_DATA[props.name];
+    const wcSlug = cfg.watercolor || 'landmarks';
+    const imgHTML = imgInfo
+      ? `<img class="tooltip-img" src="${imgInfo.img}" alt="${imgInfo.alt || props.name}" onerror="this.parentNode.removeChild(this)">`
+      : `<div class="tooltip-placeholder" style="background:linear-gradient(135deg, ${cfg.color}, ${cfg.color}dd)"><img src="img/watercolor/${wcSlug}.png" class="tooltip-watercolor" alt="" onerror="this.style.display='none'"></div>`;
+    return `${imgHTML}<div class="tooltip-body"><strong>${props.name}</strong><div class="tooltip-cat"><span class="tooltip-cat-dot" style="background:${cfg.color}"></span>${props.layer}</div>${props.city ? '<div class="tooltip-city">' + props.city + ', CA</div>' : ''}</div>`;
+  }
+
+  function clearIdlePreviewHoverState() {
+    if (idlePreviewFeatureId !== null && map && map.getSource('assets')) {
+      map.setFeatureState({ source: 'assets', id: idlePreviewFeatureId }, { hover: false });
+    }
+    idlePreviewFeatureId = null;
+  }
+
+  function stopIdlePreview() {
+    if (idlePreviewTimer) {
+      clearTimeout(idlePreviewTimer);
+      idlePreviewTimer = null;
+    }
+    clearIdlePreviewHoverState();
+    if (hoveredFeatureId === null && hoverPopup) hoverPopup.remove();
+  }
+
+  function clearMapLabelStates() {
+    if (!map || !map.getSource('assets')) return;
+    labeledFeatureIds.forEach((id) => {
+      try {
+        map.setFeatureState({ source: 'assets', id }, { label_visible: false });
+      } catch (e) { /* source/style churn */ }
+    });
+    labeledFeatureIds.clear();
+  }
+
+  function updateMapProgressiveLabels() {
+    if (!map || !map.getLayer('assets-labels') || !map.getLayer('assets-circle') || !map.getSource('assets')) return;
+    if (activeExperience) {
+      clearMapLabelStates();
+      return;
+    }
+
+    const rendered = map.queryRenderedFeatures({ layers: ['assets-circle'] }) || [];
+    const seen = new Set();
+    const unique = [];
+    rendered.forEach((f) => {
+      if (!f || f.id === undefined || f.id === null || seen.has(f.id)) return;
+      seen.add(f.id);
+      unique.push(f);
+    });
+
+    const visibleCount = unique.length;
+    if (!visibleCount || visibleCount > LABEL_MAX_VISIBLE) {
+      clearMapLabelStates();
+      return;
+    }
+
+    const limit = visibleCount <= LABEL_ALL_THRESHOLD ? visibleCount : Math.min(LABEL_SUBSET_COUNT, visibleCount);
+    const center = map.getCenter();
+
+    unique.sort((a, b) => {
+      if (openNowMode) {
+        const ra = (a.properties && a.properties.hours_state) === 'open' ? 0 : 1;
+        const rb = (b.properties && b.properties.hours_state) === 'open' ? 0 : 1;
+        if (ra !== rb) return ra - rb;
+      }
+      const ac = (a.geometry && a.geometry.type === 'Point' && Array.isArray(a.geometry.coordinates)) ? a.geometry.coordinates : [center.lng, center.lat];
+      const bc = (b.geometry && b.geometry.type === 'Point' && Array.isArray(b.geometry.coordinates)) ? b.geometry.coordinates : [center.lng, center.lat];
+      const da = new maplibregl.LngLat(ac[0], ac[1]).distanceTo(center);
+      const db = new maplibregl.LngLat(bc[0], bc[1]).distanceTo(center);
+      return da - db;
+    });
+
+    const nextIds = new Set(unique.slice(0, limit).map((f) => f.id));
+
+    labeledFeatureIds.forEach((id) => {
+      if (nextIds.has(id)) return;
+      try {
+        map.setFeatureState({ source: 'assets', id }, { label_visible: false });
+      } catch (e) { /* source/style churn */ }
+    });
+
+    nextIds.forEach((id) => {
+      if (labeledFeatureIds.has(id)) return;
+      try {
+        map.setFeatureState({ source: 'assets', id }, { label_visible: true });
+      } catch (e) { /* source/style churn */ }
+    });
+
+    labeledFeatureIds = nextIds;
+  }
+
+  function markMapInteracted() {
+    hasUserInteractedWithMap = true;
+    stopIdlePreview();
+  }
+
+  function scheduleIdlePreview() {
+    if (!map || hasUserInteractedWithMap || activeExperience || !map.getLayer('assets-circle')) return;
+    if (idlePreviewTimer) clearTimeout(idlePreviewTimer);
+    idlePreviewTimer = setTimeout(runIdlePreviewStep, 1200 + Math.random() * 1200);
+  }
+
+  function runIdlePreviewStep() {
+    if (!map || hasUserInteractedWithMap || activeExperience || !map.getLayer('assets-circle')) return;
+    const visible = map.queryRenderedFeatures({ layers: ['assets-circle'] }) || [];
+    const unique = [];
+    const seenIds = new Set();
+    for (const f of visible) {
+      if (f && f.id !== undefined && f.id !== null && !seenIds.has(f.id)) {
+        seenIds.add(f.id);
+        unique.push(f);
+      }
+    }
+    if (!unique.length) {
+      scheduleIdlePreview();
+      return;
+    }
+
+    const pickPool = unique.slice(0, Math.min(unique.length, 28));
+    const feature = pickPool[Math.floor(Math.random() * pickPool.length)];
+    clearIdlePreviewHoverState();
+    if (hoveredFeatureId !== null) {
+      map.setFeatureState({ source: 'assets', id: hoveredFeatureId }, { hover: false });
+      hoveredFeatureId = null;
+    }
+    idlePreviewFeatureId = feature.id;
+    map.setFeatureState({ source: 'assets', id: idlePreviewFeatureId }, { hover: true });
+
+    const coords = (feature.geometry && feature.geometry.type === 'Point' && Array.isArray(feature.geometry.coordinates))
+      ? feature.geometry.coordinates
+      : map.getCenter().toArray();
+
+    hoverPopup
+      .setLngLat(coords)
+      .setHTML(buildFeatureTooltipHTML(feature.properties || {}))
+      .addTo(map);
+
+    idlePreviewTimer = setTimeout(() => {
+      clearIdlePreviewHoverState();
+      if (!hasUserInteractedWithMap) hoverPopup.remove();
+      scheduleIdlePreview();
+    }, 1150 + Math.random() * 450);
+  }
+
+  function addAssetLayers() {
+    const geojson = buildAssetsGeoJSON();
 
     map.addSource('assets', { type: 'geojson', data: geojson });
 
@@ -2511,8 +3336,43 @@ body {
       }
     });
 
+    map.addLayer({
+      id: 'assets-labels',
+      type: 'symbol',
+      source: 'assets',
+      layout: {
+        'text-field': ['get', 'label_name'],
+        'text-size': [
+          'interpolate',
+          ['linear'],
+          ['zoom'],
+          11, 10,
+          14, 11.5,
+          16, 12.5
+        ],
+        'text-font': ['Open Sans Semibold', 'Arial Unicode MS Regular'],
+        'text-variable-anchor': ['top', 'bottom', 'left', 'right'],
+        'text-radial-offset': 0.72,
+        'text-justify': 'auto',
+        'text-allow-overlap': false,
+        'text-ignore-placement': false
+      },
+      paint: {
+        'text-color': 'rgba(26,22,18,0.82)',
+        'text-halo-color': 'rgba(244,239,231,0.93)',
+        'text-halo-width': 1.15,
+        'text-halo-blur': 0.3,
+        'text-opacity': [
+          'case',
+          ['boolean', ['feature-state', 'label_visible'], false], 1,
+          0
+        ]
+      }
+    });
+
     // Hover interaction
     map.on('mousemove', 'assets-circle', (e) => {
+      markMapInteracted();
       map.getCanvas().style.cursor = 'pointer';
       if (e.features.length === 0) return;
       const f = e.features[0];
@@ -2524,18 +3384,9 @@ body {
       hoveredFeatureId = f.id;
       map.setFeatureState({ source: 'assets', id: hoveredFeatureId }, { hover: true });
 
-      // Build tooltip
-      const props = f.properties;
-      const cfg = CATS[props.layer] || { color: '#999' };
-      const imgInfo = IMAGE_DATA[props.name];
-      const wcSlug = cfg.watercolor || 'landmarks';
-      const imgHTML = imgInfo
-        ? `<img class="tooltip-img" src="${imgInfo.img}" alt="${imgInfo.alt || props.name}" onerror="this.parentNode.removeChild(this)">`
-        : `<div class="tooltip-placeholder" style="background:linear-gradient(135deg, ${cfg.color}, ${cfg.color}dd)"><img src="img/watercolor/${wcSlug}.png" class="tooltip-watercolor" alt="" onerror="this.style.display='none'"></div>`;
-
       hoverPopup
         .setLngLat(e.lngLat)
-        .setHTML(`${imgHTML}<div class="tooltip-body"><strong>${props.name}</strong><div class="tooltip-cat"><span class="tooltip-cat-dot" style="background:${cfg.color}"></span>${props.layer}</div>${props.city ? '<div class="tooltip-city">' + props.city + ', CA</div>' : ''}</div>`)
+        .setHTML(buildFeatureTooltipHTML(f.properties || {}))
         .addTo(map);
     });
 
@@ -2552,6 +3403,7 @@ body {
     let clickFlyId = 0;
     const isMobileClick = window.matchMedia('(max-width: 900px)').matches;
     map.on('click', 'assets-circle', (e) => {
+      markMapInteracted();
       if (e.features.length === 0) return;
       const f = e.features[0];
       const d = DATA.find(item => item.n === f.properties.name);
@@ -2566,65 +3418,154 @@ body {
         openDetail(d);
         map.flyTo({
           center: [d.x, d.y],
-          zoom: 13,
-          pitch: 45,
+          zoom: Math.max(map.getZoom(), 13),
+          pitch: Math.max(map.getPitch(), 45),
+          bearing: map.getBearing(),
           duration: 800,
           essential: true
         });
       } else {
-        // Desktop: cinematic fly, brief tooltip, then detail panel
-        map.flyTo({
-          center: [d.x, d.y],
-          zoom: 14.5,
-          pitch: 55,
-          bearing: Math.random() * 40 - 20,
-          duration: 1400,
-          essential: true
-        });
-        map.once('moveend', () => {
-          if (thisClick !== clickFlyId) return;
+        // Desktop: avoid zooming out if user is already inspecting this area
+        const currentCenter = map.getCenter();
+        const markerLngLat = new maplibregl.LngLat(d.x, d.y);
+        const distanceMeters = currentCenter.distanceTo(markerLngLat);
+        const currentZoom = map.getZoom();
+        const shouldFly = distanceMeters > 220 || currentZoom < 14.5;
+
+        if (shouldFly) {
+          map.flyTo({
+            center: [d.x, d.y],
+            zoom: Math.max(currentZoom, 14.5),
+            pitch: Math.max(map.getPitch(), 50),
+            bearing: map.getBearing(),
+            duration: 900,
+            essential: true
+          });
+          map.once('moveend', () => {
+            if (thisClick !== clickFlyId) return;
+            showTourPopup({ data: d });
+            setTimeout(() => {
+              if (thisClick !== clickFlyId) return;
+              openDetail(d);
+              setTimeout(() => hideTourPopup(), 450);
+            }, 500);
+          });
+        } else {
           showTourPopup({ data: d });
           setTimeout(() => {
             if (thisClick !== clickFlyId) return;
             openDetail(d);
-            // Let tooltip linger while panel slides in, then fade it out
-            setTimeout(() => hideTourPopup(), 600);
-          }, 800);
-        });
+            setTimeout(() => hideTourPopup(), 420);
+          }, 250);
+        }
       }
     });
 
+    map.on('dragstart', markMapInteracted);
+    map.on('zoomstart', markMapInteracted);
+    map.on('rotatestart', markMapInteracted);
+    map.on('pitchstart', markMapInteracted);
+    map.on('moveend', updateMapProgressiveLabels);
+    map.on('zoomend', updateMapProgressiveLabels);
+    map.on('idle', updateMapProgressiveLabels);
+    map.getCanvas().addEventListener('wheel', markMapInteracted, { passive: true });
+    map.getCanvas().addEventListener('mousedown', markMapInteracted);
+    map.getCanvas().addEventListener('touchstart', markMapInteracted, { passive: true });
+
     // Apply initial filter if any
     updateMapFilters();
+    updateMapProgressiveLabels();
+    scheduleIdlePreview();
   }
 
-  function updateMapFilters() {
-    if (!map.getLayer('assets-circle')) return;
+  function applyMapVisualState() {
+    if (!map.getLayer('assets-circle') || activeExperience) return;
+    const hasCategoryFilter = activeCategories.size > 0;
+    const baseRadius = hasCategoryFilter ? 7 : 5;
+    const hoverRadius = hasCategoryFilter ? 10 : 8;
 
-    if (activeCategory) {
-      map.setFilter('assets-circle', ['==', ['get', 'layer'], activeCategory]);
-      // Increase radius for filtered view
+    if (openNowMode) {
       map.setPaintProperty('assets-circle', 'circle-radius', [
         'case',
-        ['boolean', ['feature-state', 'hover'], false], 10,
-        7
+        ['boolean', ['feature-state', 'hover'], false], hoverRadius,
+        ['==', ['get', 'hours_state'], 'open'], baseRadius + 1.6,
+        Math.max(baseRadius - 0.8, 3.8)
       ]);
+      map.setPaintProperty('assets-circle', 'circle-color', [
+        'case',
+        ['==', ['get', 'hours_state'], 'open'], ['get', 'color'],
+        'rgba(26,22,18,0.16)'
+      ]);
+      map.setPaintProperty('assets-circle', 'circle-opacity', [
+        'case',
+        ['==', ['get', 'hours_state'], 'open'], 0.96,
+        0.34
+      ]);
+      map.setPaintProperty('assets-circle', 'circle-stroke-color', [
+        'case',
+        ['==', ['get', 'hours_state'], 'open'], '#2fa35b',
+        'rgba(26,22,18,0.55)'
+      ]);
+      map.setPaintProperty('assets-circle', 'circle-stroke-width', [
+        'case',
+        ['==', ['get', 'hours_state'], 'open'], 2.8,
+        1.15
+      ]);
+      map.setPaintProperty('assets-circle', 'circle-stroke-opacity', [
+        'case',
+        ['==', ['get', 'hours_state'], 'open'], 1,
+        0.62
+      ]);
+      return;
+    }
+
+    map.setPaintProperty('assets-circle', 'circle-radius', [
+      'case',
+      ['boolean', ['feature-state', 'hover'], false], hoverRadius,
+      baseRadius
+    ]);
+    map.setPaintProperty('assets-circle', 'circle-color', ['get', 'color']);
+    map.setPaintProperty('assets-circle', 'circle-opacity', 0.85);
+    map.setPaintProperty('assets-circle', 'circle-stroke-color', 'rgba(255,255,255,0.6)');
+    map.setPaintProperty('assets-circle', 'circle-stroke-width', 1.5);
+    map.setPaintProperty('assets-circle', 'circle-stroke-opacity', 1);
+  }
+
+  function updateMapFilters(options = {}) {
+    const { recenter = false } = options;
+    if (!map.getLayer('assets-circle')) return;
+    const openNowExpr = ['!=', ['get', 'hours_state'], 'closed'];
+
+    if (activeCategories.size > 0) {
+      const selected = Array.from(activeCategories);
+      const categoryExpr =
+        selected.length === 1
+          ? ['==', ['get', 'layer'], selected[0]]
+          : ['in', ['get', 'layer'], ['literal', selected]];
+      map.setFilter('assets-circle', openNowMode ? ['all', categoryExpr, openNowExpr] : categoryExpr);
+      applyMapVisualState();
       // Fit bounds
-      const filtered = DATA.filter(d => d.l === activeCategory && d.x && d.y);
-      if (filtered.length) {
+      const filtered = DATA.filter(d => (
+        activeCategories.has(d.l) &&
+        d.x && d.y &&
+        (!openNowMode || getHoursState(d) !== 'closed')
+      ));
+      if (filtered.length && recenter) {
         const bounds = filtered.reduce((b, d) => b.extend([d.x, d.y]),
           new maplibregl.LngLatBounds([filtered[0].x, filtered[0].y], [filtered[0].x, filtered[0].y])
         );
         map.fitBounds(bounds, { padding: 50, maxZoom: 14 });
       }
     } else {
-      map.setFilter('assets-circle', null);
-      map.setPaintProperty('assets-circle', 'circle-radius', [
-        'case',
-        ['boolean', ['feature-state', 'hover'], false], 8,
-        5
-      ]);
-      map.flyTo({ center: [-120.8, 39.22], zoom: 9, pitch: 0, bearing: 0, duration: 1000 });
+      map.setFilter('assets-circle', openNowMode ? openNowExpr : null);
+      applyMapVisualState();
+      if (recenter) {
+        map.flyTo({ center: [-120.8, 39.22], zoom: 9, pitch: 0, bearing: 0, duration: 1000 });
+      }
+    }
+
+    if (!recenter) {
+      updateMapProgressiveLabels();
     }
   }
 
@@ -2633,6 +3574,17 @@ body {
   // ============================================================
   function activateExperience(experience) {
     activeExperience = experience;
+    clearMapLabelStates();
+    const guidesSection = document.getElementById('mapGuides');
+    const corridorSection = document.getElementById('corridorAddon');
+    const exploreSection = document.getElementById('experienceAddon');
+    if (guidesSection) guidesSection.open = true;
+    if (experience.type === 'corridor') {
+      if (corridorSection) corridorSection.open = true;
+    } else if (exploreSection) {
+      exploreSection.open = true;
+    }
+
     const resolved = resolveStops(experience);
     if (!resolved.length) return;
     currentResolvedStops = resolved;
@@ -2980,6 +3932,7 @@ body {
       map.setPaintProperty('assets-circle', 'circle-opacity', 0.85);
       map.setPaintProperty('assets-circle', 'circle-stroke-opacity', 1);
       updateMapFilters();
+      updateMapProgressiveLabels();
     }
   }
 
@@ -3163,7 +4116,7 @@ body {
         </div>
       `;
       card.addEventListener('click', () => {
-        setCategory(name === activeCategory ? null : name);
+        setCategory(name);
         document.getElementById('mapSection').scrollIntoView({ behavior: 'smooth' });
       });
       grid.appendChild(card);
@@ -3176,12 +4129,20 @@ body {
   // ============================================================
   function buildFilterBar() {
     const bar = document.getElementById('filterBar');
+    bar.innerHTML = '';
+
+    const categoryGroup = document.createElement('div');
+    categoryGroup.className = 'map-filter-group category-group';
+    const categoryLabel = document.createElement('span');
+    categoryLabel.className = 'map-filter-group-label';
+    categoryLabel.textContent = 'Categories';
+    categoryGroup.appendChild(categoryLabel);
 
     const allPill = document.createElement('button');
     allPill.className = 'filter-pill all-pill active';
     allPill.textContent = 'All';
     allPill.addEventListener('click', () => setCategory(null));
-    bar.appendChild(allPill);
+    categoryGroup.appendChild(allPill);
 
     Object.entries(CATS).forEach(([name, cfg]) => {
       const pill = document.createElement('button');
@@ -3189,9 +4150,112 @@ body {
       pill.dataset.category = name;
       pill.style.setProperty('--pill-color', cfg.color);
       pill.innerHTML = `<span class="filter-dot" style="background:${cfg.color}"></span>${cfg.short}`;
-      pill.addEventListener('click', () => setCategory(name === activeCategory ? null : name));
-      bar.appendChild(pill);
+      pill.addEventListener('click', () => setCategory(name));
+      categoryGroup.appendChild(pill);
     });
+    bar.appendChild(categoryGroup);
+
+    const statusGroup = document.createElement('div');
+    statusGroup.className = 'map-filter-group status-group';
+    const statusLabel = document.createElement('span');
+    statusLabel.className = 'map-filter-group-label';
+    statusLabel.textContent = 'Status';
+    statusGroup.appendChild(statusLabel);
+
+    const openNowPill = document.createElement('button');
+    openNowPill.id = 'openNowPill';
+    openNowPill.className = 'filter-pill open-now-pill';
+    openNowPill.style.setProperty('--pill-color', '#2fa35b');
+    openNowPill.innerHTML = '<span class="status-toggle-indicator" aria-hidden="true"></span><span class="status-icon" aria-hidden="true">◷</span><span class="status-text">Open now mode</span><span class="status-state-badge" id="openNowStateBadge">Off</span>';
+    openNowPill.addEventListener('click', () => setOpenNowMode(!openNowMode));
+    statusGroup.appendChild(openNowPill);
+
+    const legend = document.createElement('div');
+    legend.className = 'hours-legend';
+    legend.id = 'hoursLegend';
+    legend.innerHTML = `
+      <span class="hours-legend-item"><span class="hours-legend-dot open"></span>Open</span>
+      <span class="hours-legend-item"><span class="hours-legend-dot unknown"></span>Unknown</span>
+    `;
+    statusGroup.appendChild(legend);
+    bar.appendChild(statusGroup);
+
+    renderOpenNowUI();
+    syncMapFilterToggleMeta();
+  }
+
+  function buildMapLegend() {
+    const panel = document.getElementById('mapLegendPanel');
+    if (!panel) return;
+    panel.innerHTML = '';
+    Object.entries(CATS).forEach(([name, cfg]) => {
+      const item = document.createElement('div');
+      item.className = 'map-legend-item';
+      item.innerHTML = `<span class="map-legend-swatch" style="background:${cfg.color}"></span><span>${cfg.short || name}</span>`;
+      panel.appendChild(item);
+    });
+  }
+
+  function setMapFiltersExpanded(expanded) {
+    mapFiltersExpanded = !!expanded;
+    const overlay = document.querySelector('.map-overlay-controls');
+    const toggle = document.getElementById('mapFilterToggle');
+    if (overlay) overlay.classList.toggle('expanded', mapFiltersExpanded);
+    if (toggle) toggle.setAttribute('aria-expanded', mapFiltersExpanded ? 'true' : 'false');
+  }
+
+  function setMapLegendExpanded(expanded) {
+    mapLegendExpanded = !!expanded;
+    const overlay = document.querySelector('.map-overlay-controls');
+    const toggle = document.getElementById('mapLegendToggle');
+    if (overlay) overlay.classList.toggle('legend-expanded', mapLegendExpanded);
+    if (toggle) toggle.setAttribute('aria-expanded', mapLegendExpanded ? 'true' : 'false');
+  }
+
+  function syncMapFilterToggleMeta() {
+    const meta = document.getElementById('mapFilterToggleMeta');
+    if (!meta) return;
+    const parts = [];
+    if (activeCategories.size > 0) {
+      const selected = Array.from(activeCategories);
+      if (selected.length === 1) {
+        const cfg = CATS[selected[0]];
+        parts.push((cfg && cfg.short) ? cfg.short : selected[0]);
+      } else {
+        parts.push(`${selected.length} cats`);
+      }
+    } else {
+      parts.push('All');
+    }
+    if (openNowMode) parts.push('Open');
+    meta.textContent = parts.join(' • ');
+  }
+
+  function renderOpenNowUI() {
+    const openNowPill = document.getElementById('openNowPill');
+    const openNowStateBadge = document.getElementById('openNowStateBadge');
+    const legend = document.getElementById('hoursLegend');
+    if (openNowPill) {
+      openNowPill.classList.toggle('active', openNowMode);
+      openNowPill.setAttribute('aria-pressed', openNowMode ? 'true' : 'false');
+      openNowPill.setAttribute('aria-label', openNowMode ? 'Disable open now status mode' : 'Enable open now status mode');
+      openNowPill.setAttribute('title', openNowMode ? 'Click to disable open now status mode' : 'Click to enable open now status mode');
+    }
+    if (openNowStateBadge) {
+      openNowStateBadge.textContent = openNowMode ? 'On' : 'Off';
+    }
+    if (legend) legend.classList.toggle('visible', openNowMode);
+    syncMapFilterToggleMeta();
+  }
+
+  function setOpenNowMode(enabled) {
+    markMapInteracted();
+    openNowMode = !!enabled;
+    if (openNowMode) refreshAssetSourceHoursStates();
+    renderOpenNowUI();
+    updateMapFilters({ recenter: false });
+    listPage = 0;
+    buildList();
   }
 
   // ============================================================
@@ -3199,12 +4263,14 @@ body {
   // ============================================================
   function updateActiveBanner() {
     const banner = document.getElementById('mapActiveBanner');
-    if (activeCategory) {
-      const cfg = CATS[activeCategory];
-      const count = DATA.filter(d => d.l === activeCategory).length;
-      document.getElementById('mapActiveDot').style.background = cfg.color;
+    if (activeCategories.size > 0) {
+      const selected = Array.from(activeCategories);
+      const count = DATA.filter(d => activeCategories.has(d.l) && (!openNowMode || getHoursState(d) !== 'closed')).length;
+      const oneCategory = selected.length === 1 ? selected[0] : null;
+      const cfg = oneCategory ? (CATS[oneCategory] || {}) : null;
+      document.getElementById('mapActiveDot').style.background = oneCategory ? cfg.color : 'rgba(26,22,18,0.55)';
       document.getElementById('mapActiveCount').textContent = count;
-      document.getElementById('mapActiveName').textContent = activeCategory;
+      document.getElementById('mapActiveName').textContent = oneCategory || `${selected.length} categories`;
       banner.classList.add('visible');
     } else {
       banner.classList.remove('visible');
@@ -3214,26 +4280,39 @@ body {
   // ============================================================
   // SET CATEGORY
   // ============================================================
-  function setCategory(cat) {
-    activeCategory = cat;
+  function setCategory(cat, options = {}) {
+    markMapInteracted();
+    const { exclusive = false } = options;
+    if (cat === null) {
+      activeCategories.clear();
+    } else if (exclusive) {
+      activeCategories = new Set([cat]);
+    } else if (activeCategories.has(cat)) {
+      activeCategories.delete(cat);
+    } else {
+      activeCategories.add(cat);
+    }
 
     document.querySelectorAll('.filter-pill').forEach(p => {
+      if (p.classList.contains('open-now-pill')) return;
       if (p.classList.contains('all-pill')) {
-        p.classList.toggle('active', cat === null);
+        p.classList.toggle('active', activeCategories.size === 0);
       } else {
-        p.classList.toggle('active', p.dataset.category === cat);
+        p.classList.toggle('active', activeCategories.has(p.dataset.category));
       }
     });
 
     cardElements.forEach(({ el, name }) => {
-      el.classList.toggle('active', name === cat);
-      if (cat && name !== cat) {
+      const isActive = activeCategories.has(name);
+      el.classList.toggle('active', isActive);
+      if (activeCategories.size > 0 && !isActive) {
         el.style.opacity = '0.45';
       } else {
         el.style.opacity = '1';
       }
     });
 
+    renderOpenNowUI();
     updateActiveBanner();
     updateMapFilters();
     listPage = 0;
@@ -3290,6 +4369,9 @@ body {
     document.getElementById('detailDesc').style.display = d.d ? 'block' : 'none';
 
     let metaHTML = '';
+    const hoursState = getHoursState(d);
+    const todayHours = getTodayHoursDisplay(d);
+    metaHTML += `<div class="detail-meta-row"><span class="detail-meta-icon">&#9716;</span><div class="detail-meta-value"><span class="hours-pill hours-${hoursState}">${getHoursLabel(hoursState)}</span>${todayHours ? `<div class="detail-hours-today">Today: ${escapeHTML(todayHours)}</div>` : ''}</div></div>`;
     if (d.a) metaHTML += `<div class="detail-meta-row"><span class="detail-meta-icon">&#9675;</span><div class="detail-meta-value">${d.a}${d.c ? ', ' + d.c + ', CA' : ''}</div></div>`;
     if (d.p) metaHTML += `<div class="detail-meta-row"><span class="detail-meta-icon">&#9743;</span><div class="detail-meta-value"><a href="tel:${d.p}">${d.p}</a></div></div>`;
     if (d.w) {
@@ -3348,7 +4430,9 @@ body {
   // EXPLORE LIST
   // ============================================================
   function getFilteredData() {
-    let filtered = activeCategory ? DATA.filter(d => d.l === activeCategory) : [...DATA];
+    let filtered = activeCategories.size > 0
+      ? DATA.filter(d => activeCategories.has(d.l))
+      : [...DATA];
     const query = (document.getElementById('searchInput').value || '').toLowerCase().trim();
     if (query) {
       filtered = filtered.filter(d =>
@@ -3357,6 +4441,14 @@ body {
         (d.d && d.d.toLowerCase().includes(query)) ||
         (d.l && d.l.toLowerCase().includes(query))
       );
+    }
+    if (openNowMode) {
+      filtered = filtered.filter((d) => getHoursState(d) !== 'closed');
+      filtered = filtered.sort((a, b) => {
+        const rankDelta = getHoursRank(getHoursState(a)) - getHoursRank(getHoursState(b));
+        if (rankDelta !== 0) return rankDelta;
+        return (a.n || '').localeCompare(b.n || '');
+      });
     }
     return filtered;
   }
@@ -3389,14 +4481,12 @@ body {
     const cards = document.querySelectorAll('.explore-cat-card');
 
     if (cat) {
-      activeCategory = cat;
       wrapper.classList.add('visible');
       catGrid.style.display = 'none';
       cards.forEach(c => c.classList.remove('active'));
       // Also sync map filter pills
-      setCategory(cat);
+      setCategory(cat, { exclusive: true });
     } else {
-      activeCategory = null;
       wrapper.classList.remove('visible');
       catGrid.style.display = '';
       document.getElementById('searchInput').value = '';
@@ -3413,7 +4503,7 @@ body {
     const searchVal = document.getElementById('searchInput').value.trim();
 
     // Show list if search is active even without category
-    if (searchVal && !activeCategory) {
+    if (searchVal && activeCategories.size === 0) {
       wrapper.classList.add('visible');
       document.getElementById('exploreCats').style.display = 'none';
     }
@@ -3422,9 +4512,15 @@ body {
     const end = (listPage + 1) * LIST_PAGE_SIZE;
     const visible = filtered.slice(0, end);
 
+    const scopeParts = [];
+    if (activeCategories.size > 0) {
+      const selected = Array.from(activeCategories);
+      scopeParts.push(selected.length === 1 ? selected[0] : `${selected.length} categories`);
+    }
+    if (openNowMode) scopeParts.push('Status: Open now (open highlighted, unknown dimmed)');
     document.getElementById('resultsCount').textContent =
       `Showing ${Math.min(end, filtered.length)} of ${filtered.length} assets` +
-      (activeCategory ? ` in ${activeCategory}` : '');
+      (scopeParts.length ? ` • ${scopeParts.join(' • ')}` : '');
 
     list.innerHTML = '';
     visible.forEach(d => {
@@ -3435,6 +4531,10 @@ body {
       const item = document.createElement('div');
       item.className = 'explore-item';
       item.style.setProperty('--row-color', cfg.color);
+      const hoursState = getHoursState(d);
+      if (openNowMode) {
+        item.classList.add('hours-mode', `hours-${hoursState}`);
+      }
       const desc = d.d ? d.d.replace(/<[^>]*>/g, '').slice(0, 120) : '';
       item.innerHTML = `
         <div class="explore-item-bar" style="background:${cfg.color}"></div>
@@ -3448,6 +4548,7 @@ body {
               <span class="explore-item-cat-dot" style="background:${cfg.color}"></span>
               ${cfg.short || d.l}
             </span>
+            ${openNowMode ? `<span class="hours-pill hours-${hoursState} explore-item-hours">${getHoursLabel(hoursState)}</span>` : ''}
           </div>
         </div>
         <span class="explore-item-arrow">&rarr;</span>
@@ -3471,7 +4572,36 @@ body {
   function bindEvents() {
     document.getElementById('detailClose').addEventListener('click', closeDetail);
     document.getElementById('panelOverlay').addEventListener('click', closeDetail);
-    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeDetail(); });
+    document.addEventListener('keydown', e => {
+      if (e.key === 'Escape') {
+        closeDetail();
+        setMapFiltersExpanded(false);
+        setMapLegendExpanded(false);
+      }
+    });
+
+    const overlayControls = document.querySelector('.map-overlay-controls');
+    const filterToggle = document.getElementById('mapFilterToggle');
+    const legendToggle = document.getElementById('mapLegendToggle');
+    if (overlayControls) {
+      overlayControls.addEventListener('click', (e) => e.stopPropagation());
+    }
+    if (filterToggle) {
+      filterToggle.addEventListener('click', () => {
+        markMapInteracted();
+        setMapFiltersExpanded(!mapFiltersExpanded);
+      });
+    }
+    if (legendToggle) {
+      legendToggle.addEventListener('click', () => {
+        markMapInteracted();
+        setMapLegendExpanded(!mapLegendExpanded);
+      });
+    }
+    document.addEventListener('click', () => {
+      if (mapFiltersExpanded) setMapFiltersExpanded(false);
+      if (mapLegendExpanded) setMapLegendExpanded(false);
+    });
 
     document.getElementById('searchInput').addEventListener('input', () => {
       const val = document.getElementById('searchInput').value.trim();
@@ -3480,7 +4610,7 @@ body {
       if (val) {
         wrapper.classList.add('visible');
         catGrid.style.display = 'none';
-      } else if (!activeCategory) {
+      } else if (activeCategories.size === 0) {
         wrapper.classList.remove('visible');
         catGrid.style.display = '';
       }
