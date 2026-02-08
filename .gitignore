@@ -5,3 +5,8 @@ assets/fixed-canvas-*.png
 assets/simplified-*.png
 assets/hero-*.png
 screenshots/
+
+# Local environment files
+.env
+.env.*
+!.env.example
