@@ -85,7 +85,7 @@ body {
   justify-content: center;
   align-items: center;
   text-align: center;
-  padding: 5rem 3rem 3rem;
+  padding: 3.2rem 3rem 1.35rem;
   background: var(--neuro-bg);
   overflow: hidden;
   position: relative;
@@ -94,12 +94,12 @@ body {
 .hero-badge {
   position: relative;
   z-index: 1;
-  width: 500px;
+  width: 440px;
   max-width: 80vw;
   opacity: 0;
   transform: scale(0.95);
   animation: badgeReveal 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.2s forwards;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.1rem;
   padding: 1rem;
   border-radius: 20px;
   background: var(--neuro-bg);
@@ -113,7 +113,7 @@ body {
 .hero-content {
   position: relative;
   z-index: 1;
-  max-width: 600px;
+  max-width: 760px;
 }
 
 .hero-eyebrow {
@@ -146,26 +146,44 @@ body {
 }
 
 .hero-sub {
-  font-size: clamp(0.9rem, 1.5vw, 1.05rem);
-  line-height: 1.7;
+  font-size: clamp(0.98rem, 1.7vw, 1.15rem);
+  line-height: 1.55;
   color: var(--slate);
-  max-width: 480px;
+  max-width: 760px;
   margin: 0 auto;
-  font-weight: 300;
+  font-weight: 400;
   opacity: 0;
   transform: translateY(15px);
   animation: fadeUp 0.8s ease 1s forwards;
 }
 
+.hero-sub strong {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.hero-instructions {
+  margin-top: 0.65rem;
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: rgba(26,22,18,0.5);
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeUp 0.8s ease 1.1s forwards;
+}
+
 @media (max-width: 600px) {
-  .hero { padding: 3.5rem 1.5rem 2rem; }
+  .hero { padding: 2.35rem 1.2rem 1.1rem; }
   .hero-badge { width: 240px; }
+  .hero-instructions { font-size: 0.52rem; letter-spacing: 0.07em; }
 }
 
 /* ========== SECTION INTRO ========== */
 .section-intro {
-  padding: 5rem 3rem;
-  max-width: 760px;
+  padding: 1.1rem 3rem 1.4rem;
+  max-width: 1080px;
   margin: 0 auto;
   display: block;
   position: relative;
@@ -240,21 +258,50 @@ body {
 
 .section-heading {
   font-family: var(--font-display);
-  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-size: clamp(1.28rem, 2.15vw, 1.85rem);
   font-weight: 700;
-  line-height: 1.1;
+  line-height: 1.16;
   color: var(--ink);
-  margin-bottom: 1.5rem;
+  margin-bottom: 0.62rem;
 }
 
 .section-body {
-  font-size: 1.05rem;
-  line-height: 1.75;
+  font-size: 0.95rem;
+  line-height: 1.62;
   color: var(--slate);
-  max-width: 520px;
+  max-width: 860px;
 }
 
-.section-body p + p { margin-top: 1rem; }
+.section-body p + p { margin-top: 0.55rem; }
+
+.section-quicktips {
+  margin-top: 0.68rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.section-quicktip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.28rem 0.48rem;
+  border-radius: 999px;
+  border: 1px solid rgba(26,22,18,0.14);
+  background: rgba(244,239,231,0.86);
+  font-family: var(--font-mono);
+  font-size: 0.5rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(26,22,18,0.6);
+}
+
+.section-quicktip-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(26,22,18,0.4);
+}
 
 /* ========== CATEGORY CARDS ========== */
 .categories-grid {
@@ -817,6 +864,67 @@ body {
   height: 100%;
   border-radius: 16px;
   overflow: hidden;
+}
+
+.smart-label-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 16;
+}
+
+.smart-label-card {
+  position: absolute;
+  transform: translate(-50%, -100%);
+  min-height: 22px;
+  max-width: 210px;
+  padding: 0.24rem 0.42rem;
+  border-radius: 7px;
+  border: 1px solid rgba(26,22,18,0.14);
+  border-left: 3px solid rgba(26,22,18,0.38);
+  background: rgba(244,239,231,0.95);
+  box-shadow: 0 5px 14px rgba(26,22,18,0.14);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.32rem;
+  pointer-events: auto;
+  cursor: pointer;
+}
+
+.smart-label-card::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -7px;
+  width: 1px;
+  height: 7px;
+  background: rgba(26,22,18,0.34);
+  transform: translateX(-50%);
+}
+
+.smart-label-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.smart-label-name {
+  display: block;
+  max-width: 182px;
+  font-family: var(--font-body);
+  font-size: 0.62rem;
+  line-height: 1.15;
+  letter-spacing: 0.01em;
+  font-weight: 650;
+  color: var(--ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media (max-width: 900px) {
+  .smart-label-layer { display: none; }
 }
 
 /* MapLibre control overrides */
@@ -2260,7 +2368,7 @@ body {
 
 /* ========== RESPONSIVE ========== */
 @media (max-width: 900px) {
-  .section-intro { padding: 3rem 1.5rem; }
+  .section-intro { padding: 0.9rem 1.1rem 1rem; }
   .map-header { padding: 2rem 1.5rem 0.85rem; }
   .map-filter-bar { justify-content: flex-start; }
   .map-overlay-controls {
@@ -2387,20 +2495,23 @@ body {
 <section class="hero">
   <img src="img/Cultural+Assets+Banner.webp" alt="Nevada County Cultural Assets" class="hero-badge" fetchpriority="high">
   <div class="hero-content">
-    <div class="hero-eyebrow">Nevada County, California</div>
-    <h1 class="hero-title">The Culture of <em>Gold Country</em></h1>
-    <p class="hero-sub">An interactive atlas of 687 cultural assets across the Sierra foothills.</p>
+    <p class="hero-sub"><strong>Interactive atlas of cultural assets across the Sierra foothills.</strong></p>
+    <p class="hero-instructions">Filter by category. Toggle Open Now. Click any marker for hours, details, and links.</p>
   </div>
 </section>
 
 <!-- ====== INTRO + CATEGORIES ====== -->
 <section class="section-intro">
   <div class="col-left reveal">
-    <div class="section-tag">01 / The Landscape</div>
-    <h2 class="section-heading">A county where culture runs deeper than gold</h2>
+    <div class="section-tag">01 / How to Use It</div>
+    <h2 class="section-heading">Start with the map. Refine what you need in seconds.</h2>
     <div class="section-body">
-      <p>Nevada County sits at the crossroads of Gold Rush history and living artistic tradition. Its towns, from the Victorian streets of Nevada City to the mountain corridors of Truckee, hold an extraordinary density of cultural assets.</p>
-      <p>219 historic landmarks. 67 arts organizations. 52 annual fairs and festivals. Performance spaces carved from 19th-century foundries. Public art on every other block. This is not a county that treats culture as decoration. It is the infrastructure.</p>
+      <p>Use this map to discover places to eat, gather, perform, learn, and explore across Nevada County. Apply categories, switch Open Now when you need something immediate, and click markers for practical details.</p>
+      <div class="section-quicktips">
+        <span class="section-quicktip"><span class="section-quicktip-dot"></span>Multi-category filters</span>
+        <span class="section-quicktip"><span class="section-quicktip-dot"></span>Open now mode</span>
+        <span class="section-quicktip"><span class="section-quicktip-dot"></span>Guided routes & corridors</span>
+      </div>
     </div>
   </div>
   <div class="col-right reveal" style="transition-delay: 0.15s">
@@ -2724,6 +2835,9 @@ body {
   const LABEL_MAX_VISIBLE = 32;
   const LABEL_ALL_THRESHOLD = 16;
   const LABEL_SUBSET_COUNT = 12;
+  const smartLabelsEnabled = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  let smartLabelLayer = null;
+  let smartLabelFrame = null;
 
   // ============================================================
   // LOAD DATA
@@ -2739,7 +2853,7 @@ body {
     DATA = data;
     IMAGE_DATA = images;
     EXPERIENCES = experiences;
-    COUNTY_OUTLINE = countyOutline;
+    COUNTY_OUTLINE = sanitizeCountyOutline(countyOutline);
     init();
   }).catch(err => {
     console.error('Failed to load data:', err);
@@ -2926,6 +3040,52 @@ body {
       .replace(/'/g, '&#39;');
   }
 
+  function isValidCountyCoord(coord) {
+    if (!Array.isArray(coord) || coord.length < 2) return false;
+    const lon = Number(coord[0]);
+    const lat = Number(coord[1]);
+    if (!Number.isFinite(lon) || !Number.isFinite(lat)) return false;
+    return lon >= -125 && lon <= -114 && lat >= 35 && lat <= 43;
+  }
+
+  function sanitizeCountyOutline(geojson) {
+    if (!geojson || !Array.isArray(geojson.features)) return null;
+    const cleanedFeatures = geojson.features.map((feature) => {
+      if (!feature || !feature.geometry) return null;
+      const { type, coordinates } = feature.geometry;
+      if (type === 'Polygon' && Array.isArray(coordinates) && Array.isArray(coordinates[0])) {
+        const outer = coordinates[0].filter(isValidCountyCoord);
+        if (outer.length < 4) return null;
+        return {
+          ...feature,
+          geometry: { type: 'Polygon', coordinates: [outer] }
+        };
+      }
+      if (type === 'MultiPolygon' && Array.isArray(coordinates)) {
+        const polygons = coordinates
+          .map((poly) => {
+            if (!Array.isArray(poly) || !Array.isArray(poly[0])) return null;
+            const outer = poly[0].filter(isValidCountyCoord);
+            if (outer.length < 4) return null;
+            return [outer];
+          })
+          .filter(Boolean);
+        if (!polygons.length) return null;
+        return {
+          ...feature,
+          geometry: { type: 'MultiPolygon', coordinates: polygons }
+        };
+      }
+      return null;
+    }).filter(Boolean);
+
+    if (!cleanedFeatures.length) return null;
+    return {
+      type: 'FeatureCollection',
+      features: cleanedFeatures
+    };
+  }
+
   // ============================================================
   // EXPERIENCE SELECTOR
   // ============================================================
@@ -3052,6 +3212,7 @@ body {
       antialias: true,
       maxPitch: 70
     });
+    window.__culturalMap = map;
 
     map.addControl(new maplibregl.NavigationControl({
       visualizePitch: true
@@ -3089,20 +3250,6 @@ body {
             source: 'terrain-dem',
             exaggeration: 2
           });
-        }
-
-        try {
-          map.addLayer({
-            id: 'sky',
-            type: 'sky',
-            paint: {
-              'sky-type': 'atmosphere',
-              'sky-atmosphere-sun': [0.0, 90.0],
-              'sky-atmosphere-sun-intensity': 15
-            }
-          });
-        } catch (err) {
-          console.warn('[Terrain] Sky layer unsupported in this MapLibre build; skipping sky layer.', err && err.message ? err.message : err);
         }
 
         console.log('[Terrain] Source added, terrain set, exaggeration: 2');
@@ -3187,7 +3334,10 @@ body {
   function buildAssetsGeoJSON() {
     return {
       type: 'FeatureCollection',
-      features: DATA.filter(d => d.x && d.y).map((d, i) => {
+      features: DATA.map((d, i) => {
+        const lon = Number(d.x);
+        const lat = Number(d.y);
+        if (!Number.isFinite(lon) || !Number.isFinite(lat)) return null;
         const hoursState = getHoursState(d);
         const rawLabel = d.n || '';
         const labelName = rawLabel.length > 26 ? `${rawLabel.slice(0, 23)}...` : rawLabel;
@@ -3210,10 +3360,10 @@ body {
           },
           geometry: {
             type: 'Point',
-            coordinates: [d.x, d.y]
+            coordinates: [lon, lat]
           }
         };
-      })
+      }).filter(Boolean)
     };
   }
 
@@ -3252,21 +3402,64 @@ body {
   }
 
   function clearMapLabelStates() {
-    if (!map || !map.getSource('assets')) return;
-    labeledFeatureIds.forEach((id) => {
-      try {
-        map.setFeatureState({ source: 'assets', id }, { label_visible: false });
-      } catch (e) { /* source/style churn */ }
-    });
     labeledFeatureIds.clear();
+    if (smartLabelLayer) smartLabelLayer.innerHTML = '';
+  }
+
+  function ensureSmartLabelLayer() {
+    if (!smartLabelsEnabled || smartLabelLayer) return;
+    const mapEl = document.getElementById('map');
+    if (!mapEl) return;
+    const layer = document.createElement('div');
+    layer.className = 'smart-label-layer';
+    layer.id = 'smartLabelLayer';
+    layer.addEventListener('click', (event) => {
+      const card = event.target.closest('.smart-label-card');
+      if (!card) return;
+      const idx = Number(card.getAttribute('data-idx'));
+      if (!Number.isFinite(idx) || idx < 0 || idx >= DATA.length) return;
+      const d = DATA[idx];
+      if (!d || !d.x || !d.y) return;
+      openDetail(d);
+      map.flyTo({
+        center: [d.x, d.y],
+        zoom: Math.max(map.getZoom(), 14),
+        pitch: map.getPitch(),
+        bearing: map.getBearing(),
+        duration: 550,
+        essential: true
+      });
+    });
+    mapEl.appendChild(layer);
+    smartLabelLayer = layer;
+  }
+
+  function scheduleSmartLabelUpdate() {
+    if (!smartLabelsEnabled) return;
+    if (smartLabelFrame) return;
+    smartLabelFrame = requestAnimationFrame(() => {
+      smartLabelFrame = null;
+      updateMapProgressiveLabels();
+    });
+  }
+
+  function boxesOverlap(a, b, padding = 8) {
+    return !(
+      (a.x + a.w + padding) < b.x ||
+      (b.x + b.w + padding) < a.x ||
+      (a.y + a.h + padding) < b.y ||
+      (b.y + b.h + padding) < a.y
+    );
   }
 
   function updateMapProgressiveLabels() {
-    if (!map || !map.getLayer('assets-labels') || !map.getLayer('assets-circle') || !map.getSource('assets')) return;
+    if (!map || !map.getLayer('assets-circle') || !map.getSource('assets')) return;
+    ensureSmartLabelLayer();
     if (activeExperience) {
       clearMapLabelStates();
       return;
     }
+    if (!smartLabelsEnabled || !smartLabelLayer) return;
 
     const rendered = map.queryRenderedFeatures({ layers: ['assets-circle'] }) || [];
     const seen = new Set();
@@ -3299,23 +3492,98 @@ body {
       return da - db;
     });
 
-    const nextIds = new Set(unique.slice(0, limit).map((f) => f.id));
+    const candidateFeatures = unique
+      .map((feature) => {
+        const coords = (feature.geometry && feature.geometry.type === 'Point' && Array.isArray(feature.geometry.coordinates))
+          ? feature.geometry.coordinates
+          : null;
+        if (!coords) return null;
+        const point = map.project(coords);
+        return { feature, point };
+      })
+      .filter(Boolean);
 
-    labeledFeatureIds.forEach((id) => {
-      if (nextIds.has(id)) return;
-      try {
-        map.setFeatureState({ source: 'assets', id }, { label_visible: false });
-      } catch (e) { /* source/style churn */ }
+    const spreadPx = visibleCount <= LABEL_ALL_THRESHOLD ? 34 : 56;
+    const distributed = [];
+    candidateFeatures.forEach((entry) => {
+      if (distributed.length >= limit) return;
+      const tooClose = distributed.some((picked) => {
+        const dx = picked.point.x - entry.point.x;
+        const dy = picked.point.y - entry.point.y;
+        return Math.hypot(dx, dy) < spreadPx;
+      });
+      if (!tooClose) distributed.push(entry);
+    });
+    if (distributed.length < limit) {
+      candidateFeatures.forEach((entry) => {
+        if (distributed.length >= limit) return;
+        if (!distributed.includes(entry)) distributed.push(entry);
+      });
+    }
+    const chosen = distributed.slice(0, limit).map((entry) => entry.feature);
+    const mapBox = map.getCanvas().getBoundingClientRect();
+    const mapW = mapBox.width;
+    const mapH = mapBox.height;
+    const placed = [];
+    let html = '';
+
+    chosen.forEach((feature) => {
+      const props = feature.properties || {};
+      const idx = Number(props.idx);
+      const coords = (feature.geometry && feature.geometry.type === 'Point' && Array.isArray(feature.geometry.coordinates))
+        ? feature.geometry.coordinates
+        : null;
+      if (!coords) return;
+      const projected = map.project(coords);
+      const anchorX = projected.x;
+      const anchorY = projected.y;
+      if (anchorX < -24 || anchorX > mapW + 24 || anchorY < -24 || anchorY > mapH + 24) return;
+
+      const name = String(props.name || '').trim();
+      if (!name) return;
+      const cfg = CATS[props.layer] || { color: '#6f6a60' };
+      const width = Math.min(176, Math.max(78, (name.length * 6.1) + 22));
+      const height = 24;
+      const slots = [
+        [0, -14],
+        [18, -18],
+        [-18, -18],
+        [24, -8],
+        [-24, -8],
+        [0, 8],
+        [30, 4],
+        [-30, 4],
+        [42, -12],
+        [-42, -12],
+        [46, 2],
+        [-46, 2]
+      ];
+      const rings = [0, 8, 14, 22, 32, 44, 58];
+      let placedBox = null;
+
+      for (const ring of rings) {
+        for (const slot of slots) {
+          const centerX = anchorX + slot[0] + (slot[0] < 0 ? -ring : ring);
+          const centerY = anchorY + slot[1] + (slot[1] < 0 ? -ring * 0.55 : ring * 0.45);
+          const x = Math.max(8, Math.min(mapW - width - 8, centerX - (width / 2)));
+          const y = Math.max(10, Math.min(mapH - height - 10, centerY - height));
+          const candidate = { x, y, w: width, h: height };
+          const hasOverlap = placed.some((b) => boxesOverlap(candidate, b, 4));
+          if (!hasOverlap) {
+            placedBox = candidate;
+            break;
+          }
+        }
+        if (placedBox) break;
+      }
+
+      if (!placedBox) return;
+      placed.push(placedBox);
+      const safeName = escapeHTML(name);
+      html += `<button type="button" class="smart-label-card" data-idx="${idx}" style="left:${(placedBox.x + placedBox.w/2).toFixed(1)}px;top:${(placedBox.y + placedBox.h).toFixed(1)}px;border-left-color:${cfg.color};"><span class="smart-label-dot" style="background:${cfg.color};"></span><span class="smart-label-name">${safeName}</span></button>`;
     });
 
-    nextIds.forEach((id) => {
-      if (labeledFeatureIds.has(id)) return;
-      try {
-        map.setFeatureState({ source: 'assets', id }, { label_visible: true });
-      } catch (e) { /* source/style churn */ }
-    });
-
-    labeledFeatureIds = nextIds;
+    smartLabelLayer.innerHTML = html;
   }
 
   function markMapInteracted() {
@@ -3394,40 +3662,6 @@ body {
       }
     });
 
-    map.addLayer({
-      id: 'assets-labels',
-      type: 'symbol',
-      source: 'assets',
-      layout: {
-        'text-field': ['get', 'label_name'],
-        'text-size': [
-          'interpolate',
-          ['linear'],
-          ['zoom'],
-          11, 10,
-          14, 11.5,
-          16, 12.5
-        ],
-        'text-font': ['Open Sans Semibold', 'Arial Unicode MS Regular'],
-        'text-variable-anchor': ['top', 'bottom', 'left', 'right'],
-        'text-radial-offset': 0.72,
-        'text-justify': 'auto',
-        'text-allow-overlap': false,
-        'text-ignore-placement': false
-      },
-      paint: {
-        'text-color': 'rgba(26,22,18,0.82)',
-        'text-halo-color': 'rgba(244,239,231,0.93)',
-        'text-halo-width': 1.15,
-        'text-halo-blur': 0.3,
-        'text-opacity': [
-          'case',
-          ['boolean', ['feature-state', 'label_visible'], false], 1,
-          0
-        ]
-      }
-    });
-
     // Hover interaction
     map.on('mousemove', 'assets-circle', (e) => {
       markMapInteracted();
@@ -3441,9 +3675,12 @@ body {
       }
       hoveredFeatureId = f.id;
       map.setFeatureState({ source: 'assets', id: hoveredFeatureId }, { hover: true });
+      const coords = (f.geometry && f.geometry.type === 'Point' && Array.isArray(f.geometry.coordinates))
+        ? f.geometry.coordinates
+        : [e.lngLat.lng, e.lngLat.lat];
 
       hoverPopup
-        .setLngLat(e.lngLat)
+        .setLngLat(coords)
         .setHTML(buildFeatureTooltipHTML(f.properties || {}))
         .addTo(map);
     });
@@ -3523,6 +3760,10 @@ body {
     map.on('zoomstart', markMapInteracted);
     map.on('rotatestart', markMapInteracted);
     map.on('pitchstart', markMapInteracted);
+    map.on('move', scheduleSmartLabelUpdate);
+    map.on('pitch', scheduleSmartLabelUpdate);
+    map.on('rotate', scheduleSmartLabelUpdate);
+    map.on('resize', scheduleSmartLabelUpdate);
     map.on('moveend', updateMapProgressiveLabels);
     map.on('zoomend', updateMapProgressiveLabels);
     map.on('idle', updateMapProgressiveLabels);
