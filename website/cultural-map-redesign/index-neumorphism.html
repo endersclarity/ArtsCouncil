@@ -1508,13 +1508,36 @@ body {
 }
 
 /* ========== EXPERIENCE SELECTOR ========== */
-.experience-bar {
+/* Section containers */
+.corridor-section,
+.explore-section {
   max-width: 1400px;
-  margin: 0 auto;
-  padding: 0 3rem 1rem;
+  margin: 0 auto 2rem;
+  padding: 1.5rem 2rem;
+  background: var(--parchment);
+  border-radius: 16px;
+  box-shadow: var(--shadow-soft);
+}
+
+.section-header {
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 0.75rem;
   display: flex;
-  gap: 0.6rem;
-  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.section-header-tag {
+  font-size: 0.7rem;
+  font-weight: 500;
+  color: var(--gold);
+  opacity: 0.8;
+  font-family: var(--font-body);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
 }
 
 .experience-card {
@@ -1613,31 +1636,10 @@ body {
 }
 
 .corridor-cards, .experience-cards {
-  display: contents;
-}
-
-.experience-label {
-  font-family: var(--font-mono);
-  font-size: 0.6rem;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: rgba(26,22,18,0.35);
-  padding: 0.55rem 0.25rem;
-  align-self: center;
-}
-
-.corridor-label {
-  color: #2a8c8c;
-  font-size: 0.65rem;
-  font-weight: 600;
-  letter-spacing: 0.15em;
-}
-
-.experience-label .muse-tag {
-  font-size: 0.5rem;
-  color: rgba(26,22,18,0.25);
-  font-weight: 400;
-  margin-left: 0.3rem;
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  align-items: stretch;
 }
 
 /* ========== CORRIDOR INFO PANEL ========== */
@@ -1839,7 +1841,15 @@ body {
   .section-intro { padding: 3rem 1.5rem; }
   .map-header { flex-direction: column; gap: 1rem; padding: 2rem 1.5rem 1rem; align-items: flex-start; }
   .map-filter-bar { justify-content: flex-start; }
-  .experience-bar { padding: 0 1.5rem 1rem; }
+  .corridor-section,
+  .explore-section {
+    margin: 0 1.5rem 1.5rem;
+    padding: 1.25rem 1.5rem;
+  }
+
+  .section-header {
+    font-size: 1rem;
+  }
   .corridor-panel {
     max-width: 100%;
     left: 0;
@@ -1897,6 +1907,14 @@ body {
 @media (max-width: 600px) {
   .detail-panel { width: 100vw; }
   .map-container { height: 60vh; min-height: 400px; margin: 1rem; padding: 0.75rem; border-width: 3px; }
+  .corridor-section,
+  .explore-section {
+    margin: 0 1rem 1.5rem;
+    padding: 1rem 1.25rem;
+  }
+  .section-header {
+    font-size: 0.95rem;
+  }
   .corridor-stop { flex: 0 0 170px; }
   .corridor-stop-name { font-size: 0.75rem; }
   .corridor-stop-note { font-size: 0.65rem; -webkit-line-clamp: 1; }
@@ -1937,10 +1955,18 @@ body {
     <h2 class="map-title">Explore the Map</h2>
     <div class="map-filter-bar" id="filterBar"></div>
   </div>
-  <div class="experience-bar" id="experienceBar">
-    <span class="experience-label corridor-label">Cultural Corridors <span class="muse-tag">from MUSE '26</span></span>
+  <!-- Cultural Corridors Section -->
+  <div class="corridor-section">
+    <h3 class="section-header">
+      Cultural Corridors
+      <span class="section-header-tag">from MUSE '26</span>
+    </h3>
     <div class="corridor-cards" id="corridorCards"></div>
-    <span class="experience-label" style="margin-left: 0.5rem;">Explore</span>
+  </div>
+
+  <!-- Curated Experiences Section -->
+  <div class="explore-section">
+    <h3 class="section-header">Curated Experiences</h3>
     <div class="experience-cards" id="experienceCards"></div>
   </div>
   <div class="map-active-banner" id="mapActiveBanner">
@@ -2269,20 +2295,25 @@ body {
   // EXPERIENCE SELECTOR
   // ============================================================
   function buildExperienceSelector() {
-    const bar = document.getElementById('experienceBar');
+    const corridorSection = document.querySelector('.corridor-section');
+    const exploreSection = document.querySelector('.explore-section');
     const corridorContainer = document.getElementById('corridorCards');
     const experienceContainer = document.getElementById('experienceCards');
-    if (!EXPERIENCES.length) { bar.style.display = 'none'; return; }
+    if (!EXPERIENCES.length) {
+      if (corridorSection) corridorSection.style.display = 'none';
+      if (exploreSection) exploreSection.style.display = 'none';
+      return;
+    }
 
     const corridors = EXPERIENCES.filter(e => e.type === 'corridor');
     const experiences = EXPERIENCES.filter(e => e.type !== 'corridor');
 
     // Hide sections if empty
-    if (!corridors.length) {
-      corridorContainer.previousElementSibling.style.display = 'none';
+    if (!corridors.length && corridorSection) {
+      corridorSection.style.display = 'none';
     }
-    if (!experiences.length) {
-      experienceContainer.previousElementSibling.style.display = 'none';
+    if (!experiences.length && exploreSection) {
+      exploreSection.style.display = 'none';
     }
 
     function makeCard(exp, container) {
