@@ -95,7 +95,29 @@ Phase 2.5 (Corridor branding):
 - [x] Separate Cultural Corridors (Hwy 40, 20, 49) from thematic experiences in UI
 - [x] Apply MUSE theme to all 3 corridor routes (not just Gold Rush Heritage)
 - [x] Add "Cultural Corridors / from MUSE '26" section header
-- [ ] Phase 3 planning (page redesign, watercolor assets, richer interactions)
+- [x] Phase 3 planning (page redesign, watercolor assets, richer interactions)
+
+Phase 3 (Quiet Graphics rebrand):
+- [x] Generate 11 watercolor assets (AI extraction/generation via ChatGPT)
+- [x] CSS rebrand — dark to "quiet graphics" cream backgrounds
+- [x] Integrate watercolors into page (category cards, tooltips, detail panel, section decorations)
+- [x] Add interaction improvements (tooltip animation, GSAP staggers, experience badges)
+- [x] Brand guide created at `docs/brand-guide.md`
+- [ ] Phase 3.5: Design overhaul based on critique (see below)
+- [ ] Sync rebrand to Leaflet version (`index.html`)
+- [ ] Deploy and commit
+
+Phase 3.5 (Design overhaul — based on `docs/design-critique-phase3.md`):
+- [x] Hero simplified: stripped AI-slop patterns (stats row, 50/50 grid, scattered watercolors). Now: badge-as-hero centered on cream, compact title below. Clean.
+- [x] Category cards hidden (filter pills on map do the same job). JS still works, grid just hidden.
+- [x] Section intro simplified to single-column prose (was 2-column with cards).
+- [x] Decorative section-watercolor images removed from explore/colophon.
+- [ ] MUSE illustration integration: `img/muse_cultural_corridor_original.png` (Belohlavek & Pitcher). NOT as a hero background overlay (tried, looks bad). User wants it visible between sections as you scroll — peek-through gaps, parallax strips, or section dividers. The illustration should bring color/vibrancy without being a lazy watermark. Still needs a good approach.
+- [ ] MUSE editorial content: Pull direct quotes from MUSE '26 Cultural Corridors article (Jesse Locks, p44-45). Progressive disclosure — don't overwhelm. Quotes about Highway 40/20/49 corridors. Screenshots saved in `C:\Users\ender\Pictures\Muse_Screenshots\`. The words matter and shouldn't be lost.
+- [ ] Explore list overhaul: currently a plain text spreadsheet. Needs rich cards or compact search.
+- [ ] Visual rhythm: sections need alternating treatments. The MUSE illustration peek-through could solve this.
+- [ ] Colophon upgrade: proper credits, attribution, CTA.
+- [ ] Update `docs/brand-guide.md` visual identity section to reflect simplified hero.
 
 **Key decisions (don't revisit):**
 - Vanilla HTML/CSS/JS, no framework (YAGNI)
