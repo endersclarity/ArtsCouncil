@@ -52,7 +52,10 @@ Enable spontaneous cultural engagement by making it effortless to discover what'
 **Data Strategy:**
 - Google Places API key already exists (used in google-tools skill, previously for image scraping)
 - Hours fetching: ONE-TIME script run, not daily refresh
-- Event fetching: DAILY refresh via automated job
+- Event fetching: DAILY refresh via automated job from **Trumba calendar feeds**
+  - GoNevadaCounty.com has Trumba calendar with iCal/RSS/ATOM feeds
+  - NevadaCountyArts.org also uses Trumba (pulls from GoNevadaCounty)
+  - Can parse iCal or RSS directly - no API needed
 - If data is wrong, venues need to update their own Google Places listings (not our job to manually fix)
 
 **"Happening Now" came from brainstorming session:**
@@ -75,6 +78,7 @@ Enable spontaneous cultural engagement by making it effortless to discover what'
 | MapLibre only, skip Leaflet | User: "leaflet is kind of a mess right now and needs so much of an overhaul there's not much of a point in the incremental upkeep". Focus on flagship version. | — Pending |
 | Hours stored in data.json, not separate file | Keeps data loading simple (one fetch), hours rarely change | — Pending |
 | One-time hours fetch, not daily refresh | Hours don't change often enough to justify daily API calls and complexity | — Pending |
+| Trumba calendar feeds for events | GoNevadaCounty.com uses Trumba with public iCal/RSS/ATOM feeds. No API key, no manual curation, Arts Council already maintains it. Single authoritative source. | — Pending |
 | Daily event refresh via GitHub Action | Events change frequently, need current data, GitHub Actions are free and reliable | — Pending |
 | Client-side hours parsing | No backend available, static site architecture requires client-side logic | — Pending |
 | Server-side event fetching | Keeps API keys secret, avoids rate limits, enables daily automation | — Pending |

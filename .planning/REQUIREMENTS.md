@@ -35,11 +35,11 @@
 ## v2 Requirements
 
 ### Event Data Pipeline
-- **EVENT-01**: Research event sourcing strategy (Eventbrite API vs Google Calendar vs manual curation)
-- **EVENT-02**: Implement daily event fetch via GitHub Actions cron job
-- **EVENT-03**: Create events.json data structure (asset → events mapping)
-- **EVENT-04**: Automatic event expiry (filter out past events)
-- **EVENT-05**: Event deduplication strategy (if using multiple sources)
+- **EVENT-01**: Parse Trumba iCal/RSS feed from GoNevadaCounty.com (public feed, no API key needed)
+- **EVENT-02**: Match events to venues in 687 asset list (by name/address fuzzy matching)
+- **EVENT-03**: Implement daily event fetch via GitHub Actions cron job (curl + parse)
+- **EVENT-04**: Create events.json data structure (asset → events array mapping)
+- **EVENT-05**: Automatic event expiry (filter events where date < today)
 
 ### Event UI
 - **EVENT-06**: Add "Events Today" filter toggle button
@@ -58,7 +58,7 @@
 | Event notifications or alerts | Not part of spontaneous discovery use case. Adds complexity without clear user value |
 | User accounts or saved favorites | Static site architecture, adds complexity |
 | Mobile app (native iOS/Android) | Web-responsive only. Mobile app out of scope |
-| Multi-source event aggregation | Deferred to v3+ (Phase 3 per research). High complexity, marginal value. Only pursue if Phase 2 shows insufficient coverage |
+| Multi-source event aggregation | Not needed - Trumba calendar already aggregates events from GoNevadaCounty and Arts Council. Single source covers all venues. |
 | Social features (check-ins, reviews) | Out of scope per brainstorming session. May revisit in future |
 
 ## Traceability
