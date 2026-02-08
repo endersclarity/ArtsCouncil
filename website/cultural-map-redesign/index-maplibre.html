@@ -819,79 +819,6 @@ body {
   overflow: hidden;
 }
 
-/* Nearby marker labels: surfaced by cursor proximity, anchored to markers */
-.radius-bubble-layer {
-  position: absolute;
-  inset: 0;
-  z-index: 14;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity 0.18s ease;
-}
-
-.radius-bubble-layer.active {
-  opacity: 1;
-}
-
-.radius-bubble-cards {
-  position: absolute;
-  inset: 0;
-}
-
-.radius-bubble-card {
-  position: absolute;
-  max-width: 220px;
-  padding: 0.3rem 0.48rem;
-  border-radius: 8px;
-  border: 1px solid rgba(26, 22, 18, 0.14);
-  transform: translate(-50%, -115%);
-  background: rgba(244, 239, 231, 0.95);
-  box-shadow: 0 6px 16px rgba(26, 22, 18, 0.15);
-  display: inline-flex;
-  align-items: center;
-  gap: 0.34rem;
-}
-
-.radius-bubble-card::after {
-  content: '';
-  position: absolute;
-  left: 50%;
-  bottom: -8px;
-  width: 1px;
-  height: 8px;
-  background: rgba(26, 22, 18, 0.28);
-  transform: translateX(-50%);
-}
-
-.radius-bubble-card-dot {
-  width: 7px;
-  height: 7px;
-  border-radius: 50%;
-  flex-shrink: 0;
-}
-
-.radius-bubble-card-text {
-  min-width: 0;
-}
-
-.radius-bubble-card-name {
-  display: block;
-  font-family: var(--font-body);
-  font-size: 0.68rem;
-  line-height: 1.18;
-  font-weight: 650;
-  color: var(--ink);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-@media (max-width: 900px) {
-  .radius-bubble-layer {
-    display: none;
-  }
-}
-
 /* MapLibre control overrides */
 .maplibregl-ctrl-group {
   background: var(--ink) !important;
@@ -2796,14 +2723,6 @@ body {
   const LABEL_MAX_VISIBLE = 15;
   const LABEL_ALL_THRESHOLD = 10;
   const LABEL_SUBSET_COUNT = 6;
-  const radiusBubbleEnabled = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-  const RADIUS_BUBBLE_RADIUS_PX = 92;
-  const RADIUS_BUBBLE_MAX_RESULTS = 5;
-  const RADIUS_BUBBLE_MIN_ZOOM = 8.4;
-  let radiusBubbleOverlay = null;
-  let radiusBubbleCards = null;
-  let radiusBubblePoint = null;
-  let radiusBubbleRaf = null;
 
   // ============================================================
   // LOAD DATA
@@ -3341,111 +3260,6 @@ body {
     labeledFeatureIds = nextIds;
   }
 
-  function ensureRadiusBubbleOverlay() {
-    if (!radiusBubbleEnabled || radiusBubbleOverlay) return;
-    const mapEl = document.getElementById('map');
-    if (!mapEl) return;
-    radiusBubbleOverlay = document.createElement('div');
-    radiusBubbleOverlay.className = 'radius-bubble-layer';
-    radiusBubbleOverlay.innerHTML = '<div class="radius-bubble-cards" aria-hidden="true"></div>';
-    mapEl.appendChild(radiusBubbleOverlay);
-    radiusBubbleCards = radiusBubbleOverlay.querySelector('.radius-bubble-cards');
-  }
-
-  function hideRadiusBubble() {
-    radiusBubblePoint = null;
-    if (!radiusBubbleOverlay) return;
-    radiusBubbleOverlay.classList.remove('active');
-    if (radiusBubbleCards) radiusBubbleCards.innerHTML = '';
-  }
-
-  function queueRadiusBubbleRender(point) {
-    if (!radiusBubbleEnabled || !map || activeExperience) return;
-    if (!radiusBubbleOverlay) ensureRadiusBubbleOverlay();
-    if (!radiusBubbleOverlay) return;
-    radiusBubblePoint = point ? { x: point.x, y: point.y } : null;
-    if (radiusBubbleRaf) return;
-    radiusBubbleRaf = requestAnimationFrame(renderRadiusBubble);
-  }
-
-  function renderRadiusBubble() {
-    radiusBubbleRaf = null;
-    if (!map || !radiusBubbleOverlay || !radiusBubblePoint || activeExperience || map.getZoom() < RADIUS_BUBBLE_MIN_ZOOM) {
-      hideRadiusBubble();
-      return;
-    }
-    if (mapFiltersExpanded || mapLegendExpanded) {
-      hideRadiusBubble();
-      return;
-    }
-
-    const pt = radiusBubblePoint;
-    const radius = RADIUS_BUBBLE_RADIUS_PX;
-    const bbox = [[pt.x - radius, pt.y - radius], [pt.x + radius, pt.y + radius]];
-    const rendered = map.queryRenderedFeatures(bbox, { layers: ['assets-circle'] }) || [];
-    const unique = [];
-    const seenIds = new Set();
-    rendered.forEach((f) => {
-      if (!f || f.id === undefined || f.id === null || seenIds.has(f.id)) return;
-      seenIds.add(f.id);
-      unique.push(f);
-    });
-
-    const nearby = [];
-    unique.forEach((feature) => {
-      const coords = feature && feature.geometry && feature.geometry.type === 'Point' ? feature.geometry.coordinates : null;
-      if (!coords || coords.length < 2) return;
-      const projected = map.project(coords);
-      const dx = projected.x - pt.x;
-      const dy = projected.y - pt.y;
-      const dist = Math.hypot(dx, dy);
-      if (dist > radius) return;
-      nearby.push({ feature, projected, dist });
-    });
-
-    if (!nearby.length) {
-      hideRadiusBubble();
-      return;
-    }
-
-    nearby.sort((a, b) => {
-      if (openNowMode) {
-        const ah = getHoursRank((a.feature.properties || {}).hours_state);
-        const bh = getHoursRank((b.feature.properties || {}).hours_state);
-        if (ah !== bh) return ah - bh;
-      }
-      return a.dist - b.dist;
-    });
-
-    const picked = nearby.slice(0, RADIUS_BUBBLE_MAX_RESULTS);
-    const mapCanvasRect = map.getCanvas().getBoundingClientRect();
-    const mapW = mapCanvasRect.width;
-    const mapH = mapCanvasRect.height;
-    const placed = [];
-    let cardsHTML = '';
-
-    picked.forEach((item) => {
-      const props = item.feature.properties || {};
-      const cfg = CATS[props.layer] || { color: '#7a7a7a', short: props.layer || 'Venue' };
-      const markerX = Math.max(10, Math.min(mapW - 10, item.projected.x));
-      let labelY = Math.max(18, Math.min(mapH - 14, item.projected.y - 12));
-      let guard = 0;
-      while (guard < 5) {
-        const overlap = placed.find((p) => Math.abs(p.x - markerX) < 90 && Math.abs(p.y - labelY) < 20);
-        if (!overlap) break;
-        labelY = Math.max(16, labelY - 20);
-        guard += 1;
-      }
-      placed.push({ x: markerX, y: labelY });
-
-      const safeName = escapeHTML(props.name || 'Unknown venue');
-      cardsHTML += `<div class="radius-bubble-card" style="left:${markerX.toFixed(1)}px;top:${labelY.toFixed(1)}px;"><span class="radius-bubble-card-dot" style="background:${cfg.color};"></span><div class="radius-bubble-card-text"><span class="radius-bubble-card-name">${safeName}</span></div></div>`;
-    });
-
-    radiusBubbleOverlay.classList.add('active');
-    if (radiusBubbleCards) radiusBubbleCards.innerHTML = cardsHTML;
-  }
-
   function markMapInteracted() {
     hasUserInteractedWithMap = true;
     stopIdlePreview();
@@ -3556,25 +3370,6 @@ body {
       }
     });
 
-    ensureRadiusBubbleOverlay();
-    map.on('mousemove', (e) => {
-      queueRadiusBubbleRender(e.point);
-    });
-    map.on('move', () => {
-      if (!radiusBubblePoint) return;
-      queueRadiusBubbleRender(radiusBubblePoint);
-    });
-    map.on('click', hideRadiusBubble);
-
-    const canvasContainer = map.getCanvasContainer();
-    if (canvasContainer) {
-      canvasContainer.addEventListener('mouseleave', hideRadiusBubble);
-      canvasContainer.addEventListener('mouseenter', () => {
-        if (!radiusBubblePoint) return;
-        queueRadiusBubbleRender(radiusBubblePoint);
-      });
-    }
-
     // Hover interaction
     map.on('mousemove', 'assets-circle', (e) => {
       markMapInteracted();
@@ -3589,12 +3384,8 @@ body {
       hoveredFeatureId = f.id;
       map.setFeatureState({ source: 'assets', id: hoveredFeatureId }, { hover: true });
 
-      const coords = (f.geometry && f.geometry.type === 'Point' && Array.isArray(f.geometry.coordinates))
-        ? f.geometry.coordinates
-        : [e.lngLat.lng, e.lngLat.lat];
-
       hoverPopup
-        .setLngLat(coords)
+        .setLngLat(e.lngLat)
         .setHTML(buildFeatureTooltipHTML(f.properties || {}))
         .addTo(map);
     });
@@ -3613,7 +3404,6 @@ body {
     const isMobileClick = window.matchMedia('(max-width: 900px)').matches;
     map.on('click', 'assets-circle', (e) => {
       markMapInteracted();
-      hideRadiusBubble();
       if (e.features.length === 0) return;
       const f = e.features[0];
       const d = DATA.find(item => item.n === f.properties.name);
@@ -3671,16 +3461,16 @@ body {
       }
     });
 
-    map.on('dragstart', () => { hideRadiusBubble(); markMapInteracted(); });
-    map.on('zoomstart', () => { hideRadiusBubble(); markMapInteracted(); });
-    map.on('rotatestart', () => { hideRadiusBubble(); markMapInteracted(); });
-    map.on('pitchstart', () => { hideRadiusBubble(); markMapInteracted(); });
+    map.on('dragstart', markMapInteracted);
+    map.on('zoomstart', markMapInteracted);
+    map.on('rotatestart', markMapInteracted);
+    map.on('pitchstart', markMapInteracted);
     map.on('moveend', updateMapProgressiveLabels);
     map.on('zoomend', updateMapProgressiveLabels);
     map.on('idle', updateMapProgressiveLabels);
-    map.getCanvas().addEventListener('wheel', () => { hideRadiusBubble(); markMapInteracted(); }, { passive: true });
-    map.getCanvas().addEventListener('mousedown', () => { hideRadiusBubble(); markMapInteracted(); });
-    map.getCanvas().addEventListener('touchstart', () => { hideRadiusBubble(); markMapInteracted(); }, { passive: true });
+    map.getCanvas().addEventListener('wheel', markMapInteracted, { passive: true });
+    map.getCanvas().addEventListener('mousedown', markMapInteracted);
+    map.getCanvas().addEventListener('touchstart', markMapInteracted, { passive: true });
 
     // Apply initial filter if any
     updateMapFilters();
@@ -3744,7 +3534,6 @@ body {
   function updateMapFilters(options = {}) {
     const { recenter = false } = options;
     if (!map.getLayer('assets-circle')) return;
-    hideRadiusBubble();
     const openNowExpr = ['!=', ['get', 'hours_state'], 'closed'];
 
     if (activeCategories.size > 0) {
@@ -3785,7 +3574,6 @@ body {
   // ============================================================
   function activateExperience(experience) {
     activeExperience = experience;
-    hideRadiusBubble();
     clearMapLabelStates();
     const guidesSection = document.getElementById('mapGuides');
     const corridorSection = document.getElementById('corridorAddon');
@@ -4111,7 +3899,6 @@ body {
 
   function deactivateExperience() {
     activeExperience = null;
-    hideRadiusBubble();
     currentResolvedStops = [];
     cancelTour();
 
@@ -4411,7 +4198,6 @@ body {
 
   function setMapFiltersExpanded(expanded) {
     mapFiltersExpanded = !!expanded;
-    if (mapFiltersExpanded) hideRadiusBubble();
     const overlay = document.querySelector('.map-overlay-controls');
     const toggle = document.getElementById('mapFilterToggle');
     if (overlay) overlay.classList.toggle('expanded', mapFiltersExpanded);
@@ -4420,7 +4206,6 @@ body {
 
   function setMapLegendExpanded(expanded) {
     mapLegendExpanded = !!expanded;
-    if (mapLegendExpanded) hideRadiusBubble();
     const overlay = document.querySelector('.map-overlay-controls');
     const toggle = document.getElementById('mapLegendToggle');
     if (overlay) overlay.classList.toggle('legend-expanded', mapLegendExpanded);
