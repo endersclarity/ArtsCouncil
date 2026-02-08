@@ -2693,6 +2693,7 @@ body {
   let DATA = [];
   let IMAGE_DATA = {};
   let EXPERIENCES = [];
+  let COUNTY_OUTLINE = null;
   let map;
   let activeCategories = new Set();
   let openNowMode = false;
@@ -2720,9 +2721,9 @@ body {
   let hoverPopup = null;
   let hoveredFeatureId = null;
   let labeledFeatureIds = new Set();
-  const LABEL_MAX_VISIBLE = 15;
-  const LABEL_ALL_THRESHOLD = 10;
-  const LABEL_SUBSET_COUNT = 6;
+  const LABEL_MAX_VISIBLE = 32;
+  const LABEL_ALL_THRESHOLD = 16;
+  const LABEL_SUBSET_COUNT = 12;
 
   // ============================================================
   // LOAD DATA
@@ -2730,11 +2731,15 @@ body {
   Promise.all([
     fetch('data.json').then(r => r.json()),
     fetch('image_data.json').then(r => r.json()).catch(() => ({})),
-    fetch('experiences.json').then(r => r.json()).catch(() => [])
-  ]).then(([data, images, experiences]) => {
+    fetch('experiences.json').then(r => r.json()).catch(() => []),
+    fetch('nevada-county.geojson')
+      .then((r) => (r.ok ? r.json() : null))
+      .catch(() => null)
+  ]).then(([data, images, experiences, countyOutline]) => {
     DATA = data;
     IMAGE_DATA = images;
     EXPERIENCES = experiences;
+    COUNTY_OUTLINE = countyOutline;
     init();
   }).catch(err => {
     console.error('Failed to load data:', err);
@@ -3107,8 +3112,61 @@ body {
         storeOriginalPaints();
       }
 
+      addCountyOutlineLayer();
+
       // Add asset data as GeoJSON
       addAssetLayers();
+    });
+  }
+
+  function addCountyOutlineLayer() {
+    if (!map || !COUNTY_OUTLINE || !Array.isArray(COUNTY_OUTLINE.features) || !COUNTY_OUTLINE.features.length) {
+      return;
+    }
+    if (map.getLayer('county-outline-core')) return;
+
+    if (!map.getSource('county-outline')) {
+      map.addSource('county-outline', {
+        type: 'geojson',
+        data: COUNTY_OUTLINE
+      });
+    }
+
+    map.addLayer({
+      id: 'county-outline-glow',
+      type: 'line',
+      source: 'county-outline',
+      paint: {
+        'line-color': 'rgba(74,107,124,0.52)',
+        'line-width': [
+          'interpolate',
+          ['linear'],
+          ['zoom'],
+          8, 4.5,
+          12, 7,
+          15, 9.5
+        ],
+        'line-opacity': 0.65,
+        'line-blur': 1.2
+      }
+    });
+
+    map.addLayer({
+      id: 'county-outline-core',
+      type: 'line',
+      source: 'county-outline',
+      paint: {
+        'line-color': '#2b566f',
+        'line-width': [
+          'interpolate',
+          ['linear'],
+          ['zoom'],
+          8, 1.7,
+          12, 2.4,
+          15, 3.2
+        ],
+        'line-opacity': 0.92
+      }
     });
   }
 
