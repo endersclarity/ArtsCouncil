@@ -63,17 +63,41 @@
 
 ## Traceability
 
-Mapping will be populated during roadmap creation.
+**Phase Mapping:**
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| (empty until roadmap created) | | |
+| DATA-01 | Phase 1 | Pending |
+| DATA-02 | Phase 1 | Pending |
+| DATA-03 | Phase 1 | Pending |
+| DATA-04 | Phase 1 | Pending |
+| DATA-05 | Phase 1 | Pending |
+| HOURS-01 | Phase 2 | Pending |
+| HOURS-02 | Phase 2 | Pending |
+| HOURS-03 | Phase 2 | Pending |
+| HOURS-04 | Phase 2 | Pending |
+| UI-01 | Phase 3 | Pending |
+| UI-02 | Phase 3 | Pending |
+| UI-03 | Phase 3 | Pending |
+| UI-04 | Phase 3 | Pending |
+| UI-05 | Phase 3 | Pending |
+| UI-06 | Phase 3 | Pending |
+| CODE-01 | Phase 4 | Pending |
+| CODE-02 | Phase 4 | Pending |
+| CODE-03 | Phase 4 | Pending |
+| CODE-04 | Phase 4 | Pending |
 
 **Coverage:**
 - v1 requirements: 18 total
-- Mapped to phases: (pending roadmap)
-- Unmapped: (pending roadmap)
+- Mapped to phases: 18/18 (100%)
+- Unmapped: 0
+
+**Phase Distribution:**
+- Phase 1 (Data Pipeline Setup): 5 requirements
+- Phase 2 (Hours Logic Implementation): 4 requirements
+- Phase 3 (Map UI Integration): 6 requirements
+- Phase 4 (Production Hardening): 3 requirements
 
 ---
 *Requirements defined: 2026-02-07*
-*Last updated: 2026-02-07 after initial definition*
+*Last updated: 2026-02-08 after roadmap creation*
