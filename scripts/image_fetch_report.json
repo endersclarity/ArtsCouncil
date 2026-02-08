@@ -1,0 +1,607 @@
+{
+  "stats": {
+    "total": 685,
+    "already_had": 513,
+    "og_found": 0,
+    "og_failed": 0,
+    "og_skipped": 0,
+    "wiki_found": 0,
+    "wiki_failed": 0,
+    "wiki_skipped": 0,
+    "places_found": 64,
+    "places_failed": 81,
+    "places_skipped": 0,
+    "no_image": 81
+  },
+  "failures": [
+    {
+      "name": "Lamb\u2019s Victorian Inn",
+      "tier": "google_places",
+      "category": "Eat, Drink & Stay"
+    },
+    {
+      "name": "Pine Street Porch",
+      "tier": "google_places",
+      "category": "Eat, Drink & Stay"
+    },
+    {
+      "name": "Banner Mountain Artisans",
+      "tier": "google_places",
+      "category": "Arts Organizations"
+    },
+    {
+      "name": "Center Stage Dance Studio",
+      "tier": "google_places",
+      "category": "Arts Organizations"
+    },
+    {
+      "name": "Grass Valley Taiko",
+      "tier": "google_places",
+      "category": "Arts Organizations"
+    },
+    {
+      "name": "Sierra Dance Institute",
+      "tier": "google_places",
+      "category": "Arts Organizations"
+    },
+    {
+      "name": "Sierra Fiddle Camp",
+      "tier": "google_places",
+      "category": "Arts Organizations"
+    },
+    {
+      "name": "Tahoe Regional Arts Foundation",
+      "tier": "google_places",
+      "category": "Arts Organizations"
+    },
+    {
+      "name": "Community Legal",
+      "tier": "google_places",
+      "category": "Cultural Resources"
+    },
+    {
+      "name": "Golden Road Radio and Television",
+      "tier": "google_places",
+      "category": "Cultural Resources"
+    },
+    {
+      "name": "Hour Nevada County",
+      "tier": "google_places",
+      "category": "Cultural Resources"
+    },
+    {
+      "name": "KTKE Radio",
+      "tier": "google_places",
+      "category": "Cultural Resources"
+    },
+    {
+      "name": "Nevada City Advocate",
+      "tier": "google_places",
+      "category": "Cultural Resources"
+    },
+    {
+      "name": "Nevada City Rotary Club",
+      "tier": "google_places",
+      "category": "Cultural Resources"
+    },
+    {
+      "name": "Sierra Harvest",
+      "tier": "google_places",
+      "category": "Cultural Resources"
+    },
+    {
+      "name": "South Nevada County Chamber of Commerce",
+      "tier": "google_places",
+      "category": "Cultural Resources"
+    },
+    {
+      "name": "Tahoe Safe Alliance",
+      "tier": "google_places",
+      "category": "Cultural Resources"
+    },
+    {
+      "name": "The Golden Road Radio Hour",
+      "tier": "google_places",
+      "category": "Cultural Resources"
+    },
+    {
+      "name": "4th of July Celebration Fireworks",
+      "tier": "google_places",
+      "category": "Fairs & Festivals"
+    },
+    {
+      "name": "Art Hike",
+      "tier": "google_places",
+      "category": "Fairs & Festivals"
+    },
+    {
+      "name": "Craw Thaw Music Festival",
+      "tier": "google_places",
+      "category": "Fairs & Festivals"
+    },
+    {
+      "name": "Draft Horse Classic",
+      "tier": "google_places",
+      "category": "Fairs & Festivals"
+    },
+    {
+      "name": "Music in the Mountains Sierra Brewfest",
+      "tier": "google_places",
+      "category": "Fairs & Festivals"
+    },
+    {
+      "name": "Ridgestock Music & Sustainability Festival",
+      "tier": "google_places",
+      "category": "Fairs & Festivals"
+    },
+    {
+      "name": "Ellu Gallery",
+      "tier": "google_places",
+      "category": "Galleries & Museums"
+    },
+    {
+      "name": "LeeAnn Brook Gallery",
+      "tier": "google_places",
+      "category": "Galleries & Museums"
+    },
+    {
+      "name": "Mountain Forge",
+      "tier": "google_places",
+      "category": "Galleries & Museums"
+    },
+    {
+      "name": "Sierra Color Studio",
+      "tier": "google_places",
+      "category": "Galleries & Museums"
+    },
+    {
+      "name": "Western SkiSport Museum",
+      "tier": "google_places",
+      "category": "Galleries & Museums"
+    },
+    {
+      "name": "Athena",
+      "tier": "google_places",
+      "category": "Galleries & Museums"
+    },
+    {
+      "name": "Toll Road Stake",
+      "tier": "google_places",
+      "category": "Historic Landmarks"
+    },
+    {
+      "name": "North Star Mine Powerhouse and Nevada County Traction Company",
+      "tier": "google_places",
+      "category": "Historic Landmarks"
+    },
+    {
+      "name": "Old Pacific Fruit Packing Shed",
+      "tier": "google_places",
+      "category": "Historic Landmarks"
+    },
+    {
+      "name": "Dr. W. C. Jones Home Site",
+      "tier": "google_places",
+      "category": "Historic Landmarks"
+    },
+    {
+      "name": "Edward Coleman House",
+      "tier": "google_places",
+      "category": "Historic Landmarks"
+    },
+    {
+      "name": "Gold Quartz Discovery",
+      "tier": "google_places",
+      "category": "Historic Landmarks"
+    },
+    {
+      "name": "Crabtree House",
+      "tier": "google_places",
+      "category": "Historic Landmarks"
+    },
+    {
+      "name": "Glenbrook Basin",
+      "tier": "google_places",
+      "category": "Historic Landmarks"
+    },
+    {
+      "name": "Idaho-Maryland Mine Site",
+      "tier": "google_places",
+      "category": "Historic Landmarks"
+    },
+    {
+      "name": "545 Main Street",
+      "tier": "google_places",
+      "category": "Historic Landmarks"
+    },
+    {
+      "name": "Five-Stamp Mill 1893",
+      "tier": "google_places",
+      "category": "Historic Landmarks"
+    },
+    {
+      "name": "Original Ott Assay Office Site",
+      "tier": "google_places",
+      "category": "Historic Landmarks"
+    },
+    {
+      "name": "Kidd and Knox Building",
+      "tier": "google_places",
+      "category": "Historic Landmarks"
+    },
+    {
+      "name": "Nevada County Traction Company",
+      "tier": "google_places",
+      "category": "Historic Landmarks"
+    },
+    {
+      "name": "William Morris Stewart House",
+      "tier": "google_places",
+      "category": "Historic Landmarks"
+    },
+    {
+      "name": "Charles Marsh House",
+      "tier": "google_places",
+      "category": "Historic Landmarks"
+    },
+    {
+      "name": "Allen Chapman House",
+      "tier": "google_places",
+      "category": "Historic Landmarks"
+    },
+    {
+      "name": "The Red Castle",
+      "tier": "google_places",
+      "category": "Historic Landmarks"
+    },
+    {
+      "name": "Martin Luther Marsh House",
+      "tier": "google_places",
+      "category": "Historic Landmarks"
+    },
+    {
+      "name": "Pine Street Crossing at Nevada City",
+      "tier": "google_places",
+      "category": "Historic Landmarks"
+    },
+    {
+      "name": "North San Juan Fire Department",
+      "tier": "google_places",
+      "category": "Historic Landmarks"
+    },
+    {
+      "name": "Old North San Juan School",
+      "tier": "google_places",
+      "category": "Historic Landmarks"
+    },
+    {
+      "name": "Columbia Hill School",
+      "tier": "google_places",
+      "category": "Historic Landmarks"
+    },
+    {
+      "name": "Foote's Crossing Road",
+      "tier": "google_places",
+      "category": "Historic Landmarks"
+    },
+    {
+      "name": "Lone Grave",
+      "tier": "google_places",
+      "category": "Historic Landmarks"
+    },
+    {
+      "name": "Relief Hill",
+      "tier": "google_places",
+      "category": "Historic Landmarks"
+    },
+    {
+      "name": "Alpha and Omega Hydraulic",
+      "tier": "google_places",
+      "category": "Historic Landmarks"
+    },
+    {
+      "name": "Gaston",
+      "tier": "google_places",
+      "category": "Historic Landmarks"
+    },
+    {
+      "name": "Western America Skisport Museum",
+      "tier": "google_places",
+      "category": "Historic Landmarks"
+    },
+    {
+      "name": "Mt. Elisha Stephens",
+      "tier": "google_places",
+      "category": "Historic Landmarks"
+    },
+    {
+      "name": "Hobart Mills Site",
+      "tier": "google_places",
+      "category": "Historic Landmarks"
+    },
+    {
+      "name": "Hobart Mills Site Second Plaque",
+      "tier": "google_places",
+      "category": "Historic Landmarks"
+    },
+    {
+      "name": "Jibboom Street",
+      "tier": "google_places",
+      "category": "Historic Landmarks"
+    },
+    {
+      "name": "Truckee's First Log Cabin",
+      "tier": "google_places",
+      "category": "Historic Landmarks"
+    },
+    {
+      "name": "Truckee's Vigilance (\"601\") Committee",
+      "tier": "google_places",
+      "category": "Historic Landmarks"
+    },
+    {
+      "name": "Stampede Circle of Stones",
+      "tier": "google_places",
+      "category": "Historic Landmarks"
+    },
+    {
+      "name": "Gold Country Celtic Society",
+      "tier": "google_places",
+      "category": "Preservation & Culture"
+    },
+    {
+      "name": "Ngakmang Foundation",
+      "tier": "google_places",
+      "category": "Preservation & Culture"
+    },
+    {
+      "name": "Truckee Donner Horsemen",
+      "tier": "google_places",
+      "category": "Preservation & Culture"
+    },
+    {
+      "name": "Roundabout by Sierra College",
+      "tier": "google_places",
+      "category": "Public Art"
+    },
+    {
+      "name": "Murals: Grizzly Hills School",
+      "tier": "google_places",
+      "category": "Public Art"
+    },
+    {
+      "name": "\"Life Cycle of the Monarch\" mural project",
+      "tier": "google_places",
+      "category": "Public Art"
+    },
+    {
+      "name": "Iron sculpture -- Ridge Caf\u043d\u00a9 sign",
+      "tier": "google_places",
+      "category": "Public Art"
+    },
+    {
+      "name": "Alan Thiesen Trail",
+      "tier": "google_places",
+      "category": "Walks & Trails"
+    },
+    {
+      "name": "Empire Mine: Osborne-Hill Trails",
+      "tier": "google_places",
+      "category": "Walks & Trails"
+    },
+    {
+      "name": "Fall Colors in Nevada City:self guided tour",
+      "tier": "google_places",
+      "category": "Walks & Trails"
+    },
+    {
+      "name": "Hole in the Ground Trail",
+      "tier": "google_places",
+      "category": "Walks & Trails"
+    },
+    {
+      "name": "Loma Rica Trail",
+      "tier": "google_places",
+      "category": "Walks & Trails"
+    },
+    {
+      "name": "Narrow Gauge Trail",
+      "tier": "google_places",
+      "category": "Walks & Trails"
+    },
+    {
+      "name": "Nevada City Airport Trails",
+      "tier": "google_places",
+      "category": "Walks & Trails"
+    },
+    {
+      "name": "Palisades Creek Trail",
+      "tier": "google_places",
+      "category": "Walks & Trails"
+    }
+  ],
+  "unresolved": [
+    "\"Life Cycle of the Monarch\" mural project",
+    "4th of July Celebration Fireworks",
+    "545 Main Street",
+    "Alan Thiesen Trail",
+    "Allen Chapman House",
+    "Alpha and Omega Hydraulic",
+    "Art Hike",
+    "Athena",
+    "Banner Mountain Artisans",
+    "Center Stage Dance Studio",
+    "Charles Marsh House",
+    "Columbia Hill School",
+    "Community Legal",
+    "Crabtree House",
+    "Craw Thaw Music Festival",
+    "Dr. W. C. Jones Home Site",
+    "Draft Horse Classic",
+    "Edward Coleman House",
+    "Ellu Gallery",
+    "Empire Mine: Osborne-Hill Trails",
+    "Fall Colors in Nevada City:self guided tour",
+    "Five-Stamp Mill 1893",
+    "Foote's Crossing Road",
+    "Gaston",
+    "Glenbrook Basin",
+    "Gold Country Celtic Society",
+    "Gold Quartz Discovery",
+    "Golden Road Radio and Television",
+    "Grass Valley Taiko",
+    "Hobart Mills Site",
+    "Hobart Mills Site Second Plaque",
+    "Hole in the Ground Trail",
+    "Hour Nevada County",
+    "Idaho-Maryland Mine Site",
+    "Iron sculpture -- Ridge Caf\u043d\u00a9 sign",
+    "Jibboom Street",
+    "KTKE Radio",
+    "Kidd and Knox Building",
+    "Lamb\u2019s Victorian Inn",
+    "LeeAnn Brook Gallery",
+    "Loma Rica Trail",
+    "Lone Grave",
+    "Martin Luther Marsh House",
+    "Mountain Forge",
+    "Mt. Elisha Stephens",
+    "Murals: Grizzly Hills School",
+    "Music in the Mountains Sierra Brewfest",
+    "Narrow Gauge Trail",
+    "Nevada City Advocate",
+    "Nevada City Airport Trails",
+    "Nevada City Rotary Club",
+    "Nevada County Traction Company",
+    "Ngakmang Foundation",
+    "North San Juan Fire Department",
+    "North Star Mine Powerhouse and Nevada County Traction Company",
+    "Old North San Juan School",
+    "Old Pacific Fruit Packing Shed",
+    "Original Ott Assay Office Site",
+    "Palisades Creek Trail",
+    "Pine Street Crossing at Nevada City",
+    "Pine Street Porch",
+    "Relief Hill",
+    "Ridgestock Music & Sustainability Festival",
+    "Roundabout by Sierra College",
+    "Sierra Color Studio",
+    "Sierra Dance Institute",
+    "Sierra Fiddle Camp",
+    "Sierra Harvest",
+    "South Nevada County Chamber of Commerce",
+    "Stampede Circle of Stones",
+    "Tahoe Regional Arts Foundation",
+    "Tahoe Safe Alliance",
+    "The Golden Road Radio Hour",
+    "The Red Castle",
+    "Toll Road Stake",
+    "Truckee Donner Horsemen",
+    "Truckee's First Log Cabin",
+    "Truckee's Vigilance (\"601\") Committee",
+    "Western America Skisport Museum",
+    "Western SkiSport Museum",
+    "William Morris Stewart House"
+  ],
+  "unresolved_by_category": {
+    "Eat, Drink & Stay": [
+      "Lamb\u2019s Victorian Inn",
+      "Pine Street Porch"
+    ],
+    "Arts Organizations": [
+      "Banner Mountain Artisans",
+      "Center Stage Dance Studio",
+      "Grass Valley Taiko",
+      "Sierra Dance Institute",
+      "Sierra Fiddle Camp",
+      "Tahoe Regional Arts Foundation"
+    ],
+    "Cultural Resources": [
+      "Community Legal",
+      "Golden Road Radio and Television",
+      "Hour Nevada County",
+      "KTKE Radio",
+      "Nevada City Advocate",
+      "Nevada City Rotary Club",
+      "Sierra Harvest",
+      "South Nevada County Chamber of Commerce",
+      "Tahoe Safe Alliance",
+      "The Golden Road Radio Hour"
+    ],
+    "Fairs & Festivals": [
+      "4th of July Celebration Fireworks",
+      "Art Hike",
+      "Craw Thaw Music Festival",
+      "Draft Horse Classic",
+      "Music in the Mountains Sierra Brewfest",
+      "Ridgestock Music & Sustainability Festival"
+    ],
+    "Galleries & Museums": [
+      "Ellu Gallery",
+      "LeeAnn Brook Gallery",
+      "Mountain Forge",
+      "Sierra Color Studio",
+      "Western SkiSport Museum",
+      "Athena"
+    ],
+    "Historic Landmarks": [
+      "Toll Road Stake",
+      "North Star Mine Powerhouse and Nevada County Traction Company",
+      "Old Pacific Fruit Packing Shed",
+      "Dr. W. C. Jones Home Site",
+      "Edward Coleman House",
+      "Gold Quartz Discovery",
+      "Crabtree House",
+      "Glenbrook Basin",
+      "Idaho-Maryland Mine Site",
+      "545 Main Street",
+      "Five-Stamp Mill 1893",
+      "Original Ott Assay Office Site",
+      "Kidd and Knox Building",
+      "Nevada County Traction Company",
+      "William Morris Stewart House",
+      "Charles Marsh House",
+      "Allen Chapman House",
+      "The Red Castle",
+      "Martin Luther Marsh House",
+      "Pine Street Crossing at Nevada City",
+      "North San Juan Fire Department",
+      "Old North San Juan School",
+      "Columbia Hill School",
+      "Foote's Crossing Road",
+      "Lone Grave",
+      "Relief Hill",
+      "Alpha and Omega Hydraulic",
+      "Gaston",
+      "Western America Skisport Museum",
+      "Mt. Elisha Stephens",
+      "Hobart Mills Site",
+      "Hobart Mills Site Second Plaque",
+      "Jibboom Street",
+      "Truckee's First Log Cabin",
+      "Truckee's Vigilance (\"601\") Committee",
+      "Stampede Circle of Stones"
+    ],
+    "Preservation & Culture": [
+      "Gold Country Celtic Society",
+      "Ngakmang Foundation",
+      "Truckee Donner Horsemen"
+    ],
+    "Public Art": [
+      "Roundabout by Sierra College",
+      "Murals: Grizzly Hills School",
+      "\"Life Cycle of the Monarch\" mural project",
+      "Iron sculpture -- Ridge Caf\u043d\u00a9 sign"
+    ],
+    "Walks & Trails": [
+      "Alan Thiesen Trail",
+      "Empire Mine: Osborne-Hill Trails",
+      "Fall Colors in Nevada City:self guided tour",
+      "Hole in the Ground Trail",
+      "Loma Rica Trail",
+      "Narrow Gauge Trail",
+      "Nevada City Airport Trails",
+      "Palisades Creek Trail"
+    ]
+  }
+}
