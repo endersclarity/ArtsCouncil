@@ -819,6 +819,115 @@ body {
   overflow: hidden;
 }
 
+/* Cursor radius bubble: nearby venues surfaced without tooltip overlap */
+.radius-bubble-layer {
+  position: absolute;
+  inset: 0;
+  z-index: 14;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.18s ease;
+}
+
+.radius-bubble-layer.active {
+  opacity: 1;
+}
+
+.radius-bubble-ring {
+  position: absolute;
+  width: 184px;
+  height: 184px;
+  border-radius: 999px;
+  border: 1.4px solid rgba(74, 107, 124, 0.48);
+  background: radial-gradient(circle, rgba(74, 107, 124, 0.08) 0%, rgba(74, 107, 124, 0.03) 56%, rgba(74, 107, 124, 0) 74%);
+  box-shadow: 0 0 0 1px rgba(244, 239, 231, 0.3) inset;
+}
+
+.radius-bubble-links {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.radius-bubble-link {
+  stroke: rgba(26, 22, 18, 0.22);
+  stroke-width: 1.1;
+  stroke-linecap: round;
+}
+
+.radius-bubble-cards {
+  position: absolute;
+  inset: 0;
+}
+
+.radius-bubble-card {
+  position: absolute;
+  width: 176px;
+  min-height: 48px;
+  padding: 0.42rem 0.54rem;
+  border-radius: 10px;
+  border: 1px solid rgba(26, 22, 18, 0.14);
+  border-left: 4px solid rgba(26, 22, 18, 0.45);
+  background: rgba(244, 239, 231, 0.95);
+  box-shadow: 0 8px 18px rgba(26, 22, 18, 0.14);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.38rem;
+}
+
+.radius-bubble-card-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  margin-top: 0.24rem;
+  flex-shrink: 0;
+}
+
+.radius-bubble-card-text {
+  min-width: 0;
+}
+
+.radius-bubble-card-name {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  line-height: 1.2;
+  font-weight: 700;
+  color: var(--ink);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.radius-bubble-card-meta {
+  display: block;
+  margin-top: 0.1rem;
+  font-family: var(--font-mono);
+  font-size: 0.5rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: rgba(26, 22, 18, 0.56);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.radius-bubble-card.is-open .radius-bubble-card-meta {
+  color: #2f7e4f;
+}
+
+.radius-bubble-card.is-unknown .radius-bubble-card-meta {
+  color: rgba(26, 22, 18, 0.52);
+}
+
+@media (max-width: 900px) {
+  .radius-bubble-layer {
+    display: none;
+  }
+}
+
 /* MapLibre control overrides */
 .maplibregl-ctrl-group {
   background: var(--ink) !important;
@@ -2723,6 +2832,16 @@ body {
   const LABEL_MAX_VISIBLE = 15;
   const LABEL_ALL_THRESHOLD = 10;
   const LABEL_SUBSET_COUNT = 6;
+  const radiusBubbleEnabled = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+  const RADIUS_BUBBLE_RADIUS_PX = 92;
+  const RADIUS_BUBBLE_MAX_RESULTS = 5;
+  const RADIUS_BUBBLE_MIN_ZOOM = 8.4;
+  let radiusBubbleOverlay = null;
+  let radiusBubbleRing = null;
+  let radiusBubbleLinks = null;
+  let radiusBubbleCards = null;
+  let radiusBubblePoint = null;
+  let radiusBubbleRaf = null;
 
   // ============================================================
   // LOAD DATA
@@ -3260,6 +3379,154 @@ body {
     labeledFeatureIds = nextIds;
   }
 
+  function ensureRadiusBubbleOverlay() {
+    if (!radiusBubbleEnabled || radiusBubbleOverlay) return;
+    const mapEl = document.getElementById('map');
+    if (!mapEl) return;
+    radiusBubbleOverlay = document.createElement('div');
+    radiusBubbleOverlay.className = 'radius-bubble-layer';
+    radiusBubbleOverlay.innerHTML = '<div class="radius-bubble-ring"></div><svg class="radius-bubble-links" aria-hidden="true"></svg><div class="radius-bubble-cards" aria-hidden="true"></div>';
+    mapEl.appendChild(radiusBubbleOverlay);
+    radiusBubbleRing = radiusBubbleOverlay.querySelector('.radius-bubble-ring');
+    radiusBubbleLinks = radiusBubbleOverlay.querySelector('.radius-bubble-links');
+    radiusBubbleCards = radiusBubbleOverlay.querySelector('.radius-bubble-cards');
+  }
+
+  function hideRadiusBubble() {
+    radiusBubblePoint = null;
+    if (!radiusBubbleOverlay) return;
+    radiusBubbleOverlay.classList.remove('active');
+    if (radiusBubbleLinks) radiusBubbleLinks.innerHTML = '';
+    if (radiusBubbleCards) radiusBubbleCards.innerHTML = '';
+  }
+
+  function clearAssetHoverPopupState() {
+    if (!map) return;
+    if (hoveredFeatureId !== null && map.getSource('assets')) {
+      try {
+        map.setFeatureState({ source: 'assets', id: hoveredFeatureId }, { hover: false });
+      } catch (e) { /* source/style churn */ }
+      hoveredFeatureId = null;
+    }
+    if (hoverPopup) hoverPopup.remove();
+  }
+
+  function queueRadiusBubbleRender(point) {
+    if (!radiusBubbleEnabled || !map || activeExperience) return;
+    if (!radiusBubbleOverlay) ensureRadiusBubbleOverlay();
+    if (!radiusBubbleOverlay) return;
+    radiusBubblePoint = point ? { x: point.x, y: point.y } : null;
+    if (radiusBubbleRaf) return;
+    radiusBubbleRaf = requestAnimationFrame(renderRadiusBubble);
+  }
+
+  function renderRadiusBubble() {
+    radiusBubbleRaf = null;
+    if (!map || !radiusBubbleOverlay || !radiusBubblePoint || activeExperience || map.getZoom() < RADIUS_BUBBLE_MIN_ZOOM) {
+      hideRadiusBubble();
+      return;
+    }
+    if (mapFiltersExpanded || mapLegendExpanded) {
+      hideRadiusBubble();
+      return;
+    }
+
+    const pt = radiusBubblePoint;
+    const radius = RADIUS_BUBBLE_RADIUS_PX;
+    const bbox = [[pt.x - radius, pt.y - radius], [pt.x + radius, pt.y + radius]];
+    const rendered = map.queryRenderedFeatures(bbox, { layers: ['assets-circle'] }) || [];
+    const unique = [];
+    const seenIds = new Set();
+    rendered.forEach((f) => {
+      if (!f || f.id === undefined || f.id === null || seenIds.has(f.id)) return;
+      seenIds.add(f.id);
+      unique.push(f);
+    });
+
+    const nearby = [];
+    unique.forEach((feature) => {
+      const coords = feature && feature.geometry && feature.geometry.type === 'Point' ? feature.geometry.coordinates : null;
+      if (!coords || coords.length < 2) return;
+      const projected = map.project(coords);
+      const dx = projected.x - pt.x;
+      const dy = projected.y - pt.y;
+      const dist = Math.hypot(dx, dy);
+      if (dist > radius) return;
+      nearby.push({ feature, projected, dist });
+    });
+
+    if (!nearby.length) {
+      hideRadiusBubble();
+      return;
+    }
+
+    nearby.sort((a, b) => {
+      if (openNowMode) {
+        const ah = getHoursRank((a.feature.properties || {}).hours_state);
+        const bh = getHoursRank((b.feature.properties || {}).hours_state);
+        if (ah !== bh) return ah - bh;
+      }
+      return a.dist - b.dist;
+    });
+
+    const picked = nearby.slice(0, RADIUS_BUBBLE_MAX_RESULTS);
+    const mapCanvasRect = map.getCanvas().getBoundingClientRect();
+    const mapW = mapCanvasRect.width;
+    const mapH = mapCanvasRect.height;
+    const cardW = 176;
+    const cardH = 52;
+    clearAssetHoverPopupState();
+
+    radiusBubbleOverlay.classList.add('active');
+    if (radiusBubbleRing) {
+      radiusBubbleRing.style.width = `${radius * 2}px`;
+      radiusBubbleRing.style.height = `${radius * 2}px`;
+      radiusBubbleRing.style.transform = `translate(${Math.round(pt.x - radius)}px, ${Math.round(pt.y - radius)}px)`;
+    }
+
+    const anglePresets = {
+      1: [-40],
+      2: [-62, 34],
+      3: [-84, -14, 56],
+      4: [-102, -44, 14, 72],
+      5: [-118, -68, -18, 30, 80]
+    };
+    const angles = anglePresets[picked.length] || anglePresets[5];
+
+    let linksHTML = '';
+    let cardsHTML = '';
+
+    picked.forEach((item, idx) => {
+      const props = item.feature.properties || {};
+      const cfg = CATS[props.layer] || { color: '#7a7a7a', short: props.layer || 'Venue' };
+      const angleDeg = angles[idx % angles.length];
+      const angleRad = (Math.PI / 180) * angleDeg;
+      const orbit = radius + 48 + ((idx % 2) * 8);
+      const targetX = pt.x + (Math.cos(angleRad) * orbit);
+      const targetY = pt.y + (Math.sin(angleRad) * orbit);
+      const left = Math.max(8, Math.min(mapW - cardW - 8, targetX - (cardW / 2)));
+      const top = Math.max(8, Math.min(mapH - cardH - 8, targetY - (cardH / 2)));
+      const centerX = left + (cardW / 2);
+      const centerY = top + (cardH / 2);
+
+      const markerX = item.projected.x;
+      const markerY = item.projected.y;
+      const lineEndX = markerX < left ? left : (markerX > left + cardW ? left + cardW : centerX);
+      const lineEndY = markerY < top ? top : (markerY > top + cardH ? top + cardH : centerY);
+      linksHTML += `<line class="radius-bubble-link" x1="${markerX.toFixed(1)}" y1="${markerY.toFixed(1)}" x2="${lineEndX.toFixed(1)}" y2="${lineEndY.toFixed(1)}" />`;
+
+      const hoursState = props.hours_state || 'unknown';
+      const hoursText = getHoursLabel(hoursState);
+      const stateClass = hoursState === 'open' ? 'is-open' : (hoursState === 'unknown' ? 'is-unknown' : 'is-closed');
+      const safeName = escapeHTML(props.name || 'Unknown venue');
+      const safeMeta = `${escapeHTML(cfg.short || props.layer || 'Venue')} • ${escapeHTML(hoursText)}`;
+      cardsHTML += `<div class="radius-bubble-card ${stateClass}" style="left:${left.toFixed(1)}px;top:${top.toFixed(1)}px;border-left-color:${cfg.color};"><span class="radius-bubble-card-dot" style="background:${cfg.color};"></span><div class="radius-bubble-card-text"><span class="radius-bubble-card-name">${safeName}</span><span class="radius-bubble-card-meta">${safeMeta}</span></div></div>`;
+    });
+
+    if (radiusBubbleLinks) radiusBubbleLinks.innerHTML = linksHTML;
+    if (radiusBubbleCards) radiusBubbleCards.innerHTML = cardsHTML;
+  }
+
   function markMapInteracted() {
     hasUserInteractedWithMap = true;
     stopIdlePreview();
@@ -3370,11 +3637,34 @@ body {
       }
     });
 
+    ensureRadiusBubbleOverlay();
+    map.on('mousemove', (e) => {
+      queueRadiusBubbleRender(e.point);
+    });
+    map.on('move', () => {
+      if (!radiusBubblePoint) return;
+      queueRadiusBubbleRender(radiusBubblePoint);
+    });
+    map.on('click', hideRadiusBubble);
+
+    const canvasContainer = map.getCanvasContainer();
+    if (canvasContainer) {
+      canvasContainer.addEventListener('mouseleave', hideRadiusBubble);
+      canvasContainer.addEventListener('mouseenter', () => {
+        if (!radiusBubblePoint) return;
+        queueRadiusBubbleRender(radiusBubblePoint);
+      });
+    }
+
     // Hover interaction
     map.on('mousemove', 'assets-circle', (e) => {
       markMapInteracted();
       map.getCanvas().style.cursor = 'pointer';
       if (e.features.length === 0) return;
+      if (radiusBubbleOverlay && radiusBubbleOverlay.classList.contains('active')) {
+        clearAssetHoverPopupState();
+        return;
+      }
       const f = e.features[0];
 
       // Clear previous hover
@@ -3404,6 +3694,7 @@ body {
     const isMobileClick = window.matchMedia('(max-width: 900px)').matches;
     map.on('click', 'assets-circle', (e) => {
       markMapInteracted();
+      hideRadiusBubble();
       if (e.features.length === 0) return;
       const f = e.features[0];
       const d = DATA.find(item => item.n === f.properties.name);
@@ -3461,16 +3752,16 @@ body {
       }
     });
 
-    map.on('dragstart', markMapInteracted);
-    map.on('zoomstart', markMapInteracted);
-    map.on('rotatestart', markMapInteracted);
-    map.on('pitchstart', markMapInteracted);
+    map.on('dragstart', () => { hideRadiusBubble(); markMapInteracted(); });
+    map.on('zoomstart', () => { hideRadiusBubble(); markMapInteracted(); });
+    map.on('rotatestart', () => { hideRadiusBubble(); markMapInteracted(); });
+    map.on('pitchstart', () => { hideRadiusBubble(); markMapInteracted(); });
     map.on('moveend', updateMapProgressiveLabels);
     map.on('zoomend', updateMapProgressiveLabels);
     map.on('idle', updateMapProgressiveLabels);
-    map.getCanvas().addEventListener('wheel', markMapInteracted, { passive: true });
-    map.getCanvas().addEventListener('mousedown', markMapInteracted);
-    map.getCanvas().addEventListener('touchstart', markMapInteracted, { passive: true });
+    map.getCanvas().addEventListener('wheel', () => { hideRadiusBubble(); markMapInteracted(); }, { passive: true });
+    map.getCanvas().addEventListener('mousedown', () => { hideRadiusBubble(); markMapInteracted(); });
+    map.getCanvas().addEventListener('touchstart', () => { hideRadiusBubble(); markMapInteracted(); }, { passive: true });
 
     // Apply initial filter if any
     updateMapFilters();
@@ -3534,6 +3825,7 @@ body {
   function updateMapFilters(options = {}) {
     const { recenter = false } = options;
     if (!map.getLayer('assets-circle')) return;
+    hideRadiusBubble();
     const openNowExpr = ['!=', ['get', 'hours_state'], 'closed'];
 
     if (activeCategories.size > 0) {
@@ -3574,6 +3866,7 @@ body {
   // ============================================================
   function activateExperience(experience) {
     activeExperience = experience;
+    hideRadiusBubble();
     clearMapLabelStates();
     const guidesSection = document.getElementById('mapGuides');
     const corridorSection = document.getElementById('corridorAddon');
@@ -3899,6 +4192,7 @@ body {
 
   function deactivateExperience() {
     activeExperience = null;
+    hideRadiusBubble();
     currentResolvedStops = [];
     cancelTour();
 
@@ -4198,6 +4492,7 @@ body {
 
   function setMapFiltersExpanded(expanded) {
     mapFiltersExpanded = !!expanded;
+    if (mapFiltersExpanded) hideRadiusBubble();
     const overlay = document.querySelector('.map-overlay-controls');
     const toggle = document.getElementById('mapFilterToggle');
     if (overlay) overlay.classList.toggle('expanded', mapFiltersExpanded);
@@ -4206,6 +4501,7 @@ body {
 
   function setMapLegendExpanded(expanded) {
     mapLegendExpanded = !!expanded;
+    if (mapLegendExpanded) hideRadiusBubble();
     const overlay = document.querySelector('.map-overlay-controls');
     const toggle = document.getElementById('mapLegendToggle');
     if (overlay) overlay.classList.toggle('legend-expanded', mapLegendExpanded);
