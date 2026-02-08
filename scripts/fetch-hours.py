@@ -19,6 +19,7 @@ import os
 import sys
 import time
 import random
+import argparse
 from pathlib import Path
 from typing import Optional, Dict, List, Any
 
@@ -44,6 +45,7 @@ MAX_JITTER_MS = 50   # Maximum random jitter (0-50ms)
 INITIAL_BACKOFF_MS = 100  # Start backoff at 100ms
 MAX_BACKOFF_S = 5.0  # Maximum backoff delay
 MAX_RETRIES = 5      # Maximum retry attempts for 429 errors
+DEFAULT_SAVE_EVERY = 25  # Persist progress after this many processed venues
 
 
 def find_place_id(name: str, address: Optional[str], city: str) -> Optional[str]:
@@ -91,6 +93,11 @@ def find_place_id(name: str, address: Optional[str], city: str) -> Optional[str]
 
         return None
 
+    except requests.exceptions.HTTPError as e:
+        if e.response is not None and e.response.status_code == 429:
+            raise
+        print(f"  Error searching for Place ID: {e}")
+        return None
     except requests.exceptions.RequestException as e:
         print(f"  Error searching for Place ID: {e}")
         return None
@@ -131,6 +138,11 @@ def fetch_hours(place_id: str) -> Optional[List[str]]:
 
         return None
 
+    except requests.exceptions.HTTPError as e:
+        if e.response is not None and e.response.status_code == 429:
+            raise
+        print(f"  Error fetching hours: {e}")
+        return None
     except requests.exceptions.RequestException as e:
         print(f"  Error fetching hours: {e}")
         return None
@@ -176,7 +188,25 @@ def process_venue(venue: Dict[str, Any]) -> Dict[str, Any]:
     return venue
 
 
-def process_venues_with_backoff(venues: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+def is_processed(venue: Dict[str, Any]) -> bool:
+    """Return True if venue already has output fields from a prior run."""
+    return "pid" in venue and "h" in venue
+
+
+def write_data_file(venues: List[Dict[str, Any]], output_path: Path, label: str) -> None:
+    """Write venues JSON to disk using compact formatting."""
+    with open(output_path, "w", encoding="utf-8") as f:
+        json.dump(venues, f, ensure_ascii=False, separators=(',', ':'))
+    print(f"[OK] Checkpoint ({label}) written to: {output_path}")
+
+
+def process_venues_with_backoff(
+    venues: List[Dict[str, Any]],
+    *,
+    resume: bool,
+    save_every: int,
+    output_path: Path
+) -> List[Dict[str, Any]]:
     """
     Process all venues with rate limiting and retry logic.
 
@@ -186,29 +216,53 @@ def process_venues_with_backoff(venues: List[Dict[str, Any]]) -> List[Dict[str, 
     Returns:
         List of updated venue objects with hours data
     """
-    results = []
     total = len(venues)
+    skipped = 0
+    processed_this_run = 0
+    preprocessed = sum(1 for venue in venues if is_processed(venue))
 
     print(f"\nProcessing {total} venues...")
     print(f"Rate limiting: {BASE_DELAY_MS}ms base delay + {MAX_JITTER_MS}ms jitter")
-    print(f"Retries: {MAX_RETRIES} attempts with exponential backoff\n")
+    print(f"Retries: {MAX_RETRIES} attempts with exponential backoff")
+    if resume:
+        print(f"Resume mode: enabled ({preprocessed} already processed)")
+    else:
+        print("Resume mode: disabled (force reprocessing all venues)")
+    print()
 
     for i, venue in enumerate(venues, 1):
+        if resume and is_processed(venue):
+            skipped += 1
+            if i % 50 == 0:
+                print(
+                    f"\n--- Progress: {i}/{total} inspected "
+                    f"({i/total*100:.1f}%), skipped={skipped}, processed_this_run={processed_this_run} ---\n"
+                )
+            continue
+
         name = venue.get("n", "Unknown")
-        print(f"[{i}/{total}] {name}")
+        try:
+            print(f"[{i}/{total}] {name}")
+        except UnicodeEncodeError:
+            print(f"[{i}/{total}] {name.encode('ascii', 'replace').decode()}")
 
         retries = 0
         backoff = INITIAL_BACKOFF_MS / 1000.0  # Convert to seconds
+        venue_updated = False
 
         while retries < MAX_RETRIES:
             try:
                 # Process venue
                 result = process_venue(venue)
-                results.append(result)
+                venues[i - 1] = result
+                venue_updated = True
 
                 # Log progress every 50 venues
                 if i % 50 == 0:
-                    print(f"\n--- Progress: {i}/{total} venues processed ({i/total*100:.1f}%) ---\n")
+                    print(
+                        f"\n--- Progress: {i}/{total} inspected "
+                        f"({i/total*100:.1f}%), skipped={skipped}, processed_this_run={processed_this_run + 1} ---\n"
+                    )
 
                 # Rate limiting: base delay + jitter
                 jitter = random.uniform(0, MAX_JITTER_MS / 1000.0)
@@ -218,7 +272,7 @@ def process_venues_with_backoff(venues: List[Dict[str, Any]]) -> List[Dict[str, 
                 break  # Success, move to next venue
 
             except requests.exceptions.HTTPError as e:
-                if e.response.status_code == 429:
+                if e.response is not None and e.response.status_code == 429:
                     # Rate limit error - retry with exponential backoff
                     retries += 1
                     print(f"  [!] Rate limited (429). Retry {retries}/{MAX_RETRIES} after {backoff:.2f}s")
@@ -226,10 +280,12 @@ def process_venues_with_backoff(venues: List[Dict[str, Any]]) -> List[Dict[str, 
                     backoff = min(backoff * 2, MAX_BACKOFF_S)
                 else:
                     # Non-rate-limit error - log and skip
-                    print(f"  [X] HTTP error {e.response.status_code}: {e}")
+                    status = e.response.status_code if e.response is not None else "unknown"
+                    print(f"  [X] HTTP error {status}: {e}")
                     venue["pid"] = None
                     venue["h"] = None
-                    results.append(venue)
+                    venues[i - 1] = venue
+                    venue_updated = True
                     break
 
             except Exception as e:
@@ -237,7 +293,8 @@ def process_venues_with_backoff(venues: List[Dict[str, Any]]) -> List[Dict[str, 
                 print(f"  [X] Unexpected error: {e}")
                 venue["pid"] = None
                 venue["h"] = None
-                results.append(venue)
+                venues[i - 1] = venue
+                venue_updated = True
                 break
 
         if retries >= MAX_RETRIES:
@@ -245,10 +302,37 @@ def process_venues_with_backoff(venues: List[Dict[str, Any]]) -> List[Dict[str, 
             print(f"  [X] Max retries exceeded, skipping")
             venue["pid"] = None
             venue["h"] = None
-            results.append(venue)
+            venues[i - 1] = venue
+            venue_updated = True
 
-    print(f"\n[OK] Completed processing {total} venues\n")
-    return results
+        if venue_updated:
+            processed_this_run += 1
+            if save_every > 0 and processed_this_run % save_every == 0:
+                write_data_file(venues, output_path, f"{processed_this_run} processed this run")
+
+    print(
+        f"\n[OK] Completed inspection of {total} venues "
+        f"(skipped={skipped}, processed_this_run={processed_this_run})\n"
+    )
+    return venues
+
+
+def parse_args() -> argparse.Namespace:
+    """Parse command-line arguments."""
+    parser = argparse.ArgumentParser(description="Fetch Google Places hours for cultural venues.")
+    parser.add_argument("--test-api", action="store_true", help="Validate API key and exit")
+    parser.add_argument(
+        "--force",
+        action="store_true",
+        help="Reprocess all venues (ignore existing pid/h fields)",
+    )
+    parser.add_argument(
+        "--save-every",
+        type=int,
+        default=DEFAULT_SAVE_EVERY,
+        help=f"Write checkpoint every N processed venues (default: {DEFAULT_SAVE_EVERY}, 0 disables)",
+    )
+    return parser.parse_args()
 
 
 def test_api_key() -> bool:
@@ -277,9 +361,10 @@ def test_api_key() -> bool:
 
 def main():
     """Main execution function."""
+    args = parse_args()
 
     # Handle --test-api flag
-    if len(sys.argv) > 1 and sys.argv[1] == "--test-api":
+    if args.test_api:
         success = test_api_key()
         sys.exit(0 if success else 1)
 
@@ -309,7 +394,12 @@ def main():
     print(f"[OK] Loaded {len(venues)} venues\n")
 
     # Process venues with rate limiting
-    updated_venues = process_venues_with_backoff(venues)
+    updated_venues = process_venues_with_backoff(
+        venues,
+        resume=not args.force,
+        save_every=max(args.save_every, 0),
+        output_path=DATA_FILE,
+    )
 
     # Count results
     with_hours = sum(1 for v in updated_venues if v.get("h") is not None)
@@ -322,11 +412,10 @@ def main():
     print(f"  Without hours: {len(updated_venues) - with_hours}")
 
     # Write updated data back to data.json
-    print(f"\nWriting updated data to: {DATA_FILE}")
+    print(f"\nWriting final updated data to: {DATA_FILE}")
 
     try:
-        with open(DATA_FILE, "w", encoding="utf-8") as f:
-            json.dump(updated_venues, f, ensure_ascii=False, separators=(',', ':'))
+        write_data_file(updated_venues, DATA_FILE, "final")
         print("[OK] Data file updated successfully\n")
     except Exception as e:
         print(f"\n[X] Error writing data file: {e}")

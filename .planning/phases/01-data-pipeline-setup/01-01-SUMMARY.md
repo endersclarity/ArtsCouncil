@@ -106,6 +106,21 @@ User completed Google Places API configuration:
 - Hours data quality needs validation with sample Nevada County venues
 - Cost estimate ($50/year) should be verified after full run
 
+## 2026-02-08 Verification Addendum (Superpowers Recovery)
+
+- Verified `fetch-hours.py` supports safe resumption:
+  - default run skips venues already containing both `pid` and `h`
+  - `--force` enables intentional full reprocessing
+  - checkpoint writes occur during execution (`--save-every`, default `25`)
+- Baseline dataset captured at:
+  - `docs/plans/artifacts/2026-02-08-hours-baseline.txt`
+  - snapshot counts: `total=685`, `with_pid=652`, `with_hours=401`, `without_hours=284`
+- Added regression tests for resumability:
+  - `tests/test_fetch_hours_resume.py` (3 passing tests via `unittest`)
+- Added operator recovery runbook:
+  - `docs/plans/artifacts/2026-02-08-fetch-hours-runbook.md`
+  - includes canonical interpreter path and interruption/restart procedure
+
 ---
 *Phase: 01-data-pipeline-setup*
 *Completed: 2026-02-08*
