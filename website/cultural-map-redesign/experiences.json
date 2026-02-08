@@ -293,5 +293,400 @@
         "note": "Truckee's independent bookstore and performance space. Author readings, book clubs, and community gatherings. Proof that the literary spirit crosses the Donner Pass."
       }
     ]
+  },
+  {
+    "slug": "victorian-downtown-heritage",
+    "type": "experience",
+    "title": "Victorian Downtown Heritage",
+    "subtitle": "Gold Rush Architecture & Historic Districts",
+    "description": "Walk through the grand Victorian era of Grass Valley and Nevada City. From opulent mansions to historic hotels, each building tells the story of Gold Rush wealth reinvested in community.",
+    "color": "#8B4049",
+    "theme": {
+      "basemap": "terrain",
+      "accent": "#2a8c8c",
+      "accentSecondary": "#b85c38",
+      "accentTertiary": "#7a9e7e",
+      "background": "#f2ece4",
+      "text": "#2c2c2c",
+      "dimmedMarker": "#c5bdb0",
+      "routeColor": "#8B4049"
+    },
+    "stops": [
+      {
+        "asset": "A Victorian Rose",
+        "order": 1,
+        "note": "An 1891 Victorian mansion, meticulously restored. Built during the height of Gold Rush prosperity, this Queen Anne home embodies the optimism of a boom town.",
+        "connector": "A few blocks away, another Victorian treasure welcomes travelers..."
+      },
+      {
+        "asset": "Lamb's Victorian Inn",
+        "order": 2,
+        "note": "A Victorian-era guest inn at 304 Church Street. The kind of place where you half-expect to see horse-drawn carriages out front.",
+        "connector": "Downtown, a hotel has been welcoming visitors since 1851..."
+      },
+      {
+        "asset": "The Holbrooke Hotel",
+        "order": 3,
+        "note": "The oldest continuously operating hotel in California's Mother Lode. Mark Twain, Ulysses S. Grant, and four U.S. presidents have stayed here.",
+        "connector": "Across the county, Nevada City's own historic hotel stands..."
+      },
+      {
+        "asset": "National Exchange Hotel",
+        "order": 4,
+        "note": "Built in 1856 at 211 Broad Street. Nevada City's answer to The Holbrooke — still serving travelers after 170 years.",
+        "connector": "The preservation of these stories is no accident..."
+      },
+      {
+        "asset": "Searls Historical Library",
+        "order": 5,
+        "note": "Nevada County Historical Society's archives. Over 160,000 photographs, documents, and artifacts preserving the region's Victorian heritage.",
+        "connector": "That preservation spirit lives on in community spaces..."
+      },
+      {
+        "asset": "Center for the Arts",
+        "order": 6,
+        "note": "Grass Valley's cultural hub at 314 West Main. A historic building transformed into gallery and performance space — Victorian bones, contemporary purpose.",
+        "connector": "Nevada City's oldest public building tells a different story..."
+      },
+      {
+        "asset": "Firehouse No.1",
+        "order": 7,
+        "note": "Built in 1861 to protect the town's wooden Victorian buildings from fire. Now houses a museum of Donner Party artifacts and local history.",
+        "connector": "The best way to see it all is on foot..."
+      },
+      {
+        "asset": "Walking Tour of Historic Grass Valley: self guided and guided",
+        "order": 8,
+        "note": "Self-guided or docent-led tours through Grass Valley's Victorian district. Every block holds another architectural gem.",
+        "connector": "Nevada City offers its own perspective..."
+      },
+      {
+        "asset": "Walking Tour of Nevada City Trees",
+        "order": 9,
+        "note": "A walking tour that traces Nevada City's historic trees — many planted during the Victorian era, now towering witnesses to 150 years of history.",
+        "connector": "Even the shops reflect the era..."
+      },
+      {
+        "asset": "Nevada City Picture Framing",
+        "order": 10,
+        "note": "Located in Nevada City's historic Searls Avenue district. A small business in a Victorian storefront — commerce and preservation in harmony."
+      }
+    ]
+  },
+  {
+    "slug": "foothills-flavor-trail",
+    "type": "experience",
+    "title": "Foothills Flavor Trail",
+    "subtitle": "Wine Country & Farm-to-Table Dining",
+    "description": "Savor the Sierra foothills' culinary renaissance. Visit award-winning wineries, taste boutique vintages, and dine at restaurants showcasing local ingredients and old-world craftsmanship.",
+    "color": "#D4A542",
+    "theme": {
+      "basemap": "terrain",
+      "accent": "#2a8c8c",
+      "accentSecondary": "#b85c38",
+      "accentTertiary": "#7a9e7e",
+      "background": "#f2ece4",
+      "text": "#2c2c2c",
+      "dimmedMarker": "#c5bdb0",
+      "routeColor": "#D4A542"
+    },
+    "stops": [
+      {
+        "asset": "Lucchesi Vineyards Winery",
+        "order": 1,
+        "note": "Estate winery at 19698 View Forever Lane. Family-owned since 2001, producing Italian-style reds from Sierra foothill grapes.",
+        "connector": "Their downtown tasting room brings the vineyard to Main Street..."
+      },
+      {
+        "asset": "Lucchesi Vineyards Tasting Room",
+        "order": 2,
+        "note": "Downtown Grass Valley tasting room at 128 Mill Street. Taste the estate wines without driving to the vineyard.",
+        "connector": "Across town, another estate winery beckons..."
+      },
+      {
+        "asset": "Sierra Starr Vineyard & Winery (Winery)",
+        "order": 3,
+        "note": "Estate winery at 11179 Gibson Drive. Small-batch vintages from hillside vineyards at 2,600 feet elevation.",
+        "connector": "They also have a downtown outpost..."
+      },
+      {
+        "asset": "Sierra Starr Vineyard & Winery (Store)",
+        "order": 4,
+        "note": "Downtown tasting room at 124 West Main. Sierra Starr's wines in the heart of historic Grass Valley.",
+        "connector": "Further into the hills, a boutique producer awaits..."
+      },
+      {
+        "asset": "Sierra Knolls Winery",
+        "order": 5,
+        "note": "Boutique winery at 10024 Linnet Lane. Intimate tastings, small production, hillside vineyards.",
+        "connector": "Nevada City has its own wine scene..."
+      },
+      {
+        "asset": "Nevada City Winery",
+        "order": 6,
+        "note": "Downtown winery at 321 Spring Street. Nevada City's answer to Napa — minus the traffic, plus the Gold Rush charm.",
+        "connector": "For something truly unique, head to the hills..."
+      },
+      {
+        "asset": "Avanguardia Winery",
+        "order": 7,
+        "note": "Ultra-boutique non-traditional blends at 13028 Jones Bar Road. Experimental winemaking in a historic barn. Small batches, big ideas.",
+        "connector": "They opened a downtown tasting room for easier access..."
+      },
+      {
+        "asset": "Avanguardia Winery",
+        "order": 8,
+        "note": "Downtown Grass Valley tasting room at 163 Mill Street. Taste the experimental vintages without the drive into the backcountry.",
+        "connector": "After the wine, the food..."
+      },
+      {
+        "asset": "California Organics Restaurant & Gallery",
+        "order": 9,
+        "note": "Farm-to-table dining at 135 Argall Way, Nevada City. Local ingredients, seasonal menus, and art on the walls. The foothills food philosophy in one room.",
+        "connector": "Grass Valley's culinary flagship..."
+      },
+      {
+        "asset": "Watershed Restaurant",
+        "order": 10,
+        "note": "Upscale dining at 134 Mill Street. The kind of meal that makes you forget you're in a Gold Rush town — then reminds you why that history matters."
+      }
+    ]
+  },
+  {
+    "slug": "gallery-studio-loop",
+    "type": "experience",
+    "title": "Gallery & Studio Loop",
+    "subtitle": "Artist Studios & Creative Cooperatives",
+    "description": "Discover Nevada County's thriving independent art scene. Visit working studios, artist-run galleries, and creative cooperatives where painters, printmakers, and sculptors create and exhibit side by side.",
+    "color": "#4B0082",
+    "theme": {
+      "basemap": "terrain",
+      "accent": "#2a8c8c",
+      "accentSecondary": "#b85c38",
+      "accentTertiary": "#7a9e7e",
+      "background": "#f2ece4",
+      "text": "#2c2c2c",
+      "dimmedMarker": "#c5bdb0",
+      "routeColor": "#4B0082"
+    },
+    "stops": [
+      {
+        "asset": "Art Works Gallery Co-op",
+        "order": 1,
+        "note": "Artist cooperative at 113 Mill Street. Twenty-plus working artists sharing space, exhibiting together, and running the gallery themselves.",
+        "connector": "Nearby, the community's anchor arts venue..."
+      },
+      {
+        "asset": "Center for the Arts Gallery",
+        "order": 2,
+        "note": "Gallery at the Center for the Arts, 314 West Main. Rotating exhibits, open studios, and the hub of the annual Fall Colors Open Studio Tour each October.",
+        "connector": "Out Idaho Maryland Road, a collective of studios..."
+      },
+      {
+        "asset": "Artists Studio in the Foothills (ASIF)",
+        "order": 3,
+        "note": "Artist studios collective at 940 Idaho Maryland Road. Working artists in shared space — watch them create, see works in progress.",
+        "connector": "Further up the road, art meets nature..."
+      },
+      {
+        "asset": "BriarPatch Art Gallery and Amphitheater",
+        "order": 4,
+        "note": "Gallery with outdoor amphitheater at 290 Sierra College Drive. Art indoors, performances under the pines.",
+        "connector": "Back toward town, a contemporary gallery..."
+      },
+      {
+        "asset": "Ellu Gallery",
+        "order": 5,
+        "note": "Contemporary art gallery at 342 Idaho Maryland Road. Clean lines, modern works, Sierra light through big windows.",
+        "connector": "A working artist's home and studio..."
+      },
+      {
+        "asset": "Swan Levine House & Printmaking Studio",
+        "order": 6,
+        "note": "Artist studio and home at 328 South Church Street. A printmaking studio where the artist lives and works — art and life inseparable.",
+        "connector": "Another working studio south of town..."
+      },
+      {
+        "asset": "The Artist Workshop",
+        "order": 7,
+        "note": "Artist workspace at 760 South Auburn Street. A place where making happens — paint, clay, wood, metal.",
+        "connector": "In Nevada City, the historic foundry turned arts hub..."
+      },
+      {
+        "asset": "Miners Foundry Cultural Center",
+        "order": 8,
+        "note": "Historic foundry turned cultural center at 325 Spring Street. Where they once forged Pelton wheels, artists now forge community.",
+        "connector": "Across the street, a fine arts gallery..."
+      },
+      {
+        "asset": "The Camelot Gallery",
+        "order": 9,
+        "note": "Fine arts gallery at 225 Broad Street. Paintings, sculpture, and works that reflect the beauty of the Sierra foothills.",
+        "connector": "Further up Broad Street, contemporary voices..."
+      },
+      {
+        "asset": "EJ Gallery",
+        "order": 10,
+        "note": "Contemporary gallery at 408 Broad Street. Emerging artists, established names, and everything in between."
+      }
+    ]
+  },
+  {
+    "slug": "nature-trails-explorer",
+    "type": "experience",
+    "title": "Nature & Trails Explorer",
+    "subtitle": "State Parks & Wilderness Trails",
+    "description": "Immerse yourself in pristine Sierra wilderness. From mountain passes to river valleys, explore state parks, historic trails, and scenic overlooks showcasing Nevada County's natural heritage.",
+    "color": "#2E7D4E",
+    "theme": {
+      "basemap": "terrain",
+      "accent": "#2a8c8c",
+      "accentSecondary": "#b85c38",
+      "accentTertiary": "#7a9e7e",
+      "background": "#f2ece4",
+      "text": "#2c2c2c",
+      "dimmedMarker": "#c5bdb0",
+      "routeColor": "#2E7D4E"
+    },
+    "stops": [
+      {
+        "asset": "Donner Memorial State Park",
+        "order": 1,
+        "note": "Historic park with trails at 12593 Donner Pass Road. Walk where the Donner Party camped through the winter of 1846-47. The 22-foot monument marks the snow depth.",
+        "connector": "South into the Ridge, hydraulic mining carved away mountains..."
+      },
+      {
+        "asset": "Malakoff Diggins State Historic Park",
+        "order": 2,
+        "note": "The world's largest hydraulic mining pit at 23579 North Bloomfield Road. Trails wind through rainbow-colored cliffs — beauty born from destruction.",
+        "connector": "Near Grass Valley, another kind of mine..."
+      },
+      {
+        "asset": "Empire Mine State Historic Park",
+        "order": 3,
+        "note": "Historic gold mine with hiking trails at 10791 East Empire Street. 367 miles of tunnels below, miles of Sierra trails above.",
+        "connector": "Along the Yuba River, a different preserve..."
+      },
+      {
+        "asset": "South Yuba River State Park",
+        "order": 4,
+        "note": "River park with trails at 17660 Pleasant Valley Road. Swimming holes, covered bridges, and trails along the Wild and Scenic South Yuba River.",
+        "connector": "In Truckee, the river flows a different direction..."
+      },
+      {
+        "asset": "Truckee River Regional Park",
+        "order": 5,
+        "note": "Regional park with trails at 10050 Brockway Road. The Truckee River flows east from here — to Pyramid Lake, not the Pacific.",
+        "connector": "The most accessible trail in the county..."
+      },
+      {
+        "asset": "The Independence Trail",
+        "order": 6,
+        "note": "Fully accessible paved trail at 20349 Highway 49. Following an 1850s mining canal, it's one of the most beautiful wheelchair-accessible trails in California.",
+        "connector": "Higher in the mountains, a lake and trails..."
+      },
+      {
+        "asset": "Scotts Flat Lake and Trails",
+        "order": 7,
+        "note": "Lake with recreational trails at 23333 Scotts Flat Road. Swimming, fishing, camping, and trails through pine forest at 3,100 feet elevation.",
+        "connector": "For something more contemplative, gardens await..."
+      },
+      {
+        "asset": "Ananda Village: Crystal Hermitage Gardens",
+        "order": 8,
+        "note": "Botanical gardens with trails at 14618 Tyler Foote Road. Meditation gardens, walking paths, and Sierra foothill native plants.",
+        "connector": "Back in Nevada City, a downtown park..."
+      },
+      {
+        "asset": "Pioneer Park",
+        "order": 9,
+        "note": "Downtown park with trails at 421 Nimrod Street. Where the townsfolk gather — picnics, concerts, and easy walking trails in the heart of town.",
+        "connector": "Grass Valley's own urban trail system..."
+      },
+      {
+        "asset": "Condon Park Trails",
+        "order": 10,
+        "note": "Urban trails system at 660 Minnie Street. Miles of trails winding through Grass Valley neighborhoods — wilderness without leaving town."
+      }
+    ]
+  },
+  {
+    "slug": "family-fun-day",
+    "type": "experience",
+    "title": "Family Fun Day",
+    "subtitle": "Museums, Parks & Kid-Friendly Adventures",
+    "description": "Perfect for adventurers of all ages. Explore hands-on museums, historic trains, scenic parks, and family dining. Create memories together while discovering Nevada County's heritage and natural wonders.",
+    "color": "#FF8C42",
+    "theme": {
+      "basemap": "terrain",
+      "accent": "#2a8c8c",
+      "accentSecondary": "#b85c38",
+      "accentTertiary": "#7a9e7e",
+      "background": "#f2ece4",
+      "text": "#2c2c2c",
+      "dimmedMarker": "#c5bdb0",
+      "routeColor": "#FF8C42"
+    },
+    "stops": [
+      {
+        "asset": "Emigrant Trail Museum",
+        "order": 1,
+        "note": "Inside Donner Memorial State Park at 12953 Donner Pass Road. Interactive exhibits on the Donner Party and pioneer emigration. Kids love the artifacts.",
+        "connector": "In Grass Valley, the world's largest Pelton wheel..."
+      },
+      {
+        "asset": "North Star Power House & Pelton Wheel Museum",
+        "order": 2,
+        "note": "Historic hydroelectric equipment at 933 Allison Ranch Road. The 30-foot Pelton wheel still turns — engineering marvel meets hands-on history.",
+        "connector": "Trains fascinate kids of all ages..."
+      },
+      {
+        "asset": "Narrow Gauge Railroad Museum",
+        "order": 3,
+        "note": "Historic railroad artifacts at 5 Kidder Court, Nevada City. Model trains, historic equipment, and the story of the narrow gauge that connected these mountains to the world.",
+        "connector": "In Truckee, more railroad history awaits..."
+      },
+      {
+        "asset": "Old Jail Museum",
+        "order": 4,
+        "note": "Historic jail with interactive exhibits at 10142 Jibboom Street, Truckee. Kids can see what frontier justice looked like — and be glad those days are gone.",
+        "connector": "Next door, model railroads in action..."
+      },
+      {
+        "asset": "Truckee Railroad Museum",
+        "order": 5,
+        "note": "Model railroads and exhibits at 10075 Donner Pass Road. Working model trains winding through miniature Sierra landscapes.",
+        "connector": "Back in Grass Valley, tools tell another story..."
+      },
+      {
+        "asset": "Grass Roots Antique Tool Museum",
+        "order": 6,
+        "note": "The only antique tool museum in the western U.S. Kids see how things were built before power tools — and gain appreciation for their Xbox.",
+        "connector": "Cultural history meets family activities..."
+      },
+      {
+        "asset": "St. Joseph Cultural Center",
+        "order": 7,
+        "note": "Community cultural center with family programs and events. Check the calendar — there's usually something kid-friendly happening.",
+        "connector": "The Center for the Arts welcomes families..."
+      },
+      {
+        "asset": "Center for the Arts",
+        "order": 8,
+        "note": "At 314 West Main, Grass Valley. Gallery exhibits, performances, and family-friendly arts programs. Cultivating the next generation of artists.",
+        "connector": "After all that culture, refuel..."
+      },
+      {
+        "asset": "Kane's Family Restaurant",
+        "order": 9,
+        "note": "Family dining where kids are genuinely welcome. The kind of place with crayons on the table and patience at the counter.",
+        "connector": "For a sweet ending to the day..."
+      },
+      {
+        "asset": "Summer Thyme's Bakery & Deli",
+        "order": 10,
+        "note": "Bakery and deli perfect for families. Cookies the size of a kid's face, sandwiches to fuel the next adventure."
+      }
+    ]
   }
 ]
