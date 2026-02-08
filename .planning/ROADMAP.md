@@ -33,10 +33,11 @@ Decimal phases appear between their surrounding integers in numeric order.
   4. API keys are secured via GitHub Secrets and HTTP referrer restrictions
   5. Rate limiting is handled gracefully with delays and exponential backoff
 
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 01-01: TBD during planning
+- [ ] 01-01-PLAN.md — Create fetch-hours.py script with API integration and rate limiting
+- [ ] 01-02-PLAN.md — Run script to populate data.json and set up GitHub Actions workflow
 
 ### Phase 2: Hours Logic Implementation
 **Goal**: Client-side logic accurately determines if a venue is open right now
@@ -101,7 +102,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Data Pipeline Setup | 0/TBD | Not started | - |
+| 1. Data Pipeline Setup | 0/2 | Not started | - |
 | 2. Hours Logic Implementation | 0/TBD | Not started | - |
 | 3. Map UI Integration | 0/TBD | Not started | - |
 | 4. Production Hardening | 0/TBD | Not started | - |
