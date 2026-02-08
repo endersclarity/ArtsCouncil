@@ -1,0 +1,15 @@
+# Exclude design variants from deployment
+index.html
+index-brutalism.html
+index-dark.html
+index-glassmorphism.html
+index-minimalism.html
+index-bento.html
+index-claymorphism.html
+index-neubrutalism.html
+index-skeuomorphism.html
+index-neumorphism-backup.html
+design-comparison.html
+mockup-*.html
+
+# Keep only index-maplibre.html and index-neumorphism.html deployed
