@@ -819,7 +819,7 @@ body {
   overflow: hidden;
 }
 
-/* Cursor radius bubble: nearby venues surfaced without tooltip overlap */
+/* Nearby marker labels: surfaced by cursor proximity, anchored to markers */
 .radius-bubble-layer {
   position: absolute;
   inset: 0;
@@ -833,30 +833,6 @@ body {
   opacity: 1;
 }
 
-.radius-bubble-ring {
-  position: absolute;
-  width: 184px;
-  height: 184px;
-  border-radius: 999px;
-  border: 1.4px solid rgba(74, 107, 124, 0.48);
-  background: radial-gradient(circle, rgba(74, 107, 124, 0.08) 0%, rgba(74, 107, 124, 0.03) 56%, rgba(74, 107, 124, 0) 74%);
-  box-shadow: 0 0 0 1px rgba(244, 239, 231, 0.3) inset;
-}
-
-.radius-bubble-links {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  overflow: visible;
-}
-
-.radius-bubble-link {
-  stroke: rgba(26, 22, 18, 0.22);
-  stroke-width: 1.1;
-  stroke-linecap: round;
-}
-
 .radius-bubble-cards {
   position: absolute;
   inset: 0;
@@ -864,24 +840,33 @@ body {
 
 .radius-bubble-card {
   position: absolute;
-  width: 176px;
-  min-height: 48px;
-  padding: 0.42rem 0.54rem;
-  border-radius: 10px;
+  max-width: 220px;
+  padding: 0.3rem 0.48rem;
+  border-radius: 8px;
   border: 1px solid rgba(26, 22, 18, 0.14);
-  border-left: 4px solid rgba(26, 22, 18, 0.45);
+  transform: translate(-50%, -115%);
   background: rgba(244, 239, 231, 0.95);
-  box-shadow: 0 8px 18px rgba(26, 22, 18, 0.14);
-  display: flex;
-  align-items: flex-start;
-  gap: 0.38rem;
+  box-shadow: 0 6px 16px rgba(26, 22, 18, 0.15);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.34rem;
+}
+
+.radius-bubble-card::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -8px;
+  width: 1px;
+  height: 8px;
+  background: rgba(26, 22, 18, 0.28);
+  transform: translateX(-50%);
 }
 
 .radius-bubble-card-dot {
-  width: 8px;
-  height: 8px;
+  width: 7px;
+  height: 7px;
   border-radius: 50%;
-  margin-top: 0.24rem;
   flex-shrink: 0;
 }
 
@@ -892,34 +877,13 @@ body {
 .radius-bubble-card-name {
   display: block;
   font-family: var(--font-body);
-  font-size: 0.72rem;
-  line-height: 1.2;
-  font-weight: 700;
+  font-size: 0.68rem;
+  line-height: 1.18;
+  font-weight: 650;
   color: var(--ink);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-}
-
-.radius-bubble-card-meta {
-  display: block;
-  margin-top: 0.1rem;
-  font-family: var(--font-mono);
-  font-size: 0.5rem;
-  letter-spacing: 0.07em;
-  text-transform: uppercase;
-  color: rgba(26, 22, 18, 0.56);
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
-
-.radius-bubble-card.is-open .radius-bubble-card-meta {
-  color: #2f7e4f;
-}
-
-.radius-bubble-card.is-unknown .radius-bubble-card-meta {
-  color: rgba(26, 22, 18, 0.52);
 }
 
 @media (max-width: 900px) {
@@ -2837,8 +2801,6 @@ body {
   const RADIUS_BUBBLE_MAX_RESULTS = 5;
   const RADIUS_BUBBLE_MIN_ZOOM = 8.4;
   let radiusBubbleOverlay = null;
-  let radiusBubbleRing = null;
-  let radiusBubbleLinks = null;
   let radiusBubbleCards = null;
   let radiusBubblePoint = null;
   let radiusBubbleRaf = null;
@@ -3385,10 +3347,8 @@ body {
     if (!mapEl) return;
     radiusBubbleOverlay = document.createElement('div');
     radiusBubbleOverlay.className = 'radius-bubble-layer';
-    radiusBubbleOverlay.innerHTML = '<div class="radius-bubble-ring"></div><svg class="radius-bubble-links" aria-hidden="true"></svg><div class="radius-bubble-cards" aria-hidden="true"></div>';
+    radiusBubbleOverlay.innerHTML = '<div class="radius-bubble-cards" aria-hidden="true"></div>';
     mapEl.appendChild(radiusBubbleOverlay);
-    radiusBubbleRing = radiusBubbleOverlay.querySelector('.radius-bubble-ring');
-    radiusBubbleLinks = radiusBubbleOverlay.querySelector('.radius-bubble-links');
     radiusBubbleCards = radiusBubbleOverlay.querySelector('.radius-bubble-cards');
   }
 
@@ -3396,19 +3356,7 @@ body {
     radiusBubblePoint = null;
     if (!radiusBubbleOverlay) return;
     radiusBubbleOverlay.classList.remove('active');
-    if (radiusBubbleLinks) radiusBubbleLinks.innerHTML = '';
     if (radiusBubbleCards) radiusBubbleCards.innerHTML = '';
-  }
-
-  function clearAssetHoverPopupState() {
-    if (!map) return;
-    if (hoveredFeatureId !== null && map.getSource('assets')) {
-      try {
-        map.setFeatureState({ source: 'assets', id: hoveredFeatureId }, { hover: false });
-      } catch (e) { /* source/style churn */ }
-      hoveredFeatureId = null;
-    }
-    if (hoverPopup) hoverPopup.remove();
   }
 
   function queueRadiusBubbleRender(point) {
@@ -3473,57 +3421,28 @@ body {
     const mapCanvasRect = map.getCanvas().getBoundingClientRect();
     const mapW = mapCanvasRect.width;
     const mapH = mapCanvasRect.height;
-    const cardW = 176;
-    const cardH = 52;
-    clearAssetHoverPopupState();
-
-    radiusBubbleOverlay.classList.add('active');
-    if (radiusBubbleRing) {
-      radiusBubbleRing.style.width = `${radius * 2}px`;
-      radiusBubbleRing.style.height = `${radius * 2}px`;
-      radiusBubbleRing.style.transform = `translate(${Math.round(pt.x - radius)}px, ${Math.round(pt.y - radius)}px)`;
-    }
-
-    const anglePresets = {
-      1: [-40],
-      2: [-62, 34],
-      3: [-84, -14, 56],
-      4: [-102, -44, 14, 72],
-      5: [-118, -68, -18, 30, 80]
-    };
-    const angles = anglePresets[picked.length] || anglePresets[5];
-
-    let linksHTML = '';
+    const placed = [];
     let cardsHTML = '';
 
-    picked.forEach((item, idx) => {
+    picked.forEach((item) => {
       const props = item.feature.properties || {};
       const cfg = CATS[props.layer] || { color: '#7a7a7a', short: props.layer || 'Venue' };
-      const angleDeg = angles[idx % angles.length];
-      const angleRad = (Math.PI / 180) * angleDeg;
-      const orbit = radius + 48 + ((idx % 2) * 8);
-      const targetX = pt.x + (Math.cos(angleRad) * orbit);
-      const targetY = pt.y + (Math.sin(angleRad) * orbit);
-      const left = Math.max(8, Math.min(mapW - cardW - 8, targetX - (cardW / 2)));
-      const top = Math.max(8, Math.min(mapH - cardH - 8, targetY - (cardH / 2)));
-      const centerX = left + (cardW / 2);
-      const centerY = top + (cardH / 2);
+      const markerX = Math.max(10, Math.min(mapW - 10, item.projected.x));
+      let labelY = Math.max(18, Math.min(mapH - 14, item.projected.y - 12));
+      let guard = 0;
+      while (guard < 5) {
+        const overlap = placed.find((p) => Math.abs(p.x - markerX) < 90 && Math.abs(p.y - labelY) < 20);
+        if (!overlap) break;
+        labelY = Math.max(16, labelY - 20);
+        guard += 1;
+      }
+      placed.push({ x: markerX, y: labelY });
 
-      const markerX = item.projected.x;
-      const markerY = item.projected.y;
-      const lineEndX = markerX < left ? left : (markerX > left + cardW ? left + cardW : centerX);
-      const lineEndY = markerY < top ? top : (markerY > top + cardH ? top + cardH : centerY);
-      linksHTML += `<line class="radius-bubble-link" x1="${markerX.toFixed(1)}" y1="${markerY.toFixed(1)}" x2="${lineEndX.toFixed(1)}" y2="${lineEndY.toFixed(1)}" />`;
-
-      const hoursState = props.hours_state || 'unknown';
-      const hoursText = getHoursLabel(hoursState);
-      const stateClass = hoursState === 'open' ? 'is-open' : (hoursState === 'unknown' ? 'is-unknown' : 'is-closed');
       const safeName = escapeHTML(props.name || 'Unknown venue');
-      const safeMeta = `${escapeHTML(cfg.short || props.layer || 'Venue')} • ${escapeHTML(hoursText)}`;
-      cardsHTML += `<div class="radius-bubble-card ${stateClass}" style="left:${left.toFixed(1)}px;top:${top.toFixed(1)}px;border-left-color:${cfg.color};"><span class="radius-bubble-card-dot" style="background:${cfg.color};"></span><div class="radius-bubble-card-text"><span class="radius-bubble-card-name">${safeName}</span><span class="radius-bubble-card-meta">${safeMeta}</span></div></div>`;
+      cardsHTML += `<div class="radius-bubble-card" style="left:${markerX.toFixed(1)}px;top:${labelY.toFixed(1)}px;"><span class="radius-bubble-card-dot" style="background:${cfg.color};"></span><div class="radius-bubble-card-text"><span class="radius-bubble-card-name">${safeName}</span></div></div>`;
     });
 
-    if (radiusBubbleLinks) radiusBubbleLinks.innerHTML = linksHTML;
+    radiusBubbleOverlay.classList.add('active');
     if (radiusBubbleCards) radiusBubbleCards.innerHTML = cardsHTML;
   }
 
@@ -3661,10 +3580,6 @@ body {
       markMapInteracted();
       map.getCanvas().style.cursor = 'pointer';
       if (e.features.length === 0) return;
-      if (radiusBubbleOverlay && radiusBubbleOverlay.classList.contains('active')) {
-        clearAssetHoverPopupState();
-        return;
-      }
       const f = e.features[0];
 
       // Clear previous hover
@@ -3674,8 +3589,12 @@ body {
       hoveredFeatureId = f.id;
       map.setFeatureState({ source: 'assets', id: hoveredFeatureId }, { hover: true });
 
+      const coords = (f.geometry && f.geometry.type === 'Point' && Array.isArray(f.geometry.coordinates))
+        ? f.geometry.coordinates
+        : [e.lngLat.lng, e.lngLat.lat];
+
       hoverPopup
-        .setLngLat(e.lngLat)
+        .setLngLat(coords)
         .setHTML(buildFeatureTooltipHTML(f.properties || {}))
         .addTo(map);
     });
