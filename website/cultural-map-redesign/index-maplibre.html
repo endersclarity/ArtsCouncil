@@ -743,6 +743,61 @@ body {
   background: rgba(47,163,91,0.14);
 }
 
+.filter-pill.events-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  border: 1px solid rgba(26,22,18,0.14);
+  padding: 0.45rem 0.7rem 0.45rem 0.62rem;
+}
+
+.filter-pill.events-pill .status-toggle-indicator {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 1px solid rgba(26,22,18,0.35);
+  background: rgba(26,22,18,0.07);
+  transition: all 0.25s ease;
+}
+
+.filter-pill.events-pill .status-icon {
+  font-size: 0.72rem;
+  line-height: 1;
+  opacity: 0.65;
+}
+
+.filter-pill.events-pill .status-state-badge {
+  margin-left: 0.1rem;
+  font-family: var(--font-mono);
+  font-size: 0.52rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  padding: 0.12rem 0.4rem;
+  border-radius: 999px;
+  color: rgba(26,22,18,0.62);
+  background: rgba(26,22,18,0.08);
+}
+
+.filter-pill.events-pill.active {
+  color: #b4581d;
+  border-color: rgba(180,88,29,0.35);
+}
+
+.filter-pill.events-pill.active .status-icon {
+  opacity: 1;
+}
+
+.filter-pill.events-pill.active .status-toggle-indicator {
+  border-color: rgba(180,88,29,0.6);
+  background: #b4581d;
+  box-shadow: 0 0 8px rgba(180,88,29,0.45);
+}
+
+.filter-pill.events-pill.active .status-state-badge {
+  color: #934512;
+  background: rgba(180,88,29,0.14);
+}
+
 .hours-legend {
   display: none;
   align-items: center;
@@ -1065,6 +1120,24 @@ body {
   font-weight: 400;
 }
 
+.tooltip-event {
+  margin-top: 0.28rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #934512;
+}
+
+.tooltip-event::before {
+  content: '◷';
+  font-size: 0.64rem;
+  line-height: 1;
+}
+
 /* Detail panel image */
 .detail-hero-img {
   width: 100%;
@@ -1317,6 +1390,62 @@ body {
   margin-top: 0.35rem;
   color: rgba(26,22,18,0.62);
   font-size: 0.78rem;
+}
+
+.detail-events {
+  margin-top: 1rem;
+  display: grid;
+  gap: 0.55rem;
+}
+
+.detail-events-title {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: rgba(26,22,18,0.55);
+}
+
+.detail-events-empty {
+  font-size: 0.72rem;
+  color: rgba(26,22,18,0.5);
+}
+
+.detail-event-card {
+  border: 1px solid rgba(26,22,18,0.1);
+  border-left: 3px solid #b4581d;
+  background: rgba(255,255,255,0.6);
+  border-radius: 10px;
+  padding: 0.5rem 0.6rem;
+  display: grid;
+  gap: 0.28rem;
+}
+
+.detail-event-title {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.35;
+}
+
+.detail-event-time {
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(26,22,18,0.52);
+}
+
+.detail-event-link {
+  font-size: 0.68rem;
+  color: #934512;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(148,69,18,0.28);
+  width: fit-content;
+}
+
+.detail-event-link:hover {
+  border-bottom-color: rgba(148,69,18,0.7);
 }
 
 .detail-flyto {
@@ -1957,6 +2086,166 @@ body {
   gap: 0.65rem;
 }
 
+.map-events {
+  max-width: 1400px;
+  margin: 0 auto 2rem;
+  padding: 0 3rem;
+}
+
+.map-events-inner {
+  background: var(--parchment);
+  border: 1px solid rgba(26,22,18,0.08);
+  border-radius: 14px;
+  box-shadow: var(--shadow-soft);
+  padding: 0.85rem 1rem 0.95rem;
+}
+
+.map-events-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.55rem;
+}
+
+.map-events-title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  line-height: 1.15;
+  color: var(--ink);
+  margin: 0;
+}
+
+.map-events-count {
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(26,22,18,0.52);
+}
+
+.map-events-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-bottom: 0.7rem;
+}
+
+.map-events-chip {
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: 1px solid rgba(26,22,18,0.18);
+  background: rgba(255,255,255,0.5);
+  color: rgba(26,22,18,0.62);
+  border-radius: 999px;
+  padding: 0.2rem 0.52rem;
+  cursor: pointer;
+}
+
+.map-events-chip.active {
+  color: #934512;
+  border-color: rgba(180,88,29,0.45);
+  background: rgba(180,88,29,0.09);
+}
+
+.map-events-list {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.map-events-empty {
+  font-size: 0.74rem;
+  color: rgba(26,22,18,0.55);
+  padding: 0.25rem 0.1rem 0.15rem;
+}
+
+.map-event-item {
+  border: 1px solid rgba(26,22,18,0.1);
+  border-left: 3px solid #b4581d;
+  background: rgba(255,255,255,0.66);
+  border-radius: 10px;
+  padding: 0.55rem 0.62rem;
+  display: grid;
+  gap: 0.26rem;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.map-event-item.mapped {
+  cursor: pointer;
+}
+
+.map-event-item.mapped:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(26,22,18,0.08);
+}
+
+.map-event-item.unmapped {
+  border-left-color: rgba(26,22,18,0.35);
+  opacity: 0.88;
+}
+
+.map-event-title {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.35;
+}
+
+.map-event-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.48rem;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(26,22,18,0.56);
+}
+
+.map-event-venue {
+  color: rgba(26,22,18,0.7);
+  font-size: 0.62rem;
+}
+
+.map-event-badge {
+  border: 1px solid rgba(26,22,18,0.2);
+  border-radius: 999px;
+  padding: 0.1rem 0.38rem;
+}
+
+.map-event-link {
+  font-size: 0.66rem;
+  color: #934512;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(148,69,18,0.28);
+  width: fit-content;
+}
+
+.map-event-link:hover {
+  border-bottom-color: rgba(148,69,18,0.7);
+}
+
+.map-events-more {
+  margin-top: 0.7rem;
+  font-family: var(--font-body);
+  font-size: 0.74rem;
+  font-weight: 600;
+  border: none;
+  background: var(--neuro-bg);
+  color: var(--slate);
+  border-radius: 10px;
+  padding: 0.45rem 0.7rem;
+  cursor: pointer;
+  box-shadow: var(--shadow-raised);
+}
+
+.map-events-more:hover {
+  color: var(--ink);
+}
+
 .map-guides {
   background: var(--parchment);
   border: 1px solid rgba(26,22,18,0.08);
@@ -2389,6 +2678,9 @@ body {
     padding-left: 0;
   }
   .map-addons { margin: 0 0 1.25rem; padding: 0 1.5rem; }
+  .map-events { padding: 0 1.5rem; margin-bottom: 1.4rem; }
+  .map-events-inner { padding: 0.74rem 0.78rem 0.82rem; }
+  .map-events-title { font-size: 0.95rem; }
   .map-guides > summary { padding: 0.72rem 0.82rem; }
   .map-guides-body { padding: 0 0.62rem 0.72rem; }
   .map-subaddon > summary { padding: 0.55rem 0.62rem; }
@@ -2476,6 +2768,9 @@ body {
     overflow-y: auto;
   }
   .map-addons { padding: 0 1rem; margin: 0 0 1rem; }
+  .map-events { padding: 0 1rem; margin-bottom: 1rem; }
+  .map-events-header { align-items: flex-start; flex-direction: column; gap: 0.35rem; }
+  .map-events-inner { padding: 0.72rem 0.66rem 0.72rem; }
   .map-guides > summary { padding: 0.68rem 0.72rem; }
   .map-guides-body { padding: 0 0.55rem 0.62rem; }
   .map-subaddon > summary { padding: 0.5rem 0.55rem; }
@@ -2590,6 +2885,21 @@ body {
         </details>
       </div>
     </details>
+  </div>
+  <div class="map-events" id="mapEvents">
+    <div class="map-events-inner">
+      <div class="map-events-header">
+        <h3 class="map-events-title">Upcoming Events</h3>
+        <span class="map-events-count" id="mapEventsCount">0 events</span>
+      </div>
+      <div class="map-events-filters" id="mapEventsFilters">
+        <button class="map-events-chip active" type="button" data-event-filter="all">All</button>
+        <button class="map-events-chip" type="button" data-event-filter="weekend">Weekend</button>
+        <button class="map-events-chip" type="button" data-event-filter="14d">14d</button>
+      </div>
+      <div class="map-events-list" id="mapEventsList"></div>
+      <button class="map-events-more" id="mapEventsMore" type="button">Show more events</button>
+    </div>
   </div>
 </section>
 
@@ -2716,6 +3026,7 @@ body {
     <h3 class="detail-name" id="detailName"></h3>
     <div class="detail-description" id="detailDesc"></div>
     <div class="detail-meta" id="detailMeta"></div>
+    <div class="detail-events" id="detailEvents"></div>
   </div>
 </div>
 
@@ -2804,10 +3115,15 @@ body {
   let DATA = [];
   let IMAGE_DATA = {};
   let EXPERIENCES = [];
+  let EVENTS = [];
+  let EVENT_INDEX = null;
   let COUNTY_OUTLINE = null;
   let map;
   let activeCategories = new Set();
   let openNowMode = false;
+  let events14dMode = false;
+  let eventDateFilter = 'all';
+  let eventsListPage = 0;
   let mapFiltersExpanded = false;
   let mapLegendExpanded = false;
   let hasUserInteractedWithMap = false;
@@ -2817,7 +3133,11 @@ body {
   let cardElements = [];
   let listPage = 0;
   const LIST_PAGE_SIZE = 30;
+  const EVENT_LIST_PAGE_SIZE = 8;
+  const EVENT_WINDOW_DAYS = 14;
   const PACIFIC_TZ = 'America/Los_Angeles';
+  let matchedEventsByAsset = new Map();
+  let unmatchedEvents = [];
 
   // Experience overlay state
   let corridorMarkers = [];
@@ -2846,14 +3166,19 @@ body {
     fetch('data.json').then(r => r.json()),
     fetch('image_data.json').then(r => r.json()).catch(() => ({})),
     fetch('experiences.json').then(r => r.json()).catch(() => []),
+    fetch('events.json').then(r => r.json()).catch(() => []),
+    fetch('events.index.json').then(r => r.json()).catch(() => null),
     fetch('nevada-county.geojson')
       .then((r) => (r.ok ? r.json() : null))
       .catch(() => null)
-  ]).then(([data, images, experiences, countyOutline]) => {
+  ]).then(([data, images, experiences, events, eventIndex, countyOutline]) => {
     DATA = data;
     IMAGE_DATA = images;
     EXPERIENCES = experiences;
+    EVENTS = Array.isArray(events) ? events : [];
+    EVENT_INDEX = eventIndex;
     COUNTY_OUTLINE = sanitizeCountyOutline(countyOutline);
+    buildVenueEventIndex();
     init();
   }).catch(err => {
     console.error('Failed to load data:', err);
@@ -2868,6 +3193,7 @@ body {
     initMapLibre();
     buildExploreCats();
     buildList();
+    buildMapEventsList();
     initScrollReveal();
     bindEvents();
     preloadWatercolors();
@@ -3084,6 +3410,273 @@ body {
       type: 'FeatureCollection',
       features: cleanedFeatures
     };
+  }
+
+  function normalizeEventToken(value) {
+    return String(value || '')
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, '');
+  }
+
+  function makeEventVenueKey(name, city) {
+    return `${normalizeEventToken(name)}|${normalizeEventToken(city)}`;
+  }
+
+  function parseEventDate(value) {
+    const dt = new Date(value);
+    return Number.isNaN(dt.getTime()) ? null : dt;
+  }
+
+  function isEventUpcoming(event) {
+    const start = parseEventDate(event.start_iso);
+    if (!start) return false;
+    return start.getTime() >= Date.now();
+  }
+
+  function isEventWithinDays(event, days) {
+    const start = parseEventDate(event.start_iso);
+    if (!start) return false;
+    const now = Date.now();
+    const max = now + (days * 24 * 60 * 60 * 1000);
+    const ts = start.getTime();
+    return ts >= now && ts <= max;
+  }
+
+  function isWeekendEvent(event) {
+    const start = parseEventDate(event.start_iso);
+    if (!start) return false;
+    const tz = event.timezone || PACIFIC_TZ;
+    const weekday = new Intl.DateTimeFormat('en-US', { timeZone: tz, weekday: 'short' }).format(start);
+    return weekday === 'Sat' || weekday === 'Sun';
+  }
+
+  function choosePreferredEventAssetIndex(indices) {
+    const categoryPriority = {
+      'Performance Spaces': 0,
+      'Arts Organizations': 1,
+      'Fairs & Festivals': 2,
+      'Galleries & Museums': 3,
+      'Preservation & Culture': 4,
+      'Historic Landmarks': 5,
+      'Cultural Resources': 6,
+      'Public Art': 7,
+      'Eat, Drink & Stay': 8,
+      'Walks & Trails': 9
+    };
+    return indices
+      .slice()
+      .sort((a, b) => {
+        const ac = DATA[a] && DATA[a].l ? DATA[a].l : '';
+        const bc = DATA[b] && DATA[b].l ? DATA[b].l : '';
+        const ap = Object.prototype.hasOwnProperty.call(categoryPriority, ac) ? categoryPriority[ac] : 99;
+        const bp = Object.prototype.hasOwnProperty.call(categoryPriority, bc) ? categoryPriority[bc] : 99;
+        if (ap !== bp) return ap - bp;
+        return a - b;
+      })[0];
+  }
+
+  function resolveAssetIndex(venue) {
+    let idx = DATA.indexOf(venue);
+    if (idx >= 0) return idx;
+    idx = DATA.findIndex((d) => d && venue && d.n === venue.n && d.c === venue.c && d.l === venue.l);
+    return idx >= 0 ? idx : null;
+  }
+
+  function buildVenueEventIndex() {
+    matchedEventsByAsset = new Map();
+    unmatchedEvents = [];
+
+    const byPid = new Map();
+    const byKey = new Map();
+    DATA.forEach((asset, idx) => {
+      if (asset && typeof asset.pid === 'string' && asset.pid.trim()) {
+        if (!byPid.has(asset.pid)) byPid.set(asset.pid, []);
+        byPid.get(asset.pid).push(idx);
+      }
+      const key = makeEventVenueKey(asset && asset.n, asset && asset.c);
+      if (key !== '|') {
+        if (!byKey.has(key)) byKey.set(key, []);
+        byKey.get(key).push(idx);
+      }
+    });
+
+    const sourceEvents = (EVENT_INDEX && Array.isArray(EVENT_INDEX.events))
+      ? EVENT_INDEX.events
+      : EVENTS;
+    const normalized = [];
+
+    sourceEvents.forEach((raw) => {
+      if (!raw || typeof raw !== 'object') return;
+      const event = { ...raw };
+      let matchedIdx = Number.isInteger(event.matched_asset_idx) ? event.matched_asset_idx : null;
+      let matchMethod = event.match_method || 'none';
+
+      if (matchedIdx === null) {
+        const pid = event.venue_pid;
+        if (typeof pid === 'string' && byPid.has(pid)) {
+          matchedIdx = choosePreferredEventAssetIndex(byPid.get(pid));
+          matchMethod = 'pid';
+        } else {
+          const key = makeEventVenueKey(event.venue_name, event.venue_city);
+          if (byKey.has(key)) {
+            matchedIdx = choosePreferredEventAssetIndex(byKey.get(key));
+            matchMethod = 'name_city';
+          }
+        }
+      }
+
+      event.matched_asset_idx = matchedIdx;
+      event.match_method = matchMethod;
+      event.is_unmatched = matchedIdx === null;
+      event._start_ts = parseEventDate(event.start_iso) ? parseEventDate(event.start_iso).getTime() : 0;
+      event._end_ts = parseEventDate(event.end_iso) ? parseEventDate(event.end_iso).getTime() : 0;
+      normalized.push(event);
+    });
+
+    normalized.sort((a, b) => {
+      if (a._start_ts !== b._start_ts) return a._start_ts - b._start_ts;
+      return String(a.event_id || '').localeCompare(String(b.event_id || ''));
+    });
+
+    EVENTS = normalized;
+    EVENTS.forEach((event) => {
+      if (Number.isInteger(event.matched_asset_idx)) {
+        const idx = event.matched_asset_idx;
+        if (!matchedEventsByAsset.has(idx)) matchedEventsByAsset.set(idx, []);
+        matchedEventsByAsset.get(idx).push(event);
+      } else {
+        unmatchedEvents.push(event);
+      }
+    });
+  }
+
+  function getUpcomingEventsForAssetIdx(assetIdx, days = EVENT_WINDOW_DAYS) {
+    if (!Number.isInteger(assetIdx)) return [];
+    const events = matchedEventsByAsset.get(assetIdx) || [];
+    return events.filter((event) => isEventWithinDays(event, days));
+  }
+
+  function getEventCountForAsset14d(assetIdx) {
+    return getUpcomingEventsForAssetIdx(assetIdx, EVENT_WINDOW_DAYS).length;
+  }
+
+  function formatEventDateRange(event) {
+    const start = parseEventDate(event.start_iso);
+    const end = parseEventDate(event.end_iso);
+    if (!start || !end) return 'Schedule pending';
+    const tz = event.timezone || PACIFIC_TZ;
+    const dayFmt = new Intl.DateTimeFormat('en-US', { timeZone: tz, weekday: 'short', month: 'short', day: 'numeric' });
+    const timeFmt = new Intl.DateTimeFormat('en-US', { timeZone: tz, hour: 'numeric', minute: '2-digit' });
+    return `${dayFmt.format(start)} • ${timeFmt.format(start)}-${timeFmt.format(end)}`;
+  }
+
+  function getFilteredMapEvents() {
+    let events = EVENTS.filter((event) => isEventUpcoming(event));
+    if (eventDateFilter === 'weekend') {
+      events = events.filter((event) => isWeekendEvent(event));
+    } else if (eventDateFilter === '14d') {
+      events = events.filter((event) => isEventWithinDays(event, EVENT_WINDOW_DAYS));
+    }
+    return events;
+  }
+
+  function setEventDateFilter(filterValue) {
+    eventDateFilter = filterValue;
+    eventsListPage = 0;
+    buildMapEventsList();
+    updateMapEventsFilterUI();
+  }
+
+  function updateMapEventsFilterUI() {
+    const chips = document.querySelectorAll('[data-event-filter]');
+    chips.forEach((chip) => {
+      chip.classList.toggle('active', chip.dataset.eventFilter === eventDateFilter);
+    });
+  }
+
+  function focusEvent(eventId) {
+    const event = EVENTS.find((item) => item.event_id === eventId);
+    if (!event || !Number.isInteger(event.matched_asset_idx)) return;
+    const venue = DATA[event.matched_asset_idx];
+    if (!venue || !venue.x || !venue.y) return;
+    document.getElementById('mapSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    map.flyTo({
+      center: [venue.x, venue.y],
+      zoom: Math.max(map.getZoom(), 14),
+      pitch: Math.max(map.getPitch(), 48),
+      bearing: map.getBearing(),
+      duration: 850,
+      essential: true
+    });
+    openDetail(venue);
+  }
+
+  function buildMapEventsList() {
+    const listEl = document.getElementById('mapEventsList');
+    const countEl = document.getElementById('mapEventsCount');
+    const moreBtn = document.getElementById('mapEventsMore');
+    if (!listEl || !countEl || !moreBtn) return;
+    updateMapEventsFilterUI();
+
+    const filtered = getFilteredMapEvents();
+    const visibleCount = Math.min(filtered.length, (eventsListPage + 1) * EVENT_LIST_PAGE_SIZE);
+    const visible = filtered.slice(0, visibleCount);
+
+    countEl.textContent = `${filtered.length} event${filtered.length === 1 ? '' : 's'}`;
+
+    if (!visible.length) {
+      listEl.innerHTML = '<div class="map-events-empty">No upcoming events in this range yet.</div>';
+      moreBtn.style.display = 'none';
+      return;
+    }
+
+    listEl.innerHTML = visible.map((event) => {
+      const mapped = Number.isInteger(event.matched_asset_idx);
+      const title = escapeHTML(event.title || 'Untitled event');
+      const venueName = escapeHTML(event.venue_name || 'Venue TBD');
+      const eventTime = escapeHTML(formatEventDateRange(event));
+      const ticket = typeof event.ticket_url === 'string' && event.ticket_url
+        ? `<a class="map-event-link" href="${escapeHTML(event.ticket_url)}" target="_blank" rel="noopener">Tickets / Details</a>`
+        : '';
+      const badge = mapped ? '' : '<span class="map-event-badge">Unmapped</span>';
+      return `
+        <div class="map-event-item ${mapped ? 'mapped' : 'unmapped'}" data-event-id="${escapeHTML(event.event_id || '')}">
+          <div class="map-event-title">${title}</div>
+          <div class="map-event-meta">
+            <span>${eventTime}</span>
+            <span class="map-event-venue">${venueName}</span>
+            ${badge}
+          </div>
+          ${ticket}
+        </div>
+      `;
+    }).join('');
+
+    moreBtn.style.display = visibleCount < filtered.length ? '' : 'none';
+  }
+
+  function renderDetailEvents(venue) {
+    const wrapper = document.getElementById('detailEvents');
+    if (!wrapper) return;
+    const idx = resolveAssetIndex(venue);
+    if (!Number.isInteger(idx)) {
+      wrapper.innerHTML = '';
+      return;
+    }
+    const upcoming = getUpcomingEventsForAssetIdx(idx, EVENT_WINDOW_DAYS);
+    if (!upcoming.length) {
+      wrapper.innerHTML = '<div class="detail-events-title">Upcoming Events</div><div class="detail-events-empty">No curated events in the next 14 days.</div>';
+      return;
+    }
+    const cards = upcoming.slice(0, 5).map((event) => {
+      const title = escapeHTML(event.title || 'Untitled event');
+      const time = escapeHTML(formatEventDateRange(event));
+      const link = typeof event.ticket_url === 'string' && event.ticket_url
+        ? `<a class="detail-event-link" href="${escapeHTML(event.ticket_url)}" target="_blank" rel="noopener">Tickets / Details</a>`
+        : '';
+      return `<div class="detail-event-card"><div class="detail-event-title">${title}</div><div class="detail-event-time">${time}</div>${link}</div>`;
+    }).join('');
+    wrapper.innerHTML = `<div class="detail-events-title">Upcoming Events</div>${cards}`;
   }
 
   // ============================================================
@@ -3339,6 +3932,7 @@ body {
         const lat = Number(d.y);
         if (!Number.isFinite(lon) || !Number.isFinite(lat)) return null;
         const hoursState = getHoursState(d);
+        const eventCount14d = getEventCountForAsset14d(i);
         const rawLabel = d.n || '';
         const labelName = rawLabel.length > 26 ? `${rawLabel.slice(0, 23)}...` : rawLabel;
         return {
@@ -3355,6 +3949,8 @@ body {
             website: d.w || '',
             hours_state: hoursState,
             hours_label: getHoursLabel(hoursState),
+            event_count_14d: eventCount14d,
+            has_events_14d: eventCount14d > 0,
             color: (CATS[d.l] || { color: '#999' }).color,
             idx: i
           },
@@ -3379,10 +3975,14 @@ body {
     const cfg = CATS[props.layer] || { color: '#999' };
     const imgInfo = IMAGE_DATA[props.name];
     const wcSlug = cfg.watercolor || 'landmarks';
+    const eventCount14d = Number(props.event_count_14d || 0);
+    const eventLine = eventCount14d > 0
+      ? `<div class="tooltip-event">${eventCount14d} event${eventCount14d === 1 ? '' : 's'} in next ${EVENT_WINDOW_DAYS} days</div>`
+      : '';
     const imgHTML = imgInfo
       ? `<img class="tooltip-img" src="${imgInfo.img}" alt="${imgInfo.alt || props.name}" onerror="this.parentNode.removeChild(this)">`
       : `<div class="tooltip-placeholder" style="background:linear-gradient(135deg, ${cfg.color}, ${cfg.color}dd)"><img src="img/watercolor/${wcSlug}.png" class="tooltip-watercolor" alt="" onerror="this.style.display='none'"></div>`;
-    return `${imgHTML}<div class="tooltip-body"><strong>${props.name}</strong><div class="tooltip-cat"><span class="tooltip-cat-dot" style="background:${cfg.color}"></span>${props.layer}</div>${props.city ? '<div class="tooltip-city">' + props.city + ', CA</div>' : ''}</div>`;
+    return `${imgHTML}<div class="tooltip-body"><strong>${props.name}</strong><div class="tooltip-cat"><span class="tooltip-cat-dot" style="background:${cfg.color}"></span>${props.layer}</div>${props.city ? '<div class="tooltip-city">' + props.city + ', CA</div>' : ''}${eventLine}</div>`;
   }
 
   function clearIdlePreviewHoverState() {
@@ -3701,7 +4301,8 @@ body {
       markMapInteracted();
       if (e.features.length === 0) return;
       const f = e.features[0];
-      const d = DATA.find(item => item.n === f.properties.name);
+      const featureIdx = Number(f.properties && f.properties.idx);
+      const d = Number.isInteger(featureIdx) ? DATA[featureIdx] : DATA.find(item => item.n === f.properties.name);
       if (!d) return;
 
       cancelTour();
@@ -3834,6 +4435,8 @@ body {
     const { recenter = false } = options;
     if (!map.getLayer('assets-circle')) return;
     const openNowExpr = ['!=', ['get', 'hours_state'], 'closed'];
+    const eventsExpr = ['==', ['get', 'has_events_14d'], true];
+    const clauses = [];
 
     if (activeCategories.size > 0) {
       const selected = Array.from(activeCategories);
@@ -3841,24 +4444,31 @@ body {
         selected.length === 1
           ? ['==', ['get', 'layer'], selected[0]]
           : ['in', ['get', 'layer'], ['literal', selected]];
-      map.setFilter('assets-circle', openNowMode ? ['all', categoryExpr, openNowExpr] : categoryExpr);
-      applyMapVisualState();
-      // Fit bounds
-      const filtered = DATA.filter(d => (
-        activeCategories.has(d.l) &&
-        d.x && d.y &&
-        (!openNowMode || getHoursState(d) !== 'closed')
-      ));
-      if (filtered.length && recenter) {
+      clauses.push(categoryExpr);
+    }
+    if (openNowMode) clauses.push(openNowExpr);
+    if (events14dMode) clauses.push(eventsExpr);
+
+    const combinedExpr = clauses.length === 0
+      ? null
+      : (clauses.length === 1 ? clauses[0] : ['all', ...clauses]);
+
+    map.setFilter('assets-circle', combinedExpr);
+    applyMapVisualState();
+
+    if (recenter) {
+      const filtered = DATA.filter((d, idx) => {
+        const categoryOk = activeCategories.size === 0 || activeCategories.has(d.l);
+        const openOk = !openNowMode || getHoursState(d) !== 'closed';
+        const eventsOk = !events14dMode || getEventCountForAsset14d(idx) > 0;
+        return categoryOk && openOk && eventsOk && d.x && d.y;
+      });
+      if (filtered.length) {
         const bounds = filtered.reduce((b, d) => b.extend([d.x, d.y]),
           new maplibregl.LngLatBounds([filtered[0].x, filtered[0].y], [filtered[0].x, filtered[0].y])
         );
         map.fitBounds(bounds, { padding: 50, maxZoom: 14 });
-      }
-    } else {
-      map.setFilter('assets-circle', openNowMode ? openNowExpr : null);
-      applyMapVisualState();
-      if (recenter) {
+      } else if (activeCategories.size === 0 && !openNowMode && !events14dMode) {
         map.flyTo({ center: [-120.8, 39.22], zoom: 9, pitch: 0, bearing: 0, duration: 1000 });
       }
     }
@@ -4469,6 +5079,14 @@ body {
     openNowPill.addEventListener('click', () => setOpenNowMode(!openNowMode));
     statusGroup.appendChild(openNowPill);
 
+    const eventsPill = document.createElement('button');
+    eventsPill.id = 'events14dPill';
+    eventsPill.className = 'filter-pill events-pill';
+    eventsPill.style.setProperty('--pill-color', '#b4581d');
+    eventsPill.innerHTML = '<span class="status-toggle-indicator" aria-hidden="true"></span><span class="status-icon" aria-hidden="true">◫</span><span class="status-text">Events (14d)</span><span class="status-state-badge" id="events14dStateBadge">Off</span>';
+    eventsPill.addEventListener('click', () => setEvents14dMode(!events14dMode));
+    statusGroup.appendChild(eventsPill);
+
     const legend = document.createElement('div');
     legend.className = 'hours-legend';
     legend.id = 'hoursLegend';
@@ -4480,6 +5098,7 @@ body {
     bar.appendChild(statusGroup);
 
     renderOpenNowUI();
+    renderEvents14dUI();
     syncMapFilterToggleMeta();
   }
 
@@ -4527,6 +5146,7 @@ body {
       parts.push('All');
     }
     if (openNowMode) parts.push('Open');
+    if (events14dMode) parts.push('Events');
     meta.textContent = parts.join(' • ');
   }
 
@@ -4547,11 +5167,37 @@ body {
     syncMapFilterToggleMeta();
   }
 
+  function renderEvents14dUI() {
+    const eventsPill = document.getElementById('events14dPill');
+    const eventsStateBadge = document.getElementById('events14dStateBadge');
+    if (eventsPill) {
+      eventsPill.classList.toggle('active', events14dMode);
+      eventsPill.setAttribute('aria-pressed', events14dMode ? 'true' : 'false');
+      eventsPill.setAttribute('aria-label', events14dMode ? 'Disable events-in-14-days mode' : 'Enable events-in-14-days mode');
+      eventsPill.setAttribute('title', events14dMode ? 'Click to disable events-in-14-days mode' : 'Click to enable events-in-14-days mode');
+    }
+    if (eventsStateBadge) {
+      eventsStateBadge.textContent = events14dMode ? 'On' : 'Off';
+    }
+    syncMapFilterToggleMeta();
+  }
+
   function setOpenNowMode(enabled) {
     markMapInteracted();
     openNowMode = !!enabled;
     if (openNowMode) refreshAssetSourceHoursStates();
     renderOpenNowUI();
+    updateActiveBanner();
+    updateMapFilters({ recenter: false });
+    listPage = 0;
+    buildList();
+  }
+
+  function setEvents14dMode(enabled) {
+    markMapInteracted();
+    events14dMode = !!enabled;
+    renderEvents14dUI();
+    updateActiveBanner();
     updateMapFilters({ recenter: false });
     listPage = 0;
     buildList();
@@ -4562,14 +5208,21 @@ body {
   // ============================================================
   function updateActiveBanner() {
     const banner = document.getElementById('mapActiveBanner');
-    if (activeCategories.size > 0) {
+    if (activeCategories.size > 0 || openNowMode || events14dMode) {
       const selected = Array.from(activeCategories);
-      const count = DATA.filter(d => activeCategories.has(d.l) && (!openNowMode || getHoursState(d) !== 'closed')).length;
+      const count = DATA.filter((d) => {
+        const idx = DATA.indexOf(d);
+        const categoryOk = activeCategories.size === 0 || activeCategories.has(d.l);
+        const openOk = !openNowMode || getHoursState(d) !== 'closed';
+        const eventsOk = !events14dMode || getEventCountForAsset14d(idx) > 0;
+        return categoryOk && openOk && eventsOk;
+      }).length;
       const oneCategory = selected.length === 1 ? selected[0] : null;
       const cfg = oneCategory ? (CATS[oneCategory] || {}) : null;
       document.getElementById('mapActiveDot').style.background = oneCategory ? cfg.color : 'rgba(26,22,18,0.55)';
       document.getElementById('mapActiveCount').textContent = count;
-      document.getElementById('mapActiveName').textContent = oneCategory || `${selected.length} categories`;
+      const label = oneCategory || (selected.length > 1 ? `${selected.length} categories` : (events14dMode ? 'venues with events' : 'all assets'));
+      document.getElementById('mapActiveName').textContent = label;
       banner.classList.add('visible');
     } else {
       banner.classList.remove('visible');
@@ -4593,7 +5246,7 @@ body {
     }
 
     document.querySelectorAll('.filter-pill').forEach(p => {
-      if (p.classList.contains('open-now-pill')) return;
+      if (p.classList.contains('open-now-pill') || p.classList.contains('events-pill')) return;
       if (p.classList.contains('all-pill')) {
         p.classList.toggle('active', activeCategories.size === 0);
       } else {
@@ -4670,7 +5323,12 @@ body {
     let metaHTML = '';
     const hoursState = getHoursState(d);
     const todayHours = getTodayHoursDisplay(d);
+    const assetIdx = resolveAssetIndex(d);
+    const eventCount14d = Number.isInteger(assetIdx) ? getEventCountForAsset14d(assetIdx) : 0;
     metaHTML += `<div class="detail-meta-row"><span class="detail-meta-icon">&#9716;</span><div class="detail-meta-value"><span class="hours-pill hours-${hoursState}">${getHoursLabel(hoursState)}</span>${todayHours ? `<div class="detail-hours-today">Today: ${escapeHTML(todayHours)}</div>` : ''}</div></div>`;
+    if (eventCount14d > 0) {
+      metaHTML += `<div class="detail-meta-row"><span class="detail-meta-icon">&#9680;</span><div class="detail-meta-value"><span class="hours-pill" style="color:#934512;background:rgba(180,88,29,0.12);border-color:rgba(180,88,29,0.48)">${eventCount14d} event${eventCount14d === 1 ? '' : 's'} in ${EVENT_WINDOW_DAYS}d</span></div></div>`;
+    }
     if (d.a) metaHTML += `<div class="detail-meta-row"><span class="detail-meta-icon">&#9675;</span><div class="detail-meta-value">${d.a}${d.c ? ', ' + d.c + ', CA' : ''}</div></div>`;
     if (d.p) metaHTML += `<div class="detail-meta-row"><span class="detail-meta-icon">&#9743;</span><div class="detail-meta-value"><a href="tel:${d.p}">${d.p}</a></div></div>`;
     if (d.w) {
@@ -4684,6 +5342,7 @@ body {
     }
 
     document.getElementById('detailMeta').innerHTML = metaHTML;
+    renderDetailEvents(d);
 
     // "View on map" fly-to button
     const existingFlyto = panel.querySelector('.detail-flyto');
@@ -4746,6 +5405,19 @@ body {
       filtered = filtered.sort((a, b) => {
         const rankDelta = getHoursRank(getHoursState(a)) - getHoursRank(getHoursState(b));
         if (rankDelta !== 0) return rankDelta;
+        return (a.n || '').localeCompare(b.n || '');
+      });
+    }
+    if (events14dMode) {
+      filtered = filtered.filter((d) => {
+        const idx = DATA.indexOf(d);
+        return getEventCountForAsset14d(idx) > 0;
+      });
+      filtered = filtered.sort((a, b) => {
+        const ai = DATA.indexOf(a);
+        const bi = DATA.indexOf(b);
+        const diff = getEventCountForAsset14d(bi) - getEventCountForAsset14d(ai);
+        if (diff !== 0) return diff;
         return (a.n || '').localeCompare(b.n || '');
       });
     }
@@ -4817,6 +5489,7 @@ body {
       scopeParts.push(selected.length === 1 ? selected[0] : `${selected.length} categories`);
     }
     if (openNowMode) scopeParts.push('Status: Open now (open highlighted, unknown dimmed)');
+    if (events14dMode) scopeParts.push(`Events: next ${EVENT_WINDOW_DAYS} days`);
     document.getElementById('resultsCount').textContent =
       `Showing ${Math.min(end, filtered.length)} of ${filtered.length} assets` +
       (scopeParts.length ? ` • ${scopeParts.join(' • ')}` : '');
@@ -4831,6 +5504,8 @@ body {
       item.className = 'explore-item';
       item.style.setProperty('--row-color', cfg.color);
       const hoursState = getHoursState(d);
+      const assetIdx = DATA.indexOf(d);
+      const eventCount14d = getEventCountForAsset14d(assetIdx);
       if (openNowMode) {
         item.classList.add('hours-mode', `hours-${hoursState}`);
       }
@@ -4848,6 +5523,7 @@ body {
               ${cfg.short || d.l}
             </span>
             ${openNowMode ? `<span class="hours-pill hours-${hoursState} explore-item-hours">${getHoursLabel(hoursState)}</span>` : ''}
+            ${events14dMode && eventCount14d > 0 ? `<span class="hours-pill explore-item-hours" style="color:#934512;background:rgba(180,88,29,0.12);border-color:rgba(180,88,29,0.48)">${eventCount14d} event${eventCount14d === 1 ? '' : 's'}</span>` : ''}
           </div>
         </div>
         <span class="explore-item-arrow">&rarr;</span>
@@ -4926,8 +5602,43 @@ body {
       exploreSetCategory(null);
     });
 
+    const eventsFilters = document.getElementById('mapEventsFilters');
+    if (eventsFilters) {
+      eventsFilters.addEventListener('click', (e) => {
+        const chip = e.target.closest('[data-event-filter]');
+        if (!chip) return;
+        setEventDateFilter(chip.dataset.eventFilter);
+      });
+    }
+
+    const eventsMoreBtn = document.getElementById('mapEventsMore');
+    if (eventsMoreBtn) {
+      eventsMoreBtn.addEventListener('click', () => {
+        eventsListPage += 1;
+        buildMapEventsList();
+      });
+    }
+
+    const eventsList = document.getElementById('mapEventsList');
+    if (eventsList) {
+      eventsList.addEventListener('click', (e) => {
+        const link = e.target.closest('.map-event-link');
+        if (link) {
+          e.stopPropagation();
+          return;
+        }
+        const card = e.target.closest('.map-event-item.mapped');
+        if (!card) return;
+        const eventId = card.getAttribute('data-event-id');
+        if (!eventId) return;
+        focusEvent(eventId);
+      });
+    }
+
     document.getElementById('mapActiveClear').addEventListener('click', () => {
       setCategory(null);
+      if (openNowMode) setOpenNowMode(false);
+      if (events14dMode) setEvents14dMode(false);
     });
   }
 
