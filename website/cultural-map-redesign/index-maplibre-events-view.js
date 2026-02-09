@@ -29,7 +29,7 @@
       const shortDesc = escapeHTML(rawDesc.length > 180 ? `${rawDesc.slice(0, 177)}...` : rawDesc);
       const imageURL = typeof event.image_url === 'string' ? event.image_url.trim() : '';
       const imageHTML = imageURL
-        ? `<img class="map-event-image" src="${escapeHTML(imageURL)}" alt="${title}" loading="lazy" onerror="this.outerHTML='<div class=&quot;map-event-image placeholder&quot;>No image</div>'">`
+        ? `<img class="map-event-image" src="${escapeHTML(imageURL)}" alt="${title}" width="320" height="104" loading="lazy" decoding="async" onerror="this.outerHTML='<div class=&quot;map-event-image placeholder&quot;>No image</div>'">`
         : '<div class="map-event-image placeholder">No image</div>';
       const ticket = typeof event.ticket_url === 'string' && event.ticket_url
         ? `<a class="map-event-link" href="${escapeHTML(event.ticket_url)}" target="_blank" rel="noopener">Tickets / Details</a>`

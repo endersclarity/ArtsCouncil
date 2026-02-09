@@ -1,5 +1,6 @@
 (function() {
   'use strict';
+  const watercolorThumbPath = (slug) => `img/watercolor/thumbs/${slug}.webp`;
 
   function buildExploreCats({ gridEl, data, cats, onCategorySelect }) {
     if (!gridEl) return;
@@ -13,12 +14,16 @@
       const card = document.createElement('div');
       card.className = 'explore-cat-card';
       card.style.setProperty('--card-color', cfg.color);
+      const wcSlug = cfg.watercolor || 'landmarks';
       card.innerHTML = `
-        <img class="explore-cat-card-img" src="img/watercolor/${cfg.watercolor || 'landmarks'}.png" alt="">
+        <img class="explore-cat-card-img" src="${watercolorThumbPath(wcSlug)}" alt="" width="48" height="48" loading="lazy">
         <div class="explore-cat-card-name">${cfg.short || name}</div>
         <div class="explore-cat-card-count">${counts[name] || 0} places</div>
       `;
       card.addEventListener('click', () => onCategorySelect(name));
+      window.CulturalMapCoreUtils.makeKeyboardActivatable(card, {
+        label: `Show ${name} places`
+      });
       gridEl.appendChild(card);
     });
   }
@@ -56,7 +61,7 @@
     const cfg = cats[asset.l] || { color: '#999' };
     const imgInfo = imageData[asset.n];
     const wcSlug = cfg.watercolor || 'landmarks';
-    const thumbSrc = imgInfo ? imgInfo.img : `img/watercolor/${wcSlug}.png`;
+    const thumbSrc = imgInfo ? imgInfo.img : watercolorThumbPath(wcSlug);
     const item = document.createElement('div');
     item.className = 'explore-item';
     item.style.setProperty('--row-color', cfg.color);
@@ -68,7 +73,7 @@
     const desc = asset.d ? asset.d.replace(/<[^>]*>/g, '').slice(0, 120) : '';
     item.innerHTML = `
       <div class="explore-item-bar" style="background:${cfg.color}"></div>
-      <img class="explore-item-thumb" src="${thumbSrc}" alt="" loading="lazy" onerror="this.src='img/watercolor/${wcSlug}.png'">
+      <img class="explore-item-thumb" src="${thumbSrc}" alt="" width="56" height="56" loading="lazy" onerror="this.src='${watercolorThumbPath(wcSlug)}'">
       <div class="explore-item-info">
         <div class="explore-item-name">${asset.n}</div>
         ${desc ? `<div class="explore-item-desc">${desc}</div>` : ''}
@@ -85,6 +90,9 @@
       <span class="explore-item-arrow">&rarr;</span>
     `;
     item.addEventListener('click', () => onOpenDetail(asset));
+    window.CulturalMapCoreUtils.makeKeyboardActivatable(item, {
+      label: `Open details for ${asset.n}`
+    });
     return item;
   }
 
