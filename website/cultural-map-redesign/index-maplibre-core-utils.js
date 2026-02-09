@@ -63,26 +63,10 @@
     };
   }
 
-  function makeKeyboardActivatable(el, options = {}) {
-    if (!el) return;
-    if (!el.hasAttribute('tabindex')) el.tabIndex = 0;
-    if (!el.hasAttribute('role')) el.setAttribute('role', 'button');
-    if (options.label && !el.getAttribute('aria-label')) {
-      el.setAttribute('aria-label', options.label);
-    }
-    el.addEventListener('keydown', (event) => {
-      if (event.key === 'Enter' || event.key === ' ') {
-        event.preventDefault();
-        el.click();
-      }
-    });
-  }
-
   window.CulturalMapCoreUtils = {
     hexToRgba,
     escapeHTML,
     isValidCountyCoord,
-    sanitizeCountyOutline,
-    makeKeyboardActivatable
+    sanitizeCountyOutline
   };
 })();

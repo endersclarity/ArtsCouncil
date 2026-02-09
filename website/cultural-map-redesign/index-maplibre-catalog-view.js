@@ -1,6 +1,5 @@
 (function() {
   'use strict';
-  const watercolorThumbPath = (slug) => `img/watercolor/thumbs/${slug}.webp`;
 
   function buildExperienceSelector({
     corridorContainer,
@@ -31,9 +30,6 @@
       `;
       card.style.setProperty('--exp-color', exp.color);
       card.addEventListener('click', () => onCardClick(exp));
-      window.CulturalMapCoreUtils.makeKeyboardActivatable(card, {
-        label: `Open guide: ${exp.title}`
-      });
       container.appendChild(card);
     }
 
@@ -95,7 +91,7 @@
       const wcSlug = cfg.watercolor || 'landmarks';
       card.innerHTML = `
         <div class="cat-icon" style="background:${hexToRgba(cfg.color, 0.1)}; color:${cfg.color}">
-          <img src="${watercolorThumbPath(wcSlug)}" alt="" width="32" height="32" class="cat-icon-watercolor" loading="lazy" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
+          <img src="img/watercolor/${wcSlug}.png" alt="" class="cat-icon-watercolor" onerror="this.style.display='none';this.nextElementSibling.style.display='block'">
           <span class="cat-icon-svg" style="display:none">${icons[name] || ''}</span>
         </div>
         <div class="cat-card-info">
@@ -105,9 +101,6 @@
         </div>
       `;
       card.addEventListener('click', () => onCategoryClick(name));
-      window.CulturalMapCoreUtils.makeKeyboardActivatable(card, {
-        label: `Filter map by category: ${name}`
-      });
       gridEl.appendChild(card);
       cardElements.push({ el: card, name });
     });

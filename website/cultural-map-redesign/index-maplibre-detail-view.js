@@ -1,14 +1,13 @@
 (function() {
   'use strict';
-  const watercolorThumbPath = (slug) => `img/watercolor/thumbs/${slug}.webp`;
 
   function buildDetailHeroHTML({ asset, cfg, imageData }) {
     const imgInfo = imageData[asset.n];
     const wcSlug = cfg.watercolor || 'landmarks';
     if (imgInfo) {
-      return `<img class="detail-hero-img" src="${imgInfo.img}" alt="${imgInfo.alt || asset.n}" width="440" height="180" loading="lazy" onerror="this.parentNode.innerHTML='<div class=\\'detail-hero-placeholder\\' style=\\'background:linear-gradient(135deg, ${cfg.color}40, ${cfg.color}20)\\'><img src=\\'${watercolorThumbPath(wcSlug)}\\' class=\\'detail-hero-watercolor\\' alt=\\'\\' width=\\'160\\' height=\\'160\\'></div>'">`;
+      return `<img class="detail-hero-img" src="${imgInfo.img}" alt="${imgInfo.alt || asset.n}" onerror="this.parentNode.innerHTML='<div class=\\'detail-hero-placeholder\\' style=\\'background:linear-gradient(135deg, ${cfg.color}40, ${cfg.color}20)\\'><img src=\\'img/watercolor/${wcSlug}.png\\' class=\\'detail-hero-watercolor\\' alt=\\'\\'></div>'">`;
     }
-    return `<div class="detail-hero-placeholder" style="background:linear-gradient(135deg, ${cfg.color}40, ${cfg.color}20)"><img src="${watercolorThumbPath(wcSlug)}" class="detail-hero-watercolor" alt="" width="160" height="160" loading="lazy" onerror="this.style.display='none'"></div>`;
+    return `<div class="detail-hero-placeholder" style="background:linear-gradient(135deg, ${cfg.color}40, ${cfg.color}20)"><img src="img/watercolor/${wcSlug}.png" class="detail-hero-watercolor" alt="" onerror="this.style.display='none'"></div>`;
   }
 
   function buildDetailTagHTML({ asset, icons }) {

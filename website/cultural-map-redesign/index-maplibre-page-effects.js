@@ -6,7 +6,7 @@
       Object.values(categories || {}).forEach((cfg) => {
         if (cfg.watercolor) {
           const img = new Image();
-          img.src = `img/watercolor/thumbs/${cfg.watercolor}.webp`;
+          img.src = `img/watercolor/${cfg.watercolor}.png`;
         }
       });
     };

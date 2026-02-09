@@ -25,16 +25,12 @@
 <link rel="preconnect" href="https://api.maptiler.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="index-maplibre.css">
-<link rel="icon" type="image/webp" href="img/watercolor/thumbs/arts.webp">
 </head>
 <body>
-<a class="skip-link" href="#mainContent">Skip to main content</a>
-<main id="mainContent">
 
 <!-- ====== HERO ====== -->
 <section class="hero">
-  <h1 class="sr-only">Nevada County Cultural Asset Map</h1>
-  <img src="img/Cultural+Assets+Banner.webp" alt="Nevada County Cultural Assets" class="hero-badge" width="1561" height="603" fetchpriority="high">
+  <img src="img/Cultural+Assets+Banner.webp" alt="Nevada County Cultural Assets" class="hero-badge" fetchpriority="high">
   <div class="hero-content">
     <p class="hero-sub"><strong>Interactive atlas of cultural assets across the Sierra foothills.</strong></p>
     <p class="hero-instructions">Filter by category. Toggle Open Now. Click any marker for hours, details, and links.</p>
@@ -69,8 +65,8 @@
   <div class="map-active-banner" id="mapActiveBanner">
     <div class="map-active-banner-inner">
       <div class="map-active-dot" id="mapActiveDot"></div>
-      <div class="map-active-text" aria-live="polite" aria-atomic="true">Showing <strong id="mapActiveCount">0</strong> <span id="mapActiveName">assets</span></div>
-      <button class="map-active-clear" id="mapActiveClear" type="button">Clear filter</button>
+      <div class="map-active-text">Showing <strong id="mapActiveCount">0</strong> <span id="mapActiveName">assets</span></div>
+      <button class="map-active-clear" id="mapActiveClear">Clear filter</button>
     </div>
   </div>
   <div class="map-container">
@@ -273,24 +269,23 @@
       <div class="section-tag">03 / Directory</div>
       <h2 class="section-heading">Explore by Category</h2>
     </div>
-    <input type="text" class="explore-search" id="searchInput" name="q" autocomplete="off" aria-label="Search assets and events" placeholder="Search assets + events by name, city, or keyword...">
+    <input type="text" class="explore-search" id="searchInput" placeholder="Search assets + events by name, city, or keyword...">
   </div>
   <div class="explore-categories" id="exploreCats"></div>
   <div class="explore-list-wrapper" id="exploreListWrapper">
-    <button class="explore-list-back" id="exploreListBack" type="button">All categories</button>
+    <button class="explore-list-back" id="exploreListBack">All categories</button>
     <div class="explore-results-count" id="resultsCount"></div>
     <div class="explore-search-events" id="exploreEventResults" hidden></div>
     <div class="explore-list" id="exploreList"></div>
-    <button class="load-more-btn" id="loadMoreBtn" type="button">Show more</button>
+    <button class="load-more-btn" id="loadMoreBtn">Show more</button>
   </div>
 </section>
-</main>
 
 <!-- ====== DETAIL PANEL ====== -->
 <div class="detail-panel-overlay" id="panelOverlay"></div>
 <div class="detail-panel" id="detailPanel">
   <div class="detail-category-bar" id="detailCatBar"></div>
-  <button class="detail-close" id="detailClose" type="button" aria-label="Close detail panel">&times;</button>
+  <button class="detail-close" id="detailClose">&times;</button>
   <div id="detailHero"></div>
   <div class="detail-content">
     <div class="detail-tag" id="detailTag"></div>
@@ -310,7 +305,7 @@
       <div>
         <div class="colophon-label">Data</div>
         687 cultural assets across 10 categories, sourced from the
-        <a href="https://www.nevadacountyarts.org/cultural-asset-map" target="_blank" rel="noopener noreferrer">Nevada County Arts Council Cultural Asset Map</a>.
+        <a href="https://www.nevadacountyarts.org/cultural-asset-map" target="_blank">Nevada County Arts Council Cultural Asset Map</a>.
         Last updated December 2024.
       </div>
       <div>
@@ -318,17 +313,17 @@
         Cultural Corridors content adapted from <em>MUSE</em> Issue 03, 2026 —
         "Our Cultural Corridors" by Jesse Locks.
         Illustration by Milada Belohlavek &amp; Ron Pitcher.
-        Published by <a href="https://www.nevadacountyarts.org" target="_blank" rel="noopener noreferrer">Nevada County Arts Council</a>.
+        Published by <a href="https://www.nevadacountyarts.org" target="_blank">Nevada County Arts Council</a>.
       </div>
       <div>
         <div class="colophon-label">Design</div>
         "Quiet Graphics" visual identity inspired by the Arts Council's
         original 2019 presentation. Watercolor illustrations honor
-        that unrealized vision. Landscape basemap by <a href="https://www.maptiler.com" target="_blank" rel="noopener noreferrer">MapTiler</a>.
+        that unrealized vision. Landscape basemap by <a href="https://www.maptiler.com" target="_blank">MapTiler</a>.
       </div>
       <div>
         <div class="colophon-label">Built by</div>
-        <a href="https://www.thenorthstarhouse.org" target="_blank" rel="noopener noreferrer">Kaelen Jennings</a> — Development Consultant,
+        <a href="https://www.thenorthstarhouse.org" target="_blank">Kaelen Jennings</a> — Development Consultant,
         North Star Historic Conservancy. Built with MapLibre GL JS, Turf.js, and GSAP.
         Assisted by Claude Code from Anthropic.
       </div>

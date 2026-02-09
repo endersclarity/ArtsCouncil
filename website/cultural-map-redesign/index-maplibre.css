@@ -51,47 +51,6 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-.sr-only {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0, 0, 0, 0);
-  white-space: nowrap;
-  border: 0;
-}
-
-.skip-link {
-  position: absolute;
-  left: 12px;
-  top: 12px;
-  z-index: 20000;
-  background: #fff;
-  color: var(--ink);
-  border: 1px solid rgba(74,107,124,0.38);
-  border-radius: 8px;
-  box-shadow: var(--shadow-raised);
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 0.5rem 0.7rem;
-  text-decoration: none;
-  transform: translateY(-140%);
-  transition: transform 0.2s ease;
-}
-
-.skip-link:focus-visible {
-  transform: translateY(0);
-}
-
-:where(button, [role="button"], input, select, a[href], summary):focus-visible {
-  outline: 2px solid rgba(180,88,29,0.55);
-  outline-offset: 2px;
-}
-
 /* ========== HERO ========== */
 .hero {
   display: flex;
@@ -328,7 +287,7 @@ body {
   padding: 1.25rem 1.25rem 1.25rem 1rem;
   border: none;
   cursor: pointer;
-  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1), color 0.35s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.35s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
   position: relative;
   overflow: visible;
   background: var(--neuro-bg);
@@ -386,7 +345,7 @@ body {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s cubic-bezier(0.22, 1, 0.36, 1), color 0.3s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.3s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
   background: var(--neuro-bg);
   box-shadow: var(--shadow-soft);
 }
@@ -651,7 +610,7 @@ body {
   background: var(--neuro-bg);
   color: var(--slate);
   cursor: pointer;
-  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s cubic-bezier(0.22, 1, 0.36, 1), color 0.3s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.3s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
   letter-spacing: 0.02em;
   display: flex;
   align-items: center;
@@ -666,7 +625,7 @@ body {
   border-radius: 50%;
   background: var(--pill-color, var(--slate));
   flex-shrink: 0;
-  transition: transform 0.3s ease, opacity 0.3s ease, color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.3s ease;
   opacity: 0.5;
 }
 
@@ -712,7 +671,7 @@ body {
   border-radius: 50%;
   border: 1px solid rgba(26,22,18,0.35);
   background: rgba(26,22,18,0.07);
-  transition: transform 0.25s ease, opacity 0.25s ease, color 0.25s ease, background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  transition: all 0.25s ease;
 }
 
 .filter-pill.open-now-pill .status-icon {
@@ -771,7 +730,7 @@ body {
   border-radius: 50%;
   border: 1px solid rgba(26,22,18,0.35);
   background: rgba(26,22,18,0.07);
-  transition: transform 0.25s ease, opacity 0.25s ease, color 0.25s ease, background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  transition: all 0.25s ease;
 }
 
 .filter-pill.events-pill .status-icon {
@@ -907,7 +866,7 @@ body {
   border: 1px solid rgba(26,22,18,0.15);
   padding: 0.25rem 0.6rem;
   cursor: pointer;
-  transition: transform 0.2s ease, opacity 0.2s ease, color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: all 0.2s ease;
   margin-left: auto;
 }
 
@@ -1229,7 +1188,7 @@ body {
   justify-content: center;
   font-size: 1.2rem;
   color: var(--ink);
-  transition: transform 0.2s ease, opacity 0.2s ease, color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: all 0.2s ease;
   z-index: 2;
   border-radius: 50%;
   box-shadow: var(--shadow-raised);
@@ -1280,7 +1239,7 @@ body {
   border-color: currentColor;
   opacity: 0.7;
   cursor: pointer;
-  transition: transform 0.2s ease, opacity 0.2s ease, color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: all 0.2s ease;
 }
 
 .detail-exp-pill:hover { opacity: 1; }
@@ -1476,7 +1435,7 @@ body {
   border: 1px solid rgba(26,22,18,0.1);
   border-radius: 6px;
   cursor: pointer;
-  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.25s cubic-bezier(0.22, 1, 0.36, 1), color 0.25s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.25s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
   color: var(--ink);
 }
 
@@ -1544,7 +1503,7 @@ body {
   padding: 2rem 1.8rem;
   cursor: pointer;
   list-style: none;
-  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s cubic-bezier(0.22, 1, 0.36, 1), color 0.3s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.3s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .muse-card:nth-child(2) {
@@ -1742,14 +1701,14 @@ body {
   background: var(--neuro-bg);
   width: 320px;
   max-width: 100%;
-  outline: 2px solid transparent;
-  transition: transform 0.3s ease, opacity 0.3s ease, color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  outline: none;
+  transition: all 0.3s ease;
   border-radius: 12px;
   box-shadow: var(--shadow-inset);
   color: var(--ink);
 }
 
-.explore-search:focus-visible {
+.explore-search:focus {
   box-shadow: inset 4px 4px 8px var(--neuro-dark), inset -4px -4px 8px var(--neuro-light);
 }
 
@@ -1867,7 +1826,7 @@ body {
   border: 1px solid rgba(26,22,18,0.06);
   border-radius: 8px;
   cursor: pointer;
-  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.3s cubic-bezier(0.22, 1, 0.36, 1), color 0.3s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.3s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.3s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -1968,7 +1927,7 @@ body {
   padding: 1rem 0;
   border-bottom: 1px solid rgba(26,22,18,0.06);
   cursor: pointer;
-  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.25s cubic-bezier(0.22, 1, 0.36, 1), color 0.25s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.25s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
   position: relative;
 }
 
@@ -2060,7 +2019,7 @@ body {
 .explore-item-arrow {
   font-size: 1.1rem;
   color: rgba(26,22,18,0.15);
-  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.25s cubic-bezier(0.22, 1, 0.36, 1), color 0.25s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.25s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .explore-item:hover .explore-item-arrow {
@@ -2090,7 +2049,7 @@ body {
   background: var(--neuro-bg);
   border: none;
   cursor: pointer;
-  transition: transform 0.25s ease, opacity 0.25s ease, color 0.25s ease, background-color 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  transition: all 0.25s ease;
   color: var(--ink);
   border-radius: 12px;
   box-shadow: var(--shadow-raised);
@@ -2622,7 +2581,7 @@ body {
   border: none;
   background: var(--neuro-bg);
   cursor: pointer;
-  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.35s cubic-bezier(0.22, 1, 0.36, 1), color 0.35s cubic-bezier(0.22, 1, 0.36, 1), background-color 0.35s cubic-bezier(0.22, 1, 0.36, 1), border-color 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
   position: relative;
   overflow: visible;
   border-radius: 10px;
@@ -2662,7 +2621,7 @@ body {
   height: 10px;
   border-radius: 50%;
   flex-shrink: 0;
-  transition: transform 0.3s ease, opacity 0.3s ease, color 0.3s ease, background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .experience-card.active .experience-card-dot {
@@ -2855,7 +2814,7 @@ body {
   color: rgba(245,240,232,0.5);
   padding: 0.3rem 0.7rem;
   cursor: pointer;
-  transition: transform 0.2s ease, opacity 0.2s ease, color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  transition: all 0.2s ease;
   margin-left: auto;
   display: inline-flex;
   align-items: center;
@@ -3059,18 +3018,4 @@ body {
   .corridor-stop { flex: 0 0 170px; }
   .corridor-stop-name { font-size: 0.75rem; }
   .corridor-stop-note { font-size: 0.65rem; -webkit-line-clamp: 1; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-  }
 }
