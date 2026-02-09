@@ -112,6 +112,11 @@ def main() -> int:
             if not isinstance(tags, list) or not all(isinstance(tag, str) for tag in tags):
                 fail(f"{event_id}: tags must be an array of strings when present")
 
+        for optional_text_field in ("description", "image_url", "ticket_url", "venue_city"):
+            value = event.get(optional_text_field)
+            if value is not None and (not isinstance(value, str) or not value.strip()):
+                fail(f"{event_id}: {optional_text_field} must be a non-empty string when present")
+
         if start_dt >= now_utc and start_dt <= window_end:
             upcoming_14d += 1
         if start_dt.weekday() in (5, 6):

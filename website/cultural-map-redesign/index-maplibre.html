@@ -1749,6 +1749,90 @@ body {
   margin-bottom: 1rem;
 }
 
+.explore-search-events {
+  margin-bottom: 0.9rem;
+  padding: 0.58rem 0.66rem;
+  background: rgba(255,255,255,0.45);
+  border: 1px solid rgba(26,22,18,0.1);
+  border-radius: 10px;
+}
+
+.explore-search-events[hidden] {
+  display: none;
+}
+
+.explore-search-events-header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.45rem;
+}
+
+.explore-search-events-title {
+  font-family: var(--font-display);
+  font-size: 0.86rem;
+  color: var(--ink);
+}
+
+.explore-search-events-count {
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(26,22,18,0.5);
+}
+
+.explore-search-events-list {
+  display: grid;
+  gap: 0.42rem;
+}
+
+.explore-search-event {
+  display: grid;
+  gap: 0.18rem;
+  padding: 0.42rem 0.5rem;
+  border: 1px solid rgba(26,22,18,0.1);
+  border-left: 3px solid #b4581d;
+  border-radius: 8px;
+  background: rgba(255,255,255,0.72);
+}
+
+.explore-search-event.mapped {
+  cursor: pointer;
+}
+
+.explore-search-event-title {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.3;
+}
+
+.explore-search-event-meta {
+  font-family: var(--font-mono);
+  font-size: 0.54rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: rgba(26,22,18,0.56);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.42rem;
+  align-items: center;
+}
+
+.explore-search-event-link {
+  width: fit-content;
+  font-size: 0.62rem;
+  color: #934512;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(148,69,18,0.28);
+}
+
+.explore-search-event-link:hover {
+  border-bottom-color: rgba(148,69,18,0.7);
+}
+
 .explore-categories {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
@@ -2092,25 +2176,42 @@ body {
   padding: 0 3rem;
 }
 
-.map-events-inner {
-  background: var(--parchment);
+.map-events-details {
   border: 1px solid rgba(26,22,18,0.08);
   border-radius: 14px;
+  background: var(--parchment);
   box-shadow: var(--shadow-soft);
-  padding: 0.85rem 1rem 0.95rem;
+}
+
+.map-events-details > summary {
+  list-style: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.72rem 0.82rem;
+}
+
+.map-events-details > summary::-webkit-details-marker {
+  display: none;
+}
+
+.map-events-details .map-addon-body {
+  padding: 0 0.82rem 0.82rem;
 }
 
 .map-events-header {
   display: flex;
-  align-items: flex-end;
+  align-items: baseline;
   justify-content: space-between;
-  gap: 1rem;
+  gap: 0.8rem;
   margin-bottom: 0.55rem;
 }
 
 .map-events-title {
   font-family: var(--font-display);
-  font-size: 1.05rem;
+  font-size: 0.94rem;
   line-height: 1.15;
   color: var(--ink);
   margin: 0;
@@ -2129,6 +2230,40 @@ body {
   flex-wrap: wrap;
   gap: 0.4rem;
   margin-bottom: 0.7rem;
+}
+
+.map-events-category-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.72rem;
+}
+
+.map-events-category-label {
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(26,22,18,0.54);
+}
+
+.map-events-category-select {
+  min-width: 180px;
+  max-width: 100%;
+  border: 1px solid rgba(26,22,18,0.18);
+  border-radius: 8px;
+  background: rgba(255,255,255,0.6);
+  color: rgba(26,22,18,0.82);
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  padding: 0.32rem 0.45rem;
+}
+
+.map-events-category-select:focus-visible {
+  outline: 2px solid rgba(180,88,29,0.55);
+  outline-offset: 1px;
 }
 
 .map-events-chip {
@@ -2151,14 +2286,25 @@ body {
 }
 
 .map-events-list {
-  display: grid;
-  gap: 0.5rem;
+  display: flex;
+  gap: 0.58rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  min-height: 252px;
+}
+
+.map-events-list::-webkit-scrollbar {
+  display: none;
 }
 
 .map-events-empty {
   font-size: 0.74rem;
   color: rgba(26,22,18,0.55);
-  padding: 0.25rem 0.1rem 0.15rem;
+  padding: 0.55rem 0.2rem;
+  width: 100%;
 }
 
 .map-event-item {
@@ -2166,9 +2312,12 @@ body {
   border-left: 3px solid #b4581d;
   background: rgba(255,255,255,0.66);
   border-radius: 10px;
-  padding: 0.55rem 0.62rem;
+  padding: 0.45rem;
   display: grid;
-  gap: 0.26rem;
+  gap: 0.3rem;
+  align-content: start;
+  flex: 0 0 calc((100% - 1.16rem) / 3);
+  min-height: 252px;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -2186,11 +2335,38 @@ body {
   opacity: 0.88;
 }
 
+.map-event-image {
+  width: 100%;
+  height: 104px;
+  border-radius: 8px;
+  object-fit: cover;
+  background: linear-gradient(135deg, rgba(74,107,124,0.22), rgba(180,88,29,0.2));
+  border: 1px solid rgba(26,22,18,0.09);
+}
+
+.map-event-image.placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(26,22,18,0.42);
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
 .map-event-title {
-  font-size: 0.8rem;
+  font-size: 0.78rem;
   font-weight: 600;
   color: var(--ink);
+  line-height: 1.3;
+}
+
+.map-event-desc {
+  font-size: 0.67rem;
   line-height: 1.35;
+  color: rgba(26,22,18,0.7);
+  min-height: 2.7em;
 }
 
 .map-event-meta {
@@ -2228,22 +2404,97 @@ body {
   border-bottom-color: rgba(148,69,18,0.7);
 }
 
-.map-events-more {
-  margin-top: 0.7rem;
-  font-family: var(--font-body);
-  font-size: 0.74rem;
-  font-weight: 600;
-  border: none;
-  background: var(--neuro-bg);
-  color: var(--slate);
-  border-radius: 10px;
-  padding: 0.45rem 0.7rem;
-  cursor: pointer;
-  box-shadow: var(--shadow-raised);
+.map-events-carousel {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  gap: 0.45rem;
 }
 
-.map-events-more:hover {
+.map-events-nav {
+  border: 1px solid rgba(26,22,18,0.16);
+  background: rgba(255,255,255,0.65);
+  color: rgba(26,22,18,0.62);
+  border-radius: 999px;
+  width: 1.6rem;
+  height: 1.6rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.82rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.map-events-nav:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.map-events-page {
+  margin-top: 0.42rem;
+  font-family: var(--font-mono);
+  font-size: 0.53rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(26,22,18,0.46);
+  text-align: right;
+}
+
+.map-events-all {
+  margin-top: 0.65rem;
+  border-top: 1px solid rgba(26,22,18,0.09);
+  padding-top: 0.55rem;
+}
+
+.map-events-all-head {
+  font-family: var(--font-mono);
+  font-size: 0.54rem;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: rgba(26,22,18,0.48);
+  margin-bottom: 0.42rem;
+}
+
+.map-events-all-list {
+  display: grid;
+  gap: 0.4rem;
+  max-height: 280px;
+  overflow-y: auto;
+  padding-right: 0.2rem;
+}
+
+.map-event-row {
+  border: 1px solid rgba(26,22,18,0.1);
+  border-left: 3px solid #b4581d;
+  background: rgba(255,255,255,0.62);
+  border-radius: 8px;
+  padding: 0.36rem 0.5rem;
+  display: grid;
+  gap: 0.2rem;
+}
+
+.map-event-row.mapped {
+  cursor: pointer;
+}
+
+.map-event-row-title {
+  font-size: 0.72rem;
+  font-weight: 600;
   color: var(--ink);
+  line-height: 1.25;
+}
+
+.map-event-row-meta {
+  font-family: var(--font-mono);
+  font-size: 0.53rem;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: rgba(26,22,18,0.56);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  align-items: center;
 }
 
 .map-guides {
@@ -2679,8 +2930,12 @@ body {
   }
   .map-addons { margin: 0 0 1.25rem; padding: 0 1.5rem; }
   .map-events { padding: 0 1.5rem; margin-bottom: 1.4rem; }
-  .map-events-inner { padding: 0.74rem 0.78rem 0.82rem; }
-  .map-events-title { font-size: 0.95rem; }
+  .map-events-details > summary { padding: 0.68rem 0.72rem; }
+  .map-events-details .map-addon-body { padding: 0 0.72rem 0.72rem; }
+  .map-events-title { font-size: 0.9rem; }
+  .map-events-list { min-height: 226px; }
+  .map-event-item { min-height: 226px; }
+  .map-event-item { flex-basis: calc((100% - 0.58rem) / 2); }
   .map-guides > summary { padding: 0.72rem 0.82rem; }
   .map-guides-body { padding: 0 0.62rem 0.72rem; }
   .map-subaddon > summary { padding: 0.55rem 0.62rem; }
@@ -2770,7 +3025,16 @@ body {
   .map-addons { padding: 0 1rem; margin: 0 0 1rem; }
   .map-events { padding: 0 1rem; margin-bottom: 1rem; }
   .map-events-header { align-items: flex-start; flex-direction: column; gap: 0.35rem; }
-  .map-events-inner { padding: 0.72rem 0.66rem 0.72rem; }
+  .map-events-details > summary { padding: 0.62rem 0.62rem; }
+  .map-events-details .map-addon-body { padding: 0 0.62rem 0.62rem; }
+  .map-events-carousel { grid-template-columns: 1fr; gap: 0.4rem; }
+  .map-events-category-row { align-items: stretch; flex-direction: column; gap: 0.3rem; }
+  .map-events-category-select { width: 100%; min-width: 0; }
+  .map-events-list { min-height: auto; }
+  .map-event-item { min-height: auto; }
+  .map-event-item { flex-basis: 100%; }
+  .map-events-nav { width: 100%; border-radius: 9px; height: 1.8rem; }
+  .map-events-all-list { max-height: 230px; }
   .map-guides > summary { padding: 0.68rem 0.72rem; }
   .map-guides-body { padding: 0 0.55rem 0.62rem; }
   .map-subaddon > summary { padding: 0.5rem 0.55rem; }
@@ -2887,19 +3151,43 @@ body {
     </details>
   </div>
   <div class="map-events" id="mapEvents">
-    <div class="map-events-inner">
-      <div class="map-events-header">
-        <h3 class="map-events-title">Upcoming Events</h3>
-        <span class="map-events-count" id="mapEventsCount">0 events</span>
+    <details class="map-subaddon map-events-details" id="mapEventsDetails">
+      <summary>
+        <h3 class="section-header">Upcoming Events</h3>
+        <span class="map-addon-summary-right">
+          <span class="map-addon-count" id="mapEventsCount">0 events</span>
+          <span class="map-addon-caret">&#9662;</span>
+        </span>
+      </summary>
+      <div class="map-addon-body">
+        <div class="map-events-header">
+          <h3 class="map-events-title">Upcoming events</h3>
+          <span class="map-events-count" id="mapEventsScope">All categories</span>
+        </div>
+        <div class="map-events-filters" id="mapEventsFilters">
+          <button class="map-events-chip active" type="button" data-event-filter="all">All</button>
+          <button class="map-events-chip" type="button" data-event-filter="today">Today</button>
+          <button class="map-events-chip" type="button" data-event-filter="weekend">Weekend</button>
+          <button class="map-events-chip" type="button" data-event-filter="14d">14d</button>
+        </div>
+        <div class="map-events-category-row">
+          <label class="map-events-category-label" for="mapEventsCategory">Category</label>
+          <select id="mapEventsCategory" class="map-events-category-select" aria-label="Filter events by category">
+            <option value="all">All categories</option>
+          </select>
+        </div>
+        <div class="map-events-carousel">
+          <button class="map-events-nav" id="mapEventsPrev" type="button" aria-label="Previous spotlight cards">&#9664;</button>
+          <div class="map-events-list" id="mapEventsList"></div>
+          <button class="map-events-nav" id="mapEventsNext" type="button" aria-label="Next spotlight cards">&#9654;</button>
+        </div>
+        <div class="map-events-page" id="mapEventsPage">Page 1 / 1</div>
+        <div class="map-events-all">
+          <div class="map-events-all-head">All upcoming events</div>
+          <div class="map-events-all-list" id="mapEventsAllList"></div>
+        </div>
       </div>
-      <div class="map-events-filters" id="mapEventsFilters">
-        <button class="map-events-chip active" type="button" data-event-filter="all">All</button>
-        <button class="map-events-chip" type="button" data-event-filter="weekend">Weekend</button>
-        <button class="map-events-chip" type="button" data-event-filter="14d">14d</button>
-      </div>
-      <div class="map-events-list" id="mapEventsList"></div>
-      <button class="map-events-more" id="mapEventsMore" type="button">Show more events</button>
-    </div>
+    </details>
   </div>
 </section>
 
@@ -3003,12 +3291,13 @@ body {
       <div class="section-tag">03 / Directory</div>
       <h2 class="section-heading">Explore by Category</h2>
     </div>
-    <input type="text" class="explore-search" id="searchInput" placeholder="Search 687 assets by name, city, or keyword...">
+    <input type="text" class="explore-search" id="searchInput" placeholder="Search assets + events by name, city, or keyword...">
   </div>
   <div class="explore-categories" id="exploreCats"></div>
   <div class="explore-list-wrapper" id="exploreListWrapper">
     <button class="explore-list-back" id="exploreListBack">All categories</button>
     <div class="explore-results-count" id="resultsCount"></div>
+    <div class="explore-search-events" id="exploreEventResults" hidden></div>
     <div class="explore-list" id="exploreList"></div>
     <button class="load-more-btn" id="loadMoreBtn">Show more</button>
   </div>
@@ -3123,6 +3412,7 @@ body {
   let openNowMode = false;
   let events14dMode = false;
   let eventDateFilter = 'all';
+  let eventCategoryFilter = 'all';
   let eventsListPage = 0;
   let mapFiltersExpanded = false;
   let mapLegendExpanded = false;
@@ -3133,11 +3423,13 @@ body {
   let cardElements = [];
   let listPage = 0;
   const LIST_PAGE_SIZE = 30;
-  const EVENT_LIST_PAGE_SIZE = 8;
   const EVENT_WINDOW_DAYS = 14;
   const PACIFIC_TZ = 'America/Los_Angeles';
   let matchedEventsByAsset = new Map();
   let unmatchedEvents = [];
+  let eventsRotateRaf = null;
+  let eventsRotateLastTs = 0;
+  let eventsResumeTimer = null;
 
   // Experience overlay state
   let corridorMarkers = [];
@@ -3155,6 +3447,11 @@ body {
   const LABEL_MAX_VISIBLE = 32;
   const LABEL_ALL_THRESHOLD = 16;
   const LABEL_SUBSET_COUNT = 12;
+  const MOBILE_LABEL_MAX_VISIBLE = 46;
+  const MOBILE_LABEL_MIN_ZOOM = 11.2;
+  const MOBILE_LABEL_SIZE_BASE = 10;
+  const MOBILE_LABEL_SIZE_LARGE = 13;
+  const isCoarsePointer = window.matchMedia('(pointer: coarse)').matches;
   const smartLabelsEnabled = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
   let smartLabelLayer = null;
   let smartLabelFrame = null;
@@ -3193,6 +3490,7 @@ body {
     initMapLibre();
     buildExploreCats();
     buildList();
+    buildMapEventsCategorySelect();
     buildMapEventsList();
     initScrollReveal();
     bindEvents();
@@ -3429,17 +3727,20 @@ body {
 
   function isEventUpcoming(event) {
     const start = parseEventDate(event.start_iso);
-    if (!start) return false;
-    return start.getTime() >= Date.now();
+    const end = parseEventDate(event.end_iso) || start;
+    if (!start || !end) return false;
+    return end.getTime() >= Date.now();
   }
 
   function isEventWithinDays(event, days) {
     const start = parseEventDate(event.start_iso);
-    if (!start) return false;
+    const end = parseEventDate(event.end_iso) || start;
+    if (!start || !end) return false;
     const now = Date.now();
     const max = now + (days * 24 * 60 * 60 * 1000);
-    const ts = start.getTime();
-    return ts >= now && ts <= max;
+    const startTs = start.getTime();
+    const endTs = end.getTime();
+    return endTs >= now && startTs <= max;
   }
 
   function isWeekendEvent(event) {
@@ -3448,6 +3749,30 @@ body {
     const tz = event.timezone || PACIFIC_TZ;
     const weekday = new Intl.DateTimeFormat('en-US', { timeZone: tz, weekday: 'short' }).format(start);
     return weekday === 'Sat' || weekday === 'Sun';
+  }
+
+  function getDateKeyInTimezone(date, tz) {
+    const parts = new Intl.DateTimeFormat('en-CA', {
+      timeZone: tz,
+      year: 'numeric',
+      month: '2-digit',
+      day: '2-digit'
+    }).formatToParts(date);
+    const year = parts.find((p) => p.type === 'year')?.value || '0000';
+    const month = parts.find((p) => p.type === 'month')?.value || '00';
+    const day = parts.find((p) => p.type === 'day')?.value || '00';
+    return `${year}-${month}-${day}`;
+  }
+
+  function isEventToday(event) {
+    const start = parseEventDate(event.start_iso);
+    const end = parseEventDate(event.end_iso) || start;
+    if (!start || !end) return false;
+    const tz = event.timezone || PACIFIC_TZ;
+    const todayKey = getDateKeyInTimezone(new Date(), tz);
+    const startKey = getDateKeyInTimezone(start, tz);
+    const endKey = getDateKeyInTimezone(end, tz);
+    return todayKey >= startKey && todayKey <= endKey;
   }
 
   function choosePreferredEventAssetIndex(indices) {
@@ -3570,13 +3895,35 @@ body {
     return `${dayFmt.format(start)} • ${timeFmt.format(start)}-${timeFmt.format(end)}`;
   }
 
+  function eventMatchesCategoryFilter(event) {
+    if (eventCategoryFilter === 'all') return true;
+    if (!Number.isInteger(event.matched_asset_idx)) return false;
+    const asset = DATA[event.matched_asset_idx];
+    return !!asset && asset.l === eventCategoryFilter;
+  }
+
+  function getEventDisplayDescription(event) {
+    const raw = String(event.description || '')
+      .replace(/<[^>]*>/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+    if (raw) return raw;
+    if (Array.isArray(event.tags) && event.tags.length) {
+      return `Type: ${event.tags.slice(0, 2).join(' • ')}`;
+    }
+    return 'Details available in the event link.';
+  }
+
   function getFilteredMapEvents() {
     let events = EVENTS.filter((event) => isEventUpcoming(event));
-    if (eventDateFilter === 'weekend') {
+    if (eventDateFilter === 'today') {
+      events = events.filter((event) => isEventToday(event));
+    } else if (eventDateFilter === 'weekend') {
       events = events.filter((event) => isWeekendEvent(event));
     } else if (eventDateFilter === '14d') {
       events = events.filter((event) => isEventWithinDays(event, EVENT_WINDOW_DAYS));
     }
+    events = events.filter((event) => eventMatchesCategoryFilter(event));
     return events;
   }
 
@@ -3592,6 +3939,36 @@ body {
     chips.forEach((chip) => {
       chip.classList.toggle('active', chip.dataset.eventFilter === eventDateFilter);
     });
+  }
+
+  function buildMapEventsCategorySelect() {
+    const select = document.getElementById('mapEventsCategory');
+    if (!select) return;
+    const seen = new Set();
+    const categories = DATA
+      .map((d) => d && d.l)
+      .filter((name) => typeof name === 'string' && name && !seen.has(name) && seen.add(name));
+
+    select.innerHTML = '<option value="all">All categories</option>' +
+      categories.map((name) => {
+        const label = (CATS[name] && CATS[name].short) || name;
+        return `<option value="${escapeHTML(name)}">${escapeHTML(label)}</option>`;
+      }).join('');
+    select.value = eventCategoryFilter;
+  }
+
+  function updateMapEventsCategoryUI() {
+    const select = document.getElementById('mapEventsCategory');
+    if (select && select.value !== eventCategoryFilter) {
+      select.value = eventCategoryFilter;
+    }
+  }
+
+  function setEventCategoryFilter(categoryValue) {
+    eventCategoryFilter = categoryValue && categoryValue !== 'all' ? categoryValue : 'all';
+    eventsListPage = 0;
+    updateMapEventsCategoryUI();
+    buildMapEventsList();
   }
 
   function focusEvent(eventId) {
@@ -3611,37 +3988,181 @@ body {
     openDetail(venue);
   }
 
-  function buildMapEventsList() {
+  function stopEventsRotation() {
+    if (eventsRotateRaf) {
+      cancelAnimationFrame(eventsRotateRaf);
+      eventsRotateRaf = null;
+    }
+    if (eventsResumeTimer) {
+      clearTimeout(eventsResumeTimer);
+      eventsResumeTimer = null;
+    }
+    eventsRotateLastTs = 0;
+  }
+
+  function queueEventsRotationResume(totalCards, delayMs = 520) {
+    if (eventsResumeTimer) clearTimeout(eventsResumeTimer);
+    eventsResumeTimer = setTimeout(() => {
+      eventsResumeTimer = null;
+      startEventsRotation(totalCards);
+    }, delayMs);
+  }
+
+  function getEventsCarouselVisibleSlots() {
+    if (window.matchMedia('(max-width: 600px)').matches) return 1;
+    if (window.matchMedia('(max-width: 900px)').matches) return 2;
+    return 3;
+  }
+
+  function getEventsCarouselStep(listEl) {
+    const first = listEl ? listEl.querySelector('.map-event-item') : null;
+    if (!first) return listEl ? listEl.clientWidth : 0;
+    const styles = getComputedStyle(listEl);
+    const gap = parseFloat(styles.columnGap || styles.gap || '0') || 0;
+    return first.getBoundingClientRect().width + gap;
+  }
+
+  function updateEventsSpotlightPageLabel(totalCards) {
     const listEl = document.getElementById('mapEventsList');
+    const pageEl = document.getElementById('mapEventsPage');
+    if (!listEl || !pageEl) return;
+    if (!totalCards) {
+      pageEl.textContent = 'Spotlight 0 / 0';
+      eventsListPage = 0;
+      return;
+    }
+    const step = getEventsCarouselStep(listEl);
+    const idx = step > 0 ? Math.round(listEl.scrollLeft / step) : 0;
+    const normalized = Math.max(0, Math.min(totalCards - 1, idx));
+    eventsListPage = normalized;
+    pageEl.textContent = `Spotlight ${normalized + 1} / ${totalCards}`;
+  }
+
+  function stepEventsSpotlight(direction = 1, smooth = true) {
+    const listEl = document.getElementById('mapEventsList');
+    if (!listEl) return false;
+    const cards = listEl.querySelectorAll('.map-event-item');
+    const totalCards = cards.length;
+    const visibleSlots = getEventsCarouselVisibleSlots();
+    if (totalCards <= visibleSlots) return false;
+
+    const step = getEventsCarouselStep(listEl);
+    if (step <= 0) return false;
+    const maxLeft = Math.max(0, listEl.scrollWidth - listEl.clientWidth);
+    if (maxLeft <= 1) return false;
+    const current = listEl.scrollLeft;
+
+    if (direction > 0) {
+      if (current + step >= maxLeft - 2) {
+        listEl.scrollTo({ left: 0, behavior: 'auto' });
+      } else {
+        listEl.scrollTo({ left: current + step, behavior: smooth ? 'smooth' : 'auto' });
+      }
+    } else {
+      if (current <= 2) {
+        listEl.scrollTo({ left: maxLeft, behavior: 'auto' });
+      } else {
+        listEl.scrollTo({ left: Math.max(0, current - step), behavior: smooth ? 'smooth' : 'auto' });
+      }
+    }
+
+    setTimeout(() => updateEventsSpotlightPageLabel(totalCards), smooth ? 420 : 0);
+    return true;
+  }
+
+  function startEventsRotation(totalCards) {
+    stopEventsRotation();
+    if (totalCards <= getEventsCarouselVisibleSlots()) return;
+    const listEl = document.getElementById('mapEventsList');
+    if (!listEl) return;
+    const details = document.getElementById('mapEventsDetails');
+    if (details && !details.open) return;
+
+    const speedPxPerSecond = 22;
+    let lastLabelUpdate = 0;
+
+    const tick = (ts) => {
+      const panel = document.getElementById('mapEventsDetails');
+      if (panel && !panel.open) {
+        stopEventsRotation();
+        return;
+      }
+      if (!eventsRotateLastTs) eventsRotateLastTs = ts;
+      const dt = Math.min(0.05, (ts - eventsRotateLastTs) / 1000);
+      eventsRotateLastTs = ts;
+
+      const maxLeft = Math.max(0, listEl.scrollWidth - listEl.clientWidth);
+      if (maxLeft <= 1) {
+        stopEventsRotation();
+        return;
+      }
+
+      let nextLeft = listEl.scrollLeft + speedPxPerSecond * dt;
+      if (nextLeft >= maxLeft) nextLeft = 0;
+      listEl.scrollLeft = nextLeft;
+
+      if (ts - lastLabelUpdate >= 170) {
+        updateEventsSpotlightPageLabel(totalCards);
+        lastLabelUpdate = ts;
+      }
+      eventsRotateRaf = requestAnimationFrame(tick);
+    };
+
+    eventsRotateRaf = requestAnimationFrame(tick);
+  }
+
+  function buildMapEventsList(options = {}) {
+    const { keepPosition = false, skipRotationRestart = false } = options;
+    const listEl = document.getElementById('mapEventsList');
+    const allListEl = document.getElementById('mapEventsAllList');
     const countEl = document.getElementById('mapEventsCount');
-    const moreBtn = document.getElementById('mapEventsMore');
-    if (!listEl || !countEl || !moreBtn) return;
+    const scopeEl = document.getElementById('mapEventsScope');
+    const prevBtn = document.getElementById('mapEventsPrev');
+    const nextBtn = document.getElementById('mapEventsNext');
+    const pageEl = document.getElementById('mapEventsPage');
+    if (!listEl || !allListEl || !countEl || !pageEl) return;
     updateMapEventsFilterUI();
+    updateMapEventsCategoryUI();
 
     const filtered = getFilteredMapEvents();
-    const visibleCount = Math.min(filtered.length, (eventsListPage + 1) * EVENT_LIST_PAGE_SIZE);
-    const visible = filtered.slice(0, visibleCount);
+    const scopeLabel = eventCategoryFilter === 'all'
+      ? 'All categories'
+      : `Category: ${((CATS[eventCategoryFilter] && CATS[eventCategoryFilter].short) || eventCategoryFilter)}`;
 
     countEl.textContent = `${filtered.length} event${filtered.length === 1 ? '' : 's'}`;
+    if (scopeEl) scopeEl.textContent = scopeLabel;
 
-    if (!visible.length) {
-      listEl.innerHTML = '<div class="map-events-empty">No upcoming events in this range yet.</div>';
-      moreBtn.style.display = 'none';
+    if (!filtered.length) {
+      const msg = 'No upcoming events for this filter.';
+      listEl.innerHTML = `<div class="map-events-empty">${msg}</div>`;
+      allListEl.innerHTML = `<div class="map-events-empty">${msg}</div>`;
+      pageEl.textContent = 'Spotlight 0 / 0';
+      if (prevBtn) prevBtn.disabled = true;
+      if (nextBtn) nextBtn.disabled = true;
+      stopEventsRotation();
       return;
     }
 
-    listEl.innerHTML = visible.map((event) => {
+    listEl.innerHTML = filtered.map((event) => {
       const mapped = Number.isInteger(event.matched_asset_idx);
       const title = escapeHTML(event.title || 'Untitled event');
       const venueName = escapeHTML(event.venue_name || 'Venue TBD');
       const eventTime = escapeHTML(formatEventDateRange(event));
+      const rawDesc = getEventDisplayDescription(event);
+      const shortDesc = escapeHTML(rawDesc.length > 180 ? `${rawDesc.slice(0, 177)}...` : rawDesc);
+      const imageURL = typeof event.image_url === 'string' ? event.image_url.trim() : '';
+      const imageHTML = imageURL
+        ? `<img class="map-event-image" src="${escapeHTML(imageURL)}" alt="${title}" loading="lazy" onerror="this.outerHTML='<div class=&quot;map-event-image placeholder&quot;>No image</div>'">`
+        : '<div class="map-event-image placeholder">No image</div>';
       const ticket = typeof event.ticket_url === 'string' && event.ticket_url
         ? `<a class="map-event-link" href="${escapeHTML(event.ticket_url)}" target="_blank" rel="noopener">Tickets / Details</a>`
         : '';
       const badge = mapped ? '' : '<span class="map-event-badge">Unmapped</span>';
       return `
         <div class="map-event-item ${mapped ? 'mapped' : 'unmapped'}" data-event-id="${escapeHTML(event.event_id || '')}">
+          ${imageHTML}
           <div class="map-event-title">${title}</div>
+          <div class="map-event-desc">${shortDesc}</div>
           <div class="map-event-meta">
             <span>${eventTime}</span>
             <span class="map-event-venue">${venueName}</span>
@@ -3652,7 +4173,37 @@ body {
       `;
     }).join('');
 
-    moreBtn.style.display = visibleCount < filtered.length ? '' : 'none';
+    if (!keepPosition) {
+      listEl.scrollTo({ left: 0, behavior: 'auto' });
+    }
+
+    allListEl.innerHTML = filtered.map((event) => {
+      const mapped = Number.isInteger(event.matched_asset_idx);
+      const title = escapeHTML(event.title || 'Untitled event');
+      const venueName = escapeHTML(event.venue_name || 'Venue TBD');
+      const eventTime = escapeHTML(formatEventDateRange(event));
+      const ticket = typeof event.ticket_url === 'string' && event.ticket_url
+        ? `<a class="map-event-link" href="${escapeHTML(event.ticket_url)}" target="_blank" rel="noopener">Tickets / Details</a>`
+        : '';
+      const badge = mapped ? '' : '<span class="map-event-badge">Unmapped</span>';
+      return `
+        <div class="map-event-row ${mapped ? 'mapped' : 'unmapped'}" data-event-id="${escapeHTML(event.event_id || '')}">
+          <div class="map-event-row-title">${title}</div>
+          <div class="map-event-row-meta">
+            <span>${eventTime}</span>
+            <span class="map-event-venue">${venueName}</span>
+            ${badge}
+          </div>
+          ${ticket}
+        </div>
+      `;
+    }).join('');
+
+    const canStep = filtered.length > getEventsCarouselVisibleSlots();
+    if (prevBtn) prevBtn.disabled = !canStep;
+    if (nextBtn) nextBtn.disabled = !canStep;
+    updateEventsSpotlightPageLabel(filtered.length);
+    if (!skipRotationRestart) startEventsRotation(filtered.length);
   }
 
   function renderDetailEvents(venue) {
@@ -3771,7 +4322,7 @@ body {
   // MAPLIBRE INITIALIZATION (Steps 2 + 3)
   // ============================================================
   function initMapLibre() {
-    const useCooperativeGestures = window.matchMedia('(pointer:fine)').matches;
+    const useCooperativeGestures = false;
     const styleUrl = MAPTILER_KEY !== 'GET_YOUR_FREE_KEY_AT_MAPTILER_COM'
       ? `https://api.maptiler.com/maps/landscape/style.json?key=${MAPTILER_KEY}`
       : {
@@ -3968,7 +4519,10 @@ body {
     if (!source || typeof source.setData !== 'function') return;
     clearMapLabelStates();
     source.setData(buildAssetsGeoJSON());
-    requestAnimationFrame(() => updateMapProgressiveLabels());
+    requestAnimationFrame(() => {
+      updateMapProgressiveLabels();
+      updateMobileLabelLayerVisibility();
+    });
   }
 
   function buildFeatureTooltipHTML(props) {
@@ -4186,6 +4740,27 @@ body {
     smartLabelLayer.innerHTML = html;
   }
 
+  function getVisibleAssetFeatureCount() {
+    if (!map || !map.getLayer('assets-circle')) return 0;
+    const rendered = map.queryRenderedFeatures({ layers: ['assets-circle'] }) || [];
+    const seen = new Set();
+    rendered.forEach((feature) => {
+      if (!feature || feature.id === undefined || feature.id === null) return;
+      seen.add(feature.id);
+    });
+    return seen.size;
+  }
+
+  function updateMobileLabelLayerVisibility() {
+    if (!map || !isCoarsePointer || !map.getLayer('assets-mobile-labels')) return;
+    const visibleCount = getVisibleAssetFeatureCount();
+    const canShow = !activeExperience
+      && map.getZoom() >= MOBILE_LABEL_MIN_ZOOM
+      && visibleCount <= MOBILE_LABEL_MAX_VISIBLE
+      && visibleCount > 0;
+    map.setLayoutProperty('assets-mobile-labels', 'visibility', canShow ? 'visible' : 'none');
+  }
+
   function markMapInteracted() {
     hasUserInteractedWithMap = true;
     stopIdlePreview();
@@ -4262,8 +4837,61 @@ body {
       }
     });
 
+    map.addLayer({
+      id: 'assets-hit',
+      type: 'circle',
+      source: 'assets',
+      paint: {
+        'circle-radius': [
+          'interpolate',
+          ['linear'],
+          ['zoom'],
+          7, 10,
+          10, 12,
+          14, 14
+        ],
+        'circle-color': '#000000',
+        'circle-opacity': 0,
+        'circle-stroke-opacity': 0
+      }
+    });
+
+    if (isCoarsePointer) {
+      map.addLayer({
+        id: 'assets-mobile-labels',
+        type: 'symbol',
+        source: 'assets',
+        layout: {
+          'text-field': ['get', 'label_name'],
+          'text-font': ['Open Sans Semibold', 'Arial Unicode MS Regular'],
+          'text-size': [
+            'interpolate',
+            ['linear'],
+            ['zoom'],
+            MOBILE_LABEL_MIN_ZOOM, MOBILE_LABEL_SIZE_BASE,
+            13, 11.5,
+            15, MOBILE_LABEL_SIZE_LARGE
+          ],
+          'text-anchor': 'top',
+          'text-offset': [0, 1],
+          'text-max-width': 12,
+          'text-optional': true,
+          'text-allow-overlap': false,
+          'text-ignore-placement': false,
+          'visibility': 'none'
+        },
+        paint: {
+          'text-color': 'rgba(42,68,86,0.92)',
+          'text-halo-color': 'rgba(244,239,230,0.96)',
+          'text-halo-width': 1.15,
+          'text-halo-blur': 0.5,
+          'text-opacity': 0.92
+        }
+      });
+    }
+
     // Hover interaction
-    map.on('mousemove', 'assets-circle', (e) => {
+    map.on('mousemove', 'assets-hit', (e) => {
       markMapInteracted();
       map.getCanvas().style.cursor = 'pointer';
       if (e.features.length === 0) return;
@@ -4285,7 +4913,7 @@ body {
         .addTo(map);
     });
 
-    map.on('mouseleave', 'assets-circle', () => {
+    map.on('mouseleave', 'assets-hit', () => {
       map.getCanvas().style.cursor = '';
       if (hoveredFeatureId !== null) {
         map.setFeatureState({ source: 'assets', id: hoveredFeatureId }, { hover: false });
@@ -4294,10 +4922,31 @@ body {
       hoverPopup.remove();
     });
 
+    if (isCoarsePointer && map.getLayer('assets-mobile-labels')) {
+      map.on('click', 'assets-mobile-labels', (e) => {
+        if (!e.features || e.features.length === 0) return;
+        const feature = e.features[0];
+        const featureIdx = Number(feature.properties && feature.properties.idx);
+        const venue = Number.isInteger(featureIdx) ? DATA[featureIdx] : null;
+        if (!venue || !venue.x || !venue.y) return;
+        openDetail(venue);
+        map.flyTo({
+          center: [venue.x, venue.y],
+          zoom: Math.max(map.getZoom(), 13.2),
+          pitch: Math.max(map.getPitch(), 45),
+          bearing: map.getBearing(),
+          duration: 620,
+          essential: true
+        });
+      });
+      map.on('mouseenter', 'assets-mobile-labels', () => { map.getCanvas().style.cursor = 'pointer'; });
+      map.on('mouseleave', 'assets-mobile-labels', () => { map.getCanvas().style.cursor = ''; });
+    }
+
     // Click interaction — mobile: instant panel; desktop: cinematic flyTo + brief tooltip
     let clickFlyId = 0;
     const isMobileClick = window.matchMedia('(max-width: 900px)').matches;
-    map.on('click', 'assets-circle', (e) => {
+    map.on('click', 'assets-hit', (e) => {
       markMapInteracted();
       if (e.features.length === 0) return;
       const f = e.features[0];
@@ -4365,16 +5014,20 @@ body {
     map.on('pitch', scheduleSmartLabelUpdate);
     map.on('rotate', scheduleSmartLabelUpdate);
     map.on('resize', scheduleSmartLabelUpdate);
-    map.on('moveend', updateMapProgressiveLabels);
-    map.on('zoomend', updateMapProgressiveLabels);
-    map.on('idle', updateMapProgressiveLabels);
+    const refreshLabels = () => {
+      updateMapProgressiveLabels();
+      updateMobileLabelLayerVisibility();
+    };
+    map.on('moveend', refreshLabels);
+    map.on('zoomend', refreshLabels);
+    map.on('idle', refreshLabels);
     map.getCanvas().addEventListener('wheel', markMapInteracted, { passive: true });
     map.getCanvas().addEventListener('mousedown', markMapInteracted);
     map.getCanvas().addEventListener('touchstart', markMapInteracted, { passive: true });
 
     // Apply initial filter if any
     updateMapFilters();
-    updateMapProgressiveLabels();
+    refreshLabels();
     scheduleIdlePreview();
   }
 
@@ -4416,6 +5069,13 @@ body {
         ['==', ['get', 'hours_state'], 'open'], 1,
         0.62
       ]);
+      if (map.getLayer('assets-mobile-labels')) {
+        map.setPaintProperty('assets-mobile-labels', 'text-opacity', [
+          'case',
+          ['==', ['get', 'hours_state'], 'open'], 0.95,
+          0.42
+        ]);
+      }
       return;
     }
 
@@ -4429,6 +5089,9 @@ body {
     map.setPaintProperty('assets-circle', 'circle-stroke-color', 'rgba(255,255,255,0.6)');
     map.setPaintProperty('assets-circle', 'circle-stroke-width', 1.5);
     map.setPaintProperty('assets-circle', 'circle-stroke-opacity', 1);
+    if (map.getLayer('assets-mobile-labels')) {
+      map.setPaintProperty('assets-mobile-labels', 'text-opacity', 0.92);
+    }
   }
 
   function updateMapFilters(options = {}) {
@@ -4454,6 +5117,12 @@ body {
       : (clauses.length === 1 ? clauses[0] : ['all', ...clauses]);
 
     map.setFilter('assets-circle', combinedExpr);
+    if (map.getLayer('assets-hit')) {
+      map.setFilter('assets-hit', combinedExpr);
+    }
+    if (map.getLayer('assets-mobile-labels')) {
+      map.setFilter('assets-mobile-labels', combinedExpr);
+    }
     applyMapVisualState();
 
     if (recenter) {
@@ -4476,6 +5145,7 @@ body {
     if (!recenter) {
       updateMapProgressiveLabels();
     }
+    updateMobileLabelLayerVisibility();
   }
 
   // ============================================================
@@ -4484,6 +5154,7 @@ body {
   function activateExperience(experience) {
     activeExperience = experience;
     clearMapLabelStates();
+    updateMobileLabelLayerVisibility();
     const guidesSection = document.getElementById('mapGuides');
     const corridorSection = document.getElementById('corridorAddon');
     const exploreSection = document.getElementById('experienceAddon');
@@ -4842,6 +5513,7 @@ body {
       map.setPaintProperty('assets-circle', 'circle-stroke-opacity', 1);
       updateMapFilters();
       updateMapProgressiveLabels();
+      updateMobileLabelLayerVisibility();
     }
   }
 
@@ -5268,7 +5940,9 @@ body {
     updateActiveBanner();
     updateMapFilters();
     listPage = 0;
+    eventsListPage = 0;
     buildList();
+    buildMapEventsList();
   }
 
   // ============================================================
@@ -5424,6 +6098,71 @@ body {
     return filtered;
   }
 
+  function getSearchMatchedEvents(query) {
+    const q = (query || '').toLowerCase().trim();
+    if (!q) return [];
+    const events = getFilteredMapEvents();
+    return events.filter((event) => {
+      const tags = Array.isArray(event.tags) ? event.tags.join(' ') : '';
+      return (
+        String(event.title || '').toLowerCase().includes(q) ||
+        String(event.venue_name || '').toLowerCase().includes(q) ||
+        String(event.venue_city || '').toLowerCase().includes(q) ||
+        String(event.description || '').toLowerCase().includes(q) ||
+        tags.toLowerCase().includes(q)
+      );
+    });
+  }
+
+  function renderSearchEventMatches(query) {
+    const wrap = document.getElementById('exploreEventResults');
+    if (!wrap) return;
+    const q = (query || '').trim();
+    if (!q) {
+      wrap.hidden = true;
+      wrap.innerHTML = '';
+      return;
+    }
+
+    const matches = getSearchMatchedEvents(q).slice(0, 6);
+    if (!matches.length) {
+      wrap.hidden = true;
+      wrap.innerHTML = '';
+      return;
+    }
+
+    const items = matches.map((event) => {
+      const mapped = Number.isInteger(event.matched_asset_idx);
+      const title = escapeHTML(event.title || 'Untitled event');
+      const when = escapeHTML(formatEventDateRange(event));
+      const venue = escapeHTML(event.venue_name || 'Venue TBD');
+      const badge = mapped ? '' : '<span class="map-event-badge">Unmapped</span>';
+      const link = typeof event.ticket_url === 'string' && event.ticket_url
+        ? `<a class="explore-search-event-link" href="${escapeHTML(event.ticket_url)}" target="_blank" rel="noopener">Event link</a>`
+        : '';
+      return `
+        <div class="explore-search-event ${mapped ? 'mapped' : ''}" data-event-id="${escapeHTML(event.event_id || '')}">
+          <div class="explore-search-event-title">${title}</div>
+          <div class="explore-search-event-meta">
+            <span>${when}</span>
+            <span>${venue}</span>
+            ${badge}
+          </div>
+          ${link}
+        </div>
+      `;
+    }).join('');
+
+    wrap.innerHTML = `
+      <div class="explore-search-events-header">
+        <div class="explore-search-events-title">Matching Events</div>
+        <div class="explore-search-events-count">${matches.length} shown</div>
+      </div>
+      <div class="explore-search-events-list">${items}</div>
+    `;
+    wrap.hidden = false;
+  }
+
   function buildExploreCats() {
     const grid = document.getElementById('exploreCats');
     if (!grid) return;
@@ -5472,6 +6211,7 @@ body {
     const list = document.getElementById('exploreList');
     const wrapper = document.getElementById('exploreListWrapper');
     const searchVal = document.getElementById('searchInput').value.trim();
+    renderSearchEventMatches(searchVal);
 
     // Show list if search is active even without category
     if (searchVal && activeCategories.size === 0) {
@@ -5611,16 +6351,50 @@ body {
       });
     }
 
-    const eventsMoreBtn = document.getElementById('mapEventsMore');
-    if (eventsMoreBtn) {
-      eventsMoreBtn.addEventListener('click', () => {
-        eventsListPage += 1;
-        buildMapEventsList();
+    const eventsCategorySelect = document.getElementById('mapEventsCategory');
+    if (eventsCategorySelect) {
+      eventsCategorySelect.addEventListener('change', () => {
+        setEventCategoryFilter(eventsCategorySelect.value);
+      });
+    }
+
+    const eventsPrevBtn = document.getElementById('mapEventsPrev');
+    if (eventsPrevBtn) {
+      eventsPrevBtn.addEventListener('click', () => {
+        stopEventsRotation();
+        const filtered = getFilteredMapEvents();
+        if (stepEventsSpotlight(-1, true)) {
+          queueEventsRotationResume(filtered.length);
+        }
+      });
+    }
+
+    const eventsNextBtn = document.getElementById('mapEventsNext');
+    if (eventsNextBtn) {
+      eventsNextBtn.addEventListener('click', () => {
+        stopEventsRotation();
+        const filtered = getFilteredMapEvents();
+        if (stepEventsSpotlight(1, true)) {
+          queueEventsRotationResume(filtered.length);
+        }
       });
     }
 
     const eventsList = document.getElementById('mapEventsList');
     if (eventsList) {
+      let eventsScrollLabelFrame = null;
+      eventsList.addEventListener('mouseenter', stopEventsRotation);
+      eventsList.addEventListener('mouseleave', () => {
+        const filtered = getFilteredMapEvents();
+        startEventsRotation(filtered.length);
+      });
+      eventsList.addEventListener('scroll', () => {
+        if (eventsScrollLabelFrame !== null) return;
+        eventsScrollLabelFrame = requestAnimationFrame(() => {
+          eventsScrollLabelFrame = null;
+          updateEventsSpotlightPageLabel(getFilteredMapEvents().length);
+        });
+      }, { passive: true });
       eventsList.addEventListener('click', (e) => {
         const link = e.target.closest('.map-event-link');
         if (link) {
@@ -5628,6 +6402,49 @@ body {
           return;
         }
         const card = e.target.closest('.map-event-item.mapped');
+        if (!card) return;
+        const eventId = card.getAttribute('data-event-id');
+        if (!eventId) return;
+        focusEvent(eventId);
+      });
+    }
+
+    const allEventsList = document.getElementById('mapEventsAllList');
+    if (allEventsList) {
+      allEventsList.addEventListener('click', (e) => {
+        const link = e.target.closest('.map-event-link');
+        if (link) {
+          e.stopPropagation();
+          return;
+        }
+        const card = e.target.closest('.map-event-row.mapped');
+        if (!card) return;
+        const eventId = card.getAttribute('data-event-id');
+        if (!eventId) return;
+        focusEvent(eventId);
+      });
+    }
+
+    const eventsDetails = document.getElementById('mapEventsDetails');
+    if (eventsDetails) {
+      eventsDetails.addEventListener('toggle', () => {
+        if (eventsDetails.open) {
+          buildMapEventsList({ keepPosition: true });
+        } else {
+          stopEventsRotation();
+        }
+      });
+    }
+
+    const searchEventsList = document.getElementById('exploreEventResults');
+    if (searchEventsList) {
+      searchEventsList.addEventListener('click', (e) => {
+        const link = e.target.closest('.explore-search-event-link');
+        if (link) {
+          e.stopPropagation();
+          return;
+        }
+        const card = e.target.closest('.explore-search-event.mapped');
         if (!card) return;
         const eventId = card.getAttribute('data-event-id');
         if (!eventId) return;

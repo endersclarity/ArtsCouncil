@@ -14,7 +14,7 @@ import xml.etree.ElementTree as ET
 from datetime import datetime, timedelta
 from pathlib import Path
 from typing import Any
-from urllib.parse import parse_qs, urlparse
+from urllib.parse import parse_qs, urlencode, urlparse, urlunparse
 from zoneinfo import ZoneInfo
 
 import requests
@@ -325,6 +325,117 @@ def infer_tags(fields: dict[str, str]) -> list[str]:
     return [tag for tag in tags if tag]
 
 
+def upscale_trumba_image_url(value: str) -> str | None:
+    url = normalize_url(value)
+    if not url:
+        return None
+
+    parsed = urlparse(url)
+    query = parse_qs(parsed.query, keep_blank_values=True)
+    changed = False
+
+    if "w" in query:
+        query["w"] = ["900"]
+        changed = True
+    if "h" in query:
+        # Let server preserve source aspect ratio at higher width.
+        query.pop("h", None)
+        changed = True
+
+    if not changed:
+        return url
+
+    new_query = urlencode(query, doseq=True)
+    return urlunparse((parsed.scheme, parsed.netloc, parsed.path, parsed.params, new_query, parsed.fragment))
+
+
+def extract_image_url(description_html: str) -> str | None:
+    decoded = html.unescape(description_html or "")
+    srcset_match = re.search(r'<img[^>]+srcset="([^"]+)"', decoded, flags=re.IGNORECASE)
+    if srcset_match:
+        raw_srcset = srcset_match.group(1)
+        candidates: list[tuple[float, str]] = []
+        for part in raw_srcset.split(","):
+            token = clean_space(part)
+            if not token:
+                continue
+            bits = token.split()
+            url = bits[0] if bits else ""
+            score = 1.0
+            if len(bits) > 1:
+                descriptor = bits[1].strip().lower()
+                try:
+                    if descriptor.endswith("x"):
+                        score = float(descriptor[:-1] or "1")
+                    elif descriptor.endswith("w"):
+                        score = float(descriptor[:-1] or "100") / 100.0
+                except ValueError:
+                    score = 1.0
+            if url:
+                candidates.append((score, url))
+        if candidates:
+            best_url = sorted(candidates, key=lambda item: item[0], reverse=True)[0][1]
+            return upscale_trumba_image_url(best_url)
+
+    src_match = re.search(r'<img[^>]+src="([^"]+)"', decoded, flags=re.IGNORECASE)
+    if not src_match:
+        return None
+    return upscale_trumba_image_url(src_match.group(1))
+
+
+def infer_event_description(plain_text: str, fields: dict[str, str]) -> str | None:
+    preferred = (
+        fields.get("event description")
+        or fields.get("event details")
+        or fields.get("more info")
+    )
+    if preferred:
+        text = clean_space(preferred)
+        return text if text else None
+
+    noisy_prefixes = (
+        "price:",
+        "phone:",
+        "email:",
+        "type of event:",
+        "type of events:",
+        "venue:",
+        "event location:",
+        "other location:",
+        "city/area:",
+        "city / area:",
+        "online ticket:",
+        "more info:",
+        "age range:",
+        "for more information",
+    )
+
+    candidates: list[str] = []
+    for line in plain_text.splitlines():
+        value = clean_space(line)
+        if not value:
+            continue
+        lower = value.lower()
+        if lower.startswith(noisy_prefixes):
+            continue
+        if re.match(rf"^{WEEKDAYS},\s+", value):
+            continue
+        if re.search(r",\s*CA(?:\s+\d{{5}})?\s*$", value):
+            continue
+        if re.match(r"^\d[\d\s:/-]*[ap]m(?:\s*-\s*\d[\d\s:/-]*[ap]m)?$", lower):
+            continue
+        if len(value) < 32:
+            continue
+        candidates.append(value)
+        if len(candidates) >= 2:
+            break
+
+    if not candidates:
+        return None
+    joined = clean_space(" ".join(candidates))
+    return joined if joined else None
+
+
 def parse_feed(xml_text: str, timezone_name: str, source_ref: str, window_days: int) -> list[dict[str, Any]]:
     tz = ZoneInfo(timezone_name)
     now = datetime.now(tz)
@@ -382,6 +493,8 @@ def parse_feed(xml_text: str, timezone_name: str, source_ref: str, window_days: 
         venue_city = infer_city(plain_text, fields)
         ticket_url = normalize_url(weblink) or normalize_url(link)
         tags = infer_tags(fields)
+        image_url = extract_image_url(description_html)
+        event_description = infer_event_description(plain_text, fields)
 
         event_id = extract_event_id(guid, link, title, start_dt)
         count = seen_ids.get(event_id, 0)
@@ -406,6 +519,10 @@ def parse_feed(xml_text: str, timezone_name: str, source_ref: str, window_days: 
             event["ticket_url"] = ticket_url
         if tags:
             event["tags"] = tags
+        if image_url:
+            event["image_url"] = image_url
+        if event_description:
+            event["description"] = event_description
 
         events.append(event)
 
