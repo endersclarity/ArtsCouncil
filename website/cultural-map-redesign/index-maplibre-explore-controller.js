@@ -1,0 +1,168 @@
+(function() {
+  'use strict';
+
+  function createExploreController(ctx) {
+    const {
+      data,
+      cats,
+      imageData,
+      exploreModel,
+      exploreView,
+      eventsSearch,
+      escapeHTML,
+      formatEventDateRange,
+      getFilteredMapEvents,
+      getActiveCategories,
+      getOpenNowMode,
+      getEvents14dMode,
+      getHoursState,
+      getHoursRank,
+      getEventCountForAsset14d,
+      getHoursLabel,
+      setCategory,
+      openDetail,
+      getListPage,
+      setListPage,
+      listPageSize,
+      eventWindowDays,
+      gsap
+    } = ctx;
+
+    function getFilteredData() {
+      return exploreModel.getFilteredData({
+        data,
+        activeCategories: getActiveCategories(),
+        query: document.getElementById('searchInput').value || '',
+        openNowMode: getOpenNowMode(),
+        events14dMode: getEvents14dMode(),
+        getHoursState,
+        getHoursRank,
+        getEventCountForAsset14d
+      });
+    }
+
+    function getSearchMatchedEvents(query) {
+      return eventsSearch.getSearchMatchedEvents({
+        query,
+        events: getFilteredMapEvents()
+      });
+    }
+
+    function renderSearchEventMatches(query) {
+      const wrap = document.getElementById('exploreEventResults');
+      if (!wrap) return;
+      const q = (query || '').trim();
+      if (!q) {
+        wrap.hidden = true;
+        wrap.innerHTML = '';
+        return;
+      }
+
+      const matches = getSearchMatchedEvents(q).slice(0, 6);
+      if (!matches.length) {
+        wrap.hidden = true;
+        wrap.innerHTML = '';
+        return;
+      }
+
+      wrap.innerHTML = eventsSearch.getSearchEventMatchesHTML({
+        matches,
+        escapeHTML,
+        formatEventDateRange
+      });
+      wrap.hidden = false;
+    }
+
+    function buildExploreCats() {
+      const grid = document.getElementById('exploreCats');
+      exploreView.buildExploreCats({
+        gridEl: grid,
+        data,
+        cats,
+        onCategorySelect: (name) => {
+          exploreSetCategory(name);
+        }
+      });
+    }
+
+    function exploreSetCategory(cat) {
+      const wrapper = document.getElementById('exploreListWrapper');
+      const catGrid = document.getElementById('exploreCats');
+      const cards = document.querySelectorAll('.explore-cat-card');
+
+      if (cat) {
+        wrapper.classList.add('visible');
+        catGrid.style.display = 'none';
+        cards.forEach((card) => card.classList.remove('active'));
+        setCategory(cat, { exclusive: true });
+      } else {
+        wrapper.classList.remove('visible');
+        catGrid.style.display = '';
+        document.getElementById('searchInput').value = '';
+        setCategory(null);
+      }
+      setListPage(0);
+      buildList();
+      document.getElementById('exploreSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+
+    function buildList() {
+      const list = document.getElementById('exploreList');
+      const wrapper = document.getElementById('exploreListWrapper');
+      const searchVal = document.getElementById('searchInput').value.trim();
+      renderSearchEventMatches(searchVal);
+
+      if (searchVal && getActiveCategories().size === 0) {
+        wrapper.classList.add('visible');
+        document.getElementById('exploreCats').style.display = 'none';
+      }
+
+      const filtered = getFilteredData();
+      const end = (getListPage() + 1) * listPageSize;
+      const visible = filtered.slice(0, end);
+
+      document.getElementById('resultsCount').textContent = exploreView.getExploreResultsText({
+        end,
+        filteredLength: filtered.length,
+        activeCategories: getActiveCategories(),
+        openNowMode: getOpenNowMode(),
+        events14dMode: getEvents14dMode(),
+        eventWindowDays
+      });
+
+      list.innerHTML = '';
+      visible.forEach((asset) => {
+        list.appendChild(exploreView.createExploreItemElement({
+          asset,
+          cats,
+          imageData,
+          openNowMode: getOpenNowMode(),
+          events14dMode: getEvents14dMode(),
+          getHoursState,
+          getEventCount14d: (item) => getEventCountForAsset14d(data.indexOf(item)),
+          getHoursLabel,
+          onOpenDetail: (item) => openDetail(item)
+        }));
+      });
+
+      document.getElementById('loadMoreBtn').style.display = end >= filtered.length ? 'none' : 'block';
+
+      gsap.fromTo('#exploreList .explore-item',
+        { opacity: 0, x: -8 },
+        { opacity: 1, x: 0, duration: 0.2, stagger: 0.015, ease: 'power2.out' }
+      );
+    }
+
+    return {
+      buildExploreCats,
+      exploreSetCategory,
+      buildList,
+      getFilteredData,
+      getSearchMatchedEvents
+    };
+  }
+
+  window.CulturalMapExploreController = {
+    createExploreController
+  };
+})();
