@@ -1,0 +1,317 @@
+{
+  "generated_at": "2026-02-09T16:21:57.896443+00:00",
+  "window_days": 14,
+  "sources": {
+    "data_file": "website/cultural-map-redesign/data.json",
+    "index_file": "website/cultural-map-redesign/events.index.json"
+  },
+  "summary": {
+    "allowed_categories_count": 10,
+    "upcoming_events_count": 60,
+    "upcoming_unmapped_count": 23,
+    "events_with_disallowed_categories_count": 0,
+    "stale_festival_assets_count": 6,
+    "stale_festival_assets_without_upcoming_counterpart_count": 6
+  },
+  "allowed_categories": [
+    "Arts Organizations",
+    "Cultural Resources",
+    "Eat, Drink & Stay",
+    "Fairs & Festivals",
+    "Galleries & Museums",
+    "Historic Landmarks",
+    "Performance Spaces",
+    "Preservation & Culture",
+    "Public Art",
+    "Walks & Trails"
+  ],
+  "upcoming_unmapped_examples": [
+    {
+      "event_id": "trumba-196757531",
+      "title": "Mobilize | Art Inspiring Activism with Wild & Scenic Film Festival Exhibition",
+      "start_iso": "2026-02-09T08:00:00-08:00",
+      "venue_name": "Eric Rood Center",
+      "venue_city": "Nevada City",
+      "event_category": "Performance Spaces"
+    },
+    {
+      "event_id": "trumba-196757532",
+      "title": "Mobilize | Art Inspiring Activism with Wild & Scenic Film Festival Exhibition",
+      "start_iso": "2026-02-10T08:00:00-08:00",
+      "venue_name": "Eric Rood Center",
+      "venue_city": "Nevada City",
+      "event_category": "Performance Spaces"
+    },
+    {
+      "event_id": "trumba-196757533",
+      "title": "Mobilize | Art Inspiring Activism with Wild & Scenic Film Festival Exhibition",
+      "start_iso": "2026-02-11T08:00:00-08:00",
+      "venue_name": "Eric Rood Center",
+      "venue_city": "Nevada City",
+      "event_category": "Performance Spaces"
+    },
+    {
+      "event_id": "trumba-183038848",
+      "title": "Playwriting Group",
+      "start_iso": "2026-02-11T16:30:00-08:00",
+      "venue_name": "Members homes",
+      "venue_city": "Grass Valley",
+      "event_category": "Performance Spaces"
+    },
+    {
+      "event_id": "trumba-196757534",
+      "title": "Mobilize | Art Inspiring Activism with Wild & Scenic Film Festival Exhibition",
+      "start_iso": "2026-02-12T08:00:00-08:00",
+      "venue_name": "Eric Rood Center",
+      "venue_city": "Nevada City",
+      "event_category": "Performance Spaces"
+    },
+    {
+      "event_id": "trumba-196396176",
+      "title": "Motion Theater",
+      "start_iso": "2026-02-12T18:00:00-08:00",
+      "venue_name": "Oddfellows Hall",
+      "venue_city": "Nevada City",
+      "event_category": "Performance Spaces"
+    },
+    {
+      "event_id": "trumba-189984875",
+      "title": "Creative Capital | Cultivating Community with ASiF - Artists’ Studio in the Foothills Exhibition",
+      "start_iso": "2026-02-13T08:00:00-08:00",
+      "venue_name": "Eric Rood Administrative Center",
+      "venue_city": "Nevada City",
+      "event_category": "Galleries & Museums"
+    },
+    {
+      "event_id": "trumba-196757535",
+      "title": "Mobilize | Art Inspiring Activism with Wild & Scenic Film Festival Exhibition",
+      "start_iso": "2026-02-13T08:00:00-08:00",
+      "venue_name": "Eric Rood Center",
+      "venue_city": "Nevada City",
+      "event_category": "Performance Spaces"
+    },
+    {
+      "event_id": "trumba-191631904",
+      "title": "Cars and coffee grass valley",
+      "start_iso": "2026-02-14T07:00:00-08:00",
+      "venue_name": "Mcknight crossing shopping center",
+      "venue_city": "Grass Valley",
+      "event_category": "Walks & Trails"
+    },
+    {
+      "event_id": "trumba-195539203",
+      "title": "Hands ON! Second Saturday",
+      "start_iso": "2026-02-14T10:00:00-08:00",
+      "venue_name": "Nevada Museum of Art",
+      "venue_city": "Reno, NV",
+      "event_category": "Galleries & Museums"
+    },
+    {
+      "event_id": "trumba-196184355",
+      "title": "Love Lounge",
+      "start_iso": "2026-02-14T18:00:00-08:00",
+      "venue_name": "Unknown venue",
+      "venue_city": "Grass Valley",
+      "event_category": "Performance Spaces"
+    },
+    {
+      "event_id": "trumba-187541509",
+      "title": "American Piano Awards Winner: Michael Davidman presented by InConcert Sierra",
+      "start_iso": "2026-02-15T14:00:00-08:00",
+      "venue_name": "Seventh Day Adventist Church",
+      "venue_city": "Grass Valley",
+      "event_category": "Performance Spaces"
+    },
+    {
+      "event_id": "trumba-196757536",
+      "title": "Mobilize | Art Inspiring Activism with Wild & Scenic Film Festival Exhibition",
+      "start_iso": "2026-02-16T08:00:00-08:00",
+      "venue_name": "Eric Rood Center",
+      "venue_city": "Nevada City",
+      "event_category": "Performance Spaces"
+    },
+    {
+      "event_id": "trumba-196757537",
+      "title": "Mobilize | Art Inspiring Activism with Wild & Scenic Film Festival Exhibition",
+      "start_iso": "2026-02-17T08:00:00-08:00",
+      "venue_name": "Eric Rood Center",
+      "venue_city": "Nevada City",
+      "event_category": "Performance Spaces"
+    },
+    {
+      "event_id": "trumba-196757538",
+      "title": "Mobilize | Art Inspiring Activism with Wild & Scenic Film Festival Exhibition",
+      "start_iso": "2026-02-18T08:00:00-08:00",
+      "venue_name": "Eric Rood Center",
+      "venue_city": "Nevada City",
+      "event_category": "Performance Spaces"
+    },
+    {
+      "event_id": "trumba-196757539",
+      "title": "Mobilize | Art Inspiring Activism with Wild & Scenic Film Festival Exhibition",
+      "start_iso": "2026-02-19T08:00:00-08:00",
+      "venue_name": "Eric Rood Center",
+      "venue_city": "Nevada City",
+      "event_category": "Performance Spaces"
+    },
+    {
+      "event_id": "trumba-196396177",
+      "title": "Motion Theater",
+      "start_iso": "2026-02-19T18:00:00-08:00",
+      "venue_name": "Oddfellows Hall",
+      "venue_city": "Nevada City",
+      "event_category": "Performance Spaces"
+    },
+    {
+      "event_id": "trumba-196247641",
+      "title": "NU Dance 25th Annual Student Choreography Showcase",
+      "start_iso": "2026-02-19T19:00:00-08:00",
+      "venue_name": "11761 Ridge Road",
+      "venue_city": "Grass Valley",
+      "event_category": "Performance Spaces"
+    },
+    {
+      "event_id": "trumba-196757540",
+      "title": "Mobilize | Art Inspiring Activism with Wild & Scenic Film Festival Exhibition",
+      "start_iso": "2026-02-20T08:00:00-08:00",
+      "venue_name": "Eric Rood Center",
+      "venue_city": "Nevada City",
+      "event_category": "Performance Spaces"
+    },
+    {
+      "event_id": "trumba-196247642",
+      "title": "NU Dance 25th Annual Student Choreography Showcase",
+      "start_iso": "2026-02-20T19:00:00-08:00",
+      "venue_name": "11761 Ridge Road",
+      "venue_city": "Grass Valley",
+      "event_category": "Performance Spaces"
+    },
+    {
+      "event_id": "trumba-191631905",
+      "title": "Cars and coffee grass valley",
+      "start_iso": "2026-02-21T07:00:00-08:00",
+      "venue_name": "Mcknight crossing shopping center",
+      "venue_city": "Grass Valley",
+      "event_category": "Walks & Trails"
+    },
+    {
+      "event_id": "trumba-196247643",
+      "title": "NU Dance 25th Annual Student Choreography Showcase",
+      "start_iso": "2026-02-21T19:00:00-08:00",
+      "venue_name": "11761 Ridge Road",
+      "venue_city": "Grass Valley",
+      "event_category": "Performance Spaces"
+    },
+    {
+      "event_id": "trumba-196757541",
+      "title": "Mobilize | Art Inspiring Activism with Wild & Scenic Film Festival Exhibition",
+      "start_iso": "2026-02-23T08:00:00-08:00",
+      "venue_name": "Eric Rood Center",
+      "venue_city": "Nevada City",
+      "event_category": "Performance Spaces"
+    }
+  ],
+  "events_with_disallowed_categories": [],
+  "stale_festival_assets": [
+    {
+      "name": "Celtic Festival",
+      "city": "Grass Valley",
+      "latest_year_in_text": 1996,
+      "years_found": [
+        1996
+      ]
+    },
+    {
+      "name": "Constitution Day Parade",
+      "city": "Nevada City",
+      "latest_year_in_text": 1967,
+      "years_found": [
+        1967
+      ]
+    },
+    {
+      "name": "Cornish Christmas",
+      "city": "Grass Valley",
+      "latest_year_in_text": 1967,
+      "years_found": [
+        1967
+      ]
+    },
+    {
+      "name": "Mardis Gras Parade",
+      "city": "Nevada City",
+      "latest_year_in_text": 2019,
+      "years_found": [
+        2019
+      ]
+    },
+    {
+      "name": "Nevada County Certified Growers Market",
+      "city": "Grass Valley",
+      "latest_year_in_text": 1980,
+      "years_found": [
+        1980
+      ]
+    },
+    {
+      "name": "The Childrens’ Festival",
+      "city": "Nevada City",
+      "latest_year_in_text": 2000,
+      "years_found": [
+        1970,
+        2000
+      ]
+    }
+  ],
+  "stale_festival_assets_without_upcoming_counterpart": [
+    {
+      "name": "Celtic Festival",
+      "city": "Grass Valley",
+      "latest_year_in_text": 1996,
+      "years_found": [
+        1996
+      ]
+    },
+    {
+      "name": "Constitution Day Parade",
+      "city": "Nevada City",
+      "latest_year_in_text": 1967,
+      "years_found": [
+        1967
+      ]
+    },
+    {
+      "name": "Cornish Christmas",
+      "city": "Grass Valley",
+      "latest_year_in_text": 1967,
+      "years_found": [
+        1967
+      ]
+    },
+    {
+      "name": "Mardis Gras Parade",
+      "city": "Nevada City",
+      "latest_year_in_text": 2019,
+      "years_found": [
+        2019
+      ]
+    },
+    {
+      "name": "Nevada County Certified Growers Market",
+      "city": "Grass Valley",
+      "latest_year_in_text": 1980,
+      "years_found": [
+        1980
+      ]
+    },
+    {
+      "name": "The Childrens’ Festival",
+      "city": "Nevada City",
+      "latest_year_in_text": 2000,
+      "years_found": [
+        1970,
+        2000
+      ]
+    }
+  ]
+}

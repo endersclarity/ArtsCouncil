@@ -1,0 +1,391 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Map IA Mockups</title>
+  <style>
+    :root {
+      --bg: #f4efe7;
+      --ink: #1e1a16;
+      --muted: #6e665e;
+      --line: #d5ccbf;
+      --panel: #fbf8f2;
+      --accent: #2f7d48;
+      --chip: #efe7da;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+    }
+    .wrap {
+      max-width: 1320px;
+      margin: 0 auto;
+      padding: 24px;
+    }
+    h1 {
+      margin: 0 0 8px;
+      font-size: 28px;
+    }
+    .sub {
+      margin: 0 0 18px;
+      color: var(--muted);
+    }
+    .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 18px;
+    }
+    .tab {
+      border: 1px solid var(--line);
+      background: #fff;
+      border-radius: 999px;
+      padding: 7px 12px;
+      font-size: 13px;
+      cursor: pointer;
+    }
+    .tab.active {
+      background: #1f7f45;
+      border-color: #1f7f45;
+      color: #fff;
+      font-weight: 600;
+    }
+    .panel {
+      display: none;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fff;
+      overflow: hidden;
+      box-shadow: 0 10px 26px rgba(0,0,0,0.06);
+    }
+    .panel.active { display: block; }
+    .panel-head {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: center;
+      border-bottom: 1px solid var(--line);
+      padding: 14px 16px;
+      background: #faf7f1;
+    }
+    .panel-title {
+      font-size: 17px;
+      font-weight: 700;
+    }
+    .panel-note {
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .viewport {
+      min-height: 560px;
+      padding: 14px;
+      background: #f8f3ec;
+    }
+    .map-shell {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: #fff;
+      overflow: hidden;
+      height: 530px;
+      display: flex;
+      flex-direction: column;
+    }
+    .map-top {
+      border-bottom: 1px solid var(--line);
+      padding: 10px;
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      background: var(--panel);
+    }
+    .chip {
+      border: 1px solid var(--line);
+      background: var(--chip);
+      border-radius: 999px;
+      padding: 4px 9px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .chip.active {
+      border-color: #2f7d48;
+      color: #2f7d48;
+      background: #eaf5ee;
+      font-weight: 600;
+    }
+    .chip.status {
+      margin-left: auto;
+      border-style: dashed;
+    }
+    .map-stage {
+      position: relative;
+      flex: 1;
+      background:
+        radial-gradient(circle at 20% 30%, #dde9df 0%, #d0ddd2 33%, transparent 33%),
+        radial-gradient(circle at 70% 60%, #e5ddd1 0%, #ddd2c4 31%, transparent 31%),
+        linear-gradient(180deg, #dfe7de, #d7d7cf);
+    }
+    .dot {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      border: 1px solid rgba(255,255,255,0.7);
+      background: #9a8f82;
+    }
+    .dot.open {
+      background: #2f9b56;
+      box-shadow: 0 0 12px rgba(47,155,86,0.65);
+    }
+    .dot.closed { opacity: 0.3; }
+    .dot.unknown { opacity: 0.75; }
+    .legend {
+      position: absolute;
+      left: 10px;
+      bottom: 10px;
+      display: flex;
+      gap: 8px;
+      font-size: 11px;
+      color: #544b43;
+      background: rgba(255,255,255,0.92);
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 5px 8px;
+    }
+    .legend i {
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      margin-right: 4px;
+      vertical-align: middle;
+    }
+    .side-drawer {
+      position: absolute;
+      right: 12px;
+      top: 12px;
+      width: 300px;
+      max-height: calc(100% - 24px);
+      overflow: auto;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: rgba(255,255,255,0.96);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.09);
+    }
+    .side-sec {
+      border-bottom: 1px solid var(--line);
+      padding: 10px;
+    }
+    .side-sec:last-child { border-bottom: 0; }
+    .side-h {
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: #6a6159;
+      margin-bottom: 7px;
+    }
+    .item {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 8px;
+      margin-bottom: 6px;
+      background: #fff;
+      font-size: 12px;
+    }
+    .item.active {
+      border-color: #2f7d48;
+      background: #edf7ef;
+    }
+    .under-panel {
+      border-top: 1px solid var(--line);
+      background: #fbf8f2;
+      padding: 8px;
+    }
+    .acc {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+      margin-bottom: 7px;
+      padding: 8px 9px;
+      font-size: 12px;
+    }
+    .overlay-cmd {
+      position: absolute;
+      left: 12px;
+      top: 12px;
+      width: 340px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.97);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.09);
+    }
+    .cmd-tabs {
+      display: flex;
+      border-bottom: 1px solid var(--line);
+      background: #f5efe5;
+    }
+    .cmd-tab {
+      padding: 8px 10px;
+      font-size: 12px;
+      border-right: 1px solid var(--line);
+    }
+    .cmd-tab.active {
+      background: #fff;
+      font-weight: 700;
+    }
+    .cmd-body { padding: 10px; }
+    .takeaway {
+      margin-top: 14px;
+      border-top: 1px solid var(--line);
+      padding-top: 12px;
+      color: #5f554d;
+      font-size: 13px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <h1>Map Information Architecture Mockups</h1>
+    <p class="sub">Goal: map-first workflow with no scroll bounce between selecting routes and seeing map effects.</p>
+
+    <div class="tabs">
+      <button class="tab active" data-target="opt1">Option 1: Side Drawer</button>
+      <button class="tab" data-target="opt2">Option 2: Under-Map Accordion</button>
+      <button class="tab" data-target="opt3">Option 3: Overlay Command Panel</button>
+    </div>
+
+    <section class="panel active" id="opt1">
+      <div class="panel-head">
+        <div class="panel-title">Option 1: Map-Side Drawer (Recommended)</div>
+        <div class="panel-note">Desktop: right drawer, Mobile: bottom sheet</div>
+      </div>
+      <div class="viewport">
+        <div class="map-shell">
+          <div class="map-top">
+            <span class="chip active">All</span><span class="chip">Landmarks</span><span class="chip">Eat & Drink</span>
+            <span class="chip">Galleries</span><span class="chip">Trails</span>
+            <span class="chip status active">Open now mode: On</span>
+          </div>
+          <div class="map-stage">
+            <span class="dot open" style="left:22%;top:38%"></span><span class="dot unknown" style="left:35%;top:41%"></span>
+            <span class="dot closed" style="left:61%;top:46%"></span><span class="dot open" style="left:71%;top:35%"></span>
+            <span class="dot open" style="left:57%;top:58%"></span><span class="dot closed" style="left:28%;top:63%"></span>
+
+            <aside class="side-drawer">
+              <div class="side-sec">
+                <div class="side-h">Curated Experiences</div>
+                <div class="item active">Foothills Flavor Trail (10 stops)</div>
+                <div class="item">Gold Rush Heritage Trail (8 stops)</div>
+                <div class="item">Poetry & Performance Circuit (7 stops)</div>
+              </div>
+              <div class="side-sec">
+                <div class="side-h">Cultural Corridors</div>
+                <div class="item">Highway 49: Arts Trail</div>
+                <div class="item">Highway 20: Yuba Divide</div>
+                <div class="item">Highway 40: Overland Trail</div>
+              </div>
+              <div class="side-sec">
+                <div class="side-h">Active Route</div>
+                <div class="item">10 stops loaded. Next: South Pine Cafe</div>
+              </div>
+            </aside>
+
+            <div class="legend">
+              <span><i style="background:#2f9b56"></i>Open</span>
+              <span><i style="background:#9a8f82;opacity:.75"></i>Unknown</span>
+              <span><i style="background:#9a8f82;opacity:.35"></i>Closed</span>
+            </div>
+          </div>
+        </div>
+        <div class="takeaway">Best for scale and quick iteration. Keeps route selection and map feedback in one viewport.</div>
+      </div>
+    </section>
+
+    <section class="panel" id="opt2">
+      <div class="panel-head">
+        <div class="panel-title">Option 2: Under-Map Accordion</div>
+        <div class="panel-note">Lower implementation risk, still map-first enough</div>
+      </div>
+      <div class="viewport">
+        <div class="map-shell">
+          <div class="map-top">
+            <span class="chip active">Eat & Drink</span><span class="chip">Open now mode: On</span>
+            <span class="chip">Status: tri-state</span>
+          </div>
+          <div class="map-stage">
+            <span class="dot open" style="left:24%;top:34%"></span><span class="dot closed" style="left:47%;top:44%"></span>
+            <span class="dot unknown" style="left:67%;top:37%"></span><span class="dot open" style="left:54%;top:59%"></span>
+            <div class="legend">
+              <span><i style="background:#2f9b56"></i>Open</span>
+              <span><i style="background:#9a8f82;opacity:.75"></i>Unknown</span>
+              <span><i style="background:#9a8f82;opacity:.35"></i>Closed</span>
+            </div>
+          </div>
+          <div class="under-panel">
+            <div class="acc"><strong>Curated Experiences</strong> (collapsed by default)</div>
+            <div class="acc"><strong>Cultural Corridors</strong> (collapsed by default)</div>
+            <div class="acc"><strong>Active Route Details</strong> (expand when selected)</div>
+          </div>
+        </div>
+        <div class="takeaway">Faster to build, but users still split attention between map and content blocks.</div>
+      </div>
+    </section>
+
+    <section class="panel" id="opt3">
+      <div class="panel-head">
+        <div class="panel-title">Option 3: Overlay Command Panel</div>
+        <div class="panel-note">Most powerful, but can get visually dense</div>
+      </div>
+      <div class="viewport">
+        <div class="map-shell">
+          <div class="map-top">
+            <span class="chip">All</span><span class="chip">Eat & Drink</span>
+            <span class="chip status active">Open now mode: On</span>
+          </div>
+          <div class="map-stage">
+            <span class="dot open" style="left:21%;top:42%"></span><span class="dot closed" style="left:42%;top:52%"></span>
+            <span class="dot open" style="left:56%;top:39%"></span><span class="dot unknown" style="left:72%;top:47%"></span>
+
+            <div class="overlay-cmd">
+              <div class="cmd-tabs">
+                <div class="cmd-tab active">Experiences</div>
+                <div class="cmd-tab">Corridors</div>
+                <div class="cmd-tab">Filters</div>
+              </div>
+              <div class="cmd-body">
+                <div class="item active">Foothills Flavor Trail</div>
+                <div class="item">Gallery & Studio Loop</div>
+                <div class="item">Nature & Trails Explorer</div>
+              </div>
+            </div>
+
+            <div class="legend">
+              <span><i style="background:#2f9b56"></i>Open</span>
+              <span><i style="background:#9a8f82;opacity:.75"></i>Unknown</span>
+              <span><i style="background:#9a8f82;opacity:.35"></i>Closed</span>
+            </div>
+          </div>
+        </div>
+        <div class="takeaway">Great for power users and future tooling, but requires tighter visual discipline.</div>
+      </div>
+    </section>
+  </div>
+
+  <script>
+    const tabs = Array.from(document.querySelectorAll(".tab"));
+    const panels = Array.from(document.querySelectorAll(".panel"));
+    tabs.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        tabs.forEach((t) => t.classList.remove("active"));
+        panels.forEach((p) => p.classList.remove("active"));
+        btn.classList.add("active");
+        document.getElementById(btn.dataset.target).classList.add("active");
+      });
+    });
+  </script>
+</body>
+</html>

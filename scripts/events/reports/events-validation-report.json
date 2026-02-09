@@ -1,0 +1,104 @@
+{
+  "generated_at": "2026-02-09T16:44:25.629204+00:00",
+  "events_file": "website/cultural-map-redesign/events.json",
+  "index_file": "website/cultural-map-redesign/events.index.json",
+  "data_file": "website/cultural-map-redesign/data.json",
+  "window_days": 14,
+  "stats": {
+    "total_events": 155,
+    "upcoming_events": 60,
+    "weekend_events": 53,
+    "mapped_total": 93,
+    "unmatched_total": 62,
+    "mapped_upcoming": 38,
+    "unmatched_upcoming": 22,
+    "unmatched_ratio": 0.4,
+    "upcoming_unmatched_ratio": 0.366667,
+    "allowed_categories_count": 10,
+    "uncategorized_count": 0,
+    "disallowed_category_count": 0
+  },
+  "thresholds": {
+    "max_unmatched_ratio": 0.75,
+    "max_upcoming_unmatched_ratio": 0.85
+  },
+  "unmatched_venues": [
+    {
+      "venue_name": "Eric Rood Center",
+      "venue_city": "Nevada City",
+      "count": 33
+    },
+    {
+      "venue_name": "Oddfellows Hall",
+      "venue_city": "Nevada City",
+      "count": 6
+    },
+    {
+      "venue_name": "Mcknight crossing shopping center",
+      "venue_city": "Grass Valley",
+      "count": 6
+    },
+    {
+      "venue_name": "Members homes",
+      "venue_city": "Grass Valley",
+      "count": 4
+    },
+    {
+      "venue_name": "11761 Ridge Road",
+      "venue_city": "Grass Valley",
+      "count": 3
+    },
+    {
+      "venue_name": "Seventh Day Adventist Church",
+      "venue_city": "Grass Valley",
+      "count": 2
+    },
+    {
+      "venue_name": "Mill Street Plaza",
+      "venue_city": "Grass Valley",
+      "count": 2
+    },
+    {
+      "venue_name": "Eric Rood Administrative Center",
+      "venue_city": "Nevada City",
+      "count": 1
+    },
+    {
+      "venue_name": "Nevada Museum of Art",
+      "venue_city": "Reno, NV",
+      "count": 1
+    },
+    {
+      "venue_name": "Unknown venue",
+      "venue_city": "Grass Valley",
+      "count": 1
+    },
+    {
+      "venue_name": "Senior Services",
+      "venue_city": "Truckee",
+      "count": 1
+    },
+    {
+      "venue_name": "Northwoods Clubhouse",
+      "venue_city": "Truckee",
+      "count": 1
+    },
+    {
+      "venue_name": "Dark Hose Coffee",
+      "venue_city": "Truckee",
+      "count": 1
+    }
+  ],
+  "allowed_categories": [
+    "Arts Organizations",
+    "Cultural Resources",
+    "Eat, Drink & Stay",
+    "Fairs & Festivals",
+    "Galleries & Museums",
+    "Historic Landmarks",
+    "Performance Spaces",
+    "Preservation & Culture",
+    "Public Art",
+    "Walks & Trails"
+  ]
+}

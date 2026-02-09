@@ -32,7 +32,10 @@
   }
 
   function normalizeEventCategoryFilter(categoryValue) {
-    return categoryValue && categoryValue !== 'all' ? categoryValue : 'all';
+    if (!categoryValue || categoryValue === 'all') return 'all';
+    const alias = String(categoryValue).trim().toLowerCase();
+    if (alias === 'festivals' || alias === 'fairs and festivals') return 'Fairs & Festivals';
+    return categoryValue;
   }
 
   window.CulturalMapEventsFilterUI = {

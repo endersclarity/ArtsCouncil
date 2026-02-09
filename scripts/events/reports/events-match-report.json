@@ -1,0 +1,172 @@
+{
+  "generated_at": "2026-02-09T16:43:43.202872+00:00",
+  "source_events_file": "website/cultural-map-redesign/events.json",
+  "source_data_file": "website/cultural-map-redesign/data.json",
+  "source_aliases_file": "scripts/events/venue_aliases.json",
+  "stats": {
+    "total_events": 155,
+    "matched_events": 93,
+    "unmatched_events": 62,
+    "matched_by_pid": 0,
+    "matched_by_alias": 6,
+    "matched_by_name_city": 47,
+    "matched_by_name_city_fuzzy": 40,
+    "upcoming_14d": 60
+  },
+  "unmatched_venues": [
+    {
+      "venue_key": "ericroodcenter|nevadacity",
+      "venue_name": "Eric Rood Center",
+      "venue_city": "Nevada City",
+      "count": 33,
+      "sample_event_id": "trumba-196757531",
+      "sample_title": "Mobilize | Art Inspiring Activism with Wild & Scenic Film Festival Exhibition",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "oddfellowshall|nevadacity",
+      "venue_name": "Oddfellows Hall",
+      "venue_city": "Nevada City",
+      "count": 6,
+      "sample_event_id": "trumba-196396176",
+      "sample_title": "Motion Theater",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "mcknightcrossingshoppingcenter|grassvalley",
+      "venue_name": "Mcknight crossing shopping center",
+      "venue_city": "Grass Valley",
+      "count": 6,
+      "sample_event_id": "trumba-191631904",
+      "sample_title": "Cars and coffee grass valley",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "membershomes|grassvalley",
+      "venue_name": "Members homes",
+      "venue_city": "Grass Valley",
+      "count": 4,
+      "sample_event_id": "trumba-183038848",
+      "sample_title": "Playwriting Group",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "11761ridgeroad|grassvalley",
+      "venue_name": "11761 Ridge Road",
+      "venue_city": "Grass Valley",
+      "count": 3,
+      "sample_event_id": "trumba-196247641",
+      "sample_title": "NU Dance 25th Annual Student Choreography Showcase",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "seventhdayadventistchurch|grassvalley",
+      "venue_name": "Seventh Day Adventist Church",
+      "venue_city": "Grass Valley",
+      "count": 2,
+      "sample_event_id": "trumba-187541509",
+      "sample_title": "American Piano Awards Winner: Michael Davidman presented by InConcert Sierra",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "millstreetplaza|grassvalley",
+      "venue_name": "Mill Street Plaza",
+      "venue_city": "Grass Valley",
+      "count": 2,
+      "sample_event_id": "trumba-158432253",
+      "sample_title": "St. Piran's Day Celebration",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "ericroodadministrativecenter|nevadacity",
+      "venue_name": "Eric Rood Administrative Center",
+      "venue_city": "Nevada City",
+      "count": 1,
+      "sample_event_id": "trumba-189984875",
+      "sample_title": "Creative Capital | Cultivating Community with ASiF - Artists’ Studio in the Foothills Exhibition",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "nevadamuseumofart|renonv",
+      "venue_name": "Nevada Museum of Art",
+      "venue_city": "Reno, NV",
+      "count": 1,
+      "sample_event_id": "trumba-195539203",
+      "sample_title": "Hands ON! Second Saturday",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "unknownvenue|grassvalley",
+      "venue_name": "Unknown venue",
+      "venue_city": "Grass Valley",
+      "count": 1,
+      "sample_event_id": "trumba-196184355",
+      "sample_title": "Love Lounge",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "seniorservices|truckee",
+      "venue_name": "Senior Services",
+      "venue_city": "Truckee",
+      "count": 1,
+      "sample_event_id": "trumba-118676669",
+      "sample_title": "Seniors Pancake Breakfast",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "northwoodsclubhouse|truckee",
+      "venue_name": "Northwoods Clubhouse",
+      "venue_city": "Truckee",
+      "count": 1,
+      "sample_event_id": "trumba-113922955",
+      "sample_title": "Kids Night Out",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "darkhosecoffee|truckee",
+      "venue_name": "Dark Hose Coffee",
+      "venue_city": "Truckee",
+      "count": 1,
+      "sample_event_id": "trumba-116325473",
+      "sample_title": "Word Jam",
+      "candidate_assets": []
+    }
+  ],
+  "category_coverage": {
+    "allowed_categories": [
+      "Performance Spaces",
+      "Arts Organizations",
+      "Fairs & Festivals",
+      "Galleries & Museums",
+      "Preservation & Culture",
+      "Historic Landmarks",
+      "Cultural Resources",
+      "Public Art",
+      "Eat, Drink & Stay",
+      "Walks & Trails"
+    ],
+    "categories_seen": [
+      "Performance Spaces",
+      "Arts Organizations",
+      "Fairs & Festivals",
+      "Galleries & Museums",
+      "Preservation & Culture",
+      "Cultural Resources",
+      "Eat, Drink & Stay",
+      "Walks & Trails"
+    ],
+    "events_with_disallowed_categories": [],
+    "all_categories": [
+      "Performance Spaces",
+      "Arts Organizations",
+      "Fairs & Festivals",
+      "Galleries & Museums",
+      "Preservation & Culture",
+      "Historic Landmarks",
+      "Cultural Resources",
+      "Public Art",
+      "Eat, Drink & Stay",
+      "Walks & Trails"
+    ]
+  }
+}

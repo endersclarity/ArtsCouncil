@@ -9,15 +9,14 @@
 
     return '<option value="all">All categories</option>' +
       categories.map((name) => {
-        const label = (cats[name] && cats[name].short) || name;
-        return `<option value="${escapeHTML(name)}">${escapeHTML(label)}</option>`;
+        // Use canonical names in Events UI to avoid ambiguity (e.g. "Festivals" vs "Fairs & Festivals").
+        return `<option value="${escapeHTML(name)}">${escapeHTML(name)}</option>`;
       }).join('');
   }
 
   function getEventsScopeLabel({ eventCategoryFilter, cats }) {
     if (eventCategoryFilter === 'all') return 'All categories';
-    const label = (cats[eventCategoryFilter] && cats[eventCategoryFilter].short) || eventCategoryFilter;
-    return `Category: ${label}`;
+    return `Category: ${eventCategoryFilter}`;
   }
 
   function getEventsCardsHTML({ events, escapeHTML, formatEventDateRange, getEventDisplayDescription }) {
@@ -36,6 +35,10 @@
         ? `<a class="map-event-link" href="${escapeHTML(event.ticket_url)}" target="_blank" rel="noopener">Tickets / Details</a>`
         : '';
       const badge = mapped ? '' : '<span class="map-event-badge">Unmapped</span>';
+      const seriesCount = Number.isInteger(event.series_count) ? event.series_count : 1;
+      const seriesBadge = seriesCount > 1
+        ? `<span class="map-event-badge series">${seriesCount} dates</span>`
+        : '';
       return `
         <div class="map-event-item ${mapped ? 'mapped' : 'unmapped'}" data-event-id="${escapeHTML(event.event_id || '')}">
           ${imageHTML}
@@ -44,6 +47,7 @@
           <div class="map-event-meta">
             <span>${eventTime}</span>
             <span class="map-event-venue">${venueName}</span>
+            ${seriesBadge}
             ${badge}
           </div>
           ${ticket}
@@ -62,12 +66,17 @@
         ? `<a class="map-event-link" href="${escapeHTML(event.ticket_url)}" target="_blank" rel="noopener">Tickets / Details</a>`
         : '';
       const badge = mapped ? '' : '<span class="map-event-badge">Unmapped</span>';
+      const seriesCount = Number.isInteger(event.series_count) ? event.series_count : 1;
+      const seriesBadge = seriesCount > 1
+        ? `<span class="map-event-badge series">${seriesCount} dates</span>`
+        : '';
       return `
         <div class="map-event-row ${mapped ? 'mapped' : 'unmapped'}" data-event-id="${escapeHTML(event.event_id || '')}">
           <div class="map-event-row-title">${title}</div>
           <div class="map-event-row-meta">
             <span>${eventTime}</span>
             <span class="map-event-venue">${venueName}</span>
+            ${seriesBadge}
             ${badge}
           </div>
           ${ticket}
