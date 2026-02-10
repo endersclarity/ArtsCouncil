@@ -1590,9 +1590,9 @@
     banner.classList.add('visible');
   }
 
-  // ============================================================
-  // CATEGORY RESULTS OVERLAY (Near Me)
-  // ============================================================
+	  // ============================================================
+	  // MAP RESULTS OVERLAY (Near Me / Events)
+	  // ============================================================
   let categoryResultsPanelEl = null;
   let categoryResultsListEl = null;
   let categoryResultsTitleEl = null;
@@ -1603,7 +1603,7 @@
   let categoryResultsCurrentKey = null;
   let categoryResultsDismissedKey = null;
 
-  function ensureCategoryResultsPanel() {
+	  function ensureCategoryResultsPanel() {
     if (categoryResultsPanelEl) return;
     const mapContainer = document.querySelector('.map-container');
     if (!mapContainer) return;
@@ -1613,11 +1613,11 @@
     panel.className = 'category-results-panel';
     panel.setAttribute('aria-hidden', 'true');
 
-    panel.innerHTML = `
-      <div class="category-results-header">
-        <div>
-          <div class="category-results-eyebrow">Near me</div>
-          <div class="category-results-title" id="categoryResultsTitle"></div>
+	    panel.innerHTML = `
+	      <div class="category-results-header">
+	        <div>
+	          <div class="category-results-eyebrow" id="categoryResultsEyebrow">Near me</div>
+	          <div class="category-results-title" id="categoryResultsTitle"></div>
           <div class="category-results-meta">
             <span id="categoryResultsCount"></span>
             <span id="categoryResultsSort"></span>
@@ -1671,15 +1671,30 @@
     categoryResultsPanelEl.setAttribute('aria-hidden', 'false');
   }
 
-  function getCategoryResultsOverlayKey(category) {
-    const q = document.getElementById('searchInput')?.value || '';
-    return [
-      String(category || ''),
-      openNowMode ? 'open=1' : 'open=0',
-      events14dMode ? 'events14d=1' : 'events14d=0',
-      `q=${String(q).trim().toLowerCase()}`
-    ].join('|');
-  }
+	  function getCategoryResultsOverlayKey(category) {
+	    const q = document.getElementById('searchInput')?.value || '';
+	    return [
+	      String(category || ''),
+	      openNowMode ? 'open=1' : 'open=0',
+	      events14dMode ? 'events14d=1' : 'events14d=0',
+	      `q=${String(q).trim().toLowerCase()}`
+	    ].join('|');
+	  }
+
+	  function getNextUpcomingEventForAsset(asset) {
+	    const idx = resolveAssetIndex(asset);
+	    if (!Number.isInteger(idx)) return null;
+	    const upcoming = getUpcomingEventsForAssetIdx(idx, EVENT_WINDOW_DAYS);
+	    if (!upcoming || !upcoming.length) return null;
+	    // events-model already normalizes `_start_ts`; rely on it if present.
+	    const sorted = upcoming.slice().sort((a, b) => {
+	      const aTs = Number.isFinite(a && a._start_ts) ? a._start_ts : Date.parse(a && a.start_iso);
+	      const bTs = Number.isFinite(b && b._start_ts) ? b._start_ts : Date.parse(b && b.start_iso);
+	      if (Number.isFinite(aTs) && Number.isFinite(bTs) && aTs !== bTs) return aTs - bTs;
+	      return String((a && a.title) || '').localeCompare(String((b && b.title) || ''));
+	    });
+	    return sorted[0] || null;
+	  }
 
   function focusAssetFromCategoryResults(asset) {
     if (!asset) return;
@@ -1699,65 +1714,107 @@
     openDetail(asset);
   }
 
-  function updateCategoryResultsOverlay() {
-    ensureCategoryResultsPanel();
-    if (!categoryResultsPanelEl || !categoryResultsListEl) return;
+	  function updateCategoryResultsOverlay() {
+	    ensureCategoryResultsPanel();
+	    if (!categoryResultsPanelEl || !categoryResultsListEl) return;
 
-    const hasActiveExperience = !!(experienceController && experienceController.getActiveExperience && experienceController.getActiveExperience());
-    const filtered = exploreController && typeof exploreController.getFilteredData === 'function'
-      ? exploreController.getFilteredData()
-      : [];
+	    const hasActiveExperience = !!(experienceController && experienceController.getActiveExperience && experienceController.getActiveExperience());
+	    const rawFiltered = exploreController && typeof exploreController.getFilteredData === 'function'
+	      ? exploreController.getFilteredData()
+	      : [];
 
-    const overlayState = filterStateModel.getCategoryResultsOverlayState({
-      activeCategories,
-      filteredCount: filtered.length,
-      dismissed: false,
-      hasActiveExperience
-    });
+	    const overlayCategoryState = filterStateModel.getCategoryResultsOverlayState({
+	      activeCategories,
+	      filteredCount: rawFiltered.length,
+	      dismissed: false,
+	      hasActiveExperience
+	    });
 
-    if (!overlayState) {
-      categoryResultsCurrentKey = null;
-      categoryResultsDismissedKey = null;
-      hideCategoryResultsPanel();
-      return;
-    }
+	    const overlayEventsState = filterStateModel.getEventsResultsOverlayState({
+	      events14dMode,
+	      filteredCount: rawFiltered.length,
+	      dismissed: false,
+	      hasActiveExperience
+	    });
 
-    const key = getCategoryResultsOverlayKey(overlayState.category);
-    categoryResultsCurrentKey = key;
+	    const eyebrowEl = categoryResultsPanelEl.querySelector('#categoryResultsEyebrow');
+	    let mode = null;
+	    let overlayKey = null;
 
-    if (categoryResultsDismissedKey === key) {
-      hideCategoryResultsPanel();
-      return;
-    }
+	    if (overlayCategoryState) {
+	      mode = 'category';
+	      overlayKey = `mode=category|${getCategoryResultsOverlayKey(overlayCategoryState.category)}`;
+	      if (eyebrowEl) eyebrowEl.textContent = 'Near me';
+	    } else if (overlayEventsState) {
+	      mode = 'events';
+	      overlayKey = `mode=events|${getCategoryResultsOverlayKey('events14d')}`;
+	      if (eyebrowEl) eyebrowEl.textContent = 'Venues with events';
+	    } else {
+	      categoryResultsCurrentKey = null;
+	      categoryResultsDismissedKey = null;
+	      hideCategoryResultsPanel();
+	      return;
+	    }
 
-    const cfg = CATS[overlayState.category] || {};
-    categoryResultsPanelEl.style.setProperty('--category-accent', cfg.color || 'rgba(245,240,232,0.18)');
+	    const key = overlayKey;
+	    categoryResultsCurrentKey = key;
 
-    if (categoryResultsTitleEl) {
-      categoryResultsTitleEl.textContent = cfg.short || overlayState.category;
-    }
+	    if (categoryResultsDismissedKey === key) {
+	      hideCategoryResultsPanel();
+	      return;
+	    }
 
-    if (categoryResultsCountEl) {
-      const noun = overlayState.count === 1 ? 'place' : 'places';
-      categoryResultsCountEl.textContent = `${overlayState.count} ${noun}`;
-    }
+	    const cfg = mode === 'category' ? (CATS[overlayCategoryState.category] || {}) : {};
+	    categoryResultsPanelEl.style.setProperty('--category-accent', (cfg && cfg.color) || 'rgba(245,240,232,0.18)');
 
-    const locationReady = !!userLocationCoords;
-    if (categoryResultsLocateBtn) {
-      categoryResultsLocateBtn.hidden = !geolocateControl;
-      categoryResultsLocateBtn.textContent = locationReady ? 'Update' : 'Locate';
-    }
+	    if (categoryResultsTitleEl) {
+	      categoryResultsTitleEl.textContent = mode === 'category'
+	        ? (cfg.short || overlayCategoryState.category)
+	        : 'Next 14 days';
+	    }
 
-    if (categoryResultsSortEl) {
-      categoryResultsSortEl.textContent = locationReady
-        ? 'Sorted by distance'
-        : 'Enable location to sort by distance';
-    }
+	    if (categoryResultsCountEl) {
+	      const count = mode === 'category' ? overlayCategoryState.count : overlayEventsState.count;
+	      const noun = count === 1 ? 'place' : 'places';
+	      categoryResultsCountEl.textContent = `${count} ${noun}`;
+	    }
 
-    categoryResultsListEl.innerHTML = '';
-    filtered.forEach((asset, idx) => {
-      if (!asset) return;
-      const item = document.createElement('button');
+	    const locationReady = !!userLocationCoords;
+	    if (categoryResultsLocateBtn) {
+	      categoryResultsLocateBtn.hidden = !geolocateControl;
+	      categoryResultsLocateBtn.textContent = locationReady ? 'Update' : 'Locate';
+	    }
+
+	    if (categoryResultsSortEl) {
+	      if (locationReady) {
+	        categoryResultsSortEl.textContent = 'Sorted by distance';
+	      } else {
+	        categoryResultsSortEl.textContent = mode === 'events'
+	          ? 'Sorted by next event'
+	          : 'Enable location to sort by distance';
+	      }
+	    }
+
+	    const filtered = rawFiltered.slice();
+	    if (mode === 'events') {
+	      filtered.sort((a, b) => {
+	        if (locationReady && typeof geolocationModel.compareDistanceMiles === 'function') {
+	          const diff = geolocationModel.compareDistanceMiles(getDistanceMilesForAsset(a), getDistanceMilesForAsset(b));
+	          if (diff !== 0) return diff;
+	        }
+	        const aEvt = getNextUpcomingEventForAsset(a);
+	        const bEvt = getNextUpcomingEventForAsset(b);
+	        const aTs = aEvt ? Date.parse(aEvt.start_iso) : Infinity;
+	        const bTs = bEvt ? Date.parse(bEvt.start_iso) : Infinity;
+	        if (Number.isFinite(aTs) && Number.isFinite(bTs) && aTs !== bTs) return aTs - bTs;
+	        return String((a && a.n) || '').localeCompare(String((b && b.n) || ''));
+	      });
+	    }
+
+	    categoryResultsListEl.innerHTML = '';
+	    filtered.forEach((asset, idx) => {
+	      if (!asset) return;
+	      const item = document.createElement('button');
       item.type = 'button';
       item.className = 'category-result';
       item.setAttribute('role', 'listitem');
@@ -1766,21 +1823,27 @@
       const placeLabel = asset.c ? escapeHTML(String(asset.c)) : (asset.a ? escapeHTML(String(asset.a)) : '');
       const distanceLabel = getDistanceLabelForAsset(asset);
 
-      const pills = [];
-      if (distanceLabel) {
-        pills.push(`<span class="category-result-pill">${escapeHTML(distanceLabel)}</span>`);
-      }
-      if (events14dMode) {
-        const assetIdx = resolveAssetIndex(asset);
-        const eventCount14d = Number.isInteger(assetIdx) ? getEventCountForAsset14d(assetIdx) : 0;
-        if (eventCount14d > 0) {
-          pills.push(`<span class="category-result-pill">${eventCount14d} event${eventCount14d === 1 ? '' : 's'}</span>`);
-        }
-      }
-      if (openNowMode) {
-        const hoursState = getHoursState(asset);
-        pills.push(`<span class="category-result-pill">${escapeHTML(getHoursLabel(hoursState))}</span>`);
-      }
+	      const pills = [];
+	      if (distanceLabel) {
+	        pills.push(`<span class="category-result-pill">${escapeHTML(distanceLabel)}</span>`);
+	      }
+	      if (mode === 'events') {
+	        const nextEvent = getNextUpcomingEventForAsset(asset);
+	        if (nextEvent) {
+	          pills.push(`<span class="category-result-pill">${escapeHTML(formatEventDateRange(nextEvent))}</span>`);
+	        }
+	      }
+	      if (events14dMode) {
+	        const assetIdx = resolveAssetIndex(asset);
+	        const eventCount14d = Number.isInteger(assetIdx) ? getEventCountForAsset14d(assetIdx) : 0;
+	        if (eventCount14d > 0) {
+	          pills.push(`<span class="category-result-pill">${eventCount14d} event${eventCount14d === 1 ? '' : 's'}</span>`);
+	        }
+	      }
+	      if (openNowMode) {
+	        const hoursState = getHoursState(asset);
+	        pills.push(`<span class="category-result-pill">${escapeHTML(getHoursLabel(hoursState))}</span>`);
+	      }
 
       item.innerHTML = `
         <div class="category-result-num">${idx + 1}</div>

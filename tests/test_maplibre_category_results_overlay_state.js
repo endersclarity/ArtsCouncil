@@ -75,3 +75,32 @@ test('getCategoryResultsOverlayState returns state when exactly one category sel
   });
 });
 
+test('getEventsResultsOverlayState hides when events14dMode is off', () => {
+  const state = filterStateModel.getEventsResultsOverlayState({
+    events14dMode: false,
+    filteredCount: 10,
+    dismissed: false,
+    hasActiveExperience: false
+  });
+  assert.equal(state, null);
+});
+
+test('getEventsResultsOverlayState hides when an experience is active', () => {
+  const state = filterStateModel.getEventsResultsOverlayState({
+    events14dMode: true,
+    filteredCount: 10,
+    dismissed: false,
+    hasActiveExperience: true
+  });
+  assert.equal(state, null);
+});
+
+test('getEventsResultsOverlayState returns state when events14dMode is on and there are multiple results', () => {
+  const state = filterStateModel.getEventsResultsOverlayState({
+    events14dMode: true,
+    filteredCount: 10,
+    dismissed: false,
+    hasActiveExperience: false
+  });
+  assert.deepEqual(state, { count: 10 });
+});

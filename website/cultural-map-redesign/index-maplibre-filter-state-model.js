@@ -68,10 +68,25 @@
     };
   }
 
+  function getEventsResultsOverlayState({
+    events14dMode,
+    filteredCount,
+    dismissed = false,
+    hasActiveExperience = false
+  }) {
+    if (!events14dMode) return null;
+    if (dismissed) return null;
+    if (hasActiveExperience) return null;
+    const count = Number(filteredCount);
+    if (!Number.isFinite(count) || count <= 1) return null;
+    return { count };
+  }
+
   const api = {
     computeNextCategories,
     getActiveBannerState,
-    getCategoryResultsOverlayState
+    getCategoryResultsOverlayState,
+    getEventsResultsOverlayState
   };
 
   if (typeof window !== 'undefined') {
