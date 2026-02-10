@@ -444,26 +444,26 @@
       if (!label) return;
       stops.push({ label, target, meta: 'On the map', url });
     });
-    musePlaceIds.forEach((placeId) => {
-      const place = findMusePlaceById(placeId);
-      const label = place && place.name ? String(place.name) : String(placeId || '');
-      if (!label) return;
-      stops.push({
-        label,
-        target: { muse: String(placeId) },
-        meta: 'Mentioned in MUSE',
-        url: `index-maplibre.html?muse=${encodeURIComponent(String(placeId))}`
-      });
-    });
+	    musePlaceIds.forEach((placeId) => {
+	      const place = findMusePlaceById(placeId);
+	      const label = place && place.name ? String(place.name) : String(placeId || '');
+	      if (!label) return;
+	      stops.push({
+	        label,
+	        target: { muse: String(placeId) },
+	        meta: 'On the map',
+	        url: `index-maplibre.html?muse=${encodeURIComponent(String(placeId))}`
+	      });
+	    });
 
-    const stopsHTML = stops.length
-      ? `
-        <div class="muse-story-stops">
-          <div class="muse-story-stops-head">Places mentioned</div>
-          <div class="muse-story-stops-grid">
-            ${stops.map((s) => {
-              const label = s.label ? String(s.label) : '';
-              const meta = s.meta ? String(s.meta) : '';
+	    const stopsHTML = stops.length
+	      ? `
+	        <div class="muse-story-stops">
+	          <div class="muse-story-stops-head">Places in this story</div>
+	          <div class="muse-story-stops-grid">
+	            ${stops.map((s) => {
+	              const label = s.label ? String(s.label) : '';
+	              const meta = s.meta ? String(s.meta) : '';
               const encoded = encodeURIComponent(JSON.stringify(s.target || {}));
               const url = s.url ? String(s.url) : '#';
               return `
@@ -478,13 +478,13 @@
       `
       : '';
 
-    const readMoreHTML = heyzineUrl
-      ? `
-        <a class="muse-story-readmore" href="${escapeHTML(heyzineUrl)}" target="_blank" rel="noopener noreferrer">
-          Read the original on Heyzine
-        </a>
-      `
-      : '';
+	    const readMoreHTML = heyzineUrl
+	      ? `
+	        <a class="muse-story-readmore" href="${escapeHTML(heyzineUrl)}" target="_blank" rel="noopener noreferrer">
+	          Read the full original article (Heyzine)
+	        </a>
+	      `
+	      : '';
 
     contentEl.innerHTML = `
       <div class="muse-story-hero" ${cover ? `style="--muse-cover: url('${escapeHTML(cover)}')"` : ''}>
