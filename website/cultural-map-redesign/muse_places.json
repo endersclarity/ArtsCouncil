@@ -1,0 +1,290 @@
+[
+  {
+    "id": "van-norden-meadow",
+    "name": "Van Norden Meadow",
+    "category_guess": "Walks & Trails",
+    "lat": 39.309,
+    "lng": -120.382,
+    "address_or_access": "Donner Summit / Soda Springs Rd area (near former Van Norden Dam / Sheep Pens Trailhead)",
+    "website": "https://meadows.ucdavis.edu/meadow/van-norden",
+    "phone": null,
+    "notes": "Mentioned in MUSE corridors piece; near Donner Summit / Old Highway 40.",
+    "confidence": "medium",
+    "sources": []
+  },
+  {
+    "id": "clair-tappaan-lodge",
+    "name": "Clair Tappaan Lodge",
+    "category_guess": "Cultural Resources",
+    "pid": "ChIJd_jyLnPom4ARhIGj4jrnU7Y",
+    "lat": 39.3180205,
+    "lng": -120.3511188,
+    "address_or_access": "19940 Donner Pass Rd, Norden, CA 95724",
+    "website": "https://www.clairtappaanlodge.com",
+    "phone": "530-426-3632",
+    "notes": "Mentioned in MUSE corridors piece; near Donner Summit.",
+    "confidence": "medium",
+    "sources": [
+      "https://www.clairtappaanlodge.com"
+    ]
+  },
+  {
+    "id": "rainbow-lodge-donner-summit",
+    "name": "Rainbow Lodge (Donner Summit)",
+    "category_guess": "Historic Landmarks",
+    "lat": 39.306,
+    "lng": -120.486,
+    "address_or_access": "50080 Hampshire Rocks Rd, Soda Springs, CA 95728",
+    "website": "https://www.therainbowlodge.com",
+    "phone": "530-562-5060",
+    "notes": "Mentioned in MUSE corridors piece; 1920s retreat along Old Highway 40.",
+    "confidence": "medium",
+    "sources": [
+      "https://www.therainbowlodge.com",
+      "https://www.visitplacer.com/rainbow-lodge/"
+    ]
+  },
+  {
+    "id": "cisco-grove",
+    "name": "Cisco Grove",
+    "category_guess": "Walks & Trails",
+    "lat": 39.3162366,
+    "lng": -120.5478718,
+    "address_or_access": "Rattlesnake Road, Nevada County, California, 95278",
+    "website": "https://www.ciscogrove.com",
+    "phone": null,
+    "notes": "Mentioned in MUSE corridors piece; near Donner Lake / Old Highway 40.",
+    "confidence": "medium",
+    "sources": [
+      "https://www.ciscogrove.com"
+    ]
+  },
+  {
+    "id": "woodpecker-preserve",
+    "name": "Woodpecker Preserve",
+    "category_guess": "Walks & Trails",
+    "lat": 39.2441941,
+    "lng": -120.9865966,
+    "address_or_access": "Woodpecker Preserve Access Trail, Nevada County, California, 95959",
+    "website": null,
+    "phone": null,
+    "notes": "Mentioned in MUSE Art in Nature piece (Bear Yuba Land Trust).",
+    "confidence": "medium",
+    "sources": []
+  },
+  {
+    "id": "wildflower-ridge-preserve",
+    "name": "Wildflower Ridge Preserve",
+    "category_guess": "Walks & Trails",
+    "lat": 39.22928,
+    "lng": -121.07946,
+    "address_or_access": "Grass Valley area; trail access near Ridge Rd / A to Z Supply Garden Center (see BYLT trail page for current directions)",
+    "website": "https://www.bylt.org/land/wildflower-ridge-preserve/",
+    "phone": null,
+    "notes": "Mentioned in MUSE Art in Nature piece (Bear Yuba Land Trust). Coordinates reflect a commonly-used trailhead area; verify current access guidance on BYLT.",
+    "confidence": "medium",
+    "sources": [
+      "https://www.bylt.org/land/wildflower-ridge-preserve/",
+      "https://www.bylt.org/trail/wildflower-ridge-trail/",
+      "https://www.nevadacountyca.gov/CivicAlerts.aspx?AID=8261"
+    ]
+  },
+  {
+    "id": "rices-crossing-preserve",
+    "name": "Rice's Crossing Preserve",
+    "category_guess": "Walks & Trails",
+    "lat": 39.396,
+    "lng": -121.15,
+    "address_or_access": "North San Juan area; access via BYLT Yuba Rim / Yuba Drop trail guidance",
+    "website": "https://www.bylt.org/land/rices-crossing-preserve/",
+    "phone": null,
+    "notes": "Mentioned in MUSE Art in Nature piece (Bear Yuba Land Trust). Coordinates are approximate trail access; verify current trailhead guidance on BYLT.",
+    "confidence": "medium",
+    "sources": [
+      "https://www.bylt.org/land/rices-crossing-preserve/",
+      "https://www.bylt.org/trail/yuba-rim-trail/",
+      "https://www.bylt.org/trail/yuba-drop-trail/"
+    ]
+  },
+  {
+    "id": "wolf-creek-trail-art-in-nature",
+    "name": "Wolf Creek (trail mention)",
+    "category_guess": "Walks & Trails",
+    "lat": 39.208862,
+    "lng": -121.06975,
+    "address_or_access": "10884 Allison Ranch Rd, Grass Valley, CA 95945 (commonly used access near North Star Mining Museum / Glenn Jones Park)",
+    "website": "https://www.bylt.org/trail/wolf-creek-trail/",
+    "phone": null,
+    "notes": "Mentioned in MUSE Art in Nature piece (Wolf Creek forest trail). Best match appears to be BYLT Wolf Creek Trail (aka Daspah Seyo Trail area).",
+    "confidence": "medium",
+    "sources": [
+      "https://www.bylt.org/trail/wolf-creek-trail/"
+    ]
+  },
+  {
+    "id": "darkhorse-coffee-roasters-truckee",
+    "name": "Darkhorse Coffee Roasters (Truckee)",
+    "category_guess": "Eat, Drink & Stay",
+    "lat": 39.327,
+    "lng": -120.185,
+    "address_or_access": "10009 W River St, Ste B, Truckee, CA 96161",
+    "website": "https://www.darkhorsetruckee.com",
+    "phone": "530-550-9239",
+    "notes": "Mentioned in MUSE open mics piece.",
+    "confidence": "medium",
+    "sources": [
+      "https://www.darkhorsetruckee.com"
+    ]
+  },
+  {
+    "id": "seven-stars-gallery-nevada-city",
+    "name": "Seven Stars Gallery (Nevada City)",
+    "category_guess": "Galleries & Museums",
+    "lat": 39.2627,
+    "lng": -121.0187,
+    "address_or_access": "210 Spring St, Nevada City, CA 95959",
+    "website": "https://nevadacityoddfellows.com/the-seven-stars-gallery/",
+    "phone": null,
+    "notes": "Mentioned in MUSE open mics piece. Contact info is typically via email (7starsgallery@gmail.com).",
+    "confidence": "medium",
+    "sources": [
+      "https://nevadacityoddfellows.com/the-seven-stars-gallery/"
+    ]
+  },
+  {
+    "id": "sierra-center-for-spiritual-living",
+    "name": "Sierra Center for Spiritual Living",
+    "category_guess": "Cultural Resources",
+    "lat": 39.2177,
+    "lng": -121.064,
+    "address_or_access": "119 Florence Ave, Grass Valley, CA 95945",
+    "website": "https://sierracenter.org",
+    "phone": "530-274-1018",
+    "notes": "Mentioned in MUSE open mics piece.",
+    "confidence": "medium",
+    "sources": [
+      "https://sierracenter.org"
+    ]
+  },
+  {
+    "id": "poetry-in-parks",
+    "name": "Poetry in Parks",
+    "category_guess": "Fairs & Festivals",
+    "lat": null,
+    "lng": null,
+    "address_or_access": null,
+    "website": "https://artsincaliforniaparks.org/poetry-in-parks-empire-mine-state-historic-park/",
+    "phone": null,
+    "notes": "Mentioned in MUSE open mics piece. Event series (not a single fixed venue).",
+    "confidence": "medium",
+    "sources": [
+      "https://artsincaliforniaparks.org/poetry-in-parks-empire-mine-state-historic-park/",
+      "https://www.sierragoldparksfoundation.org/page/empire-mine-state-historic-park/",
+      "https://www.parks.ca.gov/EmpireMine/"
+    ]
+  },
+  {
+    "id": "tahoe-backyard-open-mic-series",
+    "name": "Tahoe Backyard open mic series",
+    "category_guess": "Fairs & Festivals",
+    "lat": 39.2378,
+    "lng": -120.026,
+    "address_or_access": "Tahoe Backyard, 8428 Trout Ave, Kings Beach, CA 96143",
+    "website": null,
+    "phone": null,
+    "notes": "Mentioned in MUSE open mics piece. Event series at Tahoe Backyard (outside Nevada County).",
+    "confidence": "medium",
+    "sources": []
+  },
+  {
+    "id": "truckee-lit-crawl",
+    "name": "Truckee Lit Crawl",
+    "category_guess": "Fairs & Festivals",
+    "lat": null,
+    "lng": null,
+    "address_or_access": null,
+    "website": "https://truckeelitcrawl.com",
+    "phone": null,
+    "notes": "Mentioned in MUSE open mics piece. Multi-venue event (no single fixed address).",
+    "confidence": "medium",
+    "sources": [
+      "https://truckeelitcrawl.com"
+    ]
+  },
+  {
+    "id": "tahoe-literary-festival",
+    "name": "Tahoe Literary Festival",
+    "category_guess": "Fairs & Festivals",
+    "lat": null,
+    "lng": null,
+    "address_or_access": null,
+    "website": "https://www.tahoelitfest.com",
+    "phone": null,
+    "notes": "Mentioned in MUSE open mics piece. Event (no single fixed address; often Tahoe City/Truckee).",
+    "confidence": "medium",
+    "sources": [
+      "https://www.tahoelitfest.com",
+      "https://www.tahoelitfest.com/about-us-tahoe-literary-festival"
+    ]
+  },
+  {
+    "id": "communal-cafe-nevada-city",
+    "name": "Communal Café (Nevada City)",
+    "category_guess": "Eat, Drink & Stay",
+    "lat": 39.2624232,
+    "lng": -121.0186853,
+    "address_or_access": "233 Broad Street, Nevada City, Nevada County, California, 95959",
+    "website": "https://www.communalcafenc.com",
+    "phone": "530-264-7240",
+    "notes": "Mentioned in MUSE rural locals piece.",
+    "confidence": "medium",
+    "sources": [
+      "https://www.communalcafenc.com"
+    ]
+  },
+  {
+    "id": "crystal-rainbow-rock-shop-nevada-city",
+    "name": "Crystal Rainbow Rock Shop (Nevada City)",
+    "category_guess": "Eat, Drink & Stay",
+    "lat": 39.2628,
+    "lng": -121.0182,
+    "address_or_access": "310 Commercial St, Nevada City, CA 95959",
+    "website": "http://www.crystalrainbow.com",
+    "phone": "530-265-3784",
+    "notes": "Mentioned in MUSE rural locals piece. Some listings suggest hours/status may change; verify before surfacing prominently.",
+    "confidence": "low",
+    "sources": [
+      "http://www.crystalrainbow.com"
+    ]
+  },
+  {
+    "id": "winnie-superette-nevada-city",
+    "name": "Winnie Superette (Nevada City)",
+    "category_guess": "Eat, Drink & Stay",
+    "lat": 39.2628,
+    "lng": -121.0185,
+    "address_or_access": "315 Commercial St, Nevada City, CA 95959",
+    "website": "https://www.winniesuperette.com",
+    "phone": "530-388-4483",
+    "notes": "Mentioned in MUSE rural locals piece.",
+    "confidence": "medium",
+    "sources": [
+      "https://www.winniesuperette.com"
+    ]
+  },
+  {
+    "id": "ridge-cafe-north-san-juan",
+    "name": "Ridge Café (North San Juan)",
+    "category_guess": "Eat, Drink & Stay",
+    "lat": 39.3699038,
+    "lng": -121.1050572,
+    "address_or_access": "29318 CA-49, North San Juan, CA 95960",
+    "website": "https://nsjridgecafe.com",
+    "phone": "530-292-3488",
+    "notes": "Mentioned in MUSE rural locals piece.",
+    "confidence": "medium",
+    "sources": [
+      "https://nsjridgecafe.com"
+    ]
+  }
+]
