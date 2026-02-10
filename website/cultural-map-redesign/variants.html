@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Culture Atlas Variants</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+* { box-sizing: border-box; }
+:root {
+  --bg: oklch(16% 0.03 255);
+  --bg-soft: oklch(22% 0.03 255);
+  --ink: oklch(95% 0.01 88);
+  --muted: oklch(82% 0.03 86);
+  --gold: oklch(78% 0.16 84);
+  --line: oklch(77% 0.12 84 / 0.28);
+}
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Manrope', system-ui, sans-serif;
+  color: var(--ink);
+  background:
+    radial-gradient(1000px 520px at 10% 0%, oklch(28% 0.05 252 / 0.8), transparent 70%),
+    radial-gradient(900px 480px at 100% 0%, oklch(33% 0.07 68 / 0.42), transparent 70%),
+    linear-gradient(180deg, var(--bg), oklch(13% 0.03 252));
+}
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(0deg, oklch(100% 0 0 / 0.03) 0 1px, transparent 1px 6px),
+    repeating-linear-gradient(90deg, oklch(100% 0 0 / 0.02) 0 1px, transparent 1px 6px);
+}
+.main {
+  position: relative;
+  z-index: 1;
+  width: min(1150px, 100% - 2rem);
+  margin: 0 auto;
+  padding: 4rem 0 3rem;
+}
+.hero {
+  margin-bottom: 1.8rem;
+  padding: 1.3rem 1.3rem 1.1rem;
+  border: 1px solid var(--line);
+  background: linear-gradient(145deg, oklch(19% 0.03 256 / 0.92), oklch(15% 0.03 255 / 0.96));
+}
+.eyebrow {
+  display: inline-block;
+  font-size: 0.62rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 0.5rem;
+}
+h1 {
+  margin: 0 0 0.45rem;
+  font-family: 'Libre Baskerville', Georgia, serif;
+  font-size: clamp(2rem, 4.8vw, 3.1rem);
+  line-height: 1.02;
+  color: oklch(92% 0.03 84);
+}
+h1 em {
+  font-style: normal;
+  color: var(--gold);
+}
+.hero p {
+  margin: 0;
+  max-width: 62ch;
+  color: var(--muted);
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+.card {
+  border: 1px solid var(--line);
+  background: linear-gradient(160deg, oklch(20% 0.03 255 / 0.9), oklch(15% 0.03 255 / 0.95));
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  min-height: 230px;
+}
+.card strong {
+  font-size: 1.08rem;
+  letter-spacing: 0.01em;
+  color: oklch(95% 0.02 84);
+}
+.swatch-row {
+  display: flex;
+  gap: 0.32rem;
+}
+.swatch {
+  width: 22px;
+  height: 22px;
+  border: 1px solid oklch(100% 0 0 / 0.2);
+}
+.meta {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.45;
+  margin: 0;
+}
+.links {
+  margin-top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.42rem;
+}
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.5rem 0.72rem;
+  border: 1px solid var(--line);
+  color: oklch(95% 0.02 84);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  background: linear-gradient(145deg, oklch(21% 0.03 255), oklch(17% 0.03 255));
+  transition: transform 180ms ease, border-color 180ms ease, color 180ms ease;
+}
+.btn:hover,
+.btn:focus-visible {
+  transform: translateY(-2px);
+  border-color: oklch(80% 0.14 84 / 0.6);
+  color: var(--gold);
+  outline: none;
+}
+.card.base .swatch:nth-child(1){background:oklch(95% 0.03 83)}
+.card.base .swatch:nth-child(2){background:oklch(61% 0.15 234)}
+.card.base .swatch:nth-child(3){background:oklch(72% 0.17 82)}
+.card.heromapfirst .swatch:nth-child(1){background:oklch(97% 0.02 92)}
+.card.heromapfirst .swatch:nth-child(2){background:oklch(78% 0.16 84)}
+.card.heromapfirst .swatch:nth-child(3){background:oklch(56% 0.12 210)}
+.card.heromagcover .swatch:nth-child(1){background:oklch(14% 0.03 255)}
+.card.heromagcover .swatch:nth-child(2){background:oklch(78% 0.16 84)}
+.card.heromagcover .swatch:nth-child(3){background:oklch(74% 0.03 86)}
+.card.herointent .swatch:nth-child(1){background:oklch(97% 0.02 92)}
+.card.herointent .swatch:nth-child(2){background:oklch(61% 0.15 234)}
+.card.herointent .swatch:nth-child(3){background:oklch(62% 0.18 32)}
+.card.overdrive .swatch:nth-child(1){background:oklch(22% 0.03 255)}
+.card.overdrive .swatch:nth-child(2){background:oklch(78% 0.16 84)}
+.card.overdrive .swatch:nth-child(3){background:oklch(54% 0.12 228)}
+.card.shutterdrive .swatch:nth-child(1){background:oklch(95% 0.02 78)}
+.card.shutterdrive .swatch:nth-child(2){background:oklch(61% 0.17 42)}
+.card.shutterdrive .swatch:nth-child(3){background:oklch(52% 0.06 334)}
+.card.grandexchange .swatch:nth-child(1){background:oklch(20% 0.03 246)}
+.card.grandexchange .swatch:nth-child(2){background:oklch(77% 0.14 82)}
+.card.grandexchange .swatch:nth-child(3){background:oklch(58% 0.09 233)}
+.card.layoutreboot .swatch:nth-child(1){background:oklch(19% 0.03 246)}
+.card.layoutreboot .swatch:nth-child(2){background:oklch(78% 0.15 83)}
+.card.layoutreboot .swatch:nth-child(3){background:oklch(96% 0.01 89)}
+.card.signaldeck .swatch:nth-child(1){background:oklch(12% 0.03 255)}
+.card.signaldeck .swatch:nth-child(2){background:oklch(78% 0.17 230)}
+.card.signaldeck .swatch:nth-child(3){background:oklch(67% 0.17 30)}
+.card.monograph .swatch:nth-child(1){background:oklch(99% 0.002 95)}
+.card.monograph .swatch:nth-child(2){background:oklch(17% 0.02 250)}
+.card.monograph .swatch:nth-child(3){background:oklch(63% 0.22 28)}
+.card.stickerbook .swatch:nth-child(1){background:oklch(98% 0.02 87)}
+.card.stickerbook .swatch:nth-child(2){background:oklch(26% 0.07 266)}
+.card.stickerbook .swatch:nth-child(3){background:oklch(79% 0.15 84)}
+.card.prismstorm .swatch:nth-child(1){background:oklch(15% 0.035 260)}
+.card.prismstorm .swatch:nth-child(2){background:oklch(74% 0.17 198)}
+.card.prismstorm .swatch:nth-child(3){background:oklch(82% 0.19 93)}
+.card.chromafold .swatch:nth-child(1){background:oklch(98% 0.004 255)}
+.card.chromafold .swatch:nth-child(2){background:oklch(64% 0.16 247)}
+.card.chromafold .swatch:nth-child(3){background:oklch(71% 0.18 42)}
+.card.brutalist .swatch:nth-child(1){background:oklch(97% 0.01 96)}
+.card.brutalist .swatch:nth-child(2){background:oklch(12% 0.02 255)}
+.card.brutalist .swatch:nth-child(3){background:oklch(69% 0.2 32)}
+.card.storyline .swatch:nth-child(1){background:oklch(20% 0.04 262)}
+.card.storyline .swatch:nth-child(2){background:oklch(74% 0.15 82)}
+.card.storyline .swatch:nth-child(3){background:oklch(61% 0.11 244)}
+.card.accesscore .swatch:nth-child(1){background:oklch(99% 0 0)}
+.card.accesscore .swatch:nth-child(2){background:oklch(10% 0.01 250)}
+.card.accesscore .swatch:nth-child(3){background:oklch(50% 0.2 255)}
+.card.kiosk .swatch:nth-child(1){background:oklch(97% 0.01 90)}
+.card.kiosk .swatch:nth-child(2){background:oklch(56% 0.13 245)}
+.card.kiosk .swatch:nth-child(3){background:oklch(71% 0.16 45)}
+.card.kiosksunburst .swatch:nth-child(1){background:oklch(97% 0.03 92)}
+.card.kiosksunburst .swatch:nth-child(2){background:oklch(63% 0.16 46)}
+.card.kiosksunburst .swatch:nth-child(3){background:oklch(58% 0.12 170)}
+.card.kioskmidnight .swatch:nth-child(1){background:oklch(14% 0.05 276)}
+.card.kioskmidnight .swatch:nth-child(2){background:oklch(70% 0.2 320)}
+.card.kioskmidnight .swatch:nth-child(3){background:oklch(74% 0.18 198)}
+.card.kioskmetro .swatch:nth-child(1){background:oklch(98% 0.004 250)}
+.card.kioskmetro .swatch:nth-child(2){background:oklch(58% 0.16 252)}
+.card.kioskmetro .swatch:nth-child(3){background:oklch(68% 0.21 33)}
+.card.wayfinder .swatch:nth-child(1){background:oklch(16% 0.04 248)}
+.card.wayfinder .swatch:nth-child(2){background:oklch(56% 0.13 250)}
+.card.wayfinder .swatch:nth-child(3){background:oklch(70% 0.12 78)}
+.footer {
+  margin-top: 1rem;
+  font-size: 0.8rem;
+  color: oklch(80% 0.02 84);
+}
+@media (max-width: 860px) {
+  .main { padding-top: 2.4rem; }
+  .grid { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn { transition: none; }
+}
+</style>
+</head>
+<body>
+<main class="main">
+  <section class="hero">
+    <span class="eyebrow">Nevada County Arts Council</span>
+    <h1>Culture Atlas <em>variant studio</em></h1>
+    <p>Pick a visual direction and review it in-context with real map interactions. Each variant preserves core map behavior while changing typography, palette, spacing, and atmosphere.</p>
+  </section>
+
+  <section class="grid" aria-label="Design variants">
+    <article class="card base">
+      <strong>Baseline MapLibre</strong>
+      <div class="swatch-row" aria-hidden="true"><span class="swatch"></span><span class="swatch"></span><span class="swatch"></span></div>
+      <p class="meta">Current reference implementation. Balanced editorial style with full feature parity.</p>
+      <div class="links">
+        <a class="btn" href="index-maplibre.html">Open Baseline</a>
+      </div>
+    </article>
+
+    <article class="card heromapfirst">
+      <strong>Hero Concept: Map-First</strong>
+      <div class="swatch-row" aria-hidden="true"><span class="swatch"></span><span class="swatch"></span><span class="swatch"></span></div>
+      <p class="meta">Full site variant that replaces the hero + intro with a map-first cockpit: minimal copy, 3-step quick start, and category access without the verbose explainer.</p>
+      <div class="links">
+        <a class="btn" href="index-maplibre-hero-mapfirst.html">Open Map-First</a>
+      </div>
+    </article>
+
+    <article class="card heromagcover">
+      <strong>Hero Concept: Magazine Cover</strong>
+      <div class="swatch-row" aria-hidden="true"><span class="swatch"></span><span class="swatch"></span><span class="swatch"></span></div>
+      <p class="meta">Full site variant that treats the top as a “cover”: dark editorial hero, big hook line, and two featured actions that drive into stories and the map.</p>
+      <div class="links">
+        <a class="btn" href="index-maplibre-hero-magcover.html">Open Magazine Cover</a>
+      </div>
+    </article>
+
+    <article class="card herointent">
+      <strong>Hero Concept: Intent / Search First</strong>
+      <div class="swatch-row" aria-hidden="true"><span class="swatch"></span><span class="swatch"></span><span class="swatch"></span></div>
+      <p class="meta">Full site variant that opens with a question and preset intents (Open Now, Museums, Trails, etc.) as real deep links into the map state.</p>
+      <div class="links">
+        <a class="btn" href="index-maplibre-hero-intent.html">Open Intent First</a>
+      </div>
+    </article>
+
+    <article class="card overdrive">
+      <strong>Overdrive (Dark + Gold)</strong>
+      <div class="swatch-row" aria-hidden="true"><span class="swatch"></span><span class="swatch"></span><span class="swatch"></span></div>
+      <p class="meta">Professional, dramatic tone with dark hero, gold typography, and luxury hospitality cues.</p>
+      <div class="links">
+        <a class="btn" href="index-maplibre-overdrive.html">Open Overdrive</a>
+      </div>
+    </article>
+
+    <article class="card shutterdrive">
+      <strong>Shutterdrive (Editorial Film)</strong>
+      <div class="swatch-row" aria-hidden="true"><span class="swatch"></span><span class="swatch"></span><span class="swatch"></span></div>
+      <p class="meta">Art-magazine direction with warm neutrals, textured surfaces, and sharper geometry.</p>
+      <div class="links">
+        <a class="btn" href="index-maplibre-shutterdrive.html">Open Shutterdrive</a>
+      </div>
+    </article>
+
+    <article class="card grandexchange">
+      <strong>Grand Exchange (Midnight Brass)</strong>
+      <div class="swatch-row" aria-hidden="true"><span class="swatch"></span><span class="swatch"></span><span class="swatch"></span></div>
+      <p class="meta">A restrained luxury direction with deep midnight surfaces and brass-accented controls.</p>
+      <div class="links">
+        <a class="btn" href="index-maplibre-grandexchange.html">Open Grand Exchange</a>
+      </div>
+    </article>
+
+    <article class="card layoutreboot">
+      <strong>Layout Reboot (Cockpit Grid)</strong>
+      <div class="swatch-row" aria-hidden="true"><span class="swatch"></span><span class="swatch"></span><span class="swatch"></span></div>
+      <p class="meta">The full layout experiment with a map-first cockpit and right-rail narrative panels.</p>
+      <div class="links">
+        <a class="btn" href="index-maplibre-layout-reboot.html">Open Layout Reboot</a>
+      </div>
+    </article>
+
+    <article class="card signaldeck">
+      <strong>Signaldeck (Map Ops)</strong>
+      <div class="swatch-row" aria-hidden="true"><span class="swatch"></span><span class="swatch"></span><span class="swatch"></span></div>
+      <p class="meta">A tactical map-first command layout with left-side controls and a live map operations pane.</p>
+      <div class="links">
+        <a class="btn" href="index-maplibre-signaldeck.html">Open Signaldeck</a>
+      </div>
+    </article>
+
+    <article class="card monograph">
+      <strong>Monograph (Editorial Print)</strong>
+      <div class="swatch-row" aria-hidden="true"><span class="swatch"></span><span class="swatch"></span><span class="swatch"></span></div>
+      <p class="meta">A sharp black-and-white editorial system with crimson accents and newspaper-inspired composition.</p>
+      <div class="links">
+        <a class="btn" href="index-maplibre-monograph.html">Open Monograph</a>
+      </div>
+    </article>
+
+    <article class="card stickerbook">
+      <strong>Watercolor Stickerbook (Collage Atlas)</strong>
+      <div class="swatch-row" aria-hidden="true"><span class="swatch"></span><span class="swatch"></span><span class="swatch"></span></div>
+      <p class="meta">Notebook-style layout with dark-gold hero, layered watercolor decals, and playful but still professional editorial surfaces.</p>
+      <div class="links">
+        <a class="btn" href="index-maplibre-watercolor-stickers.html">Open Watercolor Stickerbook</a>
+      </div>
+    </article>
+
+    <article class="card prismstorm">
+      <strong>Prismstorm (Geometric Night Poster)</strong>
+      <div class="swatch-row" aria-hidden="true"><span class="swatch"></span><span class="swatch"></span><span class="swatch"></span></div>
+      <p class="meta">A high-contrast, angular, neon-ink direction with geometric overlays and aggressive layout energy.</p>
+      <div class="links">
+        <a class="btn" href="index-maplibre-prismstorm.html">Open Prismstorm</a>
+      </div>
+    </article>
+
+    <article class="card chromafold">
+      <strong>Chromafold (Metallic Daylight)</strong>
+      <div class="swatch-row" aria-hidden="true"><span class="swatch"></span><span class="swatch"></span><span class="swatch"></span></div>
+      <p class="meta">A bright, polished, asymmetrical system with steel gradients, hard geometry, and gallery-tech atmosphere.</p>
+      <div class="links">
+        <a class="btn" href="index-maplibre-chromafold.html">Open Chromafold</a>
+      </div>
+    </article>
+
+    <article class="card brutalist">
+      <strong>Brutalist Signal (Hard Poster)</strong>
+      <div class="swatch-row" aria-hidden="true"><span class="swatch"></span><span class="swatch"></span><span class="swatch"></span></div>
+      <p class="meta">Raw black-line composition with sharp edges, signal accents, and loud typographic hierarchy.</p>
+      <div class="links">
+        <a class="btn" href="index-maplibre-brutalist-signal.html">Open Brutalist Signal</a>
+      </div>
+    </article>
+
+    <article class="card storyline">
+      <strong>Storyline Atlas (Batch C / Scroll)</strong>
+      <div class="swatch-row" aria-hidden="true"><span class="swatch"></span><span class="swatch"></span><span class="swatch"></span></div>
+      <p class="meta">One-per-workflow pilot. Scroll-chapter narrative using the story workflow with map still fully interactive.</p>
+      <div class="links">
+        <a class="btn" href="index-maplibre-storyline-atlas.html">Open Storyline Atlas</a>
+      </div>
+    </article>
+
+    <article class="card accesscore">
+      <strong>Access Core (Batch C / A11y)</strong>
+      <div class="swatch-row" aria-hidden="true"><span class="swatch"></span><span class="swatch"></span><span class="swatch"></span></div>
+      <p class="meta">One-per-workflow pilot. High-legibility, stronger focus, larger targets, and accessibility-first control contrast.</p>
+      <div class="links">
+        <a class="btn" href="index-maplibre-access-core.html">Open Access Core</a>
+      </div>
+    </article>
+
+    <article class="card kiosk">
+      <strong>Kiosk Transit (Batch C / Touch)</strong>
+      <div class="swatch-row" aria-hidden="true"><span class="swatch"></span><span class="swatch"></span><span class="swatch"></span></div>
+      <p class="meta">One-per-workflow pilot. Public-screen touch-first layout with large controls and wayfinding emphasis.</p>
+      <div class="links">
+        <a class="btn" href="index-maplibre-kiosk-transit.html">Open Kiosk Transit</a>
+      </div>
+    </article>
+
+    <article class="card kiosksunburst">
+      <strong>Kiosk Transit Sunburst (Day)</strong>
+      <div class="swatch-row" aria-hidden="true"><span class="swatch"></span><span class="swatch"></span><span class="swatch"></span></div>
+      <p class="meta">Warm daylight, rounded surfaces, and energetic high-visibility touch targets for bright rooms.</p>
+      <div class="links">
+        <a class="btn" href="index-maplibre-kiosk-transit-sunburst.html">Open Kiosk Sunburst</a>
+      </div>
+    </article>
+
+    <article class="card kioskmidnight">
+      <strong>Kiosk Transit Midnight (Night)</strong>
+      <div class="swatch-row" aria-hidden="true"><span class="swatch"></span><span class="swatch"></span><span class="swatch"></span></div>
+      <p class="meta">Dark, neon-forward operator mood with luminous controls for evening venues and projection spaces.</p>
+      <div class="links">
+        <a class="btn" href="index-maplibre-kiosk-transit-midnight.html">Open Kiosk Midnight</a>
+      </div>
+    </article>
+
+    <article class="card kioskmetro">
+      <strong>Kiosk Transit Metro (Signage)</strong>
+      <div class="swatch-row" aria-hidden="true"><span class="swatch"></span><span class="swatch"></span><span class="swatch"></span></div>
+      <p class="meta">Transit-sign clarity with squared geometry, bold contrast, and direct wayfinding behavior.</p>
+      <div class="links">
+        <a class="btn" href="index-maplibre-kiosk-transit-metro.html">Open Kiosk Metro</a>
+      </div>
+    </article>
+
+    <article class="card wayfinder">
+      <strong>Storyline Wayfinder (Navigator)</strong>
+      <div class="swatch-row" aria-hidden="true"><span class="swatch"></span><span class="swatch"></span><span class="swatch"></span></div>
+      <p class="meta">A guided flow style with annotation-like map framing, but no theatrical chapter language.</p>
+      <div class="links">
+        <a class="btn" href="index-maplibre-storyline-wayfinder.html">Open Storyline Wayfinder</a>
+      </div>
+    </article>
+  </section>
+
+  <p class="footer">Tip: open two variants in side-by-side tabs while reviewing typography and interaction density.</p>
+</main>
+</body>
+</html>
