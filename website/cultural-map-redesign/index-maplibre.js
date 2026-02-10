@@ -1416,6 +1416,7 @@
   function activateExperience(experience) {
     if (!experienceController) return;
     experienceController.activateExperience(experience);
+    updateCategoryResultsOverlay();
     syncUrlFromApp();
     syncDocumentTitleFromState();
   }
@@ -1443,6 +1444,7 @@
   function deactivateExperience() {
     if (!experienceController) return;
     experienceController.deactivateExperience();
+    updateCategoryResultsOverlay();
     syncUrlFromApp();
     syncDocumentTitleFromState();
   }
@@ -1589,6 +1591,216 @@
   }
 
   // ============================================================
+  // CATEGORY RESULTS OVERLAY (Near Me)
+  // ============================================================
+  let categoryResultsPanelEl = null;
+  let categoryResultsListEl = null;
+  let categoryResultsTitleEl = null;
+  let categoryResultsCountEl = null;
+  let categoryResultsSortEl = null;
+  let categoryResultsLocateBtn = null;
+  let categoryResultsCloseBtn = null;
+  let categoryResultsCurrentKey = null;
+  let categoryResultsDismissedKey = null;
+
+  function ensureCategoryResultsPanel() {
+    if (categoryResultsPanelEl) return;
+    const mapContainer = document.querySelector('.map-container');
+    if (!mapContainer) return;
+
+    const panel = document.createElement('div');
+    panel.id = 'categoryResultsPanel';
+    panel.className = 'category-results-panel';
+    panel.setAttribute('aria-hidden', 'true');
+
+    panel.innerHTML = `
+      <div class="category-results-header">
+        <div>
+          <div class="category-results-eyebrow">Near me</div>
+          <div class="category-results-title" id="categoryResultsTitle"></div>
+          <div class="category-results-meta">
+            <span id="categoryResultsCount"></span>
+            <span id="categoryResultsSort"></span>
+          </div>
+        </div>
+        <div class="category-results-actions">
+          <button class="category-results-btn locate" type="button" id="categoryResultsLocate">Locate</button>
+          <button class="category-results-btn close" type="button" id="categoryResultsClose" aria-label="Close">&times;</button>
+        </div>
+      </div>
+      <div class="category-results-list" id="categoryResultsList" role="list"></div>
+    `;
+
+    mapContainer.appendChild(panel);
+    categoryResultsPanelEl = panel;
+    categoryResultsListEl = panel.querySelector('#categoryResultsList');
+    categoryResultsTitleEl = panel.querySelector('#categoryResultsTitle');
+    categoryResultsCountEl = panel.querySelector('#categoryResultsCount');
+    categoryResultsSortEl = panel.querySelector('#categoryResultsSort');
+    categoryResultsLocateBtn = panel.querySelector('#categoryResultsLocate');
+    categoryResultsCloseBtn = panel.querySelector('#categoryResultsClose');
+
+    if (categoryResultsCloseBtn) {
+      categoryResultsCloseBtn.addEventListener('click', () => {
+        categoryResultsDismissedKey = categoryResultsCurrentKey;
+        hideCategoryResultsPanel();
+      });
+    }
+
+    if (categoryResultsLocateBtn) {
+      categoryResultsLocateBtn.addEventListener('click', () => {
+        if (!geolocateControl || typeof geolocateControl.trigger !== 'function') return;
+        try {
+          geolocateControl.trigger();
+        } catch (err) {
+          console.warn('[CategoryResults] Failed to trigger geolocation:', err);
+        }
+      });
+    }
+  }
+
+  function hideCategoryResultsPanel() {
+    if (!categoryResultsPanelEl) return;
+    categoryResultsPanelEl.classList.remove('visible');
+    categoryResultsPanelEl.setAttribute('aria-hidden', 'true');
+  }
+
+  function showCategoryResultsPanel() {
+    if (!categoryResultsPanelEl) return;
+    categoryResultsPanelEl.classList.add('visible');
+    categoryResultsPanelEl.setAttribute('aria-hidden', 'false');
+  }
+
+  function getCategoryResultsOverlayKey(category) {
+    const q = document.getElementById('searchInput')?.value || '';
+    return [
+      String(category || ''),
+      openNowMode ? 'open=1' : 'open=0',
+      events14dMode ? 'events14d=1' : 'events14d=0',
+      `q=${String(q).trim().toLowerCase()}`
+    ].join('|');
+  }
+
+  function focusAssetFromCategoryResults(asset) {
+    if (!asset) return;
+    document.getElementById('mapSection')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    const x = Number(asset.x);
+    const y = Number(asset.y);
+    if (map && Number.isFinite(x) && Number.isFinite(y)) {
+      map.flyTo({
+        center: [x, y],
+        zoom: Math.max(map.getZoom(), 13.5),
+        pitch: Math.max(map.getPitch(), 48),
+        bearing: map.getBearing(),
+        duration: 850,
+        essential: true
+      });
+    }
+    openDetail(asset);
+  }
+
+  function updateCategoryResultsOverlay() {
+    ensureCategoryResultsPanel();
+    if (!categoryResultsPanelEl || !categoryResultsListEl) return;
+
+    const hasActiveExperience = !!(experienceController && experienceController.getActiveExperience && experienceController.getActiveExperience());
+    const filtered = exploreController && typeof exploreController.getFilteredData === 'function'
+      ? exploreController.getFilteredData()
+      : [];
+
+    const overlayState = filterStateModel.getCategoryResultsOverlayState({
+      activeCategories,
+      filteredCount: filtered.length,
+      dismissed: false,
+      hasActiveExperience
+    });
+
+    if (!overlayState) {
+      categoryResultsCurrentKey = null;
+      categoryResultsDismissedKey = null;
+      hideCategoryResultsPanel();
+      return;
+    }
+
+    const key = getCategoryResultsOverlayKey(overlayState.category);
+    categoryResultsCurrentKey = key;
+
+    if (categoryResultsDismissedKey === key) {
+      hideCategoryResultsPanel();
+      return;
+    }
+
+    const cfg = CATS[overlayState.category] || {};
+    categoryResultsPanelEl.style.setProperty('--category-accent', cfg.color || 'rgba(245,240,232,0.18)');
+
+    if (categoryResultsTitleEl) {
+      categoryResultsTitleEl.textContent = cfg.short || overlayState.category;
+    }
+
+    if (categoryResultsCountEl) {
+      const noun = overlayState.count === 1 ? 'place' : 'places';
+      categoryResultsCountEl.textContent = `${overlayState.count} ${noun}`;
+    }
+
+    const locationReady = !!userLocationCoords;
+    if (categoryResultsLocateBtn) {
+      categoryResultsLocateBtn.hidden = !geolocateControl;
+      categoryResultsLocateBtn.textContent = locationReady ? 'Update' : 'Locate';
+    }
+
+    if (categoryResultsSortEl) {
+      categoryResultsSortEl.textContent = locationReady
+        ? 'Sorted by distance'
+        : 'Enable location to sort by distance';
+    }
+
+    categoryResultsListEl.innerHTML = '';
+    filtered.forEach((asset, idx) => {
+      if (!asset) return;
+      const item = document.createElement('button');
+      item.type = 'button';
+      item.className = 'category-result';
+      item.setAttribute('role', 'listitem');
+
+      const safeName = escapeHTML(String(asset.n || ''));
+      const placeLabel = asset.c ? escapeHTML(String(asset.c)) : (asset.a ? escapeHTML(String(asset.a)) : '');
+      const distanceLabel = getDistanceLabelForAsset(asset);
+
+      const pills = [];
+      if (distanceLabel) {
+        pills.push(`<span class="category-result-pill">${escapeHTML(distanceLabel)}</span>`);
+      }
+      if (events14dMode) {
+        const assetIdx = resolveAssetIndex(asset);
+        const eventCount14d = Number.isInteger(assetIdx) ? getEventCountForAsset14d(assetIdx) : 0;
+        if (eventCount14d > 0) {
+          pills.push(`<span class="category-result-pill">${eventCount14d} event${eventCount14d === 1 ? '' : 's'}</span>`);
+        }
+      }
+      if (openNowMode) {
+        const hoursState = getHoursState(asset);
+        pills.push(`<span class="category-result-pill">${escapeHTML(getHoursLabel(hoursState))}</span>`);
+      }
+
+      item.innerHTML = `
+        <div class="category-result-num">${idx + 1}</div>
+        <div class="category-result-info">
+          <div class="category-result-name">${safeName}</div>
+          <div class="category-result-note">
+            ${placeLabel ? `<span>${placeLabel}</span>` : ''}
+            ${pills.join('')}
+          </div>
+        </div>
+      `;
+
+      item.addEventListener('click', () => focusAssetFromCategoryResults(asset));
+      categoryResultsListEl.appendChild(item);
+    });
+
+    showCategoryResultsPanel();
+  }
+
+  // ============================================================
   // SET CATEGORY
   // ============================================================
   function setCategory(cat, options = {}) {
@@ -1680,6 +1892,7 @@
   function buildList() {
     if (!exploreController) return;
     exploreController.buildList();
+    updateCategoryResultsOverlay();
   }
 
   function focusEventById(eventId) {

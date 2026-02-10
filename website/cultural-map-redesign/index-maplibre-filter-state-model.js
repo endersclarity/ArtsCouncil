@@ -50,8 +50,35 @@
     };
   }
 
-  window.CulturalMapFilterStateModel = {
+  function getCategoryResultsOverlayState({
+    activeCategories,
+    filteredCount,
+    dismissed = false,
+    hasActiveExperience = false
+  }) {
+    if (dismissed) return null;
+    if (hasActiveExperience) return null;
+    const selected = Array.from(activeCategories || []);
+    if (selected.length !== 1) return null;
+    const count = Number(filteredCount);
+    if (!Number.isFinite(count) || count <= 1) return null;
+    return {
+      category: selected[0],
+      count
+    };
+  }
+
+  const api = {
     computeNextCategories,
-    getActiveBannerState
+    getActiveBannerState,
+    getCategoryResultsOverlayState
   };
+
+  if (typeof window !== 'undefined') {
+    window.CulturalMapFilterStateModel = api;
+  }
+
+  if (typeof module !== 'undefined' && module.exports) {
+    module.exports = api;
+  }
 })();
