@@ -2696,6 +2696,14 @@ body.muse-story-open {
   margin-bottom: 0.7rem;
 }
 
+.map-events-hint {
+  font-size: 0.7rem;
+  line-height: 1.35;
+  color: rgba(26,22,18,0.55);
+  margin: -0.2rem 0 0.7rem;
+  max-width: 70ch;
+}
+
 .map-events-category-row {
   display: flex;
   align-items: center;

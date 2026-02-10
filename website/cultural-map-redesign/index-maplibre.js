@@ -262,6 +262,7 @@
     buildList();
     buildMapEventsCategorySelect();
     buildMapEventsList();
+    ensureMapEventsHint();
     initScrollReveal();
     initMuseShowcase();
     bindEvents();
@@ -272,6 +273,18 @@
       // Map is already loaded at this point in normal flows; if not, load handler will apply once.
       applyDeepLinkFromLocation();
     });
+  }
+
+  function ensureMapEventsHint() {
+    const filtersEl = document.getElementById('mapEventsFilters');
+    if (!filtersEl) return;
+    const existing = document.getElementById('mapEventsHint');
+    if (existing) return;
+    const hint = document.createElement('div');
+    hint.id = 'mapEventsHint';
+    hint.className = 'map-events-hint';
+    hint.textContent = "Tip: the chips filter this events list. To show venues with upcoming events on the map, toggle “Events (14d)” in Filters.";
+    filtersEl.insertAdjacentElement('afterend', hint);
   }
 
   // Preload watercolor images — deferred until browser is idle
