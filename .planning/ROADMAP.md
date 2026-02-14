@@ -32,12 +32,12 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. Hero section reads as intentional editorial layout, not a default landing page
   4. Mobile layout is functional and readable at 375px width without horizontal scroll or overlapping elements
   5. All visible UI copy references visitor experiences and local businesses (no internal language like "cultural assets" or nature-forward framing)
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 01-01: Brainstorm visual direction and lock design tokens (typography, palette, spacing)
-- [ ] 01-02: Implement card design language and hero section
-- [ ] 01-03: Mobile responsive polish and copy reframing pass
+- [ ] 01-01-PLAN.md — Replace :root design tokens (palette, shadows, card tokens) and sync category colors
+- [ ] 01-02-PLAN.md — Apply editorial card tokens and hero refinement across all CSS sections
+- [ ] 01-03-PLAN.md — Mobile responsive polish (375/390/768px) and copy reframing pass
 
 ### Phase 2: Tier 2 Events
 **Goal**: The events section shows 3x more events by aggregating library and municipal calendars alongside Trumba, with source attribution and family filtering
