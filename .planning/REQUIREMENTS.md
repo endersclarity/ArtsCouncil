@@ -1,103 +1,212 @@
-# Requirements: "Happening Now" Feature
+# Requirements: GVNC Cultural District Experience Platform
 
-**Defined:** 2026-02-07
-**Core Value:** Enable spontaneous cultural engagement by making it effortless to discover what's open and what's happening at this moment
+**Defined:** 2026-02-14
+**Core Value:** Drive people to downtowns, local businesses, performance venues, and cultural spaces through an editorial-quality interactive experience that feels like MUSE magazine.
 
 ## v1 Requirements
 
-### Data Pipeline
-- [ ] **DATA-01**: Fetch hours of operation from Google Places API for all 687 assets (one-time script)
-- [ ] **DATA-02**: Store hours data in data.json with compact format (`h` field for hours string, `pid` field for place ID)
-- [ ] **DATA-03**: Set up GitHub Actions workflow for future data updates
-- [ ] **DATA-04**: Implement API key security (GitHub Secrets, HTTP referrer restrictions)
-- [ ] **DATA-05**: Handle API rate limits (150ms delays, exponential backoff, viewport-based fetching)
+Requirements for this milestone. Each maps to roadmap phases. MVP (Epics 1-4) ship first, Growth (Epics 5-7) follow.
 
-### Hours Logic
-- [ ] **HOURS-01**: Implement client-side hours parsing using Luxon library
-- [ ] **HOURS-02**: Calculate open/closed status based on current time and Pacific timezone
-- [ ] **HOURS-03**: Handle edge cases (24-hour venues, irregular hours, missing data, holidays)
-- [ ] **HOURS-04**: Graceful failure for venues without hours data (no badge, no error)
+### Design & Visual Refresh (Epic 1 — MVP)
 
-### UI - MapLibre Version
-- [ ] **UI-01**: Add "Open Now" filter toggle button to map controls
-- [ ] **UI-02**: Display "Open Now" badge on markers when filter is active (circle layer styling)
-- [ ] **UI-03**: Filter GeoJSON layer to show only open venues when toggle is enabled
-- [ ] **UI-04**: Show hours of operation in marker popups
-- [ ] **UI-05**: Show hours of operation in detail panel (sidebar)
-- [ ] **UI-06**: Mobile-responsive hours display (compact format on small screens)
+- [ ] **DSGN-01**: Brainstorming session to lock in one visual direction (clean, bold, MUSE-adjacent — not a magazine interaction model)
+- [ ] **DSGN-02**: Typography refresh (Playfair Display headings, DM Sans body, polished spacing)
+- [ ] **DSGN-03**: Color palette updated to clean, bright tones that could belong in a MUSE page
+- [ ] **DSGN-04**: Consistent card styling across itineraries, events, directory, and editorial content
+- [ ] **DSGN-05**: Hero section that looks polished and intentional (not over-designed)
+- [ ] **DSGN-06**: Mobile layout works well (functional responsive, not fancy magazine UX)
+- [ ] **DSGN-07**: All UI copy reframed around visitor experience and local economy (not nature, not internal language)
 
-### Code Quality
-- [ ] **CODE-01**: Extract shared hours parsing logic into reusable module
-- [ ] **CODE-02**: Add error handling for API failures, malformed data, timezone issues
-- [ ] **CODE-03**: Implement API caching compliance (30-day TTL for Google Places data)
-- [ ] **CODE-04**: Add mobile performance optimization (marker clustering if needed)
+### Analytics (Epic 2 — MVP)
+
+- [ ] **ANLYT-01**: Plausible Analytics script loads on all pages with zero cookie banner
+- [ ] **ANLYT-02**: Provider-agnostic analytics module (index-maplibre-analytics.js) wraps all tracking calls
+- [ ] **ANLYT-03**: Category filter interactions tracked with category name as property
+- [ ] **ANLYT-04**: Marker click and detail panel open tracked with asset name and category
+- [ ] **ANLYT-05**: Open Now toggle tracked
+- [ ] **ANLYT-06**: Experience/corridor engagement tracked with route name
+- [ ] **ANLYT-07**: Events interactions tracked (tab view, event click, date filter change)
+- [ ] **ANLYT-08**: Search queries tracked with zero-result flag for demand signals
+- [ ] **ANLYT-09**: MUSE editorial card expand tracked with card title
+- [ ] **ANLYT-10**: Outbound clicks tracked with UTM parameters (utm_source=gvnc-cultural-map, utm_medium=referral, utm_campaign={context})
+- [ ] **ANLYT-11**: Phone click and Google Maps click tracked per venue
+- [ ] **ANLYT-12**: Deep link arrivals tracked with param type (?pid, ?muse, ?itinerary)
+- [ ] **ANLYT-13**: 500ms dedup throttle prevents event flooding from rapid filter toggling
+- [ ] **ANLYT-14**: Shared Plausible dashboard link configured for committee access
+
+### Itineraries (Epic 3 — MVP)
+
+- [ ] **ITIN-01**: itineraries.json schema defined with id, title, duration (1/2/3-day), theme, season, stops with asset references
+- [ ] **ITIN-02**: "Arts & Nature: A Perfect Day" 1-day itinerary authored with narrative per stop
+- [ ] **ITIN-03**: "The Full Nevada County Experience" 2-day itinerary authored with narrative per stop
+- [ ] **ITIN-04**: "Deep Dive: Art, History & Wine" 3-day itinerary authored with narrative per stop
+- [ ] **ITIN-05**: Itinerary cards displayed in hero section with MUSE-style editorial layout
+- [ ] **ITIN-06**: Itinerary detail view shows stop-by-stop layout with narrative, hours, photos, and map integration
+- [ ] **ITIN-07**: Each itinerary stop has "Add to Google Calendar" export link (Google Calendar URL or .ics)
+- [ ] **ITIN-08**: Map shows itinerary route with stop markers when itinerary is active
+- [ ] **ITIN-09**: Deep linking via ?itinerary=<id> URL parameter opens specific itinerary
+- [ ] **ITIN-10**: Mobile itinerary view is swipeable stop-by-stop
+
+### Tier 2 Events (Epic 4 — MVP)
+
+- [ ] **EVNT-01**: Cron script fetches LibCal iCal feed daily and parses to normalized JSON
+- [ ] **EVNT-02**: Cron script fetches CivicEngage iCal feed daily and parses to normalized JSON
+- [ ] **EVNT-03**: Dedup logic matches events across sources by title + date + venue (fuzzy)
+- [ ] **EVNT-04**: Each event tagged with source attribution (trumba / libcal / civicengage)
+- [ ] **EVNT-05**: Family/kids keyword classifier flags events for family filter
+- [ ] **EVNT-06**: events-merged.json output served as static file alongside events.xml
+- [ ] **EVNT-07**: Events model loads merged JSON when available, falls back to Trumba RSS
+- [ ] **EVNT-08**: Event cards display source attribution badge ("From Nevada County Library")
+- [ ] **EVNT-09**: "Family & Kids" filter chip available in events view
+
+### AI Concierge (Epic 5 — Growth)
+
+- [ ] **CHAT-01**: Floating chat button (bottom-right) opens slide-up chat panel
+- [ ] **CHAT-02**: Gemini API integration via Vercel edge function (API key server-side only)
+- [ ] **CHAT-03**: System prompt includes data.json assets + itineraries.json + muse_editorials.json + condensed MUSE OCR
+- [ ] **CHAT-04**: Chat responses include clickable asset names that trigger openDetail() via deep link
+- [ ] **CHAT-05**: MUSE citations formatted in responses ("Featured in MUSE Issue 3" with Heyzine link)
+- [ ] **CHAT-06**: Supabase query log stores anonymous session hash, query text, intent classification, assets referenced
+- [ ] **CHAT-07**: Privacy notice displayed in chat widget ("Queries are logged anonymously to improve local services")
+- [ ] **CHAT-08**: Mobile chat displays as full-screen overlay
+- [ ] **CHAT-09**: Chatbot responds within 3 seconds
+- [ ] **CHAT-10**: Query input sanitized (strip HTML/script tags) before logging and API submission
+
+### Demand Signal Reporting (Epic 6 — Growth)
+
+- [ ] **REPT-01**: Monthly report script pulls Plausible data via Stats API
+- [ ] **REPT-02**: Monthly report script pulls Supabase chatbot query logs
+- [ ] **REPT-03**: Report includes top 10 assets by detail opens and outbound clicks
+- [ ] **REPT-04**: Report includes category filter frequency ranking
+- [ ] **REPT-05**: Report includes zero-result search queries (demand signal data)
+- [ ] **REPT-06**: Report includes chatbot intent distribution (eat/see/do/stay/navigate)
+- [ ] **REPT-07**: Report output as markdown convertible to PDF for committee meetings
+- [ ] **REPT-08**: Report runnable via GitHub Actions or manual trigger
+
+### Copy & Positioning (Epic 7 — Growth)
+
+- [ ] **COPY-01**: Hero section headlines emphasize downtowns, galleries, dining, performances (not nature)
+- [ ] **COPY-02**: Category descriptions rewritten to remove nature-forward framing
+- [ ] **COPY-03**: Itinerary narratives lead with cultural stops, trails/nature as supporting color
+- [ ] **COPY-04**: MUSE editorial card selection prioritizes business/gallery/dining content over nature
+- [ ] **COPY-05**: Colophon positions platform as Experience Planning Committee's digital tool
+- [ ] **COPY-06**: Platform name finalized with Diana/Eliza input
 
 ## v2 Requirements
 
-### Event Data Pipeline
-- **EVENT-01**: Parse Trumba iCal/RSS feed from GoNevadaCounty.com (public feed, no API key needed)
-- **EVENT-02**: Match events to venues in 687 asset list (by name/address fuzzy matching)
-- **EVENT-03**: Implement daily event fetch via GitHub Actions cron job (curl + parse)
-- **EVENT-04**: Create events.json data structure (asset → events array mapping)
-- **EVENT-05**: Automatic event expiry (filter events where date < today)
+Deferred to future milestone. Tracked but not in current roadmap.
 
-### Event UI
-- **EVENT-06**: Add "Events Today" filter toggle button
-- **EVENT-07**: Display event count badge on venues with events
-- **EVENT-08**: Show event cards in detail panel (title, date, time, link)
-- **EVENT-09**: Sort events by start time (starting soon first)
-- **EVENT-10**: Mobile-responsive event display
+### Community Engagement
+
+- **COMM-01**: Community event submission form integrated with Arts Council workflow
+- **COMM-02**: QR code venue program for physical-to-digital tracking
+
+### Technical Scale
+
+- **TECH-01**: Supabase pgvector RAG upgrade when context stuffing hits limits
+- **TECH-02**: Tier 3 event sources (social-only venues via scraping or MOUs)
+- **TECH-03**: Google Sheets to JSON CMS pipeline for Arts Council staff authoring
+- **TECH-04**: Digital kiosk mode for visitor centers
+
+### Accessibility & Reach
+
+- **ACCSS-01**: Bilingual support (Spanish) via language toggle or mirrored site
+- **ACCSS-02**: Offline support via service worker
+- **ACCSS-03**: Youth/Gen Z content strategy
 
 ## Out of Scope
 
+Explicitly excluded. Documented to prevent scope creep.
+
 | Feature | Reason |
 |---------|--------|
-| Leaflet version (index.html) | User: "let's hold off on leaflet, it's kind of a mess right now and needs so much of an overhaul there's not much of a point in the incremental upkeep". MapLibre (index-maplibre.html) is the flagship version. |
-| Venue submission form for corrections | Deferred to v2+. User stated "if people don't have it listed correctly on Google Places, we're not going to go out of our way to correct information" |
-| Real-time hours updates | One-time fetch is sufficient. Hours don't change frequently enough to justify daily API calls |
-| Event notifications or alerts | Not part of spontaneous discovery use case. Adds complexity without clear user value |
-| User accounts or saved favorites | Static site architecture, adds complexity |
-| Mobile app (native iOS/Android) | Web-responsive only. Mobile app out of scope |
-| Multi-source event aggregation | Not needed - Trumba calendar already aggregates events from GoNevadaCounty and Arts Council. Single source covers all venues. |
-| Social features (check-ins, reviews) | Out of scope per brainstorming session. May revisit in future |
+| User accounts / authentication | No PII, public read-only site. Disproportionate complexity. |
+| Native mobile app | Web-first. Mobile browser experience sufficient for v1. |
+| Booking integration | Outbound links + UTM tracking provide 80% of funnel value without infrastructure. |
+| User-created itineraries | Author-only for now. Single developer maintains JSON files. |
+| Drag-to-reorder itinerary stops | Over-engineering for authored content. |
+| Real-time chat / multi-turn memory | Keep chatbot simple. Session-only context. |
+| Formal WCAG 2.1 AA certification | Baseline accessibility yes. Formal audit disproportionate for volunteer project. |
+| Custom analytics visualizations | Plausible dashboard + markdown reports sufficient. |
+| AI-generated narrative summaries | Vision tier. Manual report writing first. |
+| Proactive chatbot suggestions | Adds complexity without proven demand. |
 
 ## Traceability
 
-**Phase Mapping:**
+Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| DATA-01 | Phase 1 | Pending |
-| DATA-02 | Phase 1 | Pending |
-| DATA-03 | Phase 1 | Pending |
-| DATA-04 | Phase 1 | Pending |
-| DATA-05 | Phase 1 | Pending |
-| HOURS-01 | Phase 2 | Pending |
-| HOURS-02 | Phase 2 | Pending |
-| HOURS-03 | Phase 2 | Pending |
-| HOURS-04 | Phase 2 | Pending |
-| UI-01 | Phase 3 | Pending |
-| UI-02 | Phase 3 | Pending |
-| UI-03 | Phase 3 | Pending |
-| UI-04 | Phase 3 | Pending |
-| UI-05 | Phase 3 | Pending |
-| UI-06 | Phase 3 | Pending |
-| CODE-01 | Phase 4 | Pending |
-| CODE-02 | Phase 4 | Pending |
-| CODE-03 | Phase 4 | Pending |
-| CODE-04 | Phase 4 | Pending |
+| DSGN-01 | TBD | Pending |
+| DSGN-02 | TBD | Pending |
+| DSGN-03 | TBD | Pending |
+| DSGN-04 | TBD | Pending |
+| DSGN-05 | TBD | Pending |
+| DSGN-06 | TBD | Pending |
+| DSGN-07 | TBD | Pending |
+| ANLYT-01 | TBD | Pending |
+| ANLYT-02 | TBD | Pending |
+| ANLYT-03 | TBD | Pending |
+| ANLYT-04 | TBD | Pending |
+| ANLYT-05 | TBD | Pending |
+| ANLYT-06 | TBD | Pending |
+| ANLYT-07 | TBD | Pending |
+| ANLYT-08 | TBD | Pending |
+| ANLYT-09 | TBD | Pending |
+| ANLYT-10 | TBD | Pending |
+| ANLYT-11 | TBD | Pending |
+| ANLYT-12 | TBD | Pending |
+| ANLYT-13 | TBD | Pending |
+| ANLYT-14 | TBD | Pending |
+| ITIN-01 | TBD | Pending |
+| ITIN-02 | TBD | Pending |
+| ITIN-03 | TBD | Pending |
+| ITIN-04 | TBD | Pending |
+| ITIN-05 | TBD | Pending |
+| ITIN-06 | TBD | Pending |
+| ITIN-07 | TBD | Pending |
+| ITIN-08 | TBD | Pending |
+| ITIN-09 | TBD | Pending |
+| ITIN-10 | TBD | Pending |
+| EVNT-01 | TBD | Pending |
+| EVNT-02 | TBD | Pending |
+| EVNT-03 | TBD | Pending |
+| EVNT-04 | TBD | Pending |
+| EVNT-05 | TBD | Pending |
+| EVNT-06 | TBD | Pending |
+| EVNT-07 | TBD | Pending |
+| EVNT-08 | TBD | Pending |
+| EVNT-09 | TBD | Pending |
+| CHAT-01 | TBD | Pending |
+| CHAT-02 | TBD | Pending |
+| CHAT-03 | TBD | Pending |
+| CHAT-04 | TBD | Pending |
+| CHAT-05 | TBD | Pending |
+| CHAT-06 | TBD | Pending |
+| CHAT-07 | TBD | Pending |
+| CHAT-08 | TBD | Pending |
+| CHAT-09 | TBD | Pending |
+| CHAT-10 | TBD | Pending |
+| REPT-01 | TBD | Pending |
+| REPT-02 | TBD | Pending |
+| REPT-03 | TBD | Pending |
+| REPT-04 | TBD | Pending |
+| REPT-05 | TBD | Pending |
+| REPT-06 | TBD | Pending |
+| REPT-07 | TBD | Pending |
+| REPT-08 | TBD | Pending |
+| COPY-01 | TBD | Pending |
+| COPY-02 | TBD | Pending |
+| COPY-03 | TBD | Pending |
+| COPY-04 | TBD | Pending |
+| COPY-05 | TBD | Pending |
+| COPY-06 | TBD | Pending |
 
 **Coverage:**
-- v1 requirements: 18 total
-- Mapped to phases: 18/18 (100%)
-- Unmapped: 0
-
-**Phase Distribution:**
-- Phase 1 (Data Pipeline Setup): 5 requirements
-- Phase 2 (Hours Logic Implementation): 4 requirements
-- Phase 3 (Map UI Integration): 6 requirements
-- Phase 4 (Production Hardening): 3 requirements
+- v1 requirements: 60 total
+- Mapped to phases: 0
+- Unmapped: 60 (pending roadmap creation)
 
 ---
-*Requirements defined: 2026-02-07*
-*Last updated: 2026-02-08 after roadmap creation*
+*Requirements defined: 2026-02-14*
+*Last updated: 2026-02-14 after initial definition*
