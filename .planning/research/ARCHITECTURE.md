@@ -1,403 +1,475 @@
-# Architecture Research: Real-Time Discovery Features in Web Maps
+# Architecture Research
 
-**Domain:** Client-side web mapping with dynamic data (hours, events)
-**Researched:** 2026-02-07
+**Domain:** Cultural tourism interactive platform — adding analytics, itinerary, event aggregation, chatbot, and reporting modules to existing 37-module vanilla JS IIFE architecture on static Vercel site
+**Researched:** 2026-02-14
 **Confidence:** HIGH
 
-## Standard Architecture
-
-Real-time discovery features in web maps typically follow a **three-layer architecture**: data layer, API integration layer, and UI/rendering layer. For static sites with cron jobs (like this project), a **pre-fetch + client-side render** pattern is standard.
-
-### System Overview
+## System Overview
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                    UI/Rendering Layer                        │
-├─────────────────────────────────────────────────────────────┤
-│  ┌─────────┐  ┌─────────┐  ┌─────────┐  ┌─────────┐        │
-│  │ Leaflet │  │ MapLibre│  │ Marker  │  │ Detail  │        │
-│  │  Map    │  │   Map   │  │Renderer │  │ Panel   │        │
-│  └────┬────┘  └────┬────┘  └────┬────┘  └────┬────┘        │
-│       │            │            │            │              │
-├───────┴────────────┴────────────┴────────────┴──────────────┤
-│                     Data Management Layer                    │
-├─────────────────────────────────────────────────────────────┤
-│  ┌─────────────────────────────────────────────────────┐    │
-│  │   Data Store (fetch JSON → in-memory cache)         │    │
-│  │   - data.json (assets)                               │    │
-│  │   - hours.json (Google Places API results)          │    │
-│  │   - events.json (event calendar API results)        │    │
-│  │   - experiences.json (curated trails)               │    │
-│  └─────────────────────────────────────────────────────┘    │
-├─────────────────────────────────────────────────────────────┤
-│                    API Integration Layer                     │
-│  ┌──────────┐  ┌──────────┐  ┌──────────┐                   │
-│  │ Google   │  │  Event   │  │  GitHub  │                   │
-│  │ Places   │  │ Calendar │  │  Actions │                   │
-│  │   API    │  │   API    │  │  (Cron)  │                   │
-│  └──────────┘  └──────────┘  └──────────┘                   │
-└─────────────────────────────────────────────────────────────┘
+                          EXISTING SITE (static Vercel)
+┌─────────────────────────────────────────────────────────────────────┐
+│                       Browser (Client-Side)                         │
+│                                                                     │
+│  ┌──────────┐  ┌──────────┐  ┌───────────┐  ┌──────────────────┐   │
+│  │ Analytics │  │Itinerary │  │  Chat UI   │  │ Existing 37      │   │
+│  │  Module   │  │ Module   │  │  Widget    │  │ IIFE Modules     │   │
+│  │ (wrapper) │  │ (MVC)    │  │ (floating) │  │ (map, events,    │   │
+│  └─────┬────┘  └────┬─────┘  └─────┬──────┘  │  explore, etc.)  │   │
+│        │            │               │         └────────┬─────────┘   │
+│        │            │               │                  │             │
+│  ┌─────┴────────────┴───────────────┴──────────────────┴──────────┐  │
+│  │              window.CulturalMap* Namespace + ctx object         │  │
+│  └────────────────────────────────┬───────────────────────────────┘  │
+│                                   │                                  │
+├───────────────────────────────────┼──────────────────────────────────┤
+│                         Data Layer (fetch)                           │
+│  ┌──────────┐  ┌──────────┐  ┌──────────┐  ┌───────────────────┐   │
+│  │data.json │  │events.   │  │itinerary │  │ muse_editorials   │   │
+│  │          │  │json      │  │s.json    │  │ .json + others    │   │
+│  └──────────┘  └──────────┘  └──────────┘  └───────────────────┘   │
+└─────────────────────────────────────────────────────────────────────┘
+         │                │                │
+         │   ┌────────────┴────────┐       │
+         │   │  Vercel Edge / API  │       │
+         │   ├────────────────────-┤       │
+         │   │ /api/chat           │───────┤──→ Google Gemini API
+         │   │ /api/report         │───────┤──→ Plausible Stats API
+         │   └─────────┬──────────-┘       │
+         │             │                   │
+         │   ┌─────────┴──────────┐        │
+         │   │     Supabase       │        │
+         │   │ (chat logs, usage) │        │
+         │   └────────────────────┘        │
+         │                                 │
+         │   ┌─────────────────────────┐   │
+         │   │  Plausible Analytics    │   │
+         │   │  (external SaaS)        │   │
+         │   └─────────────────────────┘   │
+         │                                 │
+    ┌────┴─────────────────────────────┐   │
+    │  GitHub Actions (cron)           │   │
+    │  ┌────────────────────────────┐  │   │
+    │  │ iCal event aggregator      │──┼───┘
+    │  │ → events.json              │  │
+    │  │ → events.index.json        │  │
+    │  └────────────────────────────┘  │
+    │  ┌────────────────────────────┐  │
+    │  │ Reporting aggregator       │  │
+    │  │ → Plausible + Supabase    │  │
+    │  │ → summary email / log     │  │
+    │  └────────────────────────────┘  │
+    └──────────────────────────────────┘
 ```
 
-### Component Responsibilities
+## Component Responsibilities
 
-| Component | Responsibility | Typical Implementation |
-|-----------|----------------|------------------------|
-| Map Renderer | Display geographic data with markers and interactivity | Leaflet 1.9.4 or MapLibre GL JS 4.5.0 via CDN |
-| Data Store | Load, cache, and provide access to JSON data | `fetch()` on page load → in-memory JS objects |
-| Marker Renderer | Convert data objects to map markers with styling | Map API's marker/layer methods with category-based styling |
-| Detail Panel | Show asset details (name, hours, events, links) | Vanilla JS DOM manipulation, slide-in panel |
-| Filter System | Toggle markers by category or experience | Array filtering + map layer visibility toggling |
-| Hours Provider | Supply current hours status (Open/Closed) | Pre-fetched `hours.json` + client-side logic |
-| Events Provider | Supply upcoming events for each asset | Pre-fetched `events.json` + date filtering in browser |
-| Cron Orchestrator | Schedule API fetches to update JSON files | GitHub Actions scheduled workflow or Vercel Cron |
+### New Modules (Client-Side)
 
-## Recommended Project Structure
+| Component | Namespace | Responsibility | Communicates With |
+|-----------|-----------|----------------|-------------------|
+| Analytics Module | `CulturalMapAnalytics` | Provider-agnostic event tracking wrapper; throttling; queue | Plausible script (external), all existing modules via ctx hooks |
+| Itinerary Model | `CulturalMapItineraryModel` | Itinerary state: selected items, day slots, save/load | Config, data.json items, localStorage |
+| Itinerary View | `CulturalMapItineraryView` | Render itinerary cards in hero, day planner UI, print view | Itinerary Model, Detail Controller (for openDetail) |
+| Itinerary Controller | `CulturalMapItineraryController` | Coordinate add/remove/reorder, map route drawing, deep links | Itinerary Model, Itinerary View, Map Render Controller, Analytics |
+| Chat Widget | `CulturalMapChatWidget` | Floating chat UI, message rendering, typing indicators | Vercel `/api/chat` endpoint, Detail Controller (deep links from responses) |
 
-For vanilla JS, no-build architecture (already in use):
+### New Server-Side (Vercel `/api/` directory)
+
+| Component | Path | Responsibility | Communicates With |
+|-----------|------|----------------|-------------------|
+| Chat Proxy | `/api/chat.js` | Proxy chat requests to Gemini API; inject system prompt with asset data context; rate limit | Google Gemini API, Supabase (chat logging) |
+| Report Endpoint | `/api/report.js` | Aggregate Plausible stats + Supabase usage into summary JSON | Plausible Stats API, Supabase |
+
+### New Offline/Cron (GitHub Actions)
+
+| Component | Script | Responsibility | Communicates With |
+|-----------|--------|----------------|-------------------|
+| iCal Event Aggregator | `scripts/events/aggregate-ical.mjs` | Fetch iCal feeds from multiple sources, merge, dedupe, geocode venues, output events.json | iCal endpoints (Trumba, etc.), existing events.json format |
+| Reporting Cron | `scripts/reporting/weekly-report.mjs` | Pull Plausible API + Supabase metrics, format summary | Plausible Stats API, Supabase, (optional: email via Resend/SendGrid) |
+
+## Integration Architecture: How New Modules Plug Into Existing IIFE System
+
+### The ctx Object Pattern (Critical Integration Surface)
+
+The existing architecture's primary integration point is the `ctx` object. The main entry point (`index-maplibre.js`) constructs a context bag with closures over module-private state, then passes it to `bindings.bindEvents(ctx)`, `detailController.openDetail(ctx)`, `exploreControllerModule.createExploreController(ctx)`, etc.
+
+**New modules integrate by:**
+1. Exposing their public API on `window.CulturalMap*` (same IIFE pattern)
+2. Being imported in `index-maplibre.js` at the top (same `const analytics = window.CulturalMapAnalytics || {}`)
+3. Receiving the `ctx` bag in their init/bind calls (same factory/controller pattern)
+4. Never directly accessing other modules' state — always through ctx closures
+
+```javascript
+// NEW MODULE: index-maplibre-analytics.js
+(function() {
+  'use strict';
+
+  var queue = [];
+  var provider = null;
+  var throttleTimers = {};
+
+  function init(options) {
+    // options.provider = 'plausible' | 'debug'
+    provider = options.provider || 'plausible';
+  }
+
+  function track(eventName, props) {
+    // Throttle: max 1 event of same name per 2 seconds
+    if (throttleTimers[eventName]) return;
+    throttleTimers[eventName] = setTimeout(function() {
+      delete throttleTimers[eventName];
+    }, 2000);
+
+    if (provider === 'plausible' && typeof window.plausible === 'function') {
+      window.plausible(eventName, { props: props });
+    }
+    // Always log to console in dev
+    if (location.hostname === 'localhost') {
+      console.log('[Analytics]', eventName, props);
+    }
+  }
+
+  window.CulturalMapAnalytics = {
+    init: init,
+    track: track
+  };
+})();
+```
+
+### Analytics Hook Points (Wiring Into Existing Code)
+
+Analytics hooks wire into the existing `bindEvents()` function in `index-maplibre.js`. The current `bindEvents()` call at line ~2696 passes a ctx bag to `bindings.bindEvents()`. Analytics tracking calls go **inside the ctx closures** — not in the bindings module.
+
+**12 Event Types and Where They Hook:**
+
+| Event | Hook Location | How |
+|-------|---------------|-----|
+| `page_view` | Auto (Plausible script) | Plausible handles this natively |
+| `category_filter` | `setCategory()` in index-maplibre.js | Add `analytics.track('category_filter', {cat: cat})` |
+| `open_now_toggle` | `setOpenNowMode()` in index-maplibre.js | Add tracking call inside |
+| `detail_open` | `openDetail()` in index-maplibre.js | Track asset name + category |
+| `experience_start` | `activateExperience()` in index-maplibre.js | Track experience slug |
+| `event_click` | `focusEventById()` / `focusEvent()` in bindings | Track event title |
+| `search_query` | searchInput handler in bindings.js | Track debounced query (no PII) |
+| `itinerary_add` | New itinerary controller | Track asset added |
+| `itinerary_share` | New itinerary controller | Track share action |
+| `chat_message` | New chat widget | Track message sent (not content) |
+| `muse_editorial_open` | `openMuseStory()` in index-maplibre.js | Track editorial ID |
+| `deep_link_arrive` | `applyDeepLinkFromLocation()` | Track which param type arrived |
+
+### Itinerary Module Integration
+
+The itinerary system adds 3 new files following the existing MVC-ish pattern:
+
+```
+index-maplibre-itinerary-model.js      ← State: items[], day assignments, localStorage persistence
+index-maplibre-itinerary-view.js       ← HTML generation: hero cards, day planner, print layout
+index-maplibre-itinerary-controller.js ← Coordination: add/remove, route drawing, deep links
+```
+
+**Data file:** `itineraries.json` — Pre-built itinerary templates (1-day, 2-day, 3-day) referencing assets by name or pid. Loaded in `Promise.all` alongside existing data files.
+
+**Hero integration:** The hero section (`index-maplibre-hero-intent.html`) gains a fifth discovery tab: "Plan a Trip." The itinerary view renders into a new `<section class="intent-pane" id="intentPaneItinerary">` element.
+
+**Map integration:** When an itinerary is active, the controller calls existing `mapRenderController` to highlight stops and uses Turf.js (already loaded) to draw connecting route lines — same pattern as experience routes.
+
+**Detail panel integration:** The detail panel gains an "Add to Itinerary" button. The itinerary controller exposes `addToItinerary(asset)` on the ctx bag. The detail controller calls it when the button is clicked.
+
+### Chat Widget Integration
+
+```
+index-maplibre-chat-widget.js  ← Single file: UI + fetch to /api/chat
+```
+
+The chat widget is a self-contained floating UI element. It:
+1. Renders a FAB (floating action button) in the bottom-right corner
+2. Expands to a chat panel on click
+3. Sends messages to `/api/chat` (Vercel serverless function)
+4. Receives responses that may contain deep-link references to assets
+5. Parses response for `[asset:NAME]` or `[event:ID]` tokens and renders them as clickable links
+6. On link click, calls `ctx.openDetail(asset)` or `ctx.focusEventById(id)` — reusing existing functions
+
+**Server-side proxy (`/api/chat.js`):**
+```javascript
+// api/chat.js — Vercel Serverless Function (NOT edge, needs Node.js for fetch)
+export default async function handler(req, res) {
+  if (req.method !== 'POST') return res.status(405).end();
+
+  const { message, history } = req.body;
+  // Rate limit by IP (simple in-memory, resets on cold start)
+  // System prompt includes: asset categories, example names, deep-link format
+  const response = await fetch('https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      contents: [{ role: 'user', parts: [{ text: message }] }],
+      systemInstruction: { parts: [{ text: SYSTEM_PROMPT }] }
+    })
+  });
+
+  // Log to Supabase (async, don't block response)
+  // Return response to client
+}
+```
+
+**Vercel project structure change:**
+```
+website/cultural-map-redesign/
+├── api/
+│   ├── chat.js          ← Gemini proxy + Supabase logging
+│   └── report.js        ← Plausible + Supabase aggregation
+├── index-maplibre-chat-widget.js
+├── ... (existing files)
+```
+
+The `/api/` directory is auto-detected by Vercel as serverless functions. No framework needed. The `vercel.json` redirects continue working alongside the api routes.
+
+### iCal Event Pipeline Integration
+
+The event aggregator runs as a GitHub Actions cron job (not client-side). It:
+1. Fetches iCal feeds from configured sources
+2. Parses events, deduplicates, geocodes venues against existing data.json
+3. Outputs `events.json` and `events.index.json` in the same format the client already expects
+4. Commits updated files to the repo (triggering Vercel redeploy)
+
+**The client code needs ZERO changes for Tier 2 events.** The existing `index-maplibre-events-model.js` already loads from `events.json` and `events.index.json`. The pipeline just enriches those files with more events from more sources.
+
+**Fallback:** If the cron fails, the existing Trumba RSS fetch (`events.xml`) still works as the client-side runtime fallback. The events model can merge both sources.
+
+### Reporting Script Integration
+
+A Node.js script (`scripts/reporting/weekly-report.mjs`) runs via GitHub Actions cron (weekly). It:
+1. Queries Plausible Stats API for page views, top pages, custom event counts
+2. Queries Supabase for chat usage metrics, itinerary saves
+3. Aggregates into a summary JSON
+4. Optionally sends email digest or writes to a Supabase `reports` table
+
+This has NO client-side footprint. It is purely a backend/ops concern.
+
+## Data Flow
+
+### Analytics Flow
+
+```
+User interacts with map/filters/detail
+    ↓
+ctx closure calls analytics.track(eventName, props)
+    ↓
+CulturalMapAnalytics throttles (2s per event type)
+    ↓
+window.plausible(eventName, {props}) → Plausible SaaS (external)
+```
+
+### Itinerary Flow
+
+```
+User clicks "Add to Itinerary" in detail panel
+    ↓
+detailController → ctx.addToItinerary(asset)
+    ↓
+ItineraryController.addItem(asset)
+    ↓
+ItineraryModel: push to items[], persist to localStorage
+    ↓
+ItineraryView: re-render hero card count + day planner
+    ↓
+ItineraryController: update map route line via mapRenderController
+    ↓
+Analytics.track('itinerary_add', {asset: asset.n, category: asset.l})
+```
+
+### Chat Flow
+
+```
+User types message in chat widget
+    ↓
+CulturalMapChatWidget → POST /api/chat {message, history}
+    ↓
+Vercel serverless function:
+  - Injects system prompt with asset context
+  - Calls Gemini API
+  - Logs to Supabase (fire-and-forget)
+  - Returns {response, deep_links[]}
+    ↓
+Chat widget renders response
+  - Parses [asset:NAME] tokens → clickable chips
+  - On click → ctx.openDetail(asset) or ctx.focusEventById(id)
+```
+
+### Event Aggregation Flow
+
+```
+GitHub Actions cron (every 6 hours)
+    ↓
+scripts/events/aggregate-ical.mjs
+  - Fetch iCal feeds (Trumba, community calendars)
+  - Parse with ical.js
+  - Geocode venues against data.json (fuzzy match)
+  - Deduplicate by title + date + venue
+  - Merge with existing events
+    ↓
+Output: events.json + events.index.json (committed to repo)
+    ↓
+Vercel auto-deploys on push
+    ↓
+Client loads updated events.json at runtime (existing flow, unchanged)
+```
+
+## Recommended Project Structure (New Files Only)
 
 ```
 website/cultural-map-redesign/
-├── index.html                  # Leaflet version (fallback)
-├── index-maplibre.html         # MapLibre version (flagship)
-├── data.json                   # Base asset data (687 features)
-├── hours.json                  # NEW: Google Places hours data
-├── events.json                 # NEW: Event calendar data
-├── experiences.json            # Curated trails (existing)
-├── image_data.json             # Asset images (existing)
-├── img/                        # Static assets
-├── .github/workflows/
-│   ├── fetch-hours.yml         # NEW: Cron job for Places API
-│   └── fetch-events.yml        # NEW: Cron job for events API
-└── scripts/
-    ├── fetch-hours.js          # NEW: Node script for Places API
-    └── fetch-events.js         # NEW: Node script for events API
+├── api/                                         # Vercel serverless functions
+│   ├── chat.js                                  # Gemini API proxy
+│   └── report.js                                # Plausible + Supabase aggregation
+├── index-maplibre-analytics.js                  # Analytics wrapper module
+├── index-maplibre-itinerary-model.js            # Itinerary state + localStorage
+├── index-maplibre-itinerary-view.js             # Itinerary UI rendering
+├── index-maplibre-itinerary-controller.js       # Itinerary coordination
+├── index-maplibre-chat-widget.js                # Chat floating UI + API fetch
+├── itineraries.json                             # Pre-built itinerary templates
+scripts/
+├── events/
+│   ├── aggregate-ical.mjs                       # iCal feed aggregator
+│   ├── ical-sources.json                        # Feed URL configuration
+│   └── venue-geocoder.mjs                       # Match venues to data.json
+├── reporting/
+│   └── weekly-report.mjs                        # Plausible + Supabase digest
+.github/
+└── workflows/
+    ├── aggregate-events.yml                     # Cron: every 6 hours
+    └── weekly-report.yml                        # Cron: weekly Monday AM
 ```
 
 ### Structure Rationale
 
-- **Single HTML files:** No build system. Everything (HTML/CSS/JS) in one file per variant. This project already uses this pattern successfully.
-- **Static JSON data files:** Pre-fetched API results served as static assets. Client-side code just reads these files.
-- **Cron scripts in `/scripts/`:** Node.js scripts run by GitHub Actions (or Vercel Cron). Write results to JSON files, commit back to repo.
-- **Dual map support:** Separate HTML files for Leaflet and MapLibre. Share the same JSON data files.
-
-## Data Flow
-
-### Initial Page Load
-
-```
-User visits page
-    ↓
-HTML loads (inline CSS/JS)
-    ↓
-Parallel fetch() calls for JSON files
-    ├─ data.json (base assets)
-    ├─ hours.json (NEW - Places API cache)
-    ├─ events.json (NEW - event calendar cache)
-    ├─ experiences.json (curated trails)
-    └─ image_data.json (asset images)
-    ↓
-Parse JSON → in-memory JS objects
-    ↓
-Initialize map (Leaflet or MapLibre)
-    ↓
-Render markers (color-coded by category)
-    ↓
-Attach event listeners (click → detail panel)
-```
-
-### Displaying Hours/Events
-
-```
-User clicks marker
-    ↓
-Look up asset by name in data.json
-    ↓
-Look up hours in hours.json (by place_id or name)
-    ↓
-Look up events in events.json (by asset name)
-    ↓
-Calculate "Open Now" status (client-side time logic)
-    ↓
-Filter events to "upcoming" (client-side date logic)
-    ↓
-Render detail panel with:
-    - Asset info (name, description, address)
-    - Hours (Open/Closed, hours list)
-    - Upcoming events (date, title, link)
-    - Google Maps link
-```
-
-### Data Update Flow (Cron)
-
-```
-GitHub Actions scheduled trigger (daily 6am PT)
-    ↓
-Run fetch-hours.js
-    ├─ Read data.json (get list of assets)
-    ├─ For each asset with address:
-    │   ├─ Query Google Places API (Text Search)
-    │   ├─ Get place_id
-    │   ├─ Query Place Details (hours only)
-    │   └─ Rate limit delay (avoid quota errors)
-    ↓
-Write hours.json
-    {
-      "asset_name": {
-        "place_id": "ChIJ...",
-        "hours": ["Monday: 9:00 AM – 5:00 PM", ...],
-        "updated": "2026-02-07T14:00:00Z"
-      }
-    }
-    ↓
-Commit hours.json to repo
-    ↓
-Vercel auto-deploys (static file updated)
-    ↓
-Next user gets fresh hours data
-```
+- **`api/` inside the Vercel deploy root:** Vercel auto-detects this directory. No config needed. Functions are deployed alongside static files.
+- **New modules follow `index-maplibre-*.js` naming:** Consistent with existing 37 modules. Load order controlled in HTML.
+- **Scripts stay in repo `scripts/` directory:** Not deployed to Vercel. Run via GitHub Actions or locally.
+- **No new build system:** All new client modules are vanilla JS IIFEs. No bundler, no transpiler. Consistent with project decision.
 
 ## Architectural Patterns
 
-### Pattern 1: Pre-Fetch + Client-Side Render
+### Pattern 1: Provider-Agnostic Analytics Wrapper
 
-**What:** API calls happen server-side (cron job), results stored as static JSON. Client just reads JSON and renders.
+**What:** A thin wrapper module that abstracts the analytics provider behind `track(eventName, props)`. Internally delegates to Plausible's `window.plausible()` function but can swap to any provider.
 
-**When to use:**
-- Static site hosting (Vercel, Netlify, GitHub Pages)
-- Rate-limited APIs (Google Places)
-- Data that changes slowly (hours, events)
+**When to use:** Always. Never call `window.plausible()` directly from business logic.
 
-**Trade-offs:**
-- PRO: No API keys in client code
-- PRO: Fast page load (no API latency)
-- PRO: Works offline after initial load
-- PRO: Avoids rate limit issues from many users
-- CON: Data slightly stale (updated on cron schedule, not real-time)
-- CON: Requires CI/CD setup (GitHub Actions or Vercel Cron)
+**Trade-offs:** Slight indirection (trivial), but gains: testability (mock the wrapper), provider swap (change one file), throttling (centralized), and dev-mode logging (console.log when localhost).
 
-**Example:**
 ```javascript
-// Client-side code (simplified)
-async function loadData() {
-  const [assets, hours, events] = await Promise.all([
-    fetch('data.json').then(r => r.json()),
-    fetch('hours.json').then(r => r.json()),
-    fetch('events.json').then(r => r.json())
-  ]);
+// Usage in existing code (inside index-maplibre.js closures):
+var analytics = window.CulturalMapAnalytics || { track: function() {} };
 
-  return { assets, hours, events };
-}
-
-function isOpenNow(hoursData) {
-  const now = new Date();
-  const dayIndex = now.getDay(); // 0 = Sunday, 6 = Saturday
-  const hourString = hoursData.hours[dayIndex]; // "Monday: 9:00 AM – 5:00 PM"
-
-  // Parse hourString, compare to now.getHours()
-  // Return true/false
+function setCategory(cat) {
+  // ... existing logic ...
+  analytics.track('category_filter', { category: cat, active: activeCategories.has(cat) });
 }
 ```
 
-### Pattern 2: Dual Map API Support via Abstraction
+### Pattern 2: Lazy Module Init via ctx Bag Extension
 
-**What:** Write data layer once, render with either Leaflet or MapLibre. Abstract marker creation behind a common interface.
+**What:** New modules register on the window namespace, get imported at the top of `index-maplibre.js`, and receive ctx properties in `init()`. The ctx bag is extended with new closures for new capabilities.
 
-**When to use:**
-- Supporting legacy browsers (Leaflet fallback)
-- Comparing map libraries (A/B testing)
-- Progressive enhancement (Leaflet → MapLibre)
+**When to use:** For every new module that needs to interact with existing state.
 
-**Trade-offs:**
-- PRO: One data pipeline serves both maps
-- PRO: Users choose preferred renderer
-- CON: Must maintain two HTML files
-- CON: Marker API differences require abstraction
+**Trade-offs:** The ctx bag grows larger (already ~40 properties). This is manageable but documents the need for an eventual ctx interface contract.
 
-**Example:**
 ```javascript
-// Shared data loading logic (both files)
-const assets = await fetch('data.json').then(r => r.json());
-
-// Leaflet-specific rendering (index.html)
-assets.forEach(asset => {
-  L.circleMarker([asset.y, asset.x], {
-    color: CATS[asset.l].color,
-    radius: 8
-  })
-  .bindPopup(asset.n)
-  .addTo(map);
+// In index-maplibre.js init():
+var itineraryController = itineraryControllerModule.createItineraryController({
+  data: DATA,
+  map: map,
+  openDetail: openDetail,
+  analytics: analytics,
+  // ... other ctx properties
 });
 
-// MapLibre-specific rendering (index-maplibre.html)
-map.addSource('assets', {
-  type: 'geojson',
-  data: {
-    type: 'FeatureCollection',
-    features: assets.map(asset => ({
-      type: 'Feature',
-      geometry: { type: 'Point', coordinates: [asset.x, asset.y] },
-      properties: { name: asset.n, layer: asset.l }
-    }))
-  }
-});
-
-map.addLayer({
-  id: 'asset-markers',
-  type: 'circle',
-  source: 'assets',
-  paint: {
-    'circle-color': ['get', ['get', 'layer'], ['literal', CATS_COLORS]],
-    'circle-radius': 8
-  }
+// Extend the bindEvents ctx with itinerary actions:
+bindings.bindEvents({
+  // ... existing ctx properties ...
+  addToItinerary: itineraryController.addItem,
+  removeFromItinerary: itineraryController.removeItem,
+  getItineraryItems: itineraryController.getItems
 });
 ```
 
-### Pattern 3: place_id as Stable Identifier
+### Pattern 3: Vercel Serverless as API Proxy (No Framework)
 
-**What:** Google Places API's `place_id` is exempt from caching restrictions and never changes. Store it once, reuse forever.
+**What:** Place `.js` files in `api/` directory. Vercel auto-deploys them as serverless functions. They proxy requests to external APIs (Gemini, Plausible Stats), keeping API keys server-side.
 
-**When to use:** Any time you're fetching Google Places data.
+**When to use:** For any operation requiring secret API keys (Gemini, Supabase service key, Plausible API token).
 
-**Trade-offs:**
-- PRO: Exempt from caching restrictions (can store indefinitely)
-- PRO: Stable across API versions
-- PRO: Reduces API calls (one-time lookup, then use place_id)
-- CON: Initial lookup requires Text Search (separate API call)
+**Trade-offs:** Cold starts (~200-500ms for Node.js functions). Hobby tier limit: 100GB-hours/month, 12 serverless functions max (we need 2). No persistent state between invocations.
 
-**Example:**
 ```javascript
-// Step 1: Initial lookup (do this once in cron job)
-const searchResponse = await fetch(
-  `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${encodeURIComponent(assetName + ' ' + assetAddress)}&key=${API_KEY}`
-);
-const searchData = await searchResponse.json();
-const placeId = searchData.results[0]?.place_id;
+// api/chat.js
+export default async function handler(req, res) {
+  res.setHeader('Access-Control-Allow-Origin', 'https://cultural-map-redesign.vercel.app');
+  if (req.method === 'OPTIONS') return res.status(200).end();
+  if (req.method !== 'POST') return res.status(405).json({ error: 'Method not allowed' });
 
-// Step 2: Store place_id in hours.json
-hoursData[assetName] = {
-  place_id: placeId,
-  last_fetched: new Date().toISOString()
-};
-
-// Step 3: Future fetches use place_id directly
-const detailsResponse = await fetch(
-  `https://maps.googleapis.com/maps/api/place/details/json?place_id=${placeId}&fields=opening_hours&key=${API_KEY}`
-);
+  const GEMINI_KEY = process.env.GEMINI_API_KEY; // Set in Vercel dashboard
+  // ... proxy logic ...
+}
 ```
 
-### Pattern 4: Progressive Disclosure (Base Data + Enrichment)
+### Pattern 4: Cron-Generated Static Data (Build-Time Events)
 
-**What:** Load base asset data immediately, enrich with hours/events data as available. Don't block rendering on enrichment.
+**What:** GitHub Actions cron runs a Node.js script that fetches external data (iCal feeds), processes it, and commits the output as static JSON files to the repo. Vercel redeploys automatically.
 
-**When to use:** When enrichment data is optional or slow to load.
+**When to use:** For any data that changes infrequently (events update every few hours) and doesn't need real-time freshness.
 
-**Trade-offs:**
-- PRO: Fast initial render (map shows immediately)
-- PRO: Graceful degradation (hours missing? Show asset anyway)
-- CON: Two rendering passes (base, then enriched)
-
-**Example:**
-```javascript
-// Render base data immediately
-const assets = await fetch('data.json').then(r => r.json());
-renderMarkers(assets);
-
-// Enrich with hours/events (non-blocking)
-Promise.all([
-  fetch('hours.json').then(r => r.json()).catch(() => ({})),
-  fetch('events.json').then(r => r.json()).catch(() => ({}))
-]).then(([hours, events]) => {
-  enrichAssets(assets, hours, events);
-  updateMarkers(assets); // Re-render with enriched data
-});
-```
+**Trade-offs:** 6-hour staleness window for events. But: eliminates CORS issues with iCal feeds, removes client-side parsing overhead, and the client code needs zero changes.
 
 ## Anti-Patterns
 
-### Anti-Pattern 1: Client-Side API Calls with Exposed Keys
+### Anti-Pattern 1: Direct DOM Manipulation from New Modules
 
-**What people do:** Put Google Places API key directly in client-side JavaScript, make API calls from browser.
+**What people do:** New modules directly query and modify DOM elements owned by other modules.
+**Why it's wrong:** Creates invisible coupling. When the detail panel HTML changes, the chat widget breaks because it was reaching into `#detailName` directly.
+**Do this instead:** Communicate through the ctx bag. Chat widget calls `ctx.openDetail(asset)` — it never touches the detail panel DOM.
 
-**Why it's wrong:**
-- API key visible in page source (anyone can steal it)
-- Rate limits apply per key (one bad user exhausts quota for everyone)
-- Google Places API has strict usage policies against client-side caching
-- Every user's page load triggers API calls (expensive, slow)
+### Anti-Pattern 2: ES6 Module Syntax in New Files
 
-**Do this instead:** Use cron job to fetch data server-side, store results as static JSON. Client reads JSON (no API key needed).
+**What people do:** Use `import`/`export` in new module files since "it's 2026."
+**Why it's wrong:** The existing 37 modules all use IIFEs with `window.*` globals. Mixing `import`/`export` with script-tag loading creates two incompatible module systems. Either all modules migrate or none do.
+**Do this instead:** Use the same IIFE + `window.CulturalMap*` pattern. The decision to avoid a build system is already made and documented.
 
-### Anti-Pattern 2: Synchronous fetch() Blocking Render
+### Anti-Pattern 3: Putting API Keys in Client-Side Code
 
-**What people do:**
-```javascript
-const data = await fetch('data.json').then(r => r.json());
-const hours = await fetch('hours.json').then(r => r.json());
-const events = await fetch('events.json').then(r => r.json());
-// Map doesn't render until all three complete sequentially
-```
+**What people do:** Hardcode Gemini API key in the chat widget JS file (like the MapTiler key).
+**Why it's wrong:** Gemini API has per-request cost. MapTiler free tier is acceptable to expose; Gemini is not.
+**Do this instead:** Proxy through `/api/chat.js`. The API key lives in Vercel environment variables, never in client code.
 
-**Why it's wrong:** Sequential fetches delay rendering. If one file is slow, everything blocks.
+### Anti-Pattern 4: Building a Full Chat Backend
 
-**Do this instead:** Use `Promise.all()` for parallel fetches:
-```javascript
-const [data, hours, events] = await Promise.all([
-  fetch('data.json').then(r => r.json()),
-  fetch('hours.json').then(r => r.json()),
-  fetch('events.json').then(r => r.json())
-]);
-```
+**What people do:** Implement conversation threading, user authentication, message persistence with real-time sync for the chat feature.
+**Why it's wrong:** This is a cultural tourism discovery tool, not a chat application. The chat is a convenience feature for "What should I do this weekend?" questions.
+**Do this instead:** Stateless chat proxy. Send conversation history in each request (last 10 messages). Log to Supabase for analytics only. No user accounts, no persistent threads.
 
-### Anti-Pattern 3: Storing Large Data in localStorage
+### Anti-Pattern 5: Analytics in the Bindings Module
 
-**What people do:** Fetch hours.json, cache entire file in `localStorage` for "performance."
+**What people do:** Add analytics.track() calls inside `index-maplibre-bindings.js` event handlers.
+**Why it's wrong:** Bindings is a wiring module — it maps DOM events to ctx functions. Analytics should fire from the business logic (the ctx closures in index-maplibre.js), not the event handlers.
+**Do this instead:** Add tracking calls inside the functions that bindings calls (e.g., inside `setCategory()`, `openDetail()`, `activateExperience()`).
 
-**Why it's wrong:**
-- localStorage is synchronous (blocks main thread on read/write)
-- 5-10MB limit (easy to hit with 687 assets)
-- Harder to invalidate cache when data updates
-- Unnecessary for static files (browser HTTP cache already handles this)
+## Scaling Considerations
 
-**Do this instead:** Let the browser cache JSON files via HTTP headers. Vercel sets `Cache-Control` automatically for static files. Re-fetch on page load (fast due to HTTP cache).
+| Concern | Current (100 users/day) | At 1K users/day | At 10K users/day |
+|---------|------------------------|-----------------|------------------|
+| Static assets | Vercel CDN handles it | No change | No change |
+| Analytics | Plausible handles all scale | No change | Check Plausible plan limits |
+| Chat API | ~50 chats/day, Vercel hobby OK | ~500 chats/day, monitor Gemini costs | Need Vercel Pro + Gemini budget |
+| Event pipeline | 6h cron, ~5 iCal feeds | No change | No change |
+| Supabase | Free tier (500MB, 50K rows) | Still fine | Check row limits on chat logs |
 
-### Anti-Pattern 4: Tight Coupling Between Data and UI
+### Scaling Priorities
 
-**What people do:** Inline hours/events logic directly in marker click handlers, hardcode API response structure throughout codebase.
-
-**Why it's wrong:**
-- Hard to change data source (e.g., switch from Google Places to Yelp)
-- Hard to test (UI and data logic intertwined)
-- Hard to reuse (Leaflet and MapLibre versions duplicate logic)
-
-**Do this instead:** Create data access layer:
-```javascript
-// Data layer (reusable)
-const AssetData = {
-  getHours(assetName) {
-    return hoursCache[assetName] || null;
-  },
-
-  getEvents(assetName) {
-    return (eventsCache[assetName] || [])
-      .filter(e => new Date(e.date) > new Date());
-  },
-
-  isOpenNow(assetName) {
-    const hours = this.getHours(assetName);
-    if (!hours) return null;
-    // Calculate open/closed status
-    return calculateOpenStatus(hours);
-  }
-};
-
-// UI layer (map-specific)
-marker.on('click', () => {
-  const hours = AssetData.getHours(asset.n);
-  const events = AssetData.getEvents(asset.n);
-  const openNow = AssetData.isOpenNow(asset.n);
-  renderDetailPanel({ asset, hours, events, openNow });
-});
-```
+1. **First bottleneck: Gemini API costs.** Chat is the only feature with per-interaction API cost. Mitigation: aggressive client-side rate limiting (max 20 messages/session), response caching for common queries, and a hard daily budget cap in the proxy.
+2. **Second bottleneck: Vercel serverless function invocations.** Hobby plan has limits. If chat usage grows, upgrade to Pro ($20/mo) or add client-side caching of recent responses.
 
 ## Integration Points
 
@@ -405,365 +477,57 @@ marker.on('click', () => {
 
 | Service | Integration Pattern | Notes |
 |---------|---------------------|-------|
-| Google Places API | Server-side fetch (cron) → JSON file | Rate limited: 500 QPM default. Use exponential backoff. |
-| Event Calendar API | Server-side fetch (cron) → JSON file | Depends on event source (Google Calendar, Eventbrite, etc.) |
-| MapTiler | Client-side tile loading | API key in URL, OK for client (tiles are public). |
-| Vercel | Static file hosting + auto-deploy | Deploys on push to `master`. Edge caching for JSON files. |
-| GitHub Actions | Cron orchestrator | Schedule: `0 6 * * *` (daily 6am PT). Requires `GOOGLE_PLACES_API_KEY` secret. |
+| Plausible Analytics | `<script>` tag + `window.plausible()` calls | < 1KB script, privacy-friendly, no cookies. Self-hosted or cloud. |
+| Google Gemini API | Server-side proxy via `/api/chat.js` | API key in Vercel env vars. Use `gemini-2.0-flash` for cost efficiency. |
+| Supabase | `@supabase/supabase-js` in serverless functions; anon key in client for read-only | Service key in serverless only. Client gets anon key with RLS. |
+| iCal Feeds | Server-side fetch in GitHub Actions script | No CORS issues since it runs in CI, not browser. |
+| Plausible Stats API | Server-side only (in `/api/report.js` and cron script) | Bearer token auth. Never expose to client. |
 
 ### Internal Boundaries
 
 | Boundary | Communication | Notes |
 |----------|---------------|-------|
-| Data layer ↔ Cron scripts | File I/O (write JSON) | Cron writes JSON, commits to repo. Vercel deploys. |
-| Data layer ↔ Client code | HTTP fetch (read JSON) | Client fetches JSON on page load. |
-| Map renderer ↔ Data layer | Function calls (in-memory) | After JSON loaded, pure JavaScript object access. |
-| Leaflet ↔ MapLibre | Separate implementations | No shared code (different HTML files). Same JSON data. |
+| Analytics <-> All Modules | `analytics.track()` calls from ctx closures | One-way: modules fire events, analytics sends them. Analytics never calls back. |
+| Itinerary <-> Detail Panel | `ctx.addToItinerary(asset)` closure | Detail panel button triggers; itinerary controller handles. No direct coupling. |
+| Itinerary <-> Map | `mapRenderController.applyAssetFilters()` + Turf.js route lines | Same pattern as existing experience routes. |
+| Chat Widget <-> `/api/chat` | `fetch('/api/chat', {method: 'POST'})` | Standard REST. No WebSocket needed. |
+| Chat Widget <-> Detail/Map | `ctx.openDetail(asset)` / `ctx.focusEventById(id)` | Chat parses response tokens, calls existing ctx functions. |
+| Event Pipeline <-> Client | Static JSON files (events.json) | No runtime coupling. Pipeline writes files; client reads them. |
+| Reporting <-> Everything | Read-only aggregation | Reads from Plausible API + Supabase. Never writes to client-facing data. |
 
-## Scaling Considerations
+## Build Order (Dependency Chain)
 
-| Scale | Architecture Adjustments |
-|-------|--------------------------|
-| 0-1k assets | Current architecture is perfect. Single JSON file, in-memory rendering. |
-| 1k-10k assets | Consider IndexedDB for client-side storage. Paginate marker rendering (viewport-based culling). |
-| 10k+ assets | Move to tile-based rendering (vector tiles). Pre-compute hours/events aggregations. Consider CDN with edge caching. |
-
-### Scaling Priorities
-
-1. **First bottleneck: Google Places API quota**
-   - **Symptom:** Cron job fails with `OVER_QUERY_LIMIT` errors
-   - **Fix:** Batch requests with exponential backoff delays. Rate limit to 400 QPM (safety margin). Consider upgrading quota.
-   - **Mitigation:** Only fetch hours for assets that need it (have address, are open to public). Skip residential/private sites.
-
-2. **Second bottleneck: Client-side marker rendering**
-   - **Symptom:** Page slow to load with many markers (1000+)
-   - **Fix:**
-     - Use viewport culling (only render markers in view)
-     - Use marker clustering (group nearby markers)
-     - Use vector tiles (render server-side, stream to client)
-   - **For Leaflet:** Use `Leaflet.markercluster` plugin
-   - **For MapLibre:** Use native clustering with `cluster: true` on GeoJSON source
-
-3. **Third bottleneck: JSON file size**
-   - **Symptom:** Slow page load, high bandwidth usage
-   - **Fix:**
-     - Split JSON by category (fetch only visible categories)
-     - Use gzip compression (Vercel does this automatically)
-     - Use binary format (Protocol Buffers, FlatBuffers) instead of JSON
-
-## Build Order Recommendations
-
-Based on component dependencies, suggested implementation order:
-
-### Phase 1: Hours Data Pipeline (Foundation)
-
-**Why first:** Hours are simpler than events (single API, well-documented). Establishes the cron → JSON → client pattern.
-
-1. Create `scripts/fetch-hours.js` (Node.js script)
-   - Read `data.json` to get asset list
-   - For each asset with address:
-     - Text Search → get `place_id`
-     - Place Details → get `opening_hours`
-     - Rate limit delay (1 second between requests)
-   - Write `hours.json`
-
-2. Create `.github/workflows/fetch-hours.yml`
-   - Schedule: daily 6am PT
-   - Run `node scripts/fetch-hours.js`
-   - Commit `hours.json` if changed
-   - Requires `GOOGLE_PLACES_API_KEY` secret
-
-3. Test locally:
-   - Run script manually
-   - Verify `hours.json` format
-   - Check for API errors
-
-### Phase 2: Hours UI (Leaflet version)
-
-**Why next:** Validate the data pipeline works before adding complexity (MapLibre, events).
-
-1. Update `index.html` (Leaflet version)
-   - Add `fetch('hours.json')` to page load
-   - Create `getHoursForAsset(name)` function
-   - Create `isOpenNow(hours)` function
-   - Update detail panel HTML to show hours
-   - Style "Open Now" badge (green) / "Closed" badge (red)
-
-2. Test with real data:
-   - Deploy to Vercel
-   - Wait for cron to run (or trigger manually)
-   - Verify hours appear in detail panel
-
-### Phase 3: Events Data Pipeline (Parallel to Hours)
-
-**Why parallel:** Events are independent of hours. Can develop simultaneously.
-
-1. Choose event data source
-   - Option A: Google Calendar API (if Arts Council has public calendar)
-   - Option B: Eventbrite API (if venues use Eventbrite)
-   - Option C: Scrape venue websites (fragile, not recommended)
-
-2. Create `scripts/fetch-events.js`
-   - Query event API for each asset
-   - Filter to upcoming events only
-   - Write `events.json`:
-     ```json
-     {
-       "Empire Mine": [
-         {
-           "title": "Gold Rush Days",
-           "date": "2026-08-15",
-           "time": "10:00 AM",
-           "link": "https://..."
-         }
-       ]
-     }
-     ```
-
-3. Create `.github/workflows/fetch-events.yml`
-   - Schedule: daily 6am PT (same time as hours)
-   - Run `node scripts/fetch-events.js`
-   - Commit `events.json` if changed
-
-### Phase 4: Events UI (Leaflet version)
-
-1. Update `index.html`
-   - Add `fetch('events.json')` to page load
-   - Create `getEventsForAsset(name)` function
-   - Filter to upcoming events only (client-side date logic)
-   - Update detail panel HTML to show events list
-   - Add "Add to Calendar" button (generate .ics file)
-
-### Phase 5: Port to MapLibre
-
-**Why last:** Leaflet version is the fallback. Get it working first, then port.
-
-1. Update `index-maplibre.html`
-   - Copy hours/events logic from Leaflet version
-   - Adapt to MapLibre's event system (`map.on('click', 'asset-markers', ...)`)
-   - Test feature parity
-
-### Phase 6: Polish
-
-1. Error handling
-   - Graceful degradation if `hours.json` or `events.json` missing
-   - Show "Hours unavailable" instead of crashing
-
-2. Loading states
-   - Show skeleton UI while fetching JSON files
-   - Show "Loading hours..." in detail panel
-
-3. Monitoring
-   - Add Sentry or LogRocket for error tracking
-   - Monitor cron job success/failure (GitHub Actions logs)
-
-## Client-Side vs Server-Side Concerns
-
-### Client-Side Responsibilities
-
-- Fetch JSON files (data, hours, events, experiences)
-- Parse JSON into JavaScript objects
-- Render map with markers
-- Handle user interactions (click, filter, search)
-- Calculate "Open Now" status (based on pre-fetched hours + current time)
-- Filter events to "upcoming" (based on pre-fetched events + current date)
-- Render detail panel with enriched data
-- Handle responsive layout (mobile, tablet, desktop)
-
-### Server-Side Responsibilities (Cron)
-
-- Fetch data from external APIs (Google Places, event calendar)
-- Handle API authentication (keep keys secret)
-- Rate limiting and retry logic (exponential backoff)
-- Data transformation (API response → simplified JSON format)
-- Write JSON files to repository
-- Commit changes (only if data changed)
-- Trigger Vercel deployment (automatic on push)
-
-### Why This Split?
-
-**Security:** API keys never exposed in client code. Google Places API key stays in GitHub Secrets.
-
-**Performance:** Client loads fast (no API latency). Pre-fetched data served as static files from CDN.
-
-**Cost:** One cron job per day = minimal API usage. If client-side, every user triggers API calls.
-
-**Reliability:** API failures isolated to cron job. Client always gets data (even if slightly stale).
-
-**Offline capability:** After initial load, map works offline (data already fetched).
-
-## Data Freshness Trade-offs
-
-| Update Frequency | API Calls/Day | Data Staleness | Cost | Use Case |
-|------------------|---------------|----------------|------|----------|
-| Real-time (client-side) | 687 assets × N users | 0 seconds | HIGH | Not suitable (API key exposure, quota limits) |
-| Hourly (cron) | 24 × 687 = 16,488 | 0-60 min | MEDIUM | Acceptable for events, overkill for hours |
-| Daily (cron) | 1 × 687 = 687 | 0-24 hours | LOW | **Recommended** for hours (businesses rarely change hours) |
-| Weekly (cron) | 0.14 × 687 = 96 | 0-7 days | VERY LOW | Acceptable for static data (addresses, descriptions) |
-
-**Recommendation:** Daily cron at 6am PT (before business hours). Hours/events fresh by 9am when users visit.
-
-## Caching Strategy
-
-### HTTP Caching (Automatic via Vercel)
-
-Vercel sets these headers for static files:
-- `Cache-Control: public, max-age=0, must-revalidate` (for HTML)
-- `Cache-Control: public, max-age=31536000, immutable` (for versioned assets)
-
-For JSON files, Vercel uses:
-- `Cache-Control: public, max-age=0, must-revalidate`
-
-This means:
-- Browser checks for updates on every page load
-- If file unchanged (304 Not Modified), uses cached version (fast)
-- If file changed, downloads new version (slow first time, then cached)
-
-**No client-side caching needed.** Browser HTTP cache handles this automatically.
-
-### API Response Caching (Server-Side)
-
-Google Places API allows caching `place_id` indefinitely. Other data (hours, reviews) can be cached up to 30 days per Terms of Service.
-
-**Strategy:**
-1. First fetch: Text Search → store `place_id` in `hours.json`
-2. Subsequent fetches: Use `place_id` directly (skip Text Search)
-3. Update hours daily (within 30-day policy)
-4. If API call fails, keep stale data (don't delete `hours.json`)
-
-**Example `hours.json` structure:**
-```json
-{
-  "Empire Mine": {
-    "place_id": "ChIJN1t_tDeuEmsRUsoyG83frY4",
-    "hours": [
-      "Sunday: Closed",
-      "Monday: 9:00 AM – 5:00 PM",
-      "Tuesday: 9:00 AM – 5:00 PM",
-      "Wednesday: 9:00 AM – 5:00 PM",
-      "Thursday: 9:00 AM – 5:00 PM",
-      "Friday: 9:00 AM – 5:00 PM",
-      "Saturday: 10:00 AM – 4:00 PM"
-    ],
-    "fetched": "2026-02-07T14:00:00Z"
-  }
-}
+```
+Phase 1: Analytics Module
+    (no dependencies on other new modules; enables measurement for everything after)
+    ↓
+Phase 2: iCal Event Pipeline
+    (no client changes; enriches existing events data; analytics tracks event interactions)
+    ↓
+Phase 3: Itinerary System
+    (depends on: analytics for tracking; uses existing map/detail infrastructure)
+    ↓
+Phase 4: Chat Widget + Vercel API Proxy
+    (depends on: analytics for tracking; references itinerary if built;
+     needs Supabase setup; most complex new server-side code)
+    ↓
+Phase 5: Reporting Script
+    (depends on: analytics being live for data; Supabase having chat logs;
+     pure backend, no client changes)
 ```
 
-## Error Handling Patterns
-
-### Client-Side Error Handling
-
-```javascript
-// Graceful degradation for missing hours/events data
-async function loadEnrichmentData() {
-  try {
-    const hours = await fetch('hours.json').then(r => {
-      if (!r.ok) throw new Error('Hours unavailable');
-      return r.json();
-    });
-    return { hours, hoursAvailable: true };
-  } catch (err) {
-    console.warn('Hours data unavailable:', err);
-    return { hours: {}, hoursAvailable: false };
-  }
-}
-
-// UI handles missing data gracefully
-function renderHours(asset, hoursData) {
-  if (!hoursData[asset.n]) {
-    return '<p class="hours-unavailable">Hours not available</p>';
-  }
-
-  const openNow = isOpenNow(hoursData[asset.n]);
-  return `
-    <div class="hours">
-      <span class="status ${openNow ? 'open' : 'closed'}">
-        ${openNow ? 'Open Now' : 'Closed'}
-      </span>
-      <ul>${hoursData[asset.n].hours.map(h => `<li>${h}</li>`).join('')}</ul>
-    </div>
-  `;
-}
-```
-
-### Server-Side Error Handling (Cron)
-
-```javascript
-// Exponential backoff for API rate limits
-async function fetchWithRetry(url, maxRetries = 3) {
-  let delay = 1000; // Start with 1 second
-
-  for (let i = 0; i < maxRetries; i++) {
-    try {
-      const response = await fetch(url);
-
-      if (response.status === 429) { // Rate limit
-        console.log(`Rate limited. Retrying in ${delay}ms...`);
-        await new Promise(resolve => setTimeout(resolve, delay));
-        delay *= 2; // Exponential backoff
-        continue;
-      }
-
-      if (!response.ok) {
-        throw new Error(`HTTP ${response.status}`);
-      }
-
-      return await response.json();
-    } catch (err) {
-      if (i === maxRetries - 1) throw err;
-      console.error(`Attempt ${i + 1} failed:`, err);
-      await new Promise(resolve => setTimeout(resolve, delay));
-      delay *= 2;
-    }
-  }
-}
-
-// Keep stale data on failure (don't delete hours.json)
-async function updateHoursData() {
-  let existingData = {};
-  try {
-    existingData = JSON.parse(fs.readFileSync('hours.json', 'utf8'));
-  } catch (err) {
-    console.log('No existing hours data');
-  }
-
-  const newData = { ...existingData }; // Start with existing data
-
-  for (const asset of assets) {
-    try {
-      const hours = await fetchPlaceHours(asset);
-      newData[asset.n] = hours;
-    } catch (err) {
-      console.error(`Failed to fetch hours for ${asset.n}:`, err);
-      // Keep existing data for this asset (don't overwrite)
-    }
-  }
-
-  fs.writeFileSync('hours.json', JSON.stringify(newData, null, 2));
-}
-```
+**Rationale:** Analytics goes first because every subsequent feature benefits from measurement. Event pipeline is independent infrastructure work with zero client risk. Itinerary is the highest-value user feature and only needs existing infrastructure. Chat requires the most new server-side setup (Vercel functions, Supabase, Gemini). Reporting comes last because it needs data from all other features to be meaningful.
 
 ## Sources
 
-**HIGH Confidence (Official Documentation):**
-- [Best Practices Using Places API Web Services | Google for Developers](https://developers.google.com/maps/documentation/places/web-service/web-services-best-practices)
-- [Leaflet Documentation](https://leafletjs.com/reference.html) via Context7 `/websites/leafletjs`
-- [MapLibre GL JS Documentation](https://maplibre.org/maplibre-gl-js/docs/) via Context7 `/websites/maplibre_maplibre-gl-js`
-- [Client-side storage - Learn web development | MDN](https://developer.mozilla.org/en-US/docs/Learn_web_development/Extensions/Client-side_APIs/Client-side_storage)
-- [IndexedDB API - Web APIs | MDN](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API)
-
-**MEDIUM Confidence (Recent Articles, Multiple Sources):**
-- [Why Developers Are Ditching Frameworks for Vanilla JavaScript - The New Stack](https://thenewstack.io/why-developers-are-ditching-frameworks-for-vanilla-javascript/)
-- [How to Handle API Rate Limits Gracefully (2026 Guide) | API Status Check Blog](https://apistatuscheck.com/blog/how-to-handle-api-rate-limits)
-- [Modern Web Storage Guide: Local Storage vs IndexedDB vs Cache API Compared](https://jsschools.com/web_dev/modern-web-storage-guide-local-storage-vs-indexed/)
-- [Calendar API for integrated scheduling applications | Cronofy Scheduling](https://www.cronofy.com/developer/calendar-api)
-
-**Project-Specific Context:**
-- Existing architecture in `index-maplibre.html` (single-file, vanilla JS, fetch-based data loading)
-- Current data structures: `data.json`, `experiences.json`, `image_data.json`
-- Deployment: Vercel static hosting with auto-deploy on push
+- Vercel Edge Functions docs: https://vercel.com/docs/functions/runtimes/edge/edge-functions.rsc (MEDIUM confidence)
+- Vercel Functions general docs: https://vercel.com/docs/functions (MEDIUM confidence)
+- Vercel API proxy pattern: https://github.com/simple-frontend-dev/vercel-functions-api-proxy (MEDIUM confidence)
+- Plausible script integration: https://plausible.io/docs/plausible-script (HIGH confidence — official docs)
+- Plausible custom events: https://plausible.io/docs/custom-event-goals (HIGH confidence — official docs)
+- Plausible custom properties: https://plausible.io/docs/custom-props/for-custom-events (HIGH confidence — official docs)
+- Existing codebase analysis: `index-maplibre.js`, `index-maplibre-bindings.js`, `index-maplibre-events-model.js`, `index-maplibre-detail-controller.js`, `index-maplibre-config.js`, `index-maplibre-hero-intent.html`, `vercel.json` (HIGH confidence — direct code reading)
 
 ---
-*Architecture research for: Real-time discovery features in client-side web maps*
-*Researched: 2026-02-07*
+*Architecture research for: GVNC Cultural District Experience Platform — Milestone 2 Module Integration*
+*Researched: 2026-02-14*

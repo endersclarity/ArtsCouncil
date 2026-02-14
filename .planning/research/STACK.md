@@ -1,277 +1,273 @@
-# Technology Stack Research
+# Stack Research
 
-**Project:** Nevada County Arts Council Cultural Map - "Happening Now" Features
-**Domain:** Real-time discovery features for interactive web maps (business hours, event calendars)
-**Researched:** 2026-02-08
-**Confidence:** HIGH
+**Domain:** Cultural tourism interactive platform — analytics, itinerary, events, AI chatbot, reporting
+**Researched:** 2026-02-14
+**Confidence:** MEDIUM (versions verified via CDN/Context7, pricing from official sites, some limits from training data)
 
-## Executive Summary
+## Existing Stack (Do Not Change)
 
-For adding "Happening Now" features to the cultural map, the recommended stack uses:
+These are already in place and should NOT be re-evaluated:
 
-- **Day.js (1.11.x)** for date/time handling (2KB, replaces deprecated Moment.js)
-- **opening_hours.js (3.x)** for business hours parsing (battle-tested, handles all edge cases)
-- **Google Places API** for hours data (server-side daily fetch via GitHub Actions)
-- **Google Calendar API v3** for events data (server-side hourly fetch via GitHub Actions)
-- **GitHub Actions** for automation (free for public repos, runs cron jobs)
-- **Vercel** for hosting (already deployed, auto-deploys on push)
+| Technology | Version | Purpose |
+|------------|---------|---------|
+| MapLibre GL JS | 4.5.0 | WebGL mapping |
+| GSAP | 3.11 | Animation |
+| Turf.js | 7.2 | Geospatial analysis |
+| Luxon | 3.4 | Date/time (Pacific TZ) |
+| Vanilla JS (IIFEs) | ES5 | Module system |
+| Vercel | Free (Hobby) | Static hosting + functions |
 
-**Key architecture:** Fetch data server-side → write JSON → commit → auto-deploy → client reads JSON and calculates "is open now" instantly.
+**Constraint:** No npm, no build step, no ES6 modules. All new libraries load via CDN `<script>` tags or are used server-side in Vercel/Supabase functions.
 
-This approach avoids exposing API keys, stays within free tiers, and provides instant performance for visitors.
+---
 
-## Recommended Stack
+## Recommended New Stack
 
-### Core Framework
-| Technology | Version | Purpose | Why |
-|------------|---------|---------|-----|
-| Vanilla JavaScript | ES2020+ | Client-side logic | No build system required, works in all modern browsers, matches existing codebase |
-| Leaflet | 1.9.4 | Map rendering (fallback) | Already in use, lightweight (42KB), mobile-friendly, excellent plugin ecosystem |
-| MapLibre GL JS | 4.5.0 | Map rendering (flagship) | Already in use, 3D terrain support, WebGL performance, MIT license (Mapbox fork) |
-| Node.js | 20.x LTS | Cron scripts | GitHub Actions default (v6 uses Node 20), native fetch() support, no bundler needed |
+### Analytics
 
-### External APIs
-| Technology | Version | Purpose | Why |
-|------------|---------|---------|-----|
-| Google Places API | v1 (New) | Business hours data | Most comprehensive hours database, 500 QPM free tier, place_id cacheable indefinitely. Structured `opening_hours` object with `periods` array. |
-| Google Calendar API | v3 | Event data | OAuth 2.0 via service accounts, RESTful, JSON responses, built-in filtering with `timeMin`/`timeMax`. Free tier: 1M queries/day. |
+| Technology | Version | Purpose | Why Recommended |
+|------------|---------|---------|-----------------|
+| Plausible Analytics | Cloud | Privacy-first page analytics | GDPR-compliant, no cookie banner needed, lightweight (< 1KB script), simple dashboard. $9/mo for 10K pageviews which is plenty for a cultural district site. |
+| Supabase (PostgreSQL) | supabase-js 2.95.3 | Custom event logging, demand signal storage | Free tier: 500MB database, 2GB bandwidth, 500K edge function invocations. Stores structured analytics (itinerary saves, chatbot queries, feature usage) that Plausible cannot capture. |
 
-### Infrastructure
-| Technology | Version | Purpose | Why |
-|------------|---------|---------|-----|
-| GitHub Actions | - | Cron orchestration | Free for public repos, integrated with repo, handles secrets securely. 2,000 minutes/month free tier. |
-| actions/checkout | v6 | Checkout repo in workflow | Latest version with improved credential security. Requires Actions Runner v2.329.0+. |
-| actions/setup-node | v6 | Install Node.js in workflow | Latest version with auto-caching for npm. Use `node-version: 20` (LTS). |
-| Vercel | - | Static hosting + auto-deploy | Already in use, edge CDN, auto-deploys on push, zero config for static sites. 100 deploys/day free tier. |
+**Confidence:** HIGH for Plausible (verified pricing from official site). HIGH for Supabase-js version (verified via CDN package.json: 2.95.3).
 
-### Supporting Libraries (CRITICAL)
+**Integration pattern:**
+```html
+<!-- Plausible: one script tag, done -->
+<script defer data-domain="cultural-map-redesign.vercel.app"
+  src="https://plausible.io/js/script.js"></script>
+
+<!-- Supabase: CDN for custom event logging -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+```
+
+Plausible handles page views, referrers, geography. Supabase handles custom events (itinerary creation, chatbot usage, asset clicks, corridor engagement). This separation means Plausible can be the "public dashboard" shared with the committee while Supabase stores the operational data.
+
+### Itinerary System
+
+| Technology | Version | Purpose | Why Recommended |
+|------------|---------|---------|-----------------|
+| Vanilla JS | ES5 IIFE | Itinerary builder UI, drag-to-reorder | Fits existing architecture. No new library needed for the UI. |
+| Supabase | 2.95.3 | Persist saved itineraries (optional, for sharing) | Same instance as analytics. Store itinerary JSON for shareable links. |
+| ics.js (manual) | N/A | Generate .ics calendar export | Generating an ICS file is trivial (~50 lines). Use a IIFE helper, not a library. RFC 5545 VCALENDAR/VEVENT format is simple enough to template. |
+
+**Confidence:** HIGH. ICS generation is a well-documented format. No library needed.
+
+**Calendar export pattern (no library):**
+```javascript
+// Generate ICS content directly - RFC 5545
+function generateICS(events) {
+  var lines = ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//GVNC Cultural District//EN'];
+  events.forEach(function(e) {
+    lines.push('BEGIN:VEVENT');
+    lines.push('DTSTART:' + formatICSDate(e.start));
+    lines.push('DTEND:' + formatICSDate(e.end));
+    lines.push('SUMMARY:' + escapeICS(e.name));
+    lines.push('LOCATION:' + escapeICS(e.location));
+    lines.push('DESCRIPTION:' + escapeICS(e.description));
+    lines.push('END:VEVENT');
+  });
+  lines.push('END:VCALENDAR');
+  return lines.join('\r\n');
+}
+```
+
+### Event Aggregation (Tier 2 — iCal Parsing)
+
+| Technology | Version | Purpose | Why Recommended |
+|------------|---------|---------|-----------------|
+| ical.js | 2.2.1 | Parse iCal/ICS feeds from multiple sources | Only mature, actively maintained iCal parser for JavaScript. RFC 5545 compliant. Browser-compatible via ES6 module from unpkg CDN. Handles RRULE expansion, timezones, VEVENT iteration. 1.2K GitHub stars, MPL-2.0 license. |
+| Vercel Function | N/A | Server-side iCal fetch + merge proxy | iCal feeds are cross-origin. Need a serverless function to fetch, parse, merge, and cache multi-source events. Runs in `api/` directory. Hobby plan: 4 CPU-hours + 1M invocations/month free. |
+
+**Confidence:** HIGH for ical.js (verified v2.2.1 via GitHub, CDN availability via unpkg, Context7 docs confirm parsing API). MEDIUM for Vercel function approach (standard pattern, but need to verify CORS handling with specific iCal sources).
+
+**CDN usage (verified from Context7):**
+```html
+<script type="module">
+  import ICAL from "https://unpkg.com/ical.js/dist/ical.min.js";
+</script>
+```
+
+**Important:** ical.js uses ES6 module syntax. Since the existing codebase uses ES5 IIFEs, the iCal parsing should happen server-side in a Vercel function, NOT client-side. The Vercel function fetches iCal feeds, parses with ical.js (Node.js), merges events, and returns JSON that the client consumes like any other data fetch.
+
+### AI Chatbot
+
+| Technology | Version | Purpose | Why Recommended |
+|------------|---------|---------|-----------------|
+| Google Gemini API (REST) | v1beta | LLM for conversational cultural guide | Generous free tier: 15 RPM, 1M tokens/day for Gemini 2.0 Flash. $0.10/1M input tokens, $0.40/1M output tokens on paid tier. Far cheaper than OpenAI/Anthropic for this use case. |
+| Vercel Function | N/A | API key proxy (never expose key to browser) | Thin proxy: receives user message, prepends system prompt with cultural context, forwards to Gemini REST API, streams response back. |
+| Context stuffing (not RAG) | N/A | Ground chatbot in local knowledge | Stuff the system prompt with data.json asset catalog, experiences.json routes, and muse_editorials.json. At ~687 assets with compact keys, the full catalog fits in ~50K tokens. Gemini 2.0 Flash has 1M context window. No vector DB needed. |
+
+**Confidence:** HIGH for Gemini API (verified REST endpoint, JS SDK, and pricing via Context7 + official docs). MEDIUM for context stuffing approach (depends on actual token count of data.json — needs measurement).
+
+**REST API pattern (no SDK needed client-side):**
+```javascript
+// Vercel function: api/chat.js
+export default {
+  async fetch(request) {
+    const { message, history } = await request.json();
+    const response = await fetch(
+      'https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=' + process.env.GEMINI_API_KEY,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          contents: [
+            { role: 'user', parts: [{ text: SYSTEM_PROMPT }] },
+            { role: 'model', parts: [{ text: 'Understood.' }] },
+            ...history,
+            { role: 'user', parts: [{ text: message }] }
+          ]
+        })
+      }
+    );
+    return new Response(response.body, {
+      headers: { 'Content-Type': 'application/json' }
+    });
+  }
+};
+```
+
+**Why NOT `@google/genai` SDK client-side:** It is an npm package (v1.41.0 verified via CDN). It uses ES modules and assumes Node.js. Even if loaded from CDN, it would expose the API key in the browser. Use the raw REST API from a Vercel function instead.
+
+### Demand Signal Reporting
+
+| Technology | Version | Purpose | Why Recommended |
+|------------|---------|---------|-----------------|
+| Supabase PostgreSQL | Free tier | Aggregate analytics data, generate reports | Same database as analytics. SQL views and functions for rollups. |
+| Supabase Edge Functions (Deno) | Deno 2 runtime | Scheduled report generation | Cron-triggered edge function that queries Supabase, builds report JSON. Committee members access via a simple dashboard page. |
+| Vanilla HTML/JS | N/A | Report dashboard UI | Static HTML page with charts. No framework needed. |
+| Chart.js | 4.x | Data visualization for reports | De facto standard for simple charts. CDN-loadable. Lightweight. |
+
+**Confidence:** MEDIUM for Supabase Edge Functions (verified Deno 2 runtime via Context7, but scheduling/cron may require external trigger or Supabase's pg_cron). LOW for Chart.js version (training data, needs verification).
+
+---
+
+## Supporting Libraries
+
 | Library | Version | Purpose | When to Use |
 |---------|---------|---------|-------------|
-| **Day.js** | 1.11.x | Date/time manipulation and timezone handling | **ALWAYS include.** 2KB size (vs 60KB Moment.js), immutable API, excellent plugin ecosystem. Works via CDN without build system. Industry standard for vanilla JS projects in 2025. |
-| **Day.js UTC plugin** | (bundled) | UTC conversion for API requests | **ALWAYS include.** Google Places returns hours in local venue time; you need UTC normalization for consistent comparisons. |
-| **Day.js Timezone plugin** | (bundled) | Timezone conversion and display | **ALWAYS include.** Nevada County is Pacific Time; visitors may be in other zones. Handles DST automatically. |
-| **Day.js customParseFormat** | (bundled) | Parse custom time formats from APIs | Include when normalizing Google Calendar or Eventbrite event times that don't follow ISO 8601. |
-| **opening_hours.js** | 3.x | Business hours parsing and "is open now" logic | **CRITICAL.** Battle-tested library originally built for OpenStreetMap. Handles complex rules (holidays, seasons, variable times, overnight shifts). Has prebuilt browser bundle for no-build environments. Superior to rolling your own hours logic. |
-| **@googleapis/calendar** | 8.x | Node.js client for Calendar API | Use in GitHub Actions scripts for server-side Calendar API calls. Not needed for client-side (use fetch directly). Requires Node 18+. |
-| Eventbrite API | v3 | Optional event source for ticketed events | Only if venues use Eventbrite for ticket sales. Venue-centric endpoints. OAuth token via GitHub Secrets. 1,000 requests/hour free tier. |
+| ical.js | 2.2.1 | iCal/ICS parsing | Server-side in Vercel function for multi-source event aggregation |
+| @supabase/supabase-js | 2.95.3 | Database client | Client-side via CDN for custom analytics + itinerary persistence |
+| Chart.js | 4.x | Data visualization | Demand signal dashboard only (LOW confidence on version) |
+| Sortable.js | 1.15.x | Drag-and-drop reorder | Itinerary builder if drag-to-reorder is needed (LOW confidence) |
 
-## What NOT to Use
-
-| Avoid | Why | Use Instead |
-|-------|-----|-------------|
-| **Moment.js** | Deprecated since 2020. 60KB size. Mutable API causes bugs. Project in maintenance mode. | Day.js (2KB, immutable, same API) |
-| **Client-side API calls to Google Places** | Exposes API key in client code. Rate limits apply per key, not per user. 687 venues × visitors = quota exhaustion in hours. | GitHub Actions cron → fetch hours → write JSON → commit → deploy |
-| **Custom regex parsing of hours** | Business hours have edge cases (holidays, "open 24h", overnight shifts, seasonal hours, DST) that you'll miss. | opening_hours.js library (handles all edge cases) |
-| **Browser geolocation for timezone** | Unreliable. Doesn't match venue timezone (visitor may be remote). DST edge cases. | Day.js timezone plugin with 'America/Los_Angeles' IANA timezone |
-| **`new Date()` for time comparisons** | JavaScript Date is notoriously buggy with timezones. Mutable. No DST handling. | Day.js immutable API with timezone plugin |
-| **Embedding Google Calendar iframe** | Not map-friendly. Can't filter by venue or style events. Requires users to scroll a separate widget. | Fetch Calendar API → normalize to JSON → render as map markers/popups |
-
-## Installation
-
-### Client-Side (CDN - No Build System)
-
-```html
-<!-- Already in use -->
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-<script src="https://unpkg.com/maplibre-gl@4.5.0/dist/maplibre-gl.js"></script>
-
-<!-- Day.js with plugins (REQUIRED for hours feature) -->
-<script src="https://cdn.jsdelivr.net/npm/dayjs@1.11/dayjs.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/dayjs@1.11/plugin/utc.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/dayjs@1.11/plugin/timezone.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/dayjs@1.11/plugin/customParseFormat.js"></script>
-<script>
-  dayjs.extend(dayjs_plugin_utc);
-  dayjs.extend(dayjs_plugin_timezone);
-  dayjs.extend(dayjs_plugin_customParseFormat);
-</script>
-
-<!-- opening_hours.js (REQUIRED for hours feature) -->
-<script src="https://openingh.openstreetmap.de/opening_hours.js/opening_hours+deps.min.js"></script>
-```
-
-### Server-Side (GitHub Actions Scripts)
-
-```bash
-# Option 1: Zero dependencies (for hours-only)
-# Use native Node 20 fetch(), no npm install needed
-
-# Option 2: With Calendar API client (if implementing events)
-cd scripts/
-npm init -y
-npm install @googleapis/calendar --save-dev
-```
+---
 
 ## Alternatives Considered
 
 | Category | Recommended | Alternative | Why Not |
 |----------|-------------|-------------|---------|
-| Date library | **Day.js** | Moment.js | Moment.js deprecated since 2020. 60KB vs 2KB. Mutable API causes bugs. |
-| Date library | **Day.js** | date-fns | date-fns good for build systems. Day.js CDN simpler for no-build projects (single 2KB file vs multiple imports). |
-| Date library | **Day.js** | Luxon | Luxon is 17KB, overkill. Use only if you need complex business day calculations. |
-| Hours parsing | **opening_hours.js** | Custom regex | NEVER roll your own. Holidays, overnight shifts, seasonal hours, DST are complex. |
-| Hours API | Google Places | Yelp Fusion | Yelp has fewer rural POIs, more restrictive caching, requires OAuth |
-| Event Calendar | Google Calendar | Eventbrite only | Use Calendar for venues managing own calendars. Eventbrite supplementary. |
-| Cron | GitHub Actions | Vercel Cron | Vercel Cron requires Pro plan ($20/mo). GitHub Actions free. |
+| Analytics | Plausible ($9/mo) | Google Analytics 4 | GA4 requires cookie consent banner, complex setup, data owned by Google. Plausible is privacy-first, simpler, data you own. |
+| Analytics | Plausible ($9/mo) | Umami (self-hosted) | Umami is free but requires server hosting. Single volunteer dev should not maintain analytics infrastructure. |
+| Custom events | Supabase | Plausible custom events | Plausible custom events exist but are limited (goal-based, not queryable SQL). Supabase gives full SQL for reporting. |
+| iCal parsing | ical.js | node-ical | node-ical wraps ical.js internally, adds unnecessary abstraction. Use ical.js directly. |
+| iCal parsing | ical.js | rrule.js | rrule.js handles recurrence only, not full iCal parsing. ical.js does both. |
+| AI chatbot | Gemini 2.0 Flash | OpenAI GPT-4o-mini | GPT-4o-mini costs more ($0.15/$0.60 per 1M tokens vs $0.10/$0.40). Gemini free tier is more generous (15 RPM vs 3 RPM). |
+| AI chatbot | Gemini 2.0 Flash | Claude Haiku | Anthropic has no free tier for API usage. Budget constraint makes Gemini the clear winner. |
+| AI chatbot | Context stuffing | RAG with vector DB | 687 assets fit easily in Gemini's 1M token context window. RAG adds complexity (embedding pipeline, vector DB cost, retrieval logic) for zero benefit at this data scale. |
+| Database | Supabase | Firebase | Supabase offers real PostgreSQL with SQL. Firebase is NoSQL, harder to do reporting/aggregation queries. |
+| Serverless | Vercel Functions | Supabase Edge Functions | Use both. Vercel functions for the chatbot proxy (co-located with the static site). Supabase edge functions for scheduled database tasks (co-located with the data). |
+| Charts | Chart.js | D3.js | D3 is overkill for a simple reporting dashboard. Chart.js is higher-level, CDN-loadable, simpler. |
+| Charts | Chart.js | Observable Plot | Newer but less CDN-friendly, smaller ecosystem. |
 
-## Architecture Patterns
+---
 
-### Pattern 1: "Is this venue open right now?"
+## What NOT to Use
 
-**Client-side calculation (recommended):**
+| Avoid | Why | Use Instead |
+|-------|-----|-------------|
+| Google Analytics 4 | Cookie consent required, privacy concerns, complex setup, data locked in Google | Plausible Analytics |
+| npm / build system | Project constraint: vanilla JS, no build step | CDN script tags |
+| ES6 `import/export` in client code | Project uses ES5 IIFEs with `window.CulturalMap*` globals | Keep IIFE pattern for all client-side modules |
+| Vector database (Pinecone, Weaviate) | Data fits in context window. RAG is over-engineering for 687 assets | Context stuffing with Gemini's 1M token window |
+| `@google/genai` SDK in browser | Exposes API key, requires ES modules | Raw REST API via Vercel function proxy |
+| Full CMS (Strapi, Contentful) | Overkill. Itineraries are hand-authored JSON files | JSON files in repo, Supabase for user-generated saves |
+| WebSocket / real-time for chatbot | Unnecessary complexity. Request/response is fine for a chatbot | Standard fetch() to Vercel function |
+| Heavyweight iCal libs (tsdav, caldav-client) | CalDAV protocol support not needed. Just parsing public .ics feeds | ical.js for RFC 5545 parsing |
 
-```javascript
-// 1. GitHub Actions fetches hours daily (6am PT)
-// 2. Stores normalized rules in data/hours.json
-//    { "North Star House": { "rule": "Mo-Fr 10:00-16:00; Sa 10:00-14:00" } }
+---
 
-// 3. Client loads hours.json
-const hoursData = await fetch('data/hours.json').then(r => r.json());
+## Budget Impact
 
-// 4. Check if open
-const venue = hoursData['North Star House'];
-const oh = new opening_hours(venue.rule);
-const isOpen = oh.getState(new Date()); // true/false
-const nextChange = oh.getNextChange(new Date()); // Date or undefined
+| Service | Free Tier | Paid Tier | Estimated Monthly Cost |
+|---------|-----------|-----------|------------------------|
+| Vercel Hobby | 4 CPU-hours, 1M invocations, 100GB bandwidth | N/A (hobby is free) | $0 |
+| Plausible Cloud | 30-day trial only | $9/mo (10K pageviews) | $9 |
+| Supabase Free | 500MB DB, 2GB bandwidth, 500K edge fn invocations | $25/mo Pro (if needed) | $0 |
+| Gemini API Free | 15 RPM, 1M tokens/day | $0.10/$0.40 per 1M tokens | $0 (free tier likely sufficient) |
+| **Total** | | | **$9/mo** |
 
-// 5. Update UI
-marker.setStyle({
-  fillColor: isOpen ? '#2ecc71' : '#e74c3c'
-});
+This fits well within the $19-34/mo budget, leaving room for Supabase Pro ($25) if the free tier is exceeded later.
 
-// 6. Refresh every 60 seconds
-setInterval(() => {
-  const isOpen = oh.getState(new Date());
-  marker.setStyle({ fillColor: isOpen ? '#2ecc71' : '#e74c3c' });
-}, 60000);
-```
-
-**Why:** Hours rarely change (daily fetch sufficient). Calculation is instant. No API calls during browsing.
-
-### Pattern 2: "What events are happening today?"
-
-**Server-side fetch (recommended):**
-
-```javascript
-// GitHub Actions cron (hourly: 7,37 * * * *)
-const todayStart = dayjs.tz('America/Los_Angeles').startOf('day').toISOString();
-const todayEnd = dayjs.tz('America/Los_Angeles').endOf('day').toISOString();
-
-const response = await calendar.events.list({
-  auth: auth,
-  calendarId: 'venue@calendar.google.com',
-  timeMin: todayStart,
-  timeMax: todayEnd,
-  singleEvents: true,
-  orderBy: 'startTime'
-});
-
-// Normalize and write
-const events = response.data.items.map(event => ({
-  venue_id: 'North Star House',
-  title: event.summary,
-  start: event.start.dateTime,
-  end: event.end.dateTime,
-  url: event.htmlLink
-}));
-
-fs.writeFileSync('data/events-today.json', JSON.stringify(events));
-// Commit → Vercel redeploys
-```
-
-**Why:** Calendar API requires auth (can't expose). "Today" defined server-side. Pre-built JSON is instant for visitors.
-
-### Pattern 3: Combined "Happening Now" Filter
-
-```javascript
-// Client-side intersection
-const isOpen = openingHoursCheck(venue);
-const hasEvent = eventsToday.some(e => e.venue_id === venue.id);
-const happeningNow = isOpen && hasEvent;
-
-// Filter map markers
-markers.forEach(marker => {
-  const visible = !happeningNowFilter || marker.venue.happeningNow;
-  marker.setOpacity(visible ? 1 : 0.3);
-});
-```
-
-## API Quotas & Rate Limits
-
-| API | Free Tier | Usage Estimate | Strategy |
-|-----|-----------|----------------|----------|
-| Google Places | $200/mo credit (28,500 requests) | 687 daily = 20,600/mo | Well under limit. Cache hours in JSON. |
-| Google Calendar | 1M queries/day | 240 queries/day (10 venues × 24 hours) | Negligible. Use service account. |
-| GitHub Actions | 2,000 minutes/mo | ~750 minutes/mo (daily + hourly cron) | Safe. 5min/workflow × 25 runs/day. |
-| Vercel | 100 deploys/day | 25 deploys/day (1 daily + 24 hourly) | Safe. Auto-deploy on commit. |
-
-**Rate limiting (Places API):**
-```javascript
-// Add delay between requests to stay under 500 QPM
-const DELAY_MS = 150; // 400 QPM with safety margin
-
-for (const venue of venues) {
-  await fetchPlaceDetails(venue);
-  await new Promise(resolve => setTimeout(resolve, DELAY_MS));
-}
-```
+---
 
 ## Version Compatibility
 
-| Library A | Library B | Notes |
-|-----------|-----------|-------|
-| Day.js 1.11.x | opening_hours.js 3.x | Pass Day.js to opening_hours via `.toDate()`. opening_hours expects native Date. |
-| Day.js | Leaflet 1.9.x / MapLibre 4.x | No conflicts. Day.js is pure JS, map libraries don't touch dates. |
-| @googleapis/calendar 8.x | Node.js 20.x | Requires Node 18+. GitHub Actions ubuntu-latest uses Node 20 LTS. |
-| Google Places API (New) | Google Maps JS API v3 | Places (New) is current. Use `Place.fetchFields()`. Ignore "(Legacy)" docs. |
+| Package | Compatible With | Notes |
+|---------|-----------------|-------|
+| @supabase/supabase-js@2.95.3 | Browser via CDN (UMD) | Verified: `https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2` exposes global `supabase` |
+| ical.js@2.2.1 | Node.js + Browser (ES6 module) | Use server-side in Vercel function. ES5 transpiled version available at unpkg. |
+| Gemini API v1beta | REST (any HTTP client) | No client library needed. Plain `fetch()` from Vercel function. |
+| Plausible script | Any HTML page | Single `<script>` tag. No dependencies. |
+| Vercel Functions | Node.js 20.x | `api/*.js` files auto-deployed. `export default { fetch() {} }` signature. |
 
-## GitHub Actions Schedule
+---
 
-```yaml
-# .github/workflows/fetch-hours.yml
-on:
-  schedule:
-    - cron: '0 14 * * *'  # 6am PT = 2pm UTC
-  workflow_dispatch:      # Manual trigger for testing
+## Integration with Existing Module System
 
-# .github/workflows/fetch-events.yml
-on:
-  schedule:
-    - cron: '7,37 * * * *'  # Every 30min at :07 and :37
-  workflow_dispatch:
+All new client-side code MUST follow the existing pattern:
+
+```javascript
+// index-maplibre-analytics.js
+(function() {
+  'use strict';
+
+  var supabaseClient = window.supabase.createClient(
+    'https://YOUR_PROJECT.supabase.co',
+    'YOUR_ANON_KEY'  // anon key is safe to expose (RLS enforced)
+  );
+
+  function trackEvent(category, action, label) {
+    // Plausible custom event
+    if (window.plausible) {
+      window.plausible(action, { props: { category: category, label: label } });
+    }
+    // Supabase structured event
+    supabaseClient.from('analytics_events').insert({
+      category: category,
+      action: action,
+      label: label,
+      timestamp: new Date().toISOString()
+    });
+  }
+
+  window.CulturalMapAnalytics = {
+    trackEvent: trackEvent
+  };
+})();
 ```
 
-**Why these times:**
-- **6am PT (hours):** Before business hours, after API rate limit resets, low GitHub load
-- **:07 and :37 (events):** Avoid top-of-hour congestion, 30min refresh keeps events current
+Server-side code (Vercel functions, Supabase edge functions) can use modern JS/TS freely since it runs in Node.js/Deno, not the browser.
+
+---
 
 ## Sources
 
-**HIGH Confidence:**
-- Day.js API: Context7 via mcp-client (2026-02-08)
-- Day.js version: https://github.com/iamkun/dayjs/releases
-- opening_hours.js: https://github.com/opening-hours/opening_hours.js (WebFetch 2026-02-08)
-- Google Places fields: https://developers.google.com/maps/documentation/javascript/place-data-fields
-- GitHub Actions checkout v6: https://github.com/actions/checkout
-- GitHub Actions setup-node v6: https://github.com/actions/setup-node
-
-**MEDIUM Confidence:**
-- Business hours patterns: Perplexity (2026-02-08) + opening_hours.js docs
-- Event calendar patterns: Perplexity (2026-02-08) + Google Calendar API docs
-- GitHub Actions cron patterns: Perplexity (2026-02-08) + GitHub docs
-
----
-
-**Critical Decisions:**
-
-1. **Day.js, not Moment.js** — Moment deprecated, 30x larger
-2. **opening_hours.js, not custom parsing** — Edge cases are complex
-3. **Server-side fetch, client-side calculation** — API keys stay secret, performance is instant
-4. **GitHub Actions, not Vercel Cron** — Free vs $20/mo
-5. **Daily hours, hourly events** — Matches data volatility and user expectations
-
-This stack supports 687 venues with "Happening Now" features on zero server infrastructure.
+- **Context7** `/supabase/supabase-js` — CDN usage, insert API, client creation (HIGH confidence)
+- **Context7** `/websites/ai_google_dev_api` — Gemini REST API endpoints, generateContent format (HIGH confidence)
+- **Context7** `/kewisch/ical.js` — Browser usage, VEVENT parsing, RRULE iteration (HIGH confidence)
+- **Context7** `/websites/supabase` — Edge Functions, Deno runtime, deploy commands (HIGH confidence)
+- **CDN package.json** `@supabase/supabase-js@2` — Version 2.95.3 confirmed (HIGH confidence)
+- **CDN package.json** `@google/genai` — Version 1.41.0 confirmed (HIGH confidence)
+- **GitHub** `kewisch/ical.js` — Version 2.2.1, MPL-2.0, active maintenance (HIGH confidence)
+- **Plausible.io** — Pricing $9/mo starter, script tag integration (MEDIUM confidence, marketing page)
+- **Vercel docs** `/docs/functions` — `api/*.js` pattern, Hobby limits, pricing model (HIGH confidence)
+- **Vercel docs** `/docs/functions/limitations` — 4 CPU-hours free, 300s max duration (HIGH confidence)
+- **Gemini pricing page** — $0.10/$0.40 per 1M tokens for 2.0 Flash, free tier details (MEDIUM confidence)
+- **Supabase free tier** — 500MB DB, 500K edge fn invocations (LOW confidence, from training data, verify at supabase.com/pricing)
 
 ---
-*Researched: 2026-02-08*
-*Confidence: HIGH*
+*Stack research for: GVNC Cultural District Experience Platform — Milestone 2 capabilities*
+*Researched: 2026-02-14*
