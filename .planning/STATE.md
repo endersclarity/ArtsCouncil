@@ -2,37 +2,36 @@
 
 ## Project Reference
 
-See: .planning/PROJECT.md (updated 2026-02-07)
+See: .planning/PROJECT.md (updated 2026-02-14)
 
-**Core value:** Enable spontaneous cultural engagement by making it effortless to discover what's open and what's happening at this moment
-
-**Current focus:** Phase 1 - Data Pipeline Setup
+**Core value:** Drive people to downtowns, local businesses, performance venues, and cultural spaces through an editorial-quality interactive experience that feels like MUSE magazine.
+**Current focus:** Phase 1 - Design & Visual Refresh
 
 ## Current Position
 
-Phase: 1 of 4 (Data Pipeline Setup)
-Plan: 01-01 of 02 (in progress)
-Status: In progress
-Last activity: 2026-02-08 — Completed 01-01-PLAN.md (Google Places API hours fetcher)
+Phase: 1 of 7 (Design & Visual Refresh)
+Plan: 0 of 3 in current phase
+Status: Ready to plan
+Last activity: 2026-02-14 -- Roadmap revised (Tier 2 Events moved to Phase 2 for content-first strategy)
 
-Progress: [█░░░░░░░░░] 10%
+Progress: [---------------------] 0%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 1
-- Average duration: 15min
-- Total execution time: 0.25 hours
+- Total plans completed: 0
+- Average duration: -
+- Total execution time: 0 hours
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
-| 01-data-pipeline-setup | 1 | 15min | 15min |
+| - | - | - | - |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (15min)
-- Trend: Baseline (first plan)
+- Last 5 plans: -
+- Trend: -
 
 *Updated after each plan completion*
 
@@ -43,14 +42,14 @@ Progress: [█░░░░░░░░░] 10%
 Decisions are logged in PROJECT.md Key Decisions table.
 Recent decisions affecting current work:
 
-- MapLibre only, skip Leaflet — Focus on flagship version, defer incremental Leaflet updates
-- Hours stored in data.json, not separate file — Keeps data loading simple, hours rarely change
-- One-time hours fetch, not daily refresh — Hours don't change often enough to justify daily API calls
-- Trumba calendar feeds for events (v2) — Public iCal/RSS feeds, no API key required
-- Client-side hours parsing — No backend available, static site architecture
-- Graceful fallback for missing hours — Not all assets have hours (trails, monuments)
-- 150ms rate limiting with exponential backoff — Conservative approach for free tier API limits (01-01)
-- Two-step API flow (Text Search + Place Details) — Required by Google Places API architecture (01-01)
+- [Roadmap]: 7 phases, reordered to prioritize Diana's explicit asks over PRD expansions
+- [Roadmap]: MVP = Phases 1-5 (42 reqs: Design, Tier 2 Events, Itineraries, Copy, AI Concierge) -- delivers everything Diana asked for plus comprehensive content
+- [Roadmap]: Growth = Phases 6-7 (22 reqs: Analytics, Reporting) -- committee value-adds
+- [Roadmap]: Tier 2 Events moved from Phase 6 to Phase 2 -- more content early means better itineraries, better AI answers, better copy decisions
+- [Roadmap]: AI Concierge depends on Phases 2+3 (needs event + itinerary data)
+- [Roadmap]: Copy & Positioning depends on Phases 1+3 (design + itinerary content to review)
+- [Roadmap]: Analytics has no hard upstream dependency, sequenced after MVP for committee value-add
+- [Roadmap]: Reporting depends on Phases 5+6 (needs chatbot logs + analytics data)
 
 ### Pending Todos
 
@@ -58,18 +57,13 @@ None yet.
 
 ### Blockers/Concerns
 
-**Phase 1 Concerns (from research):**
-- Google Places API hours data quality needs validation with sample Nevada County venues
-- API rate limits must be tested with production volume (687 assets)
-- Cost estimate ($50/year) should be verified with actual API calls
-
-**Phase 2 Concerns (deferred to v2):**
-- Event sourcing strategy uncertain (Eventbrite coverage unknown)
-- Manual curation capacity needs validation (Arts Council staff hours/week)
-- Event deduplication complexity needs prototyping
+- Phase 5 (AI Concierge): Gemini free tier may not cover projected token usage at 500 monthly visitors
+- Phase 5 (AI Concierge): data.json needs status/last_verified fields before chatbot can safely recommend venues
+- Phase 2 (Events): LibCal API access for Nevada County Library not yet verified
+- Phase 2 (Events): CivicEngage iCal export assumed but not confirmed for GV/NC municipal sites
 
 ## Session Continuity
 
-Last session: 2026-02-08 (plan execution)
-Stopped at: Completed 01-01-PLAN.md execution (Google Places API hours fetcher)
-Resume file: None (ready to continue with 01-02)
+Last session: 2026-02-14
+Stopped at: Roadmap revised (second revision), ready to plan Phase 1
+Resume file: None
