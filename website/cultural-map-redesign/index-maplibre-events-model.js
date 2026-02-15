@@ -338,6 +338,8 @@
     isWeekendEvent,
     isEventWithinDays,
     eventWindowDays,
+    getDistanceMilesForAssetIdx,
+    compareDistanceMiles,
     dedupeRecurring = true
   }) {
     let filtered = events.filter((event) => isEventUpcoming(event));
@@ -348,6 +350,8 @@
       filtered = filtered.filter((event) => isWeekendEvent(event));
     } else if (eventDateFilter === '14d') {
       filtered = filtered.filter((event) => isEventWithinDays(event, eventWindowDays));
+    } else if (eventDateFilter === 'family') {
+      filtered = filtered.filter((event) => event.is_family === true);
     }
 
     if (eventCategoryFilter !== 'all') {
@@ -359,6 +363,21 @@
 
     if (dedupeRecurring) {
       filtered = dedupeRecurringEvents(filtered);
+    }
+
+    if (typeof getDistanceMilesForAssetIdx === 'function' && typeof compareDistanceMiles === 'function') {
+      filtered = filtered.slice().sort((a, b) => {
+        const aDistance = Number.isInteger(a.matched_asset_idx)
+          ? getDistanceMilesForAssetIdx(a.matched_asset_idx)
+          : null;
+        const bDistance = Number.isInteger(b.matched_asset_idx)
+          ? getDistanceMilesForAssetIdx(b.matched_asset_idx)
+          : null;
+        const distanceDelta = compareDistanceMiles(aDistance, bDistance);
+        if (distanceDelta !== 0) return distanceDelta;
+        if (a._start_ts !== b._start_ts) return a._start_ts - b._start_ts;
+        return String(a.event_id || '').localeCompare(String(b.event_id || ''));
+      });
     }
 
     return filtered;

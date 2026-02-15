@@ -105,10 +105,10 @@
   assertModuleMethods(mapInteractionModel, ['getVisibleAssetFeatureCount', 'getSmartLabelRenderPlan', 'pickIdlePreviewFeature'], 'Missing CulturalMapMapInteractionModel. Ensure index-maplibre-map-interaction-model.js loads before index-maplibre.js');
   assertModuleMethods(mapInitModel, ['getMapStyle', 'getMapInitOptions', 'getHoverPopupOptions'], 'Missing CulturalMapMapInitModel. Ensure index-maplibre-map-init-model.js loads before index-maplibre.js');
   // Geolocation module is optional; if it is missing, distance + location UI will be disabled/no-op.
-  assertModuleMethods(mapDataModel, ['addCountyOutlineLayer', 'storeOriginalPaints', 'buildAssetsGeoJSON', 'refreshAssetSourceHoursStates', 'buildFeatureTooltipHTML'], 'Missing CulturalMapMapDataModel. Ensure index-maplibre-map-data-model.js loads before index-maplibre.js');
+  assertModuleMethods(mapDataModel, ['addCountyOutlineLayer', 'storeOriginalPaints', 'getCategoryIconKey', 'buildAssetsGeoJSON', 'refreshAssetSourceHoursStates', 'buildFeatureTooltipHTML'], 'Missing CulturalMapMapDataModel. Ensure index-maplibre-map-data-model.js loads before index-maplibre.js');
   assertModuleMethods(mapRenderController, ['applyAssetFilters', 'applyAssetPaintStyles', 'recenterAfterFilter'], 'Missing CulturalMapMapRenderController. Ensure index-maplibre-map-render-controller.js loads before index-maplibre.js');
   assertModuleMethods(mapLabelControllerModule, ['createMapLabelController'], 'Missing CulturalMapMapLabelController. Ensure index-maplibre-map-label-controller.js loads before index-maplibre.js');
-  assertModuleMethods(assetLayerDefs, ['getAssetsCircleLayerDef', 'getAssetsHitLayerDef', 'getAssetsMobileLabelsLayerDef'], 'Missing CulturalMapAssetLayerDefs. Ensure index-maplibre-asset-layer-defs.js loads before index-maplibre.js');
+  assertModuleMethods(assetLayerDefs, ['getAssetsCircleLayerDef', 'getAssetsSymbolLayerDef', 'getAssetsHitLayerDef', 'getAssetsMobileLabelsLayerDef'], 'Missing CulturalMapAssetLayerDefs. Ensure index-maplibre-asset-layer-defs.js loads before index-maplibre.js');
   assertModuleMethods(assetInteractions, ['bindAssetInteractions'], 'Missing CulturalMapAssetInteractions. Ensure index-maplibre-asset-interactions.js loads before index-maplibre.js');
   assertModuleMethods(catalogView, ['buildExperienceSelector', 'buildCategoryGrid', 'getExperienceLayoutState'], 'Missing CulturalMapCatalogView. Ensure index-maplibre-catalog-view.js loads before index-maplibre.js');
   assertModuleMethods(experienceModel, ['resolveStops', 'removeCorridorMapLayers', 'applyTheme', 'removeTheme'], 'Missing CulturalMapExperienceModel. Ensure index-maplibre-experience-model.js loads before index-maplibre.js');
@@ -151,6 +151,8 @@
   let lastFocusedEventId = null;
   let lastFocusedMusePlaceId = null;
   const baseDocumentTitle = document.title;
+  const isIntentTheme = document.body.classList.contains('theme-intent');
+  let intentActiveTab = 'categories';
   let exploreController = null;
   let mapFiltersExpanded = false;
   let mapLegendExpanded = false;
@@ -161,6 +163,10 @@
   const LIST_PAGE_SIZE = 30;
   const EVENT_WINDOW_DAYS = 14;
   const PACIFIC_TZ = 'America/Los_Angeles';
+  // Fast rollback switch for marker prototype: set false to return to circle-only markers.
+  const ENABLE_CATEGORY_ICON_MARKERS = true;
+  // Marker style prototype: 'glyph-badge' (current) or 'watercolor-hybrid' (watercolor texture + glyph).
+  const CATEGORY_ICON_MARKER_STYLE = 'glyph-badge';
   let matchedEventsByAsset = new Map();
   let unmatchedEvents = [];
   const eventsCarouselController = eventsCarousel.createEventsCarouselController({
@@ -193,7 +199,27 @@
     fetch('experiences.json').then(r => r.json()).catch(() => []),
     fetch('muse_editorials.json').then((r) => (r.ok ? r.json() : [])).catch(() => []),
     fetch('muse_places.json').then((r) => (r.ok ? r.json() : [])).catch(() => []),
-    fetch('events.json').then(r => r.json()).catch(() => []),
+    fetch('events-merged.json')
+      .then(function(r) {
+        if (!r.ok) return Promise.reject('no merged');
+        return r.json();
+      })
+      .then(function(merged) {
+        var generatedAt = merged && merged.generated_at;
+        if (generatedAt) {
+          var age = Date.now() - new Date(generatedAt).getTime();
+          if (age > 48 * 60 * 60 * 1000) {
+            console.warn('events-merged.json is stale (' + Math.round(age / 3600000) + 'h old), falling back to events.json');
+            return Promise.reject('stale');
+          }
+        }
+        console.log('Loaded merged events:', (merged.events || []).length, 'from', JSON.stringify(merged.source_counts || {}));
+        return merged.events || [];
+      })
+      .catch(function() {
+        console.warn('Falling back to events.json (Trumba only)');
+        return fetch('events.json').then(function(r) { return r.json(); });
+      }),
     fetch('events.index.json').then(r => r.json()).catch(() => null),
     fetch('nevada-county.geojson')
       .then((r) => (r.ok ? r.json() : null))
@@ -262,9 +288,15 @@
     buildList();
     buildMapEventsCategorySelect();
     buildMapEventsList();
+    if (isIntentTheme) {
+      const eventsDetails = document.getElementById('mapEventsDetails');
+      if (eventsDetails) eventsDetails.open = true;
+    }
     ensureMapEventsHint();
     initScrollReveal();
     initMuseShowcase();
+    renderIntentEditorialRail();
+    initIntentDiscoveryTabs();
     bindEvents();
     preloadWatercolors();
 
@@ -302,6 +334,455 @@
   function initMuseShowcase() {
     renderMuseShowcaseSection();
     ensureMuseStoryPanel();
+  }
+
+  function normalizeIntentLookupToken(value) {
+    return String(value || '')
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, ' ')
+      .trim();
+  }
+
+  function findIntentAssetByLabel(label) {
+    const target = normalizeIntentLookupToken(label);
+    if (!target) return null;
+    let hit = (DATA || []).find((asset) => normalizeIntentLookupToken(asset && asset.n) === target) || null;
+    if (hit) return hit;
+    hit = (DATA || []).find((asset) => {
+      const name = normalizeIntentLookupToken(asset && asset.n);
+      return name && (name.includes(target) || target.includes(name));
+    }) || null;
+    return hit;
+  }
+
+  function getIntentImageForLabel(label) {
+    const asset = findIntentAssetByLabel(label);
+    if (!asset || !asset.n || !IMAGE_DATA) return null;
+    const rec = IMAGE_DATA[asset.n];
+    return rec && rec.img ? String(rec.img) : null;
+  }
+
+  function getIntentMosaicImagesForEditorial(editorial) {
+    const fallback = 'img/watercolor/badge.png';
+    const cover = editorial && editorial.cover_image ? String(editorial.cover_image) : fallback;
+    const deepLinks = Array.isArray(editorial && editorial.deep_links) ? editorial.deep_links : [];
+    const relatedMusePlaces = Array.isArray(editorial && editorial.related_muse_place_ids)
+      ? editorial.related_muse_place_ids
+      : [];
+
+    const secondaryLabels = [];
+    deepLinks.forEach((link) => {
+      if (link && link.label) secondaryLabels.push(String(link.label));
+    });
+    relatedMusePlaces.forEach((id) => {
+      const place = MUSE_PLACES_BY_ID.get(String(id));
+      if (place && place.name) secondaryLabels.push(String(place.name));
+    });
+
+    const resolved = [];
+    secondaryLabels.forEach((label) => {
+      if (resolved.length >= 2) return;
+      const img = getIntentImageForLabel(label);
+      if (!img || resolved.includes(img)) return;
+      resolved.push(img);
+    });
+
+    return [
+      cover,
+      resolved[0] || fallback,
+      resolved[1] || cover || fallback
+    ];
+  }
+
+  function getIntentMosaicImagesForRoute(route, fallbackTile) {
+    const fallback = fallbackTile || 'img/watercolor/badge.png';
+    const stopImages = [];
+    const stops = Array.isArray(route && route.stops) ? route.stops : [];
+    stops.forEach((stop) => {
+      if (stopImages.length >= 2) return;
+      const label = stop && stop.asset ? String(stop.asset) : '';
+      const img = getIntentImageForLabel(label);
+      if (!img || stopImages.includes(img)) return;
+      stopImages.push(img);
+    });
+    return [
+      stopImages[0] || fallback,
+      stopImages[1] || fallback,
+      fallback
+    ];
+  }
+
+  function getIntentFeatureMosaicImages(editorial) {
+    const fallback = 'img/watercolor/badge.png';
+    if (!editorial) return [fallback, fallback, fallback];
+    const cover = editorial.cover_image ? String(editorial.cover_image) : fallback;
+    const relatedMusePlaces = Array.isArray(editorial.related_muse_place_ids)
+      ? editorial.related_muse_place_ids
+      : [];
+    const links = Array.isArray(editorial.deep_links) ? editorial.deep_links : [];
+    const resolved = [];
+
+    for (const id of relatedMusePlaces) {
+      const place = MUSE_PLACES_BY_ID.get(String(id));
+      const label = place && place.name ? String(place.name) : '';
+      const img = getIntentImageForLabel(label);
+      if (!img || resolved.includes(img)) continue;
+      resolved.push(img);
+      if (resolved.length >= 3) break;
+    }
+
+    if (resolved.length < 3) {
+      for (const link of links) {
+        const label = link && link.label ? String(link.label) : '';
+        const img = getIntentImageForLabel(label);
+        if (!img || resolved.includes(img)) continue;
+        resolved.push(img);
+        if (resolved.length >= 3) break;
+      }
+    }
+
+    const hero = resolved[0] || cover || fallback;
+    const sideA = resolved[1] || cover || hero;
+    const sideB = resolved[2] || sideA || hero;
+    return [hero, sideA, sideB];
+  }
+
+  function truncateIntentText(value, maxLen = 120) {
+    const text = String(value || '').replace(/\s+/g, ' ').trim();
+    if (!text) return '';
+    if (text.length <= maxLen) return text;
+    return `${text.slice(0, Math.max(0, maxLen - 3))}...`;
+  }
+
+  function attachIntentImageFallbacks(container, fallbackSrc = 'img/watercolor/badge.png') {
+    if (!container) return;
+    const imgs = Array.from(container.querySelectorAll('img'));
+    imgs.forEach((img) => {
+      // Decorative media should not leak alt text into the UI when the source fails.
+      img.alt = '';
+      img.addEventListener('error', () => {
+        if (img.dataset.intentFallbackApplied === '1') return;
+        img.dataset.intentFallbackApplied = '1';
+        img.alt = '';
+        img.src = fallbackSrc;
+      }, { once: true });
+    });
+  }
+
+  function getIntentStripScrollStep(row) {
+    if (!row) return 280;
+    const firstCard = row.querySelector('.intent-strip-card');
+    if (!firstCard) return Math.max(220, Math.round(row.clientWidth * 0.84));
+    const styles = getComputedStyle(row);
+    const gap = parseFloat(styles.columnGap || styles.gap || '0') || 0;
+    return Math.max(220, Math.round(firstCard.getBoundingClientRect().width + gap));
+  }
+
+  function updateIntentStripScrollerState(scroller) {
+    if (!scroller) return;
+    const row = scroller.querySelector('.intent-strip-row');
+    const prevBtn = scroller.querySelector('[data-intent-strip-nav="prev"]');
+    const nextBtn = scroller.querySelector('[data-intent-strip-nav="next"]');
+    if (!row || !prevBtn || !nextBtn) return;
+
+    const maxLeft = Math.max(0, row.scrollWidth - row.clientWidth);
+    const hasOverflow = maxLeft > 2;
+    prevBtn.hidden = !hasOverflow;
+    nextBtn.hidden = !hasOverflow;
+    prevBtn.disabled = !hasOverflow || row.scrollLeft <= 2;
+    nextBtn.disabled = !hasOverflow || row.scrollLeft >= (maxLeft - 2);
+  }
+
+  function refreshIntentStripScrollerStates() {
+    document.querySelectorAll('.intent-strip-scroller').forEach((scroller) => {
+      updateIntentStripScrollerState(scroller);
+    });
+  }
+
+  function initIntentStripScrollers() {
+    const scrollers = Array.from(document.querySelectorAll('.intent-strip-scroller'));
+    scrollers.forEach((scroller) => {
+      if (scroller.dataset.intentStripScrollerInit === '1') return;
+      scroller.dataset.intentStripScrollerInit = '1';
+      const row = scroller.querySelector('.intent-strip-row');
+      const prevBtn = scroller.querySelector('[data-intent-strip-nav="prev"]');
+      const nextBtn = scroller.querySelector('[data-intent-strip-nav="next"]');
+      if (!row || !prevBtn || !nextBtn) return;
+
+      prevBtn.addEventListener('click', () => {
+        const step = getIntentStripScrollStep(row);
+        row.scrollBy({ left: -step, behavior: 'smooth' });
+      });
+      nextBtn.addEventListener('click', () => {
+        const step = getIntentStripScrollStep(row);
+        row.scrollBy({ left: step, behavior: 'smooth' });
+      });
+      row.addEventListener('scroll', () => {
+        updateIntentStripScrollerState(scroller);
+      }, { passive: true });
+
+      updateIntentStripScrollerState(scroller);
+    });
+
+    if (!window.__intentStripScrollerResizeBound) {
+      window.__intentStripScrollerResizeBound = true;
+      window.addEventListener('resize', refreshIntentStripScrollerStates, { passive: true });
+    }
+  }
+
+  function renderIntentFeaturePicks() {
+    const row = document.getElementById('intentFeaturePicksRow');
+    if (!row) return;
+    const picks = (MUSE_EDITORIALS || []).slice(0, 6);
+    if (!picks.length) {
+      row.innerHTML = '<div class="intent-strip-empty">No feature picks available right now.</div>';
+      return;
+    }
+    row.innerHTML = picks.map((item) => {
+      const id = item && item.id ? String(item.id) : '';
+      const eyebrow = item && item.eyebrow ? String(item.eyebrow) : 'Feature pick';
+      const title = item && item.title ? String(item.title) : 'Untitled';
+      const meta = item && item.dek
+        ? String(item.dek)
+        : (item && item.lead_quote && item.lead_quote.text
+          ? String(item.lead_quote.text)
+          : 'Open this feature and jump to places mentioned on the map.');
+      const shortMeta = truncateIntentText(meta, 92);
+      const shortTitle = truncateIntentText(title, 64);
+      const media = getIntentFeatureMosaicImages(item);
+      return `
+        <button class="intent-strip-card intent-strip-card--feature" type="button" data-intent-editorial="${escapeHTML(id)}">
+          <span class="intent-strip-media intent-strip-media--mosaic" aria-hidden="true">
+            <img class="intent-strip-media-a" src="${escapeHTML(media[0])}" alt="" loading="lazy">
+            <img class="intent-strip-media-b" src="${escapeHTML(media[1])}" alt="" loading="lazy">
+            <img class="intent-strip-media-c" src="${escapeHTML(media[2])}" alt="" loading="lazy">
+          </span>
+          <span class="intent-strip-copy">
+            <span class="intent-strip-kicker">${escapeHTML(eyebrow)}</span>
+            <span class="intent-strip-title">${escapeHTML(shortTitle)}</span>
+            <span class="intent-strip-meta">${escapeHTML(shortMeta)}</span>
+          </span>
+        </button>
+      `;
+    }).join('');
+    attachIntentImageFallbacks(row);
+    updateIntentStripScrollerState(row.closest('.intent-strip-scroller'));
+
+    row.querySelectorAll('[data-intent-editorial]').forEach((el) => {
+      el.addEventListener('click', () => {
+        const id = el.getAttribute('data-intent-editorial');
+        if (id) openMuseStory(id);
+      });
+    });
+  }
+
+  function renderIntentEventsPreview() {
+    const row = document.getElementById('intentUpcomingEventsRow');
+    if (!row) return;
+    const events = getFilteredMapEvents()
+      .slice()
+      .sort((a, b) => {
+        const aStart = Number.isFinite(a && a._start_ts) && a._start_ts > 0 ? a._start_ts : Number.MAX_SAFE_INTEGER;
+        const bStart = Number.isFinite(b && b._start_ts) && b._start_ts > 0 ? b._start_ts : Number.MAX_SAFE_INTEGER;
+        if (aStart !== bStart) return aStart - bStart;
+
+        const aDistance = Number.isInteger(a && a.matched_asset_idx)
+          ? getDistanceMilesForAssetIdx(a.matched_asset_idx)
+          : null;
+        const bDistance = Number.isInteger(b && b.matched_asset_idx)
+          ? getDistanceMilesForAssetIdx(b.matched_asset_idx)
+          : null;
+        const distanceDelta = geolocationModel.compareDistanceMiles(aDistance, bDistance);
+        if (distanceDelta !== 0) return distanceDelta;
+
+        return String((a && a.event_id) || '').localeCompare(String((b && b.event_id) || ''));
+      })
+      .slice(0, 60);
+    if (!events.length) {
+      row.innerHTML = '<div class="intent-strip-empty">No upcoming events match these filters.</div>';
+      updateIntentStripScrollerState(row.closest('.intent-strip-scroller'));
+      return;
+    }
+    row.innerHTML = events.map((event) => {
+      const eventId = event && event.event_id ? String(event.event_id) : '';
+      const title = event && event.title ? String(event.title) : 'Untitled event';
+      const venue = event && event.venue_name ? String(event.venue_name) : 'Venue TBD';
+      const when = formatEventDateRange(event);
+      const image = event && event.image_url ? String(event.image_url) : 'img/watercolor/badge.png';
+      const shortTitle = truncateIntentText(title, 76);
+      const shortVenue = truncateIntentText(venue, 56);
+      return `
+        <button class="intent-strip-card intent-strip-card--event" type="button" data-intent-event="${escapeHTML(eventId)}">
+          <img class="intent-strip-thumb intent-strip-thumb--event" src="${escapeHTML(image)}" alt="" loading="lazy">
+          <span class="intent-strip-copy">
+            <span class="intent-strip-kicker">${escapeHTML(shortVenue)}</span>
+            <span class="intent-strip-title">${escapeHTML(shortTitle)}</span>
+            <span class="intent-strip-meta">${escapeHTML(when)}</span>
+          </span>
+        </button>
+      `;
+    }).join('');
+    attachIntentImageFallbacks(row);
+    updateIntentStripScrollerState(row.closest('.intent-strip-scroller'));
+
+    row.querySelectorAll('[data-intent-event]').forEach((el) => {
+      el.addEventListener('click', () => {
+        const eventId = el.getAttribute('data-intent-event');
+        if (eventId) focusEventById(eventId);
+      });
+    });
+  }
+
+  function renderIntentRoutesPreview() {
+    const row = document.getElementById('intentCuratedRoutesRow');
+    if (!row) return;
+    const routes = (EXPERIENCES || []).slice(0, 8);
+    const museCovers = (MUSE_EDITORIALS || [])
+      .map((item) => (item && item.cover_image ? String(item.cover_image) : null))
+      .filter(Boolean);
+    if (!routes.length) {
+      row.innerHTML = '<div class="intent-strip-empty">No curated routes are available yet.</div>';
+      return;
+    }
+    row.innerHTML = routes.map((exp, idx) => {
+      const slug = exp && exp.slug ? String(exp.slug) : '';
+      const title = exp && (exp.title || exp.name) ? String(exp.title || exp.name) : 'Curated route';
+      const type = exp && exp.type ? String(exp.type) : 'route';
+      const subtitle = exp && exp.subtitle ? String(exp.subtitle) : '';
+      const fallbackTile = museCovers.length ? museCovers[idx % museCovers.length] : 'img/watercolor/badge.png';
+      const media = getIntentMosaicImagesForRoute(exp, fallbackTile);
+      return `
+        <button class="intent-strip-card" type="button" data-intent-route="${escapeHTML(slug)}">
+          <span class="intent-strip-media intent-strip-media--mosaic" aria-hidden="true">
+            <img class="intent-strip-media-a" src="${escapeHTML(media[0])}" alt="" loading="lazy">
+            <img class="intent-strip-media-b" src="${escapeHTML(media[1])}" alt="" loading="lazy">
+            <img class="intent-strip-media-c" src="${escapeHTML(media[2])}" alt="" loading="lazy">
+          </span>
+          <span class="intent-strip-copy">
+            <span class="intent-strip-kicker">${escapeHTML(type)}</span>
+            <span class="intent-strip-title">${escapeHTML(title)}</span>
+            <span class="intent-strip-meta">${escapeHTML(subtitle || 'Tap to activate this route on the map.')}</span>
+          </span>
+        </button>
+      `;
+    }).join('');
+    attachIntentImageFallbacks(row);
+    updateIntentStripScrollerState(row.closest('.intent-strip-scroller'));
+
+    row.querySelectorAll('[data-intent-route]').forEach((el) => {
+      el.addEventListener('click', () => {
+        const slug = el.getAttribute('data-intent-route');
+        if (!slug) return;
+        const exp = (EXPERIENCES || []).find((item) => item && String(item.slug) === String(slug));
+        if (exp) activateExperience(exp);
+      });
+    });
+  }
+
+  function renderIntentEditorialRail() {
+    if (!isIntentTheme) return;
+    const listEl = document.getElementById('intentEditorialRailList');
+    if (!listEl) return;
+    const picks = (MUSE_EDITORIALS || []).slice(0, 6);
+    if (!picks.length) {
+      listEl.innerHTML = '<div class="intent-strip-empty">No featured stories available right now.</div>';
+      return;
+    }
+
+    listEl.innerHTML = picks.map((item) => {
+      const id = item && item.id ? String(item.id) : '';
+      const eyebrow = item && item.eyebrow ? String(item.eyebrow) : 'Feature';
+      const title = item && item.title ? String(item.title) : 'Untitled';
+      const quote = item && item.lead_quote && item.lead_quote.text ? String(item.lead_quote.text) : '';
+      const summary = item && item.dek ? String(item.dek) : 'Open the story to explore linked places on the map.';
+      const cover = item && item.cover_image ? String(item.cover_image) : '';
+      return `
+        <article class="intent-editorial-card">
+          <div class="intent-editorial-top">
+            <div class="intent-editorial-thumb-wrap">
+              ${cover
+                ? `<img class="intent-editorial-thumb" src="${escapeHTML(cover)}" alt="${escapeHTML(title)}" loading="lazy">`
+                : '<div class="intent-editorial-thumb placeholder">No image</div>'}
+            </div>
+            <div class="intent-editorial-topcopy">
+              <span class="intent-editorial-kicker">${escapeHTML(eyebrow)}</span>
+              <h4 class="intent-editorial-title">${escapeHTML(title)}</h4>
+            </div>
+          </div>
+          ${quote ? `<p class="intent-editorial-quote">${escapeHTML(quote)}</p>` : ''}
+          <p class="intent-editorial-summary">${escapeHTML(summary)}</p>
+          <button class="intent-editorial-open" type="button" data-intent-editorial-rail="${escapeHTML(id)}">Open story</button>
+        </article>
+      `;
+    }).join('');
+
+    listEl.querySelectorAll('[data-intent-editorial-rail]').forEach((el) => {
+      el.addEventListener('click', () => {
+        const id = el.getAttribute('data-intent-editorial-rail');
+        if (id) openMuseStory(id);
+      });
+    });
+  }
+
+  function refreshIntentDiscoveryContent() {
+    if (!isIntentTheme) return;
+    if (intentActiveTab === 'picks') renderIntentFeaturePicks();
+    if (intentActiveTab === 'events') renderIntentEventsPreview();
+    if (intentActiveTab === 'routes') renderIntentRoutesPreview();
+  }
+
+  function setIntentActiveTab(tabKey, options = {}) {
+    if (!isIntentTheme) return;
+    const next = String(tabKey || 'categories');
+    intentActiveTab = next;
+    const tabs = Array.from(document.querySelectorAll('[data-intent-tab]'));
+    const panes = Array.from(document.querySelectorAll('[data-intent-pane]'));
+
+    tabs.forEach((tab) => {
+      const active = tab.getAttribute('data-intent-tab') === next;
+      tab.classList.toggle('active', active);
+      tab.setAttribute('aria-selected', active ? 'true' : 'false');
+      tab.tabIndex = active ? 0 : -1;
+      if (active && options.focus) tab.focus();
+    });
+
+    panes.forEach((pane) => {
+      const active = pane.getAttribute('data-intent-pane') === next;
+      pane.classList.toggle('active', active);
+      pane.hidden = !active;
+    });
+
+    refreshIntentDiscoveryContent();
+  }
+
+  function initIntentDiscoveryTabs() {
+    if (!isIntentTheme) return;
+    initIntentStripScrollers();
+    const tabList = document.getElementById('intentTabs');
+    if (!tabList) return;
+    const tabs = Array.from(tabList.querySelectorAll('[data-intent-tab]'));
+    if (!tabs.length) return;
+
+    tabs.forEach((tab, index) => {
+      tab.addEventListener('click', () => {
+        const key = tab.getAttribute('data-intent-tab') || 'categories';
+        setIntentActiveTab(key);
+      });
+      tab.addEventListener('keydown', (event) => {
+        if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) return;
+        event.preventDefault();
+        let target = index;
+        if (event.key === 'ArrowRight') target = (index + 1) % tabs.length;
+        if (event.key === 'ArrowLeft') target = (index - 1 + tabs.length) % tabs.length;
+        if (event.key === 'Home') target = 0;
+        if (event.key === 'End') target = tabs.length - 1;
+        const key = tabs[target].getAttribute('data-intent-tab') || 'categories';
+        setIntentActiveTab(key, { focus: true });
+      });
+    });
+
+    setIntentActiveTab('categories');
+    refreshIntentStripScrollerStates();
   }
 
   function ensureMuseStoryPanel() {
@@ -1026,6 +1507,8 @@
       keepPosition,
       skipRotationRestart
     });
+
+    refreshIntentDiscoveryContent();
   }
 
   function renderDetailEvents(venue) {
@@ -1074,15 +1557,15 @@
     if (addonsWrap) addonsWrap.style.display = layout.hasAny ? '' : 'none';
     if (guidesSection) {
       guidesSection.style.display = layout.hasAny ? '' : 'none';
-      guidesSection.open = false;
+      guidesSection.open = !!isIntentTheme;
     }
     if (corridorSection) {
       corridorSection.style.display = layout.corridors.length ? '' : 'none';
-      corridorSection.open = false;
+      corridorSection.open = !!isIntentTheme;
     }
     if (exploreSection) {
       exploreSection.style.display = layout.experiences.length ? '' : 'none';
-      exploreSection.open = false;
+      exploreSection.open = !!isIntentTheme;
     }
     if (guidesCountEl) guidesCountEl.textContent = layout.guidesCountText;
     if (corridorCountEl) corridorCountEl.textContent = layout.corridorCountText;
@@ -1103,6 +1586,8 @@
         }
       }
     });
+
+    refreshIntentDiscoveryContent();
   }
 
   function getActiveExperience() {
@@ -1194,7 +1679,7 @@
       gsap
     });
 
-    map.on('load', () => {
+    map.on('load', async () => {
       // Override style's pitch/bearing with our cinematic defaults
       map.jumpTo({ pitch: 35, bearing: -15 });
 
@@ -1231,7 +1716,7 @@
       addCountyOutlineLayer();
 
       // Add asset data as GeoJSON
-      addAssetLayers();
+      await addAssetLayers();
 
       // Ask once for location and show live user cursor when allowed.
       if (geolocateControl) {
@@ -1271,6 +1756,7 @@
     return mapDataModel.buildAssetsGeoJSON({
       data: DATA,
       cats: CATS,
+      getCategoryIconKey: mapDataModel.getCategoryIconKey,
       getHoursState,
       getHoursLabel,
       getEventCountForAsset14d,
@@ -1338,12 +1824,193 @@
     mapLabelController.scheduleIdlePreview();
   }
 
-  function addAssetLayers() {
+  function stripSvgWrapper(svgMarkup) {
+    const raw = String(svgMarkup || '').trim();
+    if (!raw) return '';
+    return raw
+      .replace(/^<svg[^>]*>/i, '')
+      .replace(/<\/svg>\s*$/i, '');
+  }
+
+  function buildCategoryMarkerSvg({ glyphSvg, markerColor, size = 36 }) {
+    const innerGlyph = stripSvgWrapper(glyphSvg) || '<circle cx="9" cy="9" r="4.5" fill="currentColor"/>';
+    const glyphSize = Math.round(size * 0.5);
+    const glyphOffset = Math.round((size - glyphSize) / 2);
+    return `
+      <svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 ${size} ${size}">
+        <circle cx="${size / 2}" cy="${size / 2}" r="${(size / 2) - 1}" fill="${markerColor}" fill-opacity="0.95" stroke="#ffffff" stroke-width="2.2"/>
+        <svg x="${glyphOffset}" y="${glyphOffset}" width="${glyphSize}" height="${glyphSize}" viewBox="0 0 18 18" color="#ffffff" fill="none" stroke="#ffffff">
+          ${innerGlyph}
+        </svg>
+      </svg>
+    `.trim();
+  }
+
+  function buildGlyphOverlaySvg({ glyphSvg, size = 44 }) {
+    const innerGlyph = stripSvgWrapper(glyphSvg) || '<circle cx="9" cy="9" r="4.5" fill="currentColor"/>';
+    return `
+      <svg xmlns="http://www.w3.org/2000/svg" width="${size}" height="${size}" viewBox="0 0 18 18">
+        <g color="#ffffff" fill="none" stroke="#ffffff" stroke-width="1.5">
+          ${innerGlyph}
+        </g>
+      </svg>
+    `.trim();
+  }
+
+  function makeCanvas(size) {
+    const canvas = document.createElement('canvas');
+    canvas.width = size;
+    canvas.height = size;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) throw new Error('Unable to create canvas context for marker rendering');
+    return { canvas, ctx };
+  }
+
+  async function loadImageElement(src) {
+    return new Promise((resolve, reject) => {
+      const img = new Image();
+      img.decoding = 'async';
+      img.onload = () => resolve(img);
+      img.onerror = () => reject(new Error(`Unable to load image: ${src}`));
+      img.src = src;
+    });
+  }
+
+  async function rasterizeSvgToImageData(svgMarkup, size = 72) {
+    const blob = new Blob([svgMarkup], { type: 'image/svg+xml;charset=utf-8' });
+    const objectUrl = URL.createObjectURL(blob);
+    try {
+      const img = new Image();
+      img.decoding = 'async';
+      img.src = objectUrl;
+      await img.decode();
+
+      const canvas = document.createElement('canvas');
+      canvas.width = size;
+      canvas.height = size;
+      const ctx = canvas.getContext('2d');
+      if (!ctx) throw new Error('Unable to create canvas context for marker icon rasterization');
+      ctx.drawImage(img, 0, 0, size, size);
+      return ctx.getImageData(0, 0, size, size);
+    } finally {
+      URL.revokeObjectURL(objectUrl);
+    }
+  }
+
+  function imageDataToCanvas(imageData) {
+    const { canvas, ctx } = makeCanvas(imageData.width);
+    ctx.putImageData(imageData, 0, 0);
+    return canvas;
+  }
+
+  function drawCoveredImage(ctx, image, size, inset = 0) {
+    const targetSize = Math.max(1, size - inset * 2);
+    const scale = Math.max(targetSize / image.width, targetSize / image.height);
+    const drawW = image.width * scale;
+    const drawH = image.height * scale;
+    const x = (size - drawW) / 2;
+    const y = (size - drawH) / 2;
+    ctx.drawImage(image, x, y, drawW, drawH);
+  }
+
+  async function buildWatercolorHybridMarkerImageData({
+    glyphSvg,
+    markerColor,
+    watercolorSlug,
+    size = 72
+  }) {
+    const { canvas, ctx } = makeCanvas(size);
+    const center = size / 2;
+    const radius = (size / 2) - 2;
+
+    ctx.clearRect(0, 0, size, size);
+    ctx.fillStyle = markerColor;
+    ctx.beginPath();
+    ctx.arc(center, center, radius, 0, Math.PI * 2);
+    ctx.fill();
+
+    if (watercolorSlug) {
+      const texture = await loadImageElement(`img/watercolor/${watercolorSlug}.png`);
+      ctx.save();
+      ctx.beginPath();
+      ctx.arc(center, center, radius - 0.6, 0, Math.PI * 2);
+      ctx.closePath();
+      ctx.clip();
+      drawCoveredImage(ctx, texture, size, 2);
+      ctx.globalAlpha = 0.24;
+      ctx.fillStyle = markerColor;
+      ctx.fillRect(0, 0, size, size);
+      ctx.restore();
+    }
+
+    ctx.strokeStyle = '#ffffff';
+    ctx.lineWidth = 2.4;
+    ctx.beginPath();
+    ctx.arc(center, center, radius - 0.9, 0, Math.PI * 2);
+    ctx.stroke();
+
+    ctx.strokeStyle = 'rgba(26,22,18,0.25)';
+    ctx.lineWidth = 1;
+    ctx.beginPath();
+    ctx.arc(center, center, radius + 0.2, 0, Math.PI * 2);
+    ctx.stroke();
+
+    const glyphData = await rasterizeSvgToImageData(buildGlyphOverlaySvg({ glyphSvg, size: 44 }), 44);
+    const glyphCanvas = imageDataToCanvas(glyphData);
+    const glyphOffset = Math.round((size - glyphData.width) / 2);
+    ctx.drawImage(glyphCanvas, glyphOffset, glyphOffset);
+
+    return ctx.getImageData(0, 0, size, size);
+  }
+
+  async function registerCategoryMarkerIcons() {
+    if (!ENABLE_CATEGORY_ICON_MARKERS || !map) return 0;
+    let loadedCount = 0;
+    const layerNames = Object.keys(CATS || {});
+
+    for (const layerName of layerNames) {
+      const key = mapDataModel.getCategoryIconKey(layerName);
+      if (map.hasImage(key)) {
+        loadedCount += 1;
+        continue;
+      }
+      const cfg = CATS[layerName] || {};
+      const glyphSvg = ICONS[layerName] || '';
+
+      try {
+        const imageData = CATEGORY_ICON_MARKER_STYLE === 'watercolor-hybrid'
+          ? await buildWatercolorHybridMarkerImageData({
+              glyphSvg,
+              markerColor: cfg.color || '#4a6b7c',
+              watercolorSlug: cfg.watercolor || 'badge',
+              size: 72
+            })
+          : await rasterizeSvgToImageData(buildCategoryMarkerSvg({
+              glyphSvg,
+              markerColor: cfg.color || '#4a6b7c'
+            }), 72);
+        map.addImage(key, imageData, { pixelRatio: 2 });
+        loadedCount += 1;
+      } catch (err) {
+        console.warn(`[Markers] Failed to register icon for "${layerName}"`, err);
+      }
+    }
+
+    return loadedCount;
+  }
+
+  async function addAssetLayers() {
     const geojson = buildAssetsGeoJSON();
 
     map.addSource('assets', { type: 'geojson', data: geojson });
 
     map.addLayer(assetLayerDefs.getAssetsCircleLayerDef());
+
+    const loadedIconCount = await registerCategoryMarkerIcons();
+    if (loadedIconCount > 0) {
+      map.addLayer(assetLayerDefs.getAssetsSymbolLayerDef());
+    }
+
     map.addLayer(assetLayerDefs.getAssetsHitLayerDef());
 
     if (isCoarsePointer) {
@@ -1478,11 +2145,15 @@
       cats: CATS,
       icons: ICONS,
       hexToRgba,
+      includeAllOption: isIntentTheme,
+      hideCounts: isIntentTheme,
+      hideActiveLabel: isIntentTheme,
+      disableDimming: isIntentTheme,
       onCategoryClick: (name) => {
         setCategory(name);
-        document.getElementById('mapSection').scrollIntoView({ behavior: 'smooth' });
       }
     });
+    filterUI.syncCategoryCards({ cardElements, activeCategories });
   }
 
   // ============================================================
@@ -1505,7 +2176,7 @@
 
   function buildMapLegend() {
     const panel = document.getElementById('mapLegendPanel');
-    filterUI.buildMapLegend({ panelEl: panel, cats: CATS });
+    filterUI.buildMapLegend({ panelEl: panel, cats: CATS, icons: ICONS });
   }
 
   function setMapFiltersExpanded(expanded) {
@@ -1584,6 +2255,7 @@
   // ============================================================
   function updateActiveBanner() {
     const banner = document.getElementById('mapActiveBanner');
+    if (!banner) return;
     const state = filterStateModel.getActiveBannerState({
       data: DATA,
       activeCategories,
@@ -1597,9 +2269,12 @@
       banner.classList.remove('visible');
       return;
     }
-    document.getElementById('mapActiveDot').style.background = state.dotColor;
-    document.getElementById('mapActiveCount').textContent = state.count;
-    document.getElementById('mapActiveName').textContent = state.label;
+    const dotEl = document.getElementById('mapActiveDot');
+    const countEl = document.getElementById('mapActiveCount');
+    const nameEl = document.getElementById('mapActiveName');
+    if (dotEl) dotEl.style.background = state.dotColor;
+    if (countEl) countEl.textContent = state.count;
+    if (nameEl) nameEl.textContent = state.label;
     banner.classList.add('visible');
   }
 
@@ -1611,10 +2286,28 @@
   let categoryResultsTitleEl = null;
   let categoryResultsCountEl = null;
   let categoryResultsSortEl = null;
+  let categoryResultsToggleBtn = null;
   let categoryResultsLocateBtn = null;
   let categoryResultsCloseBtn = null;
   let categoryResultsCurrentKey = null;
   let categoryResultsDismissedKey = null;
+  let categoryResultsExpandedMobile = false;
+
+  function isCategoryResultsMobileViewport() {
+    return !!(window.matchMedia && window.matchMedia('(max-width: 900px)').matches);
+  }
+
+  function applyCategoryResultsLayoutState() {
+    if (!categoryResultsPanelEl) return;
+    const isMobile = isCategoryResultsMobileViewport();
+    const isCompact = isMobile && !categoryResultsExpandedMobile;
+    categoryResultsPanelEl.classList.toggle('compact-mobile', isCompact);
+    if (categoryResultsToggleBtn) {
+      categoryResultsToggleBtn.hidden = !isMobile;
+      categoryResultsToggleBtn.setAttribute('aria-expanded', isCompact ? 'false' : 'true');
+      categoryResultsToggleBtn.textContent = isCompact ? 'Expand list' : 'Compact';
+    }
+  }
 
 	  function ensureCategoryResultsPanel() {
     if (categoryResultsPanelEl) return;
@@ -1637,6 +2330,7 @@
           </div>
         </div>
         <div class="category-results-actions">
+          <button class="category-results-btn toggle" type="button" id="categoryResultsToggle" aria-controls="categoryResultsList" aria-expanded="false">Expand list</button>
           <button class="category-results-btn locate" type="button" id="categoryResultsLocate">Locate</button>
           <button class="category-results-btn close" type="button" id="categoryResultsClose" aria-label="Close">&times;</button>
         </div>
@@ -1650,6 +2344,7 @@
     categoryResultsTitleEl = panel.querySelector('#categoryResultsTitle');
     categoryResultsCountEl = panel.querySelector('#categoryResultsCount');
     categoryResultsSortEl = panel.querySelector('#categoryResultsSort');
+    categoryResultsToggleBtn = panel.querySelector('#categoryResultsToggle');
     categoryResultsLocateBtn = panel.querySelector('#categoryResultsLocate');
     categoryResultsCloseBtn = panel.querySelector('#categoryResultsClose');
 
@@ -1657,6 +2352,15 @@
       categoryResultsCloseBtn.addEventListener('click', () => {
         categoryResultsDismissedKey = categoryResultsCurrentKey;
         hideCategoryResultsPanel();
+      });
+    }
+
+    if (categoryResultsToggleBtn) {
+      categoryResultsToggleBtn.addEventListener('click', (event) => {
+        event.stopPropagation();
+        if (!isCategoryResultsMobileViewport()) return;
+        categoryResultsExpandedMobile = !categoryResultsExpandedMobile;
+        applyCategoryResultsLayoutState();
       });
     }
 
@@ -1670,6 +2374,11 @@
         }
       });
     }
+
+    if (!window.__categoryResultsResizeBound) {
+      window.__categoryResultsResizeBound = true;
+      window.addEventListener('resize', applyCategoryResultsLayoutState, { passive: true });
+    }
   }
 
   function hideCategoryResultsPanel() {
@@ -1680,6 +2389,7 @@
 
   function showCategoryResultsPanel() {
     if (!categoryResultsPanelEl) return;
+    applyCategoryResultsLayoutState();
     categoryResultsPanelEl.classList.add('visible');
     categoryResultsPanelEl.setAttribute('aria-hidden', 'false');
   }
@@ -1765,11 +2475,15 @@
 	    } else {
 	      categoryResultsCurrentKey = null;
 	      categoryResultsDismissedKey = null;
+	      categoryResultsExpandedMobile = false;
 	      hideCategoryResultsPanel();
 	      return;
 	    }
 
 	    const key = overlayKey;
+	    if (categoryResultsCurrentKey !== key) {
+	      categoryResultsExpandedMobile = false;
+	    }
 	    categoryResultsCurrentKey = key;
 
 	    if (categoryResultsDismissedKey === key) {
