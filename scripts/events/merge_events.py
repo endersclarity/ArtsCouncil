@@ -2,8 +2,8 @@
 """
 Merge, deduplicate, and classify events from multiple sources.
 
-Combines Trumba, LibCal, and CivicEngage event feeds into a single
-deduplicated events-merged.json with family-friendly classification.
+Combines Trumba, LibCal, CivicEngage, KVMR, and GVDA event feeds into a
+single deduplicated events-merged.json with family-friendly classification.
 
 Also outputs events-merged-flat.json (bare JSON array) for compatibility
 with build_event_index.py which expects isinstance(events, list).
@@ -27,6 +27,8 @@ from rapidfuzz.fuzz import token_sort_ratio
 DEFAULT_TRUMBA_FILE = Path("website/cultural-map-redesign/events.json")
 DEFAULT_LIBCAL_FILE = Path("website/cultural-map-redesign/events-libcal.json")
 DEFAULT_CIVICENGAGE_FILE = Path("website/cultural-map-redesign/events-civicengage.json")
+DEFAULT_KVMR_FILE = Path("website/cultural-map-redesign/events-kvmr.json")
+DEFAULT_GVDA_FILE = Path("website/cultural-map-redesign/events-gvda.json")
 DEFAULT_OUTPUT_FILE = Path("website/cultural-map-redesign/events-merged.json")
 DEFAULT_FLAT_OUTPUT_FILE = Path("website/cultural-map-redesign/events-merged-flat.json")
 DEFAULT_FAMILY_KEYWORDS = Path("scripts/events/family_keywords.json")
@@ -37,8 +39,10 @@ DEFAULT_TZ = "America/Los_Angeles"
 # Source priority for dedup: lower = preferred
 SOURCE_PRIORITY = {
     "trumba": 0,
-    "libcal": 1,
-    "civicengage": 2,
+    "gvda": 1,
+    "libcal": 2,
+    "kvmr": 3,
+    "civicengage": 4,
 }
 
 
@@ -63,6 +67,18 @@ def parse_args() -> argparse.Namespace:
         type=Path,
         default=DEFAULT_CIVICENGAGE_FILE,
         help=f"CivicEngage events file (default: {DEFAULT_CIVICENGAGE_FILE})",
+    )
+    parser.add_argument(
+        "--kvmr-file",
+        type=Path,
+        default=DEFAULT_KVMR_FILE,
+        help=f"KVMR events file (default: {DEFAULT_KVMR_FILE})",
+    )
+    parser.add_argument(
+        "--gvda-file",
+        type=Path,
+        default=DEFAULT_GVDA_FILE,
+        help=f"GVDA events file (default: {DEFAULT_GVDA_FILE})",
     )
     parser.add_argument(
         "--output-file",
@@ -133,10 +149,16 @@ def get_source_type(event: dict[str, Any]) -> str:
         return "libcal"
     if event_id.startswith("civic-"):
         return "civicengage"
+    if event_id.startswith("gvda-"):
+        return "gvda"
+    if event_id.startswith("kvmr-"):
+        return "kvmr"
     # Fallback: check source_type field
     source_type = event.get("source_type", "")
     if source_type == "feed":
         return "trumba"
+    if source_type == "json":
+        return "gvda"
     if source_type == "ical":
         return "libcal"
     if source_type == "rss":
@@ -368,15 +390,21 @@ def main() -> int:
     trumba_events = load_source_events(args.trumba_file, "trumba")
     libcal_events = load_source_events(args.libcal_file, "libcal")
     civicengage_events = load_source_events(args.civicengage_file, "civicengage")
+    kvmr_events = load_source_events(args.kvmr_file, "kvmr")
+    gvda_events = load_source_events(args.gvda_file, "gvda")
 
     source_counts = {
         "trumba": len(trumba_events),
+        "gvda": len(gvda_events),
         "libcal": len(libcal_events),
+        "kvmr": len(kvmr_events),
         "civicengage": len(civicengage_events),
     }
 
     print(f"Source counts: trumba={source_counts['trumba']}, "
+          f"gvda={source_counts['gvda']}, "
           f"libcal={source_counts['libcal']}, "
+          f"kvmr={source_counts['kvmr']}, "
           f"civicengage={source_counts['civicengage']}", file=sys.stderr)
 
     # Step 2: Normalize -- ensure Trumba events have source fields
@@ -384,7 +412,7 @@ def main() -> int:
         ensure_trumba_fields(event)
 
     # Combine all events
-    all_events = trumba_events + libcal_events + civicengage_events
+    all_events = trumba_events + libcal_events + civicengage_events + kvmr_events + gvda_events
 
     if not all_events:
         print("[WARN] No events from any source!", file=sys.stderr)
