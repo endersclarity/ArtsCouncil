@@ -19,7 +19,7 @@
     return `Category: ${eventCategoryFilter}`;
   }
 
-  function getEventsCardsHTML({ events, escapeHTML, formatEventDateRange, getEventDisplayDescription }) {
+  function getEventsCardsHTML({ events, escapeHTML, formatEventDateRange, getEventDisplayDescription, getDistanceLabelForEvent }) {
     return events.map((event) => {
       const mapped = Number.isInteger(event.matched_asset_idx);
       const title = escapeHTML(event.title || 'Untitled event');
@@ -39,6 +39,16 @@
       const seriesBadge = seriesCount > 1
         ? `<span class="map-event-badge series">${seriesCount} dates</span>`
         : '';
+      const distanceLabel = typeof getDistanceLabelForEvent === 'function'
+        ? getDistanceLabelForEvent(event)
+        : '';
+      const distanceBadge = distanceLabel
+        ? `<span class="map-event-badge distance">${escapeHTML(distanceLabel)}</span>`
+        : '';
+      const sourceLabel = event.source_label || '';
+      const sourceBadge = sourceLabel && sourceLabel !== 'Nevada County Arts Council'
+        ? `<span class="map-event-badge source">${escapeHTML(sourceLabel)}</span>`
+        : '';
       return `
         <div class="map-event-item ${mapped ? 'mapped' : 'unmapped'}" data-event-id="${escapeHTML(event.event_id || '')}">
           ${imageHTML}
@@ -48,6 +58,8 @@
             <span>${eventTime}</span>
             <span class="map-event-venue">${venueName}</span>
             ${seriesBadge}
+            ${distanceBadge}
+            ${sourceBadge}
             ${badge}
           </div>
           ${ticket}
@@ -56,7 +68,7 @@
     }).join('');
   }
 
-  function getEventsRowsHTML({ events, escapeHTML, formatEventDateRange }) {
+  function getEventsRowsHTML({ events, escapeHTML, formatEventDateRange, getDistanceLabelForEvent }) {
     return events.map((event) => {
       const mapped = Number.isInteger(event.matched_asset_idx);
       const title = escapeHTML(event.title || 'Untitled event');
@@ -70,6 +82,16 @@
       const seriesBadge = seriesCount > 1
         ? `<span class="map-event-badge series">${seriesCount} dates</span>`
         : '';
+      const distanceLabel = typeof getDistanceLabelForEvent === 'function'
+        ? getDistanceLabelForEvent(event)
+        : '';
+      const distanceBadge = distanceLabel
+        ? `<span class="map-event-badge distance">${escapeHTML(distanceLabel)}</span>`
+        : '';
+      const sourceLabel = event.source_label || '';
+      const sourceBadge = sourceLabel && sourceLabel !== 'Nevada County Arts Council'
+        ? `<span class="map-event-badge source">${escapeHTML(sourceLabel)}</span>`
+        : '';
       return `
         <div class="map-event-row ${mapped ? 'mapped' : 'unmapped'}" data-event-id="${escapeHTML(event.event_id || '')}">
           <div class="map-event-row-title">${title}</div>
@@ -77,6 +99,8 @@
             <span>${eventTime}</span>
             <span class="map-event-venue">${venueName}</span>
             ${seriesBadge}
+            ${distanceBadge}
+            ${sourceBadge}
             ${badge}
           </div>
           ${ticket}
