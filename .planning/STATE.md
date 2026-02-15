@@ -5,16 +5,16 @@
 See: .planning/PROJECT.md (updated 2026-02-14)
 
 **Core value:** Drive people to downtowns, local businesses, performance venues, and cultural spaces through an editorial-quality interactive experience that feels like MUSE magazine.
-**Current focus:** Phase 3 COMPLETE (2/2 plans done). Next: Phase 4 (Copy & Positioning). Deadline Wed Feb 18.
+**Current focus:** Phase 5 (AI Concierge) — Plan 1 COMPLETE (server infra). Plan 2 next (chat UI widget). Phase 4 (Copy) moved to final polish. Deadline Wed Feb 18.
 
 ## Current Position
 
-Phase: 03 (Itineraries) -- COMPLETE
-Plan: 2 of 2 complete
-Status: Full itinerary feature shipped — 3 trip plans, hero cards, detail overlay, map routes, calendar export, deep linking, mobile swipe. Verified in browser.
-Last activity: 2026-02-15 -- Completed 03-02-PLAN.md (view/controller/wiring) + browser verification.
+Phase: 05 (AI Concierge) -- IN PROGRESS
+Plan: 1 of 2 complete
+Status: Server infrastructure shipped — knowledge pack build, /api/chat serverless function, Supabase logging, rate limiting. Next: chat UI widget (05-02).
+Last activity: 2026-02-15 -- Completed 05-01-PLAN.md (server infra).
 
-Progress: [██████████░░░░░░░░░░] ~50% overall
+Progress: [████████████░░░░░░░░] ~60% overall
 
 ## What's Actually Shipped
 
@@ -53,11 +53,20 @@ Progress: [██████████░░░░░░░░░░] ~50% ov
 - Mutual exclusion with experience/corridor system
 - Browser verified: all 9 checks pass, zero console errors
 
+### Phase 5: AI Concierge (50% — 1/2 plans)
+- 1/2 plans complete (05-01: server infra)
+- chat-knowledge-pack.json: 191KB compressed corpus (685 assets, 6 editorials, 3 itineraries, 176 events)
+- /api/chat Vercel Serverless Function: Gemini 2.0 Flash proxy with tourism-only system prompt
+- Input sanitization, Supabase logging, session-based rate limiting
+- package.json with @google/generative-ai + @supabase/supabase-js
+- CORS headers in vercel.json for /api/* routes
+- Next: 05-02 (chat UI widget)
+
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 7 (Phase 2: 3, Phase 2.1: 2, Phase 3: 2 — Phase 1 plans obsolete)
-- Average duration: 3min per plan
+- Total plans completed: 8 (Phase 2: 3, Phase 2.1: 2, Phase 3: 2, Phase 5: 1 — Phase 1 plans obsolete)
+- Average duration: 3.5min per plan
 
 **By Phase:**
 
@@ -67,6 +76,7 @@ Progress: [██████████░░░░░░░░░░] ~50% ov
 | 2 | 3/3 | 9min | 3min | Claude Code via GSD |
 | 2.1 | 2/2 | 5min | 2.5min | Claude Code via GSD |
 | 3 | 2/2 | 12min | 6min | Claude Code via GSD |
+| 5 | 1/2 | 4min | 4min | Claude Code via GSD |
 
 ## Accumulated Context
 
@@ -91,6 +101,10 @@ Recent decisions affecting current work:
 - [Phase 3]: Itinerary routes reuse corridor-map.js (no duplicate rendering code)
 - [Phase 3]: CSS injected from view IIFE rather than separate CSS file
 - [Phase 3]: Mutual exclusion: each controller (experience/itinerary) deactivates the other on activation
+- [Phase 5]: Gemini 2.0 Flash (not 3.0) — model name matches current SDK availability
+- [Phase 5]: Asset descriptions truncated to 40 chars (not 80) to keep knowledge pack under 200KB
+- [Phase 5]: MUSE editorials compressed (summary fields only, body dropped) for token budget
+- [Phase 5]: Website URLs dropped from asset compression for size budget
 
 ### Roadmap Evolution
 
@@ -108,6 +122,8 @@ Recent decisions affecting current work:
 - **GVDA rich tags not surfaced:** GVDA events have tags like Music/Concert, Children/Family, Beer/Wine/Food but the category dropdown only shows asset layer categories. Event tags should map to or extend the dropdown.
 - **KVMR events have no tags:** iCal feed has no category metadata. Relies on weak keyword inference from titles. May need manual tagging or better inference rules.
 - **Stardust Station + local creative directories:** Reach out about API or submission form. If their content exists online in a directory, it should be on the Arts Council page. Also get local creative feedback on coverage gaps.
+- **Itinerary "Show on Map" UX is broken:** Clicking "Show on Map" zooms the map behind the modal — user has to close the modal to see where it pointed, and even then it's not obvious. Needs: modal should collapse/minimize to reveal the map zoom, and the asset's detail side-panel should open with full bio info for the selected stop. The flow should be: click "Show on Map" → modal collapses → map zooms to stop → detail panel slides in with asset info.
+- **In-house trip builder / personal calendar (BRAINSTORM):** Let visitors build their own itinerary using our UI — pick stops, set times, arrange days. Then export the whole batch to Google Calendar (or other) in one action. Strong preference to avoid requiring sign-in/accounts. Possible approaches: localStorage-only (no account needed, persists per device), shareable URL encoding (trip plan encoded in query string), or cookie-based session. Needs design thinking on UX and whether accountless persistence is sufficient.
 
 ### Blockers/Concerns
 
@@ -120,5 +136,5 @@ Recent decisions affecting current work:
 ## Session Continuity
 
 Last session: 2026-02-15
-Stopped at: Completed Phase 3 (Itineraries) — all plans executed, browser verified, VERIFICATION passed.
-Resume file: .planning/phases/03-itineraries/03-VERIFICATION.md
+Stopped at: Completed 05-01-PLAN.md (AI Concierge server infrastructure). Next: 05-02-PLAN.md (chat UI widget).
+Resume file: .planning/phases/05-ai-concierge/05-02-PLAN.md
