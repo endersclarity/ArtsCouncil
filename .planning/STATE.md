@@ -10,11 +10,11 @@ See: .planning/PROJECT.md (updated 2026-02-14)
 ## Current Position
 
 Phase: 2 of 7 (Tier 2 Events)
-Plan: 1 of 3 executed
-Status: Plan 02-01 complete -- LibCal iCal and CivicEngage RSS ingest scripts created and verified. Ready for Plan 02-02 (merge/dedup pipeline).
-Last activity: 2026-02-14 -- Created two event ingest scripts following ingest_trumba_rss.py conventions
+Plan: 2 of 3 executed
+Status: Plan 02-02 complete -- Merge/dedup/classify pipeline and daily GitHub Actions cron workflow created. Ready for Plan 02-03 (client integration).
+Last activity: 2026-02-14 -- Created merge_events.py, family_keywords.json, refresh-events.yml
 
-Progress: [############---------] ~57%
+Progress: [##############-------] ~67%
 
 ## Performance Metrics
 
@@ -28,10 +28,10 @@ Progress: [############---------] ~57%
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 1 | 3 (superseded) | ~3h | ~1h |
-| 2 | 1 of 3 | 4min | 4min |
+| 2 | 2 of 3 | 7min | 3.5min |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (superseded), 01-02 (superseded), 01-03 (expanded to layout rebuild), 02-01 (4min)
+- Last 5 plans: 01-01 (superseded), 01-02 (superseded), 01-03 (expanded to layout rebuild), 02-01 (4min), 02-02 (3min)
 - Trend: Data pipeline plans execute quickly when research is thorough
 
 *Updated after each plan completion*
@@ -53,6 +53,9 @@ Recent decisions affecting current work:
 - [Phase 2]: CivicEngage RSS published_parsed is post date, not event date -- must use calendarevent_eventdates field
 - [Phase 2]: LibCal event IDs include date suffix to differentiate recurring instances
 - [Phase 2]: Only Nevada City Events Calendar in CivicEngage feeds (skip government meetings)
+- [Phase 2]: Dual output: events-merged.json (wrapped) for client, events-merged-flat.json (bare array) for build_event_index.py
+- [Phase 2]: Dedup thresholds: title>=85, venue>=70 via rapidfuzz; empty venue = match on title alone
+- [Phase 2]: Source priority for dedup: Trumba > LibCal > CivicEngage
 
 ### Pending Todos
 
@@ -72,5 +75,5 @@ Recent decisions affecting current work:
 ## Session Continuity
 
 Last session: 2026-02-14
-Stopped at: Completed 02-01-PLAN.md (Tier 2 event ingest scripts). Ready for 02-02-PLAN.md (merge/dedup pipeline).
-Resume file: .planning/phases/02-tier-2-events/02-01-SUMMARY.md
+Stopped at: Completed 02-02-PLAN.md (merge/dedup/classify pipeline + daily cron). Ready for 02-03-PLAN.md (client integration).
+Resume file: .planning/phases/02-tier-2-events/02-02-SUMMARY.md
