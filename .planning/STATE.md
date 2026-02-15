@@ -5,16 +5,16 @@
 See: .planning/PROJECT.md (updated 2026-02-14)
 
 **Core value:** Drive people to downtowns, local businesses, performance venues, and cultural spaces through an editorial-quality interactive experience that feels like MUSE magazine.
-**Current focus:** Phase 3 (Itineraries) in progress. Plan 1 of 2 complete. Deadline Wed Feb 18.
+**Current focus:** Phase 3 COMPLETE (2/2 plans done). Next: Phase 4 (Copy & Positioning). Deadline Wed Feb 18.
 
 ## Current Position
 
-Phase: 03 (Itineraries)
-Plan: 1 of 2 complete
-Status: Itinerary data layer complete (3 itineraries, model, calendar). Plan 02 (view/controller) next.
-Last activity: 2026-02-15 -- Completed 03-01-PLAN.md (itinerary data layer).
+Phase: 03 (Itineraries) -- COMPLETE
+Plan: 2 of 2 complete
+Status: Full itinerary feature shipped — 3 trip plans, hero cards, detail overlay, map routes, calendar export, deep linking, mobile swipe. Verified in browser.
+Last activity: 2026-02-15 -- Completed 03-02-PLAN.md (view/controller/wiring) + browser verification.
 
-Progress: [████████░░░░░░░░░░░░] ~40% overall
+Progress: [██████████░░░░░░░░░░] ~50% overall
 
 ## What's Actually Shipped
 
@@ -41,16 +41,22 @@ Progress: [████████░░░░░░░░░░░░] ~40% ov
 - GitHub Actions daily cron updated with all 5 ingest steps
 - Priority order: trumba > gvda > libcal > kvmr > civicengage
 
-### Phase 3: Itineraries (Plan 1/2 complete)
+### Phase 3: Itineraries (100%)
+- 2/2 plans complete
 - itineraries.json: 3 curated trip plans (1-day/7 stops, 2-day/13 stops, 3-day/20 stops)
 - itinerary-model.js: stop resolution by exact name match, day grouping, map coord extraction
 - itinerary-calendar.js: Google Calendar URL generation with Pacific timezone
+- itinerary-view.js: hero cards, detail overlay with day tabs, stop cards, mobile scroll-snap
+- itinerary-controller.js: activation lifecycle, map route via corridor-map, GSAP animations, deep link
 - All 40 stops validated against data.json — zero unresolved references
+- Deep link: ?itinerary=perfect-day
+- Mutual exclusion with experience/corridor system
+- Browser verified: all 9 checks pass, zero console errors
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 6 (Phase 2: 3, Phase 2.1: 2, Phase 3: 1 — Phase 1 plans obsolete)
+- Total plans completed: 7 (Phase 2: 3, Phase 2.1: 2, Phase 3: 2 — Phase 1 plans obsolete)
 - Average duration: 3min per plan
 
 **By Phase:**
@@ -60,7 +66,7 @@ Progress: [████████░░░░░░░░░░░░] ~40% ov
 | 1 | 0/3 (obsolete) | N/A | N/A | Codex (OpenAI) built layout outside GSD |
 | 2 | 3/3 | 9min | 3min | Claude Code via GSD |
 | 2.1 | 2/2 | 5min | 2.5min | Claude Code via GSD |
-| 3 | 1/2 | 5min | 5min | Claude Code via GSD |
+| 3 | 2/2 | 12min | 6min | Claude Code via GSD |
 
 ## Accumulated Context
 
@@ -82,6 +88,9 @@ Recent decisions affecting current work:
 - [Phase 3]: Itinerary stops use exact case-insensitive name match (not fuzzy .includes()) against data.json
 - [Phase 3]: Google Calendar URLs use ctz=America/Los_Angeles with local time (no Z suffix)
 - [Phase 3]: Smart quotes (U+2019) in data.json asset names must be preserved in itineraries.json
+- [Phase 3]: Itinerary routes reuse corridor-map.js (no duplicate rendering code)
+- [Phase 3]: CSS injected from view IIFE rather than separate CSS file
+- [Phase 3]: Mutual exclusion: each controller (experience/itinerary) deactivates the other on activation
 
 ### Roadmap Evolution
 
@@ -111,5 +120,5 @@ Recent decisions affecting current work:
 ## Session Continuity
 
 Last session: 2026-02-15
-Stopped at: Completed 03-01-PLAN.md (itinerary data layer). Plan 02 (view/controller) next.
-Resume file: .planning/phases/03-itineraries/03-01-SUMMARY.md
+Stopped at: Completed Phase 3 (Itineraries) — all plans executed, browser verified, VERIFICATION passed.
+Resume file: .planning/phases/03-itineraries/03-VERIFICATION.md
