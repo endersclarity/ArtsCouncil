@@ -5,16 +5,16 @@
 See: .planning/PROJECT.md (updated 2026-02-14)
 
 **Core value:** Drive people to downtowns, local businesses, performance venues, and cultural spaces through an editorial-quality interactive experience that feels like MUSE magazine.
-**Current focus:** Phase 2 - Tier 2 Events (multi-source event aggregation pipeline)
+**Current focus:** Phase 2 complete. Ready for Phase 3.
 
 ## Current Position
 
-Phase: 2 of 7 (Tier 2 Events)
-Plan: 2 of 3 executed
-Status: Plan 02-02 complete -- Merge/dedup/classify pipeline and daily GitHub Actions cron workflow created. Ready for Plan 02-03 (client integration).
-Last activity: 2026-02-14 -- Created merge_events.py, family_keywords.json, refresh-events.yml
+Phase: 2 of 7 (Tier 2 Events) -- COMPLETE
+Plan: 3 of 3 executed
+Status: Phase 02 complete -- All 3 plans executed: ingest scripts, merge/dedup pipeline, client integration with source badges and family filter.
+Last activity: 2026-02-14 -- Wired events-merged.json into client with fallback loading, source badges, Family & Kids filter chip.
 
-Progress: [##############-------] ~67%
+Progress: [#####################] 100% (Phase 2)
 
 ## Performance Metrics
 
@@ -28,10 +28,10 @@ Progress: [##############-------] ~67%
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
 | 1 | 3 (superseded) | ~3h | ~1h |
-| 2 | 2 of 3 | 7min | 3.5min |
+| 2 | 3 of 3 | 9min | 3min |
 
 **Recent Trend:**
-- Last 5 plans: 01-01 (superseded), 01-02 (superseded), 01-03 (expanded to layout rebuild), 02-01 (4min), 02-02 (3min)
+- Last 5 plans: 01-02 (superseded), 01-03 (expanded to layout rebuild), 02-01 (4min), 02-02 (3min), 02-03 (2min)
 - Trend: Data pipeline plans execute quickly when research is thorough
 
 *Updated after each plan completion*
@@ -56,6 +56,9 @@ Recent decisions affecting current work:
 - [Phase 2]: Dual output: events-merged.json (wrapped) for client, events-merged-flat.json (bare array) for build_event_index.py
 - [Phase 2]: Dedup thresholds: title>=85, venue>=70 via rapidfuzz; empty venue = match on title alone
 - [Phase 2]: Source priority for dedup: Trumba > LibCal > CivicEngage
+- [Phase 2]: Source badge hidden for Trumba (default source) to reduce visual noise
+- [Phase 2]: Family filter reuses data-event-filter chip mechanism for consistency
+- [Phase 2]: 48h staleness threshold for events-merged.json before fallback to Trumba-only
 
 ### Pending Todos
 
@@ -75,5 +78,5 @@ Recent decisions affecting current work:
 ## Session Continuity
 
 Last session: 2026-02-14
-Stopped at: Completed 02-02-PLAN.md (merge/dedup/classify pipeline + daily cron). Ready for 02-03-PLAN.md (client integration).
-Resume file: .planning/phases/02-tier-2-events/02-02-SUMMARY.md
+Stopped at: Completed 02-03-PLAN.md (client integration). Phase 02 (Tier 2 Events) fully complete. Ready for Phase 03.
+Resume file: .planning/phases/02-tier-2-events/02-03-SUMMARY.md
