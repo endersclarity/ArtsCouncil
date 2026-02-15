@@ -128,6 +128,7 @@
   let DATA = [];
   let IMAGE_DATA = {};
   let EXPERIENCES = [];
+  let ITINERARIES = [];
   let MUSE_EDITORIALS = [];
   let MUSE_EDITORIALS_BY_ID = new Map();
   let MUSE_PLACES = [];
@@ -223,11 +224,13 @@
     fetch('events.index.json').then(r => r.json()).catch(() => null),
     fetch('nevada-county.geojson')
       .then((r) => (r.ok ? r.json() : null))
-      .catch(() => null)
-  ]).then(([data, images, experiences, museEditorials, musePlaces, events, eventIndex, countyOutline]) => {
+      .catch(() => null),
+    fetch('itineraries.json').then(r => r.json()).catch(() => [])
+  ]).then(([data, images, experiences, museEditorials, musePlaces, events, eventIndex, countyOutline, itinerariesData]) => {
     DATA = data;
     IMAGE_DATA = images;
     EXPERIENCES = experiences;
+    ITINERARIES = Array.isArray(itinerariesData) ? itinerariesData : [];
     MUSE_EDITORIALS = Array.isArray(museEditorials) ? museEditorials : [];
     MUSE_EDITORIALS_BY_ID = new Map(
       MUSE_EDITORIALS
@@ -299,6 +302,7 @@
     initIntentDiscoveryTabs();
     bindEvents();
     preloadWatercolors();
+    initItinerarySystem();
 
     // Deep-linking: allow browser back/forward to restore URL-driven state.
     window.addEventListener('popstate', () => {
@@ -1128,11 +1132,13 @@
 	      }
 	    }
 
+	    const activeItinerary = window.CulturalMapItineraryController ? CulturalMapItineraryController.getActiveItineraryId() : null;
 	    return {
 	      cats,
 	      open: !!openNowMode,
 	      events14d: !!events14dMode,
 	      experience: activeExp && activeExp.slug ? String(activeExp.slug) : null,
+	      itinerary: activeItinerary ? String(activeItinerary) : null,
 	      muse,
 	      pid,
 	      idx,
@@ -1151,6 +1157,7 @@
 	      open: state.open,
 	      events14d: state.events14d,
 	      experience: state.experience,
+	      itinerary: state.itinerary,
 	      muse: state.muse,
 	      pid: state.muse ? null : state.pid,
 	      idx: state.muse || state.pid ? null : state.idx,
@@ -1177,6 +1184,18 @@
       return;
     }
     document.title = baseDocumentTitle;
+  }
+
+  function initItinerarySystem() {
+    if (window.CulturalMapItineraryController && ITINERARIES.length) {
+      CulturalMapItineraryController.initItineraries({
+        itineraries: ITINERARIES,
+        data: DATA,
+        map: map,
+        heroContainer: document.getElementById('itineraryHeroCards'),
+        overlayContainer: document.getElementById('itineraryOverlay')
+      });
+    }
   }
 
   function findExperienceBySlug(slug) {
@@ -1258,6 +1277,7 @@
 	    const openEnabled = parsed.open === '1';
 	    const eventsEnabled = parsed.events14d === '1';
 	    const expSlug = parsed.experience ? String(parsed.experience) : '';
+	    const itinerarySlug = parsed.itinerary ? String(parsed.itinerary) : '';
 	    const focusMuse = parsed.muse ? String(parsed.muse) : '';
 	    const focusEvent = parsed.event ? String(parsed.event) : '';
 	    const focusPid = parsed.pid ? String(parsed.pid) : '';
@@ -1301,6 +1321,13 @@
         if (exp) activateExperience(exp);
       } else if (experienceController && experienceController.getActiveExperience()) {
         deactivateExperience();
+      }
+
+      // Itinerary (URL is source of truth)
+      if (itinerarySlug && window.CulturalMapItineraryController) {
+        CulturalMapItineraryController.activateItinerary(itinerarySlug);
+      } else if (window.CulturalMapItineraryController && CulturalMapItineraryController.getActiveItineraryId()) {
+        CulturalMapItineraryController.deactivateItinerary();
       }
 
 	      // Focus target (URL is source of truth)

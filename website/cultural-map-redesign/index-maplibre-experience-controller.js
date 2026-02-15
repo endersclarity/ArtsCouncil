@@ -179,6 +179,10 @@
     }
 
     function activateExperience(experience) {
+      // Deactivate any active itinerary to prevent both being active simultaneously
+      if (window.CulturalMapItineraryController) {
+        CulturalMapItineraryController.deactivateItinerary();
+      }
       activeExperience = experience;
       clearMapLabelStates();
       updateMobileLabelLayerVisibility();
