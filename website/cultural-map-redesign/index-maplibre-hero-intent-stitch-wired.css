@@ -1,0 +1,115 @@
+/*
+  Stitch-wired visual overrides for functional clone page.
+  This file is layered on top of index-maplibre-hero-intent.css.
+*/
+
+:root {
+  --stitch-navy: #0f1e37;
+  --stitch-cream: #f8f5ef;
+  --stitch-coral: #ff6f52;
+}
+
+body.theme-intent {
+  background: var(--stitch-cream);
+}
+
+.mast.mast--intent {
+  background: linear-gradient(135deg, #0c1a33 0%, #122649 70%, #1a2f56 100%);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+.edition {
+  background: rgba(255, 111, 82, 0.16);
+  border-color: rgba(255, 111, 82, 0.55);
+}
+
+.cover-grid {
+  border-color: rgba(16, 33, 61, 0.1);
+  box-shadow: 0 20px 44px rgba(14, 24, 45, 0.1);
+}
+
+.cover {
+  background:
+    linear-gradient(130deg, rgba(10, 18, 33, 0.64), rgba(10, 18, 33, 0.18)),
+    url("mockups/generated/editorial-hero-town-1.png") center / cover no-repeat;
+}
+
+.cover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(0deg, rgba(9, 16, 29, 0.42) 0%, rgba(9, 16, 29, 0) 42%),
+    linear-gradient(90deg, rgba(9, 16, 29, 0.18) 0%, rgba(9, 16, 29, 0) 50%);
+  pointer-events: none;
+}
+
+.toc {
+  background: linear-gradient(165deg, #1d4f90 0%, #2f6dbc 56%, #377bd1 100%);
+  border-color: #2f6dbc;
+}
+
+.toc-title span,
+.toc .intent-tab[aria-selected="true"],
+.toc .intent-tab.active {
+  color: #ffdf61;
+}
+
+.spread .panel,
+.spread .stack .story-card {
+  border-color: rgba(16, 33, 61, 0.12);
+  box-shadow: 0 14px 32px rgba(14, 24, 45, 0.09);
+}
+
+.story-card--editorial {
+  position: relative;
+  overflow: hidden;
+}
+
+.story-card--editorial::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(12, 23, 43, 0.14) 0%, rgba(12, 23, 43, 0.3) 100%),
+    url("mockups/generated/editorial-feature-events-1.png") center / cover no-repeat;
+  opacity: 0.18;
+  pointer-events: none;
+}
+
+.story-card--events {
+  background: #fff;
+}
+
+.map-panel-head .pill {
+  background: var(--stitch-coral);
+  color: #fff;
+}
+
+.map-active-banner {
+  border-color: rgba(255, 111, 82, 0.28);
+  background: linear-gradient(90deg, rgba(255, 111, 82, 0.12), rgba(255, 223, 97, 0.1));
+}
+
+.explore-section {
+  background: linear-gradient(135deg, #0d1c36 0%, #152b51 100%);
+  border-radius: 16px;
+  padding: 1rem;
+}
+
+.explore-header .section-tag,
+.explore-header .section-heading,
+.explore-list-wrapper,
+.explore-list-back,
+.explore-results-count {
+  color: #fff;
+}
+
+.explore-search {
+  background: rgba(255, 255, 255, 0.94);
+}
+
+.colophon {
+  border-top-color: rgba(16, 33, 61, 0.14);
+}
+
