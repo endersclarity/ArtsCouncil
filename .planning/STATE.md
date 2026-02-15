@@ -5,33 +5,34 @@
 See: .planning/PROJECT.md (updated 2026-02-14)
 
 **Core value:** Drive people to downtowns, local businesses, performance venues, and cultural spaces through an editorial-quality interactive experience that feels like MUSE magazine.
-**Current focus:** Phase 1 - Design & Visual Refresh
+**Current focus:** Phase 2 - Tier 2 Events (multi-source event aggregation pipeline)
 
 ## Current Position
 
-Phase: 1 of 7 (Design & Visual Refresh)
-Plan: 0 of 3 in current phase
-Status: Ready to plan
-Last activity: 2026-02-14 -- Roadmap revised (Tier 2 Events moved to Phase 2 for content-first strategy)
+Phase: 2 of 7 (Tier 2 Events)
+Plan: 1 of 3 executed
+Status: Plan 02-01 complete -- LibCal iCal and CivicEngage RSS ingest scripts created and verified. Ready for Plan 02-02 (merge/dedup pipeline).
+Last activity: 2026-02-14 -- Created two event ingest scripts following ingest_trumba_rss.py conventions
 
-Progress: [---------------------] 0%
+Progress: [############---------] ~57%
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 0
+- Total plans completed: 3 (superseded by layout rebuild)
 - Average duration: -
-- Total execution time: 0 hours
+- Total execution time: ~3 hours (design exploration + token swap + layout rebuild)
 
 **By Phase:**
 
 | Phase | Plans | Total | Avg/Plan |
 |-------|-------|-------|----------|
-| - | - | - | - |
+| 1 | 3 (superseded) | ~3h | ~1h |
+| 2 | 1 of 3 | 4min | 4min |
 
 **Recent Trend:**
-- Last 5 plans: -
-- Trend: -
+- Last 5 plans: 01-01 (superseded), 01-02 (superseded), 01-03 (expanded to layout rebuild), 02-01 (4min)
+- Trend: Data pipeline plans execute quickly when research is thorough
 
 *Updated after each plan completion*
 
@@ -42,28 +43,34 @@ Progress: [---------------------] 0%
 Decisions are logged in PROJECT.md Key Decisions table.
 Recent decisions affecting current work:
 
+- [Phase 1]: Original GSD plans (token swaps) produced no visible change — thrown out in favor of structural layout rebuild
+- [Phase 1]: Design direction locked: `mockups/phase1-landscape-mag-overhaul.html` (magazine layout DNA)
+- [Phase 1]: Work done on WIP copies only — canonical files untouched until user approves
+- [Phase 1]: Layout structure: wrap → dark navy mast → cover-grid (image + TOC) → spread (map + story cards) → notes grid
 - [Roadmap]: 7 phases, reordered to prioritize Diana's explicit asks over PRD expansions
-- [Roadmap]: MVP = Phases 1-5 (42 reqs: Design, Tier 2 Events, Itineraries, Copy, AI Concierge) -- delivers everything Diana asked for plus comprehensive content
-- [Roadmap]: Growth = Phases 6-7 (22 reqs: Analytics, Reporting) -- committee value-adds
-- [Roadmap]: Tier 2 Events moved from Phase 6 to Phase 2 -- more content early means better itineraries, better AI answers, better copy decisions
-- [Roadmap]: AI Concierge depends on Phases 2+3 (needs event + itinerary data)
-- [Roadmap]: Copy & Positioning depends on Phases 1+3 (design + itinerary content to review)
-- [Roadmap]: Analytics has no hard upstream dependency, sequenced after MVP for committee value-add
-- [Roadmap]: Reporting depends on Phases 5+6 (needs chatbot logs + analytics data)
+- [Roadmap]: MVP = Phases 1-5; Growth = Phases 6-7
+- [Roadmap]: Phase 2 (Tier 2 Events) is NOT affected by Phase 1 layout change — event data pipeline is layout-independent
+- [Phase 2]: CivicEngage RSS published_parsed is post date, not event date -- must use calendarevent_eventdates field
+- [Phase 2]: LibCal event IDs include date suffix to differentiate recurring instances
+- [Phase 2]: Only Nevada City Events Calendar in CivicEngage feeds (skip government meetings)
 
 ### Pending Todos
 
-None yet.
+- Visual consistency sweep (base CSS conflicts with new magazine layout styles)
+- Mobile testing at 375px width
+- Copy audit for remaining "cultural asset" language
+- Copy WIP files → canonical when approved
+- Summaries written: 01-01-SUMMARY.md, 01-02-SUMMARY.md, 01-03-SUMMARY.md
 
 ### Blockers/Concerns
 
 - Phase 5 (AI Concierge): Gemini free tier may not cover projected token usage at 500 monthly visitors
 - Phase 5 (AI Concierge): data.json needs status/last_verified fields before chatbot can safely recommend venues
-- Phase 2 (Events): LibCal API access for Nevada County Library not yet verified
-- Phase 2 (Events): CivicEngage iCal export assumed but not confirmed for GV/NC municipal sites
+- ~~Phase 2 (Events): LibCal API access for Nevada County Library not yet verified~~ RESOLVED: LibCal iCal feed verified, 70 events fetched
+- ~~Phase 2 (Events): CivicEngage iCal export assumed but not confirmed for GV/NC municipal sites~~ RESOLVED: CivicEngage RSS verified, low-volume but working
 
 ## Session Continuity
 
 Last session: 2026-02-14
-Stopped at: Roadmap revised (second revision), ready to plan Phase 1
-Resume file: None
+Stopped at: Completed 02-01-PLAN.md (Tier 2 event ingest scripts). Ready for 02-02-PLAN.md (merge/dedup pipeline).
+Resume file: .planning/phases/02-tier-2-events/02-01-SUMMARY.md
