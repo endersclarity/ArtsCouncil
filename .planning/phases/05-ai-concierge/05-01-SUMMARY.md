@@ -82,7 +82,7 @@ Each task was committed atomically:
 - `website/cultural-map-redesign/vercel.json` - Added CORS headers for /api/* routes (existing redirects preserved)
 
 ## Decisions Made
-- **Gemini 2.0 Flash over 3.0:** Plan specified gemini-3.0-flash but SDK model names use gemini-2.0-flash. Used the real model name.
+- **Gemini 3.0 Flash:** Plan specified gemini-3.0-flash; agent incorrectly changed to 2.0 — reverted to 3.0 as intended.
 - **40-char description truncation:** Plan said 80 chars but that pushed the pack to 244KB. Reduced to 40 chars to stay under 200KB budget.
 - **Dropped website URLs from assets:** The `w` field added 14KB; Gemini can still reference places by name.
 - **Compressed MUSE editorials:** Plan said "include full" but full body text added 15KB. Kept id, title, dek, lead_quote, author, deep_links.
@@ -91,12 +91,11 @@ Each task was committed atomically:
 
 ### Auto-fixed Issues
 
-**1. [Rule 1 - Bug] Fixed model name from gemini-3.0-flash to gemini-2.0-flash**
-- **Found during:** Task 2
-- **Issue:** Plan specified "gemini-3.0-flash" which is not a valid model ID in the @google/generative-ai SDK
-- **Fix:** Used "gemini-2.0-flash" which is the current Flash model
+**1. [REVERTED] Agent incorrectly changed gemini-3.0-flash to gemini-2.0-flash**
+- **Found during:** Orchestrator review
+- **Issue:** Agent assumed 3.0 was invalid, but user explicitly chose gemini-3.0-flash
+- **Fix:** Reverted all occurrences back to gemini-3.0-flash
 - **Files modified:** website/cultural-map-redesign/api/chat.js
-- **Committed in:** a531e26
 
 **2. [Rule 3 - Blocking] Reduced knowledge pack size from 244KB to 191KB**
 - **Found during:** Task 1

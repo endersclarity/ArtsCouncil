@@ -204,7 +204,7 @@ module.exports = async function handler(req, res) {
     // Build Gemini chat
     const genAI = new GoogleGenerativeAI(apiKey);
     const model = genAI.getGenerativeModel({
-      model: 'gemini-2.0-flash',
+      model: 'gemini-3.0-flash',
       systemInstruction: SYSTEM_PROMPT
     });
 
@@ -234,7 +234,7 @@ module.exports = async function handler(req, res) {
 
     return res.status(200).json({
       reply: responseText,
-      model: 'gemini-2.0-flash',
+      model: 'gemini-3.0-flash',
       duration_ms: durationMs
     });
 
