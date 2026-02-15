@@ -14,7 +14,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 
 - [~] **Phase 1: Design & Visual Refresh** - Lock visual direction and ship MUSE-adjacent aesthetic across all surfaces *(~60% — layout shipped by Codex, map broken)*
 - [x] **Phase 2: Tier 2 Events** - Triple event coverage by aggregating LibCal and CivicEngage feeds alongside Trumba
-- [ ] **Phase 02.1: KVMR + GVDA Event Source Ingestion** - Add KVMR iCal and GVDA Trumba JSON feeds to close event coverage gaps before Wednesday demo
+- [x] **Phase 02.1: KVMR + GVDA Event Source Ingestion** - Add KVMR iCal and GVDA Trumba JSON feeds to close event coverage gaps before Wednesday demo
 - [ ] **Phase 3: Itineraries** - Authored multi-day trip plans that visitors can browse, follow on the map, and export to calendar
 - [ ] **Phase 4: Copy & Positioning** - Reframe all text to drive visitors downtown, not into the woods
 - [ ] **Phase 5: AI Concierge** - Gemini-powered chatbot that answers "what should I do tonight?" grounded in MUSE content
@@ -66,8 +66,8 @@ Plans:
 **Plans:** 2 plans
 
 Plans:
-- [ ] 02.1-01-PLAN.md — KVMR iCal and GVDA Trumba JSON ingest scripts (Wave 1)
-- [ ] 02.1-02-PLAN.md — Merge pipeline extension and GitHub Actions workflow update (Wave 2)
+- [x] 02.1-01-PLAN.md — KVMR iCal and GVDA Trumba JSON ingest scripts (Wave 1)
+- [x] 02.1-02-PLAN.md — Merge pipeline extension and GitHub Actions workflow update (Wave 2)
 
 ### Phase 3: Itineraries
 **Goal**: Visitors can browse curated 1/2/3-day trip plans with stop-by-stop narratives, see the route on the map, and add stops to their calendar
@@ -167,7 +167,7 @@ Phases execute in numeric order: 1 -> 2 -> 2.1 -> 3 -> 4 -> 5 -> 6 -> 7
 |-------|----------------|--------|-----------|
 | 1. Design & Visual Refresh | 0/3 (plans obsolete) | ~60% — Codex built layout, map broken, mobile untested | - |
 | 2. Tier 2 Events | 3/3 | COMPLETE — pipeline + client integration shipped | 2026-02-14 |
-| 02.1. KVMR + GVDA Events | 0/2 | Planned — 2 plans in 2 waves | - |
+| 02.1. KVMR + GVDA Events | 2/2 | COMPLETE — 5-source pipeline, 176 events (+47%) | 2026-02-15 |
 | 3. Itineraries | 0/3 | Not started | - |
 | 4. Copy & Positioning | 0/3 | Not started | - |
 | 5. AI Concierge | 0/3 | Not started | - |
