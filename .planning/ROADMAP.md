@@ -79,12 +79,11 @@ Plans:
   3. The map displays the itinerary route with numbered stop markers when an itinerary is active
   4. Each stop has an "Add to Google Calendar" link that creates a correctly-timed event in Pacific timezone
   5. Navigating to ?itinerary=<id> opens the specific itinerary directly (deep link works)
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 03-01: Itinerary data schema and 3 authored itineraries (content authoring)
-- [ ] 03-02: Itinerary model, view, and controller modules (MVC)
-- [ ] 03-03: Map route rendering, calendar export, deep linking, and mobile swipe view
+- [ ] 03-01-PLAN.md — Itinerary data (itineraries.json) + model + calendar utility (Wave 1)
+- [ ] 03-02-PLAN.md — View, controller, HTML wiring, deep link, mobile swipe + verification (Wave 2)
 
 ### Phase 4: Copy & Positioning
 **Goal**: All user-facing text positions the platform as the Experience Planning Committee's digital tool, emphasizing downtowns, galleries, dining, and performances over nature
@@ -168,7 +167,7 @@ Phases execute in numeric order: 1 -> 2 -> 2.1 -> 3 -> 4 -> 5 -> 6 -> 7
 | 1. Design & Visual Refresh | 0/3 (plans obsolete) | ~60% — Codex built layout, map broken, mobile untested | - |
 | 2. Tier 2 Events | 3/3 | COMPLETE — pipeline + client integration shipped | 2026-02-14 |
 | 02.1. KVMR + GVDA Events | 2/2 | COMPLETE — 5-source pipeline, 176 events (+47%) | 2026-02-15 |
-| 3. Itineraries | 0/3 | Not started | - |
+| 3. Itineraries | 0/2 | Planned | - |
 | 4. Copy & Positioning | 0/3 | Not started | - |
 | 5. AI Concierge | 0/3 | Not started | - |
 | 6. Analytics Foundation | 0/3 | Not started | - |
