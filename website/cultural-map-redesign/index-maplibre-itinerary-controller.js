@@ -60,10 +60,8 @@
     if (!id) return;
 
     // Deactivate any currently active experience
-    if (typeof window.CulturalMapExperienceController !== 'undefined') {
-      // The experience controller is factory-based; the actual instance is on the main module
-      // We'll rely on the main app's deactivateExperience being called or the experience controller
-      // having a global deactivate reference. The experience-controller edit handles the reverse.
+    if (window.CulturalMapExperienceController && window.CulturalMapExperienceController.deactivateExperience) {
+      window.CulturalMapExperienceController.deactivateExperience();
     }
 
     // Deactivate current itinerary if different
