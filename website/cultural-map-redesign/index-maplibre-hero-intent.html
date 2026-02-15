@@ -39,7 +39,7 @@
 <section class="cover-grid" aria-label="Cover and navigation">
   <article class="cover">
     <div class="cover-tag">Nevada County Cultural District</div>
-    <div class="cover-headline">Your Guide<br>to Local<br>Culture</div>
+    <div class="cover-headline">Explore<br>the District</div>
   </article>
 
   <aside class="toc">
@@ -439,6 +439,15 @@
 <script src="index-maplibre-page-effects.js"></script>
 <script src="index-maplibre-bindings.js"></script>
 <script src="index-maplibre.js"></script>
+<script src="index-maplibre-chat-view.js"></script>
+<script src="index-maplibre-chat-controller.js"></script>
+<script src="index-maplibre-chat-widget.js"></script>
+<script>
+  // Initialize chat widget after page loads
+  if (window.CulturalMapChatWidget) {
+    window.CulturalMapChatWidget.init();
+  }
+</script>
 <div id="itineraryOverlay" class="itinerary-overlay"></div>
 </body>
 </html>
