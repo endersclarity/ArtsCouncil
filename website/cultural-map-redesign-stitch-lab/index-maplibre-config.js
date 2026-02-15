@@ -1,0 +1,38 @@
+(function() {
+  'use strict';
+
+  const MAPTILER_KEY = 'LrWxywMynJX4Y3SvVJby';
+
+  // SVG icons per category (inline, 18x18 viewBox)
+  const ICONS = {
+    'Historic Landmarks': '<svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M9 2L2 7h14L9 2z"/><rect x="4" y="7" width="10" height="8"/><rect x="7" y="10" width="4" height="5"/><line x1="2" y1="15" x2="16" y2="15"/></svg>',
+    'Eat, Drink & Stay': '<svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 2v6c0 2 2 3 4 3v5M14 2v4c0 1.5-1.5 2.5-3 2.5V14m0 0v2m0-2h0M14 2c0 2-1 3-3 3"/><circle cx="7" cy="14" r="1.5"/></svg>',
+    'Arts Organizations': '<svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="9" cy="9" r="6"/><path d="M6 9c0-2 1.5-3.5 3-3.5s3 1.5 3 3.5-1.5 3.5-3 3.5S6 11 6 9z"/><path d="M9 5.5v7"/></svg>',
+    'Cultural Resources': '<svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="3" y="2" width="12" height="14" rx="1"/><line x1="6" y1="5" x2="12" y2="5"/><line x1="6" y1="8" x2="12" y2="8"/><line x1="6" y1="11" x2="10" y2="11"/></svg>',
+    'Fairs & Festivals': '<svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M9 2l1.5 3 3.5.5-2.5 2.5.5 3.5L9 10l-3 1.5.5-3.5L4 5.5l3.5-.5z"/></svg>',
+    'Galleries & Museums': '<svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="2" y="4" width="14" height="11" rx="1"/><path d="M2 8h14"/><circle cx="7" cy="11" r="2"/><path d="M11 9l3 4"/></svg>',
+    'Walks & Trails': '<svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 15c2-3 4-5 6-8s3-3 6-5"/><circle cx="14" cy="4" r="1.5"/><path d="M5 13l-2 1m4-3l-2 1"/></svg>',
+    'Public Art': '<svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M9 3c-4 0-6 3-6 6 0 2 1 3 2 3 1.5 0 1.5-2 3-2s1.5 2 3 2 2-1 2-3c0-3-2-6-4-6z"/><circle cx="6" cy="8" r="1" fill="currentColor"/><circle cx="10" cy="7" r="1" fill="currentColor"/><circle cx="8" cy="10" r="1" fill="currentColor"/></svg>',
+    'Performance Spaces': '<svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 3h10l2 3v1H2V6l2-3z"/><path d="M3 7v7c0 1 1 2 2 2h8c1 0 2-1 2-2V7"/><path d="M7 10h4v3H7z"/></svg>',
+    'Preservation & Culture': '<svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M9 2C6 2 3 5 3 9c0 3 2 5.5 4 6.5L9 16l2-.5c2-1 4-3.5 4-6.5 0-4-3-7-6-7z"/><path d="M9 6v4l2.5 1.5"/></svg>',
+  };
+
+  const CATS = {
+    'Historic Landmarks':        { color: '#8b2500', short: 'Landmarks', watercolor: 'landmarks' },
+    'Eat, Drink & Stay':         { color: '#a67830', short: 'Eat & Drink', watercolor: 'eat-drink' },
+    'Arts Organizations':        { color: '#2d4a3e', short: 'Arts Orgs', watercolor: 'arts' },
+    'Cultural Resources':        { color: '#3a5f7c', short: 'Cultural', watercolor: 'cultural' },
+    'Fairs & Festivals':         { color: '#a0522d', short: 'Festivals', watercolor: 'fairs' },
+    'Galleries & Museums':       { color: '#6b4e71', short: 'Galleries', watercolor: 'galleries' },
+    'Walks & Trails':            { color: '#4a7c5f', short: 'Trails', watercolor: 'walks' },
+    'Public Art':                { color: '#c45d3e', short: 'Public Art', watercolor: 'publicart' },
+    'Performance Spaces':        { color: '#2a6496', short: 'Performance', watercolor: 'performance' },
+    'Preservation & Culture':    { color: '#5c5020', short: 'Preservation', watercolor: 'preservation' },
+  };
+
+  window.CulturalMapConfig = {
+    MAPTILER_KEY,
+    ICONS,
+    CATS
+  };
+})();

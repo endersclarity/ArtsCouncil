@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Hero Mockup — Intent / Search First</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=DM+Sans:ital,wght@0,400;0,600;0,800;1,400&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./hero-mockups.css" />
+  </head>
+  <body data-variant="intent">
+    <div class="wrap">
+      <div class="mockupTopbar" role="banner" aria-label="Mockup header">
+        <div class="brand">
+          <div class="badge" aria-hidden="true"></div>
+          <div class="name">The Culture of Nevada County</div>
+        </div>
+        <div class="pillRow" aria-label="Quick actions">
+          <div class="pill">Fast search</div>
+          <div class="pill">Preset intents</div>
+          <div class="pill">Shareable links</div>
+        </div>
+      </div>
+
+      <div class="intentGrid">
+        <div class="card searchCard">
+          <div class="kicker">Find something right now</div>
+          <h1 class="h1" style="margin-top:8px">What are you in the mood for?</h1>
+          <p class="sub">
+            The hero stops explaining the product. It asks a question, then moves you into the map with a preset.
+          </p>
+
+          <div class="searchRow" role="search" aria-label="Search mock">
+            <input type="search" placeholder="Search: venue, town, keyword (e.g., 'theater', 'coffee', 'trail')" aria-label="Search" />
+            <a class="btn primary" href="../index-maplibre.html#mapSection">Search map</a>
+          </div>
+
+          <div class="presetRow" aria-label="Preset intents">
+            <span class="preset hot">Open now</span>
+            <span class="preset teal">Live music</span>
+            <span class="preset gold">Museums</span>
+            <span class="preset teal">Easy hike</span>
+            <span class="preset hot">Family-friendly</span>
+            <span class="preset gold">Historic landmark</span>
+          </div>
+
+          <div class="grid2" style="margin-top:14px">
+            <div class="miniTip">
+              <b>Shortcut</b>
+              <span>Pick a preset, land on the map with the relevant filters already on.</span>
+            </div>
+            <div class="miniTip">
+              <b>Share</b>
+              <span>Open a detail panel and send the URL. Friends get the exact same state.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mapStub" aria-label="Map preview mock" style="margin-top:0">
+          <div class="mapStubHeader">
+            <div class="left">
+              <span class="dot" aria-hidden="true"></span>
+              <span class="title">Explore the Map</span>
+            </div>
+            <div class="pillRow" aria-hidden="true">
+              <div class="pill">Filters</div>
+              <div class="pill">Legend</div>
+            </div>
+          </div>
+          <div class="mapStubBody">
+            <div class="pins" aria-hidden="true">
+              <div class="pin p2" style="left:58%; top:52%"></div>
+              <div class="pin p2" style="left:62%; top:47%"></div>
+              <div class="pin p3" style="left:67%; top:41%"></div>
+              <div class="pin" style="left:54%; top:45%"></div>
+              <div class="pin" style="left:44%; top:60%"></div>
+              <div class="pin p3" style="left:31%; top:39%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
+

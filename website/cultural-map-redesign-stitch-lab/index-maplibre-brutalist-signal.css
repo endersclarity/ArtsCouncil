@@ -1,0 +1,538 @@
+/*
+  Brutalist Signal Variant
+  Hard-edge poster system with raw contrast and block composition.
+*/
+
+.brutalist-signal-theme {
+  --font-display: 'Archivo Black', Impact, sans-serif;
+  --font-body: 'Work Sans', 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --ink: oklch(12% 0.02 255);
+  --paper: oklch(97% 0.01 96);
+  --paper-warm: oklch(95% 0.02 96);
+  --charcoal: oklch(14% 0.02 255);
+  --signal: oklch(69% 0.2 32);
+  --acid: oklch(86% 0.18 110);
+  --electric: oklch(63% 0.16 245);
+  --line: oklch(18% 0.02 255 / 0.84);
+  --line-soft: oklch(18% 0.02 255 / 0.18);
+
+  --cat-landmarks: oklch(69% 0.2 32);
+  --cat-eat: oklch(77% 0.19 73);
+  --cat-arts: oklch(55% 0.14 160);
+  --cat-cultural: oklch(63% 0.16 245);
+  --cat-fairs: oklch(70% 0.2 28);
+  --cat-galleries: oklch(52% 0.12 314);
+  --cat-walks: oklch(53% 0.12 150);
+  --cat-publicart: oklch(68% 0.2 36);
+  --cat-performance: oklch(58% 0.17 248);
+  --cat-preservation: oklch(46% 0.08 95);
+
+  color: var(--ink);
+  background:
+    linear-gradient(180deg, var(--paper), var(--paper-warm));
+  position: relative;
+  overflow-x: clip;
+}
+
+.brutalist-signal-theme::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  background: repeating-linear-gradient(
+    0deg,
+    oklch(0% 0 0 / 0.06) 0 1px,
+    transparent 1px 24px
+  );
+}
+
+.brutalist-signal-theme .brutalist-signage {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.brutalist-signal-theme .signage {
+  position: absolute;
+  display: block;
+  border: 2px solid oklch(12% 0.02 255 / 0.82);
+  mix-blend-mode: multiply;
+}
+
+.brutalist-signal-theme .slab-a {
+  top: 1.2rem;
+  left: -3rem;
+  width: clamp(160px, 22vw, 320px);
+  height: clamp(54px, 8vw, 92px);
+  background: oklch(86% 0.18 110 / 0.45);
+  transform: rotate(-7deg);
+}
+
+.brutalist-signal-theme .slab-b {
+  top: 9.2rem;
+  right: -3.4rem;
+  width: clamp(190px, 24vw, 360px);
+  height: clamp(56px, 8vw, 96px);
+  background: oklch(69% 0.2 32 / 0.42);
+  transform: rotate(10deg);
+}
+
+.brutalist-signal-theme .slab-c {
+  bottom: 22%;
+  left: -2.8rem;
+  width: clamp(170px, 21vw, 320px);
+  height: clamp(58px, 8vw, 98px);
+  background: oklch(63% 0.16 245 / 0.4);
+  transform: rotate(9deg);
+}
+
+.brutalist-signal-theme .slab-d {
+  bottom: 6%;
+  right: -2.8rem;
+  width: clamp(150px, 20vw, 300px);
+  height: clamp(54px, 7vw, 88px);
+  background: oklch(86% 0.18 110 / 0.32);
+  transform: rotate(-11deg);
+}
+
+.brutalist-signal-theme .hero,
+.brutalist-signal-theme .section-intro,
+.brutalist-signal-theme .map-section,
+.brutalist-signal-theme .muse-section,
+.brutalist-signal-theme .explore-section,
+.brutalist-signal-theme .colophon-inner {
+  position: relative;
+  z-index: 5;
+  max-width: none;
+  border-radius: 0;
+  border: 2px solid var(--line);
+  background: oklch(100% 0 0 / 0.88);
+}
+
+.brutalist-signal-theme .hero {
+  margin: 0.9rem;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+  gap: 1rem;
+  align-items: stretch;
+  box-shadow: 10px 10px 0 oklch(14% 0.02 255 / 0.96);
+}
+
+.brutalist-signal-theme .hero-badge {
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  border-radius: 0;
+  border: 2px solid var(--line);
+  padding: 0.18rem;
+  background: oklch(100% 0 0 / 0.9);
+  box-shadow: none;
+}
+
+.brutalist-signal-theme .hero-content {
+  margin: 0;
+  align-self: center;
+}
+
+.brutalist-signal-theme .hero-eyebrow {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  margin: 0 0 0.5rem;
+  padding: 0 0.65rem;
+  border: 2px solid var(--line);
+  border-radius: 0;
+  background: var(--acid);
+  color: var(--charcoal);
+  font-size: 0.55rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.brutalist-signal-theme .hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.95rem, 5.6vw, 4.3rem);
+  line-height: 0.9;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.5rem;
+  max-width: 14ch;
+  color: var(--charcoal);
+  text-transform: uppercase;
+}
+
+.brutalist-signal-theme .hero-title em {
+  color: var(--signal);
+  font-style: normal;
+}
+
+.brutalist-signal-theme .hero-sub {
+  color: oklch(15% 0.02 255);
+  max-width: 64ch;
+}
+
+.brutalist-signal-theme .hero-instructions {
+  color: oklch(20% 0.03 255 / 0.74);
+}
+
+.brutalist-signal-theme .hero-jump {
+  margin-top: 0.68rem;
+  gap: 0.45rem;
+}
+
+.brutalist-signal-theme .hero-jump a {
+  min-height: 44px;
+  border: 2px solid var(--line);
+  border-radius: 0;
+  padding: 0.34rem 0.65rem;
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--charcoal);
+  background: oklch(100% 0 0 / 0.9);
+}
+
+.brutalist-signal-theme .hero-jump a:hover,
+.brutalist-signal-theme .hero-jump a:focus-visible {
+  background: var(--signal);
+  color: oklch(98% 0.01 90);
+}
+
+.brutalist-signal-theme .section-intro {
+  margin: 0 0.9rem 0.9rem;
+  padding: 1rem;
+  display: grid;
+  grid-template-columns: 1.18fr 0.82fr;
+  gap: 1rem;
+  box-shadow: 8px 8px 0 oklch(14% 0.02 255 / 0.95);
+}
+
+.brutalist-signal-theme .section-intro::before,
+.brutalist-signal-theme .section-intro::after,
+.brutalist-signal-theme .muse-section::before,
+.brutalist-signal-theme .explore-section::before,
+.brutalist-signal-theme .explore-section::after {
+  display: none;
+}
+
+.brutalist-signal-theme .section-intro .col-right {
+  display: block;
+  margin-top: 0;
+}
+
+.brutalist-signal-theme .section-tag,
+.brutalist-signal-theme .muse-section-tag {
+  color: var(--signal);
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.brutalist-signal-theme .section-heading,
+.brutalist-signal-theme .muse-section-title,
+.brutalist-signal-theme .map-title {
+  font-family: var(--font-display);
+  color: var(--charcoal);
+  text-transform: uppercase;
+}
+
+.brutalist-signal-theme .section-body,
+.brutalist-signal-theme .muse-card-quote,
+.brutalist-signal-theme .muse-card-body,
+.brutalist-signal-theme .colophon {
+  color: oklch(18% 0.02 255 / 0.92);
+}
+
+.brutalist-signal-theme .section-quicktip {
+  border: 2px solid var(--line);
+  border-radius: 0;
+  background: oklch(100% 0 0 / 0.9);
+}
+
+.brutalist-signal-theme .cat-card,
+.brutalist-signal-theme .filter-pill,
+.brutalist-signal-theme .map-filter-toggle,
+.brutalist-signal-theme .map-legend-toggle,
+.brutalist-signal-theme .map-location-refresh,
+.brutalist-signal-theme .map-location-status,
+.brutalist-signal-theme .map-filter-panel .map-filter-bar,
+.brutalist-signal-theme .map-legend-panel,
+.brutalist-signal-theme .map-guides,
+.brutalist-signal-theme .map-subaddon,
+.brutalist-signal-theme .map-events-details,
+.brutalist-signal-theme .map-events-chip,
+.brutalist-signal-theme .map-events-category-select,
+.brutalist-signal-theme .map-events-nav,
+.brutalist-signal-theme .explore-search,
+.brutalist-signal-theme .explore-cat-pill,
+.brutalist-signal-theme .explore-list-wrapper,
+.brutalist-signal-theme .explore-item,
+.brutalist-signal-theme .load-more-btn,
+.brutalist-signal-theme .explore-list-back,
+.brutalist-signal-theme .colophon-bottom a {
+  border-radius: 0;
+  border-width: 2px;
+}
+
+.brutalist-signal-theme .cat-card,
+.brutalist-signal-theme .filter-pill,
+.brutalist-signal-theme .map-filter-toggle,
+.brutalist-signal-theme .map-legend-toggle,
+.brutalist-signal-theme .map-location-refresh,
+.brutalist-signal-theme .map-location-status,
+.brutalist-signal-theme .map-filter-panel .map-filter-bar,
+.brutalist-signal-theme .map-legend-panel,
+.brutalist-signal-theme .map-guides,
+.brutalist-signal-theme .map-subaddon,
+.brutalist-signal-theme .map-events-details,
+.brutalist-signal-theme .map-events-chip,
+.brutalist-signal-theme .map-events-category-select,
+.brutalist-signal-theme .map-events-nav {
+  border-color: var(--line);
+  background: oklch(100% 0 0 / 0.9);
+  color: var(--charcoal);
+  box-shadow: none;
+}
+
+.brutalist-signal-theme .map-section {
+  margin: 0 0.9rem 0.95rem;
+  padding: 0.95rem;
+  box-shadow: 10px 10px 0 oklch(14% 0.02 255 / 0.96);
+}
+
+.brutalist-signal-theme .map-title {
+  font-size: clamp(1.9rem, 3.5vw, 3rem);
+  letter-spacing: -0.01em;
+}
+
+.brutalist-signal-theme .map-active-banner-inner {
+  border-radius: 0;
+  border: 2px solid var(--line);
+  background: oklch(100% 0 0 / 0.9);
+}
+
+.brutalist-signal-theme .map-active-dot {
+  background: var(--signal);
+}
+
+.brutalist-signal-theme .map-active-text,
+.brutalist-signal-theme .map-active-clear,
+.brutalist-signal-theme .map-addon-count,
+.brutalist-signal-theme .map-events-count,
+.brutalist-signal-theme .map-events-page,
+.brutalist-signal-theme .map-filter-group-label,
+.brutalist-signal-theme .map-legend-item,
+.brutalist-signal-theme .hours-legend-item,
+.brutalist-signal-theme .map-events-title,
+.brutalist-signal-theme .map-events-all-head,
+.brutalist-signal-theme .map-events-category-label {
+  color: var(--charcoal);
+}
+
+.brutalist-signal-theme .map-container {
+  margin: 0.62rem 0;
+  min-height: 510px;
+  height: 70vh;
+  padding: 0.44rem;
+  border: 2px solid var(--line);
+  border-radius: 0;
+  background: oklch(100% 0 0 / 0.95);
+  box-shadow: none;
+}
+
+.brutalist-signal-theme #map {
+  border-radius: 0;
+}
+
+.brutalist-signal-theme .map-overlay-controls {
+  top: 0.84rem;
+  left: 0.84rem;
+  right: 3.8rem;
+}
+
+.brutalist-signal-theme .filter-pill.active,
+.brutalist-signal-theme .map-events-chip.active {
+  color: oklch(98% 0.01 90);
+  border-color: var(--charcoal);
+  background: var(--signal);
+}
+
+.brutalist-signal-theme .maplibregl-ctrl-group {
+  background: oklch(100% 0 0 / 0.96) !important;
+  border-radius: 0 !important;
+  border: 2px solid var(--line) !important;
+  box-shadow: none !important;
+}
+
+.brutalist-signal-theme .maplibregl-popup-content {
+  border-radius: 0 !important;
+  border: 2px solid var(--line) !important;
+  background: oklch(100% 0 0 / 0.97) !important;
+  color: var(--charcoal) !important;
+  box-shadow: none !important;
+}
+
+.brutalist-signal-theme .muse-section {
+  margin: 0 0.9rem 0.95rem;
+  padding: 1rem;
+  box-shadow: 8px 8px 0 oklch(14% 0.02 255 / 0.96);
+}
+
+.brutalist-signal-theme .muse-section-header {
+  margin-bottom: 1.1rem;
+}
+
+.brutalist-signal-theme .muse-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.brutalist-signal-theme .muse-card {
+  border-radius: 0;
+  border: 2px solid var(--line);
+  background: oklch(100% 0 0 / 0.9);
+  box-shadow: none;
+}
+
+.brutalist-signal-theme .muse-card:nth-child(2) {
+  margin-top: 0.8rem;
+}
+
+.brutalist-signal-theme .muse-card:nth-child(3) {
+  margin-top: -0.4rem;
+}
+
+.brutalist-signal-theme .muse-card-title {
+  color: var(--charcoal);
+}
+
+.brutalist-signal-theme .explore-section {
+  margin: 0 0.9rem 0.95rem;
+  padding: 1rem;
+  box-shadow: 8px 8px 0 oklch(14% 0.02 255 / 0.96);
+}
+
+.brutalist-signal-theme .explore-header {
+  margin-bottom: 1.2rem;
+}
+
+.brutalist-signal-theme .explore-search {
+  border: 2px solid var(--line);
+  background: oklch(100% 0 0 / 0.94);
+  color: var(--charcoal);
+}
+
+.brutalist-signal-theme .explore-search::placeholder {
+  color: oklch(18% 0.02 255 / 0.56);
+}
+
+.brutalist-signal-theme .explore-cat-pill,
+.brutalist-signal-theme .explore-item,
+.brutalist-signal-theme .explore-list-wrapper,
+.brutalist-signal-theme .load-more-btn,
+.brutalist-signal-theme .explore-list-back {
+  border-color: var(--line);
+  background: oklch(100% 0 0 / 0.93);
+  color: var(--charcoal);
+}
+
+.brutalist-signal-theme .detail-panel {
+  width: min(500px, 100vw);
+  border-left: 2px solid var(--line);
+  background: oklch(97% 0.01 96);
+}
+
+.brutalist-signal-theme .detail-close {
+  border-radius: 0;
+  border: 2px solid var(--line);
+  background: oklch(100% 0 0 / 0.92);
+}
+
+.brutalist-signal-theme .colophon {
+  margin: 0;
+  padding: 0 0.9rem 1rem;
+  background: transparent;
+}
+
+.brutalist-signal-theme .colophon-inner {
+  border-radius: 0;
+  border: 2px solid var(--line);
+  box-shadow: 8px 8px 0 oklch(14% 0.02 255 / 0.96);
+}
+
+.brutalist-signal-theme .colophon-bottom a {
+  border-radius: 0;
+  border: 2px solid var(--line);
+}
+
+@media (max-width: 1100px) {
+  .brutalist-signal-theme .hero,
+  .brutalist-signal-theme .section-intro {
+    grid-template-columns: 1fr;
+  }
+
+  .brutalist-signal-theme .muse-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .brutalist-signal-theme .muse-card:nth-child(2),
+  .brutalist-signal-theme .muse-card:nth-child(3) {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  .brutalist-signal-theme .signage {
+    opacity: 0.5;
+  }
+
+  .brutalist-signal-theme .slab-b,
+  .brutalist-signal-theme .slab-d {
+    display: none;
+  }
+
+  .brutalist-signal-theme .hero,
+  .brutalist-signal-theme .section-intro,
+  .brutalist-signal-theme .map-section,
+  .brutalist-signal-theme .muse-section,
+  .brutalist-signal-theme .explore-section,
+  .brutalist-signal-theme .colophon,
+  .brutalist-signal-theme .colophon-inner {
+    margin-left: 0.6rem;
+    margin-right: 0.6rem;
+  }
+
+  .brutalist-signal-theme .hero,
+  .brutalist-signal-theme .section-intro,
+  .brutalist-signal-theme .map-section,
+  .brutalist-signal-theme .muse-section,
+  .brutalist-signal-theme .explore-section,
+  .brutalist-signal-theme .colophon-inner {
+    padding: 0.78rem;
+  }
+
+  .brutalist-signal-theme .hero-title {
+    font-size: clamp(1.62rem, 9vw, 2.8rem);
+  }
+
+  .brutalist-signal-theme .map-container {
+    min-height: 395px;
+    height: 58vh;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .brutalist-signal-theme *,
+  .brutalist-signal-theme *::before,
+  .brutalist-signal-theme *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

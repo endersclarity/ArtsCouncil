@@ -1,0 +1,434 @@
+@import url('index-maplibre-hero-intent.css');
+
+/* ==========================================================================
+   Layout Pass: structural redesign (not just font/padding tweaks)
+   - Left: sticky editorial rail (discovery + intent)
+   - Right: map-first canvas with supporting rails
+   - Preserves all IDs/classes used by existing JS modules
+   ========================================================================== */
+
+:root {
+  --neuro-bg: #f6f5f1;
+  --neuro-light: rgba(255, 255, 255, 0.92);
+  --neuro-dark: rgba(16, 18, 24, 0.12);
+
+  --ink: #121418;
+  --cream: #fcfcf9;
+  --parchment: #ece9e1;
+  --gold: #efd136;
+  --gold-bright: #f9da43;
+  --rust: #ff594f;
+  --deep-green: #22695f;
+  --slate: #2f5568;
+  --red-accent: #ef4b3f;
+  --blue-wash: #24bfd0;
+
+  --font-display: 'Archivo Expanded', sans-serif;
+  --font-body: 'Source Sans 3', 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+
+  --shadow-raised: 0 12px 30px rgba(12, 14, 18, 0.10);
+  --shadow-soft: 0 8px 20px rgba(12, 14, 18, 0.08);
+}
+
+body.theme-layout-pass {
+  background:
+    radial-gradient(circle at 88% -12%, rgba(255, 89, 79, 0.14), transparent 36%),
+    radial-gradient(circle at -8% 22%, rgba(36, 191, 208, 0.10), transparent 35%),
+    var(--neuro-bg);
+  color: var(--ink);
+}
+
+/* ---------- Top Mast ---------- */
+.theme-layout-pass .mast {
+  width: min(1440px, calc(100% - 1.4rem));
+  margin: 0.8rem auto 0.75rem;
+}
+
+.theme-layout-pass .mast-inner {
+  border-radius: 14px;
+  background: #0f141b;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 14px 28px rgba(8, 10, 12, 0.34);
+  padding: 0.85rem 1rem;
+}
+
+.theme-layout-pass .mast-name {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: #f7f7f4;
+  font-size: clamp(1.15rem, 2.1vw, 1.75rem);
+}
+
+.theme-layout-pass .mast-sub {
+  border-left-color: rgba(255, 255, 255, 0.28);
+  color: rgba(255, 255, 255, 0.75);
+  letter-spacing: 0.12em;
+}
+
+/* ---------- Structural desktop layout ---------- */
+@media (min-width: 1120px) {
+  body.theme-layout-pass {
+    display: grid;
+    grid-template-columns: 380px minmax(740px, 1fr);
+    grid-template-areas:
+      "mast mast"
+      "hero map"
+      "muse muse"
+      "explore explore"
+      "colophon colophon";
+    column-gap: 0.9rem;
+    align-items: start;
+    padding: 0 0.7rem 0.9rem;
+  }
+
+  .theme-layout-pass .mast { grid-area: mast; margin-bottom: 0.4rem; }
+  .theme-layout-pass .hero-variant--intent {
+    grid-area: hero;
+    width: auto;
+    margin: 0;
+    position: sticky;
+    top: 0.78rem;
+    max-height: calc(100vh - 1.3rem);
+    overflow: auto;
+    padding-right: 0.15rem;
+  }
+
+  .theme-layout-pass .map-section {
+    grid-area: map;
+    width: auto;
+    margin: 0;
+  }
+
+  .theme-layout-pass .muse-section {
+    grid-area: muse;
+    width: auto;
+    margin: 0.95rem 0 0;
+  }
+
+  .theme-layout-pass .explore-section {
+    grid-area: explore;
+    width: auto;
+    margin: 0.95rem 0 0;
+  }
+
+  .theme-layout-pass .colophon {
+    grid-area: colophon;
+    margin-top: 1rem;
+  }
+}
+
+/* ---------- Left rail look ---------- */
+.theme-layout-pass .intent-card {
+  border-radius: 18px;
+  border: 1px solid rgba(16, 18, 24, 0.14);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: var(--shadow-raised);
+  padding: 1rem;
+  overflow: hidden;
+}
+
+.theme-layout-pass .intent-card::before {
+  content: "";
+  display: block;
+  height: 156px;
+  margin: -1rem -1rem 0.95rem;
+  background:
+    linear-gradient(120deg, rgba(10, 16, 24, 0.62), rgba(10, 16, 24, 0.16)),
+    url('../../docs/publications/muse-issue-03-2026/screenshots/p44-45_cultural-corridors-highways.jpg') center/cover no-repeat;
+}
+
+.theme-layout-pass .hero-variant-sub {
+  margin-top: 0;
+  font-size: 0.92rem;
+  line-height: 1.4;
+  color: rgba(16, 18, 24, 0.66);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-family: var(--font-mono);
+}
+
+.theme-layout-pass .editorial-cover {
+  margin-top: 0.7rem;
+  padding: 0.85rem 0.85rem 0.95rem;
+  border: 1px solid rgba(16, 18, 24, 0.14);
+  border-radius: 12px;
+  background:
+    linear-gradient(110deg, rgba(36, 191, 208, 0.10), rgba(239, 209, 54, 0.12)),
+    #fff;
+}
+
+.theme-layout-pass .editorial-cover-kicker {
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(16, 18, 24, 0.7);
+}
+
+.theme-layout-pass .editorial-cover-title {
+  margin: 0.34rem 0 0;
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  font-size: clamp(1.35rem, 2.7vw, 2.25rem);
+  line-height: 0.96;
+  letter-spacing: 0.01em;
+  color: #111;
+}
+
+.theme-layout-pass .editorial-cover-deck {
+  margin: 0.55rem 0 0;
+  font-size: 0.98rem;
+  line-height: 1.35;
+  color: rgba(16, 18, 24, 0.84);
+}
+
+.theme-layout-pass .editorial-cover-meta {
+  margin-top: 0.6rem;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: rgba(16, 18, 24, 0.62);
+}
+
+.theme-layout-pass .editorial-jump-grid {
+  margin-top: 0.6rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.42rem;
+}
+
+.theme-layout-pass .editorial-jump {
+  display: block;
+  text-decoration: none;
+  padding: 0.5rem 0.62rem;
+  border-radius: 9px;
+  border: 1px solid rgba(16, 18, 24, 0.16);
+  background: #fff;
+  font-family: var(--font-mono);
+  font-size: 0.62rem;
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  color: rgba(16, 18, 24, 0.78);
+}
+
+.theme-layout-pass .editorial-jump:hover {
+  border-color: rgba(16, 18, 24, 0.33);
+  background: #f8f8f4;
+}
+
+.theme-layout-pass .hero-discovery {
+  border-top: 1px solid rgba(16, 18, 24, 0.14);
+  padding-top: 0.76rem;
+  margin-top: 0.85rem;
+}
+
+.theme-layout-pass .hero-discovery-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.42rem;
+}
+
+.theme-layout-pass .intent-tab {
+  border: 1px solid rgba(16, 18, 24, 0.18);
+  background: #fff;
+  color: rgba(16, 18, 24, 0.74);
+  border-radius: 10px;
+  padding: 0.52rem 0.62rem;
+}
+
+.theme-layout-pass .intent-tab[aria-selected="true"],
+.theme-layout-pass .intent-tab.active {
+  border-color: rgba(255, 89, 79, 0.62);
+  background: linear-gradient(180deg, rgba(255, 89, 79, 0.14), rgba(255, 89, 79, 0.07));
+  color: #111;
+}
+
+.theme-layout-pass .hero-variant-cats .categories-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+  max-height: 360px;
+  overflow: auto;
+}
+
+.theme-layout-pass .hero-variant-cats .cat-card {
+  min-width: 0;
+  width: 100%;
+  border-radius: 12px;
+  border-color: rgba(16, 18, 24, 0.14);
+  box-shadow: var(--shadow-soft);
+}
+
+/* ---------- Right map canvas ---------- */
+.theme-layout-pass .map-container {
+  border-radius: 18px;
+  border: 2px solid rgba(16, 18, 24, 0.15);
+  box-shadow: var(--shadow-raised);
+  overflow: hidden;
+}
+
+.theme-layout-pass #map {
+  min-height: clamp(420px, 62vh, 760px);
+}
+
+.theme-layout-pass .map-overlay-controls {
+  top: 10px;
+  left: 10px;
+  right: auto;
+}
+
+.theme-layout-pass .map-filter-toggle,
+.theme-layout-pass .map-legend-toggle {
+  border-radius: 12px;
+  border-color: rgba(16, 18, 24, 0.2);
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 6px 16px rgba(16, 18, 24, 0.12);
+}
+
+.theme-layout-pass .map-filter-panel,
+.theme-layout-pass .map-legend-panel {
+  border-radius: 12px;
+  border: 1px solid rgba(16, 18, 24, 0.16);
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 10px 20px rgba(16, 18, 24, 0.13);
+}
+
+.theme-layout-pass .map-rails-intent {
+  margin-top: 0.75rem;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+.theme-layout-pass .map-rail-intent {
+  border-radius: 14px;
+  border: 1px solid rgba(16, 18, 24, 0.15);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: var(--shadow-soft);
+  min-height: 280px;
+}
+
+.theme-layout-pass .map-rail-intent-head {
+  background: linear-gradient(90deg, rgba(36, 191, 208, 0.10), rgba(239, 209, 54, 0.12));
+  border-bottom: 1px solid rgba(16, 18, 24, 0.12);
+  position: relative;
+}
+
+.theme-layout-pass .map-rail-intent-head::after {
+  content: "Feature";
+  position: absolute;
+  right: 12px;
+  top: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(16, 18, 24, 0.54);
+}
+
+.theme-layout-pass .section-header {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.theme-layout-pass .map-events-chip.active {
+  background: rgba(36, 191, 208, 0.18);
+  border-color: rgba(36, 191, 208, 0.6);
+}
+
+/* ---------- MUSE + list panels ---------- */
+.theme-layout-pass .muse-section-header,
+.theme-layout-pass .explore-header,
+.theme-layout-pass .explore-list-wrapper {
+  border-radius: 16px;
+  border: 1px solid rgba(16, 18, 24, 0.14);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: var(--shadow-soft);
+}
+
+.theme-layout-pass .muse-section-title,
+.theme-layout-pass .section-heading {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.theme-layout-pass .muse-cards {
+  margin-top: 0.75rem;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.theme-layout-pass .muse-card {
+  border-radius: 14px;
+  border: 1px solid rgba(16, 18, 24, 0.14);
+  background: #fff;
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+}
+
+.theme-layout-pass .muse-card > summary {
+  background: linear-gradient(110deg, rgba(36, 191, 208, 0.08), rgba(239, 209, 54, 0.14));
+  border-left: 4px solid rgba(255, 89, 79, 0.62);
+}
+
+.theme-layout-pass .muse-card-title {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+
+.theme-layout-pass .explore-search {
+  border: 1px solid rgba(16, 18, 24, 0.2);
+  border-radius: 12px;
+}
+
+/* ---------- Footer ---------- */
+.theme-layout-pass .colophon {
+  background: #10141b;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.theme-layout-pass .colophon a {
+  color: #8ce2eb;
+}
+
+/* ---------- Responsive fallback ---------- */
+@media (max-width: 1119px) {
+  .theme-layout-pass .mast,
+  .theme-layout-pass .hero-variant--intent,
+  .theme-layout-pass .map-section,
+  .theme-layout-pass .muse-section,
+  .theme-layout-pass .explore-section {
+    width: min(1160px, calc(100% - 1rem));
+  }
+
+  .theme-layout-pass .hero-discovery-tabs {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .theme-layout-pass .hero-variant-cats .categories-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    max-height: none;
+  }
+
+  .theme-layout-pass .map-rails-intent,
+  .theme-layout-pass .muse-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .theme-layout-pass .hero-discovery-tabs {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .theme-layout-pass .hero-variant-cats .categories-grid {
+    grid-template-columns: 1fr;
+  }
+}

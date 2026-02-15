@@ -1,0 +1,282 @@
+@import url('index-maplibre.css');
+
+/* ============================================================
+   HERO VARIANT: MAGAZINE COVER (above-the-map only)
+   ============================================================ */
+
+.hero-variant--magcover {
+  position: relative;
+  margin: 0 0 1.2rem;
+  padding: 1.35rem 0 1.1rem;
+  background:
+    radial-gradient(1100px 620px at 8% 0%, rgba(22,18,14,0.86), transparent 62%),
+    radial-gradient(900px 520px at 100% 0%, rgba(184,138,42,0.28), transparent 55%),
+    linear-gradient(180deg, #12100e, #15120f 35%, #2a2319);
+  color: #f4efe6;
+}
+
+.hero-variant--magcover::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.10'/%3E%3C/svg%3E"),
+    linear-gradient(180deg, rgba(0,0,0,0.0), rgba(0,0,0,0.24));
+  mix-blend-mode: multiply;
+  opacity: 0.9;
+}
+
+.mast--magcover {
+  width: min(1160px, calc(100% - 2rem));
+  margin: 0 auto 1.1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.mast--magcover .mast-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.9rem;
+  padding: 0.72rem 0.8rem;
+  border-radius: 999px;
+  border: 1px solid rgba(244,239,230,0.14);
+  background: rgba(18,16,14,0.55);
+  box-shadow: 0 30px 90px rgba(0,0,0,0.35);
+  backdrop-filter: blur(10px);
+}
+
+.mast--magcover .mast-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.62rem;
+  font-family: var(--font-display);
+  font-weight: 900;
+}
+
+.mast--magcover .mast-mark {
+  width: 34px;
+  height: 34px;
+  border-radius: 12px;
+  border: 1px solid rgba(244,239,230,0.16);
+  background:
+    radial-gradient(circle at 35% 25%, rgba(184,138,42,0.92), rgba(184,138,42,0.08) 60%),
+    radial-gradient(circle at 70% 70%, rgba(120,90,35,0.60), transparent 58%);
+}
+
+.mast--magcover .mast-actions {
+  display: inline-flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.mast--magcover .mast-pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 0.7rem;
+  border-radius: 999px;
+  border: 1px solid rgba(244,239,230,0.16);
+  background: rgba(18,16,14,0.52);
+  color: rgba(244,239,230,0.86);
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.mast--magcover .mast-pill.is-static {
+  cursor: default;
+}
+
+.cover-grid {
+  width: min(1160px, calc(100% - 2rem));
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 0.92fr 1.08fr;
+  gap: 1.1rem;
+  align-items: stretch;
+  position: relative;
+  z-index: 1;
+}
+
+.cover-art {
+  border-radius: 28px;
+  overflow: hidden;
+  border: 1px solid rgba(244,239,230,0.16);
+  box-shadow: 0 30px 90px rgba(0,0,0,0.55);
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0.05), rgba(0,0,0,0.70)),
+    url("img/muse/cultural-corridors-highways.webp");
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  min-height: 560px;
+}
+
+.cover-stamp {
+  position: absolute;
+  left: 18px;
+  top: 18px;
+  border-radius: 999px;
+  border: 1px solid rgba(244,239,230,0.22);
+  padding: 10px 12px;
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  background: rgba(18,16,14,0.55);
+}
+
+.cover-line {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 18px;
+}
+
+.cover-line-title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: clamp(1.45rem, 2.6vw, 2rem);
+  line-height: 1.05;
+}
+
+.cover-line-title em {
+  font-style: italic;
+  color: rgba(184,138,42,0.95);
+}
+
+.cover-line-dek {
+  margin-top: 0.6rem;
+  color: rgba(244,239,230,0.80);
+  line-height: 1.55;
+}
+
+.cover-copy {
+  padding: 0.2rem 0 0;
+}
+
+.hero-variant-kicker {
+  font-family: var(--font-mono);
+  font-size: 0.6rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(244,239,230,0.70);
+}
+
+.hero-variant-title {
+  margin: 0.65rem 0 0;
+  font-family: var(--font-display);
+  font-weight: 900;
+  line-height: 1.02;
+  font-size: clamp(2.2rem, 4.6vw, 3.6rem);
+}
+
+.hero-variant-sub {
+  margin: 0.85rem 0 0;
+  color: rgba(244,239,230,0.74);
+  line-height: 1.65;
+}
+
+.hero-variant-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0.6rem 0.82rem;
+  border-radius: 999px;
+  border: 1px solid rgba(244,239,230,0.18);
+  background: rgba(18,16,14,0.55);
+  text-decoration: none;
+  color: rgba(244,239,230,0.92);
+  font-weight: 800;
+  font-size: 0.82rem;
+  transition: transform 160ms ease, background 160ms ease, border-color 160ms ease;
+}
+
+.hero-variant-btn:hover {
+  transform: translateY(-1px);
+  background: rgba(18,16,14,0.70);
+  border-color: rgba(244,239,230,0.24);
+}
+
+.hero-variant-btn.primary {
+  background: linear-gradient(180deg, rgba(184,138,42,0.96), rgba(184,138,42,0.80));
+  border-color: rgba(184,138,42,0.55);
+  color: #1a1208;
+}
+
+.cover-hooks {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.85rem;
+}
+
+.cover-hook {
+  border-radius: 18px;
+  border: 1px solid rgba(244,239,230,0.16);
+  background: rgba(18,16,14,0.55);
+  padding: 0.95rem 0.95rem;
+}
+
+.cover-hook-title {
+  font-family: var(--font-display);
+  font-weight: 900;
+  font-size: 1.1rem;
+}
+
+.cover-hook-meta {
+  margin-top: 0.45rem;
+  color: rgba(244,239,230,0.74);
+  line-height: 1.55;
+  font-size: 0.92rem;
+}
+
+.cover-hook-actions {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.hero-variant--magcover .hero-variant-cats {
+  margin-top: 1rem;
+  border-radius: 18px;
+  border: 1px solid rgba(244,239,230,0.16);
+  background: rgba(18,16,14,0.55);
+  padding: 0.85rem 0.95rem;
+}
+
+.hero-variant--magcover .hero-variant-cats summary {
+  cursor: pointer;
+  list-style: none;
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(244,239,230,0.78);
+}
+
+.hero-variant--magcover .hero-variant-cats summary::-webkit-details-marker {
+  display: none;
+}
+
+.hero-variant--magcover .hero-variant-cats[open] summary {
+  margin-bottom: 0.7rem;
+}
+
+@media (max-width: 980px) {
+  .cover-grid {
+    grid-template-columns: 1fr;
+  }
+  .cover-hooks {
+    grid-template-columns: 1fr;
+  }
+  .cover-art {
+    min-height: 420px;
+  }
+}

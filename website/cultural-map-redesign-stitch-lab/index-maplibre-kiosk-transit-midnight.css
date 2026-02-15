@@ -1,0 +1,74 @@
+/* Kiosk Transit Midnight overrides */
+.kiosk-transit-midnight-theme {
+  --ink: oklch(96% 0.02 275);
+  --paper: oklch(14% 0.05 276);
+  --surface: oklch(9% 0.04 274);
+  --line: oklch(75% 0.17 215 / 0.38);
+  --accent: oklch(70% 0.2 320);
+  --accent-2: oklch(74% 0.18 198);
+
+  background:
+    radial-gradient(900px 520px at 0% 0%, oklch(55% 0.22 312 / 0.5), transparent 74%),
+    radial-gradient(900px 520px at 100% 10%, oklch(55% 0.2 206 / 0.48), transparent 74%),
+    linear-gradient(180deg, var(--paper), var(--surface));
+}
+
+.kiosk-transit-midnight-theme .hero,
+.kiosk-transit-midnight-theme .section-intro,
+.kiosk-transit-midnight-theme .map-section,
+.kiosk-transit-midnight-theme .muse-section,
+.kiosk-transit-midnight-theme .explore-section,
+.kiosk-transit-midnight-theme .colophon-inner {
+  border-radius: 14px;
+  border-color: var(--line);
+  background: linear-gradient(160deg, oklch(18% 0.05 276 / 0.84), oklch(11% 0.04 274 / 0.9));
+  box-shadow: 0 24px 42px rgba(4, 3, 18, 0.58);
+}
+
+.kiosk-transit-midnight-theme .hero-title,
+.kiosk-transit-midnight-theme .section-heading,
+.kiosk-transit-midnight-theme .muse-section-title,
+.kiosk-transit-midnight-theme .map-title,
+.kiosk-transit-midnight-theme .hero-sub,
+.kiosk-transit-midnight-theme .hero-instructions {
+  color: oklch(96% 0.02 278);
+}
+
+.kiosk-transit-midnight-theme .kiosk-quick-actions a,
+.kiosk-transit-midnight-theme .hero-jump a,
+.kiosk-transit-midnight-theme .cat-card,
+.kiosk-transit-midnight-theme .filter-pill,
+.kiosk-transit-midnight-theme .map-filter-toggle,
+.kiosk-transit-midnight-theme .map-legend-toggle,
+.kiosk-transit-midnight-theme .map-location-refresh,
+.kiosk-transit-midnight-theme .map-location-status,
+.kiosk-transit-midnight-theme .map-filter-panel .map-filter-bar,
+.kiosk-transit-midnight-theme .map-legend-panel,
+.kiosk-transit-midnight-theme .map-guides,
+.kiosk-transit-midnight-theme .map-subaddon,
+.kiosk-transit-midnight-theme .map-events-details,
+.kiosk-transit-midnight-theme .map-events-chip,
+.kiosk-transit-midnight-theme .map-events-category-select,
+.kiosk-transit-midnight-theme .map-events-nav,
+.kiosk-transit-midnight-theme .explore-search,
+.kiosk-transit-midnight-theme .explore-cat-pill,
+.kiosk-transit-midnight-theme .explore-list-wrapper,
+.kiosk-transit-midnight-theme .explore-item,
+.kiosk-transit-midnight-theme .load-more-btn,
+.kiosk-transit-midnight-theme .explore-list-back,
+.kiosk-transit-midnight-theme .colophon-bottom a {
+  border-color: var(--line);
+  background: oklch(100% 0 0 / 0.12);
+  color: oklch(95% 0.02 278);
+}
+
+.kiosk-transit-midnight-theme .filter-pill.active,
+.kiosk-transit-midnight-theme .map-events-chip.active {
+  color: oklch(97% 0.03 285);
+  border-color: oklch(76% 0.2 320 / 0.78);
+  background: oklch(76% 0.2 320 / 0.24);
+}
+
+.kiosk-transit-midnight-theme .map-container {
+  background: oklch(0% 0 0 / 0.22);
+}

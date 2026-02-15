@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "primary": "#256af4",
+              "accent-coral": "#FF7F50",
+              "accent-gold": "#FFD700",
+              "accent-pink": "#FF1493",
+              "background-light": "#f5f6f8",
+              "background-dark": "#101622",
+            },
+            fontFamily: {
+              "display": ["Noto Serif", "serif"]
+            },
+            borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+          },
+        },
+      }
+    </script>
+<style>
+        body { font-family: 'Noto Serif', serif; }
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .text-outline { -webkit-text-stroke: 1px currentColor; color: transparent; }
+    </style>
+<title>Explore Nevada County</title>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 font-display transition-colors duration-300">
+<!-- Navigation -->
+<nav class="sticky top-0 z-50 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800">
+<div class="px-6 py-4 flex justify-between items-center">
+<span class="text-xl font-bold tracking-tighter uppercase italic">ENC.</span>
+<div class="flex gap-4 items-center">
+<button class="p-2 rounded-full bg-primary/10 text-primary">
+<span class="material-icons text-xl">search</span>
+</button>
+<button class="p-2 rounded-full bg-slate-900 text-white dark:bg-white dark:text-slate-900">
+<span class="material-icons text-xl">menu</span>
+</button>
+</div>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="px-6 py-12 flex flex-col items-start overflow-hidden">
+<div class="relative w-full">
+<span class="text-primary font-bold tracking-widest text-xs uppercase mb-4 block">Issue No. 24 — Summer Edition</span>
+<h1 class="text-6xl md:text-8xl font-bold leading-[0.9] tracking-tight mb-8">
+                A GOLDEN <br/>
+<span class="italic text-accent-coral">STATE</span> <br/>
+                OF <span class="text-primary">MIND</span>
+</h1>
+<div class="absolute top-0 right-0 w-32 h-32 bg-accent-gold rounded-full -mr-16 -mt-8 opacity-50 blur-3xl"></div>
+</div>
+<p class="text-lg leading-relaxed max-w-xs text-slate-600 dark:text-slate-400 border-l-2 border-primary pl-4">
+            Curated stories from the heart of the Sierra Foothills. Where history meets high-culture.
+        </p>
+</header>
+<!-- Category Filters -->
+<div class="px-6 mb-12">
+<div class="flex flex-wrap gap-3">
+<button class="px-6 py-3 rounded-full bg-primary text-white font-bold text-sm shadow-lg shadow-primary/30">Everything</button>
+<button class="px-6 py-3 rounded-full bg-accent-gold text-slate-900 font-bold text-sm">Eat &amp; Drink</button>
+<button class="px-6 py-3 rounded-full bg-accent-pink text-white font-bold text-sm">Arts</button>
+<button class="px-6 py-3 rounded-full bg-background-dark dark:bg-white dark:text-background-dark text-white font-bold text-sm">Outdoors</button>
+</div>
+</div>
+<!-- Editorial Cards Grid -->
+<section class="px-6 pb-16 space-y-12">
+<!-- Feature Card 1 -->
+<div class="relative group">
+<div class="aspect-[4/5] overflow-hidden rounded-xl">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" data-alt="Deep green forest with sunlight filtering through trees" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDsNFtYsPOsJdL3xkjxxC_MRMRZ46vXexTHCtMTUxzOdebKSQq9qHNBUL3UpOas08CJk0k1HRCnjzt0W6541nIGL7iPbIAXzZtc2ZFgXf4r5lcJzC5DoMo0fL11Ij6v_obl8nfQeFwS9cNeaiDxrdrk9ogqPBS-44zhKxqW1QLv4Q5KvLPAZ764j0lHY7FNVpFW9bA21iojZ9H_CtLNGEEqrPToEcyBOKJ-WUQqy2p2cVx289FJPXLUxBNDadaGtQCVhzVnosjzH9M"/>
+</div>
+<div class="absolute -bottom-6 left-6 right-6 bg-white dark:bg-slate-900 p-6 rounded shadow-2xl border-t-4 border-accent-coral">
+<span class="text-accent-coral font-bold text-xs uppercase tracking-widest mb-2 block">The Trail Report</span>
+<h2 class="text-2xl font-bold mb-2">Hidden Waters: The Yuba River's Secret Coves</h2>
+<div class="flex justify-between items-center mt-4">
+<span class="text-xs text-slate-500 font-sans">8 MIN READ</span>
+<span class="material-icons text-primary">arrow_forward</span>
+</div>
+</div>
+</div>
+<!-- Mini Feature Cards -->
+<div class="grid grid-cols-2 gap-4 pt-8">
+<div class="space-y-4">
+<div class="aspect-square overflow-hidden rounded-xl bg-primary/20 relative">
+<img class="w-full h-full object-cover" data-alt="Artisanal coffee and pastries on a wooden table" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBqQ-Z59aYStN9xlxZUM17-rYI8MC95ye9c2n7V1hrBYJ0soRIx4j9bpbnmkPOwv3WRRpN4wH7DI0zhzuwGU4KjbkGoEb0W7n05mfEy99fMCy30d99BeQYOUzBjInT2UNPJ5oVcc-j74qcFDz5TPoUc2X8AAz8qDxlU0nIMoMWNz0-UekTryD4C-fszFK8pZuP-UBiY4UqpvfiRWy4vQI_4u2MG1dK69hRUJ0BZFQ1o-ArWdYDs1F-lm5FDz3vq1YVb2_9QNgjm2oo"/>
+<span class="absolute top-2 left-2 bg-accent-pink text-white text-[10px] px-2 py-1 rounded-full font-bold uppercase tracking-tighter">New</span>
+</div>
+<h3 class="text-lg font-bold leading-tight">Post-Gold Rush Coffee Culture</h3>
+</div>
+<div class="space-y-4">
+<div class="aspect-square overflow-hidden rounded-xl bg-primary/20">
+<img class="w-full h-full object-cover" data-alt="Mountain landscape at sunset with vibrant sky" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCgHfMoHWDHEj63_OocqKdc9KADHbRWpQFfiuscrVPr_EoAiylrt-zqvJ1d4JvbKkNRZTtc1-NK_49Tg2t_ZJd6LI2gZXSOXNoe4M-OgxP6cTeYL3C7zC6l7xuEKW33kXFz65AuelrIjHORYEd0v9BTyc-cTTloIspzN7pYxIjrbUf7zfTEpIRtb5zhnXtey9UfiI2UwCPzXyvt9_-G_2UCXU1aSDtaChfPR0VJajIsHgxBTBqYVCBpXgIiT48VmWMR_W0kaZp9Gj0"/>
+</div>
+<h3 class="text-lg font-bold leading-tight">Sunset Views at Empire Mine</h3>
+</div>
+</div>
+</section>
+<!-- Integrated Map Section -->
+<section class="bg-slate-900 py-16 px-6 relative overflow-hidden">
+<div class="absolute inset-0 opacity-20">
+<img class="w-full h-full object-cover" data-alt="Topographic map patterns with subtle lines" data-location="Nevada County" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCK-EhzLDeDUdg9E5C7AL5QCG5EKmYkrds-aKiuZu-KgINX5hI3jO93Jz3ebjbX6e6IuF9gjq6xt-R0Q8juvkEMtTtElAgDXMynzLcjuWVMAAIEKYwRgiGPdrxEZTxVl1b4nLQ-AoLUT4Lzs9O8v9aY-Q2TesV9CJyzHwMp2zoBWlghrFsmsVqzQYUiQnbZu7kfYse0Ov47jVER1jEic_dRviJGw8vc6U_bH2Ev9XS3t6OwCxVpEIFVxlJ5fJRkXAeHwCDE1jiCU5c"/>
+</div>
+<div class="relative z-10">
+<h2 class="text-4xl font-bold text-white mb-8 tracking-tighter">LOCATE <br/><span class="text-accent-gold italic">EXPERIENCE</span></h2>
+<!-- Map Card Mockup -->
+<div class="w-full aspect-video bg-white/10 backdrop-blur-sm rounded-xl border border-white/20 p-4 relative">
+<div class="absolute top-1/2 left-1/3 w-4 h-4 bg-primary rounded-full shadow-[0_0_20px_#256af4]"></div>
+<div class="absolute top-1/3 right-1/4 w-4 h-4 bg-accent-pink rounded-full shadow-[0_0_20px_#FF1493]"></div>
+<div class="absolute bottom-4 left-4 bg-white p-3 rounded-lg flex items-center gap-3 w-48 shadow-xl">
+<div class="w-10 h-10 bg-accent-gold rounded-full flex items-center justify-center">
+<span class="material-icons text-slate-900">restaurant</span>
+</div>
+<div>
+<p class="text-[10px] font-bold uppercase text-slate-400">Current Spotlight</p>
+<p class="text-xs font-bold text-slate-900">Three Forks Bakery</p>
+</div>
+</div>
+</div>
+<button class="w-full mt-6 py-4 rounded-full border border-white text-white font-bold text-sm tracking-widest uppercase hover:bg-white hover:text-slate-900 transition-colors">
+                Open Interactive Map
+            </button>
+</div>
+</section>
+<!-- Events Ribbon -->
+<section class="py-16">
+<div class="px-6 mb-8 flex justify-between items-end">
+<h2 class="text-4xl font-bold tracking-tighter">THE <br/> CALENDAR</h2>
+<p class="text-sm font-bold text-primary italic underline underline-offset-4">SEE ALL</p>
+</div>
+<div class="flex overflow-x-auto no-scrollbar gap-8 px-6 pb-8">
+<!-- Event 1 -->
+<div class="flex-none w-64 border-l border-slate-200 dark:border-slate-800 pl-4">
+<span class="text-6xl font-black text-slate-200 dark:text-slate-800 block mb-2 leading-none">08</span>
+<span class="text-primary font-bold text-xs uppercase tracking-widest block mb-4">AUGUST / SAT</span>
+<h4 class="text-xl font-bold mb-2">Wildflower Festival &amp; Folk Music</h4>
+<p class="text-sm text-slate-500 line-clamp-2">Annual gathering at the creek with local musicians and botanical tours.</p>
+</div>
+<!-- Event 2 -->
+<div class="flex-none w-64 border-l border-slate-200 dark:border-slate-800 pl-4">
+<span class="text-6xl font-black text-slate-200 dark:text-slate-800 block mb-2 leading-none">12</span>
+<span class="text-accent-coral font-bold text-xs uppercase tracking-widest block mb-4">AUGUST / WED</span>
+<h4 class="text-xl font-bold mb-2">Plein Air Painting Workshop</h4>
+<p class="text-sm text-slate-500 line-clamp-2">Join local artists for a sunset session at the ridge overlooking the valley.</p>
+</div>
+<!-- Event 3 -->
+<div class="flex-none w-64 border-l border-slate-200 dark:border-slate-800 pl-4">
+<span class="text-6xl font-black text-slate-200 dark:text-slate-800 block mb-2 leading-none">24</span>
+<span class="text-accent-pink font-bold text-xs uppercase tracking-widest block mb-4">AUGUST / MON</span>
+<h4 class="text-xl font-bold mb-2">Midnight Gallery Opening</h4>
+<p class="text-sm text-slate-500 line-clamp-2">An avant-garde exploration of light and sound in the historic mines.</p>
+</div>
+</div>
+</section>
+<!-- Magazine-style Bottom Card -->
+<section class="px-6 pb-24">
+<div class="bg-primary/5 dark:bg-primary/10 rounded-xl overflow-hidden p-8 relative">
+<div class="relative z-10">
+<h2 class="text-3xl font-bold mb-6 italic">Stay in the Loop</h2>
+<p class="text-slate-600 dark:text-slate-400 mb-8 max-w-[200px]">The ENC newsletter is a monthly curation of the best in the county.</p>
+<div class="space-y-3">
+<input class="w-full bg-white dark:bg-slate-900 border-none rounded-full px-6 py-4 shadow-sm focus:ring-2 focus:ring-primary outline-none" placeholder="Email Address" type="email"/>
+<button class="w-full bg-primary text-white font-bold py-4 rounded-full tracking-widest uppercase text-xs">Join the List</button>
+</div>
+</div>
+<div class="absolute -right-8 -bottom-8 w-48 h-48 opacity-10">
+<span class="material-icons text-[180px]">newspaper</span>
+</div>
+</div>
+</section>
+<!-- Tab Bar (iOS style) -->
+<div class="fixed bottom-0 left-0 right-0 bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl border-t border-slate-200 dark:border-slate-800 flex justify-around items-center py-4 px-6 z-50">
+<button class="flex flex-col items-center gap-1 text-primary">
+<span class="material-icons">auto_stories</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Stories</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-icons">map</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Explore</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-icons">favorite_border</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Saved</span>
+</button>
+<button class="flex flex-col items-center gap-1 text-slate-400">
+<span class="material-icons">account_circle</span>
+<span class="text-[10px] font-bold uppercase tracking-tighter">Profile</span>
+</button>
+</div>
+<script src="./stitch-data-wireup.js"></script>
+</body></html>
+

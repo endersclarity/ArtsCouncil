@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phase 1 Editorial A/B/C</title>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet">
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #121119;
+    --panel: #1a1824;
+    --ink: #f4f3ff;
+    --muted: #b9b4cf;
+    --line: rgba(255, 255, 255, 0.14);
+    --accent: #ff4ca0;
+  }
+  body {
+    min-height: 100vh;
+    background:
+      radial-gradient(900px 560px at 6% -4%, rgba(68, 117, 255, 0.24), transparent 60%),
+      radial-gradient(900px 560px at 100% -10%, rgba(255, 76, 160, 0.2), transparent 60%),
+      var(--bg);
+    color: var(--ink);
+    font-family: 'Manrope', sans-serif;
+    padding: 2rem 1rem 3rem;
+  }
+  .wrap {
+    width: min(1100px, 100%);
+    margin: 0 auto;
+  }
+  h1 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: clamp(1.8rem, 4.5vw, 2.8rem);
+    line-height: 1.1;
+    margin-bottom: 0.6rem;
+  }
+  .sub {
+    color: var(--muted);
+    max-width: 70ch;
+    line-height: 1.5;
+    margin-bottom: 1.6rem;
+  }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 0.75rem;
+  }
+  .card {
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: linear-gradient(180deg, #232032, var(--panel));
+    padding: 0.9rem;
+    display: flex;
+    flex-direction: column;
+    min-height: 220px;
+  }
+  .tag {
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: #9f97be;
+    margin-bottom: 0.45rem;
+  }
+  .title {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 1.06rem;
+    line-height: 1.25;
+    margin-bottom: 0.5rem;
+  }
+  .meta {
+    color: var(--muted);
+    font-size: 0.9rem;
+    line-height: 1.45;
+    margin-bottom: 1rem;
+  }
+  .btn {
+    margin-top: auto;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    border-radius: 10px;
+    border: 1px solid var(--line);
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    background: rgba(255, 255, 255, 0.05);
+  }
+  .btn:hover {
+    border-color: var(--accent);
+    color: #fff;
+    background: rgba(255, 76, 160, 0.15);
+  }
+  @media (max-width: 1020px) {
+    .grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 620px) {
+    .grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+  <main class="wrap">
+    <h1>Phase 1 Editorial Directions</h1>
+    <p class="sub">A/B/C comparison set for Diana feedback. Same information architecture, different visual systems. Pick one direction to refine instead of merging multiple looks.</p>
+    <section class="grid">
+      <article class="card">
+        <div class="tag">Current</div>
+        <div class="title">MUSE Editorial Baseline</div>
+        <p class="meta">Existing draft built around darker MUSE-inspired framing.</p>
+        <a class="btn" href="phase1-muse-editorial.html">Open Baseline</a>
+      </article>
+      <article class="card">
+        <div class="tag">A</div>
+        <div class="title">Bright Contemporary Editorial</div>
+        <p class="meta">Daylight palette, bold sans display, clean clarity for visitor-first tasks.</p>
+        <a class="btn" href="phase1-editorial-A.html">Open A</a>
+      </article>
+      <article class="card">
+        <div class="tag">B</div>
+        <div class="title">Bold Trend Color-Block</div>
+        <p class="meta">Saturated blocks, oversized headline rhythm, high-impact magazine tone.</p>
+        <a class="btn" href="phase1-editorial-B.html">Open B</a>
+      </article>
+      <article class="card">
+        <div class="tag">C</div>
+        <div class="title">Trendy Pop Editorial</div>
+        <p class="meta">Playful gradients and punch accents with high-energy contemporary hierarchy.</p>
+        <a class="btn" href="phase1-editorial-C.html">Open C</a>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

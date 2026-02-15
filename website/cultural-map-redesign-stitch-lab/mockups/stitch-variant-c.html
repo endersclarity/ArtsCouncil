@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#d5ea39",
+                        "background-light": "#f8f8f6",
+                        "background-dark": "#1f2111",
+                        "accent-cyan": "#00e5ff",
+                        "accent-coral": "#ff6b6b",
+                        "brand-black": "#151515"
+                    },
+                    fontFamily: {
+                        "display": ["Plus Jakarta Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "2rem",
+                        "xl": "3rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .compressed-header {
+            font-stretch: extra-condensed;
+            letter-spacing: -0.05em;
+            line-height: 0.85;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark font-display text-brand-black dark:text-white antialiased">
+<!-- Phone Container Simulation -->
+<div class="max-w-[430px] mx-auto bg-white dark:bg-[#151515] min-h-screen shadow-2xl relative overflow-x-hidden">
+<!-- Sticky Top Nav -->
+<nav class="sticky top-0 z-50 bg-white/80 dark:bg-background-dark/80 backdrop-blur-md px-6 py-4 flex justify-between items-center border-b border-primary/10">
+<span class="text-xl font-extrabold tracking-tighter">EXPLORE<span class="text-primary">NV</span></span>
+<div class="flex gap-4">
+<button class="w-10 h-10 rounded-full bg-background-light dark:bg-primary/10 flex items-center justify-center">
+<span class="material-icons text-xl">search</span>
+</button>
+<button class="w-10 h-10 rounded-full bg-primary flex items-center justify-center">
+<span class="material-icons text-xl text-brand-black">menu</span>
+</button>
+</div>
+</nav>
+<!-- Hero Section: Asymmetric Layout -->
+<header class="pt-8 px-6 pb-12">
+<div class="grid grid-cols-12 gap-2">
+<div class="col-span-12">
+<h1 class="compressed-header text-7xl font-extrabold uppercase mb-6 tracking-tighter">
+                        CULTURE <br/> IN FULL <br/> <span class="text-primary">BLOOM</span>
+</h1>
+</div>
+<div class="col-span-7 pr-4">
+<div class="relative overflow-hidden rounded-xl aspect-[4/5] bg-gray-200">
+<img class="w-full h-full object-cover" data-alt="Modern abstract art painting in a bright gallery" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDWpK_SkOVSe7G3U747r1fAp0ysWRI3H_uwaAPWarDQ7P55xUQKLZq4Drb5jSkeVWgxD0QWKLtEkXUEH_1xVfb9myj8LN58YHgQED49JzbdvBdU1dAluVQVyz3gMN2Bsd7pL9kUIujhYdkthhWRRnmZ4Sc0i2Zoli6_ENxrDQcTYexQNI1i8wPkBVnm-H2eKdS6CHeE5nMttNne7pt1nONx3e4aLWUlR2fQGp7XBmkfJfnBm1trwjMtY7wIc37Ho6viX14g45uW4LM"/>
+</div>
+</div>
+<div class="col-span-5 flex flex-col gap-2">
+<div class="bg-primary p-4 rounded-xl flex-grow flex items-end">
+<p class="text-xs font-bold leading-tight uppercase tracking-wider text-brand-black">
+                            Nevada County's freshest cultural guide for the bold.
+                        </p>
+</div>
+<div class="bg-accent-cyan/20 p-4 rounded-xl aspect-square flex items-center justify-center">
+<span class="material-icons text-3xl text-accent-cyan">local_activity</span>
+</div>
+</div>
+</div>
+</header>
+<!-- Category Pills (Horizontal Scroll) -->
+<section class="mb-12">
+<div class="flex overflow-x-auto hide-scrollbar px-6 gap-3">
+<button class="px-6 py-3 rounded-full bg-accent-cyan text-white font-bold text-[10px] uppercase tracking-[0.2em] whitespace-nowrap">Galleries</button>
+<button class="px-6 py-3 rounded-full bg-primary text-brand-black font-bold text-[10px] uppercase tracking-[0.2em] whitespace-nowrap">Artisan Shops</button>
+<button class="px-6 py-3 rounded-full bg-accent-coral text-white font-bold text-[10px] uppercase tracking-[0.2em] whitespace-nowrap">Dining</button>
+<button class="px-6 py-3 rounded-full bg-brand-black text-white font-bold text-[10px] uppercase tracking-[0.2em] whitespace-nowrap">Live Music</button>
+<button class="px-6 py-3 rounded-full bg-primary/20 text-brand-black font-bold text-[10px] uppercase tracking-[0.2em] whitespace-nowrap">Parks</button>
+</div>
+</section>
+<!-- Featured Places Grid -->
+<section class="px-6 mb-12">
+<div class="flex justify-between items-end mb-6">
+<h2 class="text-2xl font-black uppercase tracking-tighter leading-none">Featured<br/>Places</h2>
+<span class="text-[10px] font-bold uppercase tracking-widest text-gray-400">View All</span>
+</div>
+<div class="grid grid-cols-2 gap-4">
+<!-- Card 1: Gallery -->
+<div class="bg-white dark:bg-background-dark rounded-xl shadow-xl shadow-black/5 overflow-hidden">
+<div class="relative h-40">
+<img class="w-full h-full object-cover" data-alt="Stylish interior of a modern art gallery" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDOdGZrndMILLqD5W26jxzrwE8GKi_zjYsQvuMErLrpDHaIC-s7nxhPLOgl0-YttnHS80JPbVp379tuTXc_X2uTuz3XUzSDReScDyJCiWLbK3cEyWf2mAYLGJcVbK8ID6RZQGBDiWD6qHa8YsDarmGwXHBkN0bTVmi7o6-W8q-ht1W4rnC2qEOXRCkCn7opR92sjb9K9yoNAgOTeQXzbPBAI9gWDR4u-91mVE7OsDWNpSul3zOHyjjoR2as9tjIXHnepk-3HfyrygI"/>
+<span class="absolute top-2 left-2 bg-accent-cyan text-white text-[8px] font-bold uppercase px-2 py-1 rounded-full">Galleries</span>
+</div>
+<div class="p-4">
+<h3 class="font-bold text-sm mb-1 leading-tight">Neon Valley Studio</h3>
+<p class="text-[10px] text-gray-500 uppercase tracking-tighter">4.8 • 0.2 miles away</p>
+</div>
+</div>
+<!-- Card 2: Artisan -->
+<div class="bg-white dark:bg-background-dark rounded-xl shadow-xl shadow-black/5 overflow-hidden">
+<div class="relative h-40">
+<img class="w-full h-full object-cover" data-alt="Handcrafted ceramic pots on a shelf" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDqzexMdMSe9vLbWT2G3w3BfRDK6kYj2Dg2fGyTDTr6yTOncN3cVdpmCAG3sqtalfF0LJCJa0uRKYBX_5XQw6sGzNwhOA6B6IPdiZmrHQjIgjpYWnsQCOw0j4MMvONYfsBvka0EqO-Cz7jlNodYWcpuiqv4MwCoVQi5Eoa_YsjA7Ts9bLc_D-7ggXxFT_lDaE3o9K7GpMCzsMz7Wk8PY3Y4QGhbfQU-sQTTr18ctaLCwvnaSYOgjEcVBKXZK_Ndz0ASxoq6iRaO2as"/>
+<span class="absolute top-2 left-2 bg-primary text-brand-black text-[8px] font-bold uppercase px-2 py-1 rounded-full">Artisan Shops</span>
+</div>
+<div class="p-4">
+<h3 class="font-bold text-sm mb-1 leading-tight">Clay &amp; Co Craft</h3>
+<p class="text-[10px] text-gray-500 uppercase tracking-tighter">4.9 • 1.1 miles away</p>
+</div>
+</div>
+<!-- Card 3: Dining -->
+<div class="bg-white dark:bg-background-dark rounded-xl shadow-xl shadow-black/5 overflow-hidden">
+<div class="relative h-40">
+<img class="w-full h-full object-cover" data-alt="Vibrant cocktail and gourmet snack on table" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYKwp_9RMOEXzckAOp7g5QBTXIkOquziEIwu4uFyJCGnPSz63qC9gCgz6XW9NLZ5GR2sqc-8djbFkSbikO_bfC8gxguJFGc00qLqFNgFHdvCAUC0gSFZt61KYTvDZ_jdPCe-JY3MNxcuf2trgHK1XvZU8mTBfldt3_2uMbxn_rddiZRFOMVm8JH0KSnCHiGmxToczgxe6JVoPe9dX8Qe4kxn3CIqFEZAuMVaaEect-lnJWe0smXXPSwVnyHfuqDyGW1yf7-PF8-1I"/>
+<span class="absolute top-2 left-2 bg-accent-coral text-white text-[8px] font-bold uppercase px-2 py-1 rounded-full">Dining</span>
+</div>
+<div class="p-4">
+<h3 class="font-bold text-sm mb-1 leading-tight">Vibe Bites Kitchen</h3>
+<p class="text-[10px] text-gray-500 uppercase tracking-tighter">4.7 • 0.5 miles away</p>
+</div>
+</div>
+<!-- Card 4: Event Space -->
+<div class="bg-white dark:bg-background-dark rounded-xl shadow-xl shadow-black/5 overflow-hidden border-2 border-dashed border-primary/30 flex items-center justify-center p-4">
+<div class="text-center">
+<span class="material-icons text-primary mb-2">add_circle_outline</span>
+<p class="text-[10px] font-bold uppercase tracking-widest text-gray-400">Suggest a Spot</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Events Strip -->
+<section class="bg-brand-black py-12">
+<div class="px-6 mb-8 flex justify-between items-center">
+<h2 class="text-white text-2xl font-black uppercase tracking-tighter">UPCOMING</h2>
+<div class="flex gap-2">
+<button class="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-white">
+<span class="material-icons text-sm">west</span>
+</button>
+<button class="w-8 h-8 rounded-full bg-primary flex items-center justify-center text-brand-black">
+<span class="material-icons text-sm">east</span>
+</button>
+</div>
+</div>
+<div class="flex overflow-x-auto hide-scrollbar px-6 gap-6">
+<!-- Event 1 -->
+<div class="min-w-[280px] flex gap-4">
+<div class="w-16 h-16 shrink-0 bg-accent-cyan flex flex-col items-center justify-center rounded">
+<span class="text-xs font-bold text-white uppercase tracking-tighter">AUG</span>
+<span class="text-2xl font-black text-white leading-none">12</span>
+</div>
+<div class="text-white">
+<span class="text-[10px] text-accent-cyan font-bold uppercase tracking-widest">Live Performance</span>
+<h4 class="text-lg font-bold leading-tight mt-1 uppercase">Neon Nights Jazz Fest</h4>
+<p class="text-xs text-gray-400 mt-2">7:00 PM • Miners Foundry</p>
+</div>
+</div>
+<!-- Event 2 -->
+<div class="min-w-[280px] flex gap-4">
+<div class="w-16 h-16 shrink-0 bg-primary flex flex-col items-center justify-center rounded">
+<span class="text-xs font-bold text-brand-black uppercase tracking-tighter">AUG</span>
+<span class="text-2xl font-black text-brand-black leading-none">15</span>
+</div>
+<div class="text-white">
+<span class="text-[10px] text-primary font-bold uppercase tracking-widest">Workshop</span>
+<h4 class="text-lg font-bold leading-tight mt-1 uppercase">Modern Pottery Jam</h4>
+<p class="text-xs text-gray-400 mt-2">11:00 AM • Art Haus</p>
+</div>
+</div>
+<!-- Event 3 -->
+<div class="min-w-[280px] flex gap-4">
+<div class="w-16 h-16 shrink-0 bg-accent-coral flex flex-col items-center justify-center rounded">
+<span class="text-xs font-bold text-white uppercase tracking-tighter">AUG</span>
+<span class="text-2xl font-black text-white leading-none">18</span>
+</div>
+<div class="text-white">
+<span class="text-[10px] text-accent-coral font-bold uppercase tracking-widest">Culinary</span>
+<h4 class="text-lg font-bold leading-tight mt-1 uppercase">Taco &amp; Vinyl Night</h4>
+<p class="text-xs text-gray-400 mt-2">6:00 PM • The Junction</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter / Footer Call to Action -->
+<section class="p-6 bg-primary">
+<div class="bg-brand-black p-8 rounded-xl text-center">
+<h3 class="text-3xl font-black text-white uppercase tracking-tighter mb-4 leading-none">STAY <br/> IN THE LOOP</h3>
+<p class="text-white/60 text-xs mb-6 uppercase tracking-wider font-medium">Join 5k+ locals getting weekly drops on Nevada County's hidden gems.</p>
+<div class="relative">
+<input class="w-full bg-white/10 border-none rounded-full px-6 py-4 text-white text-xs placeholder:text-white/30 font-bold focus:ring-2 focus:ring-primary" placeholder="YOUR EMAIL" type="email"/>
+<button class="absolute right-1 top-1 bottom-1 px-6 bg-primary text-brand-black rounded-full text-[10px] font-black uppercase tracking-widest">Join</button>
+</div>
+</div>
+</section>
+<!-- Bottom Tab Bar -->
+<div class="h-20 bg-white dark:bg-[#151515] border-t border-gray-100 dark:border-white/5 flex items-center justify-around px-6">
+<div class="flex flex-col items-center gap-1 text-primary">
+<span class="material-icons">explore</span>
+<span class="text-[8px] font-bold uppercase">Explore</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-gray-400">
+<span class="material-icons">event</span>
+<span class="text-[8px] font-bold uppercase">Events</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-gray-400">
+<span class="material-icons">favorite_border</span>
+<span class="text-[8px] font-bold uppercase">Saved</span>
+</div>
+<div class="flex flex-col items-center gap-1 text-gray-400">
+<span class="material-icons">person_outline</span>
+<span class="text-[8px] font-bold uppercase">Profile</span>
+</div>
+</div>
+</div>
+</body></html>

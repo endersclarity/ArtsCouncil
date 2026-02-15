@@ -1,0 +1,329 @@
+@import url('index-maplibre-hero-intent.css');
+
+/* ==========================================================================
+   Editorial Pass: bright, contemporary, bold.
+   This file overrides visuals only. Functional markup/JS IDs remain unchanged.
+   ========================================================================== */
+
+:root {
+  --neuro-bg: #f8f8f4;
+  --neuro-light: rgba(255, 255, 255, 0.9);
+  --neuro-dark: rgba(16, 18, 24, 0.12);
+
+  --ink: #161717;
+  --cream: #fcfcf9;
+  --parchment: #f0eee8;
+  --gold: #f8d838;
+  --gold-bright: #ffdf47;
+  --rust: #ff5b4d;
+  --deep-green: #256a61;
+  --slate: #3a5566;
+  --red-accent: #ef4a3f;
+  --blue-wash: #24bfd0;
+
+  --cat-landmarks: #bf3f26;
+  --cat-eat: #bf8b23;
+  --cat-arts: #29776a;
+  --cat-cultural: #1d5c8d;
+  --cat-fairs: #c24e31;
+  --cat-galleries: #6a4a92;
+  --cat-walks: #2f7e5f;
+  --cat-publicart: #b45a1a;
+  --cat-performance: #2a5daa;
+  --cat-preservation: #74602f;
+
+  --font-display: 'Archivo Expanded', 'Arial Black', sans-serif;
+  --font-body: 'Public Sans', 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+
+  --shadow-raised: 0 10px 28px rgba(10, 12, 16, 0.10);
+  --shadow-soft: 0 6px 18px rgba(10, 12, 16, 0.08);
+}
+
+body.theme-editorial-pass {
+  background:
+    radial-gradient(circle at 12% -10%, rgba(255, 91, 77, 0.12), transparent 35%),
+    radial-gradient(circle at 90% 0%, rgba(36, 191, 208, 0.11), transparent 28%),
+    var(--neuro-bg);
+  color: var(--ink);
+}
+
+.theme-editorial-pass .mast {
+  margin-top: 1rem;
+}
+
+.theme-editorial-pass .mast-inner {
+  border-radius: 16px;
+  border: 1px solid rgba(16, 18, 24, 0.14);
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: var(--shadow-raised);
+  padding: 0.8rem 1rem;
+}
+
+.theme-editorial-pass .mast-name {
+  text-transform: uppercase;
+  font-size: clamp(1.1rem, 2.15vw, 1.6rem);
+  letter-spacing: 0.02em;
+  color: #111;
+}
+
+.theme-editorial-pass .mast-sub {
+  border-left-color: rgba(16, 18, 24, 0.2);
+  color: rgba(16, 18, 24, 0.62);
+  letter-spacing: 0.13em;
+}
+
+.theme-editorial-pass .mast-mark {
+  border-radius: 10px;
+  border-color: rgba(16, 18, 24, 0.18);
+  background:
+    radial-gradient(circle at 30% 25%, rgba(255, 216, 56, 0.95), rgba(255, 216, 56, 0.18) 55%),
+    radial-gradient(circle at 76% 70%, rgba(36, 191, 208, 0.7), rgba(36, 191, 208, 0.06) 60%),
+    linear-gradient(180deg, rgba(16, 18, 24, 0.04), rgba(16, 18, 24, 0));
+}
+
+.theme-editorial-pass .hero-variant--intent {
+  margin-top: 0.7rem;
+}
+
+.theme-editorial-pass .intent-card {
+  border-radius: 18px;
+  border: 1px solid rgba(16, 18, 24, 0.14);
+  background: rgba(255, 255, 255, 0.86);
+  box-shadow: var(--shadow-raised);
+  padding: 1rem 1rem 1.1rem;
+}
+
+.theme-editorial-pass .hero-variant-sub {
+  color: rgba(16, 18, 24, 0.8);
+  font-size: 1.02rem;
+  line-height: 1.55;
+}
+
+.theme-editorial-pass .hero-discovery {
+  border-top-color: rgba(16, 18, 24, 0.14);
+  padding-top: 0.82rem;
+}
+
+.theme-editorial-pass .hero-variant-cats-label {
+  color: rgba(16, 18, 24, 0.62);
+}
+
+.theme-editorial-pass .intent-tab {
+  border-radius: 999px;
+  border-color: rgba(16, 18, 24, 0.2);
+  background: #fff;
+  color: rgba(16, 18, 24, 0.72);
+}
+
+.theme-editorial-pass .intent-tab:hover {
+  background: #f5f7f8;
+  border-color: rgba(16, 18, 24, 0.33);
+}
+
+.theme-editorial-pass .intent-tab[aria-selected="true"],
+.theme-editorial-pass .intent-tab.active {
+  color: #0f1d25;
+  border-color: rgba(36, 191, 208, 0.7);
+  background: linear-gradient(180deg, rgba(36, 191, 208, 0.25), rgba(36, 191, 208, 0.15));
+  box-shadow: 0 0 0 1px rgba(36, 191, 208, 0.35) inset;
+}
+
+.theme-editorial-pass .hero-variant-cats .categories-grid {
+  gap: 0.65rem;
+}
+
+.theme-editorial-pass .hero-variant-cats .cat-card {
+  min-width: 190px;
+  border-radius: 14px;
+  border-color: rgba(16, 18, 24, 0.14);
+  background: #fff;
+  box-shadow: var(--shadow-soft);
+}
+
+.theme-editorial-pass .hero-variant-cats .cat-card:hover {
+  transform: translateY(-1px);
+  border-color: rgba(16, 18, 24, 0.28);
+}
+
+.theme-editorial-pass .hero-variant-cats .cat-card.is-active,
+.theme-editorial-pass .hero-variant-cats .cat-card.active {
+  border-color: rgba(255, 91, 77, 0.58);
+  box-shadow: 0 0 0 1px rgba(255, 91, 77, 0.34) inset;
+}
+
+.theme-editorial-pass .map-section {
+  width: min(1160px, calc(100% - 2rem));
+  margin: 1rem auto;
+}
+
+.theme-editorial-pass .map-container {
+  border-radius: 18px;
+  border: 2px solid rgba(22, 23, 23, 0.14);
+  box-shadow: var(--shadow-raised);
+  overflow: hidden;
+}
+
+.theme-editorial-pass #map {
+  border-radius: 0;
+}
+
+.theme-editorial-pass .map-overlay-controls {
+  padding: 10px;
+}
+
+.theme-editorial-pass .map-filter-toggle,
+.theme-editorial-pass .map-legend-toggle {
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(16, 18, 24, 0.2);
+  box-shadow: 0 6px 15px rgba(16, 18, 24, 0.12);
+}
+
+.theme-editorial-pass .map-filter-panel,
+.theme-editorial-pass .map-legend-panel {
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(16, 18, 24, 0.16);
+  box-shadow: 0 8px 20px rgba(16, 18, 24, 0.14);
+}
+
+.theme-editorial-pass .map-rails-intent {
+  gap: 0.9rem;
+  margin-top: 0.85rem;
+}
+
+.theme-editorial-pass .map-rail-intent {
+  border-radius: 16px;
+  border: 1px solid rgba(16, 18, 24, 0.16);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: var(--shadow-soft);
+}
+
+.theme-editorial-pass .map-rail-intent-head {
+  border-bottom: 1px solid rgba(16, 18, 24, 0.12);
+  background: linear-gradient(90deg, rgba(36, 191, 208, 0.11), rgba(255, 216, 56, 0.12));
+}
+
+.theme-editorial-pass .intent-editorial-rail-eyebrow {
+  color: rgba(16, 18, 24, 0.62);
+}
+
+.theme-editorial-pass .section-header {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.theme-editorial-pass .map-events {
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.theme-editorial-pass .map-events-chip {
+  border: 1px solid rgba(16, 18, 24, 0.18);
+  background: #fff;
+}
+
+.theme-editorial-pass .map-events-chip.active {
+  background: rgba(255, 91, 77, 0.16);
+  border-color: rgba(255, 91, 77, 0.62);
+}
+
+.theme-editorial-pass .muse-section {
+  width: min(1160px, calc(100% - 2rem));
+  margin: 0.9rem auto;
+}
+
+.theme-editorial-pass .muse-section-header {
+  border-radius: 16px;
+  border: 1px solid rgba(16, 18, 24, 0.14);
+  background: #fff;
+  box-shadow: var(--shadow-soft);
+  padding: 1rem;
+}
+
+.theme-editorial-pass .muse-section-title {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.theme-editorial-pass .muse-card {
+  border-radius: 14px;
+  border: 1px solid rgba(16, 18, 24, 0.14);
+  background: #fff;
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+}
+
+.theme-editorial-pass .muse-card > summary {
+  background: linear-gradient(110deg, rgba(36, 191, 208, 0.08), rgba(255, 216, 56, 0.12));
+}
+
+.theme-editorial-pass .muse-card-title {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.theme-editorial-pass .muse-card-quote {
+  color: rgba(16, 18, 24, 0.82);
+}
+
+.theme-editorial-pass .explore-section {
+  width: min(1160px, calc(100% - 2rem));
+  margin: 0.9rem auto 1.2rem;
+}
+
+.theme-editorial-pass .explore-header {
+  border-radius: 16px;
+  border: 1px solid rgba(16, 18, 24, 0.14);
+  background: #fff;
+  box-shadow: var(--shadow-soft);
+}
+
+.theme-editorial-pass .section-heading {
+  font-family: var(--font-display);
+  text-transform: uppercase;
+}
+
+.theme-editorial-pass .explore-search {
+  background: #fff;
+  border: 1px solid rgba(16, 18, 24, 0.2);
+}
+
+.theme-editorial-pass .explore-list-wrapper {
+  border-radius: 14px;
+  border: 1px solid rgba(16, 18, 24, 0.14);
+  background: #fff;
+  box-shadow: var(--shadow-soft);
+}
+
+.theme-editorial-pass .detail-panel {
+  border-left: 2px solid rgba(16, 18, 24, 0.18);
+}
+
+.theme-editorial-pass .colophon {
+  margin-top: 1.1rem;
+  background: #13161a;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.theme-editorial-pass .colophon a {
+  color: #8be5ef;
+}
+
+@media (max-width: 900px) {
+  .theme-editorial-pass .mast-inner {
+    border-radius: 13px;
+  }
+
+  .theme-editorial-pass .hero-variant-cats .cat-card {
+    min-width: 170px;
+  }
+
+  .theme-editorial-pass .map-section,
+  .theme-editorial-pass .muse-section,
+  .theme-editorial-pass .explore-section {
+    width: calc(100% - 1rem);
+  }
+}

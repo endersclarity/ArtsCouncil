@@ -1,0 +1,231 @@
+/*
+  Storyline Atlas Variant
+  Scroll-chapter emphasis with warm/cool sectional beats and editorial rhythm.
+*/
+
+.storyline-atlas-theme {
+  --font-display: 'Instrument Serif', Georgia, serif;
+  --font-body: 'Manrope', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+
+  --ink: oklch(22% 0.03 265);
+  --paper: oklch(97% 0.01 88);
+  --paper-soft: oklch(94% 0.02 245);
+  --gold: oklch(74% 0.15 82);
+  --blue: oklch(61% 0.11 244);
+  --line: oklch(39% 0.03 255 / 0.22);
+
+  color: var(--ink);
+  background:
+    radial-gradient(900px 480px at 6% 0%, oklch(89% 0.06 80 / 0.52), transparent 72%),
+    radial-gradient(980px 520px at 100% 10%, oklch(88% 0.07 240 / 0.45), transparent 74%),
+    linear-gradient(180deg, var(--paper), var(--paper-soft));
+}
+
+.storyline-atlas-theme .hero,
+.storyline-atlas-theme .section-intro,
+.storyline-atlas-theme .map-section,
+.storyline-atlas-theme .muse-section,
+.storyline-atlas-theme .explore-section,
+.storyline-atlas-theme .colophon-inner {
+  position: relative;
+  max-width: none;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  box-shadow: 0 14px 32px rgba(32, 34, 61, 0.08);
+}
+
+.storyline-atlas-theme .hero {
+  margin-top: 1rem;
+  padding: 1.15rem 1.2rem;
+  background: linear-gradient(150deg, oklch(20% 0.04 262), oklch(14% 0.03 258));
+  color: oklch(97% 0.02 95);
+}
+
+.storyline-atlas-theme .hero-badge {
+  border-radius: 12px;
+  border: 1px solid oklch(100% 0 0 / 0.25);
+}
+
+.storyline-atlas-theme .hero-eyebrow {
+  color: var(--gold);
+}
+
+.storyline-atlas-theme .hero-title {
+  color: oklch(98% 0.02 95);
+  font-family: var(--font-display);
+}
+
+.storyline-atlas-theme .hero-title em {
+  color: var(--gold);
+}
+
+.storyline-atlas-theme .storyline-chapters {
+  margin-top: 0.7rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.storyline-atlas-theme .storyline-chapters a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.38rem 0.66rem;
+  border: 1px solid oklch(100% 0 0 / 0.28);
+  border-radius: 999px;
+  background: oklch(100% 0 0 / 0.09);
+  color: oklch(96% 0.02 95);
+  text-decoration: none;
+  font-family: var(--font-mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.storyline-atlas-theme .storyline-chapters a:hover,
+.storyline-atlas-theme .storyline-chapters a:focus-visible {
+  color: var(--gold);
+  border-color: oklch(77% 0.15 82 / 0.7);
+}
+
+.storyline-atlas-theme .hero-jump a {
+  border-radius: 999px;
+}
+
+.storyline-atlas-theme .section-intro,
+.storyline-atlas-theme .map-section,
+.storyline-atlas-theme .muse-section,
+.storyline-atlas-theme .explore-section {
+  margin-top: 0.74rem;
+  padding: 1.05rem 1.1rem;
+  background: oklch(100% 0 0 / 0.74);
+}
+
+.storyline-atlas-theme .section-intro { border-top: 4px solid oklch(74% 0.15 82 / 0.65); }
+.storyline-atlas-theme .map-section { border-top: 4px solid oklch(61% 0.11 244 / 0.65); }
+.storyline-atlas-theme .muse-section { border-top: 4px solid oklch(57% 0.11 164 / 0.65); }
+.storyline-atlas-theme .explore-section { border-top: 4px solid oklch(66% 0.15 26 / 0.65); }
+
+.storyline-atlas-theme .section-intro::before,
+.storyline-atlas-theme .section-intro::after,
+.storyline-atlas-theme .muse-section::before,
+.storyline-atlas-theme .explore-section::before,
+.storyline-atlas-theme .explore-section::after {
+  display: none;
+}
+
+.storyline-atlas-theme .section-intro .col-right { display: block; }
+
+.storyline-atlas-theme .section-heading,
+.storyline-atlas-theme .muse-section-title,
+.storyline-atlas-theme .map-title {
+  font-family: var(--font-display);
+  color: var(--ink);
+}
+
+.storyline-atlas-theme .cat-card,
+.storyline-atlas-theme .filter-pill,
+.storyline-atlas-theme .map-filter-toggle,
+.storyline-atlas-theme .map-legend-toggle,
+.storyline-atlas-theme .map-location-refresh,
+.storyline-atlas-theme .map-location-status,
+.storyline-atlas-theme .map-filter-panel .map-filter-bar,
+.storyline-atlas-theme .map-legend-panel,
+.storyline-atlas-theme .map-guides,
+.storyline-atlas-theme .map-subaddon,
+.storyline-atlas-theme .map-events-details,
+.storyline-atlas-theme .map-events-chip,
+.storyline-atlas-theme .map-events-category-select,
+.storyline-atlas-theme .map-events-nav,
+.storyline-atlas-theme .explore-search,
+.storyline-atlas-theme .explore-cat-pill,
+.storyline-atlas-theme .explore-list-wrapper,
+.storyline-atlas-theme .explore-item,
+.storyline-atlas-theme .load-more-btn,
+.storyline-atlas-theme .explore-list-back,
+.storyline-atlas-theme .colophon-bottom a {
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: oklch(100% 0 0 / 0.8);
+}
+
+.storyline-atlas-theme .filter-pill.active,
+.storyline-atlas-theme .map-events-chip.active {
+  color: oklch(35% 0.05 30);
+  border-color: oklch(62% 0.13 38 / 0.65);
+  background: oklch(74% 0.15 82 / 0.2);
+}
+
+.storyline-atlas-theme .map-container {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 0.5rem;
+  background: oklch(100% 0 0 / 0.82);
+  min-height: 500px;
+  height: 69vh;
+}
+
+.storyline-atlas-theme #map { border-radius: 10px; }
+
+.storyline-atlas-theme .muse-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.95rem;
+}
+
+.storyline-atlas-theme .muse-card {
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: oklch(100% 0 0 / 0.82);
+}
+
+.storyline-atlas-theme .muse-card:nth-child(2) { margin-top: 0.9rem; }
+.storyline-atlas-theme .muse-card:nth-child(3) { margin-top: -0.4rem; }
+
+.storyline-atlas-theme .detail-panel {
+  border-left: 1px solid var(--line);
+  background: linear-gradient(180deg, oklch(97% 0.01 90), oklch(94% 0.02 242));
+}
+
+.storyline-atlas-theme .detail-close {
+  border-radius: 999px;
+  border: 1px solid var(--line);
+}
+
+.storyline-atlas-theme .colophon {
+  background: transparent;
+  padding: 0 0 1rem;
+}
+
+@media (max-width: 980px) {
+  .storyline-atlas-theme .section-intro,
+  .storyline-atlas-theme .muse-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .storyline-atlas-theme .muse-card:nth-child(2),
+  .storyline-atlas-theme .muse-card:nth-child(3) {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  .storyline-atlas-theme .hero,
+  .storyline-atlas-theme .section-intro,
+  .storyline-atlas-theme .map-section,
+  .storyline-atlas-theme .muse-section,
+  .storyline-atlas-theme .explore-section,
+  .storyline-atlas-theme .colophon-inner {
+    margin-left: 0.62rem;
+    margin-right: 0.62rem;
+    padding: 0.8rem;
+  }
+
+  .storyline-atlas-theme .map-container {
+    min-height: 398px;
+    height: 58vh;
+  }
+}

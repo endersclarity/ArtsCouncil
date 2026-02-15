@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Culture Atlas Variant Hub</title>
+<style>
+* { box-sizing: border-box; }
+:root {
+  --bg: #0f1420;
+  --bg-soft: #171f30;
+  --card: #1b2438;
+  --text: #eaf0fa;
+  --muted: #98a9c4;
+  --line: #2a3550;
+  --accent: #ff7c5d;
+  --gold: #d8cf63;
+}
+body {
+  margin: 0;
+  font-family: "Segoe UI", Arial, sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(1000px 500px at 0% 0%, #1d2740 0%, transparent 70%),
+    radial-gradient(900px 500px at 100% 0%, #2a3150 0%, transparent 70%),
+    var(--bg);
+}
+.main {
+  width: min(1220px, calc(100% - 2rem));
+  margin: 0 auto;
+  padding: 2rem 0 2.5rem;
+}
+.hero {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: linear-gradient(140deg, #1c2640, #121a2d);
+  padding: 1.2rem 1rem;
+  margin-bottom: 1rem;
+}
+.eyebrow {
+  font-size: .66rem;
+  text-transform: uppercase;
+  letter-spacing: .16em;
+  color: var(--gold);
+}
+h1 {
+  margin: .45rem 0 .55rem;
+  font-size: clamp(1.8rem, 4.8vw, 2.8rem);
+}
+.hero p {
+  margin: 0;
+  color: var(--muted);
+  max-width: 75ch;
+}
+.jump {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  margin: .9rem 0 1.3rem;
+}
+.jump a {
+  color: var(--text);
+  text-decoration: none;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: .4rem .62rem;
+  font-size: .75rem;
+  text-transform: uppercase;
+  letter-spacing: .09em;
+  background: #1a2235;
+}
+.jump a:hover { border-color: var(--accent); color: var(--accent); }
+.section {
+  margin: 0 0 1.5rem;
+}
+.section h2 {
+  margin: 0 0 .65rem;
+  font-size: 1.16rem;
+  letter-spacing: .02em;
+}
+.section-note {
+  margin: 0 0 .7rem;
+  color: var(--muted);
+  font-size: .92rem;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: .65rem;
+}
+.card {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: linear-gradient(145deg, var(--card), #12192c);
+  padding: .85rem;
+  display: grid;
+  gap: .48rem;
+}
+.title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: .6rem;
+}
+.card strong { font-size: 1rem; }
+.tag {
+  border-radius: 999px;
+  border: 1px solid #334568;
+  color: #c6d4ee;
+  font-size: .63rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  padding: .2rem .46rem;
+  white-space: nowrap;
+}
+.tag.new {
+  border-color: rgba(255, 124, 93, 0.6);
+  color: #ffd0c4;
+  background: rgba(255, 124, 93, 0.15);
+}
+.meta {
+  margin: 0;
+  color: var(--muted);
+  font-size: .88rem;
+  line-height: 1.38;
+}
+.actions {
+  margin-top: .2rem;
+  display: flex;
+  gap: .45rem;
+  flex-wrap: wrap;
+}
+.btn {
+  text-decoration: none;
+  color: var(--text);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: .48rem .66rem;
+  font-size: .74rem;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  font-weight: 700;
+  background: #1a2337;
+}
+.btn:hover { color: var(--accent); border-color: var(--accent); }
+.footer-note {
+  margin-top: 1rem;
+  color: var(--muted);
+  font-size: .82rem;
+}
+@media (max-width: 980px) {
+  .grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+<main class="main">
+  <section class="hero">
+    <div class="eyebrow">Nevada County Arts Council</div>
+    <h1>Culture Atlas Variant Hub</h1>
+    <p>
+      Organized by category, with newest/current work at the top. Start in
+      <strong>Newest / Active</strong>, then branch into hero concepts, style systems, kiosk, or workflow variants.
+    </p>
+  </section>
+
+  <nav class="jump" aria-label="Jump to section">
+    <a href="#newest">Newest / Active</a>
+    <a href="#hero">Hero Concepts</a>
+    <a href="#style">Style Systems</a>
+    <a href="#workflow">Workflow Variants</a>
+    <a href="#kiosk">Kiosk / Touch</a>
+    <a href="#baseline">Baseline</a>
+  </nav>
+
+  <section class="section" id="newest">
+    <h2>Newest / Active</h2>
+    <p class="section-note">Latest stitch-wired runs and comparison passes (2026-02-15).</p>
+    <div class="grid">
+      <article class="card">
+        <div class="title-row">
+          <strong>Stitch Wired Clone</strong>
+          <span class="tag new">New</span>
+        </div>
+        <p class="meta">Functional clone with Stitch-inspired visual overrides.</p>
+        <div class="actions">
+          <a class="btn" href="index-maplibre-hero-intent-stitch-wired.html?open=false&amp;events14d=false">Open</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="title-row">
+          <strong>Stitch Content Pass</strong>
+          <span class="tag new">New</span>
+        </div>
+        <p class="meta">More Stitch-dominant hero/collage treatment with canonical wiring.</p>
+        <div class="actions">
+          <a class="btn" href="index-maplibre-hero-intent-stitch-content-pass.html?open=false&amp;events14d=false">Open</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="title-row">
+          <strong>Stitch + Frontend Design Pass</strong>
+          <span class="tag new">New</span>
+        </div>
+        <p class="meta">Bolder, art-directed interpretation for stronger visual contrast.</p>
+        <div class="actions">
+          <a class="btn" href="index-maplibre-hero-intent-stitch-frontend-design-pass.html?open=false&amp;events14d=false">Open</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="title-row">
+          <strong>Stitch + UI/UX Pro Pass</strong>
+          <span class="tag new">New</span>
+        </div>
+        <p class="meta">Cleaner hierarchy and spacing-focused usability refinement.</p>
+        <div class="actions">
+          <a class="btn" href="index-maplibre-hero-intent-stitch-uiux-pro-pass.html?open=false&amp;events14d=false">Open</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="title-row">
+          <strong>Stitch + Perplexity Feedback Pass</strong>
+          <span class="tag new">New</span>
+        </div>
+        <p class="meta">Implements Perplexity recommendations: stronger map CTA, cleaner hero hierarchy, story-entry strip, and clearer quick tools.</p>
+        <div class="actions">
+          <a class="btn" href="index-maplibre-hero-intent-stitch-perplexity-pass.html?open=false&amp;events14d=false">Open</a>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="title-row">
+          <strong>Stitch + Detailed Feedback V2</strong>
+          <span class="tag new">New</span>
+        </div>
+        <p class="meta">Applies your full checklist: map-first hero, tabbed hierarchy, 70/30 stories+mini-map band, stronger contrast, and mobile action bar.</p>
+        <div class="actions">
+          <a class="btn" href="index-maplibre-hero-intent-stitch-perplexity-feedback-pass.html?open=false&amp;events14d=false">Open</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="hero">
+    <h2>Hero Concepts</h2>
+    <div class="grid">
+      <article class="card">
+        <div class="title-row"><strong>Hero: Intent / Search First</strong><span class="tag">Core</span></div>
+        <p class="meta">Preset intents and deep links into map state.</p>
+        <div class="actions"><a class="btn" href="index-maplibre-hero-intent.html">Open</a></div>
+      </article>
+      <article class="card">
+        <div class="title-row"><strong>Hero: Map-First</strong><span class="tag">Hero</span></div>
+        <p class="meta">Map-first cockpit with reduced intro copy.</p>
+        <div class="actions"><a class="btn" href="index-maplibre-hero-mapfirst.html">Open</a></div>
+      </article>
+      <article class="card">
+        <div class="title-row"><strong>Hero: Magazine Cover</strong><span class="tag">Hero</span></div>
+        <p class="meta">Dark cover-style hero and editorial top-fold treatment.</p>
+        <div class="actions"><a class="btn" href="index-maplibre-hero-magcover.html">Open</a></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="section" id="style">
+    <h2>Style Systems</h2>
+    <div class="grid">
+      <article class="card"><div class="title-row"><strong>Overdrive</strong><span class="tag">Style</span></div><p class="meta">Dark + gold dramatic direction.</p><div class="actions"><a class="btn" href="index-maplibre-overdrive.html">Open</a></div></article>
+      <article class="card"><div class="title-row"><strong>Shutterdrive</strong><span class="tag">Style</span></div><p class="meta">Editorial film-like tone and geometry.</p><div class="actions"><a class="btn" href="index-maplibre-shutterdrive.html">Open</a></div></article>
+      <article class="card"><div class="title-row"><strong>Grand Exchange</strong><span class="tag">Style</span></div><p class="meta">Restrained luxury with brass accents.</p><div class="actions"><a class="btn" href="index-maplibre-grandexchange.html">Open</a></div></article>
+      <article class="card"><div class="title-row"><strong>Layout Reboot</strong><span class="tag">Layout</span></div><p class="meta">Map-first cockpit + narrative rail structure.</p><div class="actions"><a class="btn" href="index-maplibre-layout-reboot.html">Open</a></div></article>
+      <article class="card"><div class="title-row"><strong>Signaldeck</strong><span class="tag">Layout</span></div><p class="meta">Tactical map-ops framing.</p><div class="actions"><a class="btn" href="index-maplibre-signaldeck.html">Open</a></div></article>
+      <article class="card"><div class="title-row"><strong>Monograph</strong><span class="tag">Style</span></div><p class="meta">Print-inspired high-contrast editorial system.</p><div class="actions"><a class="btn" href="index-maplibre-monograph.html">Open</a></div></article>
+      <article class="card"><div class="title-row"><strong>Watercolor Stickerbook</strong><span class="tag">Style</span></div><p class="meta">Collage notebook direction with playful decals.</p><div class="actions"><a class="btn" href="index-maplibre-watercolor-stickers.html">Open</a></div></article>
+      <article class="card"><div class="title-row"><strong>Prismstorm</strong><span class="tag">Style</span></div><p class="meta">Neon-ink geometric poster energy.</p><div class="actions"><a class="btn" href="index-maplibre-prismstorm.html">Open</a></div></article>
+      <article class="card"><div class="title-row"><strong>Chromafold</strong><span class="tag">Style</span></div><p class="meta">Bright metallic asymmetrical system.</p><div class="actions"><a class="btn" href="index-maplibre-chromafold.html">Open</a></div></article>
+      <article class="card"><div class="title-row"><strong>Brutalist Signal</strong><span class="tag">Style</span></div><p class="meta">Hard-line poster-inspired hierarchy.</p><div class="actions"><a class="btn" href="index-maplibre-brutalist-signal.html">Open</a></div></article>
+    </div>
+  </section>
+
+  <section class="section" id="workflow">
+    <h2>Workflow Variants</h2>
+    <div class="grid">
+      <article class="card"><div class="title-row"><strong>Storyline Atlas</strong><span class="tag">Workflow</span></div><p class="meta">Scroll-chapter storytelling pilot.</p><div class="actions"><a class="btn" href="index-maplibre-storyline-atlas.html">Open</a></div></article>
+      <article class="card"><div class="title-row"><strong>Storyline Wayfinder</strong><span class="tag">Workflow</span></div><p class="meta">Guided flow without heavy theatrical framing.</p><div class="actions"><a class="btn" href="index-maplibre-storyline-wayfinder.html">Open</a></div></article>
+      <article class="card"><div class="title-row"><strong>Access Core</strong><span class="tag">A11y</span></div><p class="meta">High-legibility, accessibility-first pilot.</p><div class="actions"><a class="btn" href="index-maplibre-access-core.html">Open</a></div></article>
+    </div>
+  </section>
+
+  <section class="section" id="kiosk">
+    <h2>Kiosk / Touch Variants</h2>
+    <div class="grid">
+      <article class="card"><div class="title-row"><strong>Kiosk Transit</strong><span class="tag">Touch</span></div><p class="meta">Base touch-first public-screen layout.</p><div class="actions"><a class="btn" href="index-maplibre-kiosk-transit.html">Open</a></div></article>
+      <article class="card"><div class="title-row"><strong>Kiosk Sunburst</strong><span class="tag">Touch</span></div><p class="meta">Warm daylight variation.</p><div class="actions"><a class="btn" href="index-maplibre-kiosk-transit-sunburst.html">Open</a></div></article>
+      <article class="card"><div class="title-row"><strong>Kiosk Midnight</strong><span class="tag">Touch</span></div><p class="meta">Night neon variation.</p><div class="actions"><a class="btn" href="index-maplibre-kiosk-transit-midnight.html">Open</a></div></article>
+      <article class="card"><div class="title-row"><strong>Kiosk Metro</strong><span class="tag">Touch</span></div><p class="meta">Signage-forward, transit-like framing.</p><div class="actions"><a class="btn" href="index-maplibre-kiosk-transit-metro.html">Open</a></div></article>
+    </div>
+  </section>
+
+  <section class="section" id="baseline">
+    <h2>Baseline</h2>
+    <div class="grid">
+      <article class="card">
+        <div class="title-row"><strong>Baseline MapLibre</strong><span class="tag">Base</span></div>
+        <p class="meta">Reference implementation for comparison.</p>
+        <div class="actions"><a class="btn" href="index-maplibre.html">Open Baseline</a></div>
+      </article>
+    </div>
+  </section>
+
+  <p class="footer-note">Tip: open two variants in separate tabs and compare hero, map prominence, and events readability side-by-side.</p>
+</main>
+</body>
+</html>

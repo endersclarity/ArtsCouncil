@@ -154,17 +154,55 @@ The **Events slice** (8 modules) handles ingestion, parsing, venue matching, and
 
 ## Deployment
 
-The website is deployed to **Vercel** as a static site:
+Two Vercel projects exist. **All iteration and testing goes to stitch-lab. The canonical project is protected.**
+
+### Stitch Lab (default — use this)
+
+- **Project:** `cultural-map-redesign-stitch-lab`
+- **URL:** [cultural-map-redesign-stitch-lab.vercel.app](https://cultural-map-redesign-stitch-lab.vercel.app/)
+- **Deploy root:** `website/cultural-map-redesign-stitch-lab/`
+- **Entry point:** `index-maplibre-hero-intent-stitch-frontend-design-pass.html`
+- **Deploy:** `cd website/cultural-map-redesign-stitch-lab && vercel --prod`
+- **Purpose:** Active development, design iteration, feature testing
+
+### Canonical (protected — do NOT deploy without explicit request)
+
 - **Project:** `cultural-map-redesign`
-- **Org:** `endersclarity's-projects`
 - **URL:** [cultural-map-redesign.vercel.app](https://cultural-map-redesign.vercel.app/)
+- **Deploy root:** `website/cultural-map-redesign/`
+- **Entry point:** `index-maplibre-hero-intent.html`
+- **Purpose:** Stable production site shown to committee
 
-**Deploy methods:**
-1. Push to linked Git repo (auto-deploy on push to `master`)
-2. Vercel CLI: `cd website/cultural-map-redesign && vercel --prod`
-3. Vercel dashboard: drag-and-drop the `website/cultural-map-redesign/` folder
+### Deployment Rules
 
-No build step required — it's just static files (HTML, CSS, JS, JSON, images).
+1. **Default deploy target is stitch-lab.** When asked to "deploy", "push to Vercel", or "open the deployment" — use stitch-lab.
+2. **Do NOT modify or deploy the canonical project** unless the user explicitly says "deploy to canonical" or "deploy to cultural-map-redesign".
+3. **Do NOT edit `website/cultural-map-redesign/index-maplibre-hero-intent.html`** — it is the protected canonical entry point.
+4. **Stitch-lab is a clone** of `website/cultural-map-redesign/`. Files are shared via copy. Edit in the stitch-lab directory for iteration work.
+5. **"Open Vercel deployment"** = open `https://cultural-map-redesign-stitch-lab.vercel.app/` unless told otherwise.
+
+No build step required — both projects are static files (HTML, CSS, JS, JSON, images). The `/api/chat` endpoint is a Vercel Serverless Function (Node.js).
+
+### Environment Variables
+
+Local env file: `.env` (project root, gitignored)
+
+| Variable | Purpose | Where set |
+|----------|---------|-----------|
+| `GEMINI_API_KEY` | Google Gemini 3.0 Flash for AI Concierge chat | `.env` + Vercel production |
+| `SUPABASE_URL` | Supabase project URL for chat query logging | `.env` + Vercel production |
+| `SUPABASE_ANON_KEY` | Supabase publishable key (insert-only RLS) | `.env` + Vercel production |
+| `GOOGLE_PLACES_API_KEY` | Google Places API (future use) | `.env` only |
+| `SUPABASE_DB_PASSWORD` | Supabase DB password (admin, not used in code) | `.env` only |
+
+**Supabase project:** `tguligitecsfxfkycknh` — has `chat_logs` table with insert-only RLS policy for anonymous query logging.
+
+### AI Concierge Architecture (Phase 5)
+
+- **Knowledge pack:** `scripts/build-chat-knowledge-pack.js` compresses data.json + muse_editorials.json + itineraries.json + events-merged-flat.json → `chat-knowledge-pack.json` (~191KB)
+- **Serverless function:** `api/chat.js` — POST endpoint proxying to Gemini 3.0 Flash with tourism-only system prompt, input sanitization, rate limiting, Supabase logging
+- **Client modules:** `index-maplibre-chat-{widget,view,controller}.js` — FAB button, conversation panel, response parsing with `[[Asset Name|pid]]` deep links and `{{MUSE|id|quote}}` citation blocks
+- **To rebuild knowledge pack:** `node scripts/build-chat-knowledge-pack.js`
 
 ## Design Language
 

@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Top Row Picker Color Lab (Collapsed vs Expanded)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #ece9e2;
+      --paper: #f8f6f2;
+      --ink: #1f2327;
+      --muted: #5f6972;
+      --line: rgba(31, 35, 39, 0.14);
+      --accent: #4a6b7c;
+      --gold: #b88a2a;
+      --radius-xl: 18px;
+      --radius-lg: 12px;
+      --radius-pill: 999px;
+      --shadow-soft: 0 18px 42px rgba(31, 35, 39, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: "DM Sans", sans-serif;
+      color: var(--ink);
+      background: radial-gradient(circle at 22% -10%, #f5f3ee, var(--bg));
+      padding: 24px 16px 36px;
+    }
+
+    .shell {
+      max-width: 1180px;
+      margin: 0 auto;
+      border: 1px solid var(--line);
+      border-radius: 22px;
+      background: rgba(248, 246, 242, 0.9);
+      box-shadow: var(--shadow-soft);
+      overflow: hidden;
+    }
+
+    .mast {
+      padding: 14px 18px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      background: rgba(255, 255, 255, 0.58);
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 11px;
+      border: 1px solid var(--line);
+      background:
+        radial-gradient(circle at 35% 25%, rgba(190, 150, 70, 0.95), rgba(190, 150, 70, 0.12) 58%),
+        radial-gradient(circle at 75% 75%, rgba(88, 145, 175, 0.65), transparent 62%),
+        linear-gradient(180deg, rgba(31, 35, 39, 0.12), rgba(31, 35, 39, 0));
+    }
+
+    .brand h1 {
+      margin: 0;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(1.2rem, 2vw, 1.5rem);
+      line-height: 1;
+      font-weight: 900;
+      color: #365f78;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .meta {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.56rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(31, 35, 39, 0.56);
+      white-space: nowrap;
+    }
+
+    .intro {
+      padding: 12px 18px 10px;
+      border-bottom: 1px solid var(--line);
+      color: var(--muted);
+      line-height: 1.5;
+    }
+
+    .intro strong {
+      color: rgba(31, 35, 39, 0.86);
+    }
+
+    .picker {
+      padding: 12px 12px 14px;
+      display: grid;
+      gap: 10px;
+    }
+
+    .picker details {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-xl);
+      background: rgba(255, 255, 255, 0.62);
+      overflow: hidden;
+    }
+
+    .picker summary {
+      cursor: pointer;
+      list-style: none;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 12px 14px;
+      font-family: "Playfair Display", serif;
+      font-size: clamp(1rem, 1.7vw, 1.2rem);
+      color: #3e647a;
+    }
+
+    .picker summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .sum-left {
+      display: inline-flex;
+      align-items: baseline;
+      gap: 8px;
+      min-width: 0;
+    }
+
+    .sum-label {
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.52rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(31, 35, 39, 0.53);
+    }
+
+    .sum-title {
+      font-family: "Playfair Display", serif;
+      font-weight: 700;
+      color: #3e647a;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .sum-right {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: rgba(31, 35, 39, 0.55);
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.52rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+    }
+
+    .caret {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      border: 1px solid var(--line);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.64rem;
+      transition: transform 140ms ease;
+      background: rgba(255, 255, 255, 0.75);
+    }
+
+    details[open] .caret {
+      transform: rotate(180deg);
+    }
+
+    .content {
+      border-top: 1px solid var(--line);
+      padding: 10px 12px 12px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.64), rgba(255, 255, 255, 0.46));
+    }
+
+    .row {
+      display: grid;
+      grid-auto-flow: column;
+      grid-auto-columns: minmax(220px, 1fr);
+      gap: 10px;
+      overflow-x: auto;
+      padding-bottom: 4px;
+      scrollbar-width: thin;
+    }
+
+    .row::-webkit-scrollbar {
+      height: 8px;
+    }
+
+    .row::-webkit-scrollbar-thumb {
+      background: rgba(31, 35, 39, 0.2);
+      border-radius: 999px;
+    }
+
+    .card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: rgba(255, 255, 255, 0.82);
+      overflow: hidden;
+      min-height: 148px;
+    }
+
+    .kicker {
+      display: block;
+      font-family: "JetBrains Mono", monospace;
+      font-size: 0.5rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(31, 35, 39, 0.54);
+      margin-bottom: 4px;
+    }
+
+    .title {
+      margin: 0;
+      font-family: "Playfair Display", serif;
+      font-size: 1rem;
+      line-height: 1.2;
+      color: rgba(31, 35, 39, 0.94);
+    }
+
+    .line {
+      margin: 6px 0 0;
+      font-size: 0.86rem;
+      line-height: 1.42;
+      color: rgba(31, 35, 39, 0.72);
+    }
+
+    .card-body {
+      padding: 9px 10px 10px;
+    }
+
+    .cat-card {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      min-height: 58px;
+      padding: 10px;
+    }
+
+    .cat-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      border: 1px solid rgba(31, 35, 39, 0.09);
+      background: rgba(31, 35, 39, 0.03);
+      object-fit: contain;
+      padding: 3px;
+      flex: 0 0 auto;
+    }
+
+    .cat-name {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: rgba(31, 35, 39, 0.9);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .mosaic {
+      width: 100%;
+      height: 110px;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 1px;
+      background: rgba(31, 35, 39, 0.14);
+    }
+
+    .mosaic img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .mosaic .a {
+      grid-row: 1 / span 2;
+      grid-column: 1;
+    }
+
+    .mosaic .b {
+      grid-row: 1;
+      grid-column: 2;
+    }
+
+    .mosaic .c {
+      grid-row: 2;
+      grid-column: 2;
+    }
+
+    .event-card {
+      border-left: 3px solid rgba(184, 138, 42, 0.85);
+    }
+
+    .thumb {
+      width: 100%;
+      height: 98px;
+      object-fit: cover;
+      display: block;
+      border-bottom: 1px solid var(--line);
+      background: rgba(31, 35, 39, 0.05);
+    }
+
+    .empty {
+      color: rgba(31, 35, 39, 0.62);
+      font-size: 0.9rem;
+      padding: 2px 0;
+    }
+
+    .foot {
+      border-top: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.52);
+      padding: 12px 18px 14px;
+      color: rgba(31, 35, 39, 0.65);
+      font-size: 0.84rem;
+    }
+
+    @media (max-width: 760px) {
+      .mast,
+      .intro,
+      .foot {
+        padding-left: 12px;
+        padding-right: 12px;
+      }
+
+      .picker {
+        padding-left: 8px;
+        padding-right: 8px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <div class="mast">
+      <div class="brand">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <h1>Cultural Asset Map</h1>
+      </div>
+      <div class="meta">Collapsed/Expanded Color Lab</div>
+    </div>
+
+    <div class="intro">
+      Everything starts <strong>collapsed</strong>. Open each row to check visual weight. Imagery is pulled from your local MUSE/editorial assets and map-linked photo sources where available.
+    </div>
+
+    <section class="picker">
+      <details id="d-cats">
+        <summary>
+          <span class="sum-left">
+            <span class="sum-label">Top Picker</span>
+            <span class="sum-title">Categories</span>
+          </span>
+          <span class="sum-right">icon rail <span class="caret">v</span></span>
+        </summary>
+        <div class="content">
+          <div class="row" id="row-cats"></div>
+        </div>
+      </details>
+
+      <details id="d-picks">
+        <summary>
+          <span class="sum-left">
+            <span class="sum-label">Top Picker</span>
+            <span class="sum-title">Feature Picks</span>
+          </span>
+          <span class="sum-right">hybrid collage <span class="caret">v</span></span>
+        </summary>
+        <div class="content">
+          <div class="row" id="row-picks"></div>
+        </div>
+      </details>
+
+      <details id="d-events">
+        <summary>
+          <span class="sum-left">
+            <span class="sum-label">Top Picker</span>
+            <span class="sum-title">Upcoming Events</span>
+          </span>
+          <span class="sum-right">poster cards <span class="caret">v</span></span>
+        </summary>
+        <div class="content">
+          <div class="row" id="row-events"></div>
+        </div>
+      </details>
+
+      <details id="d-routes">
+        <summary>
+          <span class="sum-left">
+            <span class="sum-label">Top Picker</span>
+            <span class="sum-title">Curated Routes</span>
+          </span>
+          <span class="sum-right">photo jumble <span class="caret">v</span></span>
+        </summary>
+        <div class="content">
+          <div class="row" id="row-routes"></div>
+        </div>
+      </details>
+    </section>
+
+    <div class="foot">
+      Standalone mockup only. It does not alter your active site.
+    </div>
+  </main>
+
+  <script>
+    const CATEGORY_ICONS = [
+      { name: "Eat & Drink", icon: "../img/watercolor/eat-drink.png" },
+      { name: "Performance Spaces", icon: "../img/watercolor/performance.png" },
+      { name: "Public Art", icon: "../img/watercolor/publicart.png" },
+      { name: "Historic Landmarks", icon: "../img/watercolor/landmarks.png" },
+      { name: "Trails & Walks", icon: "../img/watercolor/walks.png" },
+      { name: "Galleries & Museums", icon: "../img/watercolor/galleries.png" },
+      { name: "Cultural Preservation", icon: "../img/watercolor/preservation.png" },
+      { name: "Fairs & Festivals", icon: "../img/watercolor/fairs.png" }
+    ];
+
+    function norm(v) {
+      return String(v || "").toLowerCase().replace(/[^a-z0-9]+/g, " ").trim();
+    }
+
+    function findAssetByLabel(data, label) {
+      const target = norm(label);
+      if (!target) return null;
+      let hit = data.find((d) => norm(d.n) === target);
+      if (hit) return hit;
+      hit = data.find((d) => norm(d.n).includes(target) || target.includes(norm(d.n)));
+      return hit || null;
+    }
+
+    function imgForAsset(data, imageData, label) {
+      const asset = findAssetByLabel(data, label);
+      if (!asset) return null;
+      const rec = imageData[asset.n];
+      return rec && rec.img ? rec.img : null;
+    }
+
+    function toDate(iso) {
+      const d = new Date(iso || "");
+      return Number.isNaN(+d) ? null : d;
+    }
+
+    function fmtDate(iso) {
+      const d = toDate(iso);
+      if (!d) return "Date TBD";
+      return d.toLocaleString("en-US", {
+        month: "short",
+        day: "numeric",
+        hour: "numeric",
+        minute: "2-digit"
+      });
+    }
+
+    function cardImage(src, klass, alt) {
+      const safe = src ? src : "../img/watercolor/badge.png";
+      return `<img class="${klass}" src="${safe}" alt="${alt || ""}" loading="lazy">`;
+    }
+
+    function renderCategories() {
+      const row = document.getElementById("row-cats");
+      row.innerHTML = CATEGORY_ICONS.map((item) => `
+        <article class="card cat-card">
+          <img class="cat-icon" src="${item.icon}" alt="${item.name}">
+          <div class="cat-name">${item.name}</div>
+        </article>
+      `).join("");
+    }
+
+    function renderFeaturePicks(muse, data, imageData) {
+      const row = document.getElementById("row-picks");
+      const cards = muse.slice(0, 6).map((m) => {
+        const cover = m.cover_image ? `../${m.cover_image.replace(/^\.?\//, "")}` : "../img/watercolor/badge.png";
+        const firstRef = m.deep_links && m.deep_links[0] ? imgForAsset(data, imageData, m.deep_links[0].label) : null;
+        const secondRef = m.deep_links && m.deep_links[1] ? imgForAsset(data, imageData, m.deep_links[1].label) : null;
+        const quote = m.lead_quote && m.lead_quote.text ? m.lead_quote.text : "";
+        const shortQuote = quote.length > 96 ? `${quote.slice(0, 93)}...` : quote;
+        return `
+          <article class="card">
+            <div class="mosaic">
+              ${cardImage(cover, "a", m.title)}
+              ${cardImage(firstRef, "b", m.title)}
+              ${cardImage(secondRef, "c", m.title)}
+            </div>
+            <div class="card-body">
+              <span class="kicker">${m.eyebrow || "Feature pick"}</span>
+              <h3 class="title">${m.title || "Untitled"}</h3>
+              <p class="line">${shortQuote || (m.dek || "")}</p>
+            </div>
+          </article>
+        `;
+      });
+      row.innerHTML = cards.join("") || '<div class="empty">No feature picks available.</div>';
+    }
+
+    function renderEvents(events) {
+      const row = document.getElementById("row-events");
+      const now = new Date();
+      const upcoming = events
+        .map((e) => ({ ...e, _d: toDate(e.start_iso) }))
+        .filter((e) => e._d && e._d >= now)
+        .sort((a, b) => a._d - b._d)
+        .slice(0, 8);
+
+      row.innerHTML = upcoming.map((e) => `
+        <article class="card event-card">
+          ${cardImage(e.image_url, "thumb", e.title)}
+          <div class="card-body">
+            <span class="kicker">${fmtDate(e.start_iso)}</span>
+            <h3 class="title">${e.title || "Untitled event"}</h3>
+            <p class="line">${e.venue_name || "Venue TBD"}${e.venue_city ? `, ${e.venue_city}` : ""}</p>
+          </div>
+        </article>
+      `).join("") || '<div class="empty">No upcoming events found in feed.</div>';
+    }
+
+    function renderRoutes(experiences, muse, data, imageData) {
+      const row = document.getElementById("row-routes");
+      const museCovers = muse.map((m) => (m.cover_image ? `../${m.cover_image.replace(/^\.?\//, "")}` : null)).filter(Boolean);
+      const cards = experiences.slice(0, 8).map((exp, i) => {
+        const stopImgs = [];
+        for (const stop of (exp.stops || [])) {
+          const src = imgForAsset(data, imageData, stop.asset);
+          if (src) stopImgs.push(src);
+          if (stopImgs.length === 2) break;
+        }
+        const museTile = museCovers[i % Math.max(museCovers.length, 1)] || "../img/watercolor/badge.png";
+        const a = stopImgs[0] || museTile;
+        const b = stopImgs[1] || "../img/north-star-house.jpg";
+        const c = museTile;
+        return `
+          <article class="card">
+            <div class="mosaic">
+              ${cardImage(a, "a", exp.title)}
+              ${cardImage(b, "b", exp.title)}
+              ${cardImage(c, "c", exp.title)}
+            </div>
+            <div class="card-body">
+              <span class="kicker">${exp.type === "corridor" ? "Corridor" : "Route"}</span>
+              <h3 class="title">${exp.title || "Untitled route"}</h3>
+              <p class="line">${exp.subtitle || exp.description || ""}</p>
+            </div>
+          </article>
+        `;
+      });
+      row.innerHTML = cards.join("") || '<div class="empty">No routes available.</div>';
+    }
+
+    async function init() {
+      renderCategories();
+      try {
+        const [muse, data, imageData, experiences, events] = await Promise.all([
+          fetch("../muse_editorials.json").then((r) => r.json()),
+          fetch("../data.json").then((r) => r.json()),
+          fetch("../image_data.json").then((r) => r.json()),
+          fetch("../experiences.json").then((r) => r.json()),
+          fetch("../events.json").then((r) => r.json())
+        ]);
+        renderFeaturePicks(muse || [], data || [], imageData || {});
+        renderEvents(events || []);
+        renderRoutes(experiences || [], muse || [], data || [], imageData || {});
+      } catch (err) {
+        console.error(err);
+        document.getElementById("row-picks").innerHTML = '<div class="empty">Could not load feature picks data.</div>';
+        document.getElementById("row-events").innerHTML = '<div class="empty">Could not load events data.</div>';
+        document.getElementById("row-routes").innerHTML = '<div class="empty">Could not load routes data.</div>';
+      }
+    }
+
+    init();
+  </script>
+</body>
+</html>

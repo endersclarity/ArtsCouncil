@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GVNC Phase 1 - Bright Editorial Pass</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Fraunces:opsz,wght@9..144,600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f8f8f5;
+      --surface: #ffffff;
+      --text: #151515;
+      --muted: #5b5750;
+      --line: #e8e4dc;
+      --cyan: #22c6d6;
+      --lime: #d8ef3f;
+      --coral: #ff5a4f;
+      --ink: #111;
+      --shadow: 0 10px 28px rgba(0, 0, 0, 0.1);
+      --radius: 14px;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: radial-gradient(circle at 15% -20%, #fef6e7 0, transparent 45%), var(--bg);
+      color: var(--text);
+      font-family: "Space Grotesk", "Segoe UI", sans-serif;
+    }
+
+    .wrap {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      display: grid;
+      gap: 18px;
+    }
+
+    .mast {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .mast-top {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 0;
+      min-height: 300px;
+    }
+
+    .mast-copy {
+      padding: 26px;
+      position: relative;
+      background: linear-gradient(130deg, #ffffff 0%, #f7f7f4 100%);
+    }
+
+    .kicker {
+      display: inline-block;
+      background: var(--ink);
+      color: #fff;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 7px 10px;
+      border-radius: 999px;
+      margin-bottom: 14px;
+    }
+
+    h1 {
+      margin: 0 0 10px;
+      font-size: clamp(38px, 6vw, 66px);
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+    }
+
+    h1 span {
+      font-family: "Fraunces", serif;
+      font-style: italic;
+      font-weight: 600;
+      color: #1e4f58;
+    }
+
+    .sub {
+      margin: 0;
+      max-width: 52ch;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.45;
+    }
+
+    .badges {
+      margin-top: 18px;
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .badge {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.09em;
+      padding: 7px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: #fff;
+    }
+
+    .badge.accent-cyan { background: color-mix(in srgb, var(--cyan) 20%, #fff); }
+    .badge.accent-lime { background: color-mix(in srgb, var(--lime) 32%, #fff); }
+    .badge.accent-coral { background: color-mix(in srgb, var(--coral) 20%, #fff); }
+
+    .mast-art {
+      position: relative;
+      background: linear-gradient(160deg, #1d3f4b 0%, #2e7381 48%, #22c6d6 100%);
+      overflow: hidden;
+    }
+
+    .mast-art::before {
+      content: "";
+      position: absolute;
+      inset: -20% -20% auto auto;
+      width: 380px;
+      height: 380px;
+      background: radial-gradient(circle, rgba(255, 90, 79, 0.35), transparent 70%);
+    }
+
+    .mast-art::after {
+      content: "Explore Nevada County";
+      position: absolute;
+      left: 16px;
+      bottom: 14px;
+      color: #fff;
+      font-size: 14px;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 7px 10px;
+      border-radius: 999px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 14px;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      padding: 14px;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.07);
+    }
+
+    .card h2 {
+      margin: 0 0 8px;
+      font-size: 18px;
+      line-height: 1.1;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.4;
+    }
+
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 12px;
+    }
+
+    .chip {
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      padding: 8px 12px;
+      font-size: 12px;
+      font-weight: 600;
+      background: #fff;
+    }
+
+    .map-shell {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .map-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 12px 14px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(90deg, #ffffff, #f8f8f5);
+    }
+
+    .map-title {
+      margin: 0;
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    .map-cta {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      border: 0;
+      background: var(--coral);
+      color: #fff;
+      padding: 8px 11px;
+      border-radius: 999px;
+    }
+
+    .map-shot {
+      width: 100%;
+      display: block;
+      aspect-ratio: 16 / 8.8;
+      object-fit: cover;
+      object-position: center;
+      background: #d8d8d8;
+    }
+
+    @media (max-width: 960px) {
+      .mast-top { grid-template-columns: 1fr; }
+      .grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="mast">
+      <div class="mast-top">
+        <div class="mast-copy">
+          <div class="kicker">GVNC Cultural District</div>
+          <h1>Bold, Bright, <span>Editorial</span></h1>
+          <p class="sub">
+            Explore Nevada County through places, events, and stories. This pass keeps your map-first
+            workflow, but shifts visual language to contemporary editorial hierarchy and cleaner tokens.
+          </p>
+          <div class="badges">
+            <div class="badge accent-cyan">Contemporary</div>
+            <div class="badge accent-lime">High Contrast</div>
+            <div class="badge accent-coral">Visitor Facing Copy</div>
+          </div>
+        </div>
+        <div class="mast-art" aria-hidden="true"></div>
+      </div>
+    </section>
+
+    <section class="grid">
+      <article class="card">
+        <h2>Explore by Category</h2>
+        <p>Historic landmarks, arts organizations, galleries and museums, food, and cultural resources.</p>
+        <div class="chip-row">
+          <span class="chip">All Categories</span>
+          <span class="chip">Historic Landmarks</span>
+          <span class="chip">Arts Organizations</span>
+        </div>
+      </article>
+      <article class="card">
+        <h2>Upcoming Events</h2>
+        <p>Switch from static browsing to “what’s happening now” with event-first discovery.</p>
+        <div class="chip-row">
+          <span class="chip">Today</span>
+          <span class="chip">This Weekend</span>
+          <span class="chip">Family Friendly</span>
+        </div>
+      </article>
+      <article class="card">
+        <h2>Curated Routes</h2>
+        <p>Guided itineraries for first-time visitors and returning locals across the cultural corridor.</p>
+        <div class="chip-row">
+          <span class="chip">Route 49</span>
+          <span class="chip">Downtown Walk</span>
+          <span class="chip">Night Arts</span>
+        </div>
+      </article>
+    </section>
+
+    <section class="map-shell">
+      <div class="map-head">
+        <h2 class="map-title">Live Map Experience</h2>
+        <button class="map-cta" type="button">View Details</button>
+      </div>
+      <img class="map-shot" src="./rework-desktop-map-default.png" alt="Map preview for Cultural Asset Map redesign">
+    </section>
+  </main>
+</body>
+</html>

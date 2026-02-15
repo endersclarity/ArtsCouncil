@@ -1,0 +1,236 @@
+/*
+  Atelier Pop Variant
+  Joyful studio collage style with rounded geometry and bold color blocks.
+*/
+
+.atelier-pop-theme {
+  --font-display: 'Bricolage Grotesque', sans-serif;
+  --font-body: 'Nunito', sans-serif;
+  --font-mono: 'Red Hat Mono', monospace;
+
+  --ink: oklch(22% 0.05 300);
+  --cream: oklch(97% 0.02 94);
+  --melon: oklch(84% 0.13 45);
+  --mint: oklch(84% 0.12 165);
+  --sky: oklch(80% 0.11 235);
+  --berry: oklch(64% 0.19 345);
+  --line: oklch(35% 0.06 305 / 0.25);
+
+  background:
+    radial-gradient(800px 500px at 0% 0%, oklch(90% 0.08 45 / 0.65), transparent 72%),
+    radial-gradient(860px 520px at 100% 0%, oklch(88% 0.08 165 / 0.55), transparent 74%),
+    linear-gradient(180deg, var(--cream), oklch(95% 0.02 94));
+  color: var(--ink);
+  overflow-x: clip;
+}
+
+.atelier-pop-theme::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(6px 6px at 12px 12px, oklch(36% 0.08 310 / 0.18) 0 2px, transparent 2px),
+    linear-gradient(transparent, transparent);
+  background-size: 32px 32px, auto;
+}
+
+.atelier-pop-theme .hero,
+.atelier-pop-theme .section-intro,
+.atelier-pop-theme .map-section,
+.atelier-pop-theme .muse-section,
+.atelier-pop-theme .explore-section,
+.atelier-pop-theme .colophon-inner {
+  position: relative;
+  z-index: 2;
+  max-width: none;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: oklch(100% 0 0 / 0.78);
+  box-shadow: 0 14px 30px rgba(117, 67, 120, 0.12);
+}
+
+.atelier-pop-theme .hero {
+  margin-top: 1rem;
+  padding: 1.1rem;
+  background:
+    linear-gradient(140deg, oklch(100% 0 0 / 0.86), oklch(100% 0 0 / 0.58)),
+    radial-gradient(420px 180px at 80% 8%, oklch(84% 0.12 165 / 0.45), transparent 72%);
+}
+
+.atelier-pop-theme .hero-badge {
+  border-radius: 20px;
+  border: 1px solid var(--line);
+}
+
+.atelier-pop-theme .hero-eyebrow {
+  color: var(--berry);
+}
+
+.atelier-pop-theme .hero-title {
+  font-family: var(--font-display);
+  color: oklch(27% 0.09 315);
+}
+
+.atelier-pop-theme .hero-title em {
+  color: oklch(58% 0.18 350);
+  font-style: normal;
+}
+
+.atelier-pop-theme .hero-jump a {
+  min-height: 44px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: oklch(100% 0 0 / 0.76);
+}
+
+.atelier-pop-theme .hero-jump a:hover,
+.atelier-pop-theme .hero-jump a:focus-visible {
+  border-color: oklch(61% 0.18 349 / 0.65);
+  color: var(--berry);
+}
+
+.atelier-pop-theme .section-intro,
+.atelier-pop-theme .map-section,
+.atelier-pop-theme .muse-section,
+.atelier-pop-theme .explore-section {
+  margin-top: 0.72rem;
+  padding: 1.05rem 1.1rem;
+}
+
+.atelier-pop-theme .section-intro {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 1rem;
+}
+
+.atelier-pop-theme .section-intro::before,
+.atelier-pop-theme .section-intro::after,
+.atelier-pop-theme .muse-section::before,
+.atelier-pop-theme .explore-section::before,
+.atelier-pop-theme .explore-section::after {
+  display: none;
+}
+
+.atelier-pop-theme .section-intro .col-right {
+  display: block;
+}
+
+.atelier-pop-theme .section-tag,
+.atelier-pop-theme .muse-section-tag {
+  color: oklch(60% 0.18 346);
+}
+
+.atelier-pop-theme .section-heading,
+.atelier-pop-theme .muse-section-title,
+.atelier-pop-theme .map-title {
+  color: oklch(27% 0.07 307);
+}
+
+.atelier-pop-theme .cat-card,
+.atelier-pop-theme .filter-pill,
+.atelier-pop-theme .map-filter-toggle,
+.atelier-pop-theme .map-legend-toggle,
+.atelier-pop-theme .map-location-refresh,
+.atelier-pop-theme .map-location-status,
+.atelier-pop-theme .map-filter-panel .map-filter-bar,
+.atelier-pop-theme .map-legend-panel,
+.atelier-pop-theme .map-guides,
+.atelier-pop-theme .map-subaddon,
+.atelier-pop-theme .map-events-details,
+.atelier-pop-theme .map-events-chip,
+.atelier-pop-theme .map-events-category-select,
+.atelier-pop-theme .map-events-nav,
+.atelier-pop-theme .explore-search,
+.atelier-pop-theme .explore-cat-pill,
+.atelier-pop-theme .explore-list-wrapper,
+.atelier-pop-theme .explore-item,
+.atelier-pop-theme .load-more-btn,
+.atelier-pop-theme .explore-list-back,
+.atelier-pop-theme .colophon-bottom a {
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: oklch(100% 0 0 / 0.74);
+}
+
+.atelier-pop-theme .filter-pill.active,
+.atelier-pop-theme .map-events-chip.active {
+  background: oklch(83% 0.13 45 / 0.4);
+  border-color: oklch(63% 0.15 38 / 0.6);
+  color: oklch(34% 0.08 28);
+}
+
+.atelier-pop-theme .map-container {
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: oklch(100% 0 0 / 0.7);
+  padding: 0.5rem;
+  min-height: 500px;
+  height: 69vh;
+}
+
+.atelier-pop-theme #map {
+  border-radius: 14px;
+}
+
+.atelier-pop-theme .muse-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.95rem;
+}
+
+.atelier-pop-theme .muse-card {
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background: oklch(100% 0 0 / 0.75);
+}
+
+.atelier-pop-theme .muse-card:nth-child(2) { margin-top: 1.1rem; }
+.atelier-pop-theme .muse-card:nth-child(3) { margin-top: -0.45rem; }
+
+.atelier-pop-theme .detail-panel {
+  border-left: 1px solid var(--line);
+  background: linear-gradient(180deg, oklch(97% 0.02 94), oklch(94% 0.02 94));
+}
+
+.atelier-pop-theme .detail-close {
+  border-radius: 999px;
+  border: 1px solid var(--line);
+}
+
+.atelier-pop-theme .colophon {
+  background: transparent;
+  padding: 0 0 1rem;
+}
+
+@media (max-width: 980px) {
+  .atelier-pop-theme .section-intro,
+  .atelier-pop-theme .muse-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .atelier-pop-theme .muse-card:nth-child(2),
+  .atelier-pop-theme .muse-card:nth-child(3) {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  .atelier-pop-theme .hero,
+  .atelier-pop-theme .section-intro,
+  .atelier-pop-theme .map-section,
+  .atelier-pop-theme .muse-section,
+  .atelier-pop-theme .explore-section,
+  .atelier-pop-theme .colophon-inner {
+    margin-left: 0.62rem;
+    margin-right: 0.62rem;
+    padding: 0.8rem;
+  }
+
+  .atelier-pop-theme .map-container {
+    min-height: 395px;
+    height: 58vh;
+  }
+}

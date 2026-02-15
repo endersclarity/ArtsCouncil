@@ -1,0 +1,222 @@
+/*
+  Museum Minimal Variant
+  Calm editorial surfaces, restrained contrast, gallery-like rhythm.
+*/
+
+.museum-minimal-theme {
+  --font-display: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Source Sans 3', 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+
+  --ink: oklch(22% 0.015 88);
+  --paper: oklch(98.6% 0.004 90);
+  --paper-soft: oklch(96.8% 0.007 90);
+  --line: oklch(33% 0.015 88 / 0.2);
+  --accent: oklch(56% 0.08 45);
+
+  background: linear-gradient(180deg, var(--paper), var(--paper-soft));
+  color: var(--ink);
+}
+
+.museum-minimal-theme::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(1000px 520px at 50% 0%, oklch(100% 0 0 / 0.4), transparent 70%);
+  z-index: 0;
+}
+
+.museum-minimal-theme .hero,
+.museum-minimal-theme .section-intro,
+.museum-minimal-theme .map-section,
+.museum-minimal-theme .muse-section,
+.museum-minimal-theme .explore-section,
+.museum-minimal-theme .colophon-inner {
+  position: relative;
+  z-index: 2;
+  max-width: min(1120px, 100% - 2.4rem);
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: oklch(100% 0 0 / 0.76);
+  box-shadow: 0 10px 26px rgba(45, 36, 25, 0.05);
+}
+
+.museum-minimal-theme .hero {
+  margin-top: 1rem;
+  padding: 1.25rem;
+}
+
+.museum-minimal-theme .hero-badge {
+  width: min(380px, 80vw);
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  box-shadow: none;
+}
+
+.museum-minimal-theme .hero-eyebrow {
+  color: oklch(36% 0.03 58);
+  font-size: 0.58rem;
+  letter-spacing: 0.13em;
+}
+
+.museum-minimal-theme .hero-title {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(2rem, 5vw, 4rem);
+  line-height: 0.94;
+  color: var(--ink);
+}
+
+.museum-minimal-theme .hero-title em {
+  color: var(--accent);
+  font-style: italic;
+}
+
+.museum-minimal-theme .hero-jump {
+  gap: 0.42rem;
+}
+
+.museum-minimal-theme .hero-jump a {
+  min-height: 44px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: oklch(100% 0 0 / 0.65);
+  color: oklch(28% 0.015 88);
+}
+
+.museum-minimal-theme .hero-jump a:hover,
+.museum-minimal-theme .hero-jump a:focus-visible {
+  border-color: oklch(44% 0.03 60 / 0.45);
+  color: var(--accent);
+}
+
+.museum-minimal-theme .section-intro,
+.museum-minimal-theme .map-section,
+.museum-minimal-theme .muse-section,
+.museum-minimal-theme .explore-section {
+  margin-top: 0.72rem;
+  padding: 1.15rem 1.2rem;
+}
+
+.museum-minimal-theme .section-intro::before,
+.museum-minimal-theme .section-intro::after,
+.museum-minimal-theme .muse-section::before,
+.museum-minimal-theme .explore-section::before,
+.museum-minimal-theme .explore-section::after {
+  display: none;
+}
+
+.museum-minimal-theme .section-intro .col-right {
+  display: block;
+}
+
+.museum-minimal-theme .section-tag,
+.museum-minimal-theme .muse-section-tag {
+  color: oklch(35% 0.02 55);
+}
+
+.museum-minimal-theme .section-heading,
+.museum-minimal-theme .muse-section-title,
+.museum-minimal-theme .map-title {
+  color: oklch(23% 0.01 88);
+  font-family: var(--font-display);
+}
+
+.museum-minimal-theme .cat-card,
+.museum-minimal-theme .filter-pill,
+.museum-minimal-theme .map-filter-toggle,
+.museum-minimal-theme .map-legend-toggle,
+.museum-minimal-theme .map-location-refresh,
+.museum-minimal-theme .map-location-status,
+.museum-minimal-theme .map-filter-panel .map-filter-bar,
+.museum-minimal-theme .map-legend-panel,
+.museum-minimal-theme .map-guides,
+.museum-minimal-theme .map-subaddon,
+.museum-minimal-theme .map-events-details,
+.museum-minimal-theme .map-events-chip,
+.museum-minimal-theme .map-events-category-select,
+.museum-minimal-theme .map-events-nav,
+.museum-minimal-theme .explore-search,
+.museum-minimal-theme .explore-cat-pill,
+.museum-minimal-theme .explore-list-wrapper,
+.museum-minimal-theme .explore-item,
+.museum-minimal-theme .load-more-btn,
+.museum-minimal-theme .explore-list-back,
+.museum-minimal-theme .colophon-bottom a {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: oklch(100% 0 0 / 0.78);
+  box-shadow: none;
+}
+
+.museum-minimal-theme .filter-pill.active,
+.museum-minimal-theme .map-events-chip.active {
+  color: var(--accent);
+  border-color: oklch(52% 0.06 48 / 0.56);
+}
+
+.museum-minimal-theme .map-container {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: oklch(100% 0 0 / 0.74);
+  padding: 0.45rem;
+  min-height: 480px;
+  height: 68vh;
+  box-shadow: none;
+}
+
+.museum-minimal-theme #map {
+  border-radius: 8px;
+}
+
+.museum-minimal-theme .muse-cards {
+  gap: 0.9rem;
+}
+
+.museum-minimal-theme .muse-card {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: oklch(100% 0 0 / 0.8);
+  box-shadow: none;
+}
+
+.museum-minimal-theme .muse-card:nth-child(2),
+.museum-minimal-theme .muse-card:nth-child(3) {
+  margin-top: 0;
+}
+
+.museum-minimal-theme .detail-panel {
+  background: linear-gradient(180deg, oklch(99% 0.003 89), oklch(96.4% 0.006 89));
+  border-left: 1px solid var(--line);
+}
+
+.museum-minimal-theme .detail-close {
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: oklch(100% 0 0 / 0.8);
+}
+
+.museum-minimal-theme .colophon {
+  background: transparent;
+  padding: 0.2rem 0 1rem;
+}
+
+@media (max-width: 760px) {
+  .museum-minimal-theme .hero,
+  .museum-minimal-theme .section-intro,
+  .museum-minimal-theme .map-section,
+  .museum-minimal-theme .muse-section,
+  .museum-minimal-theme .explore-section,
+  .museum-minimal-theme .colophon-inner {
+    max-width: calc(100% - 1.2rem);
+    padding: 0.82rem;
+  }
+
+  .museum-minimal-theme .map-container {
+    min-height: 390px;
+    height: 58vh;
+  }
+}

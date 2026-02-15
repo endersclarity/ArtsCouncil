@@ -1,0 +1,53 @@
+/* Kiosk Transit Sunburst overrides */
+.kiosk-transit-sunburst-theme {
+  --ink: oklch(24% 0.04 45);
+  --paper: oklch(97% 0.03 92);
+  --surface: oklch(93% 0.05 92);
+  --line: oklch(42% 0.05 52 / 0.28);
+  --accent: oklch(63% 0.16 46);
+  --accent-2: oklch(58% 0.12 170);
+
+  background:
+    radial-gradient(920px 520px at 0% 0%, oklch(89% 0.12 80 / 0.52), transparent 72%),
+    radial-gradient(900px 520px at 100% 8%, oklch(88% 0.1 170 / 0.45), transparent 72%),
+    linear-gradient(180deg, var(--paper), var(--surface));
+}
+
+.kiosk-transit-sunburst-theme .hero,
+.kiosk-transit-sunburst-theme .section-intro,
+.kiosk-transit-sunburst-theme .map-section,
+.kiosk-transit-sunburst-theme .muse-section,
+.kiosk-transit-sunburst-theme .explore-section,
+.kiosk-transit-sunburst-theme .colophon-inner {
+  border-radius: 24px;
+  background: oklch(100% 0 0 / 0.8);
+  box-shadow: 0 16px 30px rgba(140, 88, 44, 0.12);
+}
+
+.kiosk-transit-sunburst-theme .kiosk-quick-actions a,
+.kiosk-transit-sunburst-theme .hero-jump a {
+  border-radius: 999px;
+  font-weight: 800;
+}
+
+.kiosk-transit-sunburst-theme .kiosk-quick-actions a:hover,
+.kiosk-transit-sunburst-theme .hero-jump a:hover,
+.kiosk-transit-sunburst-theme .kiosk-quick-actions a:focus-visible,
+.kiosk-transit-sunburst-theme .hero-jump a:focus-visible {
+  color: oklch(34% 0.09 38);
+  border-color: oklch(59% 0.13 44 / 0.75);
+  background: oklch(79% 0.15 68 / 0.24);
+}
+
+.kiosk-transit-sunburst-theme .map-container {
+  border-radius: 18px;
+  background: oklch(100% 0 0 / 0.75);
+}
+
+.kiosk-transit-sunburst-theme #map {
+  border-radius: 14px;
+}
+
+.kiosk-transit-sunburst-theme .muse-card {
+  border-radius: 18px;
+}

@@ -1,0 +1,228 @@
+/*
+  Canyon Ledger Variant
+  Warm field-journal tone with earth pigments and card ledger layout.
+*/
+
+.canyon-ledger-theme {
+  --font-display: 'Merriweather', Georgia, serif;
+  --font-body: 'Public Sans', 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --ink: oklch(23% 0.03 65);
+  --sand: oklch(95% 0.03 80);
+  --sand-deep: oklch(91% 0.04 82);
+  --rust: oklch(59% 0.14 38);
+  --sage: oklch(56% 0.07 145);
+  --line: oklch(36% 0.04 70 / 0.24);
+
+  background:
+    radial-gradient(1000px 560px at 0% 0%, oklch(88% 0.06 75 / 0.55), transparent 72%),
+    radial-gradient(900px 520px at 100% 10%, oklch(86% 0.05 140 / 0.45), transparent 72%),
+    linear-gradient(180deg, var(--sand), var(--sand-deep));
+  color: var(--ink);
+}
+
+.canyon-ledger-theme::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: repeating-linear-gradient(0deg, oklch(30% 0.03 70 / 0.04) 0 1px, transparent 1px 10px);
+}
+
+.canyon-ledger-theme .hero,
+.canyon-ledger-theme .section-intro,
+.canyon-ledger-theme .map-section,
+.canyon-ledger-theme .muse-section,
+.canyon-ledger-theme .explore-section,
+.canyon-ledger-theme .colophon-inner {
+  position: relative;
+  z-index: 2;
+  max-width: none;
+  margin-left: 1rem;
+  margin-right: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: oklch(100% 0 0 / 0.56);
+  box-shadow: 0 16px 30px rgba(76, 49, 29, 0.12);
+}
+
+.canyon-ledger-theme .hero {
+  margin-top: 1rem;
+  padding: 1.1rem 1.2rem;
+}
+
+.canyon-ledger-theme .hero-badge {
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: oklch(100% 0 0 / 0.72);
+}
+
+.canyon-ledger-theme .hero-eyebrow {
+  color: var(--rust);
+}
+
+.canyon-ledger-theme .hero-title {
+  font-family: var(--font-display);
+  color: oklch(25% 0.03 66);
+}
+
+.canyon-ledger-theme .hero-title em {
+  color: var(--sage);
+}
+
+.canyon-ledger-theme .hero-jump a {
+  min-height: 44px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: oklch(100% 0 0 / 0.66);
+}
+
+.canyon-ledger-theme .section-intro,
+.canyon-ledger-theme .map-section,
+.canyon-ledger-theme .muse-section,
+.canyon-ledger-theme .explore-section {
+  margin-top: 0.72rem;
+  padding: 1.05rem 1.1rem;
+}
+
+.canyon-ledger-theme .section-intro {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 0.95rem;
+}
+
+.canyon-ledger-theme .section-intro::before,
+.canyon-ledger-theme .section-intro::after,
+.canyon-ledger-theme .muse-section::before,
+.canyon-ledger-theme .explore-section::before,
+.canyon-ledger-theme .explore-section::after {
+  display: none;
+}
+
+.canyon-ledger-theme .section-intro .col-right {
+  display: block;
+}
+
+.canyon-ledger-theme .section-tag,
+.canyon-ledger-theme .muse-section-tag {
+  color: var(--rust);
+}
+
+.canyon-ledger-theme .section-heading,
+.canyon-ledger-theme .muse-section-title,
+.canyon-ledger-theme .map-title {
+  font-family: var(--font-display);
+  color: oklch(25% 0.03 66);
+}
+
+.canyon-ledger-theme .cat-card,
+.canyon-ledger-theme .filter-pill,
+.canyon-ledger-theme .map-filter-toggle,
+.canyon-ledger-theme .map-legend-toggle,
+.canyon-ledger-theme .map-location-refresh,
+.canyon-ledger-theme .map-location-status,
+.canyon-ledger-theme .map-filter-panel .map-filter-bar,
+.canyon-ledger-theme .map-legend-panel,
+.canyon-ledger-theme .map-guides,
+.canyon-ledger-theme .map-subaddon,
+.canyon-ledger-theme .map-events-details,
+.canyon-ledger-theme .map-events-chip,
+.canyon-ledger-theme .map-events-category-select,
+.canyon-ledger-theme .map-events-nav,
+.canyon-ledger-theme .explore-search,
+.canyon-ledger-theme .explore-cat-pill,
+.canyon-ledger-theme .explore-list-wrapper,
+.canyon-ledger-theme .explore-item,
+.canyon-ledger-theme .load-more-btn,
+.canyon-ledger-theme .explore-list-back,
+.canyon-ledger-theme .colophon-bottom a {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: oklch(100% 0 0 / 0.66);
+}
+
+.canyon-ledger-theme .filter-pill.active,
+.canyon-ledger-theme .map-events-chip.active {
+  color: oklch(98% 0.01 95);
+  background: var(--rust);
+  border-color: oklch(50% 0.12 34 / 0.8);
+}
+
+.canyon-ledger-theme .map-container {
+  min-height: 500px;
+  height: 69vh;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: oklch(100% 0 0 / 0.62);
+  padding: 0.48rem;
+}
+
+.canyon-ledger-theme #map {
+  border-radius: 8px;
+}
+
+.canyon-ledger-theme .muse-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.95rem;
+}
+
+.canyon-ledger-theme .muse-card {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: oklch(100% 0 0 / 0.68);
+}
+
+.canyon-ledger-theme .muse-card:nth-child(2) {
+  margin-top: 1rem;
+}
+
+.canyon-ledger-theme .muse-card:nth-child(3) {
+  margin-top: -0.4rem;
+}
+
+.canyon-ledger-theme .detail-panel {
+  border-left: 1px solid var(--line);
+  background: linear-gradient(180deg, oklch(95% 0.03 79), oklch(92% 0.03 81));
+}
+
+.canyon-ledger-theme .detail-close {
+  border-radius: 999px;
+  border: 1px solid var(--line);
+}
+
+.canyon-ledger-theme .colophon {
+  background: transparent;
+  padding: 0 0 1rem;
+}
+
+@media (max-width: 980px) {
+  .canyon-ledger-theme .section-intro,
+  .canyon-ledger-theme .muse-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .canyon-ledger-theme .muse-card:nth-child(2),
+  .canyon-ledger-theme .muse-card:nth-child(3) {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  .canyon-ledger-theme .hero,
+  .canyon-ledger-theme .section-intro,
+  .canyon-ledger-theme .map-section,
+  .canyon-ledger-theme .muse-section,
+  .canyon-ledger-theme .explore-section,
+  .canyon-ledger-theme .colophon-inner {
+    margin-left: 0.62rem;
+    margin-right: 0.62rem;
+    padding: 0.8rem;
+  }
+
+  .canyon-ledger-theme .map-container {
+    min-height: 395px;
+    height: 58vh;
+  }
+}

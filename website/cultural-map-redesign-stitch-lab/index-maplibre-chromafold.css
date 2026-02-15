@@ -1,0 +1,554 @@
+/*
+  Chromafold Variant
+  High-contrast metallic daylight direction with asymmetric panels.
+*/
+
+.chromafold-theme {
+  --font-display: 'Sora', 'Segoe UI', sans-serif;
+  --font-body: 'Outfit', 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+
+  --ink: oklch(19% 0.02 250);
+  --paper: oklch(98% 0.004 255);
+  --paper-soft: oklch(95% 0.01 246);
+  --slate: oklch(31% 0.04 250);
+  --line: oklch(56% 0.06 245 / 0.24);
+  --line-strong: oklch(50% 0.08 244 / 0.4);
+  --steel: oklch(74% 0.03 245);
+  --chrome-a: oklch(83% 0.05 238);
+  --chrome-b: oklch(66% 0.1 245);
+  --electric: oklch(64% 0.16 247);
+  --signal: oklch(71% 0.18 42);
+
+  --cat-landmarks: oklch(67% 0.18 41);
+  --cat-eat: oklch(73% 0.16 70);
+  --cat-arts: oklch(56% 0.12 207);
+  --cat-cultural: oklch(63% 0.15 247);
+  --cat-fairs: oklch(72% 0.17 35);
+  --cat-galleries: oklch(58% 0.11 304);
+  --cat-walks: oklch(54% 0.1 166);
+  --cat-publicart: oklch(69% 0.18 33);
+  --cat-performance: oklch(58% 0.16 254);
+  --cat-preservation: oklch(47% 0.08 110);
+
+  color: var(--ink);
+  background:
+    radial-gradient(1200px 540px at -12% -12%, oklch(92% 0.05 232 / 0.72), transparent 70%),
+    radial-gradient(1080px 580px at 110% 8%, oklch(90% 0.06 249 / 0.64), transparent 72%),
+    linear-gradient(180deg, var(--paper), oklch(96% 0.008 252));
+  position: relative;
+  overflow-x: clip;
+}
+
+.chromafold-theme::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(0deg, oklch(32% 0.03 250 / 0.04) 0 1px, transparent 1px 34px),
+    repeating-linear-gradient(90deg, oklch(32% 0.03 250 / 0.02) 0 1px, transparent 1px 34px);
+  z-index: 1;
+}
+
+.chromafold-theme .chrome-ribbons {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.chromafold-theme .ribbon {
+  position: absolute;
+  display: block;
+  height: 48px;
+  border-radius: 999px;
+  opacity: 0.35;
+  background: linear-gradient(90deg, oklch(95% 0.02 245 / 0.88), oklch(66% 0.1 247 / 0.84), oklch(96% 0.015 252 / 0.88));
+  filter: blur(0.2px);
+}
+
+.chromafold-theme .ribbon-a {
+  width: clamp(260px, 34vw, 560px);
+  top: 4%;
+  left: -6%;
+  transform: rotate(-15deg);
+}
+
+.chromafold-theme .ribbon-b {
+  width: clamp(280px, 32vw, 520px);
+  top: 17%;
+  right: -9%;
+  transform: rotate(20deg);
+}
+
+.chromafold-theme .ribbon-c {
+  width: clamp(250px, 33vw, 540px);
+  bottom: 26%;
+  left: -8%;
+  transform: rotate(18deg);
+}
+
+.chromafold-theme .ribbon-d {
+  width: clamp(240px, 30vw, 480px);
+  bottom: 8%;
+  right: -8%;
+  transform: rotate(-22deg);
+}
+
+.chromafold-theme .hero,
+.chromafold-theme .section-intro,
+.chromafold-theme .map-section,
+.chromafold-theme .muse-section,
+.chromafold-theme .explore-section,
+.chromafold-theme .colophon-inner {
+  position: relative;
+  z-index: 5;
+  max-width: none;
+  border-radius: 18px;
+}
+
+.chromafold-theme .hero {
+  margin: 1rem 1rem 0.62rem;
+  padding: 1.15rem 1.15rem;
+  border: 1px solid var(--line-strong);
+  background:
+    linear-gradient(135deg, oklch(99% 0.002 254 / 0.95), oklch(95% 0.014 244 / 0.92));
+  box-shadow: 0 22px 36px rgba(51, 76, 129, 0.14);
+  display: grid;
+  grid-template-columns: minmax(0, 0.92fr) minmax(0, 1.08fr);
+  gap: 1.2rem;
+  align-items: center;
+}
+
+.chromafold-theme .hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  background: linear-gradient(120deg, transparent 0 64%, oklch(99% 0.005 255 / 0.55) 64% 66%, transparent 66% 100%);
+  pointer-events: none;
+}
+
+.chromafold-theme .hero-badge {
+  width: min(100%, 500px);
+  margin-bottom: 0;
+  border-radius: 14px;
+  border: 1px solid var(--line-strong);
+  background: oklch(100% 0 0 / 0.82);
+  padding: 0.2rem;
+  box-shadow: 0 14px 24px rgba(73, 98, 149, 0.2);
+}
+
+.chromafold-theme .hero-content {
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.chromafold-theme .hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
+  padding: 0 0.72rem;
+  margin-bottom: 0.56rem;
+  border-radius: 999px;
+  border: 1px solid var(--line-strong);
+  background: oklch(100% 0 0 / 0.7);
+  color: var(--slate);
+  font-size: 0.54rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.chromafold-theme .hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5.2vw, 4rem);
+  line-height: 0.94;
+  letter-spacing: -0.02em;
+  color: oklch(23% 0.03 250);
+  max-width: 14ch;
+  margin-bottom: 0.44rem;
+}
+
+.chromafold-theme .hero-title em {
+  color: var(--electric);
+  font-style: normal;
+}
+
+.chromafold-theme .hero-sub {
+  color: oklch(26% 0.03 250);
+  max-width: 64ch;
+}
+
+.chromafold-theme .hero-instructions {
+  color: oklch(29% 0.03 248 / 0.72);
+}
+
+.chromafold-theme .hero-jump {
+  margin-top: 0.72rem;
+  gap: 0.42rem;
+}
+
+.chromafold-theme .hero-jump a {
+  min-height: 44px;
+  border: 1px solid var(--line-strong);
+  border-radius: 10px;
+  background: oklch(100% 0 0 / 0.72);
+  color: oklch(25% 0.03 248);
+}
+
+.chromafold-theme .hero-jump a:hover,
+.chromafold-theme .hero-jump a:focus-visible {
+  border-color: oklch(59% 0.14 246 / 0.62);
+  color: var(--electric);
+  transform: translateY(-1px);
+}
+
+.chromafold-theme .section-intro {
+  margin: 0.6rem 1rem;
+  padding: 1.2rem 1.3rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  border: 1px solid var(--line);
+  background: linear-gradient(155deg, oklch(99% 0.003 252 / 0.95), oklch(96% 0.01 243 / 0.92));
+  box-shadow: 0 16px 28px rgba(58, 88, 146, 0.1);
+}
+
+.chromafold-theme .section-intro::before,
+.chromafold-theme .section-intro::after,
+.chromafold-theme .muse-section::before,
+.chromafold-theme .explore-section::before,
+.chromafold-theme .explore-section::after {
+  display: none;
+}
+
+.chromafold-theme .section-intro .col-right {
+  display: block;
+  margin-top: 0;
+}
+
+.chromafold-theme .section-tag,
+.chromafold-theme .muse-section-tag {
+  color: oklch(32% 0.05 249 / 0.88);
+  letter-spacing: 0.14em;
+}
+
+.chromafold-theme .section-heading,
+.chromafold-theme .muse-section-title,
+.chromafold-theme .map-title {
+  font-family: var(--font-display);
+  color: oklch(21% 0.03 249);
+}
+
+.chromafold-theme .section-body,
+.chromafold-theme .muse-card-quote,
+.chromafold-theme .muse-card-body,
+.chromafold-theme .colophon {
+  color: oklch(28% 0.03 249 / 0.93);
+}
+
+.chromafold-theme .section-quicktip {
+  background: oklch(100% 0 0 / 0.66);
+  border: 1px solid var(--line);
+}
+
+.chromafold-theme .cat-card,
+.chromafold-theme .filter-pill,
+.chromafold-theme .map-filter-toggle,
+.chromafold-theme .map-legend-toggle,
+.chromafold-theme .map-location-refresh,
+.chromafold-theme .map-location-status,
+.chromafold-theme .map-filter-panel .map-filter-bar,
+.chromafold-theme .map-legend-panel,
+.chromafold-theme .map-guides,
+.chromafold-theme .map-subaddon,
+.chromafold-theme .map-events-details,
+.chromafold-theme .map-events-chip,
+.chromafold-theme .map-events-category-select,
+.chromafold-theme .map-events-nav,
+.chromafold-theme .explore-search,
+.chromafold-theme .explore-cat-pill,
+.chromafold-theme .explore-list-wrapper,
+.chromafold-theme .explore-item,
+.chromafold-theme .load-more-btn,
+.chromafold-theme .explore-list-back,
+.chromafold-theme .colophon-bottom a {
+  border-radius: 10px;
+}
+
+.chromafold-theme .cat-card {
+  border-color: var(--line);
+  background: linear-gradient(150deg, oklch(100% 0 0 / 0.85), oklch(96% 0.008 243 / 0.7));
+}
+
+.chromafold-theme .map-section {
+  margin: 0.65rem 1rem 1rem;
+  padding: 1rem;
+  border: 1px solid var(--line-strong);
+  background:
+    linear-gradient(165deg, oklch(99% 0.003 252 / 0.96), oklch(95% 0.01 244 / 0.9));
+  box-shadow: 0 20px 30px rgba(61, 88, 142, 0.12);
+}
+
+.chromafold-theme .map-header {
+  padding: 0.3rem 0.1rem 0.6rem;
+}
+
+.chromafold-theme .map-title {
+  font-size: clamp(1.9rem, 3.2vw, 3rem);
+  letter-spacing: -0.01em;
+}
+
+.chromafold-theme .map-active-banner {
+  padding-top: 0;
+}
+
+.chromafold-theme .map-active-banner-inner {
+  border-radius: 999px;
+  border-color: var(--line-strong);
+  background: oklch(100% 0 0 / 0.75);
+}
+
+.chromafold-theme .map-active-text,
+.chromafold-theme .map-active-clear,
+.chromafold-theme .map-addon-count,
+.chromafold-theme .map-events-count,
+.chromafold-theme .map-events-page,
+.chromafold-theme .map-filter-group-label,
+.chromafold-theme .map-legend-item,
+.chromafold-theme .hours-legend-item,
+.chromafold-theme .map-events-title,
+.chromafold-theme .map-events-all-head,
+.chromafold-theme .map-events-category-label {
+  color: oklch(25% 0.03 249);
+}
+
+.chromafold-theme .map-container {
+  margin: 0.68rem 0;
+  padding: 0.48rem;
+  height: 70vh;
+  min-height: 500px;
+  border-radius: 14px;
+  border: 1px solid var(--line-strong);
+  background: linear-gradient(150deg, oklch(100% 0 0 / 0.86), oklch(96% 0.007 244 / 0.82));
+  box-shadow: inset 0 0 0 1px oklch(100% 0 0 / 0.6), 0 14px 24px rgba(60, 87, 139, 0.14);
+}
+
+.chromafold-theme #map {
+  border-radius: 10px;
+}
+
+.chromafold-theme .map-overlay-controls {
+  top: 0.84rem;
+  left: 0.84rem;
+  right: 3.7rem;
+}
+
+.chromafold-theme .map-filter-toggle,
+.chromafold-theme .map-legend-toggle,
+.chromafold-theme .map-location-refresh,
+.chromafold-theme .map-location-status,
+.chromafold-theme .map-filter-panel .map-filter-bar,
+.chromafold-theme .map-legend-panel,
+.chromafold-theme .map-guides,
+.chromafold-theme .map-subaddon,
+.chromafold-theme .map-events-details,
+.chromafold-theme .map-events-chip,
+.chromafold-theme .map-events-category-select,
+.chromafold-theme .map-events-nav {
+  border-color: var(--line-strong);
+  background: linear-gradient(158deg, oklch(100% 0 0 / 0.84), oklch(96% 0.008 244 / 0.72));
+  color: oklch(24% 0.03 248);
+}
+
+.chromafold-theme .filter-pill.active,
+.chromafold-theme .map-events-chip.active {
+  border-color: oklch(61% 0.14 246 / 0.72);
+  color: oklch(42% 0.1 247);
+  background: oklch(59% 0.14 246 / 0.14);
+}
+
+.chromafold-theme .maplibregl-ctrl-group {
+  background: oklch(100% 0 0 / 0.86) !important;
+  border-radius: 10px !important;
+  border: 1px solid var(--line-strong) !important;
+  box-shadow: none !important;
+}
+
+.chromafold-theme .maplibregl-popup-content {
+  border-radius: 12px !important;
+  border: 1px solid var(--line-strong) !important;
+  background: oklch(100% 0 0 / 0.95) !important;
+  color: oklch(22% 0.03 248) !important;
+  box-shadow: 0 10px 20px rgba(53, 77, 126, 0.2) !important;
+}
+
+.chromafold-theme .muse-section {
+  margin: 0 1rem 1rem;
+  padding: 1.2rem;
+  border: 1px solid var(--line);
+  background: linear-gradient(160deg, oklch(99% 0.003 252 / 0.95), oklch(96% 0.01 244 / 0.9));
+}
+
+.chromafold-theme .muse-section-header {
+  margin-bottom: 1.15rem;
+}
+
+.chromafold-theme .muse-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.chromafold-theme .muse-card {
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: linear-gradient(165deg, oklch(100% 0 0 / 0.84), oklch(96% 0.008 244 / 0.72));
+  box-shadow: 0 12px 20px rgba(63, 90, 143, 0.1);
+}
+
+.chromafold-theme .muse-card:nth-child(2) {
+  margin-top: 1.3rem;
+}
+
+.chromafold-theme .muse-card:nth-child(3) {
+  margin-top: -0.6rem;
+}
+
+.chromafold-theme .muse-card-title {
+  color: oklch(22% 0.03 249);
+}
+
+.chromafold-theme .explore-section {
+  margin: 0 1rem 1rem;
+  padding: 1.24rem;
+  border: 1px solid var(--line);
+  background: linear-gradient(160deg, oklch(99% 0.003 252 / 0.95), oklch(96% 0.01 244 / 0.9));
+}
+
+.chromafold-theme .explore-header {
+  margin-bottom: 1.35rem;
+}
+
+.chromafold-theme .explore-search {
+  background: oklch(100% 0 0 / 0.84);
+  border: 1px solid var(--line-strong);
+  color: oklch(24% 0.03 248);
+}
+
+.chromafold-theme .explore-search::placeholder {
+  color: oklch(33% 0.03 248 / 0.55);
+}
+
+.chromafold-theme .explore-cat-pill,
+.chromafold-theme .explore-item,
+.chromafold-theme .explore-list-wrapper,
+.chromafold-theme .load-more-btn,
+.chromafold-theme .explore-list-back {
+  border-color: var(--line);
+  background: linear-gradient(165deg, oklch(100% 0 0 / 0.85), oklch(96% 0.008 244 / 0.7));
+  color: oklch(24% 0.03 248);
+}
+
+.chromafold-theme .detail-panel {
+  width: min(500px, 100vw);
+  background: linear-gradient(180deg, oklch(99% 0.003 252), oklch(95% 0.012 243));
+  border-left: 1px solid var(--line-strong);
+}
+
+.chromafold-theme .detail-close {
+  border-radius: 10px;
+  border: 1px solid var(--line-strong);
+  background: oklch(100% 0 0 / 0.78);
+}
+
+.chromafold-theme .colophon {
+  margin: 0;
+  padding: 0 1rem 1rem;
+  background: transparent;
+}
+
+.chromafold-theme .colophon-inner {
+  border: 1px solid var(--line);
+  background: linear-gradient(155deg, oklch(99% 0.003 252 / 0.95), oklch(96% 0.01 244 / 0.9));
+  box-shadow: 0 14px 22px rgba(62, 89, 142, 0.1);
+}
+
+.chromafold-theme .colophon-bottom a {
+  border-radius: 999px;
+  border-color: var(--line-strong);
+}
+
+@media (max-width: 1150px) {
+  .chromafold-theme .hero {
+    grid-template-columns: 1fr;
+    gap: 0.9rem;
+  }
+
+  .chromafold-theme .section-intro {
+    grid-template-columns: 1fr;
+  }
+
+  .chromafold-theme .muse-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .chromafold-theme .muse-card:nth-child(2),
+  .chromafold-theme .muse-card:nth-child(3) {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  .chromafold-theme .ribbon {
+    opacity: 0.2;
+    height: 34px;
+  }
+
+  .chromafold-theme .ribbon-b,
+  .chromafold-theme .ribbon-d {
+    display: none;
+  }
+
+  .chromafold-theme .hero,
+  .chromafold-theme .section-intro,
+  .chromafold-theme .map-section,
+  .chromafold-theme .muse-section,
+  .chromafold-theme .explore-section,
+  .chromafold-theme .colophon,
+  .chromafold-theme .colophon-inner {
+    margin-left: 0.62rem;
+    margin-right: 0.62rem;
+  }
+
+  .chromafold-theme .hero,
+  .chromafold-theme .section-intro,
+  .chromafold-theme .map-section,
+  .chromafold-theme .muse-section,
+  .chromafold-theme .explore-section,
+  .chromafold-theme .colophon-inner {
+    padding: 0.82rem;
+    border-radius: 14px;
+  }
+
+  .chromafold-theme .hero-title {
+    font-size: clamp(1.6rem, 9vw, 2.9rem);
+  }
+
+  .chromafold-theme .map-container {
+    min-height: 390px;
+    height: 58vh;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .chromafold-theme *,
+  .chromafold-theme *::before,
+  .chromafold-theme *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

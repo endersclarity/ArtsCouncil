@@ -1,0 +1,161 @@
+/* Storyline Wayfinder overrides */
+.storyline-wayfinder-theme {
+  --ink: oklch(20% 0.03 248);
+  --paper: oklch(97% 0.008 228);
+  --paper-soft: oklch(94% 0.02 236);
+  --gold: oklch(70% 0.12 78);
+  --blue: oklch(56% 0.13 250);
+  --line: oklch(36% 0.04 248 / 0.26);
+
+  background:
+    radial-gradient(860px 420px at 8% 0%, oklch(89% 0.08 236 / 0.5), transparent 73%),
+    radial-gradient(900px 480px at 100% 0%, oklch(90% 0.06 80 / 0.32), transparent 75%),
+    linear-gradient(180deg, var(--paper), var(--paper-soft));
+}
+
+.storyline-wayfinder-theme .hero,
+.storyline-wayfinder-theme .section-intro,
+.storyline-wayfinder-theme .map-section,
+.storyline-wayfinder-theme .muse-section,
+.storyline-wayfinder-theme .explore-section,
+.storyline-wayfinder-theme .colophon-inner {
+  border-radius: 22px;
+  border: 1px solid var(--line);
+  box-shadow: 0 16px 30px rgba(31, 46, 74, 0.09);
+}
+
+.storyline-wayfinder-theme .hero {
+  background:
+    linear-gradient(155deg, oklch(16% 0.04 248), oklch(13% 0.03 244));
+  color: oklch(97% 0.01 95);
+}
+
+.storyline-wayfinder-theme .hero-eyebrow {
+  color: oklch(78% 0.15 82);
+}
+
+.storyline-wayfinder-theme .hero-title {
+  color: oklch(98% 0.01 96);
+}
+
+.storyline-wayfinder-theme .hero-title em {
+  color: oklch(76% 0.14 78);
+}
+
+.storyline-wayfinder-theme .hero-sub,
+.storyline-wayfinder-theme .hero-instructions {
+  color: oklch(92% 0.01 95);
+}
+
+.storyline-wayfinder-theme .storyline-chapters a {
+  border-radius: 12px;
+  border: 1px solid oklch(100% 0 0 / 0.35);
+  background: oklch(100% 0 0 / 0.08);
+  color: oklch(96% 0.01 95);
+}
+
+.storyline-wayfinder-theme .storyline-chapters a:hover,
+.storyline-wayfinder-theme .storyline-chapters a:focus-visible {
+  border-color: oklch(77% 0.15 82 / 0.74);
+  color: oklch(79% 0.15 82);
+}
+
+.storyline-wayfinder-theme .hero-jump a {
+  border-radius: 12px;
+}
+
+.storyline-wayfinder-theme .section-intro,
+.storyline-wayfinder-theme .map-section,
+.storyline-wayfinder-theme .muse-section,
+.storyline-wayfinder-theme .explore-section {
+  background: oklch(100% 0 0 / 0.78);
+}
+
+.storyline-wayfinder-theme .section-intro { border-top: 6px solid oklch(56% 0.13 250 / 0.6); }
+.storyline-wayfinder-theme .map-section { border-top: 6px solid oklch(66% 0.12 80 / 0.68); }
+.storyline-wayfinder-theme .muse-section { border-top: 6px solid oklch(59% 0.11 166 / 0.6); }
+.storyline-wayfinder-theme .explore-section { border-top: 6px solid oklch(62% 0.14 30 / 0.6); }
+
+.storyline-wayfinder-theme .cat-card,
+.storyline-wayfinder-theme .filter-pill,
+.storyline-wayfinder-theme .map-filter-toggle,
+.storyline-wayfinder-theme .map-legend-toggle,
+.storyline-wayfinder-theme .map-location-refresh,
+.storyline-wayfinder-theme .map-location-status,
+.storyline-wayfinder-theme .map-filter-panel .map-filter-bar,
+.storyline-wayfinder-theme .map-legend-panel,
+.storyline-wayfinder-theme .map-guides,
+.storyline-wayfinder-theme .map-subaddon,
+.storyline-wayfinder-theme .map-events-details,
+.storyline-wayfinder-theme .map-events-chip,
+.storyline-wayfinder-theme .map-events-category-select,
+.storyline-wayfinder-theme .map-events-nav,
+.storyline-wayfinder-theme .explore-search,
+.storyline-wayfinder-theme .explore-cat-pill,
+.storyline-wayfinder-theme .explore-list-wrapper,
+.storyline-wayfinder-theme .explore-item,
+.storyline-wayfinder-theme .load-more-btn,
+.storyline-wayfinder-theme .explore-list-back,
+.storyline-wayfinder-theme .colophon-bottom a {
+  border-radius: 14px;
+  border: 1px solid var(--line);
+  background: oklch(100% 0 0 / 0.82);
+}
+
+.storyline-wayfinder-theme .filter-pill.active,
+.storyline-wayfinder-theme .map-events-chip.active {
+  color: oklch(26% 0.06 245);
+  border-color: oklch(56% 0.13 250 / 0.7);
+  background: linear-gradient(
+    135deg,
+    oklch(90% 0.06 245 / 0.58),
+    oklch(88% 0.08 80 / 0.48)
+  );
+}
+
+.storyline-wayfinder-theme .map-container {
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  background:
+    linear-gradient(180deg, oklch(100% 0 0 / 0.9), oklch(96% 0.01 236 / 0.9));
+}
+
+.storyline-wayfinder-theme #map {
+  border-radius: 14px;
+}
+
+.storyline-wayfinder-theme .map-active-banner-inner {
+  border-radius: 14px;
+  border-color: oklch(56% 0.13 250 / 0.4);
+  background: oklch(97% 0.02 236 / 0.72);
+}
+
+.storyline-wayfinder-theme .muse-cards {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.85rem;
+}
+
+.storyline-wayfinder-theme .muse-card {
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: linear-gradient(160deg, oklch(100% 0 0 / 0.86), oklch(95% 0.01 232 / 0.88));
+}
+
+.storyline-wayfinder-theme .muse-card:nth-child(2) { margin-top: 0.35rem; }
+.storyline-wayfinder-theme .muse-card:nth-child(3) { margin-top: 0.7rem; }
+
+.storyline-wayfinder-theme .detail-panel {
+  border-left: 1px solid var(--line);
+  background: linear-gradient(180deg, oklch(98% 0.006 236), oklch(94% 0.02 238));
+}
+
+@media (max-width: 980px) {
+  .storyline-wayfinder-theme .muse-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .storyline-wayfinder-theme .muse-card:nth-child(2),
+  .storyline-wayfinder-theme .muse-card:nth-child(3) {
+    margin-top: 0;
+  }
+}

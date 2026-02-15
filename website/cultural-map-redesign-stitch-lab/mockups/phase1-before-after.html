@@ -1,0 +1,872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Phase 1 Design Refresh — Before / After Mockup</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', -apple-system, sans-serif;
+    background: #18171a;
+    color: #eee;
+    padding: 2rem 1rem;
+  }
+
+  .page-title {
+    text-align: center;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    font-weight: 900;
+    margin-bottom: 0.5rem;
+  }
+  .page-sub {
+    text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #999;
+    margin-bottom: 2.5rem;
+  }
+
+  .comparison {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    max-width: 1400px;
+    margin: 0 auto 3rem;
+  }
+
+  @media (max-width: 900px) {
+    .comparison { grid-template-columns: 1fr; }
+  }
+
+  .panel-label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.62rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 0.8rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+  .panel-label.before { color: #e07a5f; }
+  .panel-label.after { color: #81b29a; }
+
+  /* ============================================================
+     BEFORE STYLES (Heritage Neumorphism)
+     ============================================================ */
+  .before-demo {
+    --bg: #F4EFE6;
+    --ink: #4A6B7C;
+    --cream: #F4EFE6;
+    --gold: #D4AF37;
+    --rust: #B85C38;
+    --shadow-raised: 6px 6px 12px rgba(80,60,40,0.2), -6px -6px 12px rgba(255,250,240,0.8);
+    --shadow-soft: 4px 4px 8px rgba(80,60,40,0.15), -4px -4px 8px rgba(255,250,240,0.7);
+    --shadow-inset: inset 3px 3px 6px rgba(80,60,40,0.2), inset -3px -3px 6px rgba(255,250,240,0.8);
+
+    background: var(--bg);
+    color: var(--ink);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .before-demo .mast-inner {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    padding: 0.72rem 0.8rem;
+    border-radius: 999px;
+    border: 1px solid rgba(26,22,18,0.12);
+    background: rgba(255,255,255,0.72);
+    box-shadow: 0 18px 50px rgba(26,22,18,0.08);
+    backdrop-filter: blur(10px);
+    margin: 1rem;
+  }
+
+  .before-demo .mast-mark {
+    width: 34px;
+    height: 34px;
+    border-radius: 12px;
+    border: 1px solid rgba(26,22,18,0.12);
+    background:
+      radial-gradient(circle at 35% 25%, rgba(200,160,90,0.95), rgba(200,160,90,0.10) 60%),
+      radial-gradient(circle at 70% 70%, rgba(42,100,150,0.55), transparent 58%),
+      linear-gradient(180deg, rgba(26,22,18,0.10), rgba(26,22,18,0.00));
+    flex-shrink: 0;
+  }
+
+  .before-demo .mast-name {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 900;
+    font-size: clamp(1rem, 2.2vw, 1.4rem);
+    line-height: 1;
+    color: rgba(26,22,18,0.92);
+  }
+
+  .before-demo .mast-sub {
+    margin-left: 0.3rem;
+    padding-left: 0.7rem;
+    border-left: 1px solid rgba(26,22,18,0.12);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.5rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(26,22,18,0.60);
+    white-space: nowrap;
+  }
+
+  .before-demo .intent-card {
+    border-radius: 22px;
+    border: 1px solid rgba(26,22,18,0.12);
+    background: rgba(255,255,255,0.72);
+    box-shadow: 0 18px 50px rgba(26,22,18,0.08);
+    padding: 1rem 1.15rem 1.05rem;
+    margin: 0 1rem 1rem;
+  }
+
+  .before-demo .hero-sub {
+    color: rgba(26,22,18,0.74);
+    line-height: 1.62;
+    font-size: 0.9rem;
+    margin-bottom: 0.9rem;
+  }
+
+  .before-demo .tabs {
+    display: flex;
+    gap: 0.45rem;
+    margin-bottom: 0.68rem;
+    border-top: 1px solid rgba(26,22,18,0.1);
+    padding-top: 0.72rem;
+  }
+
+  .before-demo .tab {
+    border: 1px solid rgba(26,22,18,0.14);
+    background: rgba(255,255,255,0.7);
+    color: rgba(26,22,18,0.72);
+    border-radius: 999px;
+    padding: 0.5rem 0.72rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.5rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+
+  .before-demo .tab.active {
+    color: rgba(26,22,18,0.94);
+    border-color: rgba(56,95,121,0.56);
+    background: rgba(99,140,170,0.12);
+    box-shadow: 0 0 0 1px rgba(56,95,121,0.26) inset;
+  }
+
+  .before-demo .cat-grid {
+    display: flex;
+    gap: 0.55rem;
+    overflow-x: auto;
+    padding-bottom: 0.3rem;
+  }
+
+  .before-demo .cat-pill {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.55rem 0.7rem 0.55rem 0.55rem;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.76);
+    border: 1px solid rgba(26,22,18,0.12);
+    font-size: 0.7rem;
+    font-weight: 650;
+    color: rgba(26,22,18,0.88);
+    white-space: nowrap;
+  }
+
+  .before-demo .cat-dot {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .before-demo .map-placeholder {
+    margin: 0 1rem 1rem;
+    height: 240px;
+    border-radius: 20px;
+    border: 4px solid rgba(26,22,18,0.3);
+    background: linear-gradient(135deg, #d6cfc2 0%, #c4bba8 50%, #b8a88e 100%);
+    box-shadow: var(--shadow-inset);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: rgba(26,22,18,0.4);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .before-demo .card-row {
+    display: flex;
+    gap: 0.8rem;
+    margin: 0 1rem 1rem;
+    overflow-x: auto;
+    padding-bottom: 0.3rem;
+  }
+
+  .before-demo .sample-card {
+    flex: 0 0 220px;
+    padding: 1rem;
+    border-radius: 14px;
+    background: var(--cream);
+    box-shadow: var(--shadow-raised);
+    border: 1px solid rgba(26,22,18,0.08);
+  }
+
+  .before-demo .sample-card .card-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.52rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin-bottom: 0.4rem;
+  }
+
+  .before-demo .sample-card .card-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    line-height: 1.25;
+    color: var(--ink);
+    margin-bottom: 0.3rem;
+  }
+
+  .before-demo .sample-card .card-desc {
+    font-size: 0.78rem;
+    color: rgba(74,107,124,0.75);
+    line-height: 1.5;
+  }
+
+  .before-demo .section-label {
+    margin: 0 1rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.52rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--rust);
+    margin-bottom: 0.3rem;
+  }
+
+  .before-demo .section-heading {
+    margin: 0 1rem 0.8rem;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: var(--ink);
+  }
+
+  .before-demo .colophon-demo {
+    margin: 0 1rem 1rem;
+    padding: 1.2rem;
+    border-radius: 14px;
+    background: rgba(74,107,124,0.08);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .before-demo .colophon-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+
+  .before-demo .colophon-text {
+    font-size: 0.78rem;
+    color: rgba(74,107,124,0.7);
+    line-height: 1.6;
+  }
+
+  /* ============================================================
+     AFTER STYLES (MUSE Editorial)
+     ============================================================ */
+  .after-demo {
+    --bg: #FAFAF8;
+    --ink: #1a1612;
+    --cream: #FAFAF8;
+    --gold: #c8943e;
+    --rust: #a0522d;
+    --slate: #6b6560;
+    --shadow-raised: 0 2px 8px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06);
+    --shadow-soft: 0 1px 4px rgba(0,0,0,0.05);
+    --shadow-inset: 0 1px 2px rgba(0,0,0,0.04) inset;
+    --card-bg: rgba(255, 255, 255, 0.85);
+    --card-border: 1px solid rgba(26, 22, 18, 0.08);
+    --card-radius: 12px;
+    --card-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    --card-shadow-hover: 0 8px 24px rgba(0, 0, 0, 0.10);
+
+    background: var(--bg);
+    color: var(--ink);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .after-demo .mast-inner {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    padding: 0.72rem 0.8rem;
+    border-radius: 999px;
+    border: 1px solid rgba(26,22,18,0.08);
+    background: rgba(255,255,255,0.82);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+    backdrop-filter: blur(10px);
+    margin: 1rem;
+  }
+
+  .after-demo .mast-mark {
+    width: 34px;
+    height: 34px;
+    border-radius: 12px;
+    border: 1px solid rgba(26,22,18,0.08);
+    background:
+      radial-gradient(circle at 35% 25%, rgba(200,148,62,0.9), rgba(200,148,62,0.10) 60%),
+      radial-gradient(circle at 70% 70%, rgba(41,128,185,0.45), transparent 58%),
+      linear-gradient(180deg, rgba(26,22,18,0.06), rgba(26,22,18,0.00));
+    flex-shrink: 0;
+  }
+
+  .after-demo .mast-name {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 900;
+    font-size: clamp(1rem, 2.2vw, 1.4rem);
+    line-height: 1;
+    color: #1a1612;
+  }
+
+  .after-demo .mast-sub {
+    margin-left: 0.3rem;
+    padding-left: 0.7rem;
+    border-left: 1px solid rgba(26,22,18,0.08);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.5rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--slate);
+    white-space: nowrap;
+  }
+
+  .after-demo .intent-card {
+    border-radius: var(--card-radius);
+    border: var(--card-border);
+    background: rgba(255,255,255,0.82);
+    box-shadow: var(--card-shadow);
+    padding: 1.2rem 1.3rem 1.1rem;
+    margin: 0 1rem 1rem;
+  }
+
+  .after-demo .hero-sub {
+    color: var(--slate);
+    line-height: 1.65;
+    font-size: 0.92rem;
+    margin-bottom: 1rem;
+    max-width: 64ch;
+  }
+
+  .after-demo .tabs {
+    display: flex;
+    gap: 0.45rem;
+    margin-bottom: 0.72rem;
+    border-top: 1px solid rgba(26,22,18,0.06);
+    padding-top: 0.78rem;
+  }
+
+  .after-demo .tab {
+    border: 1px solid rgba(26,22,18,0.10);
+    background: rgba(255,255,255,0.75);
+    color: var(--slate);
+    border-radius: 999px;
+    padding: 0.5rem 0.72rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.5rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: all 160ms ease;
+  }
+
+  .after-demo .tab:hover {
+    border-color: rgba(26,22,18,0.2);
+    color: var(--ink);
+  }
+
+  .after-demo .tab.active {
+    color: var(--ink);
+    border-color: rgba(200,148,62,0.6);
+    background: rgba(200,148,62,0.08);
+  }
+
+  .after-demo .cat-grid {
+    display: flex;
+    gap: 0.55rem;
+    overflow-x: auto;
+    padding-bottom: 0.3rem;
+  }
+
+  .after-demo .cat-pill {
+    flex: 0 0 auto;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.55rem 0.7rem 0.55rem 0.55rem;
+    border-radius: 999px;
+    background: rgba(255,255,255,0.85);
+    border: var(--card-border);
+    font-size: 0.7rem;
+    font-weight: 650;
+    color: var(--ink);
+    white-space: nowrap;
+    transition: all 160ms ease;
+  }
+
+  .after-demo .cat-pill:hover {
+    border-color: rgba(26,22,18,0.18);
+    box-shadow: var(--card-shadow);
+  }
+
+  .after-demo .cat-dot {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .after-demo .map-placeholder {
+    margin: 0 1rem 1rem;
+    height: 240px;
+    border-radius: 8px;
+    border: 1px solid rgba(26,22,18,0.06);
+    background: linear-gradient(135deg, #e8e6e1 0%, #dbd8d2 50%, #cec8be 100%);
+    box-shadow: var(--shadow-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.7rem;
+    color: rgba(26,22,18,0.3);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .after-demo .card-row {
+    display: flex;
+    gap: 0.8rem;
+    margin: 0 1rem 1rem;
+    overflow-x: auto;
+    padding-bottom: 0.3rem;
+  }
+
+  .after-demo .sample-card {
+    flex: 0 0 220px;
+    padding: 1rem;
+    border-radius: var(--card-radius);
+    background: var(--card-bg);
+    box-shadow: var(--card-shadow);
+    border: var(--card-border);
+    transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .after-demo .sample-card:hover {
+    box-shadow: var(--card-shadow-hover);
+    transform: translateY(-2px);
+  }
+
+  .after-demo .sample-card .card-eyebrow {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.52rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.4rem;
+  }
+
+  .after-demo .sample-card .card-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    line-height: 1.25;
+    color: var(--ink);
+    margin-bottom: 0.3rem;
+  }
+
+  .after-demo .sample-card .card-desc {
+    font-size: 0.78rem;
+    color: var(--slate);
+    line-height: 1.55;
+  }
+
+  .after-demo .section-label {
+    margin: 0 1rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.52rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 0.3rem;
+  }
+
+  .after-demo .section-heading {
+    margin: 0 1rem 0.8rem;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: var(--ink);
+  }
+
+  .after-demo .colophon-demo {
+    margin: 0 1rem 1rem;
+    padding: 1.2rem;
+    border-radius: var(--card-radius);
+    background: rgba(26,22,18,0.02);
+    border: var(--card-border);
+  }
+
+  .after-demo .colophon-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+  }
+
+  .after-demo .colophon-text {
+    font-size: 0.78rem;
+    color: var(--slate);
+    line-height: 1.6;
+  }
+
+  /* ============================================================
+     TOKEN COMPARISON TABLE
+     ============================================================ */
+  .token-table {
+    max-width: 1400px;
+    margin: 0 auto 3rem;
+    overflow-x: auto;
+  }
+
+  .token-table table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.82rem;
+  }
+
+  .token-table th {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.58rem;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #999;
+    text-align: left;
+    padding: 0.5rem 0.8rem;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .token-table td {
+    padding: 0.45rem 0.8rem;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+    vertical-align: middle;
+  }
+
+  .token-table .token-name {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    color: #ccc;
+  }
+
+  .swatch {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 4px;
+    border: 1px solid rgba(255,255,255,0.15);
+    vertical-align: middle;
+    margin-right: 0.4rem;
+  }
+
+  .arrow {
+    color: #666;
+    font-size: 1.1rem;
+  }
+
+  /* Annotation callouts */
+  .callout {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 8px;
+    padding: 1rem 1.2rem;
+    margin: 0 auto 2rem;
+    max-width: 1400px;
+    font-size: 0.85rem;
+    color: #bbb;
+    line-height: 1.6;
+  }
+  .callout strong { color: #eee; }
+  .callout-title {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #81b29a;
+    margin-bottom: 0.5rem;
+  }
+</style>
+</head>
+<body>
+
+<h1 class="page-title">Phase 1: Design & Visual Refresh</h1>
+<p class="page-sub">Before / After Comparison Mockup</p>
+
+<!-- ====== CALLOUT ====== -->
+<div class="callout">
+  <div class="callout-title">What Changes</div>
+  <strong>Background:</strong> Warm parchment (#F4EFE6) &rarr; Clean near-white (#FAFAF8)<br>
+  <strong>Text:</strong> Slate navy (#4A6B7C) &rarr; True dark (#1a1612) for high contrast<br>
+  <strong>Shadows:</strong> Dual-direction neumorphic embossing &rarr; Flat editorial drop shadows<br>
+  <strong>Cards:</strong> Shared token system (radius, shadow, border, hover) across all card types<br>
+  <strong>Map border:</strong> 4px heavy neumorphic frame &rarr; 1px subtle or borderless<br>
+  <strong>Copy:</strong> "Cultural Asset Map" &rarr; "Explore Nevada County" / visitor-facing language<br>
+  <strong>Category colors:</strong> Muted heritage tones &rarr; Brighter, more saturated accents
+</div>
+
+<!-- ====== SIDE BY SIDE ====== -->
+<div class="comparison">
+
+  <!-- BEFORE -->
+  <div>
+    <div class="panel-label before">Before &mdash; Heritage Neumorphism</div>
+    <div class="before-demo">
+
+      <!-- Mast bar -->
+      <div class="mast-inner">
+        <div class="mast-mark"></div>
+        <div style="display:flex;align-items:center;gap:0.5rem;min-width:0;">
+          <div class="mast-name">Cultural Asset Map</div>
+          <div class="mast-sub">Nevada County Arts Council</div>
+        </div>
+      </div>
+
+      <!-- Hero intent card -->
+      <div class="intent-card">
+        <p class="hero-sub">Explore Nevada County's cultural landscape, view upcoming events, and read editorials linked to locations on the map.</p>
+        <div class="tabs">
+          <span class="tab active">Categories</span>
+          <span class="tab">Feature Picks</span>
+          <span class="tab">Upcoming Events</span>
+          <span class="tab">Curated Routes</span>
+        </div>
+        <div class="cat-grid">
+          <div class="cat-pill"><span class="cat-dot" style="background:#A0522D;"></span>Landmarks</div>
+          <div class="cat-pill"><span class="cat-dot" style="background:#D4AF37;"></span>Eat/Drink</div>
+          <div class="cat-pill"><span class="cat-dot" style="background:#5C7A5C;"></span>Arts</div>
+          <div class="cat-pill"><span class="cat-dot" style="background:#4A6B7C;"></span>Cultural</div>
+          <div class="cat-pill"><span class="cat-dot" style="background:#7A6B7D;"></span>Galleries</div>
+          <div class="cat-pill"><span class="cat-dot" style="background:#87CEEB;"></span>Performing</div>
+        </div>
+      </div>
+
+      <!-- Map placeholder -->
+      <div class="map-placeholder">
+        Map &mdash; 4px border, neumorphic inset shadow
+      </div>
+
+      <!-- Cards -->
+      <div class="section-label">From MUSE '26</div>
+      <div class="section-heading">Featured Narratives</div>
+      <div class="card-row">
+        <div class="sample-card">
+          <div class="card-eyebrow">Routes &amp; Heritage</div>
+          <div class="card-title">Our Cultural Corridors</div>
+          <div class="card-desc">Nevada County's highways are cultural corridors weaving together stories...</div>
+        </div>
+        <div class="sample-card">
+          <div class="card-eyebrow">Community &amp; Place</div>
+          <div class="card-title">Rural is the New Cool</div>
+          <div class="card-desc">Few areas in Northern California can match the density of creativity...</div>
+        </div>
+        <div class="sample-card">
+          <div class="card-eyebrow">Arts &amp; Landscape</div>
+          <div class="card-title">Off the Wall: Art in Nature</div>
+          <div class="card-desc">Each June, on trails across the county, stars sway from low branches...</div>
+        </div>
+      </div>
+
+      <!-- Colophon -->
+      <div class="colophon-demo">
+        <div class="colophon-title">About This Project</div>
+        <div class="colophon-text">687 cultural assets across 10 categories, sourced from the Nevada County Arts Council Cultural Asset Map. "Quiet Graphics" visual identity inspired by the Arts Council's original 2019 presentation.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- AFTER -->
+  <div>
+    <div class="panel-label after">After &mdash; MUSE Editorial</div>
+    <div class="after-demo">
+
+      <!-- Mast bar -->
+      <div class="mast-inner">
+        <div class="mast-mark"></div>
+        <div style="display:flex;align-items:center;gap:0.5rem;min-width:0;">
+          <div class="mast-name">Explore Nevada County</div>
+          <div class="mast-sub">Your guide to local culture</div>
+        </div>
+      </div>
+
+      <!-- Hero intent card -->
+      <div class="intent-card">
+        <p class="hero-sub">Discover local galleries, dining, performances, and hidden gems across Grass Valley, Nevada City, and the Sierra foothills.</p>
+        <div class="tabs">
+          <span class="tab active">Categories</span>
+          <span class="tab">Feature Picks</span>
+          <span class="tab">Upcoming Events</span>
+          <span class="tab">Curated Routes</span>
+        </div>
+        <div class="cat-grid">
+          <div class="cat-pill"><span class="cat-dot" style="background:#c0392b;"></span>Landmarks</div>
+          <div class="cat-pill"><span class="cat-dot" style="background:#d4a017;"></span>Eat/Drink</div>
+          <div class="cat-pill"><span class="cat-dot" style="background:#27ae60;"></span>Arts</div>
+          <div class="cat-pill"><span class="cat-dot" style="background:#2980b9;"></span>Cultural</div>
+          <div class="cat-pill"><span class="cat-dot" style="background:#8e44ad;"></span>Galleries</div>
+          <div class="cat-pill"><span class="cat-dot" style="background:#3498db;"></span>Performing</div>
+        </div>
+      </div>
+
+      <!-- Map placeholder -->
+      <div class="map-placeholder">
+        Map &mdash; 1px border, minimal shadow
+      </div>
+
+      <!-- Cards -->
+      <div class="section-label">From MUSE '26</div>
+      <div class="section-heading">Featured Narratives</div>
+      <div class="card-row">
+        <div class="sample-card">
+          <div class="card-eyebrow">Routes &amp; Heritage</div>
+          <div class="card-title">Our Cultural Corridors</div>
+          <div class="card-desc">Nevada County's highways are cultural corridors weaving together stories...</div>
+        </div>
+        <div class="sample-card">
+          <div class="card-eyebrow">Community &amp; Place</div>
+          <div class="card-title">Rural is the New Cool</div>
+          <div class="card-desc">Few areas in Northern California can match the density of creativity...</div>
+        </div>
+        <div class="sample-card">
+          <div class="card-eyebrow">Arts &amp; Landscape</div>
+          <div class="card-title">Off the Wall: Art in Nature</div>
+          <div class="card-desc">Each June, on trails across the county, stars sway from low branches...</div>
+        </div>
+      </div>
+
+      <!-- Colophon -->
+      <div class="colophon-demo">
+        <div class="colophon-title">About This Guide</div>
+        <div class="colophon-text">Over 680 places to discover across Nevada County. Crafted for the Experience Planning Committee. Cultural Corridors content adapted from MUSE Issue 03, 2026.</div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+<!-- ====== TOKEN TABLE ====== -->
+<div class="token-table">
+  <div class="panel-label after" style="margin-bottom:0.8rem;">Design Token Changes</div>
+  <table>
+    <thead>
+      <tr>
+        <th>Token</th>
+        <th>Before</th>
+        <th></th>
+        <th>After</th>
+        <th>Why</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="token-name">--neuro-bg / --cream</td>
+        <td><span class="swatch" style="background:#F4EFE6;"></span>#F4EFE6</td>
+        <td class="arrow">&rarr;</td>
+        <td><span class="swatch" style="background:#FAFAF8;"></span>#FAFAF8</td>
+        <td>Clean white like MUSE pages</td>
+      </tr>
+      <tr>
+        <td class="token-name">--ink</td>
+        <td><span class="swatch" style="background:#4A6B7C;"></span>#4A6B7C</td>
+        <td class="arrow">&rarr;</td>
+        <td><span class="swatch" style="background:#1a1612;"></span>#1a1612</td>
+        <td>True dark for 16:1 contrast</td>
+      </tr>
+      <tr>
+        <td class="token-name">--gold</td>
+        <td><span class="swatch" style="background:#D4AF37;"></span>#D4AF37</td>
+        <td class="arrow">&rarr;</td>
+        <td><span class="swatch" style="background:#c8943e;"></span>#c8943e</td>
+        <td>Slightly warmer, less brassy</td>
+      </tr>
+      <tr>
+        <td class="token-name">--shadow-raised</td>
+        <td style="font-size:0.72rem;color:#999;">6px 6px 12px (dual-direction)</td>
+        <td class="arrow">&rarr;</td>
+        <td style="font-size:0.72rem;color:#999;">0 2px 8px (flat drop)</td>
+        <td>Editorial, not embossed</td>
+      </tr>
+      <tr>
+        <td class="token-name">--cat-landmarks</td>
+        <td><span class="swatch" style="background:#A0522D;"></span>#A0522D</td>
+        <td class="arrow">&rarr;</td>
+        <td><span class="swatch" style="background:#c0392b;"></span>#c0392b</td>
+        <td>Brighter, more saturated</td>
+      </tr>
+      <tr>
+        <td class="token-name">--cat-arts</td>
+        <td><span class="swatch" style="background:#5C7A5C;"></span>#5C7A5C</td>
+        <td class="arrow">&rarr;</td>
+        <td><span class="swatch" style="background:#27ae60;"></span>#27ae60</td>
+        <td>Brighter, more vibrant</td>
+      </tr>
+      <tr>
+        <td class="token-name">--cat-cultural</td>
+        <td><span class="swatch" style="background:#4A6B7C;"></span>#4A6B7C</td>
+        <td class="arrow">&rarr;</td>
+        <td><span class="swatch" style="background:#2980b9;"></span>#2980b9</td>
+        <td>Stronger blue, not washed out</td>
+      </tr>
+      <tr>
+        <td class="token-name">--cat-galleries</td>
+        <td><span class="swatch" style="background:#7A6B7D;"></span>#7A6B7D</td>
+        <td class="arrow">&rarr;</td>
+        <td><span class="swatch" style="background:#8e44ad;"></span>#8e44ad</td>
+        <td>Rich purple, more distinct</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<div class="callout">
+  <div class="callout-title">What Stays the Same</div>
+  <strong>Typography:</strong> Playfair Display / DM Sans / JetBrains Mono (already good)<br>
+  <strong>Layout structure:</strong> Hero tabs, map, editorial cards, explore list, colophon (all preserved)<br>
+  <strong>Tabbed discovery panel:</strong> Same interaction model, cleaner visual treatment<br>
+  <strong>Watercolor icons:</strong> Kept at 32px in category pills (reduced prominence elsewhere)<br>
+  <strong>All id/aria-*/data-* attributes:</strong> Untouched (deep links and accessibility preserved)<br>
+  <strong>CSS class names:</strong> Unchanged (36+ JS modules depend on them)
+</div>
+
+</body>
+</html>

@@ -1,0 +1,238 @@
+/*
+  Access Core Variant
+  WCAG-forward high-contrast style with robust focus and larger targets.
+*/
+
+.access-core-theme {
+  --font-display: 'Atkinson Hyperlegible', 'Segoe UI', sans-serif;
+  --font-body: 'Source Sans 3', 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+
+  --ink: oklch(10% 0.01 250);
+  --paper: oklch(99% 0 0);
+  --line: oklch(15% 0.02 250 / 0.48);
+  --focus: oklch(50% 0.2 255);
+  --accent: oklch(43% 0.15 20);
+
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 18px;
+}
+
+.access-core-theme .skip-link {
+  position: absolute;
+  left: 0.8rem;
+  top: -48px;
+  z-index: 50;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  padding: 0.4rem 0.7rem;
+  border-radius: 8px;
+  text-decoration: none;
+  border: 2px solid var(--focus);
+  background: oklch(100% 0 0);
+  color: var(--ink);
+}
+
+.access-core-theme .skip-link:focus {
+  top: 0.8rem;
+}
+
+.access-core-theme :focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 3px;
+}
+
+.access-core-theme .hero,
+.access-core-theme .section-intro,
+.access-core-theme .map-section,
+.access-core-theme .muse-section,
+.access-core-theme .explore-section,
+.access-core-theme .colophon-inner {
+  max-width: none;
+  margin-left: 0.9rem;
+  margin-right: 0.9rem;
+  border: 2px solid var(--line);
+  border-radius: 8px;
+  background: oklch(100% 0 0);
+  box-shadow: none;
+}
+
+.access-core-theme .hero {
+  margin-top: 1.1rem;
+  padding: 1rem;
+}
+
+.access-core-theme .hero-badge {
+  border: 2px solid var(--line);
+  border-radius: 8px;
+}
+
+.access-core-theme .hero-eyebrow {
+  color: var(--accent);
+  letter-spacing: 0.1em;
+}
+
+.access-core-theme .hero-title,
+.access-core-theme .section-heading,
+.access-core-theme .muse-section-title,
+.access-core-theme .map-title {
+  color: var(--ink);
+  font-family: var(--font-display);
+}
+
+.access-core-theme .hero-title em {
+  color: var(--accent);
+}
+
+.access-core-theme .hero-jump a {
+  min-height: 44px;
+  border: 2px solid var(--line);
+  border-radius: 8px;
+  color: var(--ink);
+}
+
+.access-core-theme .section-intro,
+.access-core-theme .map-section,
+.access-core-theme .muse-section,
+.access-core-theme .explore-section {
+  margin-top: 0.7rem;
+  padding: 1rem;
+}
+
+.access-core-theme .section-intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.access-core-theme .section-intro::before,
+.access-core-theme .section-intro::after,
+.access-core-theme .muse-section::before,
+.access-core-theme .explore-section::before,
+.access-core-theme .explore-section::after {
+  display: none;
+}
+
+.access-core-theme .section-intro .col-right {
+  display: block;
+}
+
+.access-core-theme .cat-card,
+.access-core-theme .filter-pill,
+.access-core-theme .map-filter-toggle,
+.access-core-theme .map-legend-toggle,
+.access-core-theme .map-location-refresh,
+.access-core-theme .map-location-status,
+.access-core-theme .map-filter-panel .map-filter-bar,
+.access-core-theme .map-legend-panel,
+.access-core-theme .map-guides,
+.access-core-theme .map-subaddon,
+.access-core-theme .map-events-details,
+.access-core-theme .map-events-chip,
+.access-core-theme .map-events-category-select,
+.access-core-theme .map-events-nav,
+.access-core-theme .explore-search,
+.access-core-theme .explore-cat-pill,
+.access-core-theme .explore-list-wrapper,
+.access-core-theme .explore-item,
+.access-core-theme .load-more-btn,
+.access-core-theme .explore-list-back,
+.access-core-theme .colophon-bottom a {
+  border: 2px solid var(--line);
+  border-radius: 8px;
+  background: oklch(100% 0 0);
+  color: var(--ink);
+  box-shadow: none;
+  min-height: 44px;
+}
+
+.access-core-theme .filter-pill.active,
+.access-core-theme .map-events-chip.active {
+  background: oklch(94% 0.05 255 / 0.45);
+  border-color: var(--focus);
+}
+
+.access-core-theme .map-container {
+  border: 2px solid var(--line);
+  border-radius: 8px;
+  padding: 0.45rem;
+  background: oklch(100% 0 0);
+  min-height: 500px;
+  height: 68vh;
+}
+
+.access-core-theme #map { border-radius: 6px; }
+
+.access-core-theme .muse-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.9rem;
+}
+
+.access-core-theme .muse-card {
+  border: 2px solid var(--line);
+  border-radius: 8px;
+  background: oklch(100% 0 0);
+}
+
+.access-core-theme .muse-card:nth-child(2),
+.access-core-theme .muse-card:nth-child(3) {
+  margin-top: 0;
+}
+
+.access-core-theme .detail-panel {
+  border-left: 2px solid var(--line);
+  background: oklch(100% 0 0);
+}
+
+.access-core-theme .detail-close {
+  border: 2px solid var(--line);
+  border-radius: 999px;
+  background: oklch(100% 0 0);
+}
+
+.access-core-theme .colophon {
+  background: transparent;
+}
+
+@media (max-width: 980px) {
+  .access-core-theme .section-intro,
+  .access-core-theme .muse-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .access-core-theme {
+    font-size: 17px;
+  }
+
+  .access-core-theme .hero,
+  .access-core-theme .section-intro,
+  .access-core-theme .map-section,
+  .access-core-theme .muse-section,
+  .access-core-theme .explore-section,
+  .access-core-theme .colophon-inner {
+    margin-left: 0.6rem;
+    margin-right: 0.6rem;
+    padding: 0.8rem;
+  }
+
+  .access-core-theme .map-container {
+    min-height: 390px;
+    height: 58vh;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .access-core-theme *,
+  .access-core-theme *::before,
+  .access-core-theme *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

@@ -1,0 +1,306 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GVNC - Story Driven Pass</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo+Expanded:wght@500;700&family=Source+Serif+4:opsz,wght@8..60,500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f7f7f3;
+      --surface: #fff;
+      --line: #e4e0d7;
+      --ink: #121212;
+      --muted: #59544d;
+      --cyan: #23bfd0;
+      --lime: #d8ea3f;
+      --coral: #ff5c50;
+      --shadow: 0 10px 26px rgba(0, 0, 0, 0.09);
+      --radius: 14px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background:
+        radial-gradient(circle at 80% -20%, rgba(255, 92, 80, 0.15), transparent 38%),
+        radial-gradient(circle at -10% 20%, rgba(35, 191, 208, 0.1), transparent 35%),
+        var(--bg);
+      color: var(--ink);
+      font-family: "Source Serif 4", Georgia, serif;
+    }
+    .wrap {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 20px;
+      display: grid;
+      gap: 16px;
+    }
+    .hero {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 1.2fr 1fr;
+      min-height: 360px;
+    }
+    .hero-copy {
+      padding: 24px;
+      display: grid;
+      align-content: center;
+      gap: 12px;
+      background: linear-gradient(120deg, #fff 0%, #faf9f5 100%);
+    }
+    .kicker {
+      display: inline-block;
+      font-family: "Archivo Expanded", sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      background: #111;
+      color: #fff;
+      padding: 7px 10px;
+      border-radius: 999px;
+      width: fit-content;
+    }
+    h1 {
+      margin: 0;
+      font-family: "Archivo Expanded", sans-serif;
+      font-size: clamp(28px, 4.8vw, 56px);
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+      text-transform: uppercase;
+    }
+    .sub {
+      margin: 0;
+      color: var(--muted);
+      max-width: 55ch;
+      font-size: 17px;
+      line-height: 1.4;
+    }
+    .hero-chips {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .chip {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 8px 11px;
+      font-size: 12px;
+      background: #fff;
+      font-family: "Archivo Expanded", sans-serif;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+    .chip.cyan { background: color-mix(in srgb, var(--cyan) 20%, white); }
+    .chip.lime { background: color-mix(in srgb, var(--lime) 34%, white); }
+    .chip.coral { background: color-mix(in srgb, var(--coral) 18%, white); }
+    .hero-media {
+      min-height: 280px;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .hero-media .tag {
+      position: absolute;
+      left: 12px;
+      bottom: 12px;
+      background: rgba(0,0,0,0.66);
+      color: #fff;
+      padding: 8px 11px;
+      border-radius: 999px;
+      font-family: "Archivo Expanded", sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+    }
+    .story {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.07);
+      display: grid;
+      grid-template-rows: 190px auto;
+    }
+    .story img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .story-copy {
+      padding: 12px;
+      display: grid;
+      gap: 8px;
+    }
+    .story h2 {
+      margin: 0;
+      font-family: "Archivo Expanded", sans-serif;
+      font-size: 16px;
+      line-height: 1.1;
+      text-transform: uppercase;
+    }
+    .story p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.35;
+    }
+    .pill {
+      width: fit-content;
+      margin-top: 2px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      padding: 6px 10px;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      font-family: "Archivo Expanded", sans-serif;
+      background: #fff;
+    }
+    .map-shell {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+    .map-head {
+      padding: 11px 13px;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      background: linear-gradient(90deg, #fff, #f8f8f4);
+    }
+    .map-head h3 {
+      margin: 0;
+      font-family: "Archivo Expanded", sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.07em;
+      text-transform: uppercase;
+    }
+    .btn {
+      border: 0;
+      border-radius: 999px;
+      background: var(--coral);
+      color: #fff;
+      font-family: "Archivo Expanded", sans-serif;
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 8px 10px;
+    }
+    .map-shot {
+      width: 100%;
+      display: block;
+      aspect-ratio: 16 / 8.4;
+      object-fit: cover;
+    }
+    @media (max-width: 960px) {
+      .hero { grid-template-columns: 1fr; }
+      .story-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <section class="hero">
+      <div class="hero-copy">
+        <span class="kicker">GVNC Cultural District</span>
+        <h1>Story-Led Visual Direction</h1>
+        <p class="sub">
+          This pass uses actual MUSE story spreads (not placeholder imagery), then translates
+          those narratives into modular website cards. The goal is stronger editorial identity
+          without breaking map-first functionality.
+        </p>
+        <div class="hero-chips">
+          <span class="chip cyan">Contemporary</span>
+          <span class="chip lime">Bold Editorial</span>
+          <span class="chip coral">Narrative Driven</span>
+        </div>
+      </div>
+      <div class="hero-media">
+        <img src="../../../docs/publications/muse-issue-03-2026/screenshots/p28-29_rural-is-new-cool.jpg" alt="Rural is the New Cool spread">
+        <span class="tag">Rural Is The New Cool</span>
+      </div>
+    </section>
+
+    <section class="story-grid">
+      <article class="story">
+        <img src="../../../docs/publications/muse-issue-03-2026/screenshots/p54-55_latinx-culture.jpg" alt="Latinx Culture spread">
+        <div class="story-copy">
+          <h2>Latinx Culture</h2>
+          <p>Not an add-on. A core part of the region's evolving identity through music, food, art, and storytelling.</p>
+          <span class="pill">Community Story</span>
+        </div>
+      </article>
+      <article class="story">
+        <img src="../../../docs/publications/muse-issue-03-2026/screenshots/p56-57_skateparks-paved-passion.jpg" alt="Paved with Passion spread">
+        <div class="story-copy">
+          <h2>Paved with Passion</h2>
+          <p>A skatepark as civic cultural space: creativity, belonging, intergenerational connection, and momentum.</p>
+          <span class="pill">Youth + Movement</span>
+        </div>
+      </article>
+      <article class="story">
+        <img src="../../../docs/publications/muse-issue-03-2026/screenshots/p66-67_story-of-place-fire-darkskies.jpg" alt="Story of Place spread">
+        <div class="story-copy">
+          <h2>Story of Place</h2>
+          <p>Fire and dark skies frame local resilience. Emotional narrative with a distinct regional lens.</p>
+          <span class="pill">Regional Identity</span>
+        </div>
+      </article>
+      <article class="story">
+        <img src="../../../docs/publications/muse-issue-03-2026/screenshots/p44-45_cultural-corridors-highways.jpg" alt="Cultural Corridors spread">
+        <div class="story-copy">
+          <h2>Cultural Corridors</h2>
+          <p>Connecting history, people, and place along routes. Natural fit for map and itinerary UX.</p>
+          <span class="pill">Map Narrative</span>
+        </div>
+      </article>
+      <article class="story">
+        <img src="../../../docs/publications/muse-issue-03-2026/screenshots/p58-59_lucky-little-towns-music.jpg" alt="Lucky Little Towns spread">
+        <div class="story-copy">
+          <h2>Lucky Little Towns</h2>
+          <p>Music-scene continuity across decades gives depth beyond event listings and one-off promos.</p>
+          <span class="pill">Cultural History</span>
+        </div>
+      </article>
+      <article class="story">
+        <img src="../../../docs/publications/muse-issue-03-2026/screenshots/p60-61_on-off-stage-theatre.jpg" alt="On and Off the Stage spread">
+        <div class="story-copy">
+          <h2>On and Off the Stage</h2>
+          <p>Theatre as community infrastructure: education, collaboration, confidence, and social connection.</p>
+          <span class="pill">Civic Arts</span>
+        </div>
+      </article>
+    </section>
+
+    <section class="map-shell">
+      <div class="map-head">
+        <h3>Map + Story Feed Integration</h3>
+        <button class="btn" type="button">View Live Layer</button>
+      </div>
+      <img class="map-shot" src="./rework-desktop-map-default.png" alt="Cultural map current layout">
+    </section>
+  </main>
+</body>
+</html>

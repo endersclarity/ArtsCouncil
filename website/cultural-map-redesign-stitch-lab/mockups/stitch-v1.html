@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Explore Nevada County</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;family=Playfair+Display:wght@700;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              colors: {
+                "primary": "#256af4",
+                "background-light": "#f5f6f8",
+                "background-dark": "#101622",
+                "accent-orange": "#f97316",
+                "accent-green": "#10b981",
+                "accent-purple": "#8b5cf6",
+              },
+              fontFamily: {
+                "display": ["Plus Jakarta Sans", "sans-serif"],
+                "serif": ["Playfair Display", "serif"]
+              },
+              borderRadius: {"DEFAULT": "1rem", "lg": "2rem", "xl": "3rem", "full": "9999px"},
+            },
+          },
+        }
+    </script>
+<style>
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased overflow-x-hidden">
+<!-- iOS Status Bar Spacer -->
+<div class="h-12 w-full bg-transparent"></div>
+<!-- Main Mobile Container -->
+<main class="max-w-md mx-auto min-h-screen relative pb-24">
+<!-- Header / Logo Area -->
+<header class="px-6 flex justify-between items-center mb-6">
+<div class="flex items-center gap-2">
+<div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center">
+<span class="text-white font-bold text-lg">N</span>
+</div>
+<span class="font-display font-bold text-xl tracking-tight">Explore NC</span>
+</div>
+<button class="w-10 h-10 rounded-full bg-white dark:bg-slate-800 shadow-sm flex items-center justify-center">
+<span class="material-icons-outlined text-slate-600 dark:text-slate-300">search</span>
+</button>
+</header>
+<!-- Hero Section -->
+<section class="px-6 mb-8">
+<div class="relative h-[420px] rounded-lg overflow-hidden group shadow-2xl">
+<img class="absolute inset-0 w-full h-full object-cover transform scale-105" data-alt="Scenic historic gold rush town street view" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCcBk1u2lmo7QOyPOgaS4z4UUPKQkNUM-l7uXK2HWVgcVXqv5dcIvA0NrQvYyVxtwm6M2dEMBY0Th-hadQNi8x1KYauEqisC8KomFdirwXRQzLeGHQp7bUSjM2fBGL8tIjtWNwuhznGfDmZhGhzo07-Rc7RD-C0QNywtd6-veokKINYet-RzsNhmLCne_avihopetW8IYyxoRBQOekSW0n8hZxSild7iI5QGggRdgARBADoQ_pde5xvvZ3FG1B4o-NAcoMJaF1-yXU"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+<div class="absolute bottom-0 left-0 p-8">
+<span class="inline-block px-3 py-1 bg-primary/90 text-white text-xs font-bold uppercase tracking-widest rounded-full mb-3">Featured Guide</span>
+<h1 class="font-serif text-4xl text-white leading-tight mb-4">Uncover the Heart of Gold Country</h1>
+<button class="bg-white text-slate-900 px-6 py-3 rounded-full font-bold text-sm flex items-center gap-2">
+                        Start Exploring
+                        <span class="material-icons-outlined text-sm">arrow_forward</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Category Horizontal Scroll -->
+<section class="mb-10">
+<div class="flex overflow-x-auto no-scrollbar gap-3 px-6">
+<button class="flex-none px-6 py-3 bg-primary text-white rounded-full font-semibold text-sm shadow-lg shadow-primary/25">All</button>
+<button class="flex-none px-6 py-3 bg-accent-orange/10 text-accent-orange dark:bg-accent-orange/20 rounded-full font-semibold text-sm">Eat &amp; Drink</button>
+<button class="flex-none px-6 py-3 bg-accent-green/10 text-accent-green dark:bg-accent-green/20 rounded-full font-semibold text-sm">Landmarks</button>
+<button class="flex-none px-6 py-3 bg-accent-purple/10 text-accent-purple dark:bg-accent-purple/20 rounded-full font-semibold text-sm">Galleries</button>
+<button class="flex-none px-6 py-3 bg-primary/10 text-primary dark:bg-primary/20 rounded-full font-semibold text-sm">Nature</button>
+<button class="flex-none px-6 py-3 bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300 rounded-full font-semibold text-sm">Stay</button>
+</div>
+</section>
+<!-- Featured Places Section -->
+<section class="px-6 mb-12">
+<div class="flex justify-between items-end mb-6">
+<div>
+<h2 class="font-serif text-3xl">Local Favorites</h2>
+<p class="text-slate-500 dark:text-slate-400 font-display text-sm">Curated by local guides</p>
+</div>
+<button class="text-primary font-bold text-sm">See All</button>
+</div>
+<div class="space-y-8">
+<!-- Place Card 1 -->
+<div class="group">
+<div class="relative h-64 rounded-lg overflow-hidden mb-4 shadow-lg">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Luxury historic hotel interior lounge area" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2EDnhkDkhMka0bFgdpYa8ILta1Mb3OD_wi_CA8j-TLaSTs3fRap2A_cAuRgjk5BoGQ_U6goFsPhhXuFAUNLxEZuLK1uT_2cimfc2yMS5YFmkiBy5LOmNEq2Rzluixy4nMSGb2GrTV-WsyTdH0qmsTSioPc8DO24hTT3xp1wx7SefLKVvZTzkhuhKxZwNxm5C6zEwKD42759-4UHDBfVbSVDIN_lF6c-P4rvKl9PwntqitHwxt-wmKpkDyEVzw8o9dDc_6cRy6QNo"/>
+<div class="absolute top-4 right-4 px-3 py-1 bg-white/90 backdrop-blur rounded-full text-[10px] font-bold uppercase text-slate-800">Historic</div>
+</div>
+<h3 class="font-serif text-2xl mb-1">The Holbrooke Hotel</h3>
+<p class="text-slate-600 dark:text-slate-400 font-display text-sm leading-relaxed">Experience 19th-century luxury in the heart of Grass Valley. Restored for the modern traveler.</p>
+<div class="flex items-center gap-4 mt-3">
+<div class="flex items-center gap-1 text-accent-orange">
+<span class="material-icons-outlined text-sm">star</span>
+<span class="text-xs font-bold">4.9</span>
+</div>
+<div class="flex items-center gap-1 text-slate-400">
+<span class="material-icons-outlined text-sm">location_on</span>
+<span class="text-xs">Grass Valley, CA</span>
+</div>
+</div>
+</div>
+<!-- Place Card 2 -->
+<div class="group">
+<div class="relative h-64 rounded-lg overflow-hidden mb-4 shadow-lg">
+<img class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500" data-alt="Rustic outdoor mining museum site" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDtvokQhinu4WY9buc86yrAaEhTxVwdC0P6iwkboyaeSQOJ1zG9RoUB6r4-ijUIal4r2i3whS6cyb5xEqLezhEk15KdBxbeFv-EAPgf_yozFFBkQFxazCKaJSfoNrrThfjWFl6dgV8WbT_LQqK_PSorUncDSr8OsCVLkxsLV4gOanoYfAJpIeK7xPYJyAPouzIqy49WXJmses6cRe5a4ym3qh1K0lrNP2XIE70eiAGJ3YugPAEwo-XcO-SW8b4j7sKLq048BoSVTDk"/>
+<div class="absolute top-4 right-4 px-3 py-1 bg-white/90 backdrop-blur rounded-full text-[10px] font-bold uppercase text-slate-800">Landmark</div>
+</div>
+<h3 class="font-serif text-2xl mb-1">Empire Mine State Park</h3>
+<p class="text-slate-600 dark:text-slate-400 font-display text-sm leading-relaxed">One of the oldest, deepest, and richest gold mines in California. A must-see historic park.</p>
+<div class="flex items-center gap-4 mt-3">
+<div class="flex items-center gap-1 text-accent-orange">
+<span class="material-icons-outlined text-sm">star</span>
+<span class="text-xs font-bold">4.8</span>
+</div>
+<div class="flex items-center gap-1 text-slate-400">
+<span class="material-icons-outlined text-sm">location_on</span>
+<span class="text-xs">Nevada City, CA</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Upcoming Events Section -->
+<section class="px-6 mb-12">
+<h2 class="font-serif text-3xl mb-6">Upcoming Events</h2>
+<div class="space-y-4">
+<!-- Event 1 -->
+<div class="flex gap-4 bg-white dark:bg-slate-800 p-4 rounded-lg shadow-sm border border-slate-100 dark:border-slate-700">
+<div class="flex-none w-16 h-16 bg-primary/10 rounded-lg flex flex-col items-center justify-center text-primary">
+<span class="text-xs font-bold uppercase">Oct</span>
+<span class="text-2xl font-black">12</span>
+</div>
+<div class="flex-1">
+<h4 class="font-bold text-slate-900 dark:text-white leading-tight">Art Walk Nevada City</h4>
+<p class="text-xs text-slate-500 dark:text-slate-400 mt-1 flex items-center gap-1">
+<span class="material-icons-outlined text-[14px]">schedule</span> 5:00 PM - 9:00 PM
+                        </p>
+<p class="text-xs text-primary font-semibold mt-1">Downtown Nevada City</p>
+</div>
+<button class="flex-none self-center w-8 h-8 rounded-full border border-slate-200 dark:border-slate-600 flex items-center justify-center">
+<span class="material-icons-outlined text-sm">bookmark_border</span>
+</button>
+</div>
+<!-- Event 2 -->
+<div class="flex gap-4 bg-white dark:bg-slate-800 p-4 rounded-lg shadow-sm border border-slate-100 dark:border-slate-700">
+<div class="flex-none w-16 h-16 bg-accent-orange/10 rounded-lg flex flex-col items-center justify-center text-accent-orange">
+<span class="text-xs font-bold uppercase">Oct</span>
+<span class="text-2xl font-black">13</span>
+</div>
+<div class="flex-1">
+<h4 class="font-bold text-slate-900 dark:text-white leading-tight">Miners Day Festival</h4>
+<p class="text-xs text-slate-500 dark:text-slate-400 mt-1 flex items-center gap-1">
+<span class="material-icons-outlined text-[14px]">schedule</span> 10:00 AM - 4:00 PM
+                        </p>
+<p class="text-xs text-accent-orange font-semibold mt-1">Main Street, Grass Valley</p>
+</div>
+<button class="flex-none self-center w-8 h-8 rounded-full border border-slate-200 dark:border-slate-600 flex items-center justify-center">
+<span class="material-icons-outlined text-sm">bookmark_border</span>
+</button>
+</div>
+</div>
+</section>
+<!-- Newsletter / Footer Call to Action -->
+<section class="px-6 mb-12">
+<div class="bg-slate-900 dark:bg-primary/20 rounded-lg p-8 text-center">
+<h3 class="font-serif text-2xl text-white mb-2">Get the Inside Scoop</h3>
+<p class="text-slate-400 text-sm mb-6">Join 12,000+ travelers for weekly gems and secret spots.</p>
+<div class="flex flex-col gap-3">
+<input class="bg-white/10 border-white/20 rounded-full px-6 py-3 text-white placeholder:text-slate-500 focus:ring-primary focus:border-primary" placeholder="Your email address" type="email"/>
+<button class="bg-primary text-white font-bold py-3 rounded-full hover:bg-primary/90 transition-colors">Join Now</button>
+</div>
+</div>
+</section>
+<!-- Navigation Bar -->
+<nav class="fixed bottom-0 left-0 right-0 bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl border-t border-slate-200 dark:border-slate-800 px-8 py-4 z-50">
+<div class="max-w-md mx-auto flex justify-between items-center">
+<a class="flex flex-col items-center gap-1 text-primary" href="#">
+<span class="material-icons-outlined">home</span>
+<span class="text-[10px] font-bold uppercase tracking-wider">Home</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500" href="#">
+<span class="material-icons-outlined">explore</span>
+<span class="text-[10px] font-bold uppercase tracking-wider">Map</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500" href="#">
+<span class="material-icons-outlined">calendar_today</span>
+<span class="text-[10px] font-bold uppercase tracking-wider">Events</span>
+</a>
+<a class="flex flex-col items-center gap-1 text-slate-400 dark:text-slate-500" href="#">
+<span class="material-icons-outlined">person_outline</span>
+<span class="text-[10px] font-bold uppercase tracking-wider">Profile</span>
+</a>
+</div>
+<!-- iOS Home Indicator Spacer -->
+<div class="h-4 w-full"></div>
+</nav>
+</main>
+<script src="./stitch-data-wireup.js"></script>
+</body></html>
+

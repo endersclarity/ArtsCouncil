@@ -1,0 +1,389 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>GVNC - Landscape Magazine Layout Overhaul</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Literata:opsz,wght@7..72,500;7..72,700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #f2f0e9;
+      --paper: #fffdf8;
+      --ink: #15171c;
+      --muted: #50545f;
+      --line: #d9d4ca;
+      --navy: #111f34;
+      --cyan: #1cb3c8;
+      --yellow: #d8dd42;
+      --coral: #f45f4c;
+      --shadow: 0 16px 34px rgba(11, 15, 23, 0.13);
+      --radius: 14px;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: "Archivo", "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at 95% -18%, rgba(244, 95, 76, 0.16), transparent 32%),
+        radial-gradient(circle at 8% 16%, rgba(28, 179, 200, 0.14), transparent 30%),
+        var(--bg);
+      color: var(--ink);
+    }
+
+    .wrap {
+      width: min(1320px, calc(100% - 1.1rem));
+      margin: 0.7rem auto 1.2rem;
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    .mast {
+      background: linear-gradient(120deg, rgba(28, 179, 200, 0.12), rgba(244, 95, 76, 0.1)), var(--navy);
+      color: #fff;
+      border: 1px solid rgba(255, 255, 255, 0.16);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 0.75rem 1rem;
+    }
+
+    .brand {
+      font-size: clamp(1rem, 1.8vw, 1.4rem);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      font-weight: 800;
+    }
+
+    .edition {
+      font-size: 0.66rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      border: 1px solid rgba(255, 255, 255, 0.32);
+      border-radius: 999px;
+      padding: 0.4rem 0.55rem;
+      color: rgba(255, 255, 255, 0.88);
+    }
+
+    .cover-grid {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 0.68rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+      gap: 0.68rem;
+    }
+
+    .cover {
+      border-radius: 12px;
+      min-height: 430px;
+      overflow: hidden;
+      position: relative;
+      background:
+        linear-gradient(125deg, rgba(11, 16, 25, 0.56), rgba(11, 16, 25, 0.14)),
+        url("./generated/editorial-hero-town.png") center / cover no-repeat;
+    }
+
+    .cover-tag {
+      position: absolute;
+      top: 0.8rem;
+      left: 0.8rem;
+      font-size: 0.62rem;
+      letter-spacing: 0.13em;
+      text-transform: uppercase;
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.48);
+      padding: 0.45rem 0.58rem;
+      color: #fff;
+      background: rgba(0, 0, 0, 0.3);
+    }
+
+    .cover-headline {
+      position: absolute;
+      left: 0.85rem;
+      right: 0.85rem;
+      bottom: 0.85rem;
+      color: #fff;
+      text-transform: uppercase;
+      line-height: 0.9;
+      font-size: clamp(2rem, 4.1vw, 3.9rem);
+      font-weight: 900;
+      letter-spacing: 0.01em;
+      text-shadow: 0 10px 22px rgba(0, 0, 0, 0.4);
+    }
+
+    .toc {
+      border-radius: 12px;
+      border: 1px solid #2a73cb;
+      background: linear-gradient(180deg, #2f79cf 0%, #2667b3 100%);
+      color: #fff;
+      padding: 0.95rem 0.9rem;
+      display: grid;
+      grid-template-rows: auto auto 1fr auto;
+      gap: 0.62rem;
+      min-height: 430px;
+    }
+
+    .toc-kicker {
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.86);
+    }
+
+    .toc-title {
+      font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+      line-height: 0.9;
+      font-weight: 900;
+      margin: 0;
+      text-transform: uppercase;
+    }
+
+    .toc-title span { color: var(--yellow); }
+
+    .toc-list {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: grid;
+      gap: 0.46rem;
+      align-content: start;
+      font-size: 0.88rem;
+    }
+
+    .toc-item {
+      display: grid;
+      grid-template-columns: 2.1rem 1fr;
+      gap: 0.46rem;
+      align-items: baseline;
+      padding-top: 0.4rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    .toc-num {
+      color: var(--yellow);
+      font-size: 0.7rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .toc-note {
+      font-size: 0.68rem;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+      color: rgba(255, 255, 255, 0.86);
+      border-radius: 999px;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      padding: 0.42rem 0.5rem;
+      justify-self: start;
+    }
+
+    .spread {
+      display: grid;
+      grid-template-columns: minmax(0, 1.68fr) minmax(0, 1fr);
+      gap: 0.7rem;
+    }
+
+    .panel {
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      background: var(--paper);
+      box-shadow: 0 10px 20px rgba(11, 15, 23, 0.1);
+      overflow: hidden;
+    }
+
+    .map-panel-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 0.8rem;
+      padding: 0.66rem 0.8rem;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(90deg, rgba(28, 179, 200, 0.11), rgba(216, 221, 66, 0.12));
+    }
+
+    .map-panel-title {
+      margin: 0;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      font-size: 0.74rem;
+    }
+
+    .pill {
+      font-size: 0.62rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      border-radius: 999px;
+      border: 1px solid rgba(20, 23, 28, 0.2);
+      padding: 0.42rem 0.55rem;
+      background: #fff;
+      min-height: 44px;
+      display: inline-flex;
+      align-items: center;
+    }
+
+    .map-shot {
+      width: 100%;
+      display: block;
+      aspect-ratio: 16 / 9.4;
+      object-fit: cover;
+      object-position: center;
+      background: #ddd;
+    }
+
+    .stack {
+      display: grid;
+      gap: 0.7rem;
+    }
+
+    .story-card {
+      position: relative;
+      min-height: 185px;
+      border-radius: var(--radius);
+      border: 1px solid var(--line);
+      overflow: hidden;
+      box-shadow: 0 8px 18px rgba(11, 15, 23, 0.1);
+      background: #000;
+    }
+
+    .story-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      opacity: 0.94;
+    }
+
+    .story-overlay {
+      position: absolute;
+      left: 0.65rem;
+      right: 0.65rem;
+      bottom: 0.62rem;
+      color: #fff;
+      text-transform: uppercase;
+      letter-spacing: 0.02em;
+      font-size: clamp(1rem, 1.5vw, 1.2rem);
+      line-height: 1.02;
+      font-weight: 800;
+      text-shadow: 0 8px 20px rgba(0, 0, 0, 0.42);
+    }
+
+    .notes {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.7rem;
+    }
+
+    .note {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 0.72rem;
+      font-size: 0.92rem;
+      line-height: 1.38;
+      color: #2a2d33;
+    }
+
+    .note h3 {
+      margin: 0 0 0.38rem;
+      font-size: 0.78rem;
+      letter-spacing: 0.11em;
+      text-transform: uppercase;
+      color: #182130;
+    }
+
+    .caption {
+      font-family: "Literata", Georgia, serif;
+      color: var(--muted);
+    }
+
+    @media (max-width: 1080px) {
+      .cover-grid,
+      .spread,
+      .notes {
+        grid-template-columns: 1fr;
+      }
+
+      .cover,
+      .toc { min-height: 340px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="wrap">
+    <header class="mast">
+      <div class="brand">Cultural Asset Map</div>
+      <div class="edition">Layout Study · Landscape Editorial System</div>
+    </header>
+
+    <section class="cover-grid" aria-label="Cover and table of contents layout">
+      <article class="cover">
+        <div class="cover-tag">Nevada County · Guide Issue 01</div>
+        <div class="cover-headline">Bright Editorial<br>Culture Atlas</div>
+      </article>
+
+      <aside class="toc">
+        <div class="toc-kicker">table of contents</div>
+        <h2 class="toc-title">Explore <span>by Story</span></h2>
+        <ol class="toc-list">
+          <li class="toc-item"><span class="toc-num">10</span><span>Cultural Corridors and Scenic Routes</span></li>
+          <li class="toc-item"><span class="toc-num">22</span><span>Event Pulse and Weekly Calendar</span></li>
+          <li class="toc-item"><span class="toc-num">36</span><span>Artists, Galleries, and Night Culture</span></li>
+          <li class="toc-item"><span class="toc-num">48</span><span>Map-Led Discovery and Visitor Paths</span></li>
+          <li class="toc-item"><span class="toc-num">64</span><span>Directory Index by Category</span></li>
+        </ol>
+        <div class="toc-note">Layout, not final visual styling</div>
+      </aside>
+    </section>
+
+    <section class="spread" aria-label="Map and editorial modules">
+      <section class="panel">
+        <div class="map-panel-head">
+          <h2 class="map-panel-title">Map As Primary Spread</h2>
+          <span class="pill">Interactive layer ready</span>
+        </div>
+        <img class="map-shot" src="./rework-desktop-map-default.png" alt="Current map interface used as spread core">
+      </section>
+
+      <aside class="stack">
+        <article class="story-card">
+          <img src="./generated/editorial-feature-corridor.png" alt="Corridor style reference">
+          <div class="story-overlay">Corridor Stories</div>
+        </article>
+        <article class="story-card">
+          <img src="./generated/editorial-feature-events.png" alt="Events style reference">
+          <div class="story-overlay">Event Pulse</div>
+        </article>
+        <article class="story-card">
+          <img src="./generated/editorial-feature-night.png" alt="Night story style reference">
+          <div class="story-overlay">After Dark + Sky</div>
+        </article>
+      </aside>
+    </section>
+
+    <section class="notes" aria-label="System notes">
+      <article class="note">
+        <h3>Direction</h3>
+        <p class="caption">This pass drops Pinterest motifs and uses the travel-magazine structure as the primary layout model: cover -> contents -> spread modules -> index.</p>
+      </article>
+      <article class="note">
+        <h3>Reusable Modules</h3>
+        <p class="caption">Each module can map to existing app pieces: category tabs, event rails, map, editorial cards, and directory list without changing data contracts.</p>
+      </article>
+      <article class="note">
+        <h3>Why This Works</h3>
+        <p class="caption">The value is hierarchy and pacing, not mountain/lake imagery. Photography can be swapped while the editorial skeleton remains intact.</p>
+      </article>
+    </section>
+  </main>
+</body>
+</html>

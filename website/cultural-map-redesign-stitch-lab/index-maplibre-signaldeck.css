@@ -1,0 +1,411 @@
+/*
+  Signaldeck Variant
+  Map-first operations layout with high-contrast modern palette.
+*/
+
+.signaldeck-theme {
+  --font-display: 'Sora', 'Segoe UI', sans-serif;
+  --font-body: 'Space Grotesk', 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+
+  --ink: oklch(95% 0.01 260);
+  --cream: oklch(17% 0.03 255);
+  --parchment: oklch(20% 0.03 255);
+  --gold: oklch(73% 0.16 230);
+  --gold-bright: oklch(78% 0.18 220);
+  --rust: oklch(67% 0.17 30);
+  --deep-green: oklch(70% 0.13 165);
+  --slate: oklch(78% 0.03 255);
+  --red-accent: oklch(67% 0.17 30);
+  --blue-wash: oklch(72% 0.17 230);
+
+  --cat-landmarks: oklch(66% 0.16 20);
+  --cat-eat: oklch(70% 0.15 85);
+  --cat-arts: oklch(70% 0.13 160);
+  --cat-cultural: oklch(73% 0.17 230);
+  --cat-fairs: oklch(69% 0.18 50);
+  --cat-galleries: oklch(70% 0.12 295);
+  --cat-walks: oklch(69% 0.11 170);
+  --cat-publicart: oklch(71% 0.17 30);
+  --cat-performance: oklch(74% 0.17 235);
+  --cat-preservation: oklch(66% 0.11 130);
+
+  background:
+    radial-gradient(1200px 540px at 4% 0%, oklch(32% 0.08 246 / 0.55), transparent 66%),
+    radial-gradient(1200px 520px at 100% 0%, oklch(30% 0.1 220 / 0.48), transparent 68%),
+    linear-gradient(180deg, oklch(12% 0.03 255), oklch(9% 0.03 255));
+  color: var(--ink);
+  min-height: 100vh;
+  display: grid;
+  gap: 0.85rem;
+  grid-template-columns: minmax(330px, 400px) minmax(0, 1fr);
+  grid-template-areas:
+    "hero map"
+    "intro map"
+    "explore map"
+    "muse muse"
+    "colophon colophon";
+  width: min(1700px, calc(100% - 1rem));
+  margin: 0 auto;
+  padding: 0.6rem 0 1.6rem;
+}
+
+.signaldeck-theme::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(0deg, oklch(100% 0 0 / 0.03) 0 1px, transparent 1px 8px),
+    repeating-linear-gradient(90deg, oklch(100% 0 0 / 0.02) 0 1px, transparent 1px 12px);
+  z-index: -1;
+}
+
+.signaldeck-theme .hero,
+.signaldeck-theme .section-intro,
+.signaldeck-theme .explore-section,
+.signaldeck-theme .muse-section,
+.signaldeck-theme .colophon-inner {
+  border: 1px solid oklch(78% 0.14 230 / 0.26);
+  border-radius: 14px;
+  background: linear-gradient(150deg, oklch(17% 0.03 255 / 0.93), oklch(12% 0.03 255 / 0.95));
+  box-shadow: 0 14px 30px oklch(4% 0.02 255 / 0.5);
+}
+
+.signaldeck-theme .hero {
+  grid-area: hero;
+  margin: 0;
+  padding: 1.2rem;
+  position: sticky;
+  top: 0.6rem;
+  z-index: 5;
+}
+
+.signaldeck-theme .hero-badge {
+  width: min(250px, 68vw);
+  margin-bottom: 0.7rem;
+  border-radius: 8px;
+  border: 1px solid oklch(76% 0.15 230 / 0.35);
+  box-shadow: 0 8px 20px oklch(5% 0.02 255 / 0.35);
+  background: oklch(11% 0.03 255);
+  padding: 0.22rem;
+}
+
+.signaldeck-theme .hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-bottom: 0.55rem;
+  padding: 0.22rem 0.5rem;
+  border: 1px solid oklch(76% 0.15 230 / 0.35);
+  border-radius: 999px;
+  font-family: var(--font-mono);
+  font-size: 0.54rem;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  color: oklch(82% 0.16 230);
+  background: oklch(100% 0 0 / 0.03);
+}
+
+.signaldeck-theme .hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.36rem, 2.6vw, 2.2rem);
+  line-height: 1.04;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.5rem;
+  color: oklch(96% 0.01 260);
+}
+
+.signaldeck-theme .hero-title em {
+  font-style: normal;
+  color: oklch(80% 0.17 230);
+}
+
+.signaldeck-theme .hero-sub {
+  font-size: 0.92rem;
+  line-height: 1.45;
+  color: oklch(88% 0.02 255);
+  margin: 0;
+}
+
+.signaldeck-theme .hero-instructions {
+  margin-top: 0.5rem;
+  font-size: 0.52rem;
+  letter-spacing: 0.11em;
+  color: oklch(80% 0.04 255);
+}
+
+.signaldeck-theme .hero-jump {
+  margin-top: 0.65rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.35rem;
+}
+
+.signaldeck-theme .hero-jump a {
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  border: 1px solid oklch(76% 0.15 230 / 0.34);
+  background: linear-gradient(145deg, oklch(25% 0.05 240 / 0.7), oklch(20% 0.04 250 / 0.78));
+  color: oklch(92% 0.02 260);
+  text-decoration: none;
+  font-size: 0.56rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-family: var(--font-mono);
+}
+
+.signaldeck-theme .hero-jump a:hover {
+  border-color: oklch(82% 0.18 228 / 0.7);
+  color: oklch(90% 0.16 225);
+}
+
+.signaldeck-theme .section-intro {
+  grid-area: intro;
+  margin: 0;
+  padding: 0.95rem;
+  max-width: none;
+}
+
+.signaldeck-theme .section-intro::before,
+.signaldeck-theme .section-intro::after,
+.signaldeck-theme .explore-section::before,
+.signaldeck-theme .explore-section::after,
+.signaldeck-theme .muse-section::before {
+  display: none;
+}
+
+.signaldeck-theme .section-tag,
+.signaldeck-theme .muse-section-tag {
+  color: oklch(80% 0.15 230);
+}
+
+.signaldeck-theme .section-heading,
+.signaldeck-theme .muse-section-title,
+.signaldeck-theme .map-title {
+  color: oklch(95% 0.01 260);
+  letter-spacing: -0.015em;
+}
+
+.signaldeck-theme .section-body,
+.signaldeck-theme .muse-card-quote,
+.signaldeck-theme .muse-card-body,
+.signaldeck-theme .colophon {
+  color: oklch(88% 0.02 255);
+}
+
+.signaldeck-theme .section-intro .col-right {
+  display: block;
+  margin-top: 0.7rem;
+}
+
+.signaldeck-theme .cat-card {
+  border-radius: 8px;
+  border: 1px solid oklch(76% 0.14 230 / 0.2);
+  background: oklch(16% 0.03 255 / 0.95);
+  box-shadow: none;
+}
+
+.signaldeck-theme .cat-card:hover,
+.signaldeck-theme .cat-card.active {
+  border-color: oklch(80% 0.17 228 / 0.6);
+}
+
+.signaldeck-theme .map-section {
+  grid-area: map;
+  margin: 0;
+  padding: 0.7rem;
+  border-radius: 14px;
+  border: 1px solid oklch(78% 0.14 230 / 0.35);
+  background: linear-gradient(145deg, oklch(14% 0.03 255 / 0.97), oklch(10% 0.03 255 / 0.98));
+  position: sticky;
+  top: 0.6rem;
+  max-height: calc(100vh - 1.2rem);
+  overflow: auto;
+}
+
+.signaldeck-theme .map-header {
+  padding: 0.2rem 0.15rem 0.55rem;
+}
+
+.signaldeck-theme .map-title {
+  font-size: clamp(1.5rem, 2.6vw, 2.3rem);
+}
+
+.signaldeck-theme .map-active-banner {
+  padding: 0 0.15rem;
+}
+
+.signaldeck-theme .map-active-banner-inner {
+  border-radius: 8px;
+  border: 1px solid oklch(80% 0.15 230 / 0.28);
+  background: oklch(100% 0 0 / 0.03);
+}
+
+.signaldeck-theme .map-active-text,
+.signaldeck-theme .map-active-clear,
+.signaldeck-theme .map-addon-count,
+.signaldeck-theme .map-events-count,
+.signaldeck-theme .map-events-page,
+.signaldeck-theme .map-filter-group-label,
+.signaldeck-theme .map-legend-item,
+.signaldeck-theme .hours-legend-item {
+  color: oklch(88% 0.02 255);
+}
+
+.signaldeck-theme .map-container {
+  margin: 0.6rem 0;
+  height: min(63vh, 700px);
+  min-height: 420px;
+  border-radius: 12px;
+  border: 1px solid oklch(78% 0.14 230 / 0.26);
+  background: linear-gradient(145deg, oklch(18% 0.03 255), oklch(12% 0.03 255));
+}
+
+.signaldeck-theme #map {
+  border-radius: 8px;
+}
+
+.signaldeck-theme .map-overlay-controls {
+  top: 0.9rem;
+  left: 0.9rem;
+  right: 4rem;
+}
+
+.signaldeck-theme .map-filter-toggle,
+.signaldeck-theme .map-legend-toggle,
+.signaldeck-theme .map-location-refresh,
+.signaldeck-theme .map-location-status,
+.signaldeck-theme .map-filter-panel .map-filter-bar,
+.signaldeck-theme .map-legend-panel,
+.signaldeck-theme .filter-pill,
+.signaldeck-theme .map-guides,
+.signaldeck-theme .map-subaddon,
+.signaldeck-theme .map-events-details,
+.signaldeck-theme .map-events-chip,
+.signaldeck-theme .map-events-category-select,
+.signaldeck-theme .map-events-nav {
+  border-radius: 8px;
+  border-color: oklch(80% 0.15 230 / 0.34);
+  background: linear-gradient(145deg, oklch(24% 0.05 240 / 0.8), oklch(18% 0.04 250 / 0.86));
+  color: oklch(92% 0.02 260);
+}
+
+.signaldeck-theme .filter-pill.active,
+.signaldeck-theme .map-events-chip.active {
+  border-color: oklch(82% 0.18 228 / 0.75);
+  color: oklch(88% 0.16 226);
+  box-shadow: 0 0 0 1px oklch(82% 0.18 228 / 0.45), 0 8px 20px oklch(82% 0.18 228 / 0.18);
+}
+
+.signaldeck-theme .explore-section {
+  grid-area: explore;
+  margin: 0;
+  padding: 0.95rem;
+}
+
+.signaldeck-theme .explore-search,
+.signaldeck-theme .explore-cat-pill,
+.signaldeck-theme .explore-list-wrapper,
+.signaldeck-theme .explore-item,
+.signaldeck-theme .load-more-btn,
+.signaldeck-theme .explore-list-back {
+  border-radius: 8px;
+}
+
+.signaldeck-theme .muse-section {
+  grid-area: muse;
+  margin: 0;
+  padding: 1.3rem 1.1rem 1.6rem;
+}
+
+.signaldeck-theme .muse-card {
+  border-radius: 10px;
+  border-color: oklch(80% 0.15 230 / 0.26);
+}
+
+.signaldeck-theme .colophon {
+  grid-area: colophon;
+  padding: 0;
+  background: transparent;
+}
+
+.signaldeck-theme .colophon-inner {
+  max-width: none;
+  padding: 1.15rem;
+}
+
+.signaldeck-theme .colophon-bottom a {
+  border-radius: 8px;
+  border: 1px solid oklch(80% 0.15 230 / 0.32);
+  padding: 0.26rem 0.56rem;
+  text-decoration: none;
+}
+
+@media (max-width: 1200px) {
+  .signaldeck-theme {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "hero"
+      "map"
+      "intro"
+      "explore"
+      "muse"
+      "colophon";
+    width: calc(100% - 0.8rem);
+  }
+
+  .signaldeck-theme .hero,
+  .signaldeck-theme .map-section {
+    position: static;
+    top: auto;
+    max-height: none;
+  }
+
+  .signaldeck-theme .map-container {
+    height: 62vh;
+  }
+}
+
+@media (max-width: 700px) {
+  .signaldeck-theme {
+    gap: 0.65rem;
+    width: calc(100% - 0.6rem);
+    padding-top: 0.3rem;
+  }
+
+  .signaldeck-theme .hero,
+  .signaldeck-theme .map-section,
+  .signaldeck-theme .section-intro,
+  .signaldeck-theme .explore-section,
+  .signaldeck-theme .muse-section,
+  .signaldeck-theme .colophon-inner {
+    padding: 0.75rem;
+  }
+
+  .signaldeck-theme .hero-title {
+    font-size: clamp(1.3rem, 7vw, 2rem);
+  }
+
+  .signaldeck-theme .hero-jump {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .signaldeck-theme .map-container {
+    min-height: 380px;
+    height: 58vh;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .signaldeck-theme *,
+  .signaldeck-theme *::before,
+  .signaldeck-theme *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

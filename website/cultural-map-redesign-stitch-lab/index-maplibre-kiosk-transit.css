@@ -1,0 +1,252 @@
+/*
+  Kiosk Transit Variant
+  Touch-first layout with oversized controls and wayfinding emphasis.
+*/
+
+.kiosk-transit-theme {
+  --font-display: 'Sora', sans-serif;
+  --font-body: 'Public Sans', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+
+  --ink: oklch(18% 0.02 250);
+  --paper: oklch(97% 0.01 90);
+  --surface: oklch(94% 0.02 90);
+  --line: oklch(30% 0.03 250 / 0.25);
+  --accent: oklch(56% 0.13 245);
+  --accent-2: oklch(71% 0.16 45);
+
+  color: var(--ink);
+  background:
+    radial-gradient(1000px 540px at 0% 0%, oklch(90% 0.07 242 / 0.45), transparent 72%),
+    linear-gradient(180deg, var(--paper), var(--surface));
+}
+
+.kiosk-transit-theme .hero,
+.kiosk-transit-theme .section-intro,
+.kiosk-transit-theme .map-section,
+.kiosk-transit-theme .muse-section,
+.kiosk-transit-theme .explore-section,
+.kiosk-transit-theme .colophon-inner {
+  max-width: none;
+  margin-left: 0.9rem;
+  margin-right: 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: oklch(100% 0 0 / 0.82);
+  box-shadow: 0 12px 26px rgba(38, 45, 68, 0.09);
+}
+
+.kiosk-transit-theme .hero {
+  margin-top: 1rem;
+  padding: 1.1rem;
+}
+
+.kiosk-transit-theme .hero-badge {
+  border-radius: 12px;
+  border: 1px solid var(--line);
+}
+
+.kiosk-transit-theme .hero-eyebrow {
+  color: var(--accent);
+}
+
+.kiosk-transit-theme .hero-title {
+  color: var(--ink);
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.9rem);
+}
+
+.kiosk-transit-theme .hero-title em {
+  color: var(--accent-2);
+  font-style: normal;
+}
+
+.kiosk-transit-theme .kiosk-quick-actions {
+  margin-top: 0.75rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+
+.kiosk-transit-theme .kiosk-quick-actions a {
+  min-height: 52px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.45rem 0.8rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: oklch(100% 0 0 / 0.74);
+  color: var(--ink);
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+}
+
+.kiosk-transit-theme .kiosk-quick-actions a:hover,
+.kiosk-transit-theme .kiosk-quick-actions a:focus-visible {
+  color: var(--accent);
+  border-color: oklch(55% 0.12 245 / 0.7);
+}
+
+.kiosk-transit-theme .hero-jump a {
+  min-height: 52px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  font-size: 0.67rem;
+}
+
+.kiosk-transit-theme .section-intro,
+.kiosk-transit-theme .map-section,
+.kiosk-transit-theme .muse-section,
+.kiosk-transit-theme .explore-section {
+  margin-top: 0.72rem;
+  padding: 1rem;
+}
+
+.kiosk-transit-theme .section-intro {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.kiosk-transit-theme .section-intro::before,
+.kiosk-transit-theme .section-intro::after,
+.kiosk-transit-theme .muse-section::before,
+.kiosk-transit-theme .explore-section::before,
+.kiosk-transit-theme .explore-section::after {
+  display: none;
+}
+
+.kiosk-transit-theme .section-intro .col-right { display: block; }
+
+.kiosk-transit-theme .section-heading,
+.kiosk-transit-theme .muse-section-title,
+.kiosk-transit-theme .map-title {
+  color: var(--ink);
+  font-family: var(--font-display);
+}
+
+.kiosk-transit-theme .cat-card,
+.kiosk-transit-theme .filter-pill,
+.kiosk-transit-theme .map-filter-toggle,
+.kiosk-transit-theme .map-legend-toggle,
+.kiosk-transit-theme .map-location-refresh,
+.kiosk-transit-theme .map-location-status,
+.kiosk-transit-theme .map-filter-panel .map-filter-bar,
+.kiosk-transit-theme .map-legend-panel,
+.kiosk-transit-theme .map-guides,
+.kiosk-transit-theme .map-subaddon,
+.kiosk-transit-theme .map-events-details,
+.kiosk-transit-theme .map-events-chip,
+.kiosk-transit-theme .map-events-category-select,
+.kiosk-transit-theme .map-events-nav,
+.kiosk-transit-theme .explore-search,
+.kiosk-transit-theme .explore-cat-pill,
+.kiosk-transit-theme .explore-list-wrapper,
+.kiosk-transit-theme .explore-item,
+.kiosk-transit-theme .load-more-btn,
+.kiosk-transit-theme .explore-list-back,
+.kiosk-transit-theme .colophon-bottom a {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: oklch(100% 0 0 / 0.8);
+  min-height: 50px;
+}
+
+.kiosk-transit-theme .map-filter-toggle,
+.kiosk-transit-theme .map-legend-toggle,
+.kiosk-transit-theme .map-location-refresh,
+.kiosk-transit-theme .map-location-status {
+  min-height: 52px;
+  font-size: 0.86rem;
+}
+
+.kiosk-transit-theme .filter-pill.active,
+.kiosk-transit-theme .map-events-chip.active {
+  background: oklch(56% 0.13 245 / 0.18);
+  border-color: oklch(54% 0.12 245 / 0.68);
+  color: oklch(31% 0.07 245);
+}
+
+.kiosk-transit-theme .map-container {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 0.52rem;
+  background: oklch(100% 0 0 / 0.8);
+  min-height: 540px;
+  height: 72vh;
+}
+
+.kiosk-transit-theme #map {
+  border-radius: 10px;
+}
+
+.kiosk-transit-theme .map-overlay-controls {
+  top: 0.9rem;
+  left: 0.9rem;
+  right: 4.2rem;
+}
+
+.kiosk-transit-theme .muse-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.9rem;
+}
+
+.kiosk-transit-theme .muse-card {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: oklch(100% 0 0 / 0.8);
+}
+
+.kiosk-transit-theme .muse-card:nth-child(2),
+.kiosk-transit-theme .muse-card:nth-child(3) { margin-top: 0; }
+
+.kiosk-transit-theme .detail-panel {
+  border-left: 1px solid var(--line);
+  background: linear-gradient(180deg, oklch(98% 0.01 90), oklch(94% 0.02 90));
+}
+
+.kiosk-transit-theme .detail-close {
+  border-radius: 999px;
+  border: 1px solid var(--line);
+}
+
+.kiosk-transit-theme .colophon {
+  background: transparent;
+  padding: 0 0 1rem;
+}
+
+@media (max-width: 980px) {
+  .kiosk-transit-theme .section-intro,
+  .kiosk-transit-theme .muse-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .kiosk-transit-theme .hero,
+  .kiosk-transit-theme .section-intro,
+  .kiosk-transit-theme .map-section,
+  .kiosk-transit-theme .muse-section,
+  .kiosk-transit-theme .explore-section,
+  .kiosk-transit-theme .colophon-inner {
+    margin-left: 0.62rem;
+    margin-right: 0.62rem;
+    padding: 0.82rem;
+  }
+
+  .kiosk-transit-theme .kiosk-quick-actions a,
+  .kiosk-transit-theme .hero-jump a {
+    min-height: 48px;
+    width: 100%;
+  }
+
+  .kiosk-transit-theme .map-container {
+    min-height: 410px;
+    height: 60vh;
+  }
+}

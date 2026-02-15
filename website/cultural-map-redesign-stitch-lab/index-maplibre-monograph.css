@@ -1,0 +1,421 @@
+/*
+  Monograph Variant
+  High-contrast editorial print direction.
+*/
+
+.monograph-theme {
+  --font-display: 'Newsreader', Georgia, serif;
+  --font-body: 'Archivo', 'Helvetica Neue', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+
+  --ink: oklch(17% 0.02 250);
+  --cream: oklch(99% 0.002 95);
+  --parchment: oklch(98% 0.004 95);
+  --gold: oklch(63% 0.22 28);
+  --gold-bright: oklch(68% 0.23 28);
+  --rust: oklch(63% 0.22 28);
+  --deep-green: oklch(48% 0.1 160);
+  --slate: oklch(34% 0.02 250);
+  --red-accent: oklch(63% 0.22 28);
+  --blue-wash: oklch(49% 0.11 245);
+
+  --cat-landmarks: oklch(60% 0.22 24);
+  --cat-eat: oklch(68% 0.2 60);
+  --cat-arts: oklch(46% 0.11 160);
+  --cat-cultural: oklch(49% 0.11 245);
+  --cat-fairs: oklch(63% 0.21 35);
+  --cat-galleries: oklch(45% 0.12 320);
+  --cat-walks: oklch(44% 0.11 150);
+  --cat-publicart: oklch(67% 0.21 22);
+  --cat-performance: oklch(54% 0.13 240);
+  --cat-preservation: oklch(40% 0.07 95);
+
+  background: oklch(97.5% 0.003 95);
+  color: var(--ink);
+}
+
+.monograph-theme::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image: repeating-linear-gradient(0deg, oklch(0% 0 0 / 0.03) 0 1px, transparent 1px 9px);
+  opacity: 0.55;
+  z-index: -1;
+}
+
+.monograph-theme .hero,
+.monograph-theme .section-intro,
+.monograph-theme .map-section,
+.monograph-theme .muse-section,
+.monograph-theme .explore-section,
+.monograph-theme .colophon-inner {
+  border: 2px solid oklch(16% 0.02 250 / 0.85);
+  border-radius: 0;
+  background: oklch(99% 0.002 95 / 0.94);
+  box-shadow: none;
+}
+
+.monograph-theme .hero {
+  margin: 1rem;
+  padding: 1.25rem 1.35rem 1.1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.monograph-theme .hero::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 9px;
+  background: oklch(63% 0.22 28);
+}
+
+.monograph-theme .hero::after {
+  content: 'MONOGRAPH';
+  position: absolute;
+  top: 0.5rem;
+  right: 0.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.5rem;
+  letter-spacing: 0.16em;
+  color: oklch(16% 0.02 250 / 0.4);
+}
+
+.monograph-theme .hero-badge {
+  width: min(360px, 74vw);
+  margin-bottom: 0.72rem;
+  border-radius: 0;
+  border: 1px solid oklch(16% 0.02 250 / 0.6);
+  padding: 0.2rem;
+  background: oklch(99% 0.002 95);
+  box-shadow: none;
+}
+
+.monograph-theme .hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-bottom: 0.45rem;
+  padding: 0.16rem 0.4rem;
+  border: 1px solid oklch(16% 0.02 250 / 0.5);
+  border-radius: 0;
+  font-family: var(--font-mono);
+  font-size: 0.54rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: oklch(16% 0.02 250 / 0.75);
+}
+
+.monograph-theme .hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 5vw, 3.7rem);
+  line-height: 0.96;
+  letter-spacing: -0.01em;
+  color: oklch(15% 0.02 250);
+  margin-bottom: 0.48rem;
+  max-width: 20ch;
+}
+
+.monograph-theme .hero-title em {
+  color: oklch(63% 0.22 28);
+  font-style: italic;
+}
+
+.monograph-theme .hero-sub {
+  color: oklch(20% 0.02 250);
+  font-size: 0.98rem;
+  line-height: 1.5;
+  max-width: 68ch;
+}
+
+.monograph-theme .hero-instructions {
+  margin-top: 0.5rem;
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  color: oklch(25% 0.02 250 / 0.78);
+}
+
+.monograph-theme .hero-jump {
+  margin-top: 0.65rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.34rem;
+}
+
+.monograph-theme .hero-jump a {
+  min-height: 44px;
+  padding: 0.38rem 0.6rem;
+  border: 1px solid oklch(16% 0.02 250 / 0.5);
+  border-radius: 0;
+  text-decoration: none;
+  color: oklch(16% 0.02 250 / 0.85);
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.11em;
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+}
+
+.monograph-theme .hero-jump a:hover {
+  border-color: oklch(63% 0.22 28 / 0.8);
+  color: oklch(63% 0.22 28);
+}
+
+.monograph-theme .section-intro,
+.monograph-theme .explore-section,
+.monograph-theme .muse-section,
+.monograph-theme .map-section,
+.monograph-theme .colophon {
+  margin: 0 1rem 1rem;
+}
+
+.monograph-theme .section-intro,
+.monograph-theme .explore-section {
+  padding: 1rem 1.1rem;
+  max-width: none;
+}
+
+.monograph-theme .section-intro::before,
+.monograph-theme .section-intro::after,
+.monograph-theme .explore-section::before,
+.monograph-theme .explore-section::after,
+.monograph-theme .muse-section::before {
+  display: none;
+}
+
+.monograph-theme .section-tag,
+.monograph-theme .muse-section-tag {
+  font-family: var(--font-mono);
+  font-size: 0.55rem;
+  letter-spacing: 0.15em;
+  color: oklch(63% 0.22 28);
+}
+
+.monograph-theme .section-heading,
+.monograph-theme .muse-section-title,
+.monograph-theme .map-title {
+  color: oklch(15% 0.02 250);
+  letter-spacing: -0.01em;
+}
+
+.monograph-theme .section-body,
+.monograph-theme .muse-card-quote,
+.monograph-theme .muse-card-body,
+.monograph-theme .colophon {
+  color: oklch(22% 0.02 250);
+}
+
+.monograph-theme .section-intro .col-right {
+  display: block;
+  margin-top: 0.8rem;
+}
+
+.monograph-theme .cat-card,
+.monograph-theme .filter-pill,
+.monograph-theme .map-filter-toggle,
+.monograph-theme .map-legend-toggle,
+.monograph-theme .map-location-refresh,
+.monograph-theme .map-location-status,
+.monograph-theme .map-filter-panel .map-filter-bar,
+.monograph-theme .map-legend-panel,
+.monograph-theme .map-guides,
+.monograph-theme .map-subaddon,
+.monograph-theme .map-events-details,
+.monograph-theme .map-events-chip,
+.monograph-theme .map-events-category-select,
+.monograph-theme .map-events-nav,
+.monograph-theme .explore-search,
+.monograph-theme .explore-cat-pill,
+.monograph-theme .explore-list-wrapper,
+.monograph-theme .explore-item,
+.monograph-theme .load-more-btn,
+.monograph-theme .explore-list-back,
+.monograph-theme .colophon-bottom a {
+  border-radius: 0;
+}
+
+.monograph-theme .cat-card,
+.monograph-theme .filter-pill,
+.monograph-theme .map-filter-toggle,
+.monograph-theme .map-legend-toggle,
+.monograph-theme .map-location-refresh,
+.monograph-theme .map-location-status,
+.monograph-theme .map-filter-panel .map-filter-bar,
+.monograph-theme .map-legend-panel,
+.monograph-theme .map-guides,
+.monograph-theme .map-subaddon,
+.monograph-theme .map-events-details,
+.monograph-theme .map-events-chip,
+.monograph-theme .map-events-category-select,
+.monograph-theme .map-events-nav {
+  border-color: oklch(16% 0.02 250 / 0.45);
+  background: oklch(99% 0.002 95 / 0.97);
+  color: oklch(17% 0.02 250);
+  box-shadow: none;
+}
+
+.monograph-theme .cat-card {
+  border-width: 1px;
+}
+
+.monograph-theme .map-section {
+  padding: 0.9rem;
+}
+
+.monograph-theme .map-header {
+  padding: 0.35rem 0.1rem 0.6rem;
+}
+
+.monograph-theme .map-title {
+  font-family: var(--font-display);
+  font-size: clamp(1.7rem, 3vw, 2.6rem);
+}
+
+.monograph-theme .map-active-banner {
+  padding: 0;
+}
+
+.monograph-theme .map-active-banner-inner {
+  border: 1px solid oklch(16% 0.02 250 / 0.45);
+  border-radius: 0;
+  background: oklch(99% 0.002 95 / 0.97);
+}
+
+.monograph-theme .map-active-text,
+.monograph-theme .map-active-clear,
+.monograph-theme .map-addon-count,
+.monograph-theme .map-events-count,
+.monograph-theme .map-events-page,
+.monograph-theme .map-filter-group-label,
+.monograph-theme .map-legend-item,
+.monograph-theme .hours-legend-item {
+  color: oklch(21% 0.02 250 / 0.9);
+}
+
+.monograph-theme .map-container {
+  margin: 0.65rem 0;
+  padding: 0.5rem;
+  height: 66vh;
+  min-height: 480px;
+  border: 2px solid oklch(16% 0.02 250 / 0.82);
+  border-radius: 0;
+  background: oklch(99% 0.002 95);
+  box-shadow: none;
+}
+
+.monograph-theme #map {
+  border-radius: 0;
+}
+
+.monograph-theme .map-overlay-controls {
+  top: 0.85rem;
+  left: 0.85rem;
+  right: 3.8rem;
+}
+
+.monograph-theme .filter-pill.active,
+.monograph-theme .map-events-chip.active {
+  color: oklch(63% 0.22 28);
+  border-color: oklch(63% 0.22 28 / 0.85);
+  box-shadow: none;
+}
+
+.monograph-theme .maplibregl-ctrl-group {
+  background: oklch(16% 0.02 250) !important;
+  border-radius: 0 !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.monograph-theme .maplibregl-popup-content {
+  border-radius: 0 !important;
+  border: 2px solid oklch(16% 0.02 250 / 0.85) !important;
+  background: oklch(99% 0.002 95) !important;
+  box-shadow: none !important;
+}
+
+.monograph-theme .muse-section {
+  padding: 1.1rem;
+}
+
+.monograph-theme .muse-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.monograph-theme .muse-card {
+  border: 1px solid oklch(16% 0.02 250 / 0.45);
+  border-radius: 0;
+  background: oklch(99% 0.002 95 / 0.98);
+}
+
+.monograph-theme .muse-card-title {
+  font-family: var(--font-display);
+}
+
+.monograph-theme .explore-section {
+  padding: 1rem 1.1rem;
+}
+
+.monograph-theme .colophon {
+  padding: 0 1rem 1rem;
+  background: transparent;
+}
+
+.monograph-theme .colophon-inner {
+  max-width: none;
+  border: 2px solid oklch(16% 0.02 250 / 0.82);
+  border-radius: 0;
+}
+
+@media (max-width: 1100px) {
+  .monograph-theme .muse-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 760px) {
+  .monograph-theme .hero,
+  .monograph-theme .section-intro,
+  .monograph-theme .map-section,
+  .monograph-theme .muse-section,
+  .monograph-theme .explore-section,
+  .monograph-theme .colophon,
+  .monograph-theme .colophon-inner {
+    margin-left: 0.6rem;
+    margin-right: 0.6rem;
+  }
+
+  .monograph-theme .hero,
+  .monograph-theme .section-intro,
+  .monograph-theme .map-section,
+  .monograph-theme .muse-section,
+  .monograph-theme .explore-section,
+  .monograph-theme .colophon-inner {
+    padding: 0.78rem;
+  }
+
+  .monograph-theme .hero-title {
+    font-size: clamp(1.6rem, 9vw, 2.5rem);
+  }
+
+  .monograph-theme .map-container {
+    min-height: 390px;
+    height: 58vh;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .monograph-theme *,
+  .monograph-theme *::before,
+  .monograph-theme *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

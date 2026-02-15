@@ -1,0 +1,581 @@
+/*
+  Prismstorm Variant
+  Bold geometric poster direction without image-based decorations.
+*/
+
+.prismstorm-theme {
+  --font-display: 'Syne', 'Arial Black', sans-serif;
+  --font-body: 'Space Grotesk', 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', monospace;
+
+  --ink: oklch(95% 0.02 260);
+  --paper: oklch(15% 0.035 260);
+  --paper-soft: oklch(22% 0.045 262);
+  --line: oklch(75% 0.2 170 / 0.32);
+  --gold: oklch(82% 0.19 93);
+  --rust: oklch(73% 0.19 34);
+  --teal: oklch(74% 0.17 198);
+  --violet: oklch(66% 0.18 299);
+  --magenta: oklch(70% 0.21 357);
+  --ink-dark: oklch(15% 0.04 262);
+
+  --cat-landmarks: oklch(74% 0.19 34);
+  --cat-eat: oklch(82% 0.17 89);
+  --cat-arts: oklch(72% 0.16 198);
+  --cat-cultural: oklch(66% 0.18 299);
+  --cat-fairs: oklch(74% 0.2 15);
+  --cat-galleries: oklch(70% 0.2 330);
+  --cat-walks: oklch(72% 0.14 160);
+  --cat-publicart: oklch(74% 0.19 32);
+  --cat-performance: oklch(63% 0.19 289);
+  --cat-preservation: oklch(72% 0.16 112);
+
+  background:
+    radial-gradient(950px 480px at -10% -10%, oklch(36% 0.11 280 / 0.8), transparent 70%),
+    radial-gradient(780px 440px at 100% 8%, oklch(32% 0.12 193 / 0.75), transparent 72%),
+    linear-gradient(175deg, var(--paper), oklch(11% 0.03 256));
+  color: var(--ink);
+  position: relative;
+  overflow-x: clip;
+}
+
+.prismstorm-theme::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    repeating-linear-gradient(120deg, oklch(100% 0 0 / 0.03) 0 1px, transparent 1px 14px),
+    repeating-linear-gradient(60deg, oklch(100% 0 0 / 0.03) 0 1px, transparent 1px 14px);
+  z-index: 1;
+}
+
+.prismstorm-theme .prism-stage {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.prismstorm-theme .prism {
+  position: absolute;
+  width: clamp(180px, 24vw, 360px);
+  aspect-ratio: 1;
+  opacity: 0.3;
+  filter: blur(0.4px);
+  transform-origin: center;
+}
+
+.prismstorm-theme .prism-a {
+  top: -10%;
+  left: -8%;
+  background: linear-gradient(140deg, oklch(79% 0.2 93 / 0.9), oklch(67% 0.2 35 / 0.7));
+  clip-path: polygon(0 0, 100% 20%, 52% 100%);
+  transform: rotate(-15deg);
+}
+
+.prismstorm-theme .prism-b {
+  top: 8%;
+  right: -10%;
+  background: linear-gradient(130deg, oklch(72% 0.18 198 / 0.86), oklch(66% 0.18 299 / 0.7));
+  clip-path: polygon(10% 0, 100% 8%, 84% 88%, 0 78%);
+  transform: rotate(18deg);
+}
+
+.prismstorm-theme .prism-c {
+  top: 42%;
+  left: -7%;
+  background: linear-gradient(140deg, oklch(70% 0.2 357 / 0.86), oklch(74% 0.19 34 / 0.72));
+  clip-path: polygon(0 16%, 100% 0, 62% 100%);
+  transform: rotate(-22deg);
+}
+
+.prismstorm-theme .prism-d {
+  top: 56%;
+  right: -10%;
+  background: linear-gradient(140deg, oklch(74% 0.17 198 / 0.83), oklch(66% 0.18 299 / 0.68));
+  clip-path: polygon(0 0, 100% 22%, 100% 86%, 12% 100%);
+  transform: rotate(14deg);
+}
+
+.prismstorm-theme .prism-e {
+  top: 82%;
+  left: 28%;
+  background: linear-gradient(145deg, oklch(80% 0.19 93 / 0.78), oklch(69% 0.18 313 / 0.66));
+  clip-path: polygon(4% 18%, 100% 0, 88% 95%, 0 82%);
+  transform: rotate(-11deg);
+}
+
+.prismstorm-theme .prism-f {
+  top: 20%;
+  left: 44%;
+  width: clamp(150px, 20vw, 280px);
+  background: linear-gradient(140deg, oklch(70% 0.2 357 / 0.72), oklch(74% 0.17 198 / 0.58));
+  clip-path: polygon(0 30%, 100% 0, 100% 70%, 12% 100%);
+  transform: rotate(28deg);
+}
+
+.prismstorm-theme .hero,
+.prismstorm-theme .section-intro,
+.prismstorm-theme .map-section,
+.prismstorm-theme .muse-section,
+.prismstorm-theme .explore-section,
+.prismstorm-theme .colophon-inner {
+  position: relative;
+  z-index: 5;
+  max-width: none;
+}
+
+.prismstorm-theme .hero {
+  margin: 0.95rem 0.95rem 0.5rem;
+  padding: 1.3rem 1.35rem 1.2rem;
+  border: 1px solid oklch(76% 0.17 194 / 0.45);
+  border-radius: 18px;
+  background:
+    linear-gradient(150deg, oklch(16% 0.04 261 / 0.93), oklch(11% 0.03 257 / 0.96)),
+    linear-gradient(112deg, oklch(70% 0.19 357 / 0.12), transparent);
+  box-shadow: 0 26px 46px rgba(5, 7, 16, 0.6);
+  overflow: hidden;
+}
+
+.prismstorm-theme .hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(118deg, transparent 0 47%, oklch(84% 0.18 92 / 0.18) 47% 53%, transparent 53%);
+  pointer-events: none;
+}
+
+.prismstorm-theme .hero::after {
+  content: 'PRISMSTORM';
+  position: absolute;
+  top: 0.6rem;
+  right: 0.7rem;
+  font-family: var(--font-mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.18em;
+  color: oklch(94% 0.03 260 / 0.65);
+}
+
+.prismstorm-theme .hero-badge {
+  width: min(390px, 76vw);
+  margin-bottom: 0.85rem;
+  border-radius: 10px;
+  border: 1px solid oklch(100% 0 0 / 0.2);
+  padding: 0.18rem;
+  background: oklch(100% 0 0 / 0.08);
+  box-shadow: 0 14px 28px rgba(0, 0, 0, 0.44);
+}
+
+.prismstorm-theme .hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  padding: 0.2rem 0.58rem;
+  border-radius: 999px;
+  border: 1px solid oklch(100% 0 0 / 0.26);
+  color: var(--gold);
+  font-size: 0.54rem;
+  letter-spacing: 0.14em;
+}
+
+.prismstorm-theme .hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5.8vw, 4.6rem);
+  line-height: 0.92;
+  letter-spacing: -0.02em;
+  color: oklch(97% 0.03 92);
+  max-width: 15ch;
+  margin-bottom: 0.5rem;
+}
+
+.prismstorm-theme .hero-title em {
+  color: var(--teal);
+  font-style: normal;
+}
+
+.prismstorm-theme .hero-sub {
+  color: oklch(96% 0.03 95);
+  max-width: 66ch;
+}
+
+.prismstorm-theme .hero-instructions {
+  color: oklch(97% 0.02 100 / 0.75);
+}
+
+.prismstorm-theme .hero-jump {
+  margin-top: 0.72rem;
+  gap: 0.4rem;
+}
+
+.prismstorm-theme .hero-jump a {
+  min-height: 44px;
+  border-radius: 8px;
+  border: 1px solid oklch(100% 0 0 / 0.28);
+  color: oklch(97% 0.02 90);
+  background: oklch(100% 0 0 / 0.08);
+}
+
+.prismstorm-theme .hero-jump a:hover,
+.prismstorm-theme .hero-jump a:focus-visible {
+  border-color: oklch(76% 0.17 198 / 0.65);
+  color: var(--gold);
+  background: oklch(77% 0.17 198 / 0.24);
+}
+
+.prismstorm-theme .section-intro {
+  margin: 0.58rem 0.95rem;
+  padding: 1.2rem;
+  border-radius: 16px;
+  border: 1px solid oklch(74% 0.16 198 / 0.32);
+  background: linear-gradient(160deg, oklch(22% 0.045 262 / 0.92), oklch(16% 0.04 258 / 0.95));
+  display: grid;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: 1rem;
+}
+
+.prismstorm-theme .section-intro::before,
+.prismstorm-theme .section-intro::after,
+.prismstorm-theme .muse-section::before,
+.prismstorm-theme .explore-section::before,
+.prismstorm-theme .explore-section::after {
+  display: none;
+}
+
+.prismstorm-theme .section-intro .col-right {
+  display: block;
+  margin-top: 0;
+}
+
+.prismstorm-theme .section-tag,
+.prismstorm-theme .muse-section-tag {
+  color: var(--gold);
+  letter-spacing: 0.16em;
+}
+
+.prismstorm-theme .section-heading,
+.prismstorm-theme .muse-section-title,
+.prismstorm-theme .map-title {
+  font-family: var(--font-display);
+  color: oklch(97% 0.03 90);
+}
+
+.prismstorm-theme .section-body,
+.prismstorm-theme .muse-card-quote,
+.prismstorm-theme .muse-card-body,
+.prismstorm-theme .colophon {
+  color: oklch(93% 0.02 96 / 0.93);
+}
+
+.prismstorm-theme .section-quicktip {
+  background: oklch(100% 0 0 / 0.06);
+  border: 1px solid oklch(100% 0 0 / 0.15);
+}
+
+.prismstorm-theme .cat-card,
+.prismstorm-theme .filter-pill,
+.prismstorm-theme .map-filter-toggle,
+.prismstorm-theme .map-legend-toggle,
+.prismstorm-theme .map-location-refresh,
+.prismstorm-theme .map-location-status,
+.prismstorm-theme .map-filter-panel .map-filter-bar,
+.prismstorm-theme .map-legend-panel,
+.prismstorm-theme .map-guides,
+.prismstorm-theme .map-subaddon,
+.prismstorm-theme .map-events-details,
+.prismstorm-theme .map-events-chip,
+.prismstorm-theme .map-events-category-select,
+.prismstorm-theme .map-events-nav,
+.prismstorm-theme .explore-search,
+.prismstorm-theme .explore-cat-pill,
+.prismstorm-theme .explore-list-wrapper,
+.prismstorm-theme .explore-item,
+.prismstorm-theme .load-more-btn,
+.prismstorm-theme .explore-list-back,
+.prismstorm-theme .colophon-bottom a {
+  border-radius: 12px;
+}
+
+.prismstorm-theme .cat-card {
+  background: linear-gradient(165deg, oklch(100% 0 0 / 0.09), oklch(100% 0 0 / 0.04));
+  border-color: oklch(74% 0.16 198 / 0.35);
+}
+
+.prismstorm-theme .map-section {
+  margin: 0.6rem 0.95rem 0.9rem;
+  padding: 1rem;
+  border-radius: 16px;
+  border: 1px solid oklch(75% 0.16 198 / 0.36);
+  background: linear-gradient(156deg, oklch(21% 0.045 260 / 0.93), oklch(14% 0.04 257 / 0.95));
+  box-shadow: 0 26px 42px rgba(0, 0, 0, 0.42);
+}
+
+.prismstorm-theme .map-title {
+  font-size: clamp(1.9rem, 3.4vw, 3rem);
+  letter-spacing: -0.015em;
+}
+
+.prismstorm-theme .map-active-banner-inner {
+  border-radius: 999px;
+  background: oklch(100% 0 0 / 0.09);
+  border-color: oklch(75% 0.16 198 / 0.35);
+}
+
+.prismstorm-theme .map-active-text,
+.prismstorm-theme .map-active-clear,
+.prismstorm-theme .map-addon-count,
+.prismstorm-theme .map-events-count,
+.prismstorm-theme .map-events-page,
+.prismstorm-theme .map-filter-group-label,
+.prismstorm-theme .map-legend-item,
+.prismstorm-theme .hours-legend-item,
+.prismstorm-theme .map-addon-body,
+.prismstorm-theme .map-events-title,
+.prismstorm-theme .map-events-all-head,
+.prismstorm-theme .map-events-scope,
+.prismstorm-theme .map-events-category-label {
+  color: oklch(97% 0.02 95);
+}
+
+.prismstorm-theme .map-container {
+  margin: 0.65rem 0;
+  padding: 0.5rem;
+  min-height: 510px;
+  height: 70vh;
+  border-radius: 14px;
+  border: 1px solid oklch(75% 0.16 198 / 0.36);
+  background: oklch(13% 0.03 257 / 0.6);
+  box-shadow: inset 0 0 0 1px oklch(100% 0 0 / 0.1), 0 16px 24px rgba(0, 0, 0, 0.35);
+}
+
+.prismstorm-theme #map {
+  border-radius: 10px;
+}
+
+.prismstorm-theme .map-overlay-controls {
+  top: 0.85rem;
+  left: 0.85rem;
+  right: 3.8rem;
+}
+
+.prismstorm-theme .map-filter-toggle,
+.prismstorm-theme .map-legend-toggle,
+.prismstorm-theme .map-location-refresh,
+.prismstorm-theme .map-location-status,
+.prismstorm-theme .map-filter-panel .map-filter-bar,
+.prismstorm-theme .map-legend-panel,
+.prismstorm-theme .map-guides,
+.prismstorm-theme .map-subaddon,
+.prismstorm-theme .map-events-details,
+.prismstorm-theme .map-events-chip,
+.prismstorm-theme .map-events-category-select,
+.prismstorm-theme .map-events-nav {
+  background: linear-gradient(160deg, oklch(100% 0 0 / 0.12), oklch(100% 0 0 / 0.04));
+  border-color: oklch(75% 0.16 198 / 0.36);
+  color: oklch(97% 0.03 95);
+}
+
+.prismstorm-theme .filter-pill.active,
+.prismstorm-theme .map-events-chip.active {
+  border-color: oklch(81% 0.19 95 / 0.82);
+  color: var(--gold);
+  background: oklch(81% 0.19 95 / 0.18);
+}
+
+.prismstorm-theme .maplibregl-ctrl-group {
+  background: oklch(11% 0.03 257 / 0.84) !important;
+  border-radius: 10px !important;
+  border: 1px solid oklch(76% 0.16 198 / 0.35) !important;
+  box-shadow: none !important;
+}
+
+.prismstorm-theme .maplibregl-popup-content {
+  border-radius: 12px !important;
+  border: 1px solid oklch(77% 0.16 198 / 0.45) !important;
+  background: oklch(18% 0.04 260) !important;
+  color: oklch(96% 0.02 95) !important;
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.48) !important;
+}
+
+.prismstorm-theme .muse-section {
+  margin: 0 0.95rem 0.95rem;
+  padding: 1.2rem;
+  border-radius: 16px;
+  border: 1px solid oklch(75% 0.16 198 / 0.32);
+  background: linear-gradient(168deg, oklch(21% 0.045 260 / 0.93), oklch(14% 0.04 257 / 0.94));
+}
+
+.prismstorm-theme .muse-section-header {
+  margin-bottom: 1.2rem;
+}
+
+.prismstorm-theme .muse-cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+
+.prismstorm-theme .muse-card {
+  border-radius: 12px;
+  border: 1px solid oklch(76% 0.16 198 / 0.3);
+  background: linear-gradient(170deg, oklch(100% 0 0 / 0.1), oklch(100% 0 0 / 0.03));
+  box-shadow: none;
+}
+
+.prismstorm-theme .muse-card:nth-child(2) {
+  margin-top: 1.2rem;
+}
+
+.prismstorm-theme .muse-card:nth-child(3) {
+  margin-top: -0.5rem;
+}
+
+.prismstorm-theme .muse-card-title,
+.prismstorm-theme .muse-card-author,
+.prismstorm-theme .muse-card-toggle,
+.prismstorm-theme .muse-corridor summary {
+  color: oklch(97% 0.03 95);
+}
+
+.prismstorm-theme .explore-section {
+  margin: 0 0.95rem 0.95rem;
+  padding: 1.2rem;
+  border-radius: 16px;
+  border: 1px solid oklch(75% 0.16 198 / 0.32);
+  background: linear-gradient(166deg, oklch(21% 0.045 260 / 0.94), oklch(14% 0.04 257 / 0.95));
+}
+
+.prismstorm-theme .explore-header {
+  margin-bottom: 1.4rem;
+}
+
+.prismstorm-theme .explore-search {
+  background: oklch(100% 0 0 / 0.12);
+  border: 1px solid oklch(75% 0.16 198 / 0.32);
+  color: oklch(98% 0.02 96);
+}
+
+.prismstorm-theme .explore-search::placeholder {
+  color: oklch(96% 0.02 95 / 0.62);
+}
+
+.prismstorm-theme .explore-cat-pill,
+.prismstorm-theme .explore-item,
+.prismstorm-theme .explore-list-wrapper,
+.prismstorm-theme .load-more-btn,
+.prismstorm-theme .explore-list-back {
+  border-color: oklch(75% 0.16 198 / 0.32);
+  background: linear-gradient(170deg, oklch(100% 0 0 / 0.1), oklch(100% 0 0 / 0.03));
+  color: oklch(97% 0.03 95);
+}
+
+.prismstorm-theme .detail-panel {
+  width: min(500px, 100vw);
+  background: linear-gradient(180deg, oklch(18% 0.045 260), oklch(12% 0.035 257));
+  border-left: 1px solid oklch(75% 0.16 198 / 0.35);
+}
+
+.prismstorm-theme .detail-close {
+  border-radius: 8px;
+  border: 1px solid oklch(100% 0 0 / 0.25);
+  color: oklch(97% 0.03 95);
+  background: oklch(100% 0 0 / 0.08);
+}
+
+.prismstorm-theme .detail-tag,
+.prismstorm-theme .detail-name,
+.prismstorm-theme .detail-description,
+.prismstorm-theme .detail-meta,
+.prismstorm-theme .detail-events {
+  color: oklch(97% 0.03 95);
+}
+
+.prismstorm-theme .colophon {
+  margin: 0;
+  padding: 0 0.95rem 1rem;
+  background: transparent;
+}
+
+.prismstorm-theme .colophon-inner {
+  border-radius: 14px;
+  border: 1px solid oklch(75% 0.16 198 / 0.32);
+  background: linear-gradient(165deg, oklch(20% 0.045 260 / 0.94), oklch(13% 0.036 257 / 0.95));
+  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.35);
+}
+
+.prismstorm-theme .colophon-heading,
+.prismstorm-theme .colophon-label,
+.prismstorm-theme .colophon-bottom,
+.prismstorm-theme .colophon a {
+  color: oklch(97% 0.03 95);
+}
+
+.prismstorm-theme .colophon-bottom a {
+  border: 1px solid oklch(75% 0.16 198 / 0.34);
+}
+
+@media (max-width: 1150px) {
+  .prismstorm-theme .section-intro {
+    grid-template-columns: 1fr;
+  }
+
+  .prismstorm-theme .muse-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .prismstorm-theme .muse-card:nth-child(2),
+  .prismstorm-theme .muse-card:nth-child(3) {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 760px) {
+  .prismstorm-theme .prism {
+    opacity: 0.18;
+  }
+
+  .prismstorm-theme .prism-b,
+  .prismstorm-theme .prism-d,
+  .prismstorm-theme .prism-f {
+    display: none;
+  }
+
+  .prismstorm-theme .hero,
+  .prismstorm-theme .section-intro,
+  .prismstorm-theme .map-section,
+  .prismstorm-theme .muse-section,
+  .prismstorm-theme .explore-section,
+  .prismstorm-theme .colophon,
+  .prismstorm-theme .colophon-inner {
+    margin-left: 0.62rem;
+    margin-right: 0.62rem;
+  }
+
+  .prismstorm-theme .hero,
+  .prismstorm-theme .section-intro,
+  .prismstorm-theme .map-section,
+  .prismstorm-theme .muse-section,
+  .prismstorm-theme .explore-section,
+  .prismstorm-theme .colophon-inner {
+    padding: 0.82rem;
+  }
+
+  .prismstorm-theme .hero-title {
+    font-size: clamp(1.55rem, 9vw, 2.9rem);
+  }
+
+  .prismstorm-theme .map-container {
+    min-height: 400px;
+    height: 58vh;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .prismstorm-theme *,
+  .prismstorm-theme *::before,
+  .prismstorm-theme *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

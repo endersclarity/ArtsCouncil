@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<!--
+  Nevada County Arts Council Cultural Asset Map
+  Grand Exchange Design Variant
+
+  Source: index-maplibre.html
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Culture of Nevada County — Grand Exchange Atlas</title>
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.5.0/dist/maplibre-gl.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://unpkg.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+<link rel="preconnect" href="https://api.maptiler.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700;900&family=Public+Sans:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="index-maplibre.css">
+<link rel="stylesheet" href="index-maplibre-grandexchange.css">
+</head>
+<body class="grandexchange-theme">
+
+<!-- ====== HERO ====== -->
+<section class="hero">
+  <img src="img/Cultural+Assets+Banner.webp" alt="Nevada County Cultural Assets" class="hero-badge" fetchpriority="high">
+  <div class="hero-content">
+    <p class="hero-eyebrow">Grand Exchange Edition / 2026</p>
+    <h1 class="hero-title">Culture Atlas <em>for collectors</em></h1>
+    <p class="hero-sub"><strong>Professional dark-and-brass map experience for discovering Nevada County arts venues, events, and corridor stories.</strong></p>
+    <p class="hero-instructions">Dial filters by category. Focus by area. Open markers for operational details and editorial context.</p>
+    <div class="hero-flags" aria-hidden="true">
+      <span class="hero-flag">10 Categories</span>
+      <span class="hero-flag">Events + Guides</span>
+      <span class="hero-flag">Historic Routes</span>
+    </div>
+  </div>
+</section>
+
+<!-- ====== INTRO + CATEGORIES ====== -->
+<section class="section-intro">
+  <div class="col-left reveal">
+    <div class="section-tag">01 / How to Use It</div>
+    <h2 class="section-heading">Start with the map. Refine what you need in seconds.</h2>
+    <div class="section-body">
+      <p>Use this map to discover places to eat, gather, perform, learn, and explore across Nevada County. Apply categories, switch Open Now when you need something immediate, and click markers for practical details.</p>
+      <div class="section-quicktips">
+        <span class="section-quicktip"><span class="section-quicktip-dot"></span>Multi-category filters</span>
+        <span class="section-quicktip"><span class="section-quicktip-dot"></span>Open now mode</span>
+        <span class="section-quicktip"><span class="section-quicktip-dot"></span>Guided routes & corridors</span>
+      </div>
+    </div>
+  </div>
+  <div class="col-right reveal" style="transition-delay: 0.15s">
+    <div class="section-tag">Categories</div>
+    <div class="categories-grid" id="categoryGrid"></div>
+  </div>
+</section>
+
+<!-- ====== MAP ====== -->
+<section class="map-section" id="mapSection">
+  <div class="map-header">
+    <h2 class="map-title">Survey the Collection</h2>
+  </div>
+  <div class="map-active-banner" id="mapActiveBanner">
+    <div class="map-active-banner-inner">
+      <div class="map-active-dot" id="mapActiveDot"></div>
+      <div class="map-active-text">Showing <strong id="mapActiveCount">0</strong> <span id="mapActiveName">assets</span></div>
+      <button class="map-active-clear" id="mapActiveClear">Clear filter</button>
+    </div>
+  </div>
+  <div class="map-container">
+    <div id="map"></div>
+    <div class="map-overlay-controls">
+      <button class="map-filter-toggle" id="mapFilterToggle" type="button" aria-expanded="false" aria-controls="mapFilterPanel">
+        <span class="map-filter-toggle-dot" aria-hidden="true"></span>
+        <span>Filters</span>
+        <span class="map-filter-toggle-meta" id="mapFilterToggleMeta">All</span>
+        <span class="map-filter-toggle-caret" aria-hidden="true">&#9662;</span>
+      </button>
+      <div class="map-filter-panel" id="mapFilterPanel">
+        <div class="map-filter-bar" id="filterBar"></div>
+      </div>
+      <div class="map-overlay-secondary">
+        <button class="map-legend-toggle" id="mapLegendToggle" type="button" aria-expanded="false" aria-controls="mapLegendPanel">
+          <span class="map-legend-dot" aria-hidden="true"></span>
+          <span>Legend</span>
+        </button>
+        <button class="map-location-refresh" id="mapLocationRefresh" type="button" aria-label="Update your location">
+          <span class="map-location-dot" aria-hidden="true"></span>
+          <span>Locate me</span>
+        </button>
+        <div class="map-location-status status-idle" id="mapLocationStatus" aria-live="polite">Location: waiting</div>
+        <div class="map-legend-panel" id="mapLegendPanel"></div>
+      </div>
+    </div>
+    <div class="corridor-panel" id="corridorPanel"></div>
+  </div>
+  <div class="map-addons" id="mapAddons">
+    <details class="map-guides" id="mapGuides">
+      <summary>
+        <h3 class="section-header">Guided Routes &amp; Experiences</h3>
+        <span class="map-addon-summary-right">
+          <span class="map-addon-count" id="mapGuidesCount">0 guides</span>
+          <span class="map-addon-caret">&#9662;</span>
+        </span>
+      </summary>
+      <div class="map-guides-body">
+        <details class="map-subaddon" id="corridorAddon">
+          <summary>
+            <h3 class="section-header">Cultural Corridors <span class="section-header-tag">from MUSE '26</span></h3>
+            <span class="map-addon-summary-right">
+              <span class="map-addon-count" id="corridorAddonCount">0 routes</span>
+              <span class="map-addon-caret">&#9662;</span>
+            </span>
+          </summary>
+          <div class="map-addon-body">
+            <div class="corridor-cards" id="corridorCards"></div>
+          </div>
+        </details>
+        <details class="map-subaddon" id="experienceAddon">
+          <summary>
+            <h3 class="section-header">Curated Experiences</h3>
+            <span class="map-addon-summary-right">
+              <span class="map-addon-count" id="experienceAddonCount">0 routes</span>
+              <span class="map-addon-caret">&#9662;</span>
+            </span>
+          </summary>
+          <div class="map-addon-body">
+            <div class="experience-cards" id="experienceCards"></div>
+          </div>
+        </details>
+      </div>
+    </details>
+  </div>
+  <div class="map-events" id="mapEvents">
+    <details class="map-subaddon map-events-details" id="mapEventsDetails">
+      <summary>
+        <h3 class="section-header">Upcoming Events</h3>
+        <span class="map-addon-summary-right">
+          <span class="map-addon-count" id="mapEventsCount">0 events</span>
+          <span class="map-addon-caret">&#9662;</span>
+        </span>
+      </summary>
+      <div class="map-addon-body">
+        <div class="map-events-header">
+          <h3 class="map-events-title">Upcoming events</h3>
+          <span class="map-events-count" id="mapEventsScope">All categories</span>
+        </div>
+        <div class="map-events-filters" id="mapEventsFilters">
+          <button class="map-events-chip active" type="button" data-event-filter="all">All</button>
+          <button class="map-events-chip" type="button" data-event-filter="today">Today</button>
+          <button class="map-events-chip" type="button" data-event-filter="weekend">Weekend</button>
+          <button class="map-events-chip" type="button" data-event-filter="14d">14d</button>
+        </div>
+        <div class="map-events-category-row">
+          <label class="map-events-category-label" for="mapEventsCategory">Category</label>
+          <select id="mapEventsCategory" class="map-events-category-select" aria-label="Filter events by category">
+            <option value="all">All categories</option>
+          </select>
+        </div>
+        <div class="map-events-carousel">
+          <button class="map-events-nav" id="mapEventsPrev" type="button" aria-label="Previous spotlight cards">&#9664;</button>
+          <div class="map-events-list" id="mapEventsList"></div>
+          <button class="map-events-nav" id="mapEventsNext" type="button" aria-label="Next spotlight cards">&#9654;</button>
+        </div>
+        <div class="map-events-page" id="mapEventsPage">Page 1 / 1</div>
+        <div class="map-events-all">
+          <div class="map-events-all-head">All upcoming events</div>
+          <div class="map-events-all-list" id="mapEventsAllList"></div>
+        </div>
+      </div>
+    </details>
+  </div>
+</section>
+
+<!-- ====== MUSE EDITORIAL ====== -->
+<div class="muse-section">
+  <div class="muse-section-header reveal">
+    <div class="muse-section-tag">from MUSE &rsquo;26 &middot; Issue 03</div>
+    <h2 class="muse-section-title">Voices from Gold Country</h2>
+  </div>
+
+  <div class="muse-cards">
+
+    <!-- Card 1: Cultural Corridors -->
+    <details class="muse-card">
+      <summary>
+        <div class="muse-card-eyebrow">Routes &amp; Heritage</div>
+        <div class="muse-card-title">Our Cultural Corridors</div>
+        <div class="muse-card-quote">&ldquo;Nevada County&rsquo;s highways are more than just roads&mdash;they are cultural corridors, weaving together stories of California&rsquo;s First Peoples, Gold Rush miners, artists, and dreamers.&rdquo;</div>
+        <div class="muse-card-author">&mdash; Jesse Locks</div>
+        <span class="muse-card-toggle">Read more &darr;</span>
+      </summary>
+      <div class="muse-card-body">
+        <p>Highways 49, 20, and 40&mdash;each with its own distinct heritage&mdash;form a network that connects the county&rsquo;s vibrant California Cultural Districts and historic landmarks, while offering breathtaking views of rolling foothills, towering pines, and High Sierra vistas.</p>
+        <div class="muse-corridors">
+          <details class="muse-corridor">
+            <summary>Highway 40 &mdash; the Lincoln Highway</summary>
+            <div class="muse-corridor-body">
+              <p>Before Interstate 80 sped travelers through the Sierra, there was &ldquo;Old Highway 40&rdquo;&mdash;part of America&rsquo;s first transcontinental road. Ancient petroglyphs near Donner Summit, etched into granite thousands of years ago by the Martis People, offer a glimpse into the lives of the region&rsquo;s earliest inhabitants.</p>
+              <p>From Clair Tappan Lodge to Rainbow Lodge, and the &ldquo;20 Mile Museum&rdquo; from Donner Lake to Cisco Grove, every curve tells a story of migration, innovation, and the spirit of the Sierra.</p>
+            </div>
+          </details>
+          <details class="muse-corridor">
+            <summary>Highway 20 &mdash; wagon trail to modern artery</summary>
+            <div class="muse-corridor-body">
+              <p>Stretching east to west, Highway 20 traces its roots to the 19th-century California Trail. The historic Washington Hotel, built in 1857, continues to serve as the community hub. Further south is Rough and Ready, founded in 1849&mdash;its mining heritage lives on in street names like Tornado, Gamble, and To Hell and Back Lane.</p>
+            </div>
+          </details>
+          <details class="muse-corridor">
+            <summary>Highway 49 &mdash; the golden chain of history</summary>
+            <div class="muse-corridor-body">
+              <p>The Golden Chain Highway links historic Gold Rush towns. Empire Mine State Historic Park in Grass Valley is one of the oldest, deepest, and richest gold mines in California. On the San Juan Ridge, the North Columbia Schoolhouse Cultural Center&mdash;a restored 1875 schoolhouse built by miners for their children&mdash;now hosts the internationally renowned Sierra Storytelling Festival.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </details>
+
+    <!-- Card 2: Rural is the New Cool -->
+    <details class="muse-card">
+      <summary>
+        <div class="muse-card-eyebrow">Community &amp; Place</div>
+        <div class="muse-card-title">Rural is the New Cool</div>
+        <div class="muse-card-quote">&ldquo;Few areas in Northern California, and beyond, can match the density of creativity we boast. Visitors come for our trails, wild spaces, and dreamy foothills&mdash;yet our cultural scene remains one of our most captivating surprises.&rdquo;</div>
+        <div class="muse-card-author">&mdash; Diana Arbex, GV-NC Cultural District</div>
+        <span class="muse-card-toggle">Read more &darr;</span>
+      </summary>
+      <div class="muse-card-body">
+        <p>Our cultural richness is a reflection of the Nisenan and Washoe Peoples, whose traditions and enduring presence continue to shape our region. That richness is also carried forth by visionaries like Pulitzer Prize&ndash;winning poet Gary Snyder, whose arrival in the 1960s helped seed a generation of creatives.</p>
+        <p>Drive north on Highway 49 to North Columbia Schoolhouse Cultural Center, and you will feel time slow down. Stop at Mother Truckers for one of its signature t-shirts illustrated by the late Randi Griffin. On arriving at &ldquo;the Schoolhouse,&rdquo; you&rsquo;ll find the Ridge&rsquo;s cultural epicenter&mdash;its walls hold decades of stories, folk music, poetry, and art.</p>
+        <p>Back in Nevada City, download the Tree Tour in the STORY app and experience heirloom trees planted by Gold Rush horticulturist Felix Gillet. Visit the Crystal Rainbow Rock Shop, Winnie Superette&mdash;an Asian market hung with contemporary art&mdash;and Communal Caf&eacute; for coffee among locals.</p>
+      </div>
+    </details>
+
+    <!-- Card 3: Art in Nature -->
+    <details class="muse-card">
+      <summary>
+        <div class="muse-card-eyebrow">Arts &amp; Landscape</div>
+        <div class="muse-card-title">Off the Wall: Art in Nature</div>
+        <div class="muse-card-quote">&ldquo;Art in nature is such a beautiful process. We listen and we watch and we feel what is happening in the environment, and then we create from there.&rdquo;</div>
+        <div class="muse-card-author">&mdash; Jenny Hale, place-based artist</div>
+        <span class="muse-card-toggle">Read more &darr;</span>
+      </summary>
+      <div class="muse-card-body">
+        <p>Each June, on trails across Nevada County, stars sway from low branches&mdash;the work of artists from Neighborhood Center of the Arts, created for Bear Yuba Land Trust&rsquo;s Summer Star Hike Challenge. With over 50 miles of trails and 26,000 acres conserved, that&rsquo;s quite the canvas.</p>
+        <p>Since 2023, Art in Nature commissions have included Mekdela Maskal&rsquo;s naturally dyed prayer flags, Peggy Wright&rsquo;s nest of intertwined debris, and Andres Amador&rsquo;s &ldquo;Connections&rdquo;&mdash;a mycelium-like path through fallen trees on Hirschman&rsquo;s trail. For the Nisenan Gateway at Wildflower Ridge, artist Jenny Hale collaborated with the Nevada City Rancheria Nisenan Tribe to create a willow-and-cedar gateway honoring the land&rsquo;s original use as a Native trail.</p>
+      </div>
+    </details>
+
+    <!-- Card 4: Living Like a Local - Truckee -->
+    <details class="muse-card">
+      <summary>
+        <div class="muse-card-eyebrow">Truckee Cultural District</div>
+        <div class="muse-card-title">Mountain Heart, Small-Town Soul</div>
+        <div class="muse-card-quote">&ldquo;Our community&rsquo;s character is wrapped up in a certain sturdiness and a willingness to go out into nature regardless of how bad&mdash;or for some, how wonderful&mdash;that bad weather is.&rdquo;</div>
+        <div class="muse-card-author">&mdash; Mayor Jan Zabriskie, Town of Truckee</div>
+        <span class="muse-card-toggle">Read more &darr;</span>
+      </summary>
+      <div class="muse-card-body">
+        <p>In 2024, Visit Truckee-Tahoe unveiled a new brand: &ldquo;Mountain Heart. Small Town Soul.&rdquo;&mdash;reflecting a community that is passionate and protective, pioneering and progressive, charming and a little funky. Visitors want to feel like locals, care about leaving a lighter footprint, and prefer scenery over a scene.</p>
+        <p>For coffee, try Mountain Brew Coffee. For wine with a little funk, visit Truckee River Winery or The Pour House. Downtown galleries&mdash;Mountain Arts Collective, Piper J Gallery, Riverside Studios&mdash;offer a sampling of the creative talent in the district. And if you&rsquo;re staying up late, the historic Pastime Club vibrates after hours with pool, shuffleboard, and live entertainment.</p>
+      </div>
+    </details>
+
+  </div>
+</div>
+
+<!-- ====== LIST ====== -->
+<section class="explore-section" id="exploreSection">
+  <div class="explore-header reveal">
+    <div>
+      <div class="section-tag">03 / Directory</div>
+      <h2 class="section-heading">Explore by Category</h2>
+    </div>
+    <input type="text" class="explore-search" id="searchInput" placeholder="Search assets + events by name, city, or keyword...">
+  </div>
+  <div class="explore-categories" id="exploreCats"></div>
+  <div class="explore-list-wrapper" id="exploreListWrapper">
+    <button class="explore-list-back" id="exploreListBack">All categories</button>
+    <div class="explore-results-count" id="resultsCount"></div>
+    <div class="explore-search-events" id="exploreEventResults" hidden></div>
+    <div class="explore-list" id="exploreList"></div>
+    <button class="load-more-btn" id="loadMoreBtn">Show more</button>
+  </div>
+</section>
+
+<!-- ====== DETAIL PANEL ====== -->
+<div class="detail-panel-overlay" id="panelOverlay"></div>
+<div class="detail-panel" id="detailPanel">
+  <div class="detail-category-bar" id="detailCatBar"></div>
+  <button class="detail-close" id="detailClose">&times;</button>
+  <div id="detailHero"></div>
+  <div class="detail-content">
+    <div class="detail-tag" id="detailTag"></div>
+    <div class="detail-experiences-badge" id="detailExpBadge"></div>
+    <h3 class="detail-name" id="detailName"></h3>
+    <div class="detail-description" id="detailDesc"></div>
+    <div class="detail-meta" id="detailMeta"></div>
+    <div class="detail-events" id="detailEvents"></div>
+  </div>
+</div>
+
+<!-- ====== COLOPHON ====== -->
+<footer class="colophon">
+  <div class="colophon-inner">
+    <div class="colophon-heading">About This Project</div>
+    <div class="colophon-sections">
+      <div>
+        <div class="colophon-label">Data</div>
+        687 cultural assets across 10 categories, sourced from the
+        <a href="https://www.nevadacountyarts.org/cultural-asset-map" target="_blank">Nevada County Arts Council Cultural Asset Map</a>.
+        Last updated December 2024.
+      </div>
+      <div>
+        <div class="colophon-label">Editorial</div>
+        Cultural Corridors content adapted from <em>MUSE</em> Issue 03, 2026 —
+        "Our Cultural Corridors" by Jesse Locks.
+        Illustration by Milada Belohlavek &amp; Ron Pitcher.
+        Published by <a href="https://www.nevadacountyarts.org" target="_blank">Nevada County Arts Council</a>.
+      </div>
+      <div>
+        <div class="colophon-label">Design</div>
+        "Quiet Graphics" visual identity inspired by the Arts Council's
+        original 2019 presentation. Watercolor illustrations honor
+        that unrealized vision. Landscape basemap by <a href="https://www.maptiler.com" target="_blank">MapTiler</a>.
+      </div>
+      <div>
+        <div class="colophon-label">Built by</div>
+        <a href="https://www.thenorthstarhouse.org" target="_blank">Kaelen Jennings</a> — Development Consultant,
+        North Star Historic Conservancy. Built with MapLibre GL JS, Turf.js, and GSAP.
+        Assisted by Claude Code from Anthropic.
+      </div>
+    </div>
+    <hr class="colophon-rule">
+    <div class="colophon-bottom">
+      <span>&copy; 2026 Nevada County Arts Council</span>
+      <a href="variants.html">View all variants</a>
+      <a href="index-maplibre-overdrive.html">View overdrive variant</a>
+      <a href="index-maplibre-shutterdrive.html">View shutterdrive variant</a>
+      <a href="index-maplibre.html">View baseline MapLibre</a>
+    </div>
+  </div>
+</footer>
+
+<script src="https://unpkg.com/maplibre-gl@4.5.0/dist/maplibre-gl.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@turf/turf@6/turf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="index-maplibre-config.js"></script>
+<script src="index-maplibre-core-utils.js"></script>
+<script src="index-maplibre-events-utils.js"></script>
+<script src="index-maplibre-events-model.js"></script>
+<script src="index-maplibre-events-carousel.js"></script>
+<script src="index-maplibre-events-view.js"></script>
+<script src="index-maplibre-events-search.js"></script>
+<script src="index-maplibre-events-filter-ui.js"></script>
+<script src="index-maplibre-events-controller.js"></script>
+<script src="index-maplibre-hours-utils.js"></script>
+<script src="index-maplibre-explore-model.js"></script>
+<script src="index-maplibre-explore-view.js"></script>
+<script src="index-maplibre-explore-controller.js"></script>
+<script src="index-maplibre-filter-ui.js"></script>
+<script src="index-maplibre-filter-state-model.js"></script>
+<script src="index-maplibre-map-filter-model.js"></script>
+<script src="index-maplibre-map-style-model.js"></script>
+<script src="index-maplibre-map-interaction-model.js"></script>
+<script src="index-maplibre-map-init-model.js"></script>
+<script src="index-maplibre-geolocation-model.js"></script>
+<script src="index-maplibre-map-data-model.js"></script>
+<script src="index-maplibre-map-render-controller.js"></script>
+<script src="index-maplibre-map-label-controller.js"></script>
+<script src="index-maplibre-asset-layer-defs.js"></script>
+<script src="index-maplibre-asset-interactions.js"></script>
+<script src="index-maplibre-catalog-view.js"></script>
+<script src="index-maplibre-experience-model.js"></script>
+<script src="index-maplibre-corridor-map.js"></script>
+<script src="index-maplibre-tour-utils.js"></script>
+<script src="index-maplibre-experience-view.js"></script>
+<script src="index-maplibre-experience-ui.js"></script>
+<script src="index-maplibre-experience-controller.js"></script>
+<script src="index-maplibre-detail-view.js"></script>
+<script src="index-maplibre-detail-controller.js"></script>
+<script src="index-maplibre-page-effects.js"></script>
+<script src="index-maplibre-bindings.js"></script>
+<script src="index-maplibre.js"></script>
+</body>
+</html>
+

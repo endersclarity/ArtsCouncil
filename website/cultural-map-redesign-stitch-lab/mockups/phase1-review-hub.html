@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Phase 1 Review Hub</title>
+  <style>
+    :root {
+      --bg: #f7f7f4;
+      --card: #ffffff;
+      --text: #171512;
+      --muted: #5b5750;
+      --accent: #ff5a4f;
+      --line: #e7e4de;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      padding: 28px;
+    }
+    h1 {
+      margin: 0 0 10px;
+      font-size: 32px;
+      line-height: 1.1;
+    }
+    p {
+      margin: 0 0 18px;
+      color: var(--muted);
+      max-width: 70ch;
+    }
+    .grid {
+      display: grid;
+      gap: 14px;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 16px;
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.06);
+    }
+    .card h2 {
+      margin: 0 0 8px;
+      font-size: 18px;
+    }
+    .card p {
+      margin: 0 0 12px;
+      font-size: 14px;
+    }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+    a:hover { text-decoration: underline; }
+    .meta {
+      margin-top: 16px;
+      font-size: 13px;
+      color: var(--muted);
+    }
+  </style>
+</head>
+<body>
+  <h1>Phase 1 Review Hub</h1>
+  <p>
+    Start here. This page links the current editorial variants and the moodboard
+    translation spec extracted from Diana's Pinterest board.
+  </p>
+
+  <div class="grid">
+    <section class="card">
+      <h2>New Pinterest Pass</h2>
+      <p>Fresh bright/editorial HTML pass generated from the moodboard strategy.</p>
+      <a href="./phase1-pinterest-pass.html">Open New Mockup</a>
+    </section>
+    <section class="card">
+      <h2>Story-Driven Pass</h2>
+      <p>Uses MUSE OCR narratives mapped to real MUSE screenshot spreads.</p>
+      <a href="./phase1-story-driven-pass.html">Open Story-Driven Mockup</a>
+    </section>
+    <section class="card">
+      <h2>Variant A</h2>
+      <p>Editorial direction A from the current phase set.</p>
+      <a href="./phase1-editorial-A.html">Open Variant A</a>
+    </section>
+    <section class="card">
+      <h2>Variant B</h2>
+      <p>Editorial direction B with alternate type/accent handling.</p>
+      <a href="./phase1-editorial-B.html">Open Variant B</a>
+    </section>
+    <section class="card">
+      <h2>Variant C</h2>
+      <p>Editorial direction C for comparative review.</p>
+      <a href="./phase1-editorial-C.html">Open Variant C</a>
+    </section>
+    <section class="card">
+      <h2>Moodboard Spec</h2>
+      <p>Keep/Maybe/Reject triage + Style DNA + starter tokens.</p>
+      <a href="./moodboard-to-brand-spec.md">Open Spec (Markdown)</a>
+    </section>
+    <section class="card">
+      <h2>Story/Image Map</h2>
+      <p>OCR-derived narrative shortlist mapped to specific MUSE screenshot files.</p>
+      <a href="./muse-story-image-map.md">Open Story Map (Markdown)</a>
+    </section>
+  </div>
+
+  <div class="meta">
+    File: <code>mockups/phase1-review-hub.html</code>
+  </div>
+</body>
+</html>
