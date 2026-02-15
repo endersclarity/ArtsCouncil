@@ -49,12 +49,12 @@ Plans:
   3. Duplicate events (same title + date + venue across sources) appear only once
   4. A "Family & Kids" filter chip narrows the event list to family-friendly events
   5. If the merged JSON is unavailable, events gracefully fall back to Trumba RSS (no blank section)
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 02-01: iCal fetch cron scripts for LibCal and CivicEngage feeds
-- [ ] 02-02: Dedup logic, family classifier, and events-merged.json pipeline
-- [ ] 02-03: Client integration (source badges, family filter chip, fallback logic)
+- [ ] 02-01-PLAN.md — LibCal iCal and CivicEngage RSS ingest scripts (Wave 1)
+- [ ] 02-02-PLAN.md — Merge/dedup pipeline, family classifier, and GitHub Actions cron (Wave 2)
+- [ ] 02-03-PLAN.md — Client integration: source badges, family filter chip, fallback loading (Wave 3)
 
 ### Phase 3: Itineraries
 **Goal**: Visitors can browse curated 1/2/3-day trip plans with stop-by-stop narratives, see the route on the map, and add stops to their calendar
@@ -152,8 +152,8 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Design & Visual Refresh | 0/3 | Not started | - |
-| 2. Tier 2 Events | 0/3 | Not started | - |
+| 1. Design & Visual Refresh | 0/3 | In discovery (variants built, canonical merge pending) | - |
+| 2. Tier 2 Events | 0/3 | Planned (3 plans, 3 waves) | - |
 | 3. Itineraries | 0/3 | Not started | - |
 | 4. Copy & Positioning | 0/3 | Not started | - |
 | 5. AI Concierge | 0/3 | Not started | - |
