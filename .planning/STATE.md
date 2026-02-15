@@ -5,16 +5,16 @@
 See: .planning/PROJECT.md (updated 2026-02-14)
 
 **Core value:** Drive people to downtowns, local businesses, performance venues, and cultural spaces through an editorial-quality interactive experience that feels like MUSE magazine.
-**Current focus:** Phase 2.1 in progress (plan 01 of 02 complete). Phase 2 complete. Deadline Wed Feb 18.
+**Current focus:** Phase 2.1 COMPLETE (2/2 plans done). Phase 2 complete. Deadline Wed Feb 18.
 
 ## Current Position
 
-Phase: 02.1 (KVMR + GVDA Event Source Ingestion) -- IN PROGRESS
-Plan: 1 of 2 complete
-Status: Both ingest scripts created and verified (KVMR 29 events, GVDA 44 events). Merge pipeline integration next.
-Last activity: 2026-02-15 -- Completed 02.1 Plan 01 (ingest scripts).
+Phase: 02.1 (KVMR + GVDA Event Source Ingestion) -- COMPLETE
+Plan: 2 of 2 complete
+Status: All 5 event sources ingested, merged (176 events), and automated in CI. Phase 2.1 done.
+Last activity: 2026-02-15 -- Completed 02.1 Plan 02 (merge pipeline + GitHub Actions).
 
-Progress: [██████░░░░░░░░░░░░░░] ~29% overall
+Progress: [███████░░░░░░░░░░░░░] ~36% overall
 
 ## What's Actually Shipped
 
@@ -33,16 +33,18 @@ Progress: [██████░░░░░░░░░░░░░░] ~29% ov
 - GitHub Actions daily cron on master
 - 17 gate tests passing
 
-### Phase 2.1: KVMR + GVDA Event Source Ingestion (50%)
-- Plan 01 complete: ingest scripts created and verified
+### Phase 2.1: KVMR + GVDA Event Source Ingestion (100%)
+- 2/2 plans complete
 - KVMR iCal ingest: 29 events, NC city whitelist filtering, kvmr- prefixed IDs
 - GVDA Trumba JSON ingest: 44 events, HTML location stripping, gvda- prefixed IDs
-- Plan 02 pending: merge pipeline + GitHub Actions integration
+- 5-source merge pipeline: 176 total events (was 120), 19 GVDA/Trumba duplicates removed
+- GitHub Actions daily cron updated with all 5 ingest steps
+- Priority order: trumba > gvda > libcal > kvmr > civicengage
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 4 (Phase 2: 3, Phase 2.1: 1 — Phase 1 plans obsolete)
+- Total plans completed: 5 (Phase 2: 3, Phase 2.1: 2 — Phase 1 plans obsolete)
 - Average duration: 3min per plan
 
 **By Phase:**
@@ -51,7 +53,7 @@ Progress: [██████░░░░░░░░░░░░░░] ~29% ov
 |-------|-------|-------|----------|-------|
 | 1 | 0/3 (obsolete) | N/A | N/A | Codex (OpenAI) built layout outside GSD |
 | 2 | 3/3 | 9min | 3min | Claude Code via GSD |
-| 2.1 | 1/2 | 3min | 3min | Claude Code via GSD |
+| 2.1 | 2/2 | 5min | 2.5min | Claude Code via GSD |
 
 ## Accumulated Context
 
@@ -68,6 +70,8 @@ Recent decisions affecting current work:
 - [Phase 2.1]: KVMR events with unknown city kept (benefit of the doubt for local events)
 - [Phase 2.1]: GVDA datetimes use ZoneInfo directly rather than parsing offset string
 - [Phase 2.1]: GVDA eventImage is a dict {url, alt, size}, not a string URL
+- [Phase 2.1]: Source priority: trumba > gvda > libcal > kvmr > civicengage (Arts Council always wins dedup)
+- [Phase 2.1]: KVMR and GVDA are supplementary sources (continue-on-error in CI)
 
 ### Roadmap Evolution
 
@@ -85,12 +89,12 @@ Recent decisions affecting current work:
 
 - ~~MAP DOES NOT RENDER~~ RESOLVED (commit `48a9486`)
 - **Wednesday Feb 18 deadline** — Committee presentation at Gold Miners Inn, 12:00-1:30 PM. Must have working map + events.
-- **Event coverage gaps** — Major events (Mardi Gras) missing from all 3 sources. Phase 2.1 addresses this.
+- ~~Event coverage gaps~~ RESOLVED (Phase 2.1 adds KVMR + GVDA, 176 total events)
 - Phase 5 (AI Concierge): Gemini free tier may not cover projected token usage
 - Phase 5 (AI Concierge): data.json needs status/last_verified fields
 
 ## Session Continuity
 
 Last session: 2026-02-15
-Stopped at: Completed 02.1-01-PLAN.md (KVMR + GVDA ingest scripts). Ready for 02.1-02-PLAN.md (merge pipeline integration).
-Resume file: .planning/phases/02.1-kvmr-gvda-event-source-ingestion/02.1-01-SUMMARY.md
+Stopped at: Completed 02.1-02-PLAN.md (merge pipeline + GitHub Actions). Phase 2.1 fully complete.
+Resume file: .planning/phases/02.1-kvmr-gvda-event-source-ingestion/02.1-02-SUMMARY.md
