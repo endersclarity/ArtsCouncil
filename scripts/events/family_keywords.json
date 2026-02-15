@@ -1,0 +1,19 @@
+{
+  "positive_patterns": [
+    "\\bstorytime\\b", "\\bstory\\s*time\\b",
+    "\\bfor\\s+kids\\b", "\\bfor\\s+children\\b", "\\bfor\\s+families\\b",
+    "\\bfamily[\\s-]friendly\\b", "\\ball\\s+ages\\b",
+    "\\bages?\\s+\\d+[\\s-]+\\d+\\b",
+    "\\bchildren'?s\\s+(program|event|craft|activity)\\b",
+    "\\bkids?\\s+(program|event|craft|activity|club)\\b",
+    "\\bteen\\b", "\\btween\\b", "\\bjunior\\b",
+    "\\blego\\b", "\\bcraft\\s*time\\b", "\\bplay\\s*group\\b",
+    "\\bstay\\s*&?\\s*play\\b"
+  ],
+  "negative_patterns": [
+    "\\bchildren\\s+of\\b",
+    "\\bfor\\s+adults\\s+only\\b",
+    "\\b21\\+\\b", "\\b18\\+\\b",
+    "\\bbar\\b.*\\bnight\\b"
+  ]
+}
