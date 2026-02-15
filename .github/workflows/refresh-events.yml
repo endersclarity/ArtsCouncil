@@ -37,6 +37,14 @@ jobs:
         run: python scripts/events/ingest_civicengage_rss.py
         continue-on-error: true  # CivicEngage is bonus, don't fail pipeline
 
+      - name: Ingest KVMR iCal
+        run: python scripts/events/ingest_kvmr_ical.py
+        continue-on-error: true  # KVMR is supplementary source
+
+      - name: Ingest GVDA Trumba JSON
+        run: python scripts/events/ingest_trumba_json.py
+        continue-on-error: true  # GVDA is supplementary source
+
       - name: Merge and deduplicate events
         run: python scripts/events/merge_events.py
 
@@ -46,7 +54,7 @@ jobs:
       - name: Commit updated event data
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "chore(data): refresh events from Trumba + LibCal + CivicEngage"
+          commit_message: "chore(data): refresh events from Trumba + LibCal + CivicEngage + KVMR + GVDA"
           file_pattern: "website/cultural-map-redesign/events*.json scripts/events/reports/*.json"
           commit_user_name: "github-actions[bot]"
           commit_user_email: "github-actions[bot]@users.noreply.github.com"
