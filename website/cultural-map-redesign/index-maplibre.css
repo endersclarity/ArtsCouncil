@@ -1,43 +1,52 @@
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
 
 :root {
-  /* Heritage Neumorphism - Warm, vintage civic aesthetic */
-  --neuro-bg: #F4EFE6;
-  --neuro-light: rgba(255,250,240,0.8);
-  --neuro-dark: rgba(80,60,40,0.2);
+  /* Editorial — Landscape magazine aesthetic (Phase 1) */
+  --neuro-bg: #f2f0e9;
+  --neuro-light: rgba(255,253,248,0.9);
+  --neuro-dark: rgba(0,0,0,0.06);
 
-  /* Heritage palette - Badge-aligned colors */
-  --ink: #4A6B7C;              /* Slate navy from badge "CULTURAL ASSETS" */
-  --cream: #F4EFE6;            /* Warm parchment background */
-  --parchment: #E8DFD0;        /* Badge cream background */
-  --gold: #D4AF37;             /* Rich gold from badge border/text */
-  --gold-bright: #E0BB4A;      /* Brighter gold hover */
-  --rust: #B85C38;             /* Warm rust accent */
-  --deep-green: #5C7A5C;       /* Forest green from badge photo */
-  --slate: #A89070;            /* Warm brown from badge landscape */
-  --red-accent: #A0522D;       /* Terracotta */
-  --blue-wash: #87CEEB;        /* Sky blue from badge photo */
+  /* Editorial palette — from landscape-mag-overhaul direction */
+  --ink: #15171c;              /* Near-black for strong contrast */
+  --cream: #f2f0e9;            /* Warm editorial off-white */
+  --parchment: #e6e3da;        /* Subtle depth layer */
+  --gold: #d8dd42;             /* Lime-yellow editorial accent */
+  --gold-bright: #e2e74a;     /* Hover state */
+  --rust: #f45f4c;             /* Coral editorial accent */
+  --deep-green: #118173;       /* Emerald accent */
+  --slate: #50545f;            /* Muted secondary text */
+  --red-accent: #f45f4c;       /* Coral (same as rust in this palette) */
+  --blue-wash: #1cb3c8;        /* Cyan editorial accent */
+  --navy: #111f34;              /* Dark navy mast bar */
 
-  /* Heritage category colors - badge-derived palette */
-  --cat-landmarks: #A0522D;       /* Terracotta/brick */
-  --cat-eat: #D4AF37;             /* Rich gold from badge */
-  --cat-arts: #5C7A5C;            /* Forest green from badge */
-  --cat-cultural: #4A6B7C;        /* Slate navy from badge */
-  --cat-fairs: #B85C38;           /* Aged rust */
-  --cat-galleries: #7A6B7D;       /* Dusty plum/museum */
-  --cat-walks: #7A9E7E;           /* Mountain green from badge */
-  --cat-publicart: #D4AF37;       /* Rich gold from badge */
-  --cat-performance: #87CEEB;     /* Sky blue from badge */
-  --cat-preservation: #8B7355;    /* Warm brown from badge */
+  /* Editorial category colors — brighter, more saturated */
+  --cat-landmarks: #c0392b;       /* Bold red */
+  --cat-eat: #d4a017;             /* Warm gold */
+  --cat-arts: #27ae60;            /* Bright green */
+  --cat-cultural: #2980b9;        /* Strong blue */
+  --cat-fairs: #e67e22;           /* Vivid orange */
+  --cat-galleries: #8e44ad;       /* Rich purple */
+  --cat-walks: #16a085;           /* Teal */
+  --cat-publicart: #f39c12;       /* Amber */
+  --cat-performance: #3498db;     /* Sky blue */
+  --cat-preservation: #7f6b52;    /* Warm brown */
 
-  --font-display: 'Playfair Display', Georgia, serif;
+  --font-display: 'Archivo', 'Playfair Display', Georgia, sans-serif;
   --font-body: 'DM Sans', -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', monospace;
 
-  /* Heritage Neumorphic shadows - warm brown tones */
-  --shadow-raised: 6px 6px 12px rgba(80,60,40,0.2), -6px -6px 12px rgba(255,250,240,0.8);
-  --shadow-inset: inset 3px 3px 6px rgba(80,60,40,0.2), inset -3px -3px 6px rgba(255,250,240,0.8);
-  --shadow-soft: 4px 4px 8px rgba(80,60,40,0.15), -4px -4px 8px rgba(255,250,240,0.7);
+  /* Editorial flat shadows — clean, not neumorphic */
+  --shadow-raised: 0 2px 8px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06);
+  --shadow-inset: 0 1px 2px rgba(0,0,0,0.04) inset;
+  --shadow-soft: 0 1px 4px rgba(0,0,0,0.05);
+
+  /* Card tokens — shared across all card components */
+  --card-bg: rgba(255, 255, 255, 0.85);
+  --card-border: 1px solid rgba(21, 23, 28, 0.08);
+  --card-radius: 14px;
+  --card-shadow: 0 8px 24px rgba(11, 15, 23, 0.08);
+  --card-shadow-hover: 0 16px 34px rgba(11, 15, 23, 0.13);
+  --card-transition: all 0.25s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 html { scroll-behavior: smooth; }
@@ -285,17 +294,17 @@ body {
 
 .cat-card {
   padding: 1.25rem 1.25rem 1.25rem 1rem;
-  border: none;
+  border: var(--card-border);
   cursor: pointer;
-  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: var(--card-transition);
   position: relative;
   overflow: visible;
-  background: var(--neuro-bg);
+  background: var(--card-bg);
   display: flex;
   align-items: center;
   gap: 0.85rem;
-  border-radius: 12px;
-  box-shadow: var(--shadow-raised);
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
 }
 
 .cat-card::before {
@@ -331,8 +340,8 @@ body {
 
 .cat-card:hover, .cat-card.active {
   border-color: transparent;
-  box-shadow: var(--shadow-inset);
-  transform: translateY(2px);
+  box-shadow: var(--card-shadow-hover);
+  transform: translateY(-2px);
 }
 
 .cat-card > * { position: relative; z-index: 1; }
@@ -654,7 +663,7 @@ body {
 .filter-pill:hover {
   color: var(--ink);
   transform: translateY(-2px);
-  box-shadow: 5px 5px 10px var(--neuro-dark), -5px -5px 10px var(--neuro-light);
+  box-shadow: var(--card-shadow-hover);
 }
 
 .filter-pill:hover .filter-dot { opacity: 1; transform: scale(1.2); }
@@ -903,10 +912,10 @@ body {
   position: relative;
   margin: 2rem;
   padding: 1.5rem;
-  border: 4px solid var(--ink);
-  border-radius: 20px;
+  border: 1px solid rgba(21, 23, 28, 0.1);
+  border-radius: var(--card-radius);
   background: var(--neuro-bg);
-  box-shadow: var(--shadow-inset);
+  box-shadow: var(--card-shadow);
 }
 
 #map {
@@ -1013,13 +1022,13 @@ body {
 
 /* Rich tooltip popups - Heritage Neumorphism */
 .maplibregl-popup-content {
-  background: var(--parchment) !important;
+  background: #fff !important;
   color: var(--ink) !important;
-  border: 3px solid var(--gold) !important;
-  border-radius: 20px !important;
+  border: var(--card-border) !important;
+  border-radius: var(--card-radius) !important;
   padding: 0 !important;
   font-family: var(--font-body) !important;
-  box-shadow: var(--shadow-raised) !important;
+  box-shadow: var(--card-shadow) !important;
   max-width: 280px !important;
   min-width: 200px !important;
   overflow: hidden !important;
@@ -1033,7 +1042,7 @@ body {
 
 .maplibregl-popup-tip {
   border-top-color: var(--gold) !important;
-  filter: drop-shadow(2px 2px 3px rgba(80,60,40,0.15));
+  filter: drop-shadow(2px 2px 3px rgba(0,0,0,0.1));
 }
 
 .maplibregl-popup-anchor-bottom .maplibregl-popup-tip {
@@ -1407,10 +1416,10 @@ body {
 }
 
 .detail-event-card {
-  border: 1px solid rgba(26,22,18,0.1);
-  border-left: 3px solid #b4581d;
-  background: rgba(255,255,255,0.6);
-  border-radius: 10px;
+  border: var(--card-border);
+  border-left: 3px solid var(--rust);
+  background: var(--card-bg);
+  border-radius: var(--card-radius);
   padding: 0.5rem 0.6rem;
   display: grid;
   gap: 0.28rem;
@@ -1519,13 +1528,13 @@ body {
 }
 
 .muse-card {
-  background: rgba(255,255,255,0.6);
-  border: 1px solid rgba(26,22,18,0.06);
-  border-radius: 8px;
+  background: var(--card-bg);
+  border: var(--card-border);
+  border-radius: var(--card-radius);
   padding: 2rem 1.8rem;
   cursor: pointer;
   list-style: none;
-  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: var(--card-transition);
 }
 
 .muse-card:nth-child(2) {
@@ -2335,11 +2344,11 @@ body.muse-story-open {
   align-items: center;
   gap: 0.6rem;
   padding: 1.5rem 1rem;
-  background: white;
-  border: 1px solid rgba(26,22,18,0.06);
-  border-radius: 8px;
+  background: var(--card-bg);
+  border: var(--card-border);
+  border-radius: var(--card-radius);
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: var(--card-transition);
   text-align: center;
   position: relative;
   overflow: hidden;
@@ -2886,24 +2895,6 @@ body.muse-story-open {
   padding: 0.1rem 0.38rem;
 }
 
-.map-event-badge.source {
-  background: #6366f1;
-  color: #fff;
-  font-size: 0.65rem;
-  padding: 2px 6px;
-  border-radius: 3px;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
-  font-weight: 600;
-  border: none;
-}
-
-.map-events-chip[data-event-filter="family"].active {
-  background: #ec4899;
-  color: #fff;
-  border-color: #ec4899;
-}
-
 .map-event-link {
   font-size: 0.66rem;
   color: #934512;
@@ -3117,14 +3108,14 @@ body.muse-story-open {
   align-items: center;
   gap: 0.55rem;
   padding: 0.42rem 0.68rem;
-  border: none;
-  background: var(--neuro-bg);
+  border: var(--card-border);
+  background: var(--card-bg);
   cursor: pointer;
-  transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+  transition: var(--card-transition);
   position: relative;
   overflow: visible;
-  border-radius: 10px;
-  box-shadow: 3px 3px 8px rgba(26,22,18,0.12), -2px -2px 6px rgba(255,255,255,0.58);
+  border-radius: var(--card-radius);
+  box-shadow: var(--card-shadow);
   min-width: 205px;
   flex: 0 0 auto;
 }
@@ -3148,7 +3139,7 @@ body.muse-story-open {
 
 .experience-card:hover {
   transform: translateY(-1px);
-  box-shadow: 4px 4px 10px rgba(26,22,18,0.16), -3px -3px 7px rgba(255,255,255,0.58);
+  box-shadow: var(--card-shadow-hover);
 }
 
 .experience-card.active {

@@ -1,20 +1,18 @@
 <!DOCTYPE html>
 <!--
-  Nevada County Arts Council Cultural Asset Map
-  Hero Variant: Intent First
+  Explore Nevada County — Cultural District Experience Platform
+  Phase 1: Magazine Layout Rebuild (Landscape Editorial System)
 
-  This variant simplifies the top of the page:
-  - Visitor-first hero copy (no process/internal language)
-  - Intent shortcuts (deep links) instead of long instructions
-  - MUSE editorials called out as interactive with the map
+  Layout DNA from: mockups/phase1-landscape-mag-overhaul.html
+  Functional wiring from: index-maplibre-hero-intent.html (canonical)
 
-  Source: index-maplibre.html
+  Structure: mast → cover-grid → spread (map + stories) → explore → notes → colophon
 -->
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Cultural Asset Map — Hero Intent First</title>
+<title>Explore Nevada County</title>
 <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.5.0/dist/maplibre-gl.css" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,28 +20,33 @@
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
 <link rel="preconnect" href="https://api.maptiler.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="index-maplibre-hero-intent.css">
 </head>
 <body class="theme-intent">
 
-<!-- ====== HERO (INTENT / SEARCH FIRST) ====== -->
+<main class="wrap">
+
+<!-- ====== 1. DARK NAVY MAST BAR ====== -->
 <header class="mast mast--intent" role="banner">
-  <div class="mast-inner">
-    <div class="mast-brand">
-      <span class="mast-mark" aria-hidden="true"></span>
-      <h1 class="mast-name">Cultural Asset Map</h1>
-      <span class="mast-sub">Nevada County Arts Council</span>
-    </div>
+  <div class="brand">
+    <h1 class="mast-name">Explore Nevada County</h1>
   </div>
+  <div class="edition">Culture &middot; Discovery &middot; 2026</div>
 </header>
 
-<section class="hero-variant hero-variant--intent" aria-label="Find something">
-  <div class="intent-card">
-    <p class="hero-variant-sub">
-      Explore Nevada County’s cultural landscape, view upcoming events, and read editorials linked to locations on the map.
-    </p>
+<!-- ====== 2. COVER GRID: Hero image + TOC / Discovery ====== -->
+<section class="cover-grid" aria-label="Cover and navigation">
+  <article class="cover">
+    <div class="cover-tag">Nevada County Cultural District</div>
+    <div class="cover-headline">Your Guide<br>to Local<br>Culture</div>
+  </article>
 
+  <aside class="toc">
+    <div class="toc-kicker">start exploring</div>
+    <h2 class="toc-title">Discover <span>by Story</span></h2>
+
+    <!-- Discovery tabs — ALL IDs, roles, aria preserved -->
     <div class="hero-discovery" aria-label="Discovery tabs">
       <div class="hero-discovery-tabs" id="intentTabs" role="tablist" aria-label="Discovery">
         <button class="intent-tab active" type="button" id="intentTabCategories" role="tab" aria-selected="true" aria-controls="intentPaneCategories" data-intent-tab="categories">Categories</button>
@@ -86,101 +89,118 @@
         </section>
       </div>
     </div>
-  </div>
+
+    <div class="toc-note">Interactive &middot; Updated weekly</div>
+  </aside>
 </section>
 
-<!-- ====== MAP ====== -->
-<section class="map-section" id="mapSection">
-  <div class="map-container">
-    <div id="map"></div>
-    <div class="map-overlay-controls">
-      <button class="map-filter-toggle" id="mapFilterToggle" type="button" aria-expanded="false" aria-controls="mapFilterPanel">
-        <span class="map-filter-toggle-dot" aria-hidden="true"></span>
-        <span>Filters</span>
-        <span class="map-filter-toggle-meta" id="mapFilterToggleMeta">All</span>
-        <span class="map-filter-toggle-caret" aria-hidden="true">&#9662;</span>
-      </button>
-      <div class="map-filter-panel" id="mapFilterPanel">
-        <div class="map-filter-bar" id="filterBar"></div>
-      </div>
-      <div class="map-overlay-secondary">
-        <button class="map-legend-toggle" id="mapLegendToggle" type="button" aria-expanded="false" aria-controls="mapLegendPanel">
-          <span class="map-legend-dot" aria-hidden="true"></span>
-          <span>Legend</span>
+<!-- ====== 3. SPREAD: Map panel + Story cards stack ====== -->
+<section class="spread" id="mapSection" aria-label="Map and editorial modules">
+  <!-- Left: Map panel -->
+  <div class="panel">
+    <div class="map-panel-head">
+      <h2 class="map-panel-title">Cultural Asset Map</h2>
+      <span class="pill">687 places</span>
+    </div>
+    <div class="map-container">
+      <div id="map"></div>
+      <div class="map-overlay-controls">
+        <button class="map-filter-toggle" id="mapFilterToggle" type="button" aria-expanded="false" aria-controls="mapFilterPanel">
+          <span class="map-filter-toggle-dot" aria-hidden="true"></span>
+          <span>Filters</span>
+          <span class="map-filter-toggle-meta" id="mapFilterToggleMeta">All</span>
+          <span class="map-filter-toggle-caret" aria-hidden="true">&#9662;</span>
         </button>
-        <div class="map-legend-panel" id="mapLegendPanel"></div>
+        <div class="map-filter-panel" id="mapFilterPanel">
+          <div class="map-filter-bar" id="filterBar"></div>
+        </div>
+        <div class="map-overlay-secondary">
+          <button class="map-legend-toggle" id="mapLegendToggle" type="button" aria-expanded="false" aria-controls="mapLegendPanel">
+            <span class="map-legend-dot" aria-hidden="true"></span>
+            <span>Legend</span>
+          </button>
+          <div class="map-legend-panel" id="mapLegendPanel"></div>
+        </div>
       </div>
+      <div class="corridor-panel" id="corridorPanel"></div>
     </div>
-    <div class="corridor-panel" id="corridorPanel"></div>
   </div>
-  <div class="map-rails-intent">
-    <div class="map-rail-intent map-rail-intent-editorials">
-      <div class="map-rail-intent-head">
-        <div class="intent-editorial-rail-eyebrow">from MUSE ’26 | Issue 03</div>
-        <h3 class="section-header">Featured Narratives</h3>
-      </div>
-      <div class="intent-editorial-rail-list" id="intentEditorialRailList"></div>
-    </div>
 
-    <div class="map-rail-intent map-rail-intent-events">
-      <div class="map-rail-intent-head">
-        <h3 class="section-header">Upcoming Events</h3>
+  <!-- Right: Story cards stack -->
+  <aside class="stack">
+    <!-- Editorial stories -->
+    <article class="story-card story-card--editorial">
+      <div class="map-rail-intent map-rail-intent-editorials">
+        <div class="map-rail-intent-head">
+          <div class="intent-editorial-rail-eyebrow">from MUSE '26 | Issue 03</div>
+          <h3 class="section-header">Featured Narratives</h3>
+        </div>
+        <div class="intent-editorial-rail-list" id="intentEditorialRailList"></div>
       </div>
-      <div class="map-events" id="mapEvents">
-        <details class="map-subaddon map-events-details" id="mapEventsDetails" open>
-          <summary>
-            <h3 class="section-header">Upcoming Events</h3>
-            <span class="map-addon-summary-right">
-              <span class="map-addon-count" id="mapEventsCount">0 events</span>
-              <span class="map-addon-caret">&#9662;</span>
-            </span>
-          </summary>
-          <div class="map-addon-body">
-            <div class="map-events-header">
-              <h3 class="map-events-title">Now and next</h3>
-              <span class="map-events-count" id="mapEventsScope">All categories</span>
+    </article>
+
+    <!-- Events -->
+    <article class="story-card story-card--events">
+      <div class="map-rail-intent map-rail-intent-events">
+        <div class="map-rail-intent-head">
+          <h3 class="section-header">Upcoming Events</h3>
+        </div>
+        <div class="map-events" id="mapEvents">
+          <details class="map-subaddon map-events-details" id="mapEventsDetails" open>
+            <summary>
+              <h3 class="section-header">Upcoming Events</h3>
+              <span class="map-addon-summary-right">
+                <span class="map-addon-count" id="mapEventsCount">0 events</span>
+                <span class="map-addon-caret">&#9662;</span>
+              </span>
+            </summary>
+            <div class="map-addon-body">
+              <div class="map-events-header">
+                <h3 class="map-events-title">Now and next</h3>
+                <span class="map-events-count" id="mapEventsScope">All categories</span>
+              </div>
+              <div class="map-events-filters" id="mapEventsFilters">
+                <button class="map-events-chip active" type="button" data-event-filter="all">All</button>
+                <button class="map-events-chip" type="button" data-event-filter="today">Today</button>
+                <button class="map-events-chip" type="button" data-event-filter="weekend">Weekend</button>
+                <button class="map-events-chip" type="button" data-event-filter="14d">2 Weeks</button>
+                <button class="map-events-chip" type="button" data-event-filter="family">Family & Kids</button>
+              </div>
+              <div class="map-events-category-row">
+                <label class="map-events-category-label" for="mapEventsCategory">Category</label>
+                <select id="mapEventsCategory" class="map-events-category-select" aria-label="Filter events by category">
+                  <option value="all">All categories</option>
+                </select>
+              </div>
+              <div class="map-events-carousel">
+                <button class="map-events-nav" id="mapEventsPrev" type="button" aria-label="Previous spotlight cards">&#9664;</button>
+                <div class="map-events-list" id="mapEventsList"></div>
+                <button class="map-events-nav" id="mapEventsNext" type="button" aria-label="Next spotlight cards">&#9654;</button>
+              </div>
+              <div class="map-events-page" id="mapEventsPage">Page 1 / 1</div>
+              <div class="map-events-all">
+                <div class="map-events-all-head">All upcoming events</div>
+                <div class="map-events-all-list" id="mapEventsAllList"></div>
+              </div>
             </div>
-            <div class="map-events-filters" id="mapEventsFilters">
-              <button class="map-events-chip active" type="button" data-event-filter="all">All</button>
-              <button class="map-events-chip" type="button" data-event-filter="today">Today</button>
-              <button class="map-events-chip" type="button" data-event-filter="weekend">Weekend</button>
-              <button class="map-events-chip" type="button" data-event-filter="14d">14d</button>
-              <button class="map-events-chip" type="button" data-event-filter="family">Family & Kids</button>
-            </div>
-            <div class="map-events-category-row">
-              <label class="map-events-category-label" for="mapEventsCategory">Category</label>
-              <select id="mapEventsCategory" class="map-events-category-select" aria-label="Filter events by category">
-                <option value="all">All categories</option>
-              </select>
-            </div>
-            <div class="map-events-carousel">
-              <button class="map-events-nav" id="mapEventsPrev" type="button" aria-label="Previous spotlight cards">&#9664;</button>
-              <div class="map-events-list" id="mapEventsList"></div>
-              <button class="map-events-nav" id="mapEventsNext" type="button" aria-label="Next spotlight cards">&#9654;</button>
-            </div>
-            <div class="map-events-page" id="mapEventsPage">Page 1 / 1</div>
-            <div class="map-events-all">
-              <div class="map-events-all-head">All upcoming events</div>
-              <div class="map-events-all-list" id="mapEventsAllList"></div>
-            </div>
-          </div>
-        </details>
+          </details>
+        </div>
       </div>
-    </div>
-  </div>
+    </article>
+  </aside>
 </section>
 
-<!-- ====== MUSE EDITORIAL ====== -->
+</main>
+
+<!-- ====== MUSE EDITORIAL (kept for JS wiring, hidden in intent theme) ====== -->
 <div class="muse-section" id="muse">
   <div class="muse-section-header reveal">
     <div class="muse-section-tag">from MUSE &rsquo;26 &middot; Issue 03</div>
     <h2 class="muse-section-title">MUSE stories, mapped.</h2>
-    <p class="muse-section-sub">Open an editorial, then use the “Places in this story” links to jump straight to markers on the map.</p>
+    <p class="muse-section-sub">Open an editorial, then use the "Places in this story" links to jump straight to markers on the map.</p>
   </div>
 
   <div class="muse-cards">
-
-    <!-- Card 1: Cultural Corridors -->
     <details class="muse-card">
       <summary>
         <div class="muse-card-eyebrow">Routes &amp; Heritage</div>
@@ -215,7 +235,6 @@
       </div>
     </details>
 
-    <!-- Card 2: Rural is the New Cool -->
     <details class="muse-card">
       <summary>
         <div class="muse-card-eyebrow">Community &amp; Place</div>
@@ -231,7 +250,6 @@
       </div>
     </details>
 
-    <!-- Card 3: Art in Nature -->
     <details class="muse-card">
       <summary>
         <div class="muse-card-eyebrow">Arts &amp; Landscape</div>
@@ -246,7 +264,6 @@
       </div>
     </details>
 
-    <!-- Card 4: Living Like a Local - Truckee -->
     <details class="muse-card">
       <summary>
         <div class="muse-card-eyebrow">Truckee Cultural District</div>
@@ -260,11 +277,10 @@
         <p>For coffee, try Mountain Brew Coffee. For wine with a little funk, visit Truckee River Winery or The Pour House. Downtown galleries&mdash;Mountain Arts Collective, Piper J Gallery, Riverside Studios&mdash;offer a sampling of the creative talent in the district. And if you&rsquo;re staying up late, the historic Pastime Club vibrates after hours with pool, shuffleboard, and live entertainment.</p>
       </div>
     </details>
-
   </div>
 </div>
 
-<!-- ====== LIST ====== -->
+<!-- ====== EXPLORE DIRECTORY ====== -->
 <section class="explore-section" id="exploreSection">
   <div class="explore-header reveal">
     <div>
@@ -299,40 +315,34 @@
   </div>
 </div>
 
-<!-- ====== COLOPHON ====== -->
+<!-- ====== NOTES / COLOPHON ====== -->
+<section class="notes-section">
+  <div class="notes-grid">
+    <article class="note">
+      <h3>Places</h3>
+      <p>Over 680 places to discover across Nevada County, sourced from the
+        <a href="https://www.nevadacountyarts.org/cultural-asset-map" target="_blank">Nevada County Arts Council</a>.
+        Last updated December 2024.</p>
+    </article>
+    <article class="note">
+      <h3>Editorial</h3>
+      <p>Cultural Corridors content adapted from <em>MUSE</em> Issue 03, 2026 &mdash;
+        &ldquo;Our Cultural Corridors&rdquo; by Jesse Locks.
+        Published by <a href="https://www.nevadacountyarts.org" target="_blank">Nevada County Arts Council</a>.</p>
+    </article>
+    <article class="note">
+      <h3>Built with</h3>
+      <p>MapLibre GL JS, Turf.js, GSAP.
+        Basemap by <a href="https://www.maptiler.com" target="_blank">MapTiler</a>.
+        Crafted for the Experience Planning Committee.</p>
+    </article>
+  </div>
+</section>
+
 <footer class="colophon">
   <div class="colophon-inner">
-    <div class="colophon-heading">About This Project</div>
-    <div class="colophon-sections">
-      <div>
-        <div class="colophon-label">Data</div>
-        687 cultural assets across 10 categories, sourced from the
-        <a href="https://www.nevadacountyarts.org/cultural-asset-map" target="_blank">Nevada County Arts Council Cultural Asset Map</a>.
-        Last updated December 2024.
-      </div>
-      <div>
-        <div class="colophon-label">Editorial</div>
-        Cultural Corridors content adapted from <em>MUSE</em> Issue 03, 2026 —
-        "Our Cultural Corridors" by Jesse Locks.
-        Illustration by Milada Belohlavek &amp; Ron Pitcher.
-        Published by <a href="https://www.nevadacountyarts.org" target="_blank">Nevada County Arts Council</a>.
-      </div>
-	      <div>
-	        <div class="colophon-label">Design</div>
-	        "Quiet Graphics" visual identity inspired by the Arts Council's
-	        original 2019 presentation. Watercolor illustrations honor
-	        that unrealized vision. Landscape basemap by <a href="https://www.maptiler.com" target="_blank">MapTiler</a>.
-	      </div>
-	      <div>
-	        <div class="colophon-label">Built with</div>
-	        MapLibre GL JS, Turf.js, and GSAP.
-	      </div>
-	    </div>
-	    <hr class="colophon-rule">
-	    <div class="colophon-bottom">
-      <span>&copy; 2026 Nevada County Arts Council</span>
-      <a href="index.html">View Leaflet version</a>
-    </div>
+    <span>&copy; 2026 Nevada County Arts Council</span>
+    <a href="index.html">View Leaflet version</a>
   </div>
 </footer>
 
@@ -378,4 +388,3 @@
 <script src="index-maplibre.js"></script>
 </body>
 </html>
-
