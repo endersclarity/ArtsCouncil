@@ -1,0 +1,58 @@
+name: Refresh Events Data
+
+on:
+  schedule:
+    - cron: "0 7 * * *"  # Daily at 7am UTC (midnight Pacific)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh-events:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r scripts/requirements.txt
+
+      - name: Ingest Trumba RSS
+        run: python scripts/events/ingest_trumba_rss.py
+
+      - name: Ingest LibCal iCal
+        run: python scripts/events/ingest_libcal_ical.py
+
+      - name: Ingest CivicEngage RSS
+        run: python scripts/events/ingest_civicengage_rss.py
+        continue-on-error: true  # CivicEngage is bonus, don't fail pipeline
+
+      - name: Merge and deduplicate events
+        run: python scripts/events/merge_events.py
+
+      - name: Rebuild venue index from merged events
+        run: python scripts/events/build_event_index.py --events-file website/cultural-map-redesign/events-merged-flat.json
+
+      - name: Commit updated event data
+        uses: stefanzweifel/git-auto-commit-action@v5
+        with:
+          commit_message: "chore(data): refresh events from Trumba + LibCal + CivicEngage"
+          file_pattern: "website/cultural-map-redesign/events*.json scripts/events/reports/*.json"
+          commit_user_name: "github-actions[bot]"
+          commit_user_email: "github-actions[bot]@users.noreply.github.com"
+
+      - name: Report completion
+        if: always()
+        run: |
+          echo "Refresh Events workflow completed"
+          python -c "import json; d=json.load(open('website/cultural-map-redesign/events-merged.json')); print(f'Total: {len(d[\"events\"])}, Sources: {d[\"source_counts\"]}')" || true
