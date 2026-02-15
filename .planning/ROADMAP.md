@@ -112,12 +112,11 @@ Plans:
   3. Responses cite MUSE magazine when relevant ("Featured in MUSE Issue 3") with attribution links
   4. A privacy notice is visible in the chat widget explaining anonymous query logging
   5. Chatbot responds within 3 seconds and rejects off-topic requests ("write me a Python script") with a polite redirect
-**Plans**: TBD
+**Plans**: 2 plans
 
 Plans:
-- [ ] 05-01: Chat widget UI (FAB, panel, mobile overlay)
-- [ ] 05-02: Vercel edge function proxy with Gemini API, system prompt, and Supabase logging
-- [ ] 05-03: Response parsing (deep links, MUSE citations), input sanitization, and rate limiting
+- [ ] 05-01-PLAN.md — Knowledge pack build script, Vercel serverless function (Gemini proxy), package.json, Supabase logging (Wave 1)
+- [ ] 05-02-PLAN.md — Client chat modules (widget/view/controller), CSS, HTML wiring, response parsing with deep links + MUSE citations (Wave 2)
 
 ### Phase 6: Analytics Foundation
 **Goal**: Every meaningful user interaction is tracked so the committee can see what visitors care about and prove referral value to local businesses
@@ -156,10 +155,11 @@ Plans:
 ## Progress
 
 **Execution Order:**
-Phases execute in numeric order: 1 -> 2 -> 2.1 -> 3 -> 4 -> 5 -> 6 -> 7
+Phases execute in numeric order: 1 -> 2 -> 2.1 -> 3 -> 5 -> 4 -> 6 -> 7
+(Phase 4 moved after 5 — copy polish happens after all features exist)
 
 **Milestone Boundaries:**
-- MVP (delivers Diana's asks + comprehensive content): Phases 1-5
+- MVP (delivers Diana's asks + comprehensive content): Phases 1-5, then 4 as final polish
 - Growth (committee value-adds): Phases 6-7
 
 | Phase | Plans Complete | Status | Completed |
