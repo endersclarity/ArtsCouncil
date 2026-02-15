@@ -5,14 +5,14 @@
 See: .planning/PROJECT.md (updated 2026-02-14)
 
 **Core value:** Drive people to downtowns, local businesses, performance venues, and cultural spaces through an editorial-quality interactive experience that feels like MUSE magazine.
-**Current focus:** Phase 1 incomplete (map broken). Phase 2 complete. Deadline Wed Feb 18.
+**Current focus:** Phase 2.1 in progress (plan 01 of 02 complete). Phase 2 complete. Deadline Wed Feb 18.
 
 ## Current Position
 
-Phase: 1 of 7 (Design & Visual Refresh) -- INCOMPLETE (~60%)
-Plan: Original plans OBSOLETE (Codex built layout independently)
-Status: Magazine layout shipped to Vercel but map doesn't render. Phase 2 data pipeline complete.
-Last activity: 2026-02-15 -- Reconciled Phase 1 state to reflect reality (Codex vs GSD).
+Phase: 02.1 (KVMR + GVDA Event Source Ingestion) -- IN PROGRESS
+Plan: 1 of 2 complete
+Status: Both ingest scripts created and verified (KVMR 29 events, GVDA 44 events). Merge pipeline integration next.
+Last activity: 2026-02-15 -- Completed 02.1 Plan 01 (ingest scripts).
 
 Progress: [██████░░░░░░░░░░░░░░] ~29% overall
 
@@ -33,11 +33,17 @@ Progress: [██████░░░░░░░░░░░░░░] ~29% ov
 - GitHub Actions daily cron on master
 - 17 gate tests passing
 
+### Phase 2.1: KVMR + GVDA Event Source Ingestion (50%)
+- Plan 01 complete: ingest scripts created and verified
+- KVMR iCal ingest: 29 events, NC city whitelist filtering, kvmr- prefixed IDs
+- GVDA Trumba JSON ingest: 44 events, HTML location stripping, gvda- prefixed IDs
+- Plan 02 pending: merge pipeline + GitHub Actions integration
+
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 3 (Phase 2 only — Phase 1 plans obsolete)
-- Average duration: 3min per plan (Phase 2)
+- Total plans completed: 4 (Phase 2: 3, Phase 2.1: 1 — Phase 1 plans obsolete)
+- Average duration: 3min per plan
 
 **By Phase:**
 
@@ -45,6 +51,7 @@ Progress: [██████░░░░░░░░░░░░░░] ~29% ov
 |-------|-------|-------|----------|-------|
 | 1 | 0/3 (obsolete) | N/A | N/A | Codex (OpenAI) built layout outside GSD |
 | 2 | 3/3 | 9min | 3min | Claude Code via GSD |
+| 2.1 | 1/2 | 3min | 3min | Claude Code via GSD |
 
 ## Accumulated Context
 
@@ -58,24 +65,32 @@ Recent decisions affecting current work:
 - [Phase 1]: Map rendering bug is pre-existing — affects ALL HTML variants, not just Codex's layout
 - [Phase 2]: All decisions preserved (see 02-VERIFICATION.md)
 - [Roadmap]: Phase 1 state reconciled 2026-02-15 — summaries rewritten to reflect Codex as actual executor
+- [Phase 2.1]: KVMR events with unknown city kept (benefit of the doubt for local events)
+- [Phase 2.1]: GVDA datetimes use ZoneInfo directly rather than parsing offset string
+- [Phase 2.1]: GVDA eventImage is a dict {url, alt, size}, not a string URL
+
+### Roadmap Evolution
+
+- Phase 02.1 inserted after Phase 2: KVMR + GVDA Event Source Ingestion (URGENT) — Mardi Gras and other major events missing from all 3 existing sources. KVMR iCal + GVDA Trumba JSON add broadest community coverage before Wed demo.
 
 ### Pending Todos
 
-- **FIX MAP RENDERING BUG** (BLOCKER for everything)
-- Add 4 missing DOM IDs to Codex's HTML (`mapAddons`, `mapGuides`, `corridorAddon`, `experienceAddon`)
+- ~~FIX MAP RENDERING BUG~~ RESOLVED (commit `48a9486` — module contract drift)
+- ~~Add 4 missing DOM IDs~~ RESOLVED (same commit)
 - Mobile testing at 375px
 - Copy audit for remaining "cultural asset" language
 - Visual consistency sweep (base CSS conflicts with magazine layout)
 
 ### Blockers/Concerns
 
-- **MAP DOES NOT RENDER** — MapLibre canvas never creates. Pre-existing bug (affects all HTML variants). Codex investigating.
+- ~~MAP DOES NOT RENDER~~ RESOLVED (commit `48a9486`)
 - **Wednesday Feb 18 deadline** — Committee presentation at Gold Miners Inn, 12:00-1:30 PM. Must have working map + events.
+- **Event coverage gaps** — Major events (Mardi Gras) missing from all 3 sources. Phase 2.1 addresses this.
 - Phase 5 (AI Concierge): Gemini free tier may not cover projected token usage
 - Phase 5 (AI Concierge): data.json needs status/last_verified fields
 
 ## Session Continuity
 
 Last session: 2026-02-15
-Stopped at: Reconciled Phase 1 state. Map bug is the critical blocker. Codex investigating.
-Resume file: .planning/phases/01-design-visual-refresh/01-03-SUMMARY.md
+Stopped at: Completed 02.1-01-PLAN.md (KVMR + GVDA ingest scripts). Ready for 02.1-02-PLAN.md (merge pipeline integration).
+Resume file: .planning/phases/02.1-kvmr-gvda-event-source-ingestion/02.1-01-SUMMARY.md
