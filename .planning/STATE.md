@@ -5,16 +5,16 @@
 See: .planning/PROJECT.md (updated 2026-02-14)
 
 **Core value:** Drive people to downtowns, local businesses, performance venues, and cultural spaces through an editorial-quality interactive experience that feels like MUSE magazine.
-**Current focus:** Phase 5 (AI Concierge) — Plan 1 COMPLETE (server infra). Plan 2 next (chat UI widget). Phase 4 (Copy) moved to final polish. Deadline Wed Feb 18.
+**Current focus:** Phase 5 (AI Concierge) COMPLETE (2/2 plans). Phase 4 (Copy) is final polish. Deadline Wed Feb 18.
 
 ## Current Position
 
-Phase: 05 (AI Concierge) -- IN PROGRESS
-Plan: 1 of 2 complete
-Status: Server infrastructure shipped — knowledge pack build, /api/chat serverless function, Supabase logging, rate limiting. Next: chat UI widget (05-02).
-Last activity: 2026-02-15 -- Completed 05-01-PLAN.md (server infra).
+Phase: 05 (AI Concierge) -- COMPLETE
+Plan: 2 of 2 complete
+Status: AI Concierge fully shipped — server infra (05-01) + chat UI widget (05-02). FAB button, conversation panel, deep links, MUSE citations, mobile overlay all wired.
+Last activity: 2026-02-15 -- Completed 05-02-PLAN.md (chat UI widget).
 
-Progress: [████████████░░░░░░░░] ~60% overall
+Progress: [██████████████░░░░░░] ~70% overall
 
 ## What's Actually Shipped
 
@@ -53,20 +53,23 @@ Progress: [████████████░░░░░░░░] ~60% ov
 - Mutual exclusion with experience/corridor system
 - Browser verified: all 9 checks pass, zero console errors
 
-### Phase 5: AI Concierge (50% — 1/2 plans)
-- 1/2 plans complete (05-01: server infra)
+### Phase 5: AI Concierge (100%)
+- 2/2 plans complete (05-01: server infra, 05-02: chat UI)
 - chat-knowledge-pack.json: 191KB compressed corpus (685 assets, 6 editorials, 3 itineraries, 176 events)
 - /api/chat Vercel Serverless Function: Gemini 2.0 Flash proxy with tourism-only system prompt
 - Input sanitization, Supabase logging, session-based rate limiting
 - package.json with @google/generative-ai + @supabase/supabase-js
 - CORS headers in vercel.json for /api/* routes
-- Next: 05-02 (chat UI widget)
+- Chat widget: FAB button (gold, bottom-right), slide-up panel with GSAP, full-screen mobile overlay
+- Chat view: message bubbles, typing indicator, welcome message, error states
+- Chat controller: /api/chat fetch, [[asset]] deep links to detail panel, {{MUSE}} citation blocks, session hash, input sanitization
+- 3 IIFE modules wired into HTML in dependency order (view -> controller -> widget)
 
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 8 (Phase 2: 3, Phase 2.1: 2, Phase 3: 2, Phase 5: 1 — Phase 1 plans obsolete)
-- Average duration: 3.5min per plan
+- Total plans completed: 9 (Phase 2: 3, Phase 2.1: 2, Phase 3: 2, Phase 5: 2 — Phase 1 plans obsolete)
+- Average duration: 3.3min per plan
 
 **By Phase:**
 
@@ -76,7 +79,7 @@ Progress: [████████████░░░░░░░░] ~60% ov
 | 2 | 3/3 | 9min | 3min | Claude Code via GSD |
 | 2.1 | 2/2 | 5min | 2.5min | Claude Code via GSD |
 | 3 | 2/2 | 12min | 6min | Claude Code via GSD |
-| 5 | 1/2 | 4min | 4min | Claude Code via GSD |
+| 5 | 2/2 | 6min | 3min | Claude Code via GSD |
 
 ## Accumulated Context
 
@@ -105,6 +108,9 @@ Recent decisions affecting current work:
 - [Phase 5]: Asset descriptions truncated to 40 chars (not 80) to keep knowledge pack under 200KB
 - [Phase 5]: MUSE editorials compressed (summary fields only, body dropped) for token budget
 - [Phase 5]: Website URLs dropped from asset compression for size budget
+- [Phase 5]: No DOMPurify for V1 — parseResponse generates only known-safe HTML patterns
+- [Phase 5]: Asset clicks use hash deep links (#place=Name) to trigger existing detail panel
+- [Phase 5]: Conversation history capped at 10 messages (5 turns) to control API token usage
 
 ### Roadmap Evolution
 
@@ -136,5 +142,5 @@ Recent decisions affecting current work:
 ## Session Continuity
 
 Last session: 2026-02-15
-Stopped at: Completed 05-01-PLAN.md (AI Concierge server infrastructure). Next: 05-02-PLAN.md (chat UI widget).
-Resume file: .planning/phases/05-ai-concierge/05-02-PLAN.md
+Stopped at: Completed 05-02-PLAN.md (AI Concierge chat UI widget). Phase 5 fully complete.
+Resume file: N/A — Phase 5 complete. Next: Phase 4 (Copy) or deployment.
