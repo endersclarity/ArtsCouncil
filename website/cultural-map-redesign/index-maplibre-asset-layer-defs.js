@@ -80,8 +80,34 @@
     };
   }
 
+  function getAssetsSymbolLayerDef() {
+    return {
+      id: 'assets-symbols',
+      type: 'symbol',
+      source: 'assets',
+      layout: {
+        'icon-image': ['get', 'icon_key'],
+        'icon-size': [
+          'interpolate',
+          ['linear'],
+          ['zoom'],
+          8, 0.35,
+          12, 0.55,
+          15, 0.7
+        ],
+        'icon-allow-overlap': true,
+        'icon-ignore-placement': false,
+        'icon-optional': true
+      },
+      paint: {
+        'icon-opacity': 0.92
+      }
+    };
+  }
+
   window.CulturalMapAssetLayerDefs = {
     getAssetsCircleLayerDef,
+    getAssetsSymbolLayerDef,
     getAssetsHitLayerDef,
     getAssetsMobileLabelsLayerDef
   };

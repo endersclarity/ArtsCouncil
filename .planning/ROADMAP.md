@@ -12,8 +12,8 @@ Transform the existing 687-asset cultural map into an editorial-quality experien
 
 Decimal phases appear between their surrounding integers in numeric order.
 
-- [ ] **Phase 1: Design & Visual Refresh** - Lock visual direction and ship MUSE-adjacent aesthetic across all surfaces
-- [ ] **Phase 2: Tier 2 Events** - Triple event coverage by aggregating LibCal and CivicEngage feeds alongside Trumba
+- [~] **Phase 1: Design & Visual Refresh** - Lock visual direction and ship MUSE-adjacent aesthetic across all surfaces *(~60% — layout shipped by Codex, map broken)*
+- [x] **Phase 2: Tier 2 Events** - Triple event coverage by aggregating LibCal and CivicEngage feeds alongside Trumba
 - [ ] **Phase 3: Itineraries** - Authored multi-day trip plans that visitors can browse, follow on the map, and export to calendar
 - [ ] **Phase 4: Copy & Positioning** - Reframe all text to drive visitors downtown, not into the woods
 - [ ] **Phase 5: AI Concierge** - Gemini-powered chatbot that answers "what should I do tonight?" grounded in MUSE content
@@ -35,9 +35,11 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans**: 3 plans
 
 Plans:
-- [ ] 01-01-PLAN.md — Replace :root design tokens (palette, shadows, card tokens) and sync category colors
-- [ ] 01-02-PLAN.md — Apply editorial card tokens and hero refinement across all CSS sections
-- [ ] 01-03-PLAN.md — Mobile responsive polish (375/390/768px) and copy reframing pass
+- [~] 01-01-PLAN.md — Replace :root design tokens *(OBSOLETE — Codex rebuilt CSS from scratch)*
+- [~] 01-02-PLAN.md — Apply editorial card tokens *(OBSOLETE — Codex rebuilt CSS from scratch)*
+- [~] 01-03-PLAN.md — Layout rebuild + copy reframing *(Codex built magazine layout; map broken, mobile untested)*
+
+**NOTE**: Original plans were conservative token swaps that produced no visible change. Codex (OpenAI) independently built a magazine-style layout rebuild. GSD plans are obsolete. See `01-03-SUMMARY.md` for completion assessment and known issues. Phase 1 remaining work: fix map rendering bug, add 4 missing DOM IDs, mobile test, copy audit.
 
 ### Phase 2: Tier 2 Events
 **Goal**: The events section shows 3x more events by aggregating library and municipal calendars alongside Trumba, with source attribution and family filtering
@@ -52,9 +54,9 @@ Plans:
 **Plans**: 3 plans
 
 Plans:
-- [ ] 02-01-PLAN.md — LibCal iCal and CivicEngage RSS ingest scripts (Wave 1)
-- [ ] 02-02-PLAN.md — Merge/dedup pipeline, family classifier, and GitHub Actions cron (Wave 2)
-- [ ] 02-03-PLAN.md — Client integration: source badges, family filter chip, fallback loading (Wave 3)
+- [x] 02-01-PLAN.md — LibCal iCal and CivicEngage RSS ingest scripts (Wave 1)
+- [x] 02-02-PLAN.md — Merge/dedup pipeline, family classifier, and GitHub Actions cron (Wave 2)
+- [x] 02-03-PLAN.md — Client integration: source badges, family filter chip, fallback loading (Wave 3)
 
 ### Phase 3: Itineraries
 **Goal**: Visitors can browse curated 1/2/3-day trip plans with stop-by-stop narratives, see the route on the map, and add stops to their calendar
@@ -152,8 +154,8 @@ Phases execute in numeric order: 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Design & Visual Refresh | 0/3 | In discovery (variants built, canonical merge pending) | - |
-| 2. Tier 2 Events | 0/3 | Planned (3 plans, 3 waves) | - |
+| 1. Design & Visual Refresh | 0/3 (plans obsolete) | ~60% — Codex built layout, map broken, mobile untested | - |
+| 2. Tier 2 Events | 3/3 | COMPLETE — pipeline + client integration shipped | 2026-02-14 |
 | 3. Itineraries | 0/3 | Not started | - |
 | 4. Copy & Positioning | 0/3 | Not started | - |
 | 5. AI Concierge | 0/3 | Not started | - |

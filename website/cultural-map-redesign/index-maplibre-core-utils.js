@@ -63,10 +63,59 @@
     };
   }
 
+  /**
+   * Parse URL search string into deep-link state object.
+   * e.g. "?cats=Historic+Landmarks,Galleries&open=1&pid=42" =>
+   *   { cats: ['Historic Landmarks', 'Galleries'], open: '1', pid: '42' }
+   */
+  function parseDeepLinkSearch(search) {
+    var params = new URLSearchParams(search || '');
+    var result = {};
+    var catsRaw = params.get('cats');
+    result.cats = catsRaw ? catsRaw.split(',').map(function(c) { return decodeURIComponent(c.trim()); }).filter(Boolean) : [];
+    var scalars = ['open', 'events14d', 'experience', 'muse', 'pid', 'event', 'eventDate', 'eventCat'];
+    for (var i = 0; i < scalars.length; i++) {
+      var key = scalars[i];
+      var val = params.get(key);
+      if (val !== null) result[key] = val;
+    }
+    var idxRaw = params.get('idx');
+    if (idxRaw !== null && /^\d+$/.test(idxRaw)) {
+      result.idx = parseInt(idxRaw, 10);
+    }
+    return result;
+  }
+
+  /**
+   * Serialize deep-link state object to URL search string.
+   * Omits null/undefined/empty values. Returns '' or '?key=val&...'
+   */
+  function serializeDeepLinkSearch(state) {
+    if (!state) return '';
+    var parts = [];
+    if (state.cats && state.cats.length) {
+      parts.push('cats=' + state.cats.map(function(c) { return encodeURIComponent(c); }).join(','));
+    }
+    var scalars = ['open', 'events14d', 'experience', 'muse', 'pid', 'event', 'eventDate', 'eventCat'];
+    for (var i = 0; i < scalars.length; i++) {
+      var key = scalars[i];
+      var val = state[key];
+      if (val !== null && val !== undefined && val !== '') {
+        parts.push(encodeURIComponent(key) + '=' + encodeURIComponent(val));
+      }
+    }
+    if (state.idx !== null && state.idx !== undefined) {
+      parts.push('idx=' + String(state.idx));
+    }
+    return parts.length ? '?' + parts.join('&') : '';
+  }
+
   window.CulturalMapCoreUtils = {
     hexToRgba,
     escapeHTML,
     isValidCountyCoord,
-    sanitizeCountyOutline
+    sanitizeCountyOutline,
+    parseDeepLinkSearch,
+    serializeDeepLinkSearch
   };
 })();

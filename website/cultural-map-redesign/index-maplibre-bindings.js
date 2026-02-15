@@ -168,9 +168,12 @@
       });
     }
 
-    document.getElementById('mapActiveClear').addEventListener('click', () => {
-      ctx.clearAllMapFilters();
-    });
+    var clearBtn = document.getElementById('mapActiveClear');
+    if (clearBtn) {
+      clearBtn.addEventListener('click', () => {
+        ctx.clearAllMapFilters();
+      });
+    }
   }
 
   window.CulturalMapBindings = {

@@ -146,9 +146,14 @@
     return `${imgHTML}<div class="tooltip-body"><strong>${props.name}</strong><div class="tooltip-cat"><span class="tooltip-cat-dot" style="background:${cfg.color}"></span>${props.layer}</div>${props.city ? '<div class="tooltip-city">' + props.city + ', CA</div>' : ''}${eventLine}</div>`;
   }
 
+  function getCategoryIconKey(layerName) {
+    return 'cat-icon-' + String(layerName || '').toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/-+$/, '');
+  }
+
   window.CulturalMapMapDataModel = {
     addCountyOutlineLayer,
     storeOriginalPaints,
+    getCategoryIconKey,
     buildAssetsGeoJSON,
     refreshAssetSourceHoursStates,
     buildFeatureTooltipHTML

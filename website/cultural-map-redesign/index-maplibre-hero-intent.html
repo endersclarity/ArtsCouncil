@@ -102,6 +102,13 @@
       <h2 class="map-panel-title">Cultural Asset Map</h2>
       <span class="pill">687 places</span>
     </div>
+    <div class="map-active-banner" id="mapActiveBanner">
+      <div class="map-active-banner-inner">
+        <div class="map-active-dot" id="mapActiveDot"></div>
+        <div class="map-active-text">Showing <strong id="mapActiveCount">0</strong> <span id="mapActiveName">assets</span></div>
+        <button class="map-active-clear" id="mapActiveClear">Clear filter</button>
+      </div>
+    </div>
     <div class="map-container">
       <div id="map"></div>
       <div class="map-overlay-controls">
@@ -123,6 +130,43 @@
         </div>
       </div>
       <div class="corridor-panel" id="corridorPanel"></div>
+    </div>
+    <div class="map-addons" id="mapAddons">
+      <details class="map-guides" id="mapGuides">
+        <summary>
+          <h3 class="section-header">Guided Routes &amp; Experiences</h3>
+          <span class="map-addon-summary-right">
+            <span class="map-addon-count" id="mapGuidesCount">0 guides</span>
+            <span class="map-addon-caret">&#9662;</span>
+          </span>
+        </summary>
+        <div class="map-guides-body">
+          <details class="map-subaddon" id="corridorAddon">
+            <summary>
+              <h3 class="section-header">Cultural Corridors <span class="section-header-tag">from MUSE '26</span></h3>
+              <span class="map-addon-summary-right">
+                <span class="map-addon-count" id="corridorAddonCount">0 routes</span>
+                <span class="map-addon-caret">&#9662;</span>
+              </span>
+            </summary>
+            <div class="map-addon-body">
+              <div class="corridor-cards" id="corridorCards"></div>
+            </div>
+          </details>
+          <details class="map-subaddon" id="experienceAddon">
+            <summary>
+              <h3 class="section-header">Curated Experiences</h3>
+              <span class="map-addon-summary-right">
+                <span class="map-addon-count" id="experienceAddonCount">0 routes</span>
+                <span class="map-addon-caret">&#9662;</span>
+              </span>
+            </summary>
+            <div class="map-addon-body">
+              <div class="experience-cards" id="experienceCards"></div>
+            </div>
+          </details>
+        </div>
+      </details>
     </div>
   </div>
 
