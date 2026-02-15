@@ -5,16 +5,16 @@
 See: .planning/PROJECT.md (updated 2026-02-14)
 
 **Core value:** Drive people to downtowns, local businesses, performance venues, and cultural spaces through an editorial-quality interactive experience that feels like MUSE magazine.
-**Current focus:** Phase 2.1 COMPLETE (2/2 plans done). Phase 2 complete. Deadline Wed Feb 18.
+**Current focus:** Phase 3 (Itineraries) in progress. Plan 1 of 2 complete. Deadline Wed Feb 18.
 
 ## Current Position
 
-Phase: 02.1 (KVMR + GVDA Event Source Ingestion) -- COMPLETE
-Plan: 2 of 2 complete
-Status: All 5 event sources ingested, merged (176 events), and automated in CI. Phase 2.1 done.
-Last activity: 2026-02-15 -- Completed 02.1 Plan 02 (merge pipeline + GitHub Actions).
+Phase: 03 (Itineraries)
+Plan: 1 of 2 complete
+Status: Itinerary data layer complete (3 itineraries, model, calendar). Plan 02 (view/controller) next.
+Last activity: 2026-02-15 -- Completed 03-01-PLAN.md (itinerary data layer).
 
-Progress: [███████░░░░░░░░░░░░░] ~36% overall
+Progress: [████████░░░░░░░░░░░░] ~40% overall
 
 ## What's Actually Shipped
 
@@ -41,10 +41,16 @@ Progress: [███████░░░░░░░░░░░░░] ~36% ov
 - GitHub Actions daily cron updated with all 5 ingest steps
 - Priority order: trumba > gvda > libcal > kvmr > civicengage
 
+### Phase 3: Itineraries (Plan 1/2 complete)
+- itineraries.json: 3 curated trip plans (1-day/7 stops, 2-day/13 stops, 3-day/20 stops)
+- itinerary-model.js: stop resolution by exact name match, day grouping, map coord extraction
+- itinerary-calendar.js: Google Calendar URL generation with Pacific timezone
+- All 40 stops validated against data.json — zero unresolved references
+
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 5 (Phase 2: 3, Phase 2.1: 2 — Phase 1 plans obsolete)
+- Total plans completed: 6 (Phase 2: 3, Phase 2.1: 2, Phase 3: 1 — Phase 1 plans obsolete)
 - Average duration: 3min per plan
 
 **By Phase:**
@@ -54,6 +60,7 @@ Progress: [███████░░░░░░░░░░░░░] ~36% ov
 | 1 | 0/3 (obsolete) | N/A | N/A | Codex (OpenAI) built layout outside GSD |
 | 2 | 3/3 | 9min | 3min | Claude Code via GSD |
 | 2.1 | 2/2 | 5min | 2.5min | Claude Code via GSD |
+| 3 | 1/2 | 5min | 5min | Claude Code via GSD |
 
 ## Accumulated Context
 
@@ -72,6 +79,9 @@ Recent decisions affecting current work:
 - [Phase 2.1]: GVDA eventImage is a dict {url, alt, size}, not a string URL
 - [Phase 2.1]: Source priority: trumba > gvda > libcal > kvmr > civicengage (Arts Council always wins dedup)
 - [Phase 2.1]: KVMR and GVDA are supplementary sources (continue-on-error in CI)
+- [Phase 3]: Itinerary stops use exact case-insensitive name match (not fuzzy .includes()) against data.json
+- [Phase 3]: Google Calendar URLs use ctz=America/Los_Angeles with local time (no Z suffix)
+- [Phase 3]: Smart quotes (U+2019) in data.json asset names must be preserved in itineraries.json
 
 ### Roadmap Evolution
 
@@ -81,9 +91,14 @@ Recent decisions affecting current work:
 
 - ~~FIX MAP RENDERING BUG~~ RESOLVED (commit `48a9486` — module contract drift)
 - ~~Add 4 missing DOM IDs~~ RESOLVED (same commit)
-- Mobile testing at 375px
-- Copy audit for remaining "cultural asset" language
+- ~~Mobile testing at 375px~~ DEFERRED — design still iterating, testing now would test throwaway layouts. Revisit after design direction stabilizes.
+- ~~Copy audit for remaining "cultural asset" language~~ REMOVED — this is Phase 4 (Copy & Positioning) scope, not a standalone todo.
 - Visual consistency sweep (base CSS conflicts with magazine layout)
+- **Event images:** 100 events (all KVMR + all LibCal) have no images — placeholder cards. Need fallback image strategy or page scraping.
+- **Family & Kids filter is misplaced:** Currently a time-filter chip alongside All/Today/Weekend/2 Weeks. Should be a separate dimension (checkbox or category dropdown option) so users can combine "family + this weekend."
+- **GVDA rich tags not surfaced:** GVDA events have tags like Music/Concert, Children/Family, Beer/Wine/Food but the category dropdown only shows asset layer categories. Event tags should map to or extend the dropdown.
+- **KVMR events have no tags:** iCal feed has no category metadata. Relies on weak keyword inference from titles. May need manual tagging or better inference rules.
+- **Stardust Station + local creative directories:** Reach out about API or submission form. If their content exists online in a directory, it should be on the Arts Council page. Also get local creative feedback on coverage gaps.
 
 ### Blockers/Concerns
 
@@ -96,5 +111,5 @@ Recent decisions affecting current work:
 ## Session Continuity
 
 Last session: 2026-02-15
-Stopped at: Completed 02.1-02-PLAN.md (merge pipeline + GitHub Actions). Phase 2.1 fully complete.
-Resume file: .planning/phases/02.1-kvmr-gvda-event-source-ingestion/02.1-02-SUMMARY.md
+Stopped at: Completed 03-01-PLAN.md (itinerary data layer). Plan 02 (view/controller) next.
+Resume file: .planning/phases/03-itineraries/03-01-SUMMARY.md
