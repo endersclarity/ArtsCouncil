@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Events Calendar — Explore Nevada County</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="index-maplibre-hero-intent.css">
+<link rel="stylesheet" href="index-maplibre-hero-intent-stitch-frontend-design-pass.css">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="14ecf234-cd96-4e6c-91c2-cc27babc095d" data-domains="cultural-map-redesign-stitch-lab.vercel.app"></script>
+<script src="https://cdn.jsdelivr.net/npm/luxon@3.4.4/build/global/luxon.min.js"></script>
+</head>
+<body class="theme-intent events-page">
+
+<header class="mast mast--intent" role="banner">
+  <div class="brand">
+    <h1 class="mast-name">Explore Nevada County</h1>
+    <nav class="stitch-top-nav" aria-label="Primary">
+      <a href="index-maplibre-hero-intent-stitch-frontend-design-pass.html">Back to Explore</a>
+      <a href="events.html" class="nav-active">Events</a>
+      <a href="itineraries.html">Itineraries</a>
+    </nav>
+  </div>
+  <div class="edition">Culture &middot; Discovery &middot; 2026</div>
+</header>
+
+<main class="subpage-content">
+  <div class="subpage-back-row">
+    <a href="index-maplibre-hero-intent-stitch-frontend-design-pass.html" class="subpage-back-link">&larr; Back to Explore</a>
+  </div>
+
+  <h1 class="subpage-title">Events Calendar</h1>
+  <p class="subpage-subtitle"><span id="eventsTotal">0</span> events from 5 sources across Nevada County</p>
+
+  <div class="events-filters">
+    <input type="text" class="events-search-box" id="eventsSearch" placeholder="Search events, venues, descriptions...">
+    <div class="events-date-chips" id="eventsDateChips">
+      <button class="events-chip active" type="button" data-date-filter="all">All</button>
+      <button class="events-chip" type="button" data-date-filter="today">Today</button>
+      <button class="events-chip" type="button" data-date-filter="weekend">This Weekend</button>
+      <button class="events-chip" type="button" data-date-filter="week">This Week</button>
+      <button class="events-chip" type="button" data-date-filter="2weeks">Next 2 Weeks</button>
+    </div>
+    <div class="events-filter-row">
+      <select class="events-source-dropdown" id="eventsSource" aria-label="Filter by source">
+        <option value="all">All sources</option>
+      </select>
+      <label class="events-family-toggle">
+        <input type="checkbox" id="eventsFamilyToggle">
+        <span>Family &amp; Kids only</span>
+      </label>
+    </div>
+  </div>
+
+  <div class="events-list-view" id="eventsListView">
+    <div class="events-loading">Loading events...</div>
+  </div>
+</main>
+
+<footer class="colophon">
+  <div class="colophon-inner">
+    <span>&copy; 2026 Nevada County Arts Council</span>
+    <a href="index-maplibre-hero-intent-stitch-frontend-design-pass.html">Back to Explore</a>
+  </div>
+</footer>
+
+<script>
+(function() {
+  'use strict';
+
+  var DateTime = luxon.DateTime;
+  var PACIFIC = 'America/Los_Angeles';
+
+  var SOURCE_COLORS = {
+    'KVMR': '#2a8c8c',
+    'GVDA': '#b85c38',
+    'LibCal': '#3a6fa5',
+    'Trumba': '#c8943e',
+    'CivicEngage': '#2d5a27'
+  };
+
+  var allEvents = [];
+  var currentFilters = {
+    text: '',
+    dateRange: 'all',
+    source: 'all',
+    familyOnly: false
+  };
+
+  function now() {
+    return DateTime.now().setZone(PACIFIC);
+  }
+
+  function parseISO(iso) {
+    return DateTime.fromISO(iso, { zone: PACIFIC });
+  }
+
+  function formatDate(dt) {
+    return dt.toFormat('EEEE, MMMM d, yyyy');
+  }
+
+  function formatTime(dt) {
+    return dt.toFormat('h:mm a');
+  }
+
+  function getDateKey(dt) {
+    return dt.toFormat('yyyy-MM-dd');
+  }
+
+  function matchesDateFilter(eventDt, filter) {
+    var today = now().startOf('day');
+
+    switch (filter) {
+      case 'all':
+        return true;
+      case 'today':
+        return getDateKey(eventDt) === getDateKey(today);
+      case 'weekend': {
+        var dayOfWeek = today.weekday;
+        var saturday, sunday;
+        if (dayOfWeek === 6) {
+          saturday = today;
+          sunday = today.plus({ days: 1 });
+        } else if (dayOfWeek === 7) {
+          saturday = today.minus({ days: 1 });
+          sunday = today;
+        } else {
+          saturday = today.plus({ days: 6 - dayOfWeek });
+          sunday = saturday.plus({ days: 1 });
+        }
+        var evKey = getDateKey(eventDt);
+        return evKey === getDateKey(saturday) || evKey === getDateKey(sunday);
+      }
+      case 'week': {
+        var weekStart = today.startOf('week');
+        var weekEnd = weekStart.plus({ days: 6 }).endOf('day');
+        return eventDt >= weekStart && eventDt <= weekEnd;
+      }
+      case '2weeks': {
+        var end2w = today.plus({ days: 14 }).endOf('day');
+        return eventDt >= today && eventDt <= end2w;
+      }
+      default:
+        return true;
+    }
+  }
+
+  function matchesTextFilter(event, text) {
+    if (!text) return true;
+    var lower = text.toLowerCase();
+    return (
+      (event.title || '').toLowerCase().indexOf(lower) !== -1 ||
+      (event.venue_name || '').toLowerCase().indexOf(lower) !== -1 ||
+      (event.description || '').toLowerCase().indexOf(lower) !== -1
+    );
+  }
+
+  function filterEvents(events) {
+    return events.filter(function(ev) {
+      var dt = parseISO(ev.start_iso);
+
+      if (!matchesDateFilter(dt, currentFilters.dateRange)) return false;
+      if (!matchesTextFilter(ev, currentFilters.text)) return false;
+      if (currentFilters.source !== 'all' && ev.source_label !== currentFilters.source) return false;
+      if (currentFilters.familyOnly && !ev.is_family) return false;
+
+      return true;
+    });
+  }
+
+  function groupByDate(events) {
+    var grouped = {};
+    var order = [];
+    events.forEach(function(ev) {
+      var dt = parseISO(ev.start_iso);
+      var key = getDateKey(dt);
+      if (!grouped[key]) {
+        grouped[key] = { date: dt.startOf('day'), events: [] };
+        order.push(key);
+      }
+      grouped[key].events.push(ev);
+    });
+    order.sort();
+    return order.map(function(key) { return grouped[key]; });
+  }
+
+  function escapeHtml(str) {
+    if (!str) return '';
+    var div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+  function truncate(str, len) {
+    if (!str) return '';
+    return str.length > len ? str.substring(0, len) + '...' : str;
+  }
+
+  function renderEvents(events) {
+    var container = document.getElementById('eventsListView');
+    var filtered = filterEvents(events);
+    var groups = groupByDate(filtered);
+
+    if (filtered.length === 0) {
+      container.innerHTML = '<div class="events-empty">No events match your filters. Try adjusting your search or date range.</div>';
+      return;
+    }
+
+    var html = '';
+    groups.forEach(function(group) {
+      html += '<div class="events-date-group">';
+      html += '<h2 class="events-date-header">' + escapeHtml(formatDate(group.date)) + '</h2>';
+      group.events.forEach(function(ev) {
+        var dt = parseISO(ev.start_iso);
+        var endDt = ev.end_iso ? parseISO(ev.end_iso) : null;
+        var timeStr = formatTime(dt);
+        if (endDt) timeStr += ' - ' + formatTime(endDt);
+
+        var badgeColor = SOURCE_COLORS[ev.source_label] || '#666';
+        var familyBadge = ev.is_family ? '<span class="events-family-badge">Family</span>' : '';
+
+        html += '<div class="events-row">';
+        html += '  <div class="events-row-time">' + escapeHtml(timeStr) + '</div>';
+        html += '  <div class="events-row-main">';
+        html += '    <div class="events-row-title">' + escapeHtml(ev.title) + '</div>';
+        html += '    <div class="events-row-venue">' + escapeHtml(ev.venue_name || 'Venue TBD');
+        if (ev.venue_city) html += ' <span class="events-row-city">&middot; ' + escapeHtml(ev.venue_city) + '</span>';
+        html += '    </div>';
+        if (ev.description) html += '<div class="events-row-desc">' + escapeHtml(truncate(ev.description, 120)) + '</div>';
+        html += '  </div>';
+        html += '  <div class="events-row-badges">';
+        html += '    <span class="events-source-badge" style="background:' + badgeColor + '">' + escapeHtml(ev.source_label) + '</span>';
+        html += familyBadge;
+        if (ev.ticket_url) html += '<a class="events-ticket-link" href="' + escapeHtml(ev.ticket_url) + '" target="_blank" rel="noopener">Tickets</a>';
+        html += '  </div>';
+        html += '</div>';
+      });
+      html += '</div>';
+    });
+
+    container.innerHTML = html;
+  }
+
+  function populateSourceDropdown(events) {
+    var sources = {};
+    events.forEach(function(ev) {
+      if (ev.source_label) sources[ev.source_label] = true;
+    });
+    var dropdown = document.getElementById('eventsSource');
+    Object.keys(sources).sort().forEach(function(src) {
+      var opt = document.createElement('option');
+      opt.value = src;
+      opt.textContent = src;
+      dropdown.appendChild(opt);
+    });
+  }
+
+  function bindFilters() {
+    var searchInput = document.getElementById('eventsSearch');
+    var debounceTimer;
+    searchInput.addEventListener('input', function() {
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(function() {
+        currentFilters.text = searchInput.value;
+        renderEvents(allEvents);
+      }, 200);
+    });
+
+    var chips = document.querySelectorAll('.events-chip');
+    chips.forEach(function(chip) {
+      chip.addEventListener('click', function() {
+        chips.forEach(function(c) { c.classList.remove('active'); });
+        chip.classList.add('active');
+        currentFilters.dateRange = chip.getAttribute('data-date-filter');
+        renderEvents(allEvents);
+      });
+    });
+
+    document.getElementById('eventsSource').addEventListener('change', function(e) {
+      currentFilters.source = e.target.value;
+      renderEvents(allEvents);
+    });
+
+    document.getElementById('eventsFamilyToggle').addEventListener('change', function(e) {
+      currentFilters.familyOnly = e.target.checked;
+      renderEvents(allEvents);
+    });
+  }
+
+  function init() {
+    fetch('events-merged-flat.json')
+      .then(function(res) { return res.json(); })
+      .then(function(events) {
+        allEvents = events;
+        document.getElementById('eventsTotal').textContent = events.length;
+        populateSourceDropdown(events);
+        renderEvents(events);
+        bindFilters();
+      })
+      .catch(function(err) {
+        console.error('Failed to load events:', err);
+        document.getElementById('eventsListView').innerHTML =
+          '<div class="events-empty">Failed to load events. Please try refreshing the page.</div>';
+      });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+</body>
+</html>
