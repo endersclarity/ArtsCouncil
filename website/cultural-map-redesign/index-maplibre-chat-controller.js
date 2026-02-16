@@ -117,7 +117,7 @@
       return res.json();
     })
     .then(function(data) {
-      var responseText = data.response || data.text || '';
+      var responseText = data.reply || data.response || data.text || '';
       var html = parseResponse(responseText);
 
       if (chatView.renderBotMessage) {
@@ -131,6 +131,7 @@
       }
     })
     .catch(function(err) {
+      console.error('[Chat] request failed:', err);
       var msg = 'Sorry, something went wrong. Please try again.';
       if (err && err.status === 429) {
         msg = "You're asking too fast! Please wait a moment.";
@@ -194,11 +195,27 @@
   }
 
   function handleAssetClick(pid, name) {
-    var assetName = name || pid || '';
+    var assetPid = String(pid || '').trim();
+    var assetName = String(name || '').trim();
+    var bridgeResult = null;
 
-    // Try deep link hash approach (works with existing detail panel system)
-    if (assetName) {
-      window.location.hash = '#place=' + encodeURIComponent(assetName);
+    if (window.CulturalMapDeepLink && typeof window.CulturalMapDeepLink.navigateFromChatAsset === 'function') {
+      bridgeResult = window.CulturalMapDeepLink.navigateFromChatAsset({
+        pid: assetPid,
+        name: assetName
+      });
+    }
+
+    // Fallback when bridge is unavailable or cannot resolve: push query state and trigger router.
+    if ((!bridgeResult || bridgeResult.ok !== true) && (assetPid || assetName)) {
+      var fallbackPid = assetPid || assetName;
+      var params = new URLSearchParams(window.location.search || '');
+      params.set('pid', fallbackPid);
+      params.delete('idx');
+      params.delete('muse');
+      params.delete('event');
+      history.pushState(null, '', window.location.pathname + '?' + params.toString() + (window.location.hash || ''));
+      window.dispatchEvent(new PopStateEvent('popstate'));
     }
 
     // Close chat panel to reveal detail panel

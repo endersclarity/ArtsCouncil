@@ -451,7 +451,15 @@
 <script src="index-maplibre-detail-controller.js"></script>
 <script src="index-maplibre-page-effects.js"></script>
 <script src="index-maplibre-bindings.js"></script>
+<script src="index-maplibre-chat-view.js"></script>
+<script src="index-maplibre-chat-controller.js"></script>
+<script src="index-maplibre-chat-widget.js"></script>
 <script src="index-maplibre.js"></script>
+<script>
+  if (window.CulturalMapChatWidget) {
+    window.CulturalMapChatWidget.init();
+  }
+</script>
 <div id="itineraryOverlay" class="itinerary-overlay"></div>
 </body>
 </html>

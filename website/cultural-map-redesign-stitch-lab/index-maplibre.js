@@ -300,6 +300,7 @@
     initMuseShowcase();
     renderIntentEditorialRail();
     initIntentDiscoveryTabs();
+    registerPublicDeepLinkBridge();
     bindEvents();
     preloadWatercolors();
     initItinerarySystem();
@@ -1210,6 +1211,46 @@
     return (DATA || []).find((v) => v && v.pid === p) || null;
   }
 
+  function normalizePlaceSearchName(value) {
+    return String(value || '')
+      .toLowerCase()
+      .replace(/&/g, ' and ')
+      .replace(/[^a-z0-9]+/g, ' ')
+      .trim();
+  }
+
+  function findVenueByName(name) {
+    const needle = normalizePlaceSearchName(name);
+    if (!needle) return null;
+    const venues = Array.isArray(DATA) ? DATA : [];
+    for (let i = 0; i < venues.length; i += 1) {
+      const venue = venues[i];
+      if (!venue || !venue.n) continue;
+      const venueName = normalizePlaceSearchName(venue.n);
+      if (!venueName) continue;
+      if (venueName === needle || venueName.indexOf(needle) >= 0 || needle.indexOf(venueName) >= 0) {
+        return venue;
+      }
+    }
+    return null;
+  }
+
+  function findMusePlaceByName(name) {
+    const needle = normalizePlaceSearchName(name);
+    if (!needle) return null;
+    const places = Array.isArray(MUSE_PLACES) ? MUSE_PLACES : [];
+    for (let i = 0; i < places.length; i += 1) {
+      const place = places[i];
+      if (!place || !place.name) continue;
+      const placeName = normalizePlaceSearchName(place.name);
+      if (!placeName) continue;
+      if (placeName === needle || placeName.indexOf(needle) >= 0 || needle.indexOf(placeName) >= 0) {
+        return place;
+      }
+    }
+    return null;
+  }
+
   function findVenueByIdx(idx) {
     const i = Number(idx);
     if (!Number.isInteger(i) || i < 0 || i >= (DATA || []).length) return null;
@@ -1264,6 +1305,58 @@
       });
     }
     openDetail(asset);
+  }
+
+  function navigateFromChatAsset(target) {
+    const t = target || {};
+    const pid = String(t.pid || '').trim();
+    const name = String(t.name || '').trim();
+    let deepLinkTarget = null;
+
+    if (pid) {
+      const muse = findMusePlaceById(pid);
+      if (muse && muse.id) {
+        deepLinkTarget = { muse: String(muse.id) };
+      } else {
+        const venue = findVenueByPid(pid);
+        if (venue && venue.pid) {
+          deepLinkTarget = { pid: String(venue.pid) };
+        }
+      }
+    }
+
+    if (!deepLinkTarget && name) {
+      const museByName = findMusePlaceByName(name);
+      if (museByName && museByName.id) {
+        deepLinkTarget = { muse: String(museByName.id) };
+      } else {
+        const venueByName = findVenueByName(name);
+        if (venueByName) {
+          if (venueByName.pid) {
+            deepLinkTarget = { pid: String(venueByName.pid) };
+          } else {
+            const idx = resolveAssetIndex(venueByName);
+            if (Number.isInteger(idx) && idx >= 0) {
+              deepLinkTarget = { idx };
+            }
+          }
+        }
+      }
+    }
+
+    if (!deepLinkTarget) return { ok: false, reason: 'unresolved', pid, name };
+    pushDeepLinkTarget(deepLinkTarget);
+    return { ok: true, target: deepLinkTarget };
+  }
+
+  function registerPublicDeepLinkBridge() {
+    const bridge = window.CulturalMapDeepLink || {};
+    bridge.pushTarget = function(target) {
+      pushDeepLinkTarget(target || {});
+      return { ok: true, target: target || {} };
+    };
+    bridge.navigateFromChatAsset = navigateFromChatAsset;
+    window.CulturalMapDeepLink = bridge;
   }
 
   function applyDeepLinkFromLocation(options = {}) {
