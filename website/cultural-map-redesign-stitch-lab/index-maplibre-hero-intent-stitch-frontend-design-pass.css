@@ -428,6 +428,18 @@ body.theme-intent {
   text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
 }
 
+.muse-section-sub {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 0.9rem;
+  color: rgba(26, 22, 18, 0.6);
+  margin-top: 0.3rem;
+  line-height: 1.5;
+}
+
+.muse-section-sub em {
+  font-style: italic;
+}
+
 .sr-only {
   position: absolute;
   width: 1px;
@@ -873,6 +885,43 @@ body.theme-intent {
   }
   .chat-messages { max-height: none; flex: 1; }
   body.chat-open { overflow: hidden; }
+}
+
+/* --- Hero text mobile fix --- */
+@media (max-width: 600px) {
+  .cover-geo-context,
+  .cover-subline,
+  .cover-headline {
+    position: absolute;
+    left: 0.6rem;
+    right: 0.6rem;
+  }
+
+  .cover-headline {
+    font-size: clamp(2rem, 9vw, 2.6rem);
+    bottom: 0.6rem;
+    line-height: 0.9;
+  }
+
+  .cover-subline {
+    font-size: 0.65rem;
+    letter-spacing: 0.02em;
+    bottom: auto;
+    top: auto;
+    /* Position above headline using a simpler offset */
+    bottom: calc(0.6rem + 2.2em * 2 + 0.3rem);
+  }
+
+  .cover-geo-context {
+    display: none;
+  }
+
+  .cover-tag {
+    font-size: 0.5rem;
+    top: 0.4rem;
+    left: 0.4rem;
+    padding: 0.12rem 0.4rem;
+  }
 }
 
 /* ═══════════════════════════════════════
