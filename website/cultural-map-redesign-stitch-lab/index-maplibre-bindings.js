@@ -247,7 +247,16 @@
     }
   }
 
+  function initScrollObserver() {
+    if (window.CulturalMapScrollObserver) {
+      window.CulturalMapScrollObserver.init();
+    }
+  }
+
   window.CulturalMapBindings = {
-    bindEvents
+    bindEvents: function(ctx) {
+      bindEvents(ctx);
+      initScrollObserver();
+    }
   };
 })();

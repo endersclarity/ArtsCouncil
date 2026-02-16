@@ -449,6 +449,112 @@ body.theme-intent {
 }
 
 /* ═══════════════════════════════════════
+   ADAPTIVE SPLIT LAYOUT
+   ═══════════════════════════════════════ */
+
+/* --- Split layout grid (desktop >900px) --- */
+@media (min-width: 901px) {
+  .split-layout {
+    display: grid;
+    grid-template-columns: 1fr var(--map-col-width, minmax(380px, 45%));
+    gap: 0.6rem;
+    transition: grid-template-columns 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  /* Zone-based map column sizing */
+  .adaptive-layout.map-zone--hero .split-layout {
+    grid-template-columns: 1fr minmax(380px, 45%);
+  }
+
+  .adaptive-layout.map-zone--editorial .split-layout {
+    grid-template-columns: 1fr minmax(200px, 25%);
+  }
+
+  .adaptive-layout.map-zone--expanded .split-layout {
+    grid-template-columns: 1fr minmax(500px, 65%);
+  }
+
+  .content-column {
+    min-width: 0;
+    overflow: hidden;
+  }
+
+  .map-column {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+    min-width: 0;
+  }
+
+  .map-column .panel {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .map-column .map-container {
+    flex: 1;
+    min-height: 0;
+  }
+
+  .map-column #map {
+    height: 100%;
+    min-height: 400px;
+  }
+
+  .map-column .map-addons {
+    max-height: 200px;
+    overflow-y: auto;
+  }
+
+  /* Spread inside content column is now single-column */
+  .spread {
+    grid-template-columns: 1fr !important;
+  }
+
+  .spread .stack {
+    display: grid;
+    gap: 0.6rem;
+  }
+}
+
+/* --- Scroll sentinels (invisible) --- */
+.scroll-sentinel {
+  height: 1px;
+  width: 100%;
+  pointer-events: none;
+  visibility: hidden;
+}
+
+/* --- Mobile: single column, no sticky --- */
+@media (max-width: 900px) {
+  .split-layout {
+    display: block;
+  }
+
+  .content-column,
+  .map-column {
+    display: block;
+    position: static;
+    height: auto;
+  }
+
+  .map-column {
+    margin-top: 0.6rem;
+  }
+
+  .map-column .panel {
+    height: auto;
+  }
+
+  .map-column #map {
+    min-height: 400px;
+    height: 50vh;
+  }
+}
+
+/* ═══════════════════════════════════════
    AI Concierge Chat Widget
    ═══════════════════════════════════════ */
 

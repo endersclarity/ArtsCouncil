@@ -23,11 +23,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="index-maplibre-hero-intent.css">
 <link rel="stylesheet" href="index-maplibre-hero-intent-stitch-frontend-design-pass.css">
-<script defer src="https://cloud.umami.is/script.js" data-website-id="YOUR_WEBSITE_ID_HERE" data-domains="cultural-map-redesign-stitch-lab.vercel.app"></script>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="14ecf234-cd96-4e6c-91c2-cc27babc095d" data-domains="cultural-map-redesign-stitch-lab.vercel.app"></script>
 </head>
 <body class="theme-intent">
 
-<main class="wrap">
+<main class="wrap adaptive-layout map-zone--hero">
 
 <!-- ====== 1. DARK NAVY MAST BAR ====== -->
 <header class="mast mast--intent" role="banner">
@@ -41,6 +41,15 @@
   </div>
   <div class="edition">Culture &middot; Discovery &middot; 2026</div>
 </header>
+
+<!-- ====== ADAPTIVE SPLIT LAYOUT ====== -->
+<div class="split-layout">
+
+<!-- ====== LEFT: Content Column ====== -->
+<div class="content-column">
+
+<!-- Sentinel: hero zone -->
+<div class="scroll-sentinel" data-map-zone="hero" aria-hidden="true"></div>
 
 <!-- ====== 2. COVER GRID: Hero image + TOC / Discovery ====== -->
 <section class="cover-grid" aria-label="Cover and navigation">
@@ -113,9 +122,81 @@
   <div id="itineraryHeroCards" class="itinerary-hero-cards"></div>
 </section>
 
-<!-- ====== 3. SPREAD: Map panel + Story cards stack ====== -->
+<!-- Sentinel: editorial zone -->
+<div class="scroll-sentinel" data-map-zone="editorial" aria-hidden="true"></div>
+
+<!-- ====== 3. SPREAD: Story cards (editorial + events) ====== -->
 <section class="spread" id="mapSection" aria-label="Map and editorial modules">
-  <!-- Left: Map panel -->
+  <aside class="stack">
+    <!-- Editorial stories -->
+    <article class="story-card story-card--editorial">
+      <div class="map-rail-intent map-rail-intent-editorials">
+        <div class="map-rail-intent-head">
+          <div class="intent-editorial-rail-eyebrow">from MUSE '26 | Issue 03</div>
+          <h3 class="section-header">Featured Narratives</h3>
+        </div>
+        <div class="intent-editorial-rail-list" id="intentEditorialRailList"></div>
+      </div>
+    </article>
+
+    <!-- Events -->
+    <article class="story-card story-card--events">
+      <div class="map-rail-intent map-rail-intent-events">
+        <div class="map-rail-intent-head">
+          <h3 class="section-header">Upcoming Events</h3>
+        </div>
+        <div class="map-events" id="mapEvents">
+          <details class="map-subaddon map-events-details" id="mapEventsDetails" open>
+            <summary>
+              <h3 class="section-header">Upcoming Events</h3>
+              <span class="map-addon-summary-right">
+                <span class="map-addon-count" id="mapEventsCount">0 events</span>
+                <span class="map-addon-caret">&#9662;</span>
+              </span>
+            </summary>
+            <div class="map-addon-body">
+              <div class="map-events-header">
+                <h3 class="map-events-title">Now and next</h3>
+                <span class="map-events-count" id="mapEventsScope">All categories</span>
+              </div>
+              <div class="map-events-filters" id="mapEventsFilters">
+                <button class="map-events-chip active" type="button" data-event-filter="all">All</button>
+                <button class="map-events-chip" type="button" data-event-filter="today">Today</button>
+                <button class="map-events-chip" type="button" data-event-filter="weekend">Weekend</button>
+                <button class="map-events-chip" type="button" data-event-filter="14d">2 Weeks</button>
+                <button class="map-events-chip" type="button" data-event-filter="family">Family & Kids</button>
+              </div>
+              <div class="map-events-category-row">
+                <label class="map-events-category-label" for="mapEventsCategory">Category</label>
+                <select id="mapEventsCategory" class="map-events-category-select" aria-label="Filter events by category">
+                  <option value="all">All categories</option>
+                </select>
+              </div>
+              <div class="map-events-carousel">
+                <button class="map-events-nav" id="mapEventsPrev" type="button" aria-label="Previous spotlight cards">&#9664;</button>
+                <div class="map-events-list" id="mapEventsList"></div>
+                <button class="map-events-nav" id="mapEventsNext" type="button" aria-label="Next spotlight cards">&#9654;</button>
+              </div>
+              <div class="map-events-page" id="mapEventsPage">Page 1 / 1</div>
+              <div class="map-events-all">
+                <div class="map-events-all-head">All upcoming events</div>
+                <div class="map-events-all-list" id="mapEventsAllList"></div>
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+    </article>
+  </aside>
+</section>
+
+<!-- Sentinel: map/expanded zone -->
+<div class="scroll-sentinel" data-map-zone="expanded" aria-hidden="true"></div>
+
+</div><!-- /content-column -->
+
+<!-- ====== RIGHT: Map Column (sticky) ====== -->
+<div class="map-column">
   <div class="panel">
     <div class="map-panel-head">
       <h2 class="map-panel-title">Cultural Asset Map</h2>
@@ -188,70 +269,9 @@
       </details>
     </div>
   </div>
+</div><!-- /map-column -->
 
-  <!-- Right: Story cards stack -->
-  <aside class="stack">
-    <!-- Editorial stories -->
-    <article class="story-card story-card--editorial">
-      <div class="map-rail-intent map-rail-intent-editorials">
-        <div class="map-rail-intent-head">
-          <div class="intent-editorial-rail-eyebrow">from MUSE '26 | Issue 03</div>
-          <h3 class="section-header">Featured Narratives</h3>
-        </div>
-        <div class="intent-editorial-rail-list" id="intentEditorialRailList"></div>
-      </div>
-    </article>
-
-    <!-- Events -->
-    <article class="story-card story-card--events">
-      <div class="map-rail-intent map-rail-intent-events">
-        <div class="map-rail-intent-head">
-          <h3 class="section-header">Upcoming Events</h3>
-        </div>
-        <div class="map-events" id="mapEvents">
-          <details class="map-subaddon map-events-details" id="mapEventsDetails" open>
-            <summary>
-              <h3 class="section-header">Upcoming Events</h3>
-              <span class="map-addon-summary-right">
-                <span class="map-addon-count" id="mapEventsCount">0 events</span>
-                <span class="map-addon-caret">&#9662;</span>
-              </span>
-            </summary>
-            <div class="map-addon-body">
-              <div class="map-events-header">
-                <h3 class="map-events-title">Now and next</h3>
-                <span class="map-events-count" id="mapEventsScope">All categories</span>
-              </div>
-              <div class="map-events-filters" id="mapEventsFilters">
-                <button class="map-events-chip active" type="button" data-event-filter="all">All</button>
-                <button class="map-events-chip" type="button" data-event-filter="today">Today</button>
-                <button class="map-events-chip" type="button" data-event-filter="weekend">Weekend</button>
-                <button class="map-events-chip" type="button" data-event-filter="14d">2 Weeks</button>
-                <button class="map-events-chip" type="button" data-event-filter="family">Family & Kids</button>
-              </div>
-              <div class="map-events-category-row">
-                <label class="map-events-category-label" for="mapEventsCategory">Category</label>
-                <select id="mapEventsCategory" class="map-events-category-select" aria-label="Filter events by category">
-                  <option value="all">All categories</option>
-                </select>
-              </div>
-              <div class="map-events-carousel">
-                <button class="map-events-nav" id="mapEventsPrev" type="button" aria-label="Previous spotlight cards">&#9664;</button>
-                <div class="map-events-list" id="mapEventsList"></div>
-                <button class="map-events-nav" id="mapEventsNext" type="button" aria-label="Next spotlight cards">&#9654;</button>
-              </div>
-              <div class="map-events-page" id="mapEventsPage">Page 1 / 1</div>
-              <div class="map-events-all">
-                <div class="map-events-all-head">All upcoming events</div>
-                <div class="map-events-all-list" id="mapEventsAllList"></div>
-              </div>
-            </div>
-          </details>
-        </div>
-      </div>
-    </article>
-  </aside>
-</section>
+</div><!-- /split-layout -->
 
 </main>
 
@@ -452,6 +472,7 @@
 <script src="index-maplibre-detail-view.js"></script>
 <script src="index-maplibre-detail-controller.js"></script>
 <script src="index-maplibre-page-effects.js"></script>
+<script src="index-maplibre-map-scroll-observer.js"></script>
 <script src="index-maplibre-bindings.js"></script>
 <script src="index-maplibre-chat-view.js"></script>
 <script src="index-maplibre-chat-controller.js"></script>
