@@ -3,8 +3,8 @@
     "slug": "gold-rush-heritage",
     "type": "experience",
     "title": "Gold Rush Heritage Trail",
-    "subtitle": "From Empire Mine to Malakoff Diggins",
-    "description": "Follow the story of gold through Nevada County. From the deepest mines to the largest hydraulic diggings, each stop connects to the next through 170 years of history.",
+    "subtitle": "Empire Mine to Malakoff Diggins -- 170 years of Nevada County history",
+    "description": "Empire Mine, Miners Foundry, Nevada Theatre, Malakoff Diggins -- each stop on this trail connects to the next through 170 years of gold, engineering, and reinvention. You start at the deepest hard-rock mine in California and end at the largest hydraulic diggings in the world. The story between them built these towns.",
     "color": "#c8943e",
     "theme": {
       "basemap": "terrain",
@@ -20,49 +20,49 @@
       {
         "asset": "Empire Mine",
         "order": 1,
-        "note": "One of the oldest, deepest, richest gold mines in California. 367 miles of underground tunnels produced over $120M in gold from 1850 to 1957.",
+        "note": "Empire Mine -- the oldest, deepest, and richest hard-rock gold mine in California. 367 miles of underground tunnels produced over $120 million in gold from 1850 to 1957.",
         "connector": "The mine's superintendent needed a home befitting the operation's grandeur..."
       },
       {
         "asset": "North Star House",
         "order": 2,
-        "note": "1905 mansion designed by Julia Morgan for mine superintendent A.D. Foote.",
-        "connector": "Foote's greatest engineering feat wasn't the house - it was the powerhouse below..."
+        "note": "North Star House is a 1905 mansion designed by Julia Morgan for mine superintendent A.D. Foote. Through it, Julia Morgan's legacy endures.",
+        "connector": "Foote's greatest engineering feat wasn't the house -- it was the powerhouse below..."
       },
       {
         "asset": "North Star Mine Powerhouse",
         "order": 3,
-        "note": "World's largest Pelton wheel, 30 feet in diameter. Built by Foote in 1895, the first complete water-powered compressed air plant of its kind.",
+        "note": "North Star Mine Powerhouse holds the world's largest Pelton wheel -- 30 feet in diameter. Foote built it in 1895 as the first complete water-powered compressed air plant of its kind.",
         "connector": "The Pelton wheel was invented just up the road..."
       },
       {
         "asset": "Miners Foundry",
         "order": 4,
-        "note": "Founded 1856. The Pelton waterwheel was developed and manufactured here in 1878. The double-cupped bucket design revolutionized water power worldwide.",
-        "connector": "Next door, the oldest theatre on the West Coast..."
+        "note": "Miners Foundry, founded 1856, is where the Pelton waterwheel was developed and manufactured in 1878. The double-cupped bucket design revolutionized water power worldwide.",
+        "connector": "Next door stands the oldest theater on the West Coast..."
       },
       {
         "asset": "Nevada Theatre",
         "order": 5,
-        "note": "Opened September 11, 1865. Mark Twain, Emma Nevada, and Jack London all performed here. Still operating after 160 years.",
+        "note": "Nevada Theatre opened September 11, 1865. Mark Twain, Emma Nevada, and Jack London all performed here. Still operating after 160 years.",
         "connector": "West of the Gold Country towns, a republic once stood..."
       },
       {
         "asset": "Rough and Ready",
         "order": 6,
-        "note": "Founded 1849. In 1850, the town seceded from the United States to form the Great Republic of Rough and Ready. The rebellion lasted less than three months.",
+        "note": "Rough and Ready, founded 1849. In 1850 the town seceded from the United States to form the Great Republic of Rough and Ready. The rebellion lasted less than three months.",
         "connector": "North into the Ridge, miners built a school for their children..."
       },
       {
         "asset": "North Columbia Schoolhouse",
         "order": 7,
-        "note": "Built by miners in 1875 on the San Juan Ridge. Now hosts artists, film screenings, poetry readings, and the Sierra Storytelling Festival.",
-        "connector": "Further into the ridge, the scars of ambition..."
+        "note": "North Columbia Schoolhouse was built by miners in 1875 on the San Juan Ridge. Today it hosts artists, film screenings, poetry readings, and the Sierra Storytelling Festival.",
+        "connector": "Further into the Ridge, the scars of ambition..."
       },
       {
         "asset": "Malakoff Diggins",
         "order": 8,
-        "note": "The world's largest hydraulic gold mining operation. High-pressure water cannons carved away entire mountainsides, leading to one of America's first environmental protection laws."
+        "note": "Malakoff Diggins -- the world's largest hydraulic gold mining operation. High-pressure water cannons carved away entire mountainsides, leading to one of America's first environmental protection laws."
       }
     ]
   },
@@ -70,8 +70,8 @@
     "slug": "highway-40-overland",
     "type": "corridor",
     "title": "Highway 40: The Overland Trail",
-    "subtitle": "Donner Summit to Truckee's Commercial Row",
-    "description": "The most storied mountain crossing in American history. Emigrants, railroads, and highways all funneled through this pass. Every mile holds a monument to someone who tried to get over the Sierra.",
+    "subtitle": "Donner Summit to Truckee's Commercial Row -- emigrants, railroads, and the pass that shaped a nation",
+    "description": "The most storied mountain crossing in American history. Washoe petroglyphs over a thousand years old, the Stephens-Townsend-Murphy party's first wagons in 1844, the Donner Party's fatal winter of 1846, and the transcontinental railroad that finally tamed the pass -- every mile holds a monument. You drive it in an hour. They spent months.",
     "color": "#5b8a72",
     "theme": {
       "basemap": "terrain",
@@ -87,31 +87,31 @@
       {
         "asset": "China Wall at Donner Summit",
         "order": 1,
-        "note": "Retaining walls built by Chinese railroad workers in the 1860s. Hand-cut granite, still standing after 160 years of Sierra winters.",
+        "note": "China Wall at Donner Summit -- retaining walls built by Chinese railroad workers in the 1860s. Hand-cut granite, still standing after 160 years of Sierra winters.",
         "connector": "Just below the wall, the earliest travelers left their mark..."
       },
       {
         "asset": "Donner Summit",
         "order": 2,
-        "note": "The Donner Summit Bridge and nearby petroglyphs — some carved over 1,000 years ago by the Washoe people. The oldest human traces at the pass.",
+        "note": "Donner Summit Bridge and the nearby petroglyphs -- some carved over 1,000 years ago by the Washoe people. The oldest human traces at the pass.",
         "connector": "The first wagons crossed here in 1844, a year before the Donner Party..."
       },
       {
         "asset": "First Wagons Across the Sierra",
         "order": 3,
-        "note": "The Stephens-Townsend-Murphy party crossed here in November 1844 — the first wagons over the Sierra Nevada. They made it. The party that followed them did not.",
+        "note": "The Stephens-Townsend-Murphy party crossed here in November 1844 -- the first wagons over the Sierra Nevada. They made it. The party that followed them did not.",
         "connector": "A mile below the pass, the story turns dark..."
       },
       {
         "asset": "Donner Memorial State Park",
         "order": 4,
-        "note": "The Donner Party was stranded here through the winter of 1846-47. Of 87 emigrants, 48 survived. The 22-foot Pioneer Monument marks the depth of that winter's snow.",
+        "note": "Donner Memorial State Park marks where the Donner Party was stranded through the winter of 1846-47. Of 87 emigrants, 48 survived. The 22-foot Pioneer Monument marks the depth of that winter's snow.",
         "connector": "The museum at the park tells the full story..."
       },
       {
         "asset": "Emigrant Trail Museum",
         "order": 5,
-        "note": "Inside Donner Memorial State Park. Chronicles the full arc of Sierra emigration — Washoe, wagon trains, railroad, and highway.",
+        "note": "Emigrant Trail Museum chronicles the full arc of Sierra emigration -- Washoe, wagon trains, railroad, and highway. Inside Donner Memorial State Park.",
         "connector": "The railroad that finally tamed the pass ran straight through town..."
       },
       {
@@ -123,7 +123,7 @@
       {
         "asset": "Commercial Row",
         "order": 7,
-        "note": "Truckee's Brickelltown Historic District. Built in the 1870s after fire leveled the wooden originals. The saloons, hotels, and shops that served the railroad era."
+        "note": "Commercial Row -- Truckee's Brickelltown Historic District. Built in the 1870s after fire leveled the wooden originals. The saloons, hotels, and shops that served the railroad era still line the street."
       }
     ]
   },
@@ -131,8 +131,8 @@
     "slug": "highway-20-yuba-divide",
     "type": "corridor",
     "title": "Highway 20: The Yuba Divide",
-    "subtitle": "Nevada City to the Town of Washington",
-    "description": "East from Nevada City, Highway 20 climbs into increasingly wild country. Gold towns gave way to timber camps, then to near-ghost towns clinging to the canyon walls of the South Yuba River.",
+    "subtitle": "Nevada City to the Town of Washington -- gold towns, ghost towns, and the South Yuba canyon",
+    "description": "East from Nevada City, Highway 20 climbs into increasingly wild country. Gold towns gave way to timber camps, then to near-ghost towns clinging to the canyon walls of the South Yuba River. Bridgeport Covered Bridge, Nisenan grinding rocks, the North Columbia Schoolhouse, and the Washington Hotel -- each stop marks a layer of history the highway just drives over.",
     "color": "#6b4e71",
     "theme": {
       "basemap": "terrain",
@@ -148,37 +148,37 @@
       {
         "asset": "South Yuba Canal",
         "order": 1,
-        "note": "The South Yuba Canal Company office in Nevada City. Built 1855. The canal system delivered water to hydraulic mines across the county — 700 miles of ditches carved into the Sierra.",
+        "note": "South Yuba Canal Company office in Nevada City, built 1855. The canal system delivered water to hydraulic mines across the county -- 700 miles of ditches carved into the Sierra.",
         "connector": "The water they channeled powered the mines, but it also destroyed..."
       },
       {
         "asset": "Bridgeport Covered Bridge",
         "order": 2,
-        "note": "The longest single-span covered bridge in the world when built in 1862. 233 feet across the South Yuba River. Still standing.",
+        "note": "Bridgeport Covered Bridge -- the longest single-span covered bridge in the world when built in 1862. 233 feet across the South Yuba River. Still standing.",
         "connector": "Past the bridge, the road narrows and the canyon deepens..."
       },
       {
         "asset": "Indian Grinding Rock",
         "order": 3,
-        "note": "Bedrock mortar holes used by the Nisenan people for thousands of years before the Gold Rush. A reminder that this land was home long before it was a highway.",
+        "note": "Indian Grinding Rock -- bedrock mortar holes used by the Nisenan people for thousands of years before the Gold Rush. A reminder that this land was home long before it was a highway.",
         "connector": "The Nisenan traded along these same ridgelines..."
       },
       {
         "asset": "North Columbia Schoolhouse",
         "order": 4,
-        "note": "Built 1875 on the San Juan Ridge. The miners' children learned to read here. Now it's the cultural heart of the Ridge — poetry, film, storytelling.",
+        "note": "North Columbia Schoolhouse, built 1875 on the San Juan Ridge. The miners' children learned to read here. Now it's the cultural heart of the Ridge -- poetry, film, storytelling.",
         "connector": "Further east, the towns get smaller and the history gets stranger..."
       },
       {
         "asset": "Town of Washington",
         "order": 5,
-        "note": "Population: handful. Founded during the Gold Rush, nearly abandoned, then reborn as a quiet outpost. The Washington Hotel has been serving travelers since the 1850s.",
+        "note": "Town of Washington -- population: handful. Founded during the Gold Rush, nearly abandoned, then reborn as a quiet outpost on the South Yuba.",
         "connector": "The hotel is the town's anchor..."
       },
       {
         "asset": "Washington Hotel",
         "order": 6,
-        "note": "One of California's oldest continuously operating hotels. Wedged into the South Yuba canyon, it's the last stop before the road drops into the river gorge."
+        "note": "Washington Hotel -- one of California's oldest continuously operating hotels. Wedged into the South Yuba canyon, it's the last stop before the road drops into the gorge."
       }
     ]
   },
@@ -186,8 +186,8 @@
     "slug": "highway-49-arts-trail",
     "type": "corridor",
     "title": "Highway 49: The Arts Trail",
-    "subtitle": "Grass Valley to Nevada City's Creative Core",
-    "description": "Highway 49 connects two towns that transformed from mining camps into one of California's densest concentrations of working artists, theaters, and galleries. The gold is gone. What replaced it is better.",
+    "subtitle": "Center for the Arts to Onyx Theater -- Grass Valley and Nevada City's creative corridor",
+    "description": "Highway 49 connects two towns that transformed from mining camps into one of California's densest concentrations of working artists, theaters, and galleries. Center for the Arts, Miners Foundry, Nevada Theatre, Off Broadstreet, Elixart, Onyx Theater -- more live performance per square foot than anywhere in the Northern Sierra. The gold is gone. What replaced it is better.",
     "color": "#2a6496",
     "theme": {
       "basemap": "terrain",
@@ -203,43 +203,43 @@
       {
         "asset": "Center for the Arts",
         "order": 1,
-        "note": "Grass Valley's anchor arts venue. Gallery, stage, and the hub of the Fall Colors Open Studio Tour that opens 100+ artist studios across the county each October.",
-        "connector": "A few blocks north, the town's oldest building found new purpose..."
+        "note": "Center for the Arts -- Grass Valley's anchor arts venue. Gallery, stage, and the hub of the Fall Colors Open Studio Tour that opens 100-plus artist studios across the county each October.",
+        "connector": "A few blocks north on Spring Street, the town's oldest building found new purpose..."
       },
       {
         "asset": "Miners Foundry",
         "order": 2,
-        "note": "A 19th-century industrial foundry reborn as a cultural center. Concerts, theater, festivals, weddings. The building where they forged Pelton wheels now forges community.",
+        "note": "Miners Foundry -- a 19th-century industrial foundry reborn as a cultural center. Concerts, theater, festivals. The building where they forged Pelton wheels now forges community.",
         "connector": "Right next door, Mark Twain once took the stage..."
       },
       {
         "asset": "Nevada Theatre",
         "order": 3,
-        "note": "The oldest original-use theater building in California. Home to the Nevada City Film Festival, Wild & Scenic Film Festival, and more live performance per square foot than anywhere in the Sierra.",
+        "note": "Nevada Theatre -- the oldest original-use theater building in California. Home to the Nevada City Film Festival, Wild & Scenic Film Festival, and more live performance per square foot than anywhere in the Sierra.",
         "connector": "Across the street, another stage..."
       },
       {
         "asset": "Off Broadstreet",
         "order": 4,
-        "note": "Intimate black-box theater producing original plays, comedy, and community theater since 1980. Nevada City's living room stage.",
-        "connector": "Up Broad Street, the town's history is on display..."
+        "note": "Off Broadstreet -- intimate black-box theater producing original plays, comedy, and community theater since 1980. Nevada City's living room stage.",
+        "connector": "Down the hill toward Commercial Street..."
       },
       {
         "asset": "Firehouse No.1",
         "order": 5,
-        "note": "Nevada City's 1861 firehouse, now a museum housing Donner Party artifacts, Nisenan baskets, and rotating exhibits on local history and art.",
-        "connector": "Down the hill, the filmmakers and the bartenders share a wall..."
+        "note": "Firehouse No. 1 -- Nevada City's 1861 firehouse, now a museum housing Donner Party artifacts, Nisenan baskets, and rotating exhibits on local history and art.",
+        "connector": "Further down the hill, the filmmakers and the bartenders share a wall..."
       },
       {
         "asset": "Elixart",
         "order": 6,
-        "note": "Herbal lounge, gallery, and performance space. Live music, open mic, art shows, and craft mocktails. Nevada City's answer to the question: what if a gallery served kava?",
-        "connector": "Further south, a different kind of theater..."
+        "note": "Elixart -- herbal lounge, gallery, and performance space. Live music, open mic, art shows, and craft mocktails. What happens when a gallery serves kava.",
+        "connector": "Further south on Broad Street..."
       },
       {
         "asset": "Onyx Theater",
         "order": 7,
-        "note": "Small-batch cinema. Independent and art-house films in an intimate setting. The kind of theater where the projectionist knows your name."
+        "note": "Onyx Theater -- independent and art-house films in an intimate setting. The kind of theater where the projectionist knows your name."
       }
     ]
   },
@@ -247,50 +247,50 @@
     "slug": "poetry-performance-circuit",
     "type": "experience",
     "title": "Poetry & Performance Circuit",
-    "subtitle": "Where Nevada County Goes to Listen",
-    "description": "Spoken word, live theater, film festivals, and a poetry festival that draws writers from across the West. Nevada County has more performance venues per capita than most cities ten times its size.",
+    "subtitle": "Nevada Theatre to Word After Word -- where Nevada County goes to listen",
+    "description": "Spoken word, live theater, film festivals, and a poetry festival that draws writers from across the West. Nevada Theatre, Miners Foundry, Off Broadstreet, Elixart, the Sierra Poetry Festival, North Columbia Schoolhouse, and Word After Word in Truckee -- more performance venues per capita than most cities ten times this size.",
     "color": "#8b2500",
     "stops": [
       {
         "asset": "Nevada Theatre",
         "order": 1,
-        "note": "The oldest theater in California. Mark Twain performed here in 1866. The Wild & Scenic Environmental Film Festival fills it every January.",
+        "note": "Nevada Theatre -- California's oldest theater. Mark Twain performed here in 1866. The Wild & Scenic Environmental Film Festival fills it every January.",
         "connector": "The tradition of live performance spread next door..."
       },
       {
         "asset": "Miners Foundry",
         "order": 2,
-        "note": "From industrial forge to cultural forge. The main stage hosts Music in the Mountains, the Artisans Festival, and hundreds of concerts a year.",
+        "note": "Miners Foundry -- from industrial forge to cultural forge. The main stage hosts Music in the Mountains, the Artisans Festival, and hundreds of concerts a year.",
         "connector": "Across town, the intimate stages..."
       },
       {
         "asset": "Off Broadstreet",
         "order": 3,
-        "note": "Community theater at its best. Original productions, improv nights, and the kind of scrappy creativity that only happens in a 99-seat house.",
-        "connector": "Down the hill, poetry and kava..."
+        "note": "Off Broadstreet -- community theater at its best. Original productions, improv nights, and the kind of scrappy creativity that only happens in a 99-seat house.",
+        "connector": "Down the hill toward Commercial Street..."
       },
       {
         "asset": "Elixart",
         "order": 4,
-        "note": "Open mic nights, poetry slams, and acoustic sets in an herbal lounge. The unofficial living room of Nevada City's spoken-word scene.",
+        "note": "Elixart -- open mic nights, poetry slams, and acoustic sets in an herbal lounge. The unofficial living room of Nevada City's spoken-word scene.",
         "connector": "The festival that ties it all together..."
       },
       {
         "asset": "Sierra Poetry",
         "order": 5,
-        "note": "The Sierra Poetry Festival — drawing poets from across the western states. Workshops, readings, and the kind of deep attention that poetry demands.",
-        "connector": "Up on the Ridge, the oldest venue of them all..."
+        "note": "Sierra Poetry Festival draws poets from across the western states. Workshops, readings, and the kind of deep attention that poetry demands.",
+        "connector": "Up on the San Juan Ridge, the oldest venue of them all..."
       },
       {
         "asset": "North Columbia Schoolhouse",
         "order": 6,
-        "note": "The Sierra Storytelling Festival happens here. Built by miners in 1875, now the most unlikely and perfect poetry venue in the county.",
+        "note": "North Columbia Schoolhouse hosts the Sierra Storytelling Festival. Built by miners in 1875, now the most unlikely and perfect poetry venue in the county.",
         "connector": "Across the summit, Truckee has its own literary outpost..."
       },
       {
         "asset": "Word after Word",
         "order": 7,
-        "note": "Truckee's independent bookstore and performance space. Author readings, book clubs, and community gatherings. Proof that the literary spirit crosses the Donner Pass."
+        "note": "Word After Word -- Truckee's independent bookstore and performance space. Author readings, book clubs, community gatherings. The literary spirit crosses Donner Pass."
       }
     ]
   },
@@ -298,8 +298,8 @@
     "slug": "victorian-downtown-heritage",
     "type": "experience",
     "title": "Victorian Downtown Heritage",
-    "subtitle": "Gold Rush Architecture & Historic Districts",
-    "description": "Walk through the grand Victorian era of Grass Valley and Nevada City. From opulent mansions to historic hotels, each building tells the story of Gold Rush wealth reinvested in community.",
+    "subtitle": "The Holbrooke to Firehouse No. 1 -- Gold Rush architecture still standing",
+    "description": "Grass Valley and Nevada City built their downtowns during the richest years of the Gold Rush. The Holbrooke Hotel, the National Exchange, Firehouse No. 1, the Center for the Arts -- these Victorian buildings still operate, still welcome visitors, still tell the story of gold wealth reinvested in community. You walk the same streets the miners walked. The buildings are better kept.",
     "color": "#8B4049",
     "theme": {
       "basemap": "terrain",
@@ -315,61 +315,61 @@
       {
         "asset": "A Victorian Rose",
         "order": 1,
-        "note": "An 1891 Victorian mansion, meticulously restored. Built during the height of Gold Rush prosperity, this Queen Anne home embodies the optimism of a boom town.",
-        "connector": "A few blocks away, another Victorian treasure welcomes travelers..."
+        "note": "A Victorian Rose -- an 1891 Queen Anne mansion, meticulously restored. Built during the height of Gold Rush prosperity in Grass Valley.",
+        "connector": "A few blocks away on Church Street..."
       },
       {
         "asset": "Lamb's Victorian Inn",
         "order": 2,
-        "note": "A Victorian-era guest inn at 304 Church Street. The kind of place where you half-expect to see horse-drawn carriages out front.",
-        "connector": "Downtown, a hotel has been welcoming visitors since 1851..."
+        "note": "Lamb's Victorian Inn at 304 Church Street -- a Victorian-era guest inn where the architecture is the amenity.",
+        "connector": "Downtown on Main Street, a hotel has been welcoming guests since 1862..."
       },
       {
         "asset": "The Holbrooke Hotel",
         "order": 3,
-        "note": "The oldest continuously operating hotel in California's Mother Lode. Mark Twain, Ulysses S. Grant, and four U.S. presidents have stayed here.",
-        "connector": "Across the county, Nevada City's own historic hotel stands..."
+        "note": "The Holbrooke Hotel -- the oldest continuously operating hotel in California's Mother Lode. Mark Twain, Ulysses S. Grant, and four U.S. presidents have stayed here.",
+        "connector": "Four miles east, Nevada City's own historic hotel stands on Broad Street..."
       },
       {
         "asset": "National Exchange Hotel",
         "order": 4,
-        "note": "Built in 1856 at 211 Broad Street. Nevada City's answer to The Holbrooke — still serving travelers after 170 years.",
-        "connector": "The preservation of these stories is no accident..."
+        "note": "National Exchange Hotel, built 1856 at 211 Broad Street. Nevada City's answer to the Holbrooke -- still receiving travelers after 170 years.",
+        "connector": "The preservation of these buildings is no accident..."
       },
       {
         "asset": "Searls Historical Library",
         "order": 5,
-        "note": "Nevada County Historical Society's archives. Over 160,000 photographs, documents, and artifacts preserving the region's Victorian heritage.",
-        "connector": "That preservation spirit lives on in community spaces..."
+        "note": "Searls Historical Library -- Nevada County Historical Society's archives. Over 160,000 photographs, documents, and artifacts preserving the region's Victorian heritage.",
+        "connector": "That preservation spirit lives on at the Center for the Arts..."
       },
       {
         "asset": "Center for the Arts",
         "order": 6,
-        "note": "Grass Valley's cultural hub at 314 West Main. A historic building transformed into gallery and performance space — Victorian bones, contemporary purpose.",
-        "connector": "Nevada City's oldest public building tells a different story..."
+        "note": "Center for the Arts at 314 West Main -- a historic Grass Valley building transformed into gallery and performance space. Victorian bones, contemporary purpose.",
+        "connector": "In Nevada City, the oldest public building tells a different story..."
       },
       {
         "asset": "Firehouse No.1",
         "order": 7,
-        "note": "Built in 1861 to protect the town's wooden Victorian buildings from fire. Now houses a museum of Donner Party artifacts and local history.",
+        "note": "Firehouse No. 1, built 1861 to protect the town's wooden Victorian buildings from fire. Now houses a museum of Donner Party artifacts and local history.",
         "connector": "The best way to see it all is on foot..."
       },
       {
         "asset": "Walking Tour of Historic Grass Valley: self guided and guided",
         "order": 8,
-        "note": "Self-guided or docent-led tours through Grass Valley's Victorian district. Every block holds another architectural gem.",
-        "connector": "Nevada City offers its own perspective..."
+        "note": "Walking Tour of Historic Grass Valley -- self-guided or docent-led through Grass Valley's Victorian district. Every block holds another story.",
+        "connector": "Nevada City offers its own walking perspective..."
       },
       {
         "asset": "Walking Tour of Nevada City Trees",
         "order": 9,
-        "note": "A walking tour that traces Nevada City's historic trees — many planted during the Victorian era, now towering witnesses to 150 years of history.",
+        "note": "Walking Tour of Nevada City Trees traces the town's historic trees -- many planted during the Victorian era, now towering witnesses to 150 years of growth.",
         "connector": "Even the shops reflect the era..."
       },
       {
         "asset": "Nevada City Picture Framing",
         "order": 10,
-        "note": "Located in Nevada City's historic Searls Avenue district. A small business in a Victorian storefront — commerce and preservation in harmony."
+        "note": "Nevada City Picture Framing -- a small business in a Victorian storefront on Searls Avenue. Commerce and preservation, side by side."
       }
     ]
   },
@@ -377,8 +377,8 @@
     "slug": "foothills-flavor-trail",
     "type": "experience",
     "title": "Foothills Flavor Trail",
-    "subtitle": "Wine Country & Farm-to-Table Dining",
-    "description": "Savor the Sierra foothills' culinary renaissance. Visit award-winning wineries, taste boutique vintages, and dine at restaurants showcasing local ingredients and old-world craftsmanship.",
+    "subtitle": "Lucchesi to Watershed -- estate vineyards and farm-to-table dining",
+    "description": "Lucchesi Vineyards, Sierra Starr, Nevada City Winery, Avanguardia, California Organics, Watershed -- the Sierra foothills' culinary renaissance runs from estate wineries to farm-to-table restaurants. The elevation grows the grapes. The chefs know the farmers. You taste the difference.",
     "color": "#D4A542",
     "theme": {
       "basemap": "terrain",
@@ -394,61 +394,61 @@
       {
         "asset": "Lucchesi Vineyards Winery",
         "order": 1,
-        "note": "Estate winery at 19698 View Forever Lane. Family-owned since 2001, producing Italian-style reds from Sierra foothill grapes.",
-        "connector": "Their downtown tasting room brings the vineyard to Main Street..."
+        "note": "Lucchesi Vineyards Winery at 19698 View Forever Lane -- family-owned since 2001, producing Italian-style reds from Sierra foothill grapes.",
+        "connector": "Their downtown tasting room brings the vineyard to Mill Street..."
       },
       {
         "asset": "Lucchesi Vineyards Tasting Room",
         "order": 2,
-        "note": "Downtown Grass Valley tasting room at 128 Mill Street. Taste the estate wines without driving to the vineyard.",
-        "connector": "Across town, another estate winery beckons..."
+        "note": "Lucchesi Vineyards Tasting Room at 128 Mill Street in downtown Grass Valley. Estate wines, no vineyard drive required.",
+        "connector": "Across town, another estate winery..."
       },
       {
         "asset": "Sierra Starr Vineyard & Winery (Winery)",
         "order": 3,
-        "note": "Estate winery at 11179 Gibson Drive. Small-batch vintages from hillside vineyards at 2,600 feet elevation.",
-        "connector": "They also have a downtown outpost..."
+        "note": "Sierra Starr Vineyard & Winery at 11179 Gibson Drive -- small-batch vintages from hillside vineyards at 2,600 feet elevation.",
+        "connector": "They also pour downtown..."
       },
       {
         "asset": "Sierra Starr Vineyard & Winery (Store)",
         "order": 4,
-        "note": "Downtown tasting room at 124 West Main. Sierra Starr's wines in the heart of historic Grass Valley.",
-        "connector": "Further into the hills, a boutique producer awaits..."
+        "note": "Sierra Starr Vineyard & Winery downtown tasting room at 124 West Main -- Sierra Starr's wines in the heart of historic Grass Valley.",
+        "connector": "Further into the hills..."
       },
       {
         "asset": "Sierra Knolls Winery",
         "order": 5,
-        "note": "Boutique winery at 10024 Linnet Lane. Intimate tastings, small production, hillside vineyards.",
-        "connector": "Nevada City has its own wine scene..."
+        "note": "Sierra Knolls Winery at 10024 Linnet Lane -- boutique production, intimate tastings, hillside vineyards.",
+        "connector": "Nevada City has its own wine scene on Spring Street..."
       },
       {
         "asset": "Nevada City Winery",
         "order": 6,
-        "note": "Downtown winery at 321 Spring Street. Nevada City's answer to Napa — minus the traffic, plus the Gold Rush charm.",
-        "connector": "For something truly unique, head to the hills..."
+        "note": "Nevada City Winery at 321 Spring Street -- estate-grown Sierra foothill wines in a downtown tasting room. The Cabernet Franc is the signature.",
+        "connector": "For something experimental, head to Jones Bar Road..."
       },
       {
         "asset": "Avanguardia Winery",
         "order": 7,
-        "note": "Ultra-boutique non-traditional blends at 13028 Jones Bar Road. Experimental winemaking in a historic barn. Small batches, big ideas.",
-        "connector": "They opened a downtown tasting room for easier access..."
+        "note": "Avanguardia Winery at 13028 Jones Bar Road -- non-traditional blends in a historic barn. Small batches, big ideas.",
+        "connector": "Their downtown tasting room makes it easier to try..."
       },
       {
         "asset": "Avanguardia Winery",
         "order": 8,
-        "note": "Downtown Grass Valley tasting room at 163 Mill Street. Taste the experimental vintages without the drive into the backcountry.",
+        "note": "Avanguardia Winery downtown tasting room at 163 Mill Street in Grass Valley. The experimental vintages without the backcountry drive.",
         "connector": "After the wine, the food..."
       },
       {
         "asset": "California Organics Restaurant & Gallery",
         "order": 9,
-        "note": "Farm-to-table dining at 135 Argall Way, Nevada City. Local ingredients, seasonal menus, and art on the walls. The foothills food philosophy in one room.",
-        "connector": "Grass Valley's culinary flagship..."
+        "note": "California Organics at 135 Argall Way, Nevada City -- farm-to-table dining with local ingredients, seasonal menus, and gallery walls. The foothills food philosophy in one room.",
+        "connector": "Grass Valley's culinary flagship on Mill Street..."
       },
       {
         "asset": "Watershed Restaurant",
         "order": 10,
-        "note": "Upscale dining at 134 Mill Street. The kind of meal that makes you forget you're in a Gold Rush town — then reminds you why that history matters."
+        "note": "Watershed Restaurant at 134 Mill Street -- upscale dining that respects the ingredients and the history of the building it sits in."
       }
     ]
   },
@@ -456,8 +456,8 @@
     "slug": "gallery-studio-loop",
     "type": "experience",
     "title": "Gallery & Studio Loop",
-    "subtitle": "Artist Studios & Creative Cooperatives",
-    "description": "Discover Nevada County's thriving independent art scene. Visit working studios, artist-run galleries, and creative cooperatives where painters, printmakers, and sculptors create and exhibit side by side.",
+    "subtitle": "Art Works Co-op to EJ Gallery -- where Nevada County artists make and show their work",
+    "description": "Art Works Gallery Co-op, Center for the Arts Gallery, Swan Levine House, Miners Foundry, The Camelot Gallery, EJ Gallery -- Nevada County's independent art scene runs on working studios, artist-run cooperatives, and gallery spaces where painters, printmakers, and sculptors create and exhibit side by side. You watch them work. You buy what they make.",
     "color": "#4B0082",
     "theme": {
       "basemap": "terrain",
@@ -473,70 +473,70 @@
       {
         "asset": "Art Works Gallery Co-op",
         "order": 1,
-        "note": "Artist cooperative at 113 Mill Street. Twenty-plus working artists sharing space, exhibiting together, and running the gallery themselves.",
-        "connector": "Nearby, the community's anchor arts venue..."
+        "note": "Art Works Gallery Co-op at 113 Mill Street -- twenty-plus working artists sharing space, exhibiting together, and running the gallery themselves.",
+        "connector": "A block west on Main Street, the community's anchor arts venue..."
       },
       {
         "asset": "Center for the Arts Gallery",
         "order": 2,
-        "note": "Gallery at the Center for the Arts, 314 West Main. Rotating exhibits, open studios, and the hub of the annual Fall Colors Open Studio Tour each October.",
+        "note": "Center for the Arts Gallery at 314 West Main -- rotating exhibits, open studios, and the hub of the annual Fall Colors Open Studio Tour each October.",
         "connector": "Out Idaho Maryland Road, a collective of studios..."
       },
       {
         "asset": "Artists Studio in the Foothills (ASIF)",
         "order": 3,
-        "note": "Artist studios collective at 940 Idaho Maryland Road. Working artists in shared space — watch them create, see works in progress.",
-        "connector": "Further up the road, art meets nature..."
+        "note": "Artists Studio in the Foothills (ASIF) at 940 Idaho Maryland Road -- working artists in shared space. You watch them create and see works in progress.",
+        "connector": "Further up Idaho Maryland Road..."
       },
       {
         "asset": "BriarPatch Art Gallery and Amphitheater",
         "order": 4,
-        "note": "Gallery with outdoor amphitheater at 290 Sierra College Drive. Art indoors, performances under the pines.",
-        "connector": "Back toward town, a contemporary gallery..."
+        "note": "BriarPatch Art Gallery and Amphitheater at 290 Sierra College Drive -- gallery art indoors, performances under the pines.",
+        "connector": "Back toward Idaho Maryland Road..."
       },
       {
         "asset": "Ellu Gallery",
         "order": 5,
-        "note": "Contemporary art gallery at 342 Idaho Maryland Road. Clean lines, modern works, Sierra light through big windows.",
-        "connector": "A working artist's home and studio..."
+        "note": "Ellu Gallery at 342 Idaho Maryland Road -- contemporary art, clean lines, and Sierra light through big windows.",
+        "connector": "On South Church Street, a working artist's home and studio..."
       },
       {
         "asset": "Swan Levine House & Printmaking Studio",
         "order": 6,
-        "note": "Artist studio and home at 328 South Church Street. A printmaking studio where the artist lives and works — art and life inseparable.",
-        "connector": "Another working studio south of town..."
+        "note": "Swan Levine House & Printmaking Studio at 328 South Church Street -- a printmaking studio where the artist lives and works. Art and life, inseparable.",
+        "connector": "South on Auburn Street, another working studio..."
       },
       {
         "asset": "The Artist Workshop",
         "order": 7,
-        "note": "Artist workspace at 760 South Auburn Street. A place where making happens — paint, clay, wood, metal.",
-        "connector": "In Nevada City, the historic foundry turned arts hub..."
+        "note": "The Artist Workshop at 760 South Auburn Street -- paint, clay, wood, metal. A place where making happens.",
+        "connector": "In Nevada City on Spring Street, the historic foundry turned arts hub..."
       },
       {
         "asset": "Miners Foundry Cultural Center",
         "order": 8,
-        "note": "Historic foundry turned cultural center at 325 Spring Street. Where they once forged Pelton wheels, artists now forge community.",
-        "connector": "Across the street, a fine arts gallery..."
+        "note": "Miners Foundry Cultural Center at 325 Spring Street -- the building where they once forged Pelton wheels. Artists now forge community here.",
+        "connector": "Across on Broad Street, fine arts..."
       },
       {
         "asset": "The Camelot Gallery",
         "order": 9,
-        "note": "Fine arts gallery at 225 Broad Street. Paintings, sculpture, and works that reflect the beauty of the Sierra foothills.",
-        "connector": "Further up Broad Street, contemporary voices..."
+        "note": "The Camelot Gallery at 225 Broad Street -- paintings, sculpture, and works that reflect the Sierra foothills.",
+        "connector": "Further up Broad Street..."
       },
       {
         "asset": "EJ Gallery",
         "order": 10,
-        "note": "Contemporary gallery at 408 Broad Street. Emerging artists, established names, and everything in between."
+        "note": "EJ Gallery at 408 Broad Street -- contemporary gallery showing emerging artists, established names, and everything in between."
       }
     ]
   },
   {
     "slug": "nature-trails-explorer",
     "type": "experience",
-    "title": "Nature & Trails Explorer",
-    "subtitle": "State Parks & Wilderness Trails",
-    "description": "Immerse yourself in pristine Sierra wilderness. From mountain passes to river valleys, explore state parks, historic trails, and scenic overlooks showcasing Nevada County's natural heritage.",
+    "title": "State Parks & Trail Networks",
+    "subtitle": "Donner Memorial to Condon Park -- Sierra wilderness and mining-era trails",
+    "description": "Donner Memorial State Park, Malakoff Diggins, Empire Mine, the South Yuba River, the Independence Trail -- Nevada County's trail network follows mining flumes, river canyons, and Sierra ridgelines. The history is underfoot. The Independence Trail follows an 1850s mining canal. Malakoff Diggins shows what hydraulic mining carved. Empire Mine hides 367 miles of tunnels below the forest floor.",
     "color": "#2E7D4E",
     "theme": {
       "basemap": "terrain",
@@ -552,61 +552,61 @@
       {
         "asset": "Donner Memorial State Park",
         "order": 1,
-        "note": "Historic park with trails at 12593 Donner Pass Road. Walk where the Donner Party camped through the winter of 1846-47. The 22-foot monument marks the snow depth.",
+        "note": "Donner Memorial State Park at 12593 Donner Pass Road -- trails where the Donner Party camped through the winter of 1846-47. The 22-foot Pioneer Monument marks the snow depth.",
         "connector": "South into the Ridge, hydraulic mining carved away mountains..."
       },
       {
         "asset": "Malakoff Diggins State Historic Park",
         "order": 2,
-        "note": "The world's largest hydraulic mining pit at 23579 North Bloomfield Road. Trails wind through rainbow-colored cliffs — beauty born from destruction.",
-        "connector": "Near Grass Valley, another kind of mine..."
+        "note": "Malakoff Diggins State Historic Park at 23579 North Bloomfield Road -- the world's largest hydraulic mining pit. Trails wind through rainbow-colored cliffs. Beauty born from destruction.",
+        "connector": "Near Grass Valley, another kind of mine trail..."
       },
       {
         "asset": "Empire Mine State Historic Park",
         "order": 3,
-        "note": "Historic gold mine with hiking trails at 10791 East Empire Street. 367 miles of tunnels below, miles of Sierra trails above.",
-        "connector": "Along the Yuba River, a different preserve..."
+        "note": "Empire Mine State Historic Park at 10791 East Empire Street -- 367 miles of tunnels below, miles of Sierra trails above. The Osborne Loop passes mine shafts and old-growth forest.",
+        "connector": "Along the South Yuba River..."
       },
       {
         "asset": "South Yuba River State Park",
         "order": 4,
-        "note": "River park with trails at 17660 Pleasant Valley Road. Swimming holes, covered bridges, and trails along the Wild and Scenic South Yuba River.",
+        "note": "South Yuba River State Park at 17660 Pleasant Valley Road -- swimming holes, the Bridgeport Covered Bridge, and trails along the Wild and Scenic South Yuba River.",
         "connector": "In Truckee, the river flows a different direction..."
       },
       {
         "asset": "Truckee River Regional Park",
         "order": 5,
-        "note": "Regional park with trails at 10050 Brockway Road. The Truckee River flows east from here — to Pyramid Lake, not the Pacific.",
+        "note": "Truckee River Regional Park at 10050 Brockway Road -- the Truckee River flows east from here toward Pyramid Lake, not the Pacific.",
         "connector": "The most accessible trail in the county..."
       },
       {
         "asset": "The Independence Trail",
         "order": 6,
-        "note": "Fully accessible paved trail at 20349 Highway 49. Following an 1850s mining canal, it's one of the most beautiful wheelchair-accessible trails in California.",
-        "connector": "Higher in the mountains, a lake and trails..."
+        "note": "The Independence Trail at 20349 Highway 49 -- fully accessible paved trail following an 1850s mining canal. One of the most scenic wheelchair-accessible trails in California.",
+        "connector": "Higher in the mountains, a lake and pine forest trails..."
       },
       {
         "asset": "Scotts Flat Lake and Trails",
         "order": 7,
-        "note": "Lake with recreational trails at 23333 Scotts Flat Road. Swimming, fishing, camping, and trails through pine forest at 3,100 feet elevation.",
-        "connector": "For something more contemplative, gardens await..."
+        "note": "Scotts Flat Lake and Trails at 23333 Scotts Flat Road -- swimming, fishing, camping, and trails through pine forest at 3,100 feet elevation.",
+        "connector": "For something more contemplative, gardens on Tyler Foote Road..."
       },
       {
         "asset": "Ananda Village: Crystal Hermitage Gardens",
         "order": 8,
-        "note": "Botanical gardens with trails at 14618 Tyler Foote Road. Meditation gardens, walking paths, and Sierra foothill native plants.",
-        "connector": "Back in Nevada City, a downtown park..."
+        "note": "Ananda Village: Crystal Hermitage Gardens at 14618 Tyler Foote Road -- meditation gardens, walking paths, and Sierra foothill native plants.",
+        "connector": "Back in Nevada City, a downtown park on Nimrod Street..."
       },
       {
         "asset": "Pioneer Park",
         "order": 9,
-        "note": "Downtown park with trails at 421 Nimrod Street. Where the townsfolk gather — picnics, concerts, and easy walking trails in the heart of town.",
-        "connector": "Grass Valley's own urban trail system..."
+        "note": "Pioneer Park at 421 Nimrod Street -- where Nevada City gathers. Picnics, summer concerts, and easy walking trails above downtown.",
+        "connector": "Grass Valley's own urban trail system on Minnie Street..."
       },
       {
         "asset": "Condon Park Trails",
         "order": 10,
-        "note": "Urban trails system at 660 Minnie Street. Miles of trails winding through Grass Valley neighborhoods — wilderness without leaving town."
+        "note": "Condon Park Trails at 660 Minnie Street -- miles of trails winding through Grass Valley neighborhoods. Sierra foothill wilderness without leaving town."
       }
     ]
   },
@@ -614,8 +614,8 @@
     "slug": "family-fun-day",
     "type": "experience",
     "title": "Family Fun Day",
-    "subtitle": "Museums, Parks & Kid-Friendly Adventures",
-    "description": "Perfect for adventurers of all ages. Explore hands-on museums, historic trains, scenic parks, and family dining. Create memories together while discovering Nevada County's heritage and natural wonders.",
+    "subtitle": "Emigrant Trail Museum to Summer Thyme's -- hands-on history and kid-friendly stops",
+    "description": "Emigrant Trail Museum, the Pelton Wheel Museum, the Narrow Gauge Railroad Museum, Center for the Arts, Kane's Family Restaurant -- Nevada County has the kind of places where kids learn something without realizing it. The 30-foot Pelton wheel still turns. The model trains wind through miniature Sierra landscapes. The cookies at Summer Thyme's are the size of a kid's face.",
     "color": "#FF8C42",
     "theme": {
       "basemap": "terrain",
@@ -631,61 +631,61 @@
       {
         "asset": "Emigrant Trail Museum",
         "order": 1,
-        "note": "Inside Donner Memorial State Park at 12953 Donner Pass Road. Interactive exhibits on the Donner Party and pioneer emigration. Kids love the artifacts.",
+        "note": "Emigrant Trail Museum inside Donner Memorial State Park at 12953 Donner Pass Road -- interactive exhibits on the Donner Party and pioneer emigration. Kids dig the artifacts.",
         "connector": "In Grass Valley, the world's largest Pelton wheel..."
       },
       {
         "asset": "North Star Power House & Pelton Wheel Museum",
         "order": 2,
-        "note": "Historic hydroelectric equipment at 933 Allison Ranch Road. The 30-foot Pelton wheel still turns — engineering marvel meets hands-on history.",
-        "connector": "Trains fascinate kids of all ages..."
+        "note": "North Star Power House & Pelton Wheel Museum at 933 Allison Ranch Road -- the 30-foot Pelton wheel still turns. Engineering marvel meets hands-on history.",
+        "connector": "Trains run next, at Kidder Court..."
       },
       {
         "asset": "Narrow Gauge Railroad Museum",
         "order": 3,
-        "note": "Historic railroad artifacts at 5 Kidder Court, Nevada City. Model trains, historic equipment, and the story of the narrow gauge that connected these mountains to the world.",
-        "connector": "In Truckee, more railroad history awaits..."
+        "note": "Narrow Gauge Railroad Museum at 5 Kidder Court, Nevada City -- model trains, historic equipment, and the story of the narrow gauge that connected these mountains to the world.",
+        "connector": "In Truckee, more railroad history on Jibboom Street..."
       },
       {
         "asset": "Old Jail Museum",
         "order": 4,
-        "note": "Historic jail with interactive exhibits at 10142 Jibboom Street, Truckee. Kids can see what frontier justice looked like — and be glad those days are gone.",
-        "connector": "Next door, model railroads in action..."
+        "note": "Old Jail Museum at 10142 Jibboom Street, Truckee -- interactive exhibits showing what frontier justice looked like. Kids can see the cells and be glad those days are over.",
+        "connector": "Next door on Donner Pass Road, model railroads..."
       },
       {
         "asset": "Truckee Railroad Museum",
         "order": 5,
-        "note": "Model railroads and exhibits at 10075 Donner Pass Road. Working model trains winding through miniature Sierra landscapes.",
+        "note": "Truckee Railroad Museum at 10075 Donner Pass Road -- working model trains winding through miniature Sierra landscapes. Mesmerizing at any age.",
         "connector": "Back in Grass Valley, tools tell another story..."
       },
       {
         "asset": "Grass Roots Antique Tool Museum",
         "order": 6,
-        "note": "The only antique tool museum in the western U.S. Kids see how things were built before power tools — and gain appreciation for their Xbox.",
-        "connector": "Cultural history meets family activities..."
+        "note": "Grass Roots Antique Tool Museum -- the only antique tool museum in the western U.S. Kids see how things were built before power tools existed.",
+        "connector": "At St. Joseph Cultural Center, family programs..."
       },
       {
         "asset": "St. Joseph Cultural Center",
         "order": 7,
-        "note": "Community cultural center with family programs and events. Check the calendar — there's usually something kid-friendly happening.",
-        "connector": "The Center for the Arts welcomes families..."
+        "note": "St. Joseph Cultural Center -- community programs and family-friendly events. Check the calendar for what's on.",
+        "connector": "Center for the Arts on West Main welcomes families..."
       },
       {
         "asset": "Center for the Arts",
         "order": 8,
-        "note": "At 314 West Main, Grass Valley. Gallery exhibits, performances, and family-friendly arts programs. Cultivating the next generation of artists.",
-        "connector": "After all that culture, refuel..."
+        "note": "Center for the Arts at 314 West Main, Grass Valley -- gallery exhibits, performances, and family-friendly arts programs. The next generation of artists starts here.",
+        "connector": "Time to refuel..."
       },
       {
         "asset": "Kane's Family Restaurant",
         "order": 9,
-        "note": "Family dining where kids are genuinely welcome. The kind of place with crayons on the table and patience at the counter.",
-        "connector": "For a sweet ending to the day..."
+        "note": "Kane's Family Restaurant -- family dining where kids are genuinely welcome. Crayons on the table, patience at the counter.",
+        "connector": "For a sweet finish..."
       },
       {
         "asset": "Summer Thyme's Bakery & Deli",
         "order": 10,
-        "note": "Bakery and deli perfect for families. Cookies the size of a kid's face, sandwiches to fuel the next adventure."
+        "note": "Summer Thyme's Bakery & Deli -- cookies the size of a kid's face, sandwiches for the next adventure."
       }
     ]
   }
