@@ -106,6 +106,20 @@
       document.getElementById('exploreSection').scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
 
+    var _searchTrackTimer = null;
+
+    function _trackSearch(query, resultCount) {
+      var analytics = window.CulturalMapAnalytics;
+      if (!analytics) return;
+      var q = (query || '').substring(0, 100);
+      if (q.length < 2) return;
+      if (resultCount === 0) {
+        analytics.track('search:zero', { query: q, zero_results: true });
+      } else {
+        analytics.track('search:query', { query: q, results: resultCount, zero_results: false });
+      }
+    }
+
     function buildList() {
       const list = document.getElementById('exploreList');
       const wrapper = document.getElementById('exploreListWrapper');
@@ -118,6 +132,14 @@
       }
 
       const filtered = getFilteredData();
+
+      // Debounced search tracking (800ms after user stops typing)
+      if (searchVal) {
+        if (_searchTrackTimer) clearTimeout(_searchTrackTimer);
+        _searchTrackTimer = setTimeout(function() {
+          _trackSearch(searchVal, filtered.length);
+        }, 800);
+      }
       const end = (getListPage() + 1) * listPageSize;
       const visible = filtered.slice(0, end);
 

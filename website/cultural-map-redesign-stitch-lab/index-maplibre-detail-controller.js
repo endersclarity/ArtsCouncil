@@ -25,6 +25,16 @@
       gsap
     } = ctx;
 
+    // Track detail panel open
+    var analytics = window.CulturalMapAnalytics;
+    if (analytics) {
+      analytics.track('detail:open', {
+        category: asset.l || '',
+        name: (asset.n || '').substring(0, 100),
+        city: asset.c || ''
+      });
+    }
+
     const cfg = cats[asset.l] || { color: '#999' };
     document.getElementById('detailCatBar').style.background = cfg.color;
 

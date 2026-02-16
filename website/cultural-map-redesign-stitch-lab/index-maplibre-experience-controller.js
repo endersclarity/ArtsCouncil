@@ -100,6 +100,12 @@
     async function autoTour(resolved) {
       cancelTour();
 
+      // Track auto-tour start
+      var analytics = window.CulturalMapAnalytics;
+      if (analytics && activeExperience) {
+        analytics.track('experience:tour', { slug: (activeExperience.slug || '').substring(0, 100) });
+      }
+
       const tourBtn = document.querySelector('.corridor-tour-btn');
       if (tourBtn) tourBtn.classList.add('touring');
 
@@ -179,6 +185,15 @@
     }
 
     function activateExperience(experience) {
+      // Track experience/corridor activation
+      var analytics = window.CulturalMapAnalytics;
+      if (analytics) {
+        analytics.track('experience:start', {
+          slug: (experience.slug || '').substring(0, 100),
+          title: (experience.title || '').substring(0, 100),
+          type: experience.type || 'experience'
+        });
+      }
       // Deactivate any active itinerary to prevent both being active simultaneously
       if (window.CulturalMapItineraryController) {
         CulturalMapItineraryController.deactivateItinerary();

@@ -1381,6 +1381,18 @@
       : 'all';
     const nextEventCat = parsed.eventCat ? String(parsed.eventCat) : 'all';
 
+    // Track deep link arrivals (only on first apply, not popstate-driven refreshes)
+    if (!deepLinkAppliedOnce) {
+      var analytics = window.CulturalMapAnalytics;
+      if (analytics) {
+        if (focusPid) analytics.track('deeplink:arrive', { type: 'pid', value: (focusPid || '').substring(0, 100) });
+        else if (focusMuse) analytics.track('deeplink:arrive', { type: 'muse', value: (focusMuse || '').substring(0, 100) });
+        else if (focusEvent) analytics.track('deeplink:arrive', { type: 'event', value: (focusEvent || '').substring(0, 100) });
+        else if (itinerarySlug) analytics.track('deeplink:arrive', { type: 'itinerary', value: (itinerarySlug || '').substring(0, 100) });
+        else if (expSlug) analytics.track('deeplink:arrive', { type: 'experience', value: (expSlug || '').substring(0, 100) });
+      }
+    }
+
     suppressUrlSync = true;
     try {
       // Categories: set as a batch to avoid toggle behavior.
@@ -2347,6 +2359,8 @@
 
   function setOpenNowMode(enabled) {
     markMapInteracted();
+    var analytics = window.CulturalMapAnalytics;
+    if (analytics) analytics.track('toggle:open-now', { state: enabled ? 'on' : 'off' });
     openNowMode = !!enabled;
     if (openNowMode) refreshAssetSourceHoursStates();
     renderOpenNowUI();
@@ -2360,6 +2374,8 @@
 
   function setEvents14dMode(enabled) {
     markMapInteracted();
+    var analytics = window.CulturalMapAnalytics;
+    if (analytics) analytics.track('toggle:events-14d', { state: enabled ? 'on' : 'off' });
     events14dMode = !!enabled;
     renderEvents14dUI();
     updateActiveBanner();
@@ -2715,6 +2731,15 @@
   // ============================================================
   function setCategory(cat, options = {}) {
     markMapInteracted();
+    // Track category filter interaction
+    var analytics = window.CulturalMapAnalytics;
+    if (analytics) {
+      if (cat) {
+        analytics.track('category:filter', { category: (cat || '').substring(0, 100) });
+      } else {
+        analytics.track('category:clear', {});
+      }
+    }
     const { exclusive = false } = options;
     activeCategories = filterStateModel.computeNextCategories({
       activeCategories,

@@ -34,6 +34,21 @@
       if (ctx.getMapLegendExpanded()) ctx.setMapLegendExpanded(false);
     });
 
+    // Track MUSE editorial card expand/collapse
+    document.querySelectorAll('details.muse-card').forEach(function(details) {
+      details.addEventListener('toggle', function() {
+        if (details.open) {
+          var analytics = window.CulturalMapAnalytics;
+          if (analytics) {
+            var summary = details.querySelector('summary');
+            var titleEl = summary ? summary.querySelector('.muse-card-title') : null;
+            var title = titleEl ? titleEl.textContent.substring(0, 100) : 'unknown';
+            analytics.track('editorial:expand', { title: title });
+          }
+        }
+      });
+    });
+
     document.getElementById('searchInput').addEventListener('input', () => {
       const val = document.getElementById('searchInput').value.trim();
       const wrapper = document.getElementById('exploreListWrapper');
@@ -121,6 +136,16 @@
         if (!card) return;
         const eventId = card.getAttribute('data-event-id');
         if (!eventId) return;
+        // Track event card click
+        var analytics = window.CulturalMapAnalytics;
+        if (analytics) {
+          var titleEl = card.querySelector('.map-event-title, .map-event-name');
+          var venueEl = card.querySelector('.map-event-venue, .map-event-location');
+          analytics.track('event:click', {
+            title: (titleEl ? titleEl.textContent : '').substring(0, 100),
+            venue: (venueEl ? venueEl.textContent : '').substring(0, 100)
+          });
+        }
         ctx.focusEvent(eventId);
       });
     }
@@ -171,6 +196,8 @@
     var clearBtn = document.getElementById('mapActiveClear');
     if (clearBtn) {
       clearBtn.addEventListener('click', () => {
+        var analytics = window.CulturalMapAnalytics;
+        if (analytics) analytics.track('category:clear', {});
         ctx.clearAllMapFilters();
       });
     }

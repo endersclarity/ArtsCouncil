@@ -36,15 +36,21 @@
       metaHTML += `<div class="detail-meta-row"><span class="detail-meta-icon">&#9680;</span><div class="detail-meta-value"><span class="hours-pill" style="color:#934512;background:rgba(180,88,29,0.12);border-color:rgba(180,88,29,0.48)">${eventCount14d} event${eventCount14d === 1 ? '' : 's'} in ${eventWindowDays}d</span></div></div>`;
     }
     if (asset.a) metaHTML += `<div class="detail-meta-row"><span class="detail-meta-icon">&#9675;</span><div class="detail-meta-value">${asset.a}${asset.c ? ', ' + asset.c + ', CA' : ''}</div></div>`;
-    if (asset.p) metaHTML += `<div class="detail-meta-row"><span class="detail-meta-icon">&#9743;</span><div class="detail-meta-value"><a href="tel:${asset.p}">${asset.p}</a></div></div>`;
+    if (asset.p) metaHTML += '<div class="detail-meta-row"><span class="detail-meta-icon">&#9743;</span><div class="detail-meta-value"><a href="tel:' + asset.p + '" data-track-outbound="phone" data-track-venue="' + escapeHTML((asset.n || '').substring(0, 100)) + '">' + asset.p + '</a></div></div>';
     if (asset.w) {
-      let url = asset.w.trim();
-      if (!url.startsWith('http')) url = 'https://' + url;
-      const display = url.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '');
-      metaHTML += `<div class="detail-meta-row"><span class="detail-meta-icon">&#9741;</span><div class="detail-meta-value"><a href="${url}" target="_blank" rel="noopener">${display}</a></div></div>`;
+      var rawUrl = asset.w.trim();
+      if (!rawUrl.startsWith('http')) rawUrl = 'https://' + rawUrl;
+      var taggedUrl = rawUrl;
+      var analyticsRef = window.CulturalMapAnalytics;
+      if (analyticsRef) taggedUrl = analyticsRef.tagOutboundUrl(rawUrl, 'venue-detail');
+      var display = rawUrl.replace(/^https?:\/\/(www\.)?/, '').replace(/\/$/, '');
+      metaHTML += '<div class="detail-meta-row"><span class="detail-meta-icon">&#9741;</span><div class="detail-meta-value"><a href="' + taggedUrl + '" target="_blank" rel="noopener" data-track-outbound="website" data-track-venue="' + escapeHTML((asset.n || '').substring(0, 100)) + '">' + display + '</a></div></div>';
     }
     if (asset.x && asset.y) {
-      metaHTML += `<div class="detail-meta-row"><span class="detail-meta-icon">&#9906;</span><div class="detail-meta-value"><a href="https://www.google.com/maps?q=${asset.y},${asset.x}" target="_blank" rel="noopener">View on Google Maps</a></div></div>`;
+      var mapsUrl = 'https://www.google.com/maps?q=' + asset.y + ',' + asset.x;
+      var analyticsRef2 = window.CulturalMapAnalytics;
+      if (analyticsRef2) mapsUrl = analyticsRef2.tagOutboundUrl(mapsUrl, 'directions');
+      metaHTML += '<div class="detail-meta-row"><span class="detail-meta-icon">&#9906;</span><div class="detail-meta-value"><a href="' + mapsUrl + '" target="_blank" rel="noopener" data-track-outbound="directions" data-track-venue="' + escapeHTML((asset.n || '').substring(0, 100)) + '">View on Google Maps</a></div></div>';
     }
     return metaHTML;
   }
@@ -63,6 +69,26 @@
     gsap.to(panelEl, { right: 0, duration: 0.45, ease: 'power3.out' });
     panelEl.classList.add('open');
     document.body.style.overflow = 'hidden';
+
+    // Outbound click delegation (safe to re-attach; only fires on tracked links)
+    if (!panelEl._analyticsDelegate) {
+      panelEl._analyticsDelegate = true;
+      panelEl.addEventListener('click', function(e) {
+        var link = e.target.closest('[data-track-outbound]');
+        if (!link) return;
+        var analytics = window.CulturalMapAnalytics;
+        if (!analytics) return;
+        var type = link.getAttribute('data-track-outbound');
+        var venue = (link.getAttribute('data-track-venue') || '').substring(0, 100);
+        if (type === 'website') {
+          analytics.track('outbound:website', { venue: venue, url: (link.href || '').substring(0, 200) });
+        } else if (type === 'phone') {
+          analytics.track('outbound:phone', { venue: venue });
+        } else if (type === 'directions') {
+          analytics.track('outbound:directions', { venue: venue });
+        }
+      });
+    }
   }
 
   function closeDetailPanel({ panelEl, overlayEl, gsap }) {
