@@ -5,16 +5,16 @@
 See: .planning/PROJECT.md (updated 2026-02-14)
 
 **Core value:** Drive people to downtowns, local businesses, performance venues, and cultural spaces through an editorial-quality interactive experience that feels like MUSE magazine.
-**Current focus:** Phase 6.1 (Deep Analytics Instrumentation) COMPLETE (1/1 plan). Phase 4 (Copy) is final polish. Deadline Wed Feb 18.
+**Current focus:** Phase 03.1 (Content Architecture & Demo Curation) IN PROGRESS (1/2 plans). Deadline Wed Feb 18.
 
 ## Current Position
 
-Phase: 06.1 (Deep Analytics Instrumentation) -- COMPLETE
-Plan: 1 of 1 complete
-Status: 23 total tracked event types across 13 JS modules. UTM-tagged event ticket outbound links. Full outbound click attribution (website + phone + directions + event-ticket).
-Last activity: 2026-02-15 -- Completed 06.1-01-PLAN.md (deep analytics instrumentation).
+Phase: 03.1 (Content Architecture & Demo Curation)
+Plan: 1 of 2 complete
+Status: Adaptive split layout with sticky map + 8 curated demo picks from 5 sources. Plan 02 (sub-pages) remaining.
+Last activity: 2026-02-16 -- Completed 03.1-01-PLAN.md (adaptive layout + demo curation).
 
-Progress: [█████████████████░░░] ~85% overall
+Progress: [██████████████████░░] ~90% overall
 
 ## What's Actually Shipped
 
@@ -83,10 +83,20 @@ Progress: [█████████████████░░░] ~85% ov
 - Committee "clicked through to a business" metric: sum outbound:website + outbound:phone + outbound:directions + outbound:event-ticket
 - marker:click at 3 entry points (circle click, mobile label, smart labels)
 
+### Phase 03.1: Content Architecture & Demo Curation (in progress)
+- 1/2 plans complete
+- Adaptive split layout: content column left, sticky map column right on desktop (>900px)
+- IntersectionObserver drives map sizing: hero (45%), editorial (25%), expanded (65%)
+- CulturalMapScrollObserver IIFE module with zone transitions and MapLibre resize
+- 8 hand-curated demo picks from 5 sources: 2 MUSE, 1 KVMR, 1 GVDA, 1 LibCal, 3 Local assets
+- Source badges with per-source colors (gold, teal, rust, blue, deep-green)
+- Feature Picks tab wired with click handlers: assets -> detail panel, editorials -> MUSE card, events -> scroll
+- Mobile (<900px) falls back to single-column block layout
+
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 11 (Phase 2: 3, Phase 2.1: 2, Phase 3: 2, Phase 5: 2, Phase 6: 1, Phase 6.1: 1 — Phase 1 plans obsolete)
+- Total plans completed: 12 (Phase 2: 3, Phase 2.1: 2, Phase 3: 2, Phase 5: 2, Phase 6: 1, Phase 6.1: 1, Phase 3.1: 1 — Phase 1 plans obsolete)
 - Average duration: 3.4min per plan
 
 **By Phase:**
@@ -97,6 +107,7 @@ Progress: [█████████████████░░░] ~85% ov
 | 2 | 3/3 | 9min | 3min | Claude Code via GSD |
 | 2.1 | 2/2 | 5min | 2.5min | Claude Code via GSD |
 | 3 | 2/2 | 12min | 6min | Claude Code via GSD |
+| 3.1 | 1/2 | 4min | 4min | Claude Code via GSD |
 | 5 | 2/2 | 6min | 3min | Claude Code via GSD |
 | 6 | 1/1 | 15min | 15min | Claude Code via GSD |
 | 6.1 | 1/1 | 3min | 3min | Claude Code via GSD |
@@ -142,11 +153,17 @@ Recent decisions affecting current work:
 - [Phase 6.1]: marker:click intentionally distinct from detail:open (different funnel stages)
 - [Phase 6.1]: Calendar click delegation per-activation since overlay DOM is recreated each time
 - [Phase 6.1]: Extended detail-view.js outbound handler for event-ticket rather than separate delegation
+- [Phase 3.1]: Map extracted to sticky sibling column rather than staying inside .spread
+- [Phase 3.1]: Scroll sentinel pattern: invisible divs with data-map-zone trigger IntersectionObserver zone changes
+- [Phase 3.1]: Demo picks hand-curated: 2 MUSE + 1 KVMR + 1 GVDA + 1 LibCal + 3 Local = 8 picks
+- [Phase 3.1]: Source badge colors: MUSE gold, KVMR teal, GVDA rust, LibCal blue, Local deep-green
+- [Phase 3.1]: MapLibre resize after zone transition (450ms timeout for CSS grid transition)
 
 ### Roadmap Evolution
 
 - Phase 02.1 inserted after Phase 2: KVMR + GVDA Event Source Ingestion (URGENT) — Mardi Gras and other major events missing from all 3 existing sources. KVMR iCal + GVDA Trumba JSON add broadest community coverage before Wed demo.
 - Phase 06.1 inserted after Phase 6: Deep Analytics Instrumentation (URGENT) — Phase 6 covers basic interaction tracking but misses scroll depth, marker clicks, detail dwell time, itinerary engagement, and outbound click attribution. Adding these before Wednesday demo so first real traffic produces a rich story.
+- Phase 03.1 inserted after Phase 3: Content Architecture & Demo Curation (URGENT) — Site has all plumbing (events, itineraries, chat, analytics) but content architecture and curation not demo-ready. Need to define single-page progressive disclosure vs. multi-page, curate featured content showing aggregation value (Stardust Station, Local Adventure Mama gaps), and structure demo experience for Wednesday committee presentation.
 
 ### Pending Todos
 
@@ -173,6 +190,6 @@ Recent decisions affecting current work:
 
 ## Session Continuity
 
-Last session: 2026-02-15
-Stopped at: Completed 06.1-01-PLAN.md (deep analytics instrumentation). Phase 6.1 fully complete.
-Resume file: N/A — Phase 6.1 complete. Next: Phase 4 (Copy) or deployment.
+Last session: 2026-02-16
+Stopped at: Completed 03.1-01-PLAN.md (adaptive split layout + demo curation). Phase 03.1 plan 1 of 2 complete.
+Resume file: .planning/phases/03.1-content-architecture-demo-curation/03.1-02-PLAN.md — sub-pages plan remaining.
