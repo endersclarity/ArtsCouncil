@@ -534,7 +534,7 @@ body.theme-intent {
 
   .content-column {
     min-width: 0;
-    overflow: hidden;
+    overflow: visible;
   }
 
   .map-column {

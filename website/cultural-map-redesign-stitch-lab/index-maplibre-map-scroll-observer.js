@@ -47,7 +47,7 @@
           if (zone && ZONES[zone]) setZone(zone);
         }
       });
-    }, { rootMargin: '-20% 0px -60% 0px' });
+    }, { rootMargin: '-10% 0px -40% 0px' });
 
     sentinels.forEach(function(s) { observer.observe(s); });
     setZone('hero');
