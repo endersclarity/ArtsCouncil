@@ -133,6 +133,15 @@ Plans:
 Plans:
 - [ ] 06-01-PLAN.md — Analytics wrapper module, Umami script tag, instrument all 12+ interaction types, UTM outbound links, dedup throttle, Umami Cloud setup
 
+### Phase 06.1: Deep Analytics Instrumentation (INSERTED)
+
+**Goal:** Add 7 high-value analytics event types (marker clicks, itinerary engagement, event ticket attribution) to reach 23 total tracked interactions, filling remaining gaps for the committee's "clicked through to a business" metric
+**Depends on:** Phase 6
+**Plans:** 1 plan
+
+Plans:
+- [ ] 06.1-01-PLAN.md — Instrument event ticket outbound tracking + UTM tagging, map marker clicks, itinerary system, and event filter interactions (7 new event types)
+
 ### Phase 7: Demand Signal Reporting
 **Goal**: The committee receives a monthly intelligence report showing what visitors searched for, clicked on, and asked the chatbot -- actionable data no other small-town DMO has
 **Depends on**: Phase 5 (Supabase chatbot logs), Phase 6 (Umami data)
