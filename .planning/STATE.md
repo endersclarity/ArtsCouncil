@@ -5,16 +5,16 @@
 See: .planning/PROJECT.md (updated 2026-02-14)
 
 **Core value:** Drive people to downtowns, local businesses, performance venues, and cultural spaces through an editorial-quality interactive experience that feels like MUSE magazine.
-**Current focus:** Phase 5 (AI Concierge) COMPLETE (2/2 plans). Phase 4 (Copy) is final polish. Deadline Wed Feb 18.
+**Current focus:** Phase 6 (Analytics Foundation) COMPLETE (1/1 plan). Phase 4 (Copy) is final polish. Deadline Wed Feb 18.
 
 ## Current Position
 
-Phase: 05 (AI Concierge) -- COMPLETE
-Plan: 2 of 2 complete
-Status: AI Concierge fully shipped — server infra (05-01) + chat UI widget (05-02). FAB button, conversation panel, deep links, MUSE citations, mobile overlay all wired.
-Last activity: 2026-02-15 -- Completed 05-02-PLAN.md (chat UI widget).
+Phase: 06 (Analytics Foundation) -- COMPLETE
+Plan: 1 of 1 complete
+Status: Umami Cloud analytics live — wrapper module, 15+ tracked interactions, UTM-tagged outbound links, committee Share URL dashboard.
+Last activity: 2026-02-15 -- Completed 06-01-PLAN.md (analytics foundation).
 
-Progress: [██████████████░░░░░░] ~70% overall
+Progress: [████████████████░░░░] ~80% overall
 
 ## What's Actually Shipped
 
@@ -65,11 +65,21 @@ Progress: [██████████████░░░░░░] ~70% ov
 - Chat controller: /api/chat fetch, [[asset]] deep links to detail panel, {{MUSE}} citation blocks, session hash, input sanitization
 - 3 IIFE modules wired into HTML in dependency order (view -> controller -> widget)
 
+### Phase 6: Analytics Foundation (100%)
+- 1/1 plan complete
+- CulturalMapAnalytics IIFE wrapper: track() with 500ms dedup throttle, tagOutboundUrl() with UTM injection
+- 15+ interaction types instrumented across 6 modules (bindings, detail-controller, detail-view, explore-controller, experience-controller, index-maplibre.js)
+- Umami Cloud Hobby plan (privacy-first, no cookies, GDPR-compliant)
+- Website ID: 14ecf234-cd96-4e6c-91c2-cc27babc095d
+- Share URL: https://cloud.umami.is/share/875bmvTJ7Hd2oLAx (committee access, no login needed)
+- Custom events confirmed in dashboard: category:filter, toggle:open-now, toggle:events-14d
+- Deployed to Vercel stitch-lab
+
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 9 (Phase 2: 3, Phase 2.1: 2, Phase 3: 2, Phase 5: 2 — Phase 1 plans obsolete)
-- Average duration: 3.3min per plan
+- Total plans completed: 10 (Phase 2: 3, Phase 2.1: 2, Phase 3: 2, Phase 5: 2, Phase 6: 1 — Phase 1 plans obsolete)
+- Average duration: 3.5min per plan
 
 **By Phase:**
 
@@ -80,6 +90,7 @@ Progress: [██████████████░░░░░░] ~70% ov
 | 2.1 | 2/2 | 5min | 2.5min | Claude Code via GSD |
 | 3 | 2/2 | 12min | 6min | Claude Code via GSD |
 | 5 | 2/2 | 6min | 3min | Claude Code via GSD |
+| 6 | 1/1 | 15min | 15min | Claude Code via GSD |
 
 ## Accumulated Context
 
@@ -111,6 +122,13 @@ Recent decisions affecting current work:
 - [Phase 5]: No DOMPurify for V1 — parseResponse generates only known-safe HTML patterns
 - [Phase 5]: Asset clicks use hash deep links (#place=Name) to trigger existing detail panel
 - [Phase 5]: Conversation history capped at 10 messages (5 turns) to control API token usage
+- [Phase 6]: Umami Cloud Hobby plan — privacy-first, no cookies, no consent banner needed
+- [Phase 6]: Provider-agnostic wrapper (CulturalMapAnalytics) — never call umami.track() directly
+- [Phase 6]: Event naming: kebab-case feature:action (category:filter, detail:open, outbound:website)
+- [Phase 6]: 500ms dedup throttle on all events, 800ms debounce on search tracking
+- [Phase 6]: UTM params: utm_source=exploregvnc, utm_medium=referral on all outbound links
+- [Phase 6]: No chat tracking in Umami — stays in Supabase chat_logs only
+- [Phase 6]: Share URL for committee: https://cloud.umami.is/share/875bmvTJ7Hd2oLAx
 
 ### Roadmap Evolution
 
@@ -142,5 +160,5 @@ Recent decisions affecting current work:
 ## Session Continuity
 
 Last session: 2026-02-15
-Stopped at: Completed 05-02-PLAN.md (AI Concierge chat UI widget). Phase 5 fully complete.
-Resume file: N/A — Phase 5 complete. Next: Phase 4 (Copy) or deployment.
+Stopped at: Completed 06-01-PLAN.md (analytics foundation). Phase 6 fully complete.
+Resume file: N/A — Phase 6 complete. Next: Phase 4 (Copy) or deployment.
