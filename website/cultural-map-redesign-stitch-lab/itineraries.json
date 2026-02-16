@@ -1,12 +1,12 @@
 [
   {
     "id": "perfect-day",
-    "title": "Arts & Nature: A Perfect Day",
-    "subtitle": "One perfect day in Nevada County",
+    "title": "Galleries, Gold Mines & Stage Lights",
+    "subtitle": "A single day through Nevada County's creative core",
     "duration": "1-day",
     "season": "year-round",
     "heroImage": "",
-    "description": "From the depths of a Gold Rush mine to the glow of stage lights at a 150-year-old theater, this single-day itinerary threads together the best of Nevada County's cultural landscape. Start with history, linger over a farm-to-table lunch, and end the day immersed in the arts.",
+    "description": "Empire Mine opens the morning with 5.8 million ounces of history. By afternoon you're standing in California's oldest theater, and by evening the galleries on Broad Street have you reaching for your wallet. This is one day with no filler.",
     "theme": {
       "accent": "#2a8c8c",
       "routeColor": "#b85c38",
@@ -20,50 +20,50 @@
             "asset": "Empire Mine",
             "time": "09:00",
             "duration": 90,
-            "narrative": "Begin your morning underground — or as close as the tour allows. Empire Mine is the richest hard-rock gold mine in California history, producing 5.8 million ounces over a century of operation. The cottage gardens and stone-walled grounds alone are worth the visit.",
-            "tip": "Arrive right at opening for the quietest experience on the trails. The mine yard tour departs on the hour."
+            "narrative": "Empire Mine produced 5.8 million ounces of gold over a century of hard-rock operation -- the richest in California history. The cottage gardens and stone-walled grounds are worth the visit on their own, but the mine yard tour is the draw. You'll stand at the mouth of 367 miles of tunnels and feel the scale of it.",
+            "tip": "Arrive at opening for the quietest experience. Mine yard tours depart on the hour."
           },
           {
             "asset": "Miners Foundry",
             "time": "11:00",
             "duration": 45,
-            "narrative": "Walk through the building where Lester Pelton perfected the water wheel that powered the West. The Foundry has been reborn as Nevada City's premier cultural venue, hosting everything from symphony concerts to community dances.",
-            "tip": "Check the marquee for lunchtime events — the Foundry occasionally hosts midday concerts and gallery openings."
+            "narrative": "Miners Foundry is the building where Lester Pelton perfected the water wheel that powered the West. Today it operates as Nevada City's premier cultural venue -- symphony concerts, community dances, art festivals, all inside original stone walls and timber beams.",
+            "tip": "Check the marquee for lunchtime events. The Foundry occasionally hosts midday concerts and gallery openings."
           },
           {
             "asset": "California Organics Restaurant & Gallery",
             "time": "12:00",
             "duration": 75,
-            "narrative": "Settle into a farm-to-table lunch at one of Nevada City's most beloved spots. The menu rotates with the seasons, sourcing from local farms, and the walls double as gallery space for regional artists.",
-            "tip": "The back patio is the move in warm weather. Reservations recommended on weekends."
+            "narrative": "California Organics pairs a rotating farm-to-table menu with gallery walls that change as often as the seasons. The ingredients come from Nevada County farms, and the art comes from regional artists who treat the dining room as exhibition space. Grab the back patio in warm weather -- you'll find it hard to leave.",
+            "tip": "Back patio is the move in warm weather. Reservations recommended on weekends."
           },
           {
             "asset": "Pioneer Park",
             "time": "13:30",
             "duration": 45,
-            "narrative": "Stretch your legs on the trails winding through this forested park above Nevada City. The bandshell hosts summer concerts, and the swimming pool mural is a local landmark in its own right.",
-            "tip": "Follow the Deer Creek trail for a quick loop with seasonal wildflowers."
+            "narrative": "Pioneer Park sits above Nevada City with forested trails, a bandshell that hosts summer concerts, and a swimming pool mural that has become a local landmark. The Deer Creek trail loops through wildflowers in spring and shade in summer.",
+            "tip": "Follow the Deer Creek trail for a quick loop. Seasonal wildflowers in spring."
           },
           {
             "asset": "Nevada Theatre",
             "time": "14:30",
             "duration": 60,
-            "narrative": "Step inside California's oldest existing theater building. Mark Twain performed here. Today it hosts everything from indie films to live theater, and the architecture alone — the pressed-tin ceiling, the original balcony — rewards a visit.",
-            "tip": "Even if nothing is showing, the lobby is often open. Check the marquee for evening performances you could return for."
+            "narrative": "Nevada Theatre opened in 1865 -- California's oldest existing theater building. Mark Twain performed here. The pressed-tin ceiling and original balcony reward a visit even when nothing is showing, and the marquee usually promises something worth coming back for.",
+            "tip": "The lobby is often open even without a show. Check the marquee for evening performances."
           },
           {
             "asset": "Center for the Arts",
             "time": "16:00",
             "duration": 60,
-            "narrative": "End the cultural circuit at Grass Valley's anchor arts venue. The Center hosts world-class performers in an intimate setting, and the gallery wing features rotating exhibitions by Sierra foothill artists.",
-            "tip": "Grab a show schedule — if anything is playing tonight, this is the perfect capstone to your day."
+            "narrative": "Center for the Arts anchors Grass Valley's creative life -- world-class performers in an intimate room, and a gallery wing featuring rotating exhibitions by Sierra foothill artists. The Fall Colors Open Studio Tour launches from here every October, opening 100-plus studios across the county.",
+            "tip": "Grab a show schedule. If anything is playing tonight, this is how to end the day."
           },
           {
             "asset": "Broad Street Bistro and Gallery",
             "time": "17:30",
             "duration": 90,
-            "narrative": "Wind down with dinner on Broad Street, where the bistro pairs locally sourced dishes with an ever-changing gallery wall. It is the kind of place where the chef might be an artist and the artist might be tending bar.",
-            "tip": "Ask about the daily special — it is usually the best thing on the menu."
+            "narrative": "Broad Street Bistro pairs locally sourced dishes with an ever-changing gallery wall. The chef might be an artist. The artist might be tending bar. That's how it works on Broad Street.",
+            "tip": "Ask about the daily special. It is usually the best thing on the menu."
           }
         ]
       }
@@ -71,12 +71,12 @@
   },
   {
     "id": "full-experience",
-    "title": "The Full Nevada County Experience",
-    "subtitle": "Two days across gold country's twin cities",
+    "title": "Twin Cities: Grass Valley & Nevada City",
+    "subtitle": "Two days across the cultural heart of the Gold Country",
     "duration": "2-day",
     "season": "year-round",
     "heroImage": "",
-    "description": "Grass Valley and Nevada City sit just four miles apart but each has its own unmistakable character. This two-day itinerary gives both towns their due — the mining heritage and craft beer culture of Grass Valley on day one, the gallery-lined streets and river trails of Nevada City on day two.",
+    "description": "Grass Valley and Nevada City sit four miles apart, but each has its own unmistakable character. Day one covers Grass Valley's mining heritage, artist co-ops, and craft beer culture. Day two crosses into Nevada City for gallery-lined streets, Gold Rush museums, and the South Yuba River. Two towns, one creative district.",
     "theme": {
       "accent": "#2d5a27",
       "routeColor": "#c8943e",
@@ -90,43 +90,43 @@
             "asset": "Empire Mine",
             "time": "09:00",
             "duration": 120,
-            "narrative": "Give Empire Mine the full morning it deserves. Take the mine yard tour, walk the Osborne Hill trails through the forest, and explore the restored owner's cottage with its English gardens. This is where California's gold rush became an industrial enterprise.",
-            "tip": "The Osborne Loop trail adds 45 minutes but takes you past mine shafts and through old-growth forest. Worth it."
+            "narrative": "Empire Mine deserves the full morning. Take the mine yard tour, walk the Osborne Hill trails through old-growth forest, and explore the restored owner's cottage with its English gardens. This is where California's gold rush became an industrial enterprise -- 5.8 million ounces over a century of continuous operation.",
+            "tip": "The Osborne Loop trail adds 45 minutes but passes mine shafts and old-growth forest. Worth it."
           },
           {
             "asset": "The Holbrooke Hotel",
             "time": "11:30",
             "duration": 60,
-            "narrative": "Lunch at the oldest continuously operating hotel in the Mother Lode. Presidents Grant and Harrison slept here. The saloon has been pouring drinks since 1862, and the dining room serves elevated comfort food.",
-            "tip": "The Iron Door saloon is the real draw — grab a seat at the bar for the full atmosphere."
+            "narrative": "The Holbrooke Hotel has been operating since 1862 -- the oldest continuously running hotel in the Mother Lode. Presidents Grant and Harrison slept here. The Iron Door saloon still pours drinks under the original tin ceiling, and the dining room serves elevated comfort food that earns its heritage setting.",
+            "tip": "The Iron Door saloon is the real draw. Grab a seat at the bar for the full atmosphere."
           },
           {
             "asset": "Walking Tour of Historic Grass Valley: self guided and guided",
             "time": "13:00",
             "duration": 90,
-            "narrative": "Walk off lunch with a stroll through downtown Grass Valley's historic district. The self-guided tour passes Victorian storefronts, the Lola Montez house replica, and corners of town that haven't changed much since the 1860s.",
-            "tip": "Pick up a printed map at the Chamber of Commerce on Main Street, or just wander — the best discoveries are unplanned."
+            "narrative": "The Walking Tour of Historic Grass Valley threads through Victorian storefronts, past the Lola Montez house, and around corners that haven't changed since the 1860s. You can pick up a printed map at the Chamber of Commerce on Main Street or just follow the architecture -- the buildings do the talking.",
+            "tip": "Printed maps available at the Chamber of Commerce on Main Street. Or just wander."
           },
           {
             "asset": "Art Works Gallery Co-op",
             "time": "14:45",
             "duration": 45,
-            "narrative": "Duck into this artist-run cooperative where local painters, ceramicists, jewelers, and fiber artists share wall space. The work ranges from landscape oils to abstract metalwork, and prices are approachable.",
-            "tip": "First Friday openings are lively, but any afternoon visit lets you browse without the crowds."
+            "narrative": "Art Works Gallery Co-op is artist-run -- twenty-plus local painters, ceramicists, jewelers, and fiber artists sharing wall space. The work ranges from landscape oils to abstract metalwork, and the prices reflect a co-op model, not a gallery markup.",
+            "tip": "First Friday openings are lively. Any other afternoon lets you browse without the crowds."
           },
           {
             "asset": "Center for the Arts",
             "time": "15:45",
             "duration": 60,
-            "narrative": "Swing through the gallery at Grass Valley's cultural anchor. The exhibition space rotates monthly, featuring Sierra foothill artists alongside touring shows.",
-            "tip": "Check the evening schedule — if a show is on tonight, buy tickets now. It sells out."
+            "narrative": "Center for the Arts is Grass Valley's cultural anchor. The exhibition space rotates monthly -- Sierra foothill artists alongside touring shows -- and the performance calendar runs year-round.",
+            "tip": "Check the evening schedule. If a show is on tonight, buy tickets now. It sells out."
           },
           {
             "asset": "Ol\u2019 Republic Brewery",
             "time": "17:00",
             "duration": 75,
-            "narrative": "Close out Day 1 at Nevada City's craft brewery, where the taproom vibe runs local and unpretentious. The rotating taps lean hoppy, and the outdoor seating overlooks Deer Creek.",
-            "tip": "They don't serve food, but food trucks rotate through regularly. Check their social media."
+            "narrative": "Ol' Republic Brewery runs a taproom that leans local and unpretentious. The rotating taps favor hops, and the outdoor seating overlooks Deer Creek. No food kitchen, but food trucks rotate through -- check their social media before you go.",
+            "tip": "No kitchen on-site. Food trucks rotate regularly. Check social media for the schedule."
           }
         ]
       },
@@ -137,50 +137,50 @@
             "asset": "National Exchange Hotel",
             "time": "09:00",
             "duration": 45,
-            "narrative": "Start Day 2 in Nevada City with coffee at the beautifully restored National Exchange Hotel. The lobby alone — original woodwork, period lighting, curated art — sets the tone for a day of cultural exploration.",
-            "tip": "The hotel restaurant serves breakfast. Even if you're staying elsewhere, it's worth the stop."
+            "narrative": "National Exchange Hotel on Broad Street has been receiving guests since 1856. The lobby alone -- original woodwork, period lighting, curated art on the walls -- sets the tone for a day in Nevada City. Even if you're staying elsewhere, start here.",
+            "tip": "The hotel restaurant serves breakfast. Worth the stop even if you're staying elsewhere."
           },
           {
             "asset": "Kitkitdizzi",
             "time": "10:00",
             "duration": 45,
-            "narrative": "Browse this gallery and gift shop that celebrates the intersection of art, ecology, and Sierra Nevada culture. The name is Nisenan for a wild plant that grows on these hills.",
-            "tip": "They carry books by local authors — a great place to find a unique souvenir."
+            "narrative": "Kitkitdizzi sits at the intersection of art, ecology, and Sierra Nevada culture. The name is Nisenan for a wild plant that grows on these hills. You'll find ceramics, textiles, and books by local authors -- the kind of shop that only exists in a town like this.",
+            "tip": "They carry books by local authors. Great place for a souvenir that tells a story."
           },
           {
             "asset": "Firehouse No.1",
             "time": "11:00",
             "duration": 45,
-            "narrative": "The icon of Nevada City's skyline houses a small but fascinating museum of Gold Rush artifacts, Nisenan baskets, and local history exhibits. The building itself, with its white bell tower, is the most photographed structure in town.",
-            "tip": "Admission is by donation. The Nisenan collection on the second floor is the highlight."
+            "narrative": "Firehouse No. 1 -- the white bell tower you've seen in every photograph of Nevada City -- houses Gold Rush artifacts, Nisenan baskets, and local history exhibits. The building dates to 1861. The collection on the second floor is the highlight.",
+            "tip": "Admission is by donation. The Nisenan collection upstairs is the highlight."
           },
           {
             "asset": "South Pine Cafe",
             "time": "12:00",
             "duration": 60,
-            "narrative": "Grab lunch at this Nevada City institution — a cozy spot known for hearty breakfasts and sandwiches that fuel the local creative class. The vibe is friendly, unhurried, and very Nevada City.",
-            "tip": "Go early to avoid the lunch rush. The outdoor tables are prime real estate."
+            "narrative": "South Pine Cafe is a Nevada City institution -- hearty breakfasts and sandwiches that fuel the local creative class. The vibe is friendly, unhurried, and unmistakably Nevada City. Go early if you can.",
+            "tip": "Go early to avoid the lunch rush. Outdoor tables are prime real estate."
           },
           {
             "asset": "Bridgeport Covered Bridge",
             "time": "13:30",
             "duration": 60,
-            "narrative": "Drive ten minutes south to the longest single-span covered bridge in the world. Built in 1862 to carry gold ore traffic, it now spans the South Yuba River amid swimming holes and hiking trails.",
-            "tip": "In summer, bring a swimsuit. The river pools below the bridge are legendary."
+            "narrative": "Bridgeport Covered Bridge is the longest single-span covered bridge in the world -- 233 feet across the South Yuba River, built in 1862 to carry gold ore traffic. The swimming holes below it are legendary in summer.",
+            "tip": "Bring a swimsuit in summer. The river pools below the bridge are the real attraction."
           },
           {
             "asset": "South Yuba River State Park",
             "time": "14:45",
             "duration": 90,
-            "narrative": "Continue along the South Yuba River for one of the region's finest trail experiences. The Independence Trail — America's first wheelchair-accessible wilderness trail — follows a historic mining flume through canyon country.",
-            "tip": "The Buttermilk Bend trail is a shorter option with big payoff — wildflowers in spring, swimming in summer."
+            "narrative": "South Yuba River State Park follows the Wild and Scenic South Yuba through canyon country. The Independence Trail -- America's first wheelchair-accessible wilderness trail -- traces an 1850s mining flume along the canyon wall. You won't find a better afternoon walk in the county.",
+            "tip": "Buttermilk Bend trail is a shorter option with big payoff. Wildflowers in spring, swimming in summer."
           },
           {
             "asset": "North Star Power House & Pelton Wheel Museum",
             "time": "16:45",
             "duration": 45,
-            "narrative": "Return to Grass Valley for a look at the engineering that powered the mines. The museum houses the largest Pelton wheel ever built — 30 feet in diameter — inside the original powerhouse building.",
-            "tip": "The museum is seasonal (May-October). Check hours before making the drive."
+            "narrative": "North Star Power House & Pelton Wheel Museum holds the largest Pelton wheel ever built -- 30 feet in diameter -- inside the original powerhouse building. The Pelton wheel was invented in Grass Valley. This is where you see the proof.",
+            "tip": "Seasonal hours (May-October). Check before making the drive."
           }
         ]
       }
@@ -188,12 +188,12 @@
   },
   {
     "id": "art-history-wine",
-    "title": "Deep Dive: Art, History & Wine",
-    "subtitle": "Three days of culture, creativity, and Sierra foothill vineyards",
+    "title": "Art, History & Sierra Foothill Wine",
+    "subtitle": "Three days of studios, Gold Rush heritage, and estate vineyards",
     "duration": "3-day",
     "season": "spring-fall",
     "heroImage": "",
-    "description": "For the visitor who wants to go deep: three days threading together the mining history that built these towns, the artists and makers who define them today, and the vineyards that have quietly made Nevada County one of California's most compelling emerging wine regions. This itinerary rewards the curious and the unhurried.",
+    "description": "Three days for the visitor who wants to go deep. Day one traces the mining history that built these towns -- from Empire Mine's 367 miles of tunnels to the Foundry where the Pelton wheel was perfected. Day two is a gallery walk through Nevada City's studios and tasting rooms. Day three follows the wine trail to Lucchesi, Naggiar, and Pilot Peak before ending at New Moon Cafe. The gold is gone. What replaced it is better.",
     "theme": {
       "accent": "#8b2252",
       "routeColor": "#7a9e7e",
@@ -207,43 +207,43 @@
             "asset": "Empire Mine",
             "time": "09:00",
             "duration": 120,
-            "narrative": "Dedicate your first morning to the crown jewel of Nevada County history. Empire Mine operated from 1850 to 1956 and produced nearly six million ounces of gold. Walk the mine yard, tour the owner's cottage, and hike the forested trails that wind through the 856-acre park.",
-            "tip": "Spring visitors catch the gardens in bloom. The Union Hill trail connects to the town of Grass Valley if you want to walk in."
+            "narrative": "Empire Mine operated from 1850 to 1956 and produced nearly six million ounces of gold -- the crown jewel of Nevada County history. Walk the mine yard, tour the owner's cottage, and hike the forested trails winding through the 856-acre park. Spring visitors catch the gardens in bloom.",
+            "tip": "Spring visitors catch the gardens in bloom. The Union Hill trail connects to downtown Grass Valley on foot."
           },
           {
             "asset": "North Star Power House & Pelton Wheel Museum",
             "time": "11:30",
             "duration": 60,
-            "narrative": "Cross town to see the engineering companion to Empire Mine. The Pelton wheel — invented right here in Grass Valley — revolutionized hydropower worldwide. The museum's collection of mining artifacts tells the story of industrial innovation in the Sierra foothills.",
+            "narrative": "North Star Power House & Pelton Wheel Museum is the engineering companion to Empire Mine. The Pelton wheel -- invented right here in Grass Valley -- revolutionized hydropower worldwide. The museum's mining artifact collection tells the story of industrial innovation at 2,500 feet elevation.",
             "tip": "Seasonal hours (typically May-October). Call ahead to confirm."
           },
           {
             "asset": "Tofanelli\u2019s Gold Country Bistro",
             "time": "13:00",
             "duration": 75,
-            "narrative": "Lunch at this Grass Valley mainstay, where Italian-influenced dishes meet Gold Country hospitality. The pasta is house-made, the wine list leans local, and the atmosphere is relaxed enough to linger.",
-            "tip": "Try the ravioli special — it changes weekly and is always the move."
+            "narrative": "Tofanelli's Gold Country Bistro pairs Italian-influenced dishes with Gold Country hospitality. The pasta is house-made, the wine list leans local, and the atmosphere invites you to linger. Try the ravioli special -- it changes weekly and never disappoints.",
+            "tip": "The weekly ravioli special is always the move. Wine list features local producers."
           },
           {
             "asset": "Nevada City Firehouse No. 1",
             "time": "14:30",
             "duration": 45,
-            "narrative": "Head to Nevada City for an afternoon of history. Firehouse No. 1 houses the Nevada County Historical Society museum with Gold Rush artifacts, Nisenan basketry, and a Donner Party exhibit. The ornate Victorian building is a California Historical Landmark.",
-            "tip": "The gift shop has excellent local history books. Budget a few minutes to browse."
+            "narrative": "Firehouse No. 1 houses the Nevada County Historical Society museum -- Gold Rush artifacts, Nisenan basketry, and a Donner Party exhibit inside an ornate Victorian building that is itself a California Historical Landmark. The bell tower is the most photographed structure in town.",
+            "tip": "The gift shop carries excellent local history books. Budget a few minutes to browse."
           },
           {
             "asset": "Searls Historical Library  (NC Historical Society)",
             "time": "15:30",
             "duration": 45,
-            "narrative": "Researchers and history enthusiasts will find a trove at Searls Library. The collection includes mining records, pioneer diaries, photographs, and maps dating to the 1850s. Even a casual visitor can spend a rewarding half-hour.",
-            "tip": "Limited hours — typically Thursday through Saturday. Check before you go."
+            "narrative": "Searls Historical Library holds mining records, pioneer diaries, photographs, and maps dating to the 1850s. Even a casual half-hour here pulls you into the Gold Rush in a way no museum exhibit can match.",
+            "tip": "Limited hours -- typically Thursday through Saturday. Check before you go."
           },
           {
             "asset": "Miners Foundry",
             "time": "16:30",
             "duration": 45,
-            "narrative": "End your history day at the building where the Pelton wheel was perfected. The Foundry is Nevada City's most important industrial heritage site and its most active cultural venue — concerts, dances, lectures, and events fill the calendar year-round.",
-            "tip": "If there is an evening event, this is the place to be. The stone walls and original timbers create an atmosphere no modern venue can match."
+            "narrative": "Miners Foundry is Nevada City's most important industrial heritage site and its most active cultural venue. The building where they forged Pelton wheels now hosts concerts, dances, lectures, and community events year-round. The stone walls and original timbers create an atmosphere no modern venue can replicate.",
+            "tip": "If an evening event is on the calendar, this is the place to be."
           }
         ]
       },
@@ -254,57 +254,57 @@
             "asset": "Broad Street Bistro and Gallery",
             "time": "09:00",
             "duration": 60,
-            "narrative": "Start your art day with breakfast on Broad Street, where the gallery walls change monthly and the morning light through the storefront windows sets the right mood for a day of looking at art.",
-            "tip": "Sit by the window for the best people-watching on Broad Street."
+            "narrative": "Broad Street Bistro opens early with gallery walls that rotate monthly and morning light through the storefront windows. The right way to start a day of looking at art is with coffee in a room full of it.",
+            "tip": "Window seats for the best people-watching on Broad Street."
           },
           {
             "asset": "LeeAnn Brook Gallery",
             "time": "10:15",
             "duration": 45,
-            "narrative": "Begin your gallery walk at this intimate space showcasing fine art by regional painters and sculptors. The work here tends toward landscape and figurative traditions, grounded in the Sierra Nevada terrain.",
-            "tip": "LeeAnn is often in the gallery and happy to talk about the artists she represents."
+            "narrative": "LeeAnn Brook Gallery showcases fine art by regional painters and sculptors -- landscape and figurative traditions grounded in the Sierra Nevada terrain. LeeAnn is often in the gallery and happy to talk about the artists she represents.",
+            "tip": "LeeAnn is often in the gallery. Ask her about the artists -- she knows every story."
           },
           {
             "asset": "Osborn Woods Gallery",
             "time": "11:15",
             "duration": 45,
-            "narrative": "Continue down to this gallery known for handcrafted woodwork and fine furniture alongside paintings and mixed media. The craftsmanship on display connects art to the region's maker traditions.",
+            "narrative": "Osborn Woods Gallery is known for handcrafted woodwork and fine furniture alongside paintings and mixed media. The craftsmanship connects art to the region's maker traditions -- you'll see what happens when people build things by hand in a place that has been building things by hand since the 1850s.",
             "tip": "The turned-wood pieces are conversation starters. Great for unique gifts."
           },
           {
             "asset": "Nevada City Winery",
             "time": "12:15",
             "duration": 60,
-            "narrative": "Pause the gallery walk for a tasting at one of Nevada County's pioneering wineries. The tasting room sits right in downtown Nevada City — no vineyard drive required — and the wines are estate-grown from Sierra foothill grapes.",
-            "tip": "The Cabernet Franc is their signature. Ask about the vineyard-designation wines."
+            "narrative": "Nevada City Winery sits right in downtown -- no vineyard drive required. The wines are estate-grown from Sierra foothill grapes, and the Cabernet Franc is their signature. A tasting here breaks up the gallery walk without breaking the momentum.",
+            "tip": "The Cabernet Franc is the signature. Ask about the vineyard-designation wines."
           },
           {
             "asset": "Swan Levine House & Printmaking Studio",
             "time": "13:30",
             "duration": 60,
-            "narrative": "This Victorian mansion houses a working printmaking studio and art gallery. The combination of historic architecture and living artistic practice makes it unlike any other stop on this tour.",
-            "tip": "Printmaking workshops are offered periodically. Check their schedule if you want a hands-on experience."
+            "narrative": "Swan Levine House is a Victorian mansion with a working printmaking studio and art gallery inside. The combination of historic architecture and living artistic practice makes it unlike any other stop on this walk. Printmaking workshops run periodically if you want ink on your hands.",
+            "tip": "Printmaking workshops are offered periodically. Check their schedule for hands-on sessions."
           },
           {
             "asset": "Center for the Arts Gallery",
             "time": "14:45",
             "duration": 45,
-            "narrative": "The gallery wing of Grass Valley's Center for the Arts hosts monthly exhibitions ranging from group shows to solo retrospectives. The curatorial vision bridges traditional Sierra landscape work with contemporary practices.",
-            "tip": "Opening receptions are typically the first Friday of the month — wine, conversation, and a packed house."
+            "narrative": "Center for the Arts Gallery hosts monthly exhibitions -- group shows to solo retrospectives -- bridging traditional Sierra landscape work with contemporary practices. The opening receptions on First Fridays pack the house.",
+            "tip": "First Friday opening receptions include wine, conversation, and a packed house."
           },
           {
             "asset": "Nevada Theatre",
             "time": "16:00",
             "duration": 60,
-            "narrative": "Circle back to Nevada City for a look inside California's oldest existing theater. Whether you catch a matinee, a rehearsal, or simply stand in the empty house and imagine Mark Twain at the lectern, this building earns its landmark status.",
+            "narrative": "Nevada Theatre is California's oldest existing theater building. Whether you catch a matinee or simply stand in the empty house and imagine Mark Twain at the lectern in 1866, this building earns its landmark status. The evening schedule usually offers live music, comedy, or independent film.",
             "tip": "The evening schedule often includes live music, comedy, or independent film. Plan dinner around it."
           },
           {
             "asset": "Elixart Herbal Lounge & Gallery",
             "time": "17:30",
             "duration": 75,
-            "narrative": "End your art day at this singular Nevada City venue where herbal cocktails, visionary art, and live music converge. The gallery space features psychedelic and consciousness-inspired work — a counterpoint to the traditional galleries you visited earlier.",
-            "tip": "Try the elixirs — house-crafted herbal drinks that are the specialty of the house. Check for live music tonight."
+            "narrative": "Elixart is where herbal cocktails, visionary art, and live music converge -- a counterpoint to the traditional galleries you visited all day. The gallery space features psychedelic and consciousness-inspired work. The elixirs are house-crafted herbal drinks, and they are the reason people come back.",
+            "tip": "Try the house-crafted elixirs. Check for live music tonight."
           }
         ]
       },
@@ -315,43 +315,43 @@
             "asset": "Lucchesi Vineyards Winery",
             "time": "10:00",
             "duration": 75,
-            "narrative": "Begin your wine and nature day at the Lucchesi estate, where the family has been growing Sierra foothill grapes since the early 2000s. The tasting room sits among the vines with views across the rolling country south of Grass Valley.",
-            "tip": "Call ahead for tasting appointments — they often accommodate walk-ins but appreciate a heads-up."
+            "narrative": "Lucchesi Vineyards has been growing Sierra foothill grapes since the early 2000s. The tasting room sits among the vines at View Forever Lane -- a name that earns itself -- with views across the rolling country south of Grass Valley. The Italian-style reds are estate-grown and worth the drive.",
+            "tip": "Call ahead for tasting appointments. They accommodate walk-ins but appreciate a heads-up."
           },
           {
             "asset": "Naggiar Vineyards",
             "time": "11:30",
             "duration": 75,
-            "narrative": "Continue the wine trail at Naggiar, one of the county's most acclaimed producers. Their estate vineyards sit at 1,800 feet elevation, and the Mediterranean varietals — Barbera, Sangiovese, Tempranillo — thrive in the Sierra foothill terroir.",
-            "tip": "The outdoor terrace has some of the best vineyard views in the county. Bring a picnic if they allow it."
+            "narrative": "Naggiar Vineyards is one of the county's most acclaimed producers. The estate vineyards sit at 1,800 feet elevation, and the Mediterranean varietals -- Barbera, Sangiovese, Tempranillo -- thrive in the Sierra foothill terroir. The outdoor terrace has some of the best vineyard views in Nevada County.",
+            "tip": "The outdoor terrace has the best vineyard views in the county. Bring a picnic if allowed."
           },
           {
             "asset": "Pilot Peak Winery",
             "time": "13:00",
             "duration": 60,
-            "narrative": "A short drive to Penn Valley brings you to Pilot Peak, where small-lot wines are crafted from estate-grown fruit. The tasting room atmosphere is casual and personal — the winemaker might be the one pouring.",
-            "tip": "Their Zinfandel reflects the old-vine character of the region. Ask about it."
+            "narrative": "Pilot Peak Winery in Penn Valley crafts small-lot wines from estate-grown fruit. The tasting room is casual and personal -- the winemaker might be the one pouring. Their Zinfandel reflects the old-vine character of the region.",
+            "tip": "Ask about the Zinfandel. It reflects the old-vine character of the region."
           },
           {
             "asset": "Buttermilk Bend Trail",
             "time": "14:30",
             "duration": 90,
-            "narrative": "Shift from wine to nature with a hike along the South Yuba River. Buttermilk Bend is a gentle trail with big views — wildflower meadows in spring, golden grasslands in fall, and the river canyon stretching below.",
-            "tip": "The trail is mostly flat and easy — perfect after a morning of wine tasting. Bring water."
+            "narrative": "Buttermilk Bend Trail follows the South Yuba River through wildflower meadows in spring and golden grasslands in fall. The trail is mostly flat -- perfect after a morning of wine tasting -- and the river canyon stretching below makes the walk feel bigger than it is.",
+            "tip": "Mostly flat and easy. Bring water. Wildflowers in spring, golden grass in fall."
           },
           {
             "asset": "Bridgeport Covered Bridge",
             "time": "16:15",
             "duration": 45,
-            "narrative": "End your outdoor afternoon at the longest single-span covered bridge in the world. The 1862 structure spans the South Yuba River and anchors a state park with swimming holes and short trails.",
+            "narrative": "Bridgeport Covered Bridge -- 233 feet of single-span timber construction from 1862 -- anchors a state park with swimming holes and short trails along the South Yuba River. Late afternoon light on the bridge is as good as it gets.",
             "tip": "Late afternoon light on the bridge is perfect for photography."
           },
           {
             "asset": "New Moon Cafe",
             "time": "17:30",
             "duration": 90,
-            "narrative": "Conclude your three-day journey at one of Nevada City's finest restaurants. New Moon serves creative California cuisine with an emphasis on local and organic ingredients. The wine list features Nevada County producers you visited today.",
-            "tip": "Reservations are essential, especially on weekends. This is a celebration-worthy meal to cap the trip."
+            "narrative": "New Moon Cafe serves creative California cuisine with an emphasis on local and organic ingredients. The wine list features Nevada County producers you visited today -- order what you tasted and compare it with a meal that knows how to match. Three days, one county, and this is how you end it.",
+            "tip": "Reservations essential on weekends. The wine list features local producers from today's tastings."
           }
         ]
       }
