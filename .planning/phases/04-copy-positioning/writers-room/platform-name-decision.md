@@ -1,10 +1,14 @@
 # Platform Name Decision — For Diana/Eliza (Wednesday Feb 18)
 
-**Status:** DEFERRED to committee meeting
+**Status:** DECIDED — Keep "Explore Nevada County"
 **Current name:** Explore Nevada County
-**Decision needed by:** Wednesday Feb 18, 2026
+**Decided:** 2026-02-16 (user approved)
 
 ---
+
+## Decision
+
+**"Explore Nevada County" stays.** The user likes it — it's fun, clear, and works. Not deferred; decided. If Diana/Eliza want to revisit, the rename options below are documented for reference.
 
 ## Background
 
