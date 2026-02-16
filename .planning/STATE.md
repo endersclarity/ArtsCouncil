@@ -5,14 +5,14 @@
 See: .planning/PROJECT.md (updated 2026-02-14)
 
 **Core value:** Drive people to downtowns, local businesses, performance venues, and cultural spaces through an editorial-quality interactive experience that feels like MUSE magazine.
-**Current focus:** Phase 04 (Copy & Positioning) COMPLETE (3/3 plans). Deadline Wed Feb 18.
+**Current focus:** Phase 01.1 (Demo Visual Polish) — NEXT UP. Deadline Wed Feb 18.
 
 ## Current Position
 
-Phase: 04-copy-positioning
-Plan: 3 of 3 complete
-Status: Phase 04 COMPLETE. All copy surfaces rewritten in MUSE voice. Chatbot set to functional register. Platform name deferred to committee.
-Last activity: 2026-02-16 -- Completed 04-03-PLAN.md (sub-page copy, chatbot voice, consistency sweep).
+Phase: 01.1-demo-visual-polish
+Plan: 0 of ? (needs /gsd:plan-phase)
+Status: Research complete. Design spec (24 decisions) + 4 team analyses written. PRIORITIZED-ACTION-PLAN.md has build order. Needs planning then execution.
+Last activity: 2026-02-16 -- Design discussion + team analysis (UX, Tech, Competitive, Demo Strategy). Phase 01.1 inserted into roadmap.
 
 Progress: [████████████████████] 100% overall
 
@@ -227,5 +227,6 @@ Recent decisions affecting current work:
 ## Session Continuity
 
 Last session: 2026-02-16
-Stopped at: Completed 04-03-PLAN.md (sub-page copy, chatbot voice, consistency sweep). Phase 04 COMPLETE (3/3 plans). All planned phases complete.
-Resume file: None — all phases complete.
+Stopped at: Phase 01.1 context gathered. Next: /gsd:plan-phase 1.1
+Resume file: .planning/phases/01.1-demo-visual-polish/01.1-CONTEXT.md
+Key artifacts: .planning/DESIGN-SPEC.md, .planning/analysis/PRIORITIZED-ACTION-PLAN.md, .planning/phases/01.1-demo-visual-polish/01.1-CONTEXT.md
