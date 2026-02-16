@@ -5,16 +5,16 @@
 See: .planning/PROJECT.md (updated 2026-02-14)
 
 **Core value:** Drive people to downtowns, local businesses, performance venues, and cultural spaces through an editorial-quality interactive experience that feels like MUSE magazine.
-**Current focus:** Phase 04 (Copy & Positioning) IN PROGRESS (2/3 plans). Deadline Wed Feb 18.
+**Current focus:** Phase 04 (Copy & Positioning) COMPLETE (3/3 plans). Deadline Wed Feb 18.
 
 ## Current Position
 
 Phase: 04-copy-positioning
-Plan: 2 of 3 complete
-Status: Plan 02 (itinerary & experience narrative rewrite) complete. All 3 itineraries and 10 experiences rewritten in MUSE voice.
-Last activity: 2026-02-16 -- Completed 04-02-PLAN.md (itinerary & experience narratives).
+Plan: 3 of 3 complete
+Status: Phase 04 COMPLETE. All copy surfaces rewritten in MUSE voice. Chatbot set to functional register. Platform name deferred to committee.
+Last activity: 2026-02-16 -- Completed 04-03-PLAN.md (sub-page copy, chatbot voice, consistency sweep).
 
-Progress: [████████████████████] ~98% overall
+Progress: [████████████████████] 100% overall
 
 ## What's Actually Shipped
 
@@ -83,6 +83,19 @@ Progress: [████████████████████] ~98% ov
 - Committee "clicked through to a business" metric: sum outbound:website + outbound:phone + outbound:directions + outbound:event-ticket
 - marker:click at 3 entry points (circle click, mobile label, smart labels)
 
+### Phase 4: Copy & Positioning (100%)
+- 3/3 plans complete (04-01: hub & config, 04-02: itinerary & experience narratives, 04-03: sub-pages & chatbot voice)
+- Hub hero: "The Creative Life" headline, edition tagline "Issue 03 | 2026", geographic sub-line
+- Cultural Resources renamed to "Community & Learning" (58 venues)
+- All user-facing "assets" replaced with "places" across HTML, config, filter model, explore view
+- Tab labels simplified: Picks, Events, Routes
+- MUSE section reframed with visitor context
+- 3 itineraries + 10 experiences rewritten in MUSE editorial voice
+- Events/itineraries sub-pages with real SEO title tags
+- Chatbot personality: functional register (knowledgeable local), not editorial
+- Platform name deferred to committee (documented for Wednesday meeting)
+- Full consistency sweep: zero anti-patterns across all target files
+
 ### Phase 03.1: Content Architecture & Demo Curation (100%)
 - 2/2 plans complete
 - Adaptive split layout: content column left, sticky map column right on desktop (>900px)
@@ -100,7 +113,7 @@ Progress: [████████████████████] ~98% ov
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 13 (Phase 2: 3, Phase 2.1: 2, Phase 3: 2, Phase 5: 2, Phase 6: 1, Phase 6.1: 1, Phase 3.1: 2 — Phase 1 plans obsolete)
+- Total plans completed: 16 (Phase 2: 3, Phase 2.1: 2, Phase 3: 2, Phase 4: 3, Phase 5: 2, Phase 6: 1, Phase 6.1: 1, Phase 3.1: 2 — Phase 1 plans obsolete)
 - Average duration: 3.4min per plan
 
 **By Phase:**
@@ -114,6 +127,7 @@ Progress: [████████████████████] ~98% ov
 | 3.1 | 2/2 | 7min | 3.5min | Claude Code via GSD |
 | 5 | 2/2 | 6min | 3min | Claude Code via GSD |
 | 6 | 1/1 | 15min | 15min | Claude Code via GSD |
+| 4 | 3/3 | 9min | 3min | Claude Code via GSD |
 | 6.1 | 1/1 | 3min | 3min | Claude Code via GSD |
 
 ## Accumulated Context
@@ -177,6 +191,9 @@ Recent decisions affecting current work:
 - [Phase 4]: Nature experience retitled "State Parks & Trail Networks" with mining-history-forward framing
 - [Phase 4]: Experience subtitles use venue-to-venue ranges for specificity (e.g., "Empire Mine to Malakoff Diggins")
 - [Phase 4]: Connectors rewritten with street names (Spring, Broad, Mill, Idaho Maryland Rd) not scenic filler
+- [Phase 4]: Chatbot uses functional register (knowledgeable local, not editorial) — direct, name-first, concise
+- [Phase 4]: Platform name "Explore Nevada County" kept as-is; decision deferred to Diana/Eliza for Wednesday meeting
+- [Phase 4]: Sub-page SEO title tags use real keywords (not development artifact text)
 
 ### Roadmap Evolution
 
@@ -210,5 +227,5 @@ Recent decisions affecting current work:
 ## Session Continuity
 
 Last session: 2026-02-16
-Stopped at: Completed 04-02-PLAN.md (itinerary & experience narratives). Phase 04 plan 2/3 done. Next: 04-03-PLAN.md.
-Resume file: None — continue with 04-02-PLAN.md (itinerary & experience narrative rewrites).
+Stopped at: Completed 04-03-PLAN.md (sub-page copy, chatbot voice, consistency sweep). Phase 04 COMPLETE (3/3 plans). All planned phases complete.
+Resume file: None — all phases complete.
