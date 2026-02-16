@@ -123,21 +123,19 @@ Plans:
 **Depends on**: No hard upstream dependency
 **Requirements**: ANLYT-01, ANLYT-02, ANLYT-03, ANLYT-04, ANLYT-05, ANLYT-06, ANLYT-07, ANLYT-08, ANLYT-09, ANLYT-10, ANLYT-11, ANLYT-12, ANLYT-13, ANLYT-14
 **Success Criteria** (what must be TRUE):
-  1. Plausible dashboard shows page views and visitor counts with zero cookie consent UI
+  1. Umami dashboard shows page views and visitor counts with zero cookie consent UI
   2. Clicking a venue's website/phone/directions link in the detail panel fires a tracked outbound event with UTM parameters
-  3. Category filter, Open Now toggle, experience start, event click, search query, editorial card expand, and deep link arrival each appear as distinct events in Plausible
+  3. Category filter, Open Now toggle, experience start, event click, search query, editorial card expand, and deep link arrival each appear as distinct events in Umami
   4. Rapid filter toggling does not flood the dashboard (dedup throttle working)
-  5. Committee members can access a shared Plausible dashboard URL without needing an account
-**Plans**: TBD
+  5. Committee members can access a shared Umami dashboard URL without needing an account
+**Plans**: 1 plan
 
 Plans:
-- [ ] 06-01: Plausible script integration and provider-agnostic analytics module
-- [ ] 06-02: Instrument all 12 interaction types with 3-tier event taxonomy
-- [ ] 06-03: UTM outbound links, dedup throttle, and shared dashboard setup
+- [ ] 06-01-PLAN.md — Analytics wrapper module, Umami script tag, instrument all 12+ interaction types, UTM outbound links, dedup throttle, Umami Cloud setup
 
 ### Phase 7: Demand Signal Reporting
 **Goal**: The committee receives a monthly intelligence report showing what visitors searched for, clicked on, and asked the chatbot -- actionable data no other small-town DMO has
-**Depends on**: Phase 5 (Supabase chatbot logs), Phase 6 (Plausible data)
+**Depends on**: Phase 5 (Supabase chatbot logs), Phase 6 (Umami data)
 **Requirements**: REPT-01, REPT-02, REPT-03, REPT-04, REPT-05, REPT-06, REPT-07, REPT-08
 **Success Criteria** (what must be TRUE):
   1. Running the report script produces a markdown file with top 10 assets by detail opens and outbound clicks
@@ -148,7 +146,7 @@ Plans:
 **Plans**: TBD
 
 Plans:
-- [ ] 07-01: Plausible Stats API data pull and aggregation script
+- [ ] 07-01: Umami Stats API data pull and aggregation script
 - [ ] 07-02: Supabase chatbot log aggregation and intent classification
 - [ ] 07-03: Report template, markdown/PDF output, and GitHub Actions trigger
 
