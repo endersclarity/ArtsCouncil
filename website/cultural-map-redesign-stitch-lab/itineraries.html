@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trip Itineraries — Explore Nevada County</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="index-maplibre-hero-intent.css">
+<link rel="stylesheet" href="index-maplibre-hero-intent-stitch-frontend-design-pass.css">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="14ecf234-cd96-4e6c-91c2-cc27babc095d" data-domains="cultural-map-redesign-stitch-lab.vercel.app"></script>
+</head>
+<body class="theme-intent itinerary-page">
+
+<header class="mast mast--intent" role="banner">
+  <div class="brand">
+    <h1 class="mast-name">Explore Nevada County</h1>
+    <nav class="stitch-top-nav" aria-label="Primary">
+      <a href="index-maplibre-hero-intent-stitch-frontend-design-pass.html">Back to Explore</a>
+      <a href="events.html">Events</a>
+      <a href="itineraries.html" class="nav-active">Itineraries</a>
+    </nav>
+  </div>
+  <div class="edition">Culture &middot; Discovery &middot; 2026</div>
+</header>
+
+<main class="subpage-content">
+  <div class="subpage-back-row">
+    <a href="index-maplibre-hero-intent-stitch-frontend-design-pass.html" class="subpage-back-link">&larr; Back to Explore</a>
+  </div>
+
+  <h1 class="subpage-title">Trip Itineraries</h1>
+  <p class="subpage-subtitle">Curated multi-day plans for exploring Nevada County's cultural district</p>
+
+  <div class="itinerary-comparison" id="itineraryComparison">
+    <div class="events-loading">Loading itineraries...</div>
+  </div>
+</main>
+
+<footer class="colophon">
+  <div class="colophon-inner">
+    <span>&copy; 2026 Nevada County Arts Council</span>
+    <a href="index-maplibre-hero-intent-stitch-frontend-design-pass.html">Back to Explore</a>
+  </div>
+</footer>
+
+<script>
+(function() {
+  'use strict';
+
+  var HUB_URL = 'index-maplibre-hero-intent-stitch-frontend-design-pass.html';
+
+  function escapeHtml(str) {
+    if (!str) return '';
+    var div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+  function extractTowns(itinerary) {
+    var towns = {};
+    (itinerary.days || []).forEach(function(day) {
+      (day.stops || []).forEach(function(stop) {
+        if (stop.city) towns[stop.city] = true;
+      });
+    });
+    return Object.keys(towns);
+  }
+
+  function countStops(itinerary) {
+    var count = 0;
+    (itinerary.days || []).forEach(function(day) {
+      count += (day.stops || []).length;
+    });
+    return count;
+  }
+
+  function getStopNames(itinerary) {
+    var names = [];
+    (itinerary.days || []).forEach(function(day) {
+      (day.stops || []).forEach(function(stop) {
+        names.push(stop.asset);
+      });
+    });
+    return names;
+  }
+
+  function getDayCount(itinerary) {
+    return (itinerary.days || []).length;
+  }
+
+  function renderItineraries(itineraries) {
+    var container = document.getElementById('itineraryComparison');
+
+    if (!itineraries.length) {
+      container.innerHTML = '<div class="events-empty">No itineraries available.</div>';
+      return;
+    }
+
+    var html = '';
+    itineraries.forEach(function(itin) {
+      var stopCount = countStops(itin);
+      var dayCount = getDayCount(itin);
+      var towns = extractTowns(itin);
+      var stopNames = getStopNames(itin);
+      var previewStops = stopNames.slice(0, 4);
+      var moreCount = stopNames.length - previewStops.length;
+
+      html += '<div class="itinerary-compare-card">';
+      html += '  <h2>' + escapeHtml(itin.title) + '</h2>';
+      html += '  <div class="itinerary-meta">' + dayCount + ' day' + (dayCount > 1 ? 's' : '') + ' &middot; ' + stopCount + ' stops</div>';
+      html += '  <div class="itinerary-description">' + escapeHtml(itin.description) + '</div>';
+
+      if (towns.length > 0) {
+        html += '  <div class="itinerary-towns">Towns: ' + escapeHtml(towns.join(', ') || 'Nevada City, Grass Valley') + '</div>';
+      }
+
+      html += '  <div class="itinerary-stops-preview">';
+      previewStops.forEach(function(name) {
+        html += '<span class="itinerary-stop-tag">' + escapeHtml(name) + '</span>';
+      });
+      if (moreCount > 0) {
+        html += '<span class="itinerary-stop-tag more-tag">+' + moreCount + ' more</span>';
+      }
+      html += '  </div>';
+
+      html += '  <a class="itinerary-cta" href="' + HUB_URL + '?itinerary=' + escapeHtml(itin.id) + '">Open full itinerary</a>';
+      html += '</div>';
+    });
+
+    container.innerHTML = html;
+  }
+
+  function init() {
+    fetch('itineraries.json')
+      .then(function(res) { return res.json(); })
+      .then(function(itineraries) {
+        renderItineraries(itineraries);
+      })
+      .catch(function(err) {
+        console.error('Failed to load itineraries:', err);
+        document.getElementById('itineraryComparison').innerHTML =
+          '<div class="events-empty">Failed to load itineraries. Please try refreshing the page.</div>';
+      });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+</body>
+</html>

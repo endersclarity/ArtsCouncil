@@ -865,6 +865,25 @@ body.theme-intent {
   color: #ff7d5c !important;
 }
 
+.hub-subpage-link {
+  text-align: center;
+  padding: 0.8rem 0;
+}
+
+.hub-subpage-link a {
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #ff7d5c;
+  text-decoration: none;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.hub-subpage-link a:hover {
+  text-decoration: underline;
+}
+
 /* ═══════════════════════════════════════
    EVENTS PAGE
    ═══════════════════════════════════════ */
