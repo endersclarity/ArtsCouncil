@@ -75,6 +75,14 @@
     var resolved = state.resolved[id];
     if (!resolved || !resolved.length) return;
 
+    var analytics = window.CulturalMapAnalytics;
+    if (analytics) {
+      analytics.track('itinerary:start', {
+        id: (id || '').substring(0, 100),
+        title: (itinerary.title || '').substring(0, 100)
+      });
+    }
+
     state.activeId = id;
 
     // Render detail overlay
@@ -105,6 +113,20 @@
         backdrop.addEventListener('click', function() { deactivateItinerary(); });
       }
 
+      // Bind calendar button tracking
+      container.addEventListener('click', function(e) {
+        var calBtn = e.target.closest('.itinerary-stop-calendar-btn, [href*="calendar.google.com"]');
+        if (calBtn) {
+          var analytics = window.CulturalMapAnalytics;
+          if (analytics) {
+            analytics.track('itinerary:calendar', {
+              itinerary_title: (calBtn.getAttribute('data-itinerary-title') || '').substring(0, 100),
+              stop_name: (calBtn.getAttribute('data-stop-name') || calBtn.textContent || '').substring(0, 100)
+            });
+          }
+        }
+      });
+
       // Bind day tabs
       var accent = (itinerary.theme && itinerary.theme.accent) || '#2a8c8c';
       var tabs = container.querySelectorAll('.itinerary-day-tab');
@@ -113,6 +135,14 @@
         tabs[t].addEventListener('click', (function(tab) {
           return function() {
             var dayIndex = tab.getAttribute('data-day-index');
+            // Track day tab switch
+            var analytics = window.CulturalMapAnalytics;
+            if (analytics) {
+              analytics.track('itinerary:day-tab', {
+                itinerary_id: (id || '').substring(0, 100),
+                day: parseInt(dayIndex, 10) + 1
+              });
+            }
             // Update tab active state
             for (var tt = 0; tt < tabs.length; tt++) {
               tabs[tt].classList.remove('active');

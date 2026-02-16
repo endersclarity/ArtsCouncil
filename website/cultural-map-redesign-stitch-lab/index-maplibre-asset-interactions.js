@@ -61,6 +61,14 @@
         const featureIdx = Number(feature.properties && feature.properties.idx);
         const venue = Number.isInteger(featureIdx) ? data[featureIdx] : null;
         if (!venue || !venue.x || !venue.y) return;
+        var analytics = window.CulturalMapAnalytics;
+        if (analytics) {
+          analytics.track('marker:click', {
+            name: (venue.n || '').substring(0, 100),
+            category: venue.l || '',
+            city: venue.c || ''
+          });
+        }
         openDetail(venue);
         map.flyTo({
           center: [venue.x, venue.y],
@@ -84,6 +92,15 @@
       const featureIdx = Number(feature.properties && feature.properties.idx);
       const venue = Number.isInteger(featureIdx) ? data[featureIdx] : data.find((item) => item.n === feature.properties.name);
       if (!venue) return;
+
+      var analytics = window.CulturalMapAnalytics;
+      if (analytics) {
+        analytics.track('marker:click', {
+          name: (venue.n || '').substring(0, 100),
+          category: venue.l || '',
+          city: venue.c || ''
+        });
+      }
 
       cancelTour();
       hoverPopup.remove();

@@ -78,6 +78,10 @@
       eventsFilters.addEventListener('click', (event) => {
         const chip = event.target.closest('[data-event-filter]');
         if (!chip) return;
+        var analytics = window.CulturalMapAnalytics;
+        if (analytics) {
+          analytics.track('events:date-filter', { filter: chip.dataset.eventFilter || '' });
+        }
         ctx.setEventDateFilter(chip.dataset.eventFilter);
       });
     }
@@ -193,6 +197,10 @@
     const eventsDetails = document.getElementById('mapEventsDetails');
     if (eventsDetails) {
       eventsDetails.addEventListener('toggle', () => {
+        var analytics = window.CulturalMapAnalytics;
+        if (analytics) {
+          analytics.track('events:toggle', { state: eventsDetails.open ? 'open' : 'closed' });
+        }
         if (eventsDetails.open) {
           ctx.buildMapEventsList({ keepPosition: true });
         } else {

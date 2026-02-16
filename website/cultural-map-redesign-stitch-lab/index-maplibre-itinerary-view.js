@@ -176,7 +176,7 @@
         '<div class="itinerary-stop-narrative">' + (stop.narrative || '') + '</div>' +
         tipHTML +
         '<div class="itinerary-stop-actions">' +
-          (calUrl ? '<a class="itinerary-stop-calendar-btn" href="' + calUrl + '" target="_blank" rel="noopener">&#128197; Add to Calendar</a>' : '') +
+          (calUrl ? '<a class="itinerary-stop-calendar-btn" href="' + calUrl + '" target="_blank" rel="noopener" data-itinerary-title="' + (itinerary.title || '') + '" data-stop-name="' + (stop.data ? stop.data.n : stop.asset || '') + '">&#128197; Add to Calendar</a>' : '') +
           '<button class="itinerary-stop-map-btn" type="button" data-stop-index="' + index + '">&#128204; Show on Map</button>' +
         '</div>' +
       '</div>' +

@@ -65,6 +65,14 @@
         if (!Number.isFinite(idx) || idx < 0 || idx >= data.length) return;
         const venue = data[idx];
         if (!venue || !venue.x || !venue.y) return;
+        var analytics = window.CulturalMapAnalytics;
+        if (analytics) {
+          analytics.track('marker:click', {
+            name: (venue.n || '').substring(0, 100),
+            category: venue.l || '',
+            city: venue.c || ''
+          });
+        }
         openDetail(venue);
         map.flyTo({
           center: [venue.x, venue.y],
