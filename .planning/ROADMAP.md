@@ -137,7 +137,7 @@ Plans:
 
 **Goal:** Add 7 high-value analytics event types (marker clicks, itinerary engagement, event ticket attribution) to reach 23 total tracked interactions, filling remaining gaps for the committee's "clicked through to a business" metric
 **Depends on:** Phase 6
-**Plans:** 1 plan
+**Plans:** 1/1 plans complete
 
 Plans:
 - [ ] 06.1-01-PLAN.md — Instrument event ticket outbound tracking + UTM tagging, map marker clicks, itinerary system, and event filter interactions (7 new event types)
