@@ -85,6 +85,16 @@ Plans:
 - [x] 03-01-PLAN.md — Itinerary data (itineraries.json) + model + calendar utility (Wave 1)
 - [x] 03-02-PLAN.md — View, controller, HTML wiring, deep link, mobile swipe + verification (Wave 2)
 
+### Phase 03.1: Content Architecture & Demo Curation (INSERTED)
+
+**Goal:** Define the site's content architecture (hub + 2 sub-pages), curate featured content that demonstrates 5-source aggregation value, implement adaptive map layout, and structure the demo experience for Wednesday Feb 18 committee presentation
+**Depends on:** Phase 3
+**Plans:** 2 plans
+
+Plans:
+- [ ] 03.1-01-PLAN.md — Hub adaptive map layout + curated featured demo content (Wave 1)
+- [ ] 03.1-02-PLAN.md — Events and Itineraries dedicated sub-pages + hub navigation (Wave 2)
+
 ### Phase 4: Copy & Positioning
 **Goal**: All user-facing text positions the platform as the Experience Planning Committee's digital tool, emphasizing downtowns, galleries, dining, and performances over nature
 **Depends on**: Phase 1 (visual direction established), Phase 3 (itinerary narratives exist to review)
