@@ -5,16 +5,16 @@
 See: .planning/PROJECT.md (updated 2026-02-14)
 
 **Core value:** Drive people to downtowns, local businesses, performance venues, and cultural spaces through an editorial-quality interactive experience that feels like MUSE magazine.
-**Current focus:** Phase 04 (Copy & Positioning) IN PROGRESS (1/3 plans). Deadline Wed Feb 18.
+**Current focus:** Phase 04 (Copy & Positioning) IN PROGRESS (2/3 plans). Deadline Wed Feb 18.
 
 ## Current Position
 
 Phase: 04-copy-positioning
-Plan: 1 of 3 complete
-Status: Plan 01 (hub + config copy rewrite) complete. Hero reads "The Creative Life," zero "cultural assets," MUSE voice applied.
-Last activity: 2026-02-16 -- Completed 04-01-PLAN.md (hub & config copy rewrite).
+Plan: 2 of 3 complete
+Status: Plan 02 (itinerary & experience narrative rewrite) complete. All 3 itineraries and 10 experiences rewritten in MUSE voice.
+Last activity: 2026-02-16 -- Completed 04-02-PLAN.md (itinerary & experience narratives).
 
-Progress: [████████████████████] ~97% overall
+Progress: [████████████████████] ~98% overall
 
 ## What's Actually Shipped
 
@@ -173,6 +173,10 @@ Recent decisions affecting current work:
 - [Phase 4]: Tab labels simplified to single nouns: Picks, Events, Routes (Voice Rule 6)
 - [Phase 4]: All user-facing "assets" replaced with "places" across HTML, config, filter model, explore view
 - [Phase 4]: MUSE section reframed with visitor context: "From MUSE, the Nevada County Arts Council's print journal"
+- [Phase 4]: Itinerary titles rewritten culture-forward: "Galleries, Gold Mines & Stage Lights" not "Arts & Nature: A Perfect Day"
+- [Phase 4]: Nature experience retitled "State Parks & Trail Networks" with mining-history-forward framing
+- [Phase 4]: Experience subtitles use venue-to-venue ranges for specificity (e.g., "Empire Mine to Malakoff Diggins")
+- [Phase 4]: Connectors rewritten with street names (Spring, Broad, Mill, Idaho Maryland Rd) not scenic filler
 
 ### Roadmap Evolution
 
@@ -206,5 +210,5 @@ Recent decisions affecting current work:
 ## Session Continuity
 
 Last session: 2026-02-16
-Stopped at: Completed 04-01-PLAN.md (hub & config copy rewrite). Phase 04 plan 1/3 done.
+Stopped at: Completed 04-02-PLAN.md (itinerary & experience narratives). Phase 04 plan 2/3 done. Next: 04-03-PLAN.md.
 Resume file: None — continue with 04-02-PLAN.md (itinerary & experience narrative rewrites).
