@@ -30,9 +30,86 @@
     'Preservation & Culture':    { color: '#5c5020', short: 'Preservation', watercolor: 'preservation' },
   };
 
+  // Hand-curated demo picks for Wednesday Feb 18 committee presentation
+  // Showcases 5-source aggregation: MUSE, KVMR, GVDA, LibCal, Local assets
+  var DEMO_FEATURED_PICKS = [
+    {
+      type: 'editorial',
+      name: 'Our Cultural Corridors',
+      source: 'MUSE',
+      tagline: 'Highways as heritage trails connecting Gold Rush towns to High Sierra vistas',
+      category: 'Routes & Heritage',
+      museIndex: 0
+    },
+    {
+      type: 'editorial',
+      name: 'Rural is the New Cool',
+      source: 'MUSE',
+      tagline: 'Why Nevada County\'s creative density rivals any urban arts scene',
+      category: 'Community & Place',
+      museIndex: 1
+    },
+    {
+      type: 'event',
+      name: 'Carnaval a la Brazil: Nevada City Mardi Gras Fest at the Miners Foundry',
+      source: 'KVMR',
+      tagline: 'Community radio\'s biggest night of music and revelry at a historic venue',
+      category: 'Music & Performance',
+      eventId: 'kvmr-347612-1771153200-1771185600-20260215'
+    },
+    {
+      type: 'event',
+      name: 'Spring Street Swing Out',
+      source: 'GVDA',
+      tagline: 'Downtown Grass Valley comes alive with swing dancing and live bands',
+      category: 'Dance & Community',
+      eventId: 'gvda-191708164'
+    },
+    {
+      type: 'event',
+      name: 'Baby Storytime',
+      source: 'LibCal',
+      tagline: 'Free early literacy program at the Grass Valley Library for families',
+      category: 'Family & Kids',
+      eventId: 'libcal-LibCal-20247-14841924-20260217'
+    },
+    {
+      type: 'asset',
+      name: 'Miners Foundry',
+      source: 'Local',
+      tagline: 'Historic 1856 foundry turned premiere performance and event space in Nevada City',
+      category: 'Performance Spaces'
+    },
+    {
+      type: 'asset',
+      name: 'Nevada Theatre',
+      source: 'Local',
+      tagline: 'California\'s oldest original-use theater, hosting film and live performance since 1865',
+      category: 'Performance Spaces'
+    },
+    {
+      type: 'asset',
+      name: 'Broad Street Bistro and Gallery',
+      source: 'Local',
+      tagline: 'Fine dining meets local art in downtown Nevada City\'s creative heart',
+      category: 'Eat, Drink & Stay'
+    }
+  ];
+
+  // Source badge colors for demo picks
+  var DEMO_SOURCE_COLORS = {
+    'MUSE': '#c8943e',
+    'KVMR': '#2a8a7a',
+    'GVDA': '#b5533e',
+    'LibCal': '#3a5f7c',
+    'Local': '#2d4a3e'
+  };
+
   window.CulturalMapConfig = {
     MAPTILER_KEY,
     ICONS,
-    CATS
+    CATS,
+    DEMO_FEATURED_PICKS: DEMO_FEATURED_PICKS,
+    DEMO_SOURCE_COLORS: DEMO_SOURCE_COLORS
   };
 })();

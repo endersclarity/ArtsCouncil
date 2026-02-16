@@ -449,6 +449,64 @@ body.theme-intent {
 }
 
 /* ═══════════════════════════════════════
+   DEMO FEATURED PICKS - Source Badges
+   ═══════════════════════════════════════ */
+
+.demo-pick-card {
+  position: relative;
+  padding-top: 2rem;
+}
+
+.demo-source-badge {
+  position: absolute;
+  top: 0.45rem;
+  left: 0.45rem;
+  display: inline-block;
+  font-family: 'DM Sans', system-ui, sans-serif;
+  font-size: 0.58rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fff;
+  padding: 0.22rem 0.55rem;
+  border-radius: 999px;
+  line-height: 1.3;
+  z-index: 2;
+  white-space: nowrap;
+}
+
+.demo-pick-card .intent-strip-copy {
+  padding-top: 0.2rem;
+}
+
+.demo-pick-card .intent-strip-kicker {
+  color: #6b7a8f;
+  font-size: 0.56rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.demo-pick-card .intent-strip-title {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #152441;
+  line-height: 1.25;
+}
+
+.demo-pick-card .intent-strip-meta {
+  font-size: 0.7rem;
+  color: #51617b;
+  line-height: 1.4;
+}
+
+.demo-pick-card:hover {
+  border-color: rgba(255, 125, 92, 0.5);
+  box-shadow: 0 4px 12px rgba(255, 125, 92, 0.12);
+}
+
+/* ═══════════════════════════════════════
    ADAPTIVE SPLIT LAYOUT
    ═══════════════════════════════════════ */
 

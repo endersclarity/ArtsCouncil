@@ -538,47 +538,120 @@
   function renderIntentFeaturePicks() {
     const row = document.getElementById('intentFeaturePicksRow');
     if (!row) return;
-    const picks = (MUSE_EDITORIALS || []).slice(0, 6);
-    if (!picks.length) {
-      row.innerHTML = '<div class="intent-strip-empty">No feature picks available right now.</div>';
-      return;
-    }
-    row.innerHTML = picks.map((item) => {
-      const id = item && item.id ? String(item.id) : '';
-      const eyebrow = item && item.eyebrow ? String(item.eyebrow) : 'Feature pick';
-      const title = item && item.title ? String(item.title) : 'Untitled';
-      const meta = item && item.dek
-        ? String(item.dek)
-        : (item && item.lead_quote && item.lead_quote.text
-          ? String(item.lead_quote.text)
-          : 'Open this feature and jump to places mentioned on the map.');
-      const shortMeta = truncateIntentText(meta, 92);
-      const shortTitle = truncateIntentText(title, 64);
-      const media = getIntentFeatureMosaicImages(item);
-      return `
-        <button class="intent-strip-card intent-strip-card--feature" type="button" data-intent-editorial="${escapeHTML(id)}">
-          <span class="intent-strip-media intent-strip-media--mosaic" aria-hidden="true">
-            <img class="intent-strip-media-a" src="${escapeHTML(media[0])}" alt="" loading="lazy">
-            <img class="intent-strip-media-b" src="${escapeHTML(media[1])}" alt="" loading="lazy">
-            <img class="intent-strip-media-c" src="${escapeHTML(media[2])}" alt="" loading="lazy">
-          </span>
-          <span class="intent-strip-copy">
-            <span class="intent-strip-kicker">${escapeHTML(eyebrow)}</span>
-            <span class="intent-strip-title">${escapeHTML(shortTitle)}</span>
-            <span class="intent-strip-meta">${escapeHTML(shortMeta)}</span>
-          </span>
-        </button>
-      `;
-    }).join('');
-    attachIntentImageFallbacks(row);
-    updateIntentStripScrollerState(row.closest('.intent-strip-scroller'));
 
-    row.querySelectorAll('[data-intent-editorial]').forEach((el) => {
-      el.addEventListener('click', () => {
-        const id = el.getAttribute('data-intent-editorial');
-        if (id) openMuseStory(id);
+    // Use curated demo picks if available, otherwise fall back to MUSE editorials
+    var config = window.CulturalMapConfig || {};
+    var demoPicks = config.DEMO_FEATURED_PICKS;
+    var sourceColors = config.DEMO_SOURCE_COLORS || {};
+
+    if (demoPicks && demoPicks.length) {
+      row.innerHTML = demoPicks.map(function(pick, idx) {
+        var source = pick.source || 'Local';
+        var badgeColor = sourceColors[source] || '#666';
+        var pickType = pick.type || 'asset';
+        var dataAttr = '';
+        if (pickType === 'asset') dataAttr = 'data-demo-pick-asset="' + escapeHTML(pick.name) + '"';
+        else if (pickType === 'event') dataAttr = 'data-demo-pick-event="' + escapeHTML(pick.eventId || '') + '"';
+        else if (pickType === 'editorial') dataAttr = 'data-demo-pick-editorial="' + (pick.museIndex != null ? pick.museIndex : '') + '"';
+
+        return '<button class="intent-strip-card demo-pick-card" type="button" ' + dataAttr + '>' +
+          '<span class="demo-source-badge" style="background:' + escapeHTML(badgeColor) + '">' + escapeHTML(source) + '</span>' +
+          '<span class="intent-strip-copy">' +
+            '<span class="intent-strip-kicker">' + escapeHTML(pick.category || '') + '</span>' +
+            '<span class="intent-strip-title">' + escapeHTML(truncateIntentText(pick.name || '', 64)) + '</span>' +
+            '<span class="intent-strip-meta">' + escapeHTML(truncateIntentText(pick.tagline || '', 92)) + '</span>' +
+          '</span>' +
+        '</button>';
+      }).join('');
+
+      // Wire click handlers for each pick type
+      row.querySelectorAll('[data-demo-pick-asset]').forEach(function(el) {
+        el.addEventListener('click', function() {
+          var name = el.getAttribute('data-demo-pick-asset');
+          if (name && window.CulturalMapDeepLink) {
+            window.CulturalMapDeepLink.navigateFromChatAsset({ name: name });
+          } else if (name) {
+            // Fallback: find asset by name and open detail
+            var assets = window.__culturalMapData || [];
+            for (var i = 0; i < assets.length; i++) {
+              if (assets[i] && assets[i].n && assets[i].n.toLowerCase() === name.toLowerCase()) {
+                if (window.CulturalMapDetailController && window.CulturalMapDetailController.open) {
+                  window.CulturalMapDetailController.open(i);
+                }
+                break;
+              }
+            }
+          }
+        });
       });
-    });
+
+      row.querySelectorAll('[data-demo-pick-event]').forEach(function(el) {
+        el.addEventListener('click', function() {
+          var eventId = el.getAttribute('data-demo-pick-event');
+          if (eventId) {
+            // Scroll to events section and try to focus the event
+            var eventsSection = document.querySelector('.story-card--events');
+            if (eventsSection) eventsSection.scrollIntoView({ behavior: 'smooth' });
+          }
+        });
+      });
+
+      row.querySelectorAll('[data-demo-pick-editorial]').forEach(function(el) {
+        el.addEventListener('click', function() {
+          var idx = el.getAttribute('data-demo-pick-editorial');
+          if (idx !== '' && idx !== null) {
+            var museCards = document.querySelectorAll('.muse-card');
+            var card = museCards[parseInt(idx, 10)];
+            if (card) {
+              card.open = true;
+              card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          }
+        });
+      });
+    } else {
+      // Fallback to original MUSE editorials rendering
+      var picks = (MUSE_EDITORIALS || []).slice(0, 6);
+      if (!picks.length) {
+        row.innerHTML = '<div class="intent-strip-empty">No feature picks available right now.</div>';
+        return;
+      }
+      row.innerHTML = picks.map(function(item) {
+        var id = item && item.id ? String(item.id) : '';
+        var eyebrow = item && item.eyebrow ? String(item.eyebrow) : 'Feature pick';
+        var title = item && item.title ? String(item.title) : 'Untitled';
+        var meta = item && item.dek
+          ? String(item.dek)
+          : (item && item.lead_quote && item.lead_quote.text
+            ? String(item.lead_quote.text)
+            : 'Open this feature and jump to places mentioned on the map.');
+        var shortMeta = truncateIntentText(meta, 92);
+        var shortTitle = truncateIntentText(title, 64);
+        var media = getIntentFeatureMosaicImages(item);
+        return '<button class="intent-strip-card intent-strip-card--feature" type="button" data-intent-editorial="' + escapeHTML(id) + '">' +
+          '<span class="intent-strip-media intent-strip-media--mosaic" aria-hidden="true">' +
+            '<img class="intent-strip-media-a" src="' + escapeHTML(media[0]) + '" alt="" loading="lazy">' +
+            '<img class="intent-strip-media-b" src="' + escapeHTML(media[1]) + '" alt="" loading="lazy">' +
+            '<img class="intent-strip-media-c" src="' + escapeHTML(media[2]) + '" alt="" loading="lazy">' +
+          '</span>' +
+          '<span class="intent-strip-copy">' +
+            '<span class="intent-strip-kicker">' + escapeHTML(eyebrow) + '</span>' +
+            '<span class="intent-strip-title">' + escapeHTML(shortTitle) + '</span>' +
+            '<span class="intent-strip-meta">' + escapeHTML(shortMeta) + '</span>' +
+          '</span>' +
+        '</button>';
+      }).join('');
+      attachIntentImageFallbacks(row);
+
+      row.querySelectorAll('[data-intent-editorial]').forEach(function(el) {
+        el.addEventListener('click', function() {
+          var id = el.getAttribute('data-intent-editorial');
+          if (id) openMuseStory(id);
+        });
+      });
+    }
+
+    updateIntentStripScrollerState(row.closest('.intent-strip-scroller'));
   }
 
   function renderIntentEventsPreview() {
