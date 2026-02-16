@@ -5,16 +5,16 @@
 See: .planning/PROJECT.md (updated 2026-02-14)
 
 **Core value:** Drive people to downtowns, local businesses, performance venues, and cultural spaces through an editorial-quality interactive experience that feels like MUSE magazine.
-**Current focus:** Phase 03.1 (Content Architecture & Demo Curation) COMPLETE (2/2 plans). Deadline Wed Feb 18.
+**Current focus:** Phase 04 (Copy & Positioning) IN PROGRESS (1/3 plans). Deadline Wed Feb 18.
 
 ## Current Position
 
-Phase: 03.1 (Content Architecture & Demo Curation)
-Plan: 2 of 2 complete
-Status: Phase 03.1 complete. Events sub-page + itineraries sub-page + hub navigation wired. Ready for deployment.
-Last activity: 2026-02-16 -- Completed 03.1-02-PLAN.md (sub-pages + navigation).
+Phase: 04-copy-positioning
+Plan: 1 of 3 complete
+Status: Plan 01 (hub + config copy rewrite) complete. Hero reads "The Creative Life," zero "cultural assets," MUSE voice applied.
+Last activity: 2026-02-16 -- Completed 04-01-PLAN.md (hub & config copy rewrite).
 
-Progress: [████████████████████] ~95% overall
+Progress: [████████████████████] ~97% overall
 
 ## What's Actually Shipped
 
@@ -166,6 +166,13 @@ Recent decisions affecting current work:
 - [Phase 3.1]: Events page uses Luxon CDN for timezone-aware date handling
 - [Phase 3.1]: Source filter uses source_label (not categories) since events lack unified category taxonomy
 - [Phase 3.1]: Itinerary CTAs deep link to hub via ?itinerary=<id> query param
+- [Phase 4]: Hero headline: "The Creative Life" with sub-line "Grass Valley - Nevada City - Truckee - the Sierra foothills"
+- [Phase 4]: Edition tagline: "Issue 03 | 2026" (mirrors MUSE format)
+- [Phase 4]: "Cultural District" permitted in cover tag + colophon only; MUSE editorial quotes preserved
+- [Phase 4]: Cultural Resources category renamed to "Community & Learning" (58 venues: libraries, media, schools, chambers)
+- [Phase 4]: Tab labels simplified to single nouns: Picks, Events, Routes (Voice Rule 6)
+- [Phase 4]: All user-facing "assets" replaced with "places" across HTML, config, filter model, explore view
+- [Phase 4]: MUSE section reframed with visitor context: "From MUSE, the Nevada County Arts Council's print journal"
 
 ### Roadmap Evolution
 
@@ -199,5 +206,5 @@ Recent decisions affecting current work:
 ## Session Continuity
 
 Last session: 2026-02-16
-Stopped at: Completed 03.1-02-PLAN.md (sub-pages + navigation). Phase 03.1 complete (2/2 plans).
-Resume file: None — Phase 03.1 complete. Next: deploy to stitch-lab for Wed Feb 18 committee demo.
+Stopped at: Completed 04-01-PLAN.md (hub & config copy rewrite). Phase 04 plan 1/3 done.
+Resume file: None — continue with 04-02-PLAN.md (itinerary & experience narrative rewrites).
