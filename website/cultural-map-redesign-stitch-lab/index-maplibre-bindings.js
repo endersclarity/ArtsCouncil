@@ -127,6 +127,18 @@
         });
       }, { passive: true });
       eventsList.addEventListener('click', (event) => {
+        var ticketLink = event.target.closest('[data-track-outbound="event-ticket"]');
+        if (ticketLink) {
+          var analytics = window.CulturalMapAnalytics;
+          if (analytics) {
+            analytics.track('outbound:event-ticket', {
+              title: (ticketLink.getAttribute('data-track-title') || '').substring(0, 100),
+              venue: (ticketLink.getAttribute('data-track-venue') || '').substring(0, 100),
+              url: (ticketLink.href || '').substring(0, 200)
+            });
+          }
+          return; // Let the link navigate naturally
+        }
         const link = event.target.closest('.map-event-link');
         if (link) {
           event.stopPropagation();
@@ -153,6 +165,18 @@
     const allEventsList = document.getElementById('mapEventsAllList');
     if (allEventsList) {
       allEventsList.addEventListener('click', (event) => {
+        var ticketLink = event.target.closest('[data-track-outbound="event-ticket"]');
+        if (ticketLink) {
+          var analytics = window.CulturalMapAnalytics;
+          if (analytics) {
+            analytics.track('outbound:event-ticket', {
+              title: (ticketLink.getAttribute('data-track-title') || '').substring(0, 100),
+              venue: (ticketLink.getAttribute('data-track-venue') || '').substring(0, 100),
+              url: (ticketLink.href || '').substring(0, 200)
+            });
+          }
+          return;
+        }
         const link = event.target.closest('.map-event-link');
         if (link) {
           event.stopPropagation();
@@ -180,6 +204,18 @@
     const searchEventsList = document.getElementById('exploreEventResults');
     if (searchEventsList) {
       searchEventsList.addEventListener('click', (event) => {
+        var ticketLink = event.target.closest('[data-track-outbound="event-ticket"]');
+        if (ticketLink) {
+          var analytics = window.CulturalMapAnalytics;
+          if (analytics) {
+            analytics.track('outbound:event-ticket', {
+              title: (ticketLink.getAttribute('data-track-title') || '').substring(0, 100),
+              venue: (ticketLink.getAttribute('data-track-venue') || '').substring(0, 100),
+              url: (ticketLink.href || '').substring(0, 200)
+            });
+          }
+          return;
+        }
         const link = event.target.closest('.explore-search-event-link');
         if (link) {
           event.stopPropagation();

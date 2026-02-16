@@ -73,8 +73,13 @@
     const cards = upcoming.slice(0, 5).map((event) => {
       const title = escapeHTML(event.title || 'Untitled event');
       const time = escapeHTML(formatEventDateRange(event));
-      const link = typeof event.ticket_url === 'string' && event.ticket_url
-        ? `<a class="detail-event-link" href="${escapeHTML(event.ticket_url)}" target="_blank" rel="noopener">Tickets / Details</a>`
+      var detailTicketUrl = typeof event.ticket_url === 'string' && event.ticket_url ? event.ticket_url : '';
+      if (detailTicketUrl && detailTicketUrl.indexOf('http') === 0) {
+        var analyticsRef = window.CulturalMapAnalytics;
+        if (analyticsRef) { detailTicketUrl = analyticsRef.tagOutboundUrl(detailTicketUrl, 'event-ticket'); }
+      }
+      const link = detailTicketUrl
+        ? `<a class="detail-event-link" href="${escapeHTML(detailTicketUrl)}" target="_blank" rel="noopener" data-track-outbound="event-ticket" data-track-title="${title}" data-track-venue="">${'Tickets / Details'}</a>`
         : '';
       return `<div class="detail-event-card"><div class="detail-event-title">${title}</div><div class="detail-event-time">${time}</div>${link}</div>`;
     }).join('');

@@ -31,8 +31,13 @@
       const imageHTML = imageURL
         ? `<img class="map-event-image" src="${escapeHTML(imageURL)}" alt="${title}" loading="lazy" onerror="this.outerHTML='<div class=&quot;map-event-image placeholder&quot;>No image</div>'">`
         : '<div class="map-event-image placeholder">No image</div>';
-      const ticket = typeof event.ticket_url === 'string' && event.ticket_url
-        ? `<a class="map-event-link" href="${escapeHTML(event.ticket_url)}" target="_blank" rel="noopener">Tickets / Details</a>`
+      var cardTicketUrl = typeof event.ticket_url === 'string' && event.ticket_url ? event.ticket_url : '';
+      if (cardTicketUrl && cardTicketUrl.indexOf('http') === 0) {
+        var analyticsRef = window.CulturalMapAnalytics;
+        if (analyticsRef) { cardTicketUrl = analyticsRef.tagOutboundUrl(cardTicketUrl, 'event-ticket'); }
+      }
+      const ticket = cardTicketUrl
+        ? `<a class="map-event-link" href="${escapeHTML(cardTicketUrl)}" target="_blank" rel="noopener" data-track-outbound="event-ticket" data-track-title="${title}" data-track-venue="${venueName}">Tickets / Details</a>`
         : '';
       const badge = mapped ? '' : '<span class="map-event-badge">Unmapped</span>';
       const seriesCount = Number.isInteger(event.series_count) ? event.series_count : 1;
@@ -74,8 +79,13 @@
       const title = escapeHTML(event.title || 'Untitled event');
       const venueName = escapeHTML(event.venue_name || 'Venue TBD');
       const eventTime = escapeHTML(formatEventDateRange(event));
-      const ticket = typeof event.ticket_url === 'string' && event.ticket_url
-        ? `<a class="map-event-link" href="${escapeHTML(event.ticket_url)}" target="_blank" rel="noopener">Tickets / Details</a>`
+      var rowTicketUrl = typeof event.ticket_url === 'string' && event.ticket_url ? event.ticket_url : '';
+      if (rowTicketUrl && rowTicketUrl.indexOf('http') === 0) {
+        var analyticsRef2 = window.CulturalMapAnalytics;
+        if (analyticsRef2) { rowTicketUrl = analyticsRef2.tagOutboundUrl(rowTicketUrl, 'event-ticket'); }
+      }
+      const ticket = rowTicketUrl
+        ? `<a class="map-event-link" href="${escapeHTML(rowTicketUrl)}" target="_blank" rel="noopener" data-track-outbound="event-ticket" data-track-title="${title}" data-track-venue="${venueName}">Tickets / Details</a>`
         : '';
       const badge = mapped ? '' : '<span class="map-event-badge">Unmapped</span>';
       const seriesCount = Number.isInteger(event.series_count) ? event.series_count : 1;

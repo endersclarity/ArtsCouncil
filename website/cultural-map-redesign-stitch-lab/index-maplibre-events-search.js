@@ -23,8 +23,13 @@
       const when = escapeHTML(formatEventDateRange(event));
       const venue = escapeHTML(event.venue_name || 'Venue TBD');
       const badge = mapped ? '' : '<span class="map-event-badge">Unmapped</span>';
-      const link = typeof event.ticket_url === 'string' && event.ticket_url
-        ? `<a class="explore-search-event-link" href="${escapeHTML(event.ticket_url)}" target="_blank" rel="noopener">Event link</a>`
+      var searchTicketUrl = typeof event.ticket_url === 'string' && event.ticket_url ? event.ticket_url : '';
+      if (searchTicketUrl && searchTicketUrl.indexOf('http') === 0) {
+        var analyticsRef = window.CulturalMapAnalytics;
+        if (analyticsRef) { searchTicketUrl = analyticsRef.tagOutboundUrl(searchTicketUrl, 'event-ticket'); }
+      }
+      const link = searchTicketUrl
+        ? `<a class="explore-search-event-link" href="${escapeHTML(searchTicketUrl)}" target="_blank" rel="noopener" data-track-outbound="event-ticket" data-track-title="${title}" data-track-venue="${venue}">Event link</a>`
         : '';
       return `
         <div class="explore-search-event ${mapped ? 'mapped' : ''}" data-event-id="${escapeHTML(event.event_id || '')}">

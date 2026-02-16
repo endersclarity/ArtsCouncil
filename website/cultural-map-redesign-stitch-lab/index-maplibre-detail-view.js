@@ -86,6 +86,12 @@
           analytics.track('outbound:phone', { venue: venue });
         } else if (type === 'directions') {
           analytics.track('outbound:directions', { venue: venue });
+        } else if (type === 'event-ticket') {
+          analytics.track('outbound:event-ticket', {
+            title: (link.getAttribute('data-track-title') || '').substring(0, 100),
+            venue: venue,
+            url: (link.href || '').substring(0, 200)
+          });
         }
       });
     }
