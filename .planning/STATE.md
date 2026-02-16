@@ -5,16 +5,16 @@
 See: .planning/PROJECT.md (updated 2026-02-14)
 
 **Core value:** Drive people to downtowns, local businesses, performance venues, and cultural spaces through an editorial-quality interactive experience that feels like MUSE magazine.
-**Current focus:** Phase 6 (Analytics Foundation) COMPLETE (1/1 plan). Phase 4 (Copy) is final polish. Deadline Wed Feb 18.
+**Current focus:** Phase 6.1 (Deep Analytics Instrumentation) COMPLETE (1/1 plan). Phase 4 (Copy) is final polish. Deadline Wed Feb 18.
 
 ## Current Position
 
-Phase: 06 (Analytics Foundation) -- COMPLETE
+Phase: 06.1 (Deep Analytics Instrumentation) -- COMPLETE
 Plan: 1 of 1 complete
-Status: Umami Cloud analytics live — wrapper module, 15+ tracked interactions, UTM-tagged outbound links, committee Share URL dashboard.
-Last activity: 2026-02-15 -- Completed 06-01-PLAN.md (analytics foundation).
+Status: 23 total tracked event types across 13 JS modules. UTM-tagged event ticket outbound links. Full outbound click attribution (website + phone + directions + event-ticket).
+Last activity: 2026-02-15 -- Completed 06.1-01-PLAN.md (deep analytics instrumentation).
 
-Progress: [████████████████░░░░] ~80% overall
+Progress: [█████████████████░░░] ~85% overall
 
 ## What's Actually Shipped
 
@@ -75,11 +75,19 @@ Progress: [████████████████░░░░] ~80% ov
 - Custom events confirmed in dashboard: category:filter, toggle:open-now, toggle:events-14d
 - Deployed to Vercel stitch-lab
 
+### Phase 6.1: Deep Analytics Instrumentation (100%)
+- 1/1 plan complete
+- 7 new event types: marker:click, itinerary:start, itinerary:calendar, itinerary:day-tab, outbound:event-ticket, events:date-filter, events:toggle
+- Total tracked event types: 23 across 13 JS modules
+- All event ticket URLs UTM-tagged with utm_campaign=event-ticket across 4 render paths
+- Committee "clicked through to a business" metric: sum outbound:website + outbound:phone + outbound:directions + outbound:event-ticket
+- marker:click at 3 entry points (circle click, mobile label, smart labels)
+
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 10 (Phase 2: 3, Phase 2.1: 2, Phase 3: 2, Phase 5: 2, Phase 6: 1 — Phase 1 plans obsolete)
-- Average duration: 3.5min per plan
+- Total plans completed: 11 (Phase 2: 3, Phase 2.1: 2, Phase 3: 2, Phase 5: 2, Phase 6: 1, Phase 6.1: 1 — Phase 1 plans obsolete)
+- Average duration: 3.4min per plan
 
 **By Phase:**
 
@@ -91,6 +99,7 @@ Progress: [████████████████░░░░] ~80% ov
 | 3 | 2/2 | 12min | 6min | Claude Code via GSD |
 | 5 | 2/2 | 6min | 3min | Claude Code via GSD |
 | 6 | 1/1 | 15min | 15min | Claude Code via GSD |
+| 6.1 | 1/1 | 3min | 3min | Claude Code via GSD |
 
 ## Accumulated Context
 
@@ -129,6 +138,10 @@ Recent decisions affecting current work:
 - [Phase 6]: UTM params: utm_source=exploregvnc, utm_medium=referral on all outbound links
 - [Phase 6]: No chat tracking in Umami — stays in Supabase chat_logs only
 - [Phase 6]: Share URL for committee: https://cloud.umami.is/share/875bmvTJ7Hd2oLAx
+- [Phase 6.1]: UTM tagging at render time, tracking at click time (separation of concerns)
+- [Phase 6.1]: marker:click intentionally distinct from detail:open (different funnel stages)
+- [Phase 6.1]: Calendar click delegation per-activation since overlay DOM is recreated each time
+- [Phase 6.1]: Extended detail-view.js outbound handler for event-ticket rather than separate delegation
 
 ### Roadmap Evolution
 
@@ -161,5 +174,5 @@ Recent decisions affecting current work:
 ## Session Continuity
 
 Last session: 2026-02-15
-Stopped at: Completed 06-01-PLAN.md (analytics foundation). Phase 6 fully complete.
-Resume file: N/A — Phase 6 complete. Next: Phase 4 (Copy) or deployment.
+Stopped at: Completed 06.1-01-PLAN.md (deep analytics instrumentation). Phase 6.1 fully complete.
+Resume file: N/A — Phase 6.1 complete. Next: Phase 4 (Copy) or deployment.
