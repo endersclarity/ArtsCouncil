@@ -21,7 +21,7 @@
     'Historic Landmarks':        { color: '#8b2500', short: 'Landmarks', watercolor: 'landmarks' },
     'Eat, Drink & Stay':         { color: '#a67830', short: 'Eat & Drink', watercolor: 'eat-drink' },
     'Arts Organizations':        { color: '#2d4a3e', short: 'Arts Orgs', watercolor: 'arts' },
-    'Cultural Resources':        { color: '#3a5f7c', short: 'Cultural', watercolor: 'cultural' },
+    'Cultural Resources':        { color: '#3a5f7c', short: 'Community & Learning', watercolor: 'cultural' },
     'Fairs & Festivals':         { color: '#a0522d', short: 'Festivals', watercolor: 'fairs' },
     'Galleries & Museums':       { color: '#6b4e71', short: 'Galleries', watercolor: 'galleries' },
     'Walks & Trails':            { color: '#4a7c5f', short: 'Trails', watercolor: 'walks' },
@@ -37,7 +37,7 @@
       type: 'editorial',
       name: 'Our Cultural Corridors',
       source: 'MUSE',
-      tagline: 'Highways as heritage trails connecting Gold Rush towns to High Sierra vistas',
+      tagline: 'Three highways, centuries of stories \u2014 from Nisenan petroglyphs to Gold Rush foundries',
       category: 'Routes & Heritage',
       museIndex: 0
     },
@@ -45,7 +45,7 @@
       type: 'editorial',
       name: 'Rural is the New Cool',
       source: 'MUSE',
-      tagline: 'Why Nevada County\'s creative density rivals any urban arts scene',
+      tagline: 'More galleries per capita than anywhere in the Northern Sierra, and the locals know it',
       category: 'Community & Place',
       museIndex: 1
     },
@@ -53,7 +53,7 @@
       type: 'event',
       name: 'Carnaval a la Brazil: Nevada City Mardi Gras Fest at the Miners Foundry',
       source: 'KVMR',
-      tagline: 'Community radio\'s biggest night of music and revelry at a historic venue',
+      tagline: 'KVMR brings samba, brass, and revelry to the Foundry \u2014 Nevada City\u2019s biggest night out',
       category: 'Music & Performance',
       eventId: 'kvmr-347612-1771153200-1771185600-20260215'
     },
@@ -61,7 +61,7 @@
       type: 'event',
       name: 'Spring Street Swing Out',
       source: 'GVDA',
-      tagline: 'Downtown Grass Valley comes alive with swing dancing and live bands',
+      tagline: 'Mill Street closes to cars, opens to swing bands \u2014 downtown Grass Valley dances',
       category: 'Dance & Community',
       eventId: 'gvda-191708164'
     },
@@ -69,7 +69,7 @@
       type: 'event',
       name: 'Baby Storytime',
       source: 'LibCal',
-      tagline: 'Free early literacy program at the Grass Valley Library for families',
+      tagline: 'Grass Valley Library\u2019s free Tuesday morning circle for babies and caregivers',
       category: 'Family & Kids',
       eventId: 'libcal-LibCal-20247-14841924-20260217'
     },
@@ -77,21 +77,21 @@
       type: 'asset',
       name: 'Miners Foundry',
       source: 'Local',
-      tagline: 'Historic 1856 foundry turned premiere performance and event space in Nevada City',
+      tagline: 'Built in 1856 to forge mining equipment \u2014 you\u2019ll find live music, theater, and weddings now',
       category: 'Performance Spaces'
     },
     {
       type: 'asset',
       name: 'Nevada Theatre',
       source: 'Local',
-      tagline: 'California\'s oldest original-use theater, hosting film and live performance since 1865',
+      tagline: 'California\u2019s oldest original-use theater, showing films and hosting bands since 1865',
       category: 'Performance Spaces'
     },
     {
       type: 'asset',
       name: 'Broad Street Bistro and Gallery',
       source: 'Local',
-      tagline: 'Fine dining meets local art in downtown Nevada City\'s creative heart',
+      tagline: 'Farm-to-table plates under rotating local art on Broad Street \u2014 Nevada City\u2019s creative corner',
       category: 'Eat, Drink & Stay'
     }
   ];

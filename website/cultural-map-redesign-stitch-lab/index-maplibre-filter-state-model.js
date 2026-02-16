@@ -41,7 +41,7 @@
     const oneCategory = selected.length === 1 ? selected[0] : null;
     const cfg = oneCategory ? (cats[oneCategory] || {}) : null;
     const label = oneCategory
-      || (selected.length > 1 ? `${selected.length} categories` : (events14dMode ? 'venues with events' : 'all assets'));
+      || (selected.length > 1 ? `${selected.length} categories` : (events14dMode ? 'venues with events' : 'all places'));
 
     return {
       count,

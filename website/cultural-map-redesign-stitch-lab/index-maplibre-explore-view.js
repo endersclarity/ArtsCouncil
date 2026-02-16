@@ -38,7 +38,7 @@
     }
     if (openNowMode) scopeParts.push('Status: Open now (open highlighted, unknown dimmed)');
     if (events14dMode) scopeParts.push(`Events: next ${eventWindowDays} days`);
-    return `Showing ${Math.min(end, filteredLength)} of ${filteredLength} assets` +
+    return `Showing ${Math.min(end, filteredLength)} of ${filteredLength} places` +
       (scopeParts.length ? ` • ${scopeParts.join(' • ')}` : '');
   }
 
