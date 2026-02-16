@@ -13,6 +13,7 @@ Transform the existing 687-asset cultural map into an editorial-quality experien
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [~] **Phase 1: Design & Visual Refresh** - Lock visual direction and ship MUSE-adjacent aesthetic across all surfaces *(~60% — layout shipped by Codex, map broken)*
+- [ ] **Phase 01.1: Demo Visual Polish** - INSERTED: Ship visual polish for Wed Feb 18 committee demo — hero overhaul, hybrid nav, AI style cards, email capture, editorial deep links. Informed by design discussion + 4-agent analysis team (UX, Tech Feasibility, Competitive Gap, Demo Strategy). See `.planning/DESIGN-SPEC.md` + `.planning/analysis/PRIORITIZED-ACTION-PLAN.md`
 - [x] **Phase 2: Tier 2 Events** - Triple event coverage by aggregating LibCal and CivicEngage feeds alongside Trumba
 - [x] **Phase 02.1: KVMR + GVDA Event Source Ingestion** - Add KVMR iCal and GVDA Trumba JSON feeds to close event coverage gaps before Wednesday demo
 - [x] **Phase 3: Itineraries** - Authored multi-day trip plans that visitors can browse, follow on the map, and export to calendar
@@ -41,6 +42,25 @@ Plans:
 - [~] 01-03-PLAN.md — Layout rebuild + copy reframing *(Codex built magazine layout; map broken, mobile untested)*
 
 **NOTE**: Original plans were conservative token swaps that produced no visible change. Codex (OpenAI) independently built a magazine-style layout rebuild. GSD plans are obsolete. See `01-03-SUMMARY.md` for completion assessment and known issues. Phase 1 remaining work: fix map rendering bug, add 4 missing DOM IDs, mobile test, copy audit.
+
+### Phase 01.1: Demo Visual Polish (INSERTED)
+
+**Goal:** Ship visual polish for Wed Feb 18 committee demo — hero overhaul, hybrid nav, AI style cards (in-chat only), email capture, community photo grid, editorial deep links
+**Depends on:** Phase 1 (~60% complete — magazine layout exists)
+**Requirements:** DSGN-01, DSGN-02, DSGN-03, DSGN-04, DSGN-05, DSGN-06
+**Success Criteria** (what must be TRUE):
+  1. Hero section reads as magazine cover (photo carousel + editorial typography + brand mark)
+  2. Top bar is clean and minimal (brand mark + expandable search + nav links on desktop, hamburger on mobile)
+  3. AI Concierge has style cards inside chat panel for friction-free demo
+  4. Email capture form exists in footer with Google Sheet backend
+  5. Community photo grid shows UGC potential near footer
+  6. Committee member can load the URL and immediately understand this is a tourism platform
+**Plans**: 3 plans
+
+Plans:
+- [ ] 01.1-01-PLAN.md — Hero visual overhaul + clean top bar (Wave 1)
+- [ ] 01.1-02-PLAN.md — AI Concierge style cards + editorial deep links (Wave 2)
+- [ ] 01.1-03-PLAN.md — Footer features (email capture, photo grid) + layout polish + verification (Wave 3)
 
 ### Phase 2: Tier 2 Events
 **Goal**: The events section shows 3x more events by aggregating library and municipal calendars alongside Trumba, with source attribution and family filtering
