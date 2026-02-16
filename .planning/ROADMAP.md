@@ -105,12 +105,12 @@ Plans:
   3. MUSE editorial card selection prioritizes business/gallery/dining content
   4. Colophon credits the Experience Planning Committee and positions the platform as their digital tool
   5. Platform name is finalized with Diana/Eliza input and reflected across all surfaces
-**Plans**: TBD
+**Plans**: 3 plans
 
 Plans:
-- [ ] 04-01: Hero and category copy rewrite (downtown-forward positioning)
-- [ ] 04-02: Itinerary narrative and editorial card content audit
-- [ ] 04-03: Colophon, platform name finalization, and full copy sweep
+- [ ] 04-01-PLAN.md — Hub page + config.js copy rewrite (hero, categories, colophon, MUSE cards)
+- [ ] 04-02-PLAN.md — Itinerary + experience narrative rewrite (MUSE voice)
+- [ ] 04-03-PLAN.md — Sub-pages, chat prompt, platform name decision, consistency sweep
 
 ### Phase 5: AI Concierge
 **Goal**: Visitors can ask natural-language questions about what to do, see, and eat in Nevada County and get MUSE-grounded answers with clickable asset links
