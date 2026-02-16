@@ -402,6 +402,44 @@ body.theme-intent {
   border-radius: 99px;
 }
 
+.cover-subline {
+  position: absolute;
+  z-index: 3;
+  left: 1rem;
+  bottom: calc(1.15rem + clamp(2.8rem, 6vw, 6.5rem) + 0.6rem);
+  font-family: 'DM Sans', sans-serif;
+  font-size: clamp(0.85rem, 1.8vw, 1.15rem);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.88);
+  letter-spacing: 0.04em;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.cover-geo-context {
+  position: absolute;
+  z-index: 3;
+  left: 1rem;
+  bottom: calc(1.15rem + clamp(2.8rem, 6vw, 6.5rem) + 0.6rem + clamp(0.85rem, 1.8vw, 1.15rem) + 0.5rem);
+  font-family: 'DM Sans', sans-serif;
+  font-size: clamp(0.6rem, 1vw, 0.75rem);
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.55);
+  letter-spacing: 0.06em;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .toc {
   border-radius: 0 0 0 22px;
 }
@@ -507,29 +545,24 @@ body.theme-intent {
 }
 
 /* ═══════════════════════════════════════
-   ADAPTIVE SPLIT LAYOUT
+   ADAPTIVE SPLIT LAYOUT — Natural Scroll
+   Hero is full-width above. Split layout
+   starts at editorial section; map scrolls
+   into view naturally then sticks.
    ═══════════════════════════════════════ */
 
-/* --- Split layout grid (desktop >900px) --- */
+/* --- Split layout (desktop >900px) --- */
 @media (min-width: 901px) {
   .split-layout {
     display: grid;
-    grid-template-columns: 1fr var(--map-col-width, minmax(380px, 45%));
+    grid-template-columns: 1fr minmax(320px, 35%);
     gap: 0.6rem;
-    transition: grid-template-columns 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: grid-template-columns 0.5s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  /* Zone-based map column sizing */
-  .adaptive-layout.map-zone--hero .split-layout {
-    grid-template-columns: 1fr minmax(380px, 45%);
-  }
-
-  .adaptive-layout.map-zone--editorial .split-layout {
-    grid-template-columns: 1fr minmax(200px, 25%);
-  }
-
+  /* EXPANDED: map takes ~58% on explicit user action */
   .adaptive-layout.map-zone--expanded .split-layout {
-    grid-template-columns: 1fr minmax(500px, 65%);
+    grid-template-columns: 1fr minmax(460px, 58%);
   }
 
   .content-column {
@@ -541,8 +574,8 @@ body.theme-intent {
     position: sticky;
     top: 0;
     height: 100vh;
-    overflow-y: auto;
     min-width: 0;
+    overflow-y: auto;
   }
 
   .map-column .panel {
@@ -574,6 +607,30 @@ body.theme-intent {
   .spread .stack {
     display: grid;
     gap: 0.6rem;
+  }
+
+  /* Expand/collapse toggle button */
+  .map-expand-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-family: 'DM Sans', system-ui, sans-serif;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #ff7d5c;
+    background: none;
+    border: 1px solid rgba(255, 125, 92, 0.3);
+    border-radius: 6px;
+    padding: 0.35rem 0.7rem;
+    cursor: pointer;
+    transition: background 0.15s, border-color 0.15s;
+  }
+
+  .map-expand-toggle:hover {
+    background: rgba(255, 125, 92, 0.08);
+    border-color: rgba(255, 125, 92, 0.6);
   }
 }
 

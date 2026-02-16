@@ -12,7 +12,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Explore Nevada County — Frontend Design Pass</title>
+<title>Explore Nevada County | Galleries, Events &amp; Dining in the Sierra Foothills</title>
 <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.5.0/dist/maplibre-gl.css" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,7 +27,7 @@
 </head>
 <body class="theme-intent">
 
-<main class="wrap adaptive-layout map-zone--hero">
+<main class="wrap adaptive-layout">
 
 <!-- ====== 1. DARK NAVY MAST BAR ====== -->
 <header class="mast mast--intent" role="banner">
@@ -41,17 +41,8 @@
       <a href="itineraries.html">Itineraries</a>
     </nav>
   </div>
-  <div class="edition">Culture &middot; Discovery &middot; 2026</div>
+  <div class="edition">Issue 03 | 2026</div>
 </header>
-
-<!-- ====== ADAPTIVE SPLIT LAYOUT ====== -->
-<div class="split-layout">
-
-<!-- ====== LEFT: Content Column ====== -->
-<div class="content-column">
-
-<!-- Sentinel: hero zone -->
-<div class="scroll-sentinel" data-map-zone="hero" aria-hidden="true"></div>
 
 <!-- ====== 2. COVER GRID: Hero image + TOC / Discovery ====== -->
 <section class="cover-grid" aria-label="Cover and navigation">
@@ -64,30 +55,31 @@
       <img src="mockups/generated/editorial-feature-corridor.png" alt="">
     </div>
     <div class="cover-tag">Nevada County Cultural District</div>
-    <div class="cover-headline">Your Guide<br>to Local<br>Culture</div>
+    <div class="cover-headline">The Creative Life</div>
+    <div class="cover-subline">Grass Valley &middot; Nevada City &middot; Truckee &middot; the Sierra foothills</div>
+    <div class="cover-geo-context">60 miles from Sacramento &middot; 2.5 hours from San Francisco &middot; 45 minutes from Reno</div>
   </article>
 
   <aside class="toc">
-    <div class="toc-kicker">start exploring</div>
-    <h2 class="toc-title">Discover <span>by Story</span></h2>
+    <h2 class="toc-title sr-only">Navigation</h2>
 
     <!-- Discovery tabs — ALL IDs, roles, aria preserved -->
     <div class="hero-discovery" aria-label="Discovery tabs">
       <div class="hero-discovery-tabs" id="intentTabs" role="tablist" aria-label="Discovery">
         <button class="intent-tab active" type="button" id="intentTabCategories" role="tab" aria-selected="true" aria-controls="intentPaneCategories" data-intent-tab="categories">Categories</button>
-        <button class="intent-tab" type="button" id="intentTabPicks" role="tab" aria-selected="false" aria-controls="intentPanePicks" data-intent-tab="picks" tabindex="-1">Feature Picks</button>
-        <button class="intent-tab" type="button" id="intentTabEvents" role="tab" aria-selected="false" aria-controls="intentPaneEvents" data-intent-tab="events" tabindex="-1">Upcoming Events</button>
-        <button class="intent-tab" type="button" id="intentTabRoutes" role="tab" aria-selected="false" aria-controls="intentPaneRoutes" data-intent-tab="routes" tabindex="-1">Curated Routes</button>
+        <button class="intent-tab" type="button" id="intentTabPicks" role="tab" aria-selected="false" aria-controls="intentPanePicks" data-intent-tab="picks" tabindex="-1">Picks</button>
+        <button class="intent-tab" type="button" id="intentTabEvents" role="tab" aria-selected="false" aria-controls="intentPaneEvents" data-intent-tab="events" tabindex="-1">Events</button>
+        <button class="intent-tab" type="button" id="intentTabRoutes" role="tab" aria-selected="false" aria-controls="intentPaneRoutes" data-intent-tab="routes" tabindex="-1">Routes</button>
       </div>
 
       <div class="hero-discovery-panels">
         <section class="intent-pane hero-variant-cats active" id="intentPaneCategories" role="tabpanel" aria-labelledby="intentTabCategories" data-intent-pane="categories">
-          <div class="hero-variant-cats-label">Browse categories</div>
+          <div class="hero-variant-cats-label">Categories</div>
           <div class="categories-grid" id="categoryGrid"></div>
         </section>
 
         <section class="intent-pane" id="intentPanePicks" role="tabpanel" aria-labelledby="intentTabPicks" data-intent-pane="picks" hidden>
-          <div class="hero-variant-cats-label">Feature Picks</div>
+          <div class="hero-variant-cats-label">Picks</div>
           <div class="intent-strip-scroller">
             <button class="intent-strip-nav" type="button" data-intent-strip-nav="prev" aria-label="Scroll feature picks backward">&#9664;</button>
             <div class="intent-strip-row" id="intentFeaturePicksRow"></div>
@@ -96,7 +88,7 @@
         </section>
 
         <section class="intent-pane" id="intentPaneEvents" role="tabpanel" aria-labelledby="intentTabEvents" data-intent-pane="events" hidden>
-          <div class="hero-variant-cats-label">Upcoming Events</div>
+          <div class="hero-variant-cats-label">Events</div>
           <div class="intent-strip-scroller">
             <button class="intent-strip-nav" type="button" data-intent-strip-nav="prev" aria-label="Scroll upcoming events backward">&#9664;</button>
             <div class="intent-strip-row" id="intentUpcomingEventsRow"></div>
@@ -105,7 +97,7 @@
         </section>
 
         <section class="intent-pane" id="intentPaneRoutes" role="tabpanel" aria-labelledby="intentTabRoutes" data-intent-pane="routes" hidden>
-          <div class="hero-variant-cats-label">Curated Routes</div>
+          <div class="hero-variant-cats-label">Routes</div>
           <div class="intent-strip-scroller">
             <button class="intent-strip-nav" type="button" data-intent-strip-nav="prev" aria-label="Scroll curated routes backward">&#9664;</button>
             <div class="intent-strip-row" id="intentCuratedRoutesRow"></div>
@@ -115,7 +107,6 @@
       </div>
     </div>
 
-    <div class="toc-note">Interactive &middot; Updated weekly</div>
   </aside>
 </section>
 
@@ -127,8 +118,11 @@
   </div>
 </section>
 
-<!-- Sentinel: editorial zone -->
-<div class="scroll-sentinel" data-map-zone="editorial" aria-hidden="true"></div>
+<!-- ====== ADAPTIVE SPLIT LAYOUT (starts after hero, map scrolls into view naturally) ====== -->
+<div class="split-layout">
+
+<!-- ====== LEFT: Content Column ====== -->
+<div class="content-column">
 
 <!-- ====== 3. SPREAD: Story cards (editorial + events) ====== -->
 <section class="spread" id="mapSection" aria-label="Map and editorial modules">
@@ -161,7 +155,7 @@
             </summary>
             <div class="map-addon-body">
               <div class="map-events-header">
-                <h3 class="map-events-title">Now and next</h3>
+                <h3 class="map-events-title">What's On</h3>
                 <span class="map-events-count" id="mapEventsScope">All categories</span>
               </div>
               <div class="map-events-filters" id="mapEventsFilters">
@@ -198,8 +192,6 @@
   </aside>
 </section>
 
-<!-- Sentinel: map/expanded zone -->
-<div class="scroll-sentinel" data-map-zone="expanded" aria-hidden="true"></div>
 
 </div><!-- /content-column -->
 
@@ -207,13 +199,14 @@
 <div class="map-column">
   <div class="panel">
     <div class="map-panel-head">
-      <h2 class="map-panel-title">Cultural Asset Map</h2>
+      <h2 class="map-panel-title">Interactive Map</h2>
       <span class="pill">687 places</span>
+      <button class="map-expand-toggle" id="mapExpandToggle" type="button" aria-expanded="false">Expand Map</button>
     </div>
     <div class="map-active-banner" id="mapActiveBanner">
       <div class="map-active-banner-inner">
         <div class="map-active-dot" id="mapActiveDot"></div>
-        <div class="map-active-text">Showing <strong id="mapActiveCount">0</strong> <span id="mapActiveName">assets</span></div>
+        <div class="map-active-text">Showing <strong id="mapActiveCount">0</strong> <span id="mapActiveName">places</span></div>
         <button class="map-active-clear" id="mapActiveClear">Clear filter</button>
       </div>
     </div>
@@ -242,7 +235,7 @@
     <div class="map-addons" id="mapAddons">
       <details class="map-guides" id="mapGuides">
         <summary>
-          <h3 class="section-header">Guided Routes &amp; Experiences</h3>
+          <h3 class="section-header">Routes &amp; Experiences</h3>
           <span class="map-addon-summary-right">
             <span class="map-addon-count" id="mapGuidesCount">0 guides</span>
             <span class="map-addon-caret">&#9662;</span>
@@ -251,7 +244,7 @@
         <div class="map-guides-body">
           <details class="map-subaddon" id="corridorAddon">
             <summary>
-              <h3 class="section-header">Cultural Corridors <span class="section-header-tag">from MUSE '26</span></h3>
+              <h3 class="section-header">Heritage Corridors</h3>
               <span class="map-addon-summary-right">
                 <span class="map-addon-count" id="corridorAddonCount">0 routes</span>
                 <span class="map-addon-caret">&#9662;</span>
@@ -263,7 +256,7 @@
           </details>
           <details class="map-subaddon" id="experienceAddon">
             <summary>
-              <h3 class="section-header">Curated Experiences</h3>
+              <h3 class="section-header">Experiences</h3>
               <span class="map-addon-summary-right">
                 <span class="map-addon-count" id="experienceAddonCount">0 routes</span>
                 <span class="map-addon-caret">&#9662;</span>
@@ -287,8 +280,8 @@
 <div class="muse-section" id="muse">
   <div class="muse-section-header reveal">
     <div class="muse-section-tag">from MUSE &rsquo;26 &middot; Issue 03</div>
-    <h2 class="muse-section-title">MUSE stories, mapped.</h2>
-    <p class="muse-section-sub">Open an editorial, then use the "Places in this story" links to jump straight to markers on the map.</p>
+    <h2 class="muse-section-title">From MUSE</h2>
+    <p class="muse-section-sub">Feature stories from <em>MUSE</em>, the Nevada County Arts Council's print journal &mdash; now mapped to the places they describe.</p>
   </div>
 
   <div class="muse-cards">
@@ -376,9 +369,9 @@
   <div class="explore-header reveal">
     <div>
       <div class="section-tag">Directory</div>
-      <h2 class="section-heading">Explore by Category</h2>
+      <h2 class="section-heading">By Category</h2>
     </div>
-    <input type="text" class="explore-search" id="searchInput" placeholder="Search">
+    <input type="text" class="explore-search" id="searchInput" placeholder="Search places">
   </div>
   <div class="explore-categories" id="exploreCats"></div>
   <div class="explore-list-wrapper" id="exploreListWrapper">
@@ -411,21 +404,18 @@
   <div class="notes-grid">
     <article class="note">
       <h3>Places</h3>
-      <p>Over 680 places to discover across Nevada County, sourced from the
-        <a href="https://www.nevadacountyarts.org/cultural-asset-map" target="_blank">Nevada County Arts Council</a>.
-        Last updated December 2024.</p>
+      <p>687 places across Nevada County's two California Cultural Districts. Created by the Experience Planning Committee and
+        <a href="https://www.nevadacountyarts.org" target="_blank">Nevada County Arts Council</a>.</p>
     </article>
     <article class="note">
       <h3>Editorial</h3>
-      <p>Cultural Corridors content adapted from <em>MUSE</em> Issue 03, 2026 &mdash;
-        &ldquo;Our Cultural Corridors&rdquo; by Jesse Locks.
-        Published by <a href="https://www.nevadacountyarts.org" target="_blank">Nevada County Arts Council</a>.</p>
+      <p>Editorial content adapted from <em>MUSE</em>, published by
+        <a href="https://www.nevadacountyarts.org" target="_blank">Nevada County Arts Council</a>.</p>
     </article>
     <article class="note">
       <h3>Built with</h3>
       <p>MapLibre GL JS, Turf.js, GSAP.
-        Basemap by <a href="https://www.maptiler.com" target="_blank">MapTiler</a>.
-        Crafted for the Experience Planning Committee.</p>
+        Basemap by <a href="https://www.maptiler.com" target="_blank">MapTiler</a>.</p>
     </article>
   </div>
 </section>
