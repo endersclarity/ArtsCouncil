@@ -66,6 +66,19 @@
     return todayKey >= startKey && todayKey <= endKey;
   }
 
+  function isEventTonight(event, defaultTimezone) {
+    var start = parseEventDate(event && event.start_iso);
+    if (!start) return false;
+    var tz = (event && event.timezone) || defaultTimezone || 'America/Los_Angeles';
+    var todayKey = getDateKeyInTimezone(new Date(), tz);
+    var startKey = getDateKeyInTimezone(start, tz);
+    if (todayKey !== startKey) return false;
+    var hourStr = new Intl.DateTimeFormat('en-US', {
+      timeZone: tz, hour: 'numeric', hour12: false
+    }).format(start);
+    return parseInt(hourStr, 10) >= 17;
+  }
+
   function formatEventDateRange(event, defaultTimezone) {
     const start = parseEventDate(event && event.start_iso);
     const end = parseEventDate(event && event.end_iso);
@@ -105,6 +118,7 @@
     isEventWithinDays,
     isWeekendEvent,
     isEventToday,
+    isEventTonight,
     formatEventDateRange,
     getEventDisplayDescription
   };

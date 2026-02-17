@@ -336,6 +336,7 @@
     data,
     isEventUpcoming,
     isEventToday,
+    isEventTonight,
     isWeekendEvent,
     isEventWithinDays,
     eventWindowDays,
@@ -363,6 +364,8 @@
 
     if (eventDateFilter === 'today') {
       filtered = filtered.filter((event) => isEventToday(event));
+    } else if (eventDateFilter === 'tonight') {
+      filtered = filtered.filter(function(event) { return isEventTonight(event); });
     } else if (eventDateFilter === 'weekend') {
       filtered = filtered.filter((event) => isWeekendEvent(event));
     } else if (eventDateFilter === '14d') {

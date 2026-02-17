@@ -68,6 +68,7 @@
   const isEventWithinDays = eventsUtils.isEventWithinDays;
   const isWeekendEvent = (event) => (eventsUtils.isWeekendEvent || (() => false))(event, PACIFIC_TZ);
   const isEventToday = (event) => (eventsUtils.isEventToday || (() => false))(event, PACIFIC_TZ);
+  const isEventTonight = (event) => (eventsUtils.isEventTonight || (() => false))(event, PACIFIC_TZ);
   const formatEventDateRange = (event) => (eventsUtils.formatEventDateRange || (() => 'Schedule pending'))(event, PACIFIC_TZ);
   const getEventDisplayDescription = eventsUtils.getEventDisplayDescription;
   const getHoursState = (venue) => (hoursUtils.getHoursState || (() => 'unknown'))(venue, PACIFIC_TZ);
@@ -323,6 +324,7 @@
     initIntentDiscoveryTabs();
     registerPublicDeepLinkBridge();
     bindEvents();
+    window.__culturalMapOpenDetail = openDetail;
     preloadWatercolors();
     initItinerarySystem();
 
@@ -1726,6 +1728,7 @@
       data: DATA,
       isEventUpcoming,
       isEventToday,
+      isEventTonight,
       isWeekendEvent,
       isEventWithinDays,
       eventWindowDays: EVENT_WINDOW_DAYS,
