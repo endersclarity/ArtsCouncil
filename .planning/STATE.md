@@ -5,16 +5,16 @@
 See: .planning/PROJECT.md (updated 2026-02-14)
 
 **Core value:** Drive people to downtowns, local businesses, performance venues, and cultural spaces through an editorial-quality interactive experience that feels like MUSE magazine.
-**Current focus:** Phase 01.1 (Demo Visual Polish) — NEXT UP. Deadline Wed Feb 18.
+**Current focus:** Demo-critical todo sprint — Tonight filter, deep link bookmarks, analytics mockup. Deadline Wed Feb 18 noon.
 
 ## Current Position
 
-Phase: 02.2-live-music-venue-event-ingestion
-Plan: 3 of 3
-Status: Phase 02.2 COMPLETE. All 3 plans executed. 9-source event pipeline with CI, tagging, and frontend filtering.
-Last activity: 2026-02-17 -- Executed 02.2-03: GitHub Actions 9-source workflow, frontend tag/source filtering.
+Phase: Post-01.1 — demo-critical todo sprint
+Plan: N/A (between phases)
+Status: All planned phases (01.1 through 06.1) COMPLETE. 15 todos pending, 4 research briefs ready.
+Last activity: 2026-02-17 -- Quick task 1: Fix Joss Stone cross-source dedup.
 
-Progress: [████████████████████] 100% overall
+Progress: [██████████████████░░] 90% overall
 
 ## What's Actually Shipped
 
@@ -22,8 +22,8 @@ Progress: [████████████████████] 100% ov
 - Magazine-style layout built by **Codex (OpenAI)**, not GSD plans
 - GSD plans (01-01, 01-02, 01-03) were token swaps that produced no visible change — OBSOLETE
 - Codex's WIP promoted to canonical in commit `b2d7e48`
-- **BLOCKER: Map does not render** — MapLibre canvas never creates, `initMapLibre()` silently fails
-- **BLOCKER: 4 missing DOM IDs** — `mapAddons`, `mapGuides`, `corridorAddon`, `experienceAddon`
+- Map rendering fixed (commit `48a9486`)
+- Missing DOM IDs resolved in Phase 01.1
 - Mobile not tested, copy audit incomplete
 
 ### Phase 2: Tier 2 Events (100%)
@@ -82,6 +82,16 @@ Progress: [████████████████████] 100% ov
 - All event ticket URLs UTM-tagged with utm_campaign=event-ticket across 4 render paths
 - Committee "clicked through to a business" metric: sum outbound:website + outbound:phone + outbound:directions + outbound:event-ticket
 - marker:click at 3 entry points (circle click, mobile label, smart labels)
+
+### Phase 01.1: Demo Visual Polish (100%)
+- 3/3 plans complete (01.1-01: hero/top bar, 01.1-02: AI style cards/deep links, 01.1-03: footer/polish)
+- Sticky hybrid mast with brand + nav + expandable search + hamburger
+- 9-image top photo carousel with auto-rotate + swipe
+- Hero rebuilt as ~50vh brand lockup with inline SVG mark
+- 6 AI concierge style cards with auto-submit prompts
+- Deep-link bridge module for chat + editorial navigation
+- Community photo grid + email capture + Apps Script submission
+- Functional-zone reveal cleanup (explore/events/map instant render)
 
 ### Phase 4: Copy & Positioning (100%)
 - 3/3 plans complete (04-01: hub & config, 04-02: itinerary & experience narratives, 04-03: sub-pages & chatbot voice)
@@ -217,7 +227,53 @@ Recent decisions affecting current work:
 
 ### Pending Todos
 
-5 todos in `.planning/todos/pending/` — run `/gsd:check-todos` to list. (4 absorbed into Phase 02.2)
+15 todos from stakeholder roundtable analysis (`.planning/todos/pending/`).
+
+#### Pre-Research Available
+
+4 research briefs in `.planning/todo-research/`:
+- `events-ux-brief.md` — Tonight filter (HIGH, 30min), Joss Stone dedup (LOW, 10min), event images (ALREADY DONE)
+- `navigation-brief.md` — Deep link bookmarks (CRITICAL, verify-only), localStorage favorites (MEDIUM, 3-4hr), homepage reorder (MEDIUM, 1hr)
+- `demo-prep-brief.md` — Analytics mockup report (HIGH, new HTML page), visual consistency sweep (LOW, 25 lines), itinerary "Show on Map" UX (LOW, 35 lines)
+- `content-arch-brief.md` — Split-pane directory (LOW, defer to Phase 07), trip builder (HIGH, defer to Phase 08)
+
+These briefs are GSD RESEARCH.md format — consume directly when running /gsd:plan-phase.
+
+### Ad-Hoc Research
+
+Research artifacts outside the phase directory structure. Consult these when planning related work:
+
+| Directory | Contents | When to consult |
+|-----------|----------|-----------------|
+| `.planning/todo-research/events-ux-brief.md` | Tonight filter spec, Joss Stone dedup root cause, event images (already done) | Planning any events module work |
+| `.planning/todo-research/navigation-brief.md` | 25+ demo deep link URLs, favorites module design, homepage reorder spec | Planning navigation/deep link/favorites work |
+| `.planning/todo-research/demo-prep-brief.md` | Analytics mockup data points, CSS conflict audit, itinerary "Show on Map" spec | Planning analytics mockup or itinerary UX |
+| `.planning/todo-research/content-arch-brief.md` | Split-pane directory design, trip builder data model + architecture | Planning explore redesign or trip builder (Phase 07-08) |
+| `.planning/todo-research/audit-*.md` | GSD process audit: expectations, actual state, recommendations | Understanding organizational decisions |
+| `.planning/roundtable/` | 6-part stakeholder roundtable simulation (tourist, local, committee, editor, advocate, synthesis) | Understanding committee priorities and demo strategy |
+| `.planning/analysis/` | UX audit, tech feasibility, competitive gap, demo strategy, prioritized action plan | Understanding pre-01.1 design decisions |
+
+#### Demo-Critical (Wave 2 — before Feb 18)
+1. Deep link bookmark cheat sheet (verify + document, no code)
+2. "Tonight" prominent filter (4 files, ~22 lines)
+3. Analytics mockup report (new standalone HTML, ~350 lines)
+
+#### Quick Wins (Wave 3)
+4. Joss Stone dedup (1 file, ~5 lines in merge_events.py)
+5. Homepage section reorder (HTML-only, move map section up)
+6. Visual consistency sweep (CSS cleanup, ~25 lines)
+
+#### Feature Development (Wave 4)
+7. localStorage favorites (new module + 5 file touches, ~260 lines)
+8. Itinerary "Show on Map" UX (2 files, ~35 lines)
+9. Event images tag expansion (1 file, ~8 lines — cosmetic only)
+
+#### Deferred (Wave 5 — post-demo)
+10. Split-pane directory → Phase 07 (2-3 sessions)
+11. In-house trip builder → Phase 08 (4-6 sessions)
+
+#### Parked (documented, no action)
+- Two-mode architecture, Equity data audit, Career pathways, VRBO integration, MindTrip gap analysis
 
 ### Blockers/Concerns
 
@@ -227,9 +283,15 @@ Recent decisions affecting current work:
 - Phase 5 (AI Concierge): Gemini free tier may not cover projected token usage
 - Phase 5 (AI Concierge): data.json needs status/last_verified fields
 
+### Quick Tasks Completed
+
+| # | Description | Date | Commit | Directory |
+|---|-------------|------|--------|-----------|
+| 1 | Fix Joss Stone cross-source dedup — venue-aware title threshold | 2026-02-17 | pending | [1-fix-joss-stone-cross-source-dedup-venue-](./quick/1-fix-joss-stone-cross-source-dedup-venue-/) |
+
 ## Session Continuity
 
 Last session: 2026-02-17
-Stopped at: Completed 02.2-03-PLAN.md (CI pipeline + frontend filtering). Phase 02.2 fully complete.
-Resume file: .planning/phases/02.2-live-music-venue-event-ingestion/02.2-03-SUMMARY.md
-Key artifacts: .github/workflows/refresh-events.yml, index-maplibre-events-filter-ui.js, index-maplibre-events-model.js
+Stopped at: Quick task 1 complete. Joss Stone dedup fixed. 15 todos remaining.
+Resume with: /gsd:progress (shows accurate state) or /gsd:check-todos (shows prioritized backlog)
+Key artifacts: .planning/todo-research/ (4 research briefs + 3 audit docs)
