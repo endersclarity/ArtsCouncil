@@ -46,6 +46,10 @@
     }
   }
 
+  function hasMessages() {
+    return state.messages.length > 0;
+  }
+
   function sanitizeInput(text) {
     // Strip HTML tags
     var clean = text.replace(/<[^>]*>/g, '');
@@ -149,6 +153,13 @@
     });
   }
 
+  function submitPrompt(prompt) {
+    var input = document.getElementById('chatInput');
+    if (!input) return;
+    input.value = String(prompt || '').trim();
+    handleSubmit();
+  }
+
   function parseResponse(text) {
     if (!text) return '';
 
@@ -199,7 +210,16 @@
     var assetName = String(name || '').trim();
     var bridgeResult = null;
 
-    if (window.CulturalMapDeepLink && typeof window.CulturalMapDeepLink.navigateFromChatAsset === 'function') {
+    if (window.CulturalMapDeepLinkBridge && typeof window.CulturalMapDeepLinkBridge.navigate === 'function') {
+      bridgeResult = window.CulturalMapDeepLinkBridge.navigate({
+        pid: assetPid,
+        name: assetName
+      });
+    }
+
+    if ((!bridgeResult || bridgeResult.ok !== true) &&
+        window.CulturalMapDeepLink &&
+        typeof window.CulturalMapDeepLink.navigateFromChatAsset === 'function') {
       bridgeResult = window.CulturalMapDeepLink.navigateFromChatAsset({
         pid: assetPid,
         name: assetName
@@ -227,6 +247,8 @@
   window.CulturalMapChatController = {
     init: init,
     handleSubmit: handleSubmit,
+    submitPrompt: submitPrompt,
+    hasMessages: hasMessages,
     handleAssetClick: handleAssetClick,
     parseResponse: parseResponse
   };

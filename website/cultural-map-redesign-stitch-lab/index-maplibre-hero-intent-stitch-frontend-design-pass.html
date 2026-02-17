@@ -29,93 +29,147 @@
 
 <main class="wrap adaptive-layout">
 
-<!-- ====== 1. DARK NAVY MAST BAR ====== -->
+<!-- ====== 1. TOP BAR ====== -->
 <header class="mast mast--intent" role="banner">
-  <div class="brand">
-    <h1 class="mast-name">Explore Nevada County</h1>
-    <nav class="stitch-top-nav" aria-label="Primary">
-      <a href="#mapSection">Districts</a>
-      <a href="#muse">Journal</a>
-      <a href="#mapSection">Map</a>
+  <div class="mast-inner">
+    <a href="#" class="mast-brand" aria-label="Explore Nevada County homepage">Explore Nevada County</a>
+    <nav class="mast-nav-desktop" aria-label="Primary">
       <a href="events.html">Events</a>
       <a href="itineraries.html">Itineraries</a>
+      <a href="#mapSection" data-nav-action="expand-map">Map</a>
+      <a href="#muse">MUSE</a>
+    </nav>
+    <div class="mast-actions">
+      <button class="mast-search-toggle" type="button" aria-label="Open search" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M11 4a7 7 0 1 1 0 14a7 7 0 0 1 0-14m0-2a9 9 0 1 0 5.65 16l4.67 4.68l1.41-1.41l-4.68-4.67A9 9 0 0 0 11 2z"></path>
+        </svg>
+      </button>
+      <div class="mast-search-field" hidden>
+        <input type="search" class="mast-search-input" placeholder="Search places, events..." aria-label="Search places and events">
+        <button type="button" class="mast-search-close" aria-label="Close search">&times;</button>
+      </div>
+      <button class="mast-hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="hamburgerOverlay">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 6h16v2H4zM4 11h16v2H4zM4 16h16v2H4z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<div class="hamburger-overlay" id="hamburgerOverlay" hidden>
+  <div class="hamburger-panel" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <button class="hamburger-close" type="button" aria-label="Close menu">&times;</button>
+    <nav class="hamburger-nav" aria-label="Full navigation">
+      <a href="events.html">Events</a>
+      <a href="itineraries.html">Itineraries</a>
+      <a href="#mapSection" data-nav-action="expand-map">Map</a>
+      <a href="#muse">MUSE</a>
+      <details class="hamburger-section">
+        <summary>Categories</summary>
+        <div class="hamburger-categories" id="hamburgerCategoryGrid"></div>
+      </details>
+      <details class="hamburger-section">
+        <summary>Experiences &amp; Routes</summary>
+        <div class="hamburger-experiences" id="hamburgerExperiences">
+          <a href="#districtSpread">District highlights</a>
+          <a href="#mapSection">Heritage corridors</a>
+        </div>
+      </details>
+      <a href="#exploreSection">Directory</a>
+      <a href="https://www.nevadacountyarts.org" target="_blank" rel="noopener">About / Contact</a>
     </nav>
   </div>
-  <div class="edition">February 2026 · Updated weekly</div>
-</header>
+</div>
 
 <!-- ====== 2. COVER GRID: Hero image + TOC / Discovery ====== -->
 <section class="cover-grid" aria-label="Cover and navigation">
-  <article class="cover">
-    <div class="stitch-collage" aria-hidden="true">
-      <img src="mockups/generated/editorial-hero-town.png" alt="">
-      <img src="mockups/generated/editorial-feature-corridor-ai.png" alt="">
-      <img src="mockups/generated/editorial-feature-night.png" alt="">
-      <img src="mockups/generated/editorial-feature-events.png" alt="">
-      <img src="mockups/generated/editorial-feature-corridor.png" alt="">
+  <article class="cover cover--magazine">
+    <p class="hero-vertical-label" aria-hidden="true">Arts. Culture. Downtown.</p>
+    <div class="hero-photo-stack" aria-hidden="true">
+      <div class="hero-photo-shadow"></div>
+      <div class="hero-photo-frame">
+        <div class="cover-bg-wrap">
+          <div class="hero-carousel">
+            <img class="cover-bg hero-slide hero-slide--active" src="img/hero/hero-reference-nevada-city-mainstreet-bluehour-01.jpg" alt="" loading="eager">
+            <img class="cover-bg hero-slide" src="img/hero/hero-reference-deloro-plaza-community-dining-01.jpg" alt="" loading="lazy">
+            <img class="cover-bg hero-slide" src="img/hero/hero-reference-sharex-20260216-172644-landscape.jpg" alt="" loading="lazy">
+            <img class="cover-bg hero-slide" src="img/hero/hero-reference-sharex-20260216-172708-landscape.jpg" alt="" loading="lazy">
+            <img class="cover-bg hero-slide" src="img/hero/hero-reference-sharex-20260216-172827-portrait.jpg" alt="" loading="lazy">
+            <img class="cover-bg hero-slide" src="img/hero/hero-reference-sharex-20260216-172939-portrait.jpg" alt="" loading="lazy">
+            <img class="cover-bg hero-slide" src="img/hero/hero-reference-sharex-20260216-173137-landscape.jpg" alt="" loading="lazy">
+            <img class="cover-bg hero-slide" src="img/hero/hero-reference-sharex-20260216-173212-portrait.jpg" alt="" loading="lazy">
+            <img class="cover-bg hero-slide" src="img/hero/hero-reference-sharex-20260216-173224-portrait.jpg" alt="" loading="lazy">
+            <img class="cover-bg hero-slide" src="img/hero/hero-reference-sharex-20260216-173331-portrait.jpg" alt="" loading="lazy">
+            <img class="cover-bg hero-slide" src="img/hero/hero-reference-nevada-city-rainy-night-bw-01.png" alt="" loading="lazy">
+          </div>
+          <div class="hero-photo-vignette"></div>
+        </div>
+      </div>
     </div>
-    <div class="cover-tag">Nevada County Cultural District</div>
-    <div class="cover-headline">The Creative Life</div>
-    <div class="cover-subline">Grass Valley &middot; Nevada City &middot; Truckee &middot; the Sierra foothills</div>
-    <div class="cover-geo-context">60 miles from Sacramento &middot; 2.5 hours from San Francisco &middot; 45 minutes from Reno</div>
+    <div class="hero-editorial-copy">
+      <div class="hero-brand">
+        <div class="cover-tag">Nevada County Cultural District</div>
+        <h1 class="hero-title">Explore Nevada County</h1>
+        <p class="hero-subtitle">Nevada County Cultural District</p>
+        <p class="hero-geo">Grass Valley · Nevada City · Truckee · the Sierra foothills</p>
+      </div>
+      <p class="hero-editorial-quote">"Where vintage record shops meet Victorian architecture."</p>
+    </div>
   </article>
-
-  <aside class="toc">
-    <h2 class="toc-title sr-only">Navigation</h2>
-
-    <!-- Discovery tabs — ALL IDs, roles, aria preserved -->
-    <div class="hero-discovery" aria-label="Discovery tabs">
-      <div class="hero-discovery-tabs" id="intentTabs" role="tablist" aria-label="Discovery">
-        <button class="intent-tab active" type="button" id="intentTabCategories" role="tab" aria-selected="true" aria-controls="intentPaneCategories" data-intent-tab="categories">Categories</button>
-        <button class="intent-tab" type="button" id="intentTabPicks" role="tab" aria-selected="false" aria-controls="intentPanePicks" data-intent-tab="picks" tabindex="-1">Picks</button>
-        <button class="intent-tab" type="button" id="intentTabEvents" role="tab" aria-selected="false" aria-controls="intentPaneEvents" data-intent-tab="events" tabindex="-1">Events</button>
-        <button class="intent-tab" type="button" id="intentTabRoutes" role="tab" aria-selected="false" aria-controls="intentPaneRoutes" data-intent-tab="routes" tabindex="-1">Routes</button>
-      </div>
-
-      <div class="hero-discovery-panels">
-        <section class="intent-pane hero-variant-cats active" id="intentPaneCategories" role="tabpanel" aria-labelledby="intentTabCategories" data-intent-pane="categories">
-          <div class="hero-variant-cats-label">Categories</div>
-          <div class="categories-grid" id="categoryGrid"></div>
-        </section>
-
-        <section class="intent-pane" id="intentPanePicks" role="tabpanel" aria-labelledby="intentTabPicks" data-intent-pane="picks" hidden>
-          <div class="hero-variant-cats-label">Picks</div>
-          <div class="intent-strip-scroller">
-            <button class="intent-strip-nav" type="button" data-intent-strip-nav="prev" aria-label="Scroll feature picks backward">&#9664;</button>
-            <div class="intent-strip-row" id="intentFeaturePicksRow"></div>
-            <button class="intent-strip-nav" type="button" data-intent-strip-nav="next" aria-label="Scroll feature picks forward">&#9654;</button>
-          </div>
-        </section>
-
-        <section class="intent-pane" id="intentPaneEvents" role="tabpanel" aria-labelledby="intentTabEvents" data-intent-pane="events" hidden>
-          <div class="hero-variant-cats-label">Events</div>
-          <div class="intent-strip-scroller">
-            <button class="intent-strip-nav" type="button" data-intent-strip-nav="prev" aria-label="Scroll upcoming events backward">&#9664;</button>
-            <div class="intent-strip-row" id="intentUpcomingEventsRow"></div>
-            <button class="intent-strip-nav" type="button" data-intent-strip-nav="next" aria-label="Scroll upcoming events forward">&#9654;</button>
-          </div>
-        </section>
-
-        <section class="intent-pane" id="intentPaneRoutes" role="tabpanel" aria-labelledby="intentTabRoutes" data-intent-pane="routes" hidden>
-          <div class="hero-variant-cats-label">Routes</div>
-          <div class="intent-strip-scroller">
-            <button class="intent-strip-nav" type="button" data-intent-strip-nav="prev" aria-label="Scroll curated routes backward">&#9664;</button>
-            <div class="intent-strip-row" id="intentCuratedRoutesRow"></div>
-            <button class="intent-strip-nav" type="button" data-intent-strip-nav="next" aria-label="Scroll curated routes forward">&#9654;</button>
-          </div>
-        </section>
-      </div>
-    </div>
-
-  </aside>
 </section>
+<div class="category-grid-source" aria-hidden="true">
+  <div class="categories-grid" id="categoryGrid"></div>
+</div>
 
-<!-- ====== 2.5. ITINERARY HERO CARDS ====== -->
-<section class="itinerary-hero-section" aria-label="Trip itineraries">
-  <div id="itineraryHeroCards" class="itinerary-hero-cards"></div>
-  <div class="hub-subpage-link">
-    <a href="itineraries.html">Compare all itineraries &rarr;</a>
+<!-- ====== 2.5. DISTRICT SPREAD ====== -->
+<section class="district-spread" id="districtSpread" aria-label="District highlights">
+  <div class="district-spread-header">
+    <p class="district-spread-kicker">Why Here</p>
+    <h2>Two Gold Rush downtowns, reimagined for a new generation</h2>
   </div>
+  <div class="district-spread-grid">
+    <article class="district-feature-card">
+      <figure>
+        <img src="img/hero/hero-reference-sharex-20260216-173137-landscape.jpg" alt="Twilight string lights above a historic downtown street">
+      </figure>
+      <p class="district-feature-label">Atmosphere</p>
+      <h3>The plaza after dark</h3>
+      <p>String lights, warm storefront glow, and evening rituals that make downtown feel like a shared living room.</p>
+    </article>
+    <article class="district-feature-card district-feature-card--offset">
+      <figure>
+        <img src="img/hero/hero-reference-sharex-20260216-172827-portrait.jpg" alt="Independent storefronts and local businesses in Nevada County">
+      </figure>
+      <p class="district-feature-label">Commerce</p>
+      <h3>Found, not franchised</h3>
+      <p>Independent shops and makers define the district, with local stories behind every shelf and window display.</p>
+    </article>
+    <article class="district-feature-card">
+      <figure>
+        <img src="img/hero/hero-reference-nevada-city-rainy-night-bw-01.png" alt="Historic theater district at night with lit facades">
+      </figure>
+      <p class="district-feature-label">Culture</p>
+      <h3>A stage for every story</h3>
+      <p>Historic stages, galleries, and late-night venues keep tradition and experimentation in active conversation.</p>
+    </article>
+    <article class="district-feature-card district-feature-card--offset">
+      <figure>
+        <img src="img/hero/hero-reference-deloro-plaza-community-dining-01.jpg" alt="Community table and dining scene in historic downtown">
+      </figure>
+      <p class="district-feature-label">Community</p>
+      <h3>Pull up a chair</h3>
+      <p>Shared tables, local food, and neighborhood rituals invite visitors to linger and participate, not just pass through.</p>
+    </article>
+  </div>
+  <blockquote class="district-spread-quote">
+    <p>"In these hills, the past does not haunt the present. It dances with it."</p>
+  </blockquote>
+  <div class="district-spread-cta">
+    <a href="#mapSection" data-nav-action="expand-map">Begin your journey</a>
+  </div>
+  <div id="itineraryHeroCards" class="itinerary-hero-cards itinerary-hero-cards--hidden" aria-hidden="true"></div>
 </section>
 
 <!-- ====== ADAPTIVE SPLIT LAYOUT (starts after hero, map scrolls into view naturally) ====== -->
@@ -306,13 +360,13 @@
           <details class="muse-corridor">
             <summary>Highway 20 &mdash; wagon trail to modern artery</summary>
             <div class="muse-corridor-body">
-              <p>Stretching east to west, Highway 20 traces its roots to the 19th-century California Trail. The historic Washington Hotel, built in 1857, continues to serve as the community hub. Further south is Rough and Ready, founded in 1849&mdash;its mining heritage lives on in street names like Tornado, Gamble, and To Hell and Back Lane.</p>
+              <p>Stretching east to west, Highway 20 traces its roots to the 19th-century California Trail. The historic <a class="asset-link" data-asset-name="Washington Hotel" href="#">Washington Hotel</a>, built in 1857, continues to serve as the community hub. Further south is Rough and Ready, founded in 1849&mdash;its mining heritage lives on in street names like Tornado, Gamble, and To Hell and Back Lane.</p>
             </div>
           </details>
           <details class="muse-corridor">
             <summary>Highway 49 &mdash; the golden chain of history</summary>
             <div class="muse-corridor-body">
-              <p>The Golden Chain Highway links historic Gold Rush towns. Empire Mine State Historic Park in Grass Valley is one of the oldest, deepest, and richest gold mines in California. On the San Juan Ridge, the North Columbia Schoolhouse Cultural Center&mdash;a restored 1875 schoolhouse built by miners for their children&mdash;now hosts the internationally renowned Sierra Storytelling Festival.</p>
+              <p>The Golden Chain Highway links historic Gold Rush towns. <a class="asset-link" data-asset-name="Empire Mine State Historic Park" href="#">Empire Mine State Historic Park</a> in Grass Valley is one of the oldest, deepest, and richest gold mines in California. On the San Juan Ridge, the <a class="asset-link" data-asset-name="North Columbia Schoolhouse Cultural Center" href="#">North Columbia Schoolhouse Cultural Center</a>&mdash;a restored 1875 schoolhouse built by miners for their children&mdash;now hosts the internationally renowned Sierra Storytelling Festival.</p>
             </div>
           </details>
         </div>
@@ -329,7 +383,7 @@
       </summary>
       <div class="muse-card-body">
         <p>Our cultural richness is a reflection of the Nisenan and Washoe Peoples, whose traditions and enduring presence continue to shape our region. That richness is also carried forth by visionaries like Pulitzer Prize&ndash;winning poet Gary Snyder, whose arrival in the 1960s helped seed a generation of creatives.</p>
-        <p>Drive north on Highway 49 to North Columbia Schoolhouse Cultural Center, and you will feel time slow down. Stop at Mother Truckers for one of its signature t-shirts illustrated by the late Randi Griffin. On arriving at &ldquo;the Schoolhouse,&rdquo; you&rsquo;ll find the Ridge&rsquo;s cultural epicenter&mdash;its walls hold decades of stories, folk music, poetry, and art.</p>
+        <p>Drive north on Highway 49 to <a class="asset-link" data-asset-name="North Columbia Schoolhouse Cultural Center" href="#">North Columbia Schoolhouse Cultural Center</a>, and you will feel time slow down. Stop at <a class="asset-link" data-asset-name="Mother Truckers" href="#">Mother Truckers</a> for one of its signature t-shirts illustrated by the late Randi Griffin. On arriving at &ldquo;the Schoolhouse,&rdquo; you&rsquo;ll find the Ridge&rsquo;s cultural epicenter&mdash;its walls hold decades of stories, folk music, poetry, and art.</p>
         <p>Back in Nevada City, download the Tree Tour in the STORY app and experience heirloom trees planted by Gold Rush horticulturist Felix Gillet. Visit the Crystal Rainbow Rock Shop, Winnie Superette&mdash;an Asian market hung with contemporary art&mdash;and Communal Caf&eacute; for coffee among locals.</p>
       </div>
     </details>
@@ -343,7 +397,7 @@
         <span class="muse-card-toggle">Read more &darr;</span>
       </summary>
       <div class="muse-card-body">
-        <p>Each June, on trails across Nevada County, stars sway from low branches&mdash;the work of artists from Neighborhood Center of the Arts, created for Bear Yuba Land Trust&rsquo;s Summer Star Hike Challenge. With over 50 miles of trails and 26,000 acres conserved, that&rsquo;s quite the canvas.</p>
+        <p>Each June, on trails across Nevada County, stars sway from low branches&mdash;the work of artists from <a class="asset-link" data-asset-name="Neighborhood Center of the Arts" href="#">Neighborhood Center of the Arts</a>, created for <a class="asset-link" data-asset-name="Bear Yuba Land Trust" href="#">Bear Yuba Land Trust</a>&rsquo;s Summer Star Hike Challenge. With over 50 miles of trails and 26,000 acres conserved, that&rsquo;s quite the canvas.</p>
         <p>Since 2023, Art in Nature commissions have included Mekdela Maskal&rsquo;s naturally dyed prayer flags, Peggy Wright&rsquo;s nest of intertwined debris, and Andres Amador&rsquo;s &ldquo;Connections&rdquo;&mdash;a mycelium-like path through fallen trees on Hirschman&rsquo;s trail. For the Nisenan Gateway at Wildflower Ridge, artist Jenny Hale collaborated with the Nevada City Rancheria Nisenan Tribe to create a willow-and-cedar gateway honoring the land&rsquo;s original use as a Native trail.</p>
       </div>
     </details>
@@ -358,7 +412,7 @@
       </summary>
       <div class="muse-card-body">
         <p>In 2024, Visit Truckee-Tahoe unveiled a new brand: &ldquo;Mountain Heart. Small Town Soul.&rdquo;&mdash;reflecting a community that is passionate and protective, pioneering and progressive, charming and a little funky. Visitors want to feel like locals, care about leaving a lighter footprint, and prefer scenery over a scene.</p>
-        <p>For coffee, try Mountain Brew Coffee. For wine with a little funk, visit Truckee River Winery or The Pour House. Downtown galleries&mdash;Mountain Arts Collective, Piper J Gallery, Riverside Studios&mdash;offer a sampling of the creative talent in the district. And if you&rsquo;re staying up late, the historic Pastime Club vibrates after hours with pool, shuffleboard, and live entertainment.</p>
+        <p>For coffee, try Mountain Brew Coffee. For wine with a little funk, visit <a class="asset-link" data-asset-name="Truckee River Winery" href="#">Truckee River Winery</a> or <a class="asset-link" data-asset-name="The Pour House" href="#">The Pour House</a>. Downtown galleries&mdash;<a class="asset-link" data-asset-name="Mountain Arts Collective" href="#">Mountain Arts Collective</a>, Piper J Gallery, <a class="asset-link" data-asset-name="Riverside Studios" href="#">Riverside Studios</a>&mdash;offer a sampling of the creative talent in the district. And if you&rsquo;re staying up late, the historic <a class="asset-link" data-asset-name="Pastime Club" href="#">Pastime Club</a> vibrates after hours with pool, shuffleboard, and live entertainment.</p>
       </div>
     </details>
   </div>
@@ -366,7 +420,7 @@
 
 <!-- ====== EXPLORE DIRECTORY ====== -->
 <section class="explore-section" id="exploreSection">
-  <div class="explore-header reveal">
+  <div class="explore-header">
     <div>
       <div class="section-tag">Directory</div>
       <h2 class="section-heading">By Category</h2>
@@ -380,6 +434,60 @@
     <div class="explore-search-events" id="exploreEventResults" hidden></div>
     <div class="explore-list" id="exploreList"></div>
     <button class="load-more-btn" id="loadMoreBtn">Show more</button>
+  </div>
+</section>
+
+<section class="community-photos reveal" aria-label="Community photos">
+  <div class="community-photos-inner">
+    <h2 class="community-photos-title">Nevada County Through Your Eyes</h2>
+    <p class="community-photos-cta">Tag <strong>#ExploreNevadaCounty</strong> on Instagram to be featured</p>
+    <div class="community-photos-grid">
+      <figure class="community-photo">
+        <img src="mockups/generated/editorial-hero-town.png" alt="Historic main street at dusk in Nevada County" loading="lazy">
+        <figcaption class="community-photo-credit">Nevada City · Photo: NCAC archive</figcaption>
+      </figure>
+      <figure class="community-photo">
+        <img src="mockups/generated/editorial-feature-events.png" alt="Live cultural event with audience and performers" loading="lazy">
+        <figcaption class="community-photo-credit">Grass Valley · Photo: NCAC archive</figcaption>
+      </figure>
+      <figure class="community-photo">
+        <img src="mockups/generated/editorial-feature-night.png" alt="Downtown nightlife scene with warm lights" loading="lazy">
+        <figcaption class="community-photo-credit">Downtown district · Photo: NCAC archive</figcaption>
+      </figure>
+      <figure class="community-photo">
+        <img src="img/muse/off-the-wall-art-in-nature.webp" alt="Artists and installations on a wooded trail" loading="lazy">
+        <figcaption class="community-photo-credit">Bear Yuba trails · Photo: MUSE</figcaption>
+      </figure>
+      <figure class="community-photo">
+        <img src="mockups/generated/editorial-feature-corridor.png" alt="Sierra foothill landscape along heritage corridor" loading="lazy">
+        <figcaption class="community-photo-credit">Highway 49 · Photo: NCAC archive</figcaption>
+      </figure>
+      <figure class="community-photo">
+        <img src="img/muse/open-mics-literary.webp" alt="Open mic and storytelling moment" loading="lazy">
+        <figcaption class="community-photo-credit">Nevada Theater · Photo: MUSE</figcaption>
+      </figure>
+      <figure class="community-photo">
+        <img src="img/muse/latinx-culture.webp" alt="Community cultural celebration with performers" loading="lazy">
+        <figcaption class="community-photo-credit">Nevada County · Photo: MUSE</figcaption>
+      </figure>
+      <figure class="community-photo">
+        <img src="mockups/generated/editorial-feature-corridor-ai.png" alt="Mountain route with artistic atmosphere" loading="lazy">
+        <figcaption class="community-photo-credit">Sierra foothills · Photo: NCAC archive</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="email-capture" aria-label="Newsletter signup">
+  <div class="email-capture-inner">
+    <h2 class="email-capture-title">Stay in the Loop</h2>
+    <p class="email-capture-sub">Weekly updates on events and hidden gems in Nevada County.</p>
+    <form class="email-capture-form" id="emailCaptureForm">
+      <input type="email" class="email-capture-input" id="emailCaptureInput" placeholder="your@email.com" required aria-label="Email address">
+      <button type="submit" class="email-capture-btn" id="emailCaptureBtn">Subscribe</button>
+    </form>
+    <div class="email-capture-status" id="emailCaptureStatus" hidden></div>
+    <p class="email-capture-privacy">No spam. Unsubscribe anytime. We respect your inbox.</p>
   </div>
 </section>
 
@@ -469,14 +577,26 @@
 <script src="index-maplibre-itinerary-controller.js"></script>
 <script src="index-maplibre-detail-view.js"></script>
 <script src="index-maplibre-detail-controller.js"></script>
+<script src="index-maplibre-deeplink-bridge.js"></script>
 <script src="index-maplibre-page-effects.js"></script>
 <script src="index-maplibre-map-scroll-observer.js"></script>
 <script src="index-maplibre-bindings.js"></script>
 <script src="index-maplibre-chat-view.js"></script>
 <script src="index-maplibre-chat-controller.js"></script>
 <script src="index-maplibre-chat-widget.js"></script>
+<script src="index-maplibre-photo-carousel.js"></script>
+<script src="index-maplibre-email-capture.js"></script>
 <script src="index-maplibre.js"></script>
 <script>
+  if (window.CulturalMapDeepLinkBridge) {
+    window.CulturalMapDeepLinkBridge.init();
+  }
+  if (window.CulturalMapPhotoCarousel) {
+    window.CulturalMapPhotoCarousel.init();
+  }
+  if (window.CulturalMapEmailCapture) {
+    window.CulturalMapEmailCapture.init();
+  }
   if (window.CulturalMapChatWidget) {
     window.CulturalMapChatWidget.init();
   }
@@ -484,4 +604,3 @@
 <div id="itineraryOverlay" class="itinerary-overlay"></div>
 </body>
 </html>
-

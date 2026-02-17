@@ -24,8 +24,7 @@
       getListPage,
       setListPage,
       listPageSize,
-      eventWindowDays,
-      gsap
+      eventWindowDays
     } = ctx;
 
     function getFilteredData() {
@@ -92,7 +91,6 @@
 
       if (cat) {
         wrapper.classList.add('visible');
-        catGrid.style.display = 'none';
         cards.forEach((card) => card.classList.remove('active'));
         setCategory(cat, { exclusive: true });
       } else {
@@ -128,7 +126,6 @@
 
       if (searchVal && getActiveCategories().size === 0) {
         wrapper.classList.add('visible');
-        document.getElementById('exploreCats').style.display = 'none';
       }
 
       const filtered = getFilteredData();
@@ -168,11 +165,6 @@
       });
 
       document.getElementById('loadMoreBtn').style.display = end >= filtered.length ? 'none' : 'block';
-
-      gsap.fromTo('#exploreList .explore-item',
-        { opacity: 0, x: -8 },
-        { opacity: 1, x: 0, duration: 0.2, stagger: 0.015, ease: 'power2.out' }
-      );
     }
 
     return {

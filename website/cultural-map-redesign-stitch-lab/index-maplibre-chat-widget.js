@@ -2,6 +2,7 @@
   'use strict';
 
   var chatController = window.CulturalMapChatController || {};
+  var chatView = window.CulturalMapChatView || {};
 
   var isOpenState = false;
   var fabEl = null;
@@ -30,12 +31,16 @@
 
   function injectFAB() {
     fabEl = document.createElement('button');
-    fabEl.className = 'chat-fab';
+    fabEl.className = 'chat-fab chat-fab--pending';
     fabEl.setAttribute('aria-label', 'Open chat');
     fabEl.setAttribute('title', 'Ask the Local Concierge');
     fabEl.innerHTML = CHAT_SVG;
     fabEl.addEventListener('click', toggle);
     document.body.appendChild(fabEl);
+    setTimeout(function() {
+      fabEl.classList.remove('chat-fab--pending');
+      fabEl.classList.add('chat-fab--ready');
+    }, 2000);
   }
 
   function injectPanel() {
@@ -78,6 +83,12 @@
     panelEl.classList.add('chat-panel--open');
     fabEl.classList.add('chat-fab--hidden');
     document.body.classList.add('chat-open');
+
+    if (chatController.hasMessages && !chatController.hasMessages()) {
+      if (chatView.renderWelcome) {
+        chatView.renderWelcome();
+      }
+    }
 
     // GSAP animation if available
     if (window.gsap) {

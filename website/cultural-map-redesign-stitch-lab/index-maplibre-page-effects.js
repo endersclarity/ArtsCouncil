@@ -37,8 +37,28 @@
   }
 
   function initScrollReveal({ gsap }) {
+    var excludedScopes = [
+      '.explore-section',
+      '.map-events',
+      '.map-addons',
+      '.itinerary-hero-section'
+    ];
+
+    function shouldSkipReveal(el) {
+      for (var i = 0; i < excludedScopes.length; i++) {
+        if (el.closest(excludedScopes[i])) return true;
+      }
+      return false;
+    }
+
     const observer = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
+        if (shouldSkipReveal(entry.target)) {
+          observer.unobserve(entry.target);
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'none';
+          return;
+        }
         if (entry.isIntersecting) {
           gsap.fromTo(entry.target,
             { opacity: 0, y: 30 },
@@ -49,7 +69,10 @@
       });
     }, { threshold: 0.15 });
 
-    document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+    document.querySelectorAll('.reveal').forEach((el) => {
+      if (shouldSkipReveal(el)) return;
+      observer.observe(el);
+    });
   }
 
   window.CulturalMapPageEffects = {

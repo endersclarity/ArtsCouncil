@@ -228,6 +228,7 @@
     fetch('itineraries.json').then(r => r.json()).catch(() => [])
   ]).then(([data, images, experiences, museEditorials, musePlaces, events, eventIndex, countyOutline, itinerariesData]) => {
     DATA = data;
+    window.__culturalMapData = DATA;
     IMAGE_DATA = images;
     EXPERIENCES = experiences;
     ITINERARIES = Array.isArray(itinerariesData) ? itinerariesData : [];
