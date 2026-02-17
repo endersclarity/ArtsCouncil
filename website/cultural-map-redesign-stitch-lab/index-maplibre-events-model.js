@@ -331,6 +331,7 @@
   function getFilteredMapEvents({
     events,
     eventDateFilter,
+    eventAudienceFilter = 'exclude-kids-library',
     eventCategoryFilter,
     data,
     isEventUpcoming,
@@ -342,6 +343,22 @@
     compareDistanceMiles,
     dedupeRecurring = true
   }) {
+    function isLikelyKidsOrLibraryEvent(event) {
+      if (!event) return false;
+      if (event.is_family === true) return true;
+      const tagsText = Array.isArray(event.tags) ? event.tags.join(' ') : '';
+      const text = [
+        event.title || '',
+        event.description || '',
+        event.venue_name || '',
+        event.event_category || '',
+        tagsText,
+        event.source_label || '',
+        event.source_ref || ''
+      ].join(' ').toLowerCase();
+      return /(^|[^a-z])(kid|kids|child|children|family|toddler|baby|youth|teen|story\s*time|library|lego|homeschool)([^a-z]|$)/.test(text);
+    }
+
     let filtered = events.filter((event) => isEventUpcoming(event));
 
     if (eventDateFilter === 'today') {
@@ -354,11 +371,31 @@
       filtered = filtered.filter((event) => event.is_family === true);
     }
 
+    // Default editorial mode excludes kids/library events unless user opts in.
+    if (eventDateFilter !== 'family') {
+      if (eventAudienceFilter !== 'all') {
+        filtered = filtered.filter((event) => !isLikelyKidsOrLibraryEvent(event));
+      }
+    }
+
     if (eventCategoryFilter !== 'all') {
-      filtered = filtered.filter((event) => {
-        const categories = getEventCategorySet(event, data);
-        return categories.has(eventCategoryFilter);
-      });
+      if (eventCategoryFilter.indexOf('tag:') === 0) {
+        var tagSlug = eventCategoryFilter.replace('tag:', '');
+        filtered = filtered.filter(function(event) {
+          var tags = event && event.event_tags;
+          return Array.isArray(tags) && tags.indexOf(tagSlug) !== -1;
+        });
+      } else if (eventCategoryFilter.indexOf('source:') === 0) {
+        var sourceType = eventCategoryFilter.replace('source:', '');
+        filtered = filtered.filter(function(event) {
+          return event && event.source_type === sourceType;
+        });
+      } else {
+        filtered = filtered.filter((event) => {
+          const categories = getEventCategorySet(event, data);
+          return categories.has(eventCategoryFilter);
+        });
+      }
     }
 
     if (dedupeRecurring) {
