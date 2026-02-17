@@ -1,26 +1,65 @@
 (function() {
   'use strict';
 
-  function buildExploreCats({ gridEl, data, cats, onCategorySelect }) {
+  /**
+   * Build the 8 photo-hero category cards (collapsed state).
+   * 4x2 grid on desktop, 3-col tablet, 2-col mobile.
+   */
+  function buildExploreCats({ gridEl, data, cats, imageData, categoryHeroes, onCategorySelect }) {
     if (!gridEl) return;
     gridEl.innerHTML = '';
-    const counts = {};
-    (data || []).forEach((item) => {
+    var counts = {};
+    (data || []).forEach(function(item) {
       counts[item.l] = (counts[item.l] || 0) + 1;
     });
 
-    Object.entries(cats || {}).forEach(([name, cfg]) => {
-      const card = document.createElement('div');
-      card.className = 'explore-cat-card';
-      card.style.setProperty('--card-color', cfg.color);
-      card.innerHTML = `
-        <img class="explore-cat-card-img" src="img/watercolor/${cfg.watercolor || 'landmarks'}.png" alt="">
-        <div class="explore-cat-card-name">${cfg.short || name}</div>
-        <div class="explore-cat-card-count">${counts[name] || 0} places</div>
-      `;
-      card.addEventListener('click', () => onCategorySelect(name));
+    Object.entries(cats || {}).forEach(function([name, cfg]) {
+      var heroAssetName = categoryHeroes[name];
+      var heroImg = heroAssetName && imageData[heroAssetName] ? imageData[heroAssetName].img : '';
+      var fallback = 'img/watercolor/' + (cfg.watercolor || 'landmarks') + '.png';
+
+      var card = document.createElement('article');
+      card.className = 'directory-card';
+      card.dataset.category = name;
+      card.style.setProperty('--card-accent', cfg.color);
+      card.innerHTML =
+        '<div class="directory-card-photo">' +
+          '<img src="' + (heroImg || fallback) + '" alt="' + name + '" loading="lazy" onerror="this.src=\'' + fallback + '\'">' +
+          '<div class="directory-card-overlay"></div>' +
+          '<div class="directory-card-content">' +
+            '<h3 class="directory-card-name">' + name + '</h3>' +
+            '<span class="directory-card-count">' + (counts[name] || 0) + ' places</span>' +
+          '</div>' +
+        '</div>';
+      card.addEventListener('click', function() { onCategorySelect(name); });
       gridEl.appendChild(card);
     });
+  }
+
+  /**
+   * Build the category header for expanded view.
+   */
+  function buildDirectoryHeader({ name, count, color }) {
+    return '<div class="directory-header">' +
+      '<div class="directory-header-badge" style="background:' + color + '"></div>' +
+      '<div class="directory-header-text">' +
+        '<h2 class="directory-header-title">Explore ' + name + '</h2>' +
+        '<span class="directory-header-count">' + count + ' places</span>' +
+      '</div>' +
+    '</div>';
+  }
+
+  /**
+   * Build city filter pills row.
+   */
+  function buildCityFilterPills({ cities, activeCity, onCitySelect }) {
+    var html = '<div class="directory-filters">';
+    html += '<button class="directory-filter-pill' + (!activeCity ? ' active' : '') + '" data-city="">All Locations</button>';
+    cities.forEach(function(city) {
+      html += '<button class="directory-filter-pill' + (activeCity === city ? ' active' : '') + '" data-city="' + city + '">' + city + '</button>';
+    });
+    html += '</div>';
+    return html;
   }
 
   function getExploreResultsText({
@@ -31,17 +70,20 @@
     events14dMode,
     eventWindowDays
   }) {
-    const scopeParts = [];
+    var scopeParts = [];
     if (activeCategories.size > 0) {
-      const selected = Array.from(activeCategories);
-      scopeParts.push(selected.length === 1 ? selected[0] : `${selected.length} categories`);
+      var selected = Array.from(activeCategories);
+      scopeParts.push(selected.length === 1 ? selected[0] : selected.length + ' categories');
     }
-    if (openNowMode) scopeParts.push('Status: Open now (open highlighted, unknown dimmed)');
-    if (events14dMode) scopeParts.push(`Events: next ${eventWindowDays} days`);
-    return `Showing ${Math.min(end, filteredLength)} of ${filteredLength} places` +
-      (scopeParts.length ? ` • ${scopeParts.join(' • ')}` : '');
+    if (openNowMode) scopeParts.push('Open now');
+    if (events14dMode) scopeParts.push('Events: next ' + eventWindowDays + ' days');
+    return 'Showing ' + Math.min(end, filteredLength) + ' of ' + filteredLength + ' places' +
+      (scopeParts.length ? ' \u2022 ' + scopeParts.join(' \u2022 ') : '');
   }
 
+  /**
+   * Create a single directory item card (photo-forward design).
+   */
   function createExploreItemElement({
     asset,
     cats,
@@ -53,43 +95,60 @@
     getHoursLabel,
     onOpenDetail
   }) {
-    const cfg = cats[asset.l] || { color: '#999' };
-    const imgInfo = imageData[asset.n];
-    const wcSlug = cfg.watercolor || 'landmarks';
-    const thumbSrc = imgInfo ? imgInfo.img : `img/watercolor/${wcSlug}.png`;
-    const item = document.createElement('div');
-    item.className = 'explore-item';
-    item.style.setProperty('--row-color', cfg.color);
-    const hoursState = getHoursState(asset);
-    const eventCount14d = getEventCount14d(asset);
+    var cfg = cats[asset.l] || { color: '#999' };
+    var imgInfo = imageData[asset.n];
+    var wcSlug = cfg.watercolor || 'landmarks';
+    var fallback = 'img/watercolor/' + wcSlug + '.png';
+    var photoSrc = imgInfo ? imgInfo.img : fallback;
+    var hoursState = getHoursState(asset);
+    var eventCount14d = getEventCount14d(asset);
+
+    var item = document.createElement('article');
+    item.className = 'directory-item';
     if (openNowMode) {
-      item.classList.add('hours-mode', `hours-${hoursState}`);
+      item.classList.add('hours-mode', 'hours-' + hoursState);
     }
-    const desc = asset.d ? asset.d.replace(/<[^>]*>/g, '').slice(0, 120) : '';
-    item.innerHTML = `
-      <div class="explore-item-bar" style="background:${cfg.color}"></div>
-      <img class="explore-item-thumb" src="${thumbSrc}" alt="" loading="lazy" onerror="this.src='img/watercolor/${wcSlug}.png'">
-      <div class="explore-item-info">
-        <div class="explore-item-name">${asset.n}</div>
-        ${desc ? `<div class="explore-item-desc">${desc}</div>` : ''}
-        <div class="explore-item-meta">
-          <span class="explore-item-city">${asset.c || asset.a || ''}</span>
-          <span class="explore-item-cat" style="color:${cfg.color}">
-            <span class="explore-item-cat-dot" style="background:${cfg.color}"></span>
-            ${cfg.short || asset.l}
-          </span>
-          ${openNowMode ? `<span class="hours-pill hours-${hoursState} explore-item-hours">${getHoursLabel(hoursState)}</span>` : ''}
-          ${events14dMode && eventCount14d > 0 ? `<span class="hours-pill explore-item-hours" style="color:#934512;background:rgba(180,88,29,0.12);border-color:rgba(180,88,29,0.48)">${eventCount14d} event${eventCount14d === 1 ? '' : 's'}</span>` : ''}
-        </div>
-      </div>
-      <span class="explore-item-arrow">&rarr;</span>
-    `;
-    item.addEventListener('click', () => onOpenDetail(asset));
+
+    var subBadge = asset.l_original ? asset.l_original : '';
+    var desc = asset.d ? asset.d.replace(/<[^>]*>/g, '').slice(0, 100) : '';
+    var cityLabel = asset.c || '';
+
+    var html = '<div class="directory-item-photo">' +
+        '<img src="' + photoSrc + '" alt="" loading="lazy" onerror="this.src=\'' + fallback + '\'">';
+    if (subBadge) {
+      html += '<span class="directory-item-badge" style="background:' + cfg.color + '">' + subBadge + '</span>';
+    }
+    html += '</div>' +
+      '<div class="directory-item-body">';
+    if (cityLabel) {
+      html += '<span class="directory-item-city">' + cityLabel + '</span>';
+    }
+    html += '<h3 class="directory-item-name">' + asset.n + '</h3>';
+    if (desc) {
+      html += '<p class="directory-item-desc">' + desc + '</p>';
+    }
+    // Status pills
+    var pills = '';
+    if (openNowMode) {
+      pills += '<span class="hours-pill hours-' + hoursState + '">' + getHoursLabel(hoursState) + '</span>';
+    }
+    if (events14dMode && eventCount14d > 0) {
+      pills += '<span class="directory-item-events">' + eventCount14d + ' event' + (eventCount14d === 1 ? '' : 's') + '</span>';
+    }
+    if (pills) {
+      html += '<div class="directory-item-pills">' + pills + '</div>';
+    }
+    html += '</div>';
+
+    item.innerHTML = html;
+    item.addEventListener('click', function() { onOpenDetail(asset); });
     return item;
   }
 
   window.CulturalMapExploreView = {
     buildExploreCats,
+    buildDirectoryHeader,
+    buildCityFilterPills,
     getExploreResultsText,
     createExploreItemElement
   };

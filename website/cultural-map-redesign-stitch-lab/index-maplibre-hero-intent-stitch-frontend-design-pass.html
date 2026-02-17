@@ -277,16 +277,20 @@
   <div class="explore-header">
     <div>
       <div class="section-tag">Directory</div>
-      <h2 class="section-heading">By Category</h2>
+      <h2 class="section-heading">Explore by Category</h2>
     </div>
-    <input type="text" class="explore-search" id="searchInput" placeholder="Search places">
+    <div class="directory-search-wrap">
+      <svg class="directory-search-icon" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="7.5" cy="7.5" r="5"/><path d="M11.5 11.5L16 16"/></svg>
+      <input type="text" class="explore-search" id="searchInput" placeholder="Search 687 places\u2026">
+    </div>
   </div>
-  <div class="explore-categories" id="exploreCats"></div>
+  <div class="directory-grid" id="exploreCats"></div>
   <div class="explore-list-wrapper" id="exploreListWrapper">
-    <button class="explore-list-back" id="exploreListBack">All categories</button>
+    <button class="explore-list-back" id="exploreListBack">&larr; All categories</button>
+    <div id="directoryHeaderArea"></div>
     <div class="explore-results-count" id="resultsCount"></div>
     <div class="explore-search-events" id="exploreEventResults" hidden></div>
-    <div class="explore-list" id="exploreList"></div>
+    <div class="directory-results" id="exploreList"></div>
     <button class="load-more-btn" id="loadMoreBtn">Show more</button>
   </div>
 </section>

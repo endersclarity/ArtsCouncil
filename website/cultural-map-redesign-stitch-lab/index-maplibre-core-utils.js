@@ -110,12 +110,48 @@
     return parts.length ? '?' + parts.join('&') : '';
   }
 
+  /**
+   * Normalize a raw category name to the consolidated 8-category system.
+   * Uses CATEGORY_MAP from config; unmapped names pass through unchanged.
+   */
+  function normalizeCategory(rawLayer, categoryMap) {
+    if (!rawLayer) return rawLayer;
+    return categoryMap[rawLayer] || rawLayer;
+  }
+
+  /**
+   * Extract a city name from an address string for assets with blank city field.
+   * Scans for known Nevada County city names near the end of the address.
+   */
+  var KNOWN_CITIES = [
+    'Nevada City', 'Grass Valley', 'Truckee', 'Penn Valley',
+    'North San Juan', 'Rough and Ready', 'Alta Sierra', 'Soda Springs',
+    'Norden', 'Washington', 'Chicago Park', 'Cedar Ridge',
+    'Lake of the Pines', 'Lake Wildwood', 'Tahoe City',
+    'Colfax', 'Auburn', 'Dutch Flat', 'Gold Run', 'Alta',
+    'Donner Summit', 'Smartsville', 'French Corral'
+  ];
+
+  function extractCityFromAddress(address) {
+    if (!address) return '';
+    var addr = String(address);
+    for (var i = 0; i < KNOWN_CITIES.length; i++) {
+      var city = KNOWN_CITIES[i];
+      // Match city name after a comma or at end of string
+      var re = new RegExp('(?:,\\s*|\\b)' + city.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '(?:\\s*,|\\s*$|\\s+CA)', 'i');
+      if (re.test(addr)) return city;
+    }
+    return '';
+  }
+
   window.CulturalMapCoreUtils = {
     hexToRgba,
     escapeHTML,
     isValidCountyCoord,
     sanitizeCountyOutline,
     parseDeepLinkSearch,
-    serializeDeepLinkSearch
+    serializeDeepLinkSearch,
+    normalizeCategory,
+    extractCityFromAddress
   };
 })();

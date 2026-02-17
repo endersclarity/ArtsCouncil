@@ -1741,7 +1741,314 @@ body.theme-intent {
 }
 
 .explore-header {
-  margin-bottom: 1.15rem;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 1.2rem;
+  margin-bottom: 1.8rem;
+}
+
+/* --- Directory Search --- */
+.directory-search-wrap {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.directory-search-icon {
+  position: absolute;
+  left: 0.85rem;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  color: rgba(26, 22, 18, 0.36);
+  pointer-events: none;
+}
+
+.explore-section .explore-search {
+  padding-left: 2.4rem;
+  width: 340px;
+  max-width: 100%;
+  font-size: 0.92rem;
+  border-radius: 10px;
+  border: 1px solid rgba(26, 22, 18, 0.12);
+  background: #fff;
+  box-shadow: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.explore-section .explore-search:focus {
+  border-color: var(--gold);
+  box-shadow: 0 0 0 3px rgba(200, 148, 62, 0.12);
+}
+
+/* --- Directory Category Card Grid --- */
+.directory-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.directory-card {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.28s ease;
+}
+
+.directory-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(26, 22, 18, 0.14);
+}
+
+.directory-card-photo {
+  position: relative;
+  aspect-ratio: 16 / 10;
+}
+
+.directory-card-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.directory-card:hover .directory-card-photo img {
+  transform: scale(1.06);
+}
+
+.directory-card-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(26, 22, 18, 0.72) 0%, rgba(26, 22, 18, 0.12) 60%, transparent 100%);
+}
+
+.directory-card-content {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1rem;
+}
+
+.directory-card-name {
+  margin: 0;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(0.92rem, 1.6vw, 1.1rem);
+  font-weight: 700;
+  color: #fff;
+  line-height: 1.25;
+}
+
+.directory-card-count {
+  display: inline-block;
+  margin-top: 0.3rem;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.78);
+  text-transform: uppercase;
+}
+
+/* --- Directory Expanded View: Header --- */
+.directory-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.8rem;
+}
+
+.directory-header-badge {
+  width: 5px;
+  height: 36px;
+  border-radius: 3px;
+  flex-shrink: 0;
+}
+
+.directory-header-title {
+  margin: 0;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1.3rem, 2.2vw, 1.8rem);
+  color: var(--ink);
+  line-height: 1.2;
+}
+
+.directory-header-count {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  color: rgba(26, 22, 18, 0.5);
+  text-transform: uppercase;
+}
+
+/* --- Directory City Filter Pills --- */
+.directory-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-bottom: 1rem;
+}
+
+.directory-filter-pill {
+  padding: 0.38rem 0.85rem;
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: rgba(26, 22, 18, 0.65);
+  background: rgba(26, 22, 18, 0.04);
+  border: 1px solid rgba(26, 22, 18, 0.1);
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.directory-filter-pill:hover {
+  background: rgba(26, 22, 18, 0.08);
+  border-color: rgba(26, 22, 18, 0.2);
+  color: var(--ink);
+}
+
+.directory-filter-pill.active {
+  background: var(--ink);
+  color: var(--cream);
+  border-color: var(--ink);
+}
+
+/* --- Directory Results Grid (Photo Cards) --- */
+.directory-results {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.directory-item {
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid rgba(26, 22, 18, 0.08);
+  cursor: pointer;
+  transition: transform 0.25s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.25s ease;
+}
+
+.directory-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(26, 22, 18, 0.1);
+}
+
+.directory-item-photo {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  background: #f0ebe3;
+}
+
+.directory-item-photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.35s ease;
+}
+
+.directory-item:hover .directory-item-photo img {
+  transform: scale(1.04);
+}
+
+.directory-item-badge {
+  position: absolute;
+  top: 0.6rem;
+  left: 0.6rem;
+  padding: 0.2rem 0.55rem;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.58rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: #fff;
+  border-radius: 4px;
+}
+
+.directory-item-body {
+  padding: 0.85rem 1rem;
+}
+
+.directory-item-city {
+  display: block;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.62rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(26, 22, 18, 0.48);
+  margin-bottom: 0.25rem;
+}
+
+.directory-item-name {
+  margin: 0;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.3;
+}
+
+.directory-item-desc {
+  margin: 0.3rem 0 0;
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: rgba(26, 22, 18, 0.6);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.directory-item-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.5rem;
+}
+
+.directory-item-events {
+  display: inline-block;
+  padding: 0.15rem 0.5rem;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.04em;
+  color: #934512;
+  background: rgba(180, 88, 29, 0.1);
+  border: 1px solid rgba(180, 88, 29, 0.3);
+  border-radius: 4px;
+}
+
+/* --- Responsive --- */
+@media (max-width: 900px) {
+  .directory-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .directory-results {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .explore-header {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .explore-section .explore-search {
+    width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .directory-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .directory-results {
+    grid-template-columns: 1fr;
+  }
+  .directory-card-name {
+    font-size: 0.85rem;
+  }
 }
 
 .community-photos {

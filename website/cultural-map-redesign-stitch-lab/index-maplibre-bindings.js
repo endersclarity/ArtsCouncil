@@ -52,10 +52,13 @@
     document.getElementById('searchInput').addEventListener('input', () => {
       const val = document.getElementById('searchInput').value.trim();
       const wrapper = document.getElementById('exploreListWrapper');
+      const catGrid = document.getElementById('exploreCats');
       if (val) {
         wrapper.classList.add('visible');
+        if (catGrid) catGrid.style.display = 'none';
       } else if (ctx.getActiveCategoryCount() === 0) {
         wrapper.classList.remove('visible');
+        if (catGrid) catGrid.style.display = '';
       }
       ctx.resetListPage();
       ctx.buildList();

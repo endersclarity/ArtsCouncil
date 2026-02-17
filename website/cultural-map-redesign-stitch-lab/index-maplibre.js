@@ -9,11 +9,15 @@
   const MAPTILER_KEY = cfg.MAPTILER_KEY || 'GET_YOUR_FREE_KEY_AT_MAPTILER_COM';
   const ICONS = cfg.ICONS || {};
   const CATS = cfg.CATS || {};
+  const CATEGORY_MAP = cfg.CATEGORY_MAP || {};
+  const CATEGORY_HEROES = cfg.CATEGORY_HEROES || {};
   const hexToRgba = coreUtils.hexToRgba;
   const escapeHTML = coreUtils.escapeHTML;
   const sanitizeCountyOutline = coreUtils.sanitizeCountyOutline;
   const parseDeepLinkSearch = coreUtils.parseDeepLinkSearch;
   const serializeDeepLinkSearch = coreUtils.serializeDeepLinkSearch;
+  const normalizeCategory = coreUtils.normalizeCategory;
+  const extractCityFromAddress = coreUtils.extractCityFromAddress;
   const eventsUtils = window.CulturalMapEventsUtils || {};
   const eventsModel = window.CulturalMapEventsModel || {};
   const eventsCarousel = window.CulturalMapEventsCarousel || {};
@@ -95,8 +99,8 @@
   assertModuleMethods(eventsFilterUI, ['updateMapEventsFilterUI', 'updateMapEventsAudienceUI', 'buildMapEventsCategorySelect', 'updateMapEventsCategoryUI', 'normalizeEventCategoryFilter'], 'Missing CulturalMapEventsFilterUI. Ensure index-maplibre-events-filter-ui.js loads before index-maplibre.js');
   assertModuleMethods(eventsController, ['buildMapEventsList', 'getDetailEventsHTML'], 'Missing CulturalMapEventsController. Ensure index-maplibre-events-controller.js loads before index-maplibre.js');
   assertModuleMethods(hoursUtils, ['getHoursState', 'getHoursLabel', 'getHoursRank', 'getTodayHoursDisplay'], 'Missing CulturalMapHoursUtils. Ensure index-maplibre-hours-utils.js loads before index-maplibre.js');
-  assertModuleMethods(exploreModel, ['getFilteredData'], 'Missing CulturalMapExploreModel. Ensure index-maplibre-explore-model.js loads before index-maplibre.js');
-  assertModuleMethods(exploreView, ['buildExploreCats', 'getExploreResultsText', 'createExploreItemElement'], 'Missing CulturalMapExploreView. Ensure index-maplibre-explore-view.js loads before index-maplibre.js');
+  assertModuleMethods(exploreModel, ['getFilteredData', 'getAvailableCities'], 'Missing CulturalMapExploreModel. Ensure index-maplibre-explore-model.js loads before index-maplibre.js');
+  assertModuleMethods(exploreView, ['buildExploreCats', 'buildDirectoryHeader', 'buildCityFilterPills', 'getExploreResultsText', 'createExploreItemElement'], 'Missing CulturalMapExploreView. Ensure index-maplibre-explore-view.js loads before index-maplibre.js');
   assertModuleMethods(exploreControllerModule, ['createExploreController'], 'Missing CulturalMapExploreController. Ensure index-maplibre-explore-controller.js loads before index-maplibre.js');
   assertModuleMethods(filterUI, ['buildFilterBar', 'buildMapLegend', 'syncMapFilterToggleMeta', 'renderOpenNowUI', 'renderEvents14dUI', 'syncCategoryPills', 'syncCategoryCards'], 'Missing CulturalMapFilterUI. Ensure index-maplibre-filter-ui.js loads before index-maplibre.js');
   assertModuleMethods(filterStateModel, ['computeNextCategories', 'getActiveBannerState'], 'Missing CulturalMapFilterStateModel. Ensure index-maplibre-filter-state-model.js loads before index-maplibre.js');
@@ -230,6 +234,19 @@
     fetch('itineraries.json').then(r => r.json()).catch(() => [])
   ]).then(([data, images, experiences, museEditorials, musePlaces, events, eventIndex, countyOutline, itinerariesData]) => {
     DATA = data;
+    // Normalize categories (10 → 8) and extract cities from addresses
+    DATA.forEach(function(d) {
+      if (d.l) {
+        var normalized = normalizeCategory(d.l, CATEGORY_MAP);
+        if (normalized !== d.l) {
+          d.l_original = d.l;
+          d.l = normalized;
+        }
+      }
+      if (!d.c && d.a) {
+        d.c = extractCityFromAddress(d.a);
+      }
+    });
     window.__culturalMapData = DATA;
     IMAGE_DATA = images;
     window.__culturalMapImageData = IMAGE_DATA;
@@ -267,6 +284,7 @@
       data: DATA,
       cats: CATS,
       imageData: IMAGE_DATA,
+      categoryHeroes: CATEGORY_HEROES,
       exploreModel,
       exploreView,
       eventsSearch,
