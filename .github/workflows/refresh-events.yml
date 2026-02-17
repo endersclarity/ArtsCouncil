@@ -45,6 +45,25 @@ jobs:
         run: python scripts/events/ingest_trumba_json.py
         continue-on-error: true  # GVDA is supplementary source
 
+      - name: Ingest Crazy Horse iCal
+        run: python scripts/events/ingest_crazyhorse_ical.py
+        continue-on-error: true
+
+      - name: Ingest Golden Era Squarespace
+        run: python scripts/events/ingest_squarespace_events.py --site-url https://www.goldeneralounge.com --source-name goldenera --output-file website/cultural-map-redesign-stitch-lab/events-goldenera.json
+        continue-on-error: true
+
+      - name: Ingest Bodhi Hive Squarespace
+        run: python scripts/events/ingest_squarespace_events.py --site-url https://www.bodhi-hive.com --source-name bodhihive --output-file website/cultural-map-redesign-stitch-lab/events-bodhihive.json
+        continue-on-error: true
+
+      - name: Ingest Community Submissions
+        run: |
+          echo '${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}' > /tmp/gsa.json
+          python scripts/events/ingest_community_form.py --sheet-id '${{ secrets.COMMUNITY_SHEET_ID }}' --credentials-file /tmp/gsa.json --output-file website/cultural-map-redesign-stitch-lab/events-community.json
+          rm -f /tmp/gsa.json
+        continue-on-error: true
+
       - name: Merge and deduplicate events
         run: python scripts/events/merge_events.py
 
@@ -54,8 +73,8 @@ jobs:
       - name: Commit updated event data
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
-          commit_message: "chore(data): refresh events from Trumba + LibCal + CivicEngage + KVMR + GVDA"
-          file_pattern: "website/cultural-map-redesign/events*.json scripts/events/reports/*.json"
+          commit_message: "chore(data): refresh events from 9 sources (Trumba + LibCal + CivicEngage + KVMR + GVDA + Crazy Horse + Golden Era + Bodhi Hive + Community)"
+          file_pattern: "website/cultural-map-redesign/events*.json website/cultural-map-redesign-stitch-lab/events*.json scripts/events/reports/*.json"
           commit_user_name: "github-actions[bot]"
           commit_user_email: "github-actions[bot]@users.noreply.github.com"
 
