@@ -16,6 +16,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [ ] **Phase 01.1: Demo Visual Polish** - INSERTED: Ship visual polish for Wed Feb 18 committee demo — hero overhaul, hybrid nav, AI style cards, email capture, editorial deep links. Informed by design discussion + 4-agent analysis team (UX, Tech Feasibility, Competitive Gap, Demo Strategy). See `.planning/DESIGN-SPEC.md` + `.planning/analysis/PRIORITIZED-ACTION-PLAN.md`
 - [x] **Phase 2: Tier 2 Events** - Triple event coverage by aggregating LibCal and CivicEngage feeds alongside Trumba
 - [x] **Phase 02.1: KVMR + GVDA Event Source Ingestion** - Add KVMR iCal and GVDA Trumba JSON feeds to close event coverage gaps before Wednesday demo
+- [ ] **Phase 02.2: Live Music & Venue Event Ingestion** - INSERTED: Add missing live music venues to asset data, ingest venue-owned event feeds (Crazy Horse iCal, Squarespace scrapers), create Live Music category/tag system, scope community submission form and dedicated Live Music subpage
 - [x] **Phase 3: Itineraries** - Authored multi-day trip plans that visitors can browse, follow on the map, and export to calendar
 - [ ] **Phase 4: Copy & Positioning** - Reframe all text to drive visitors downtown, not into the woods
 - [ ] **Phase 5: AI Concierge** - Gemini-powered chatbot that answers "what should I do tonight?" grounded in MUSE content
@@ -88,6 +89,42 @@ Plans:
 Plans:
 - [x] 02.1-01-PLAN.md — KVMR iCal and GVDA Trumba JSON ingest scripts (Wave 1)
 - [x] 02.1-02-PLAN.md — Merge pipeline extension and GitHub Actions workflow update (Wave 2)
+
+### Phase 02.2: Live Music & Venue Event Ingestion (INSERTED)
+
+**Goal:** Surface Nevada County's live music scene by adding missing venues to the asset map, ingesting venue-owned event feeds as sources 6-9, creating a "Live Music" event tag/category system, and scoping a community submission form for venues without structured calendars. Potential dedicated Live Music subpage.
+**Depends on:** Phase 02.1
+**Plans:** 3 plans
+
+**Research completed (Perplexity, 2026-02-17):**
+
+| Venue | In Assets? | Events Feed? | Ingestion Strategy |
+|-------|-----------|-------------|-------------------|
+| Crazy Horse Saloon (230 Commercial, NC) | Yes | iCal via WP Events Calendar | **Tier 1: iCal subscribe** (like KVMR) |
+| Golden Era Lounge (309 Broad, NC) | Yes | Squarespace /events | **Tier 2: HTML scraper** |
+| Bodhi Hive (420 Providence Mine Rd, NC) | **No** | Squarespace /events | **Tier 2: HTML scraper** + add to data.json |
+| The Fern (235 Commercial, NC) | **No** | "Live Schedule" on site + Bandsintown | **Tier 2: HTML scraper or Bandsintown API** + add to data.json |
+| Stardust Station (Nevada City) | **No** | Unstructured, Instagram only | **Tier 3: Community submission form** + add to data.json |
+| The Unchurch (220 Bresee Way, GV) | **No** | No website, Songkick/Eventsfy only | **Tier 3: Community submission form** + add to data.json |
+| Ol' Republic Brewery | Yes (stale) | **Permanently closed**, domain hijacked | **Remove from data.json** |
+
+**Deferred discussion items (surface during /gsd:plan-phase):**
+- How to handle Tier 2 venues without iCal (scraping vs Bandsintown API vs agentic browser cron)
+- Event categorization/tagging system across all sources (GVDA has tags, KVMR doesn't, new venues need them)
+- "Live Music" as a filter dimension vs. dedicated subpage vs. both
+- Community submission form: Google Form → Sheet → pipeline, or custom web form?
+- Family & Kids filter should be separate dimension from time chips (related todo)
+
+**Absorbs todos:**
+- stardust-local-directories (primary)
+- gvda-rich-tags (event tagging scope)
+- kvmr-no-tags (event tagging scope)
+- family-filter-misplaced (filter dimension redesign)
+
+Plans:
+- [ ] 02.2-01-PLAN.md — Venue data updates (add 4, remove 2) + Crazy Horse iCal and Squarespace JSON ingest scripts (Wave 1)
+- [ ] 02.2-02-PLAN.md — Event tagging system + merge pipeline extension + community form ingest (Wave 1)
+- [ ] 02.2-03-PLAN.md — GitHub Actions workflow update + frontend tag filtering (Wave 2)
 
 ### Phase 3: Itineraries
 **Goal**: Visitors can browse curated 1/2/3-day trip plans with stop-by-stop narratives, see the route on the map, and add stops to their calendar
@@ -204,6 +241,7 @@ Phases execute in numeric order: 1 -> 2 -> 2.1 -> 3 -> 5 -> 4 -> 6 -> 7
 | 1. Design & Visual Refresh | 0/3 (plans obsolete) | ~60% — Codex built layout, map broken, mobile untested | - |
 | 2. Tier 2 Events | 3/3 | COMPLETE — pipeline + client integration shipped | 2026-02-14 |
 | 02.1. KVMR + GVDA Events | 2/2 | COMPLETE — 5-source pipeline, 176 events (+47%) | 2026-02-15 |
+| 02.2. Live Music & Venue Events | 0/? | Not started — research complete, needs planning | - |
 | 3. Itineraries | 2/2 | COMPLETE — 3 itineraries, hero cards, detail overlay, map routes, calendar, deep link | 2026-02-15 |
 | 4. Copy & Positioning | 0/3 | Not started | - |
 | 5. AI Concierge | 0/3 | Not started | - |
