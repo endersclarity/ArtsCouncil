@@ -36,8 +36,10 @@
     <nav class="mast-nav-desktop" aria-label="Primary">
       <a href="events.html">Events</a>
       <a href="itineraries.html">Itineraries</a>
+      <a href="directory.html">Directory</a>
       <a href="#mapSection" data-nav-action="expand-map">Map</a>
       <a href="#muse">MUSE</a>
+      <a href="qr-gallery.html" style="color:var(--gold)">QR Demo</a>
     </nav>
     <div class="mast-actions">
       <button class="mast-search-toggle" type="button" aria-label="Open search" aria-expanded="false">
@@ -64,6 +66,7 @@
     <nav class="hamburger-nav" aria-label="Full navigation">
       <a href="events.html">Events</a>
       <a href="itineraries.html">Itineraries</a>
+      <a href="directory.html">Directory</a>
       <a href="#mapSection" data-nav-action="expand-map">Map</a>
       <a href="#muse">MUSE</a>
       <details class="hamburger-section">
@@ -75,6 +78,7 @@
         <div class="hamburger-experiences" id="hamburgerExperiences">
           <a href="#districtSpread">District highlights</a>
           <a href="#mapSection">Heritage corridors</a>
+          <a href="qr-gallery.html">QR Demo Flyers</a>
         </div>
       </details>
       <a href="#exploreSection">Directory</a>
@@ -205,6 +209,7 @@
               <div class="map-events-filters" id="mapEventsFilters">
                 <button class="map-events-chip active" type="button" data-event-filter="all">All</button>
                 <button class="map-events-chip" type="button" data-event-filter="today">Today</button>
+                <button class="map-events-chip" type="button" data-event-filter="tonight">Tonight</button>
                 <button class="map-events-chip" type="button" data-event-filter="weekend">Weekend</button>
                 <button class="map-events-chip" type="button" data-event-filter="14d">2 Weeks</button>
               </div>
@@ -346,6 +351,51 @@
     </form>
     <div class="email-capture-status" id="emailCaptureStatus" hidden></div>
     <p class="email-capture-privacy">No spam. Unsubscribe anytime. We respect your inbox.</p>
+  </div>
+</section>
+
+<!-- ====== PLAN YOUR STAY ====== -->
+<section class="lodging-section reveal" aria-label="Plan your stay">
+  <div class="lodging-inner">
+    <span class="lodging-tag">Lodging</span>
+    <h2 class="lodging-title">Plan Your Stay</h2>
+    <p class="lodging-sub">Gold Country's best-kept inns, from Gold Rush–era landmarks to mountain retreats.</p>
+    <div class="lodging-grid">
+      <article class="lodging-card" data-asset-name="National Exchange Hotel" tabindex="0" role="button" aria-label="View National Exchange Hotel details">
+        <div class="lodging-card-img-wrap">
+          <img class="lodging-card-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="National Exchange Hotel" loading="lazy">
+        </div>
+        <div class="lodging-card-body">
+          <h3 class="lodging-card-name">National Exchange Hotel</h3>
+          <p class="lodging-card-city">Nevada City</p>
+          <p class="lodging-card-blurb">Oldest continuously operating hotel west of the Rockies — since 1856.</p>
+        </div>
+      </article>
+      <article class="lodging-card" data-asset-name="The Holbrooke Hotel" tabindex="0" role="button" aria-label="View The Holbrooke Hotel details">
+        <div class="lodging-card-img-wrap">
+          <img class="lodging-card-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="The Holbrooke Hotel" loading="lazy">
+        </div>
+        <div class="lodging-card-body">
+          <h3 class="lodging-card-name">The Holbrooke Hotel</h3>
+          <p class="lodging-card-city">Grass Valley</p>
+          <p class="lodging-card-blurb">Once host to four U.S. presidents. Gold Rush history in every hallway.</p>
+        </div>
+      </article>
+      <article class="lodging-card" data-asset-name="Harmony Ridge Lodge" tabindex="0" role="button" aria-label="View Harmony Ridge Lodge details">
+        <div class="lodging-card-img-wrap">
+          <img class="lodging-card-img" src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" alt="Harmony Ridge Lodge" loading="lazy">
+        </div>
+        <div class="lodging-card-body">
+          <h3 class="lodging-card-name">Harmony Ridge Lodge</h3>
+          <p class="lodging-card-city">Nevada City</p>
+          <p class="lodging-card-blurb">Rustic luxury tucked into the Sierra pines along Highway 20.</p>
+        </div>
+      </article>
+    </div>
+    <a class="lodging-vrbo-cta" id="lodgingVrboCta" href="https://www.vrbo.com/search?destination=Nevada+County%2C+CA" target="_blank" rel="noopener">
+      Browse Vacation Rentals on VRBO
+      <span class="lodging-vrbo-arrow" aria-hidden="true">&rarr;</span>
+    </a>
   </div>
 </section>
 
@@ -522,6 +572,7 @@
 <script src="index-maplibre-chat-controller.js"></script>
 <script src="index-maplibre-chat-widget.js"></script>
 <script src="index-maplibre-photo-carousel.js"></script>
+<script src="index-maplibre-lodging-section.js"></script>
 <script src="index-maplibre-email-capture.js"></script>
 <script src="index-maplibre.js?v=20260217d"></script>
 <script>
@@ -533,6 +584,9 @@
   }
   if (window.CulturalMapEmailCapture) {
     window.CulturalMapEmailCapture.init();
+  }
+  if (window.CulturalMapLodgingSection) {
+    window.CulturalMapLodgingSection.init();
   }
   if (window.CulturalMapChatWidget) {
     window.CulturalMapChatWidget.init();
