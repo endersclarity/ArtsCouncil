@@ -200,21 +200,11 @@ Recent decisions affecting current work:
 - Phase 02.1 inserted after Phase 2: KVMR + GVDA Event Source Ingestion (URGENT) — Mardi Gras and other major events missing from all 3 existing sources. KVMR iCal + GVDA Trumba JSON add broadest community coverage before Wed demo.
 - Phase 06.1 inserted after Phase 6: Deep Analytics Instrumentation (URGENT) — Phase 6 covers basic interaction tracking but misses scroll depth, marker clicks, detail dwell time, itinerary engagement, and outbound click attribution. Adding these before Wednesday demo so first real traffic produces a rich story.
 - Phase 03.1 inserted after Phase 3: Content Architecture & Demo Curation (URGENT) — Site has all plumbing (events, itineraries, chat, analytics) but content architecture and curation not demo-ready. Need to define single-page progressive disclosure vs. multi-page, curate featured content showing aggregation value (Stardust Station, Local Adventure Mama gaps), and structure demo experience for Wednesday committee presentation.
+- Phase 02.2 inserted after Phase 02.1: Live Music & Venue Event Ingestion — Nevada County's live music scene is invisible on the site. 4 venues missing from asset data entirely (Bodhi Hive, Stardust Station, The Unchurch, The Fern), 2 existing venues have almost no events flowing (Crazy Horse, Golden Era). Ol' Republic permanently closed. Research via Perplexity identified 3 tiers: iCal (Crazy Horse), HTML scraping (Golden Era, Bodhi Hive, The Fern), community submission form (Stardust Station, The Unchurch). Also creates Live Music category/tag system and absorbs 4 related event todos.
 
 ### Pending Todos
 
-- ~~FIX MAP RENDERING BUG~~ RESOLVED (commit `48a9486` — module contract drift)
-- ~~Add 4 missing DOM IDs~~ RESOLVED (same commit)
-- ~~Mobile testing at 375px~~ DEFERRED — design still iterating, testing now would test throwaway layouts. Revisit after design direction stabilizes.
-- ~~Copy audit for remaining "cultural asset" language~~ REMOVED — this is Phase 4 (Copy & Positioning) scope, not a standalone todo.
-- Visual consistency sweep (base CSS conflicts with magazine layout)
-- **Event images:** 100 events (all KVMR + all LibCal) have no images — placeholder cards. Need fallback image strategy or page scraping.
-- **Family & Kids filter is misplaced:** Currently a time-filter chip alongside All/Today/Weekend/2 Weeks. Should be a separate dimension (checkbox or category dropdown option) so users can combine "family + this weekend."
-- **GVDA rich tags not surfaced:** GVDA events have tags like Music/Concert, Children/Family, Beer/Wine/Food but the category dropdown only shows asset layer categories. Event tags should map to or extend the dropdown.
-- **KVMR events have no tags:** iCal feed has no category metadata. Relies on weak keyword inference from titles. May need manual tagging or better inference rules.
-- **Stardust Station + local creative directories:** Reach out about API or submission form. If their content exists online in a directory, it should be on the Arts Council page. Also get local creative feedback on coverage gaps.
-- **Itinerary "Show on Map" UX is broken:** Clicking "Show on Map" zooms the map behind the modal — user has to close the modal to see where it pointed, and even then it's not obvious. Needs: modal should collapse/minimize to reveal the map zoom, and the asset's detail side-panel should open with full bio info for the selected stop. The flow should be: click "Show on Map" → modal collapses → map zooms to stop → detail panel slides in with asset info.
-- **In-house trip builder / personal calendar (BRAINSTORM):** Let visitors build their own itinerary using our UI — pick stops, set times, arrange days. Then export the whole batch to Google Calendar (or other) in one action. Strong preference to avoid requiring sign-in/accounts. Possible approaches: localStorage-only (no account needed, persists per device), shareable URL encoding (trip plan encoded in query string), or cookie-based session. Needs design thinking on UX and whether accountless persistence is sufficient.
+5 todos in `.planning/todos/pending/` — run `/gsd:check-todos` to list. (4 absorbed into Phase 02.2)
 
 ### Blockers/Concerns
 
@@ -227,6 +217,6 @@ Recent decisions affecting current work:
 ## Session Continuity
 
 Last session: 2026-02-16
-Stopped at: Phase 01.1 context gathered. Next: /gsd:plan-phase 1.1
-Resume file: .planning/phases/01.1-demo-visual-polish/01.1-CONTEXT.md
-Key artifacts: .planning/DESIGN-SPEC.md, .planning/analysis/PRIORITIZED-ACTION-PLAN.md, .planning/phases/01.1-demo-visual-polish/01.1-CONTEXT.md
+Stopped at: Phase 02.2 context gathered. Next: /gsd:plan-phase 2.2
+Resume file: .planning/phases/02.2-live-music-venue-event-ingestion/02.2-CONTEXT.md
+Key artifacts: .planning/phases/02.2-live-music-venue-event-ingestion/02.2-CONTEXT.md
