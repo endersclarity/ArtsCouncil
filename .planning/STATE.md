@@ -227,7 +227,7 @@ Recent decisions affecting current work:
 
 ### Pending Todos
 
-15 todos from stakeholder roundtable analysis (`.planning/todos/pending/`).
+16 todos from stakeholder roundtable analysis (`.planning/todos/pending/`).
 
 #### Pre-Research Available
 
@@ -287,7 +287,7 @@ Research artifacts outside the phase directory structure. Consult these when pla
 
 | # | Description | Date | Commit | Directory |
 |---|-------------|------|--------|-----------|
-| 1 | Fix Joss Stone cross-source dedup — venue-aware title threshold | 2026-02-17 | pending | [1-fix-joss-stone-cross-source-dedup-venue-](./quick/1-fix-joss-stone-cross-source-dedup-venue-/) |
+| 1 | Fix Joss Stone cross-source dedup — venue-aware title threshold | 2026-02-17 | d4bd954 | [1-fix-joss-stone-cross-source-dedup-venue-](./quick/1-fix-joss-stone-cross-source-dedup-venue-/) |
 
 ## Session Continuity
 
