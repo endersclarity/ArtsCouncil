@@ -9,12 +9,12 @@ Requirements for this milestone. Each maps to roadmap phases. MVP (Phases 1-5) d
 
 ### Design & Visual Refresh (Epic 1 -- MVP)
 
-- [ ] **DSGN-01**: Brainstorming session to lock in one visual direction (clean, bold, MUSE-adjacent -- not a magazine interaction model)
-- [ ] **DSGN-02**: Typography refresh (Playfair Display headings, DM Sans body, polished spacing)
-- [ ] **DSGN-03**: Color palette updated to clean, bright tones that could belong in a MUSE page
-- [ ] **DSGN-04**: Consistent card styling across itineraries, events, directory, and editorial content
-- [ ] **DSGN-05**: Hero section that looks polished and intentional (not over-designed)
-- [ ] **DSGN-06**: Mobile layout works well (functional responsive, not fancy magazine UX)
+- [x] **DSGN-01**: Brainstorming session to lock in one visual direction (clean, bold, MUSE-adjacent -- not a magazine interaction model)
+- [x] **DSGN-02**: Typography refresh (Playfair Display headings, DM Sans body, polished spacing)
+- [x] **DSGN-03**: Color palette updated to clean, bright tones that could belong in a MUSE page
+- [x] **DSGN-04**: Consistent card styling across itineraries, events, directory, and editorial content
+- [x] **DSGN-05**: Hero section that looks polished and intentional (not over-designed)
+- [x] **DSGN-06**: Mobile layout works well (functional responsive, not fancy magazine UX)
 - [ ] **DSGN-07**: All UI copy reframed around visitor experience and local economy (not nature, not internal language)
 
 ### Tier 2 Events (Epic 2 -- MVP)
@@ -137,12 +137,12 @@ Which phases cover which requirements. Updated during roadmap creation.
 
 | Requirement | Phase | Status |
 |-------------|-------|--------|
-| DSGN-01 | Phase 1 | Pending |
-| DSGN-02 | Phase 1 | Pending |
-| DSGN-03 | Phase 1 | Pending |
-| DSGN-04 | Phase 1 | Pending |
-| DSGN-05 | Phase 1 | Pending |
-| DSGN-06 | Phase 1 | Pending |
+| DSGN-01 | Phase 1 | Complete |
+| DSGN-02 | Phase 1 | Complete |
+| DSGN-03 | Phase 1 | Complete |
+| DSGN-04 | Phase 1 | Complete |
+| DSGN-05 | Phase 1 | Complete |
+| DSGN-06 | Phase 1 | Complete |
 | DSGN-07 | Phase 1 | Pending |
 | EVNT-01 | Phase 2 | Pending |
 | EVNT-02 | Phase 2 | Pending |

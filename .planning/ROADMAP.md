@@ -16,7 +16,7 @@ Decimal phases appear between their surrounding integers in numeric order.
 - [ ] **Phase 01.1: Demo Visual Polish** - INSERTED: Ship visual polish for Wed Feb 18 committee demo — hero overhaul, hybrid nav, AI style cards, email capture, editorial deep links. Informed by design discussion + 4-agent analysis team (UX, Tech Feasibility, Competitive Gap, Demo Strategy). See `.planning/DESIGN-SPEC.md` + `.planning/analysis/PRIORITIZED-ACTION-PLAN.md`
 - [x] **Phase 2: Tier 2 Events** - Triple event coverage by aggregating LibCal and CivicEngage feeds alongside Trumba
 - [x] **Phase 02.1: KVMR + GVDA Event Source Ingestion** - Add KVMR iCal and GVDA Trumba JSON feeds to close event coverage gaps before Wednesday demo
-- [ ] **Phase 02.2: Live Music & Venue Event Ingestion** - INSERTED: Add missing live music venues to asset data, ingest venue-owned event feeds (Crazy Horse iCal, Squarespace scrapers), create Live Music category/tag system, scope community submission form and dedicated Live Music subpage
+- [x] **Phase 02.2: Live Music & Venue Event Ingestion** - INSERTED: Add missing live music venues to asset data, ingest venue-owned event feeds (Crazy Horse iCal, Squarespace scrapers), create Live Music category/tag system, scope community submission form and dedicated Live Music subpage (completed 2026-02-17)
 - [x] **Phase 3: Itineraries** - Authored multi-day trip plans that visitors can browse, follow on the map, and export to calendar
 - [ ] **Phase 4: Copy & Positioning** - Reframe all text to drive visitors downtown, not into the woods
 - [ ] **Phase 5: AI Concierge** - Gemini-powered chatbot that answers "what should I do tonight?" grounded in MUSE content
@@ -94,7 +94,7 @@ Plans:
 
 **Goal:** Surface Nevada County's live music scene by adding missing venues to the asset map, ingesting venue-owned event feeds as sources 6-9, creating a "Live Music" event tag/category system, and scoping a community submission form for venues without structured calendars. Potential dedicated Live Music subpage.
 **Depends on:** Phase 02.1
-**Plans:** 3 plans
+**Plans:** 3/3 plans complete
 
 **Research completed (Perplexity, 2026-02-17):**
 
@@ -241,7 +241,7 @@ Phases execute in numeric order: 1 -> 2 -> 2.1 -> 3 -> 5 -> 4 -> 6 -> 7
 | 1. Design & Visual Refresh | 0/3 (plans obsolete) | ~60% — Codex built layout, map broken, mobile untested | - |
 | 2. Tier 2 Events | 3/3 | COMPLETE — pipeline + client integration shipped | 2026-02-14 |
 | 02.1. KVMR + GVDA Events | 2/2 | COMPLETE — 5-source pipeline, 176 events (+47%) | 2026-02-15 |
-| 02.2. Live Music & Venue Events | 0/? | Not started — research complete, needs planning | - |
+| 02.2. Live Music & Venue Events | 0/? | Complete    | 2026-02-17 |
 | 3. Itineraries | 2/2 | COMPLETE — 3 itineraries, hero cards, detail overlay, map routes, calendar, deep link | 2026-02-15 |
 | 4. Copy & Positioning | 0/3 | Not started | - |
 | 5. AI Concierge | 0/3 | Not started | - |
