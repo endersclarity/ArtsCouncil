@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 """
-Merge, deduplicate, and classify events from multiple sources.
+Merge, deduplicate, tag, and classify events from multiple sources.
 
-Combines Trumba, LibCal, CivicEngage, KVMR, and GVDA event feeds into a
-single deduplicated events-merged.json with family-friendly classification.
+Combines Trumba, LibCal, CivicEngage, KVMR, GVDA, Crazy Horse, Golden Era,
+Bodhi Hive, and Community event feeds into a single deduplicated
+events-merged.json with event type tagging and family-friendly classification.
 
 Also outputs events-merged-flat.json (bare JSON array) for compatibility
 with build_event_index.py which expects isinstance(events, list).
@@ -29,9 +30,14 @@ DEFAULT_LIBCAL_FILE = Path("website/cultural-map-redesign/events-libcal.json")
 DEFAULT_CIVICENGAGE_FILE = Path("website/cultural-map-redesign/events-civicengage.json")
 DEFAULT_KVMR_FILE = Path("website/cultural-map-redesign/events-kvmr.json")
 DEFAULT_GVDA_FILE = Path("website/cultural-map-redesign/events-gvda.json")
+DEFAULT_CRAZYHORSE_FILE = Path("website/cultural-map-redesign-stitch-lab/events-crazyhorse.json")
+DEFAULT_GOLDENERA_FILE = Path("website/cultural-map-redesign-stitch-lab/events-goldenera.json")
+DEFAULT_BODHIHIVE_FILE = Path("website/cultural-map-redesign-stitch-lab/events-bodhihive.json")
+DEFAULT_COMMUNITY_FILE = Path("website/cultural-map-redesign-stitch-lab/events-community.json")
 DEFAULT_OUTPUT_FILE = Path("website/cultural-map-redesign/events-merged.json")
 DEFAULT_FLAT_OUTPUT_FILE = Path("website/cultural-map-redesign/events-merged-flat.json")
 DEFAULT_FAMILY_KEYWORDS = Path("scripts/events/family_keywords.json")
+DEFAULT_EVENT_TAGS = Path("scripts/events/event_tags.json")
 DEFAULT_DEDUP_THRESHOLD = 85
 DEFAULT_VENUE_THRESHOLD = 70
 DEFAULT_TZ = "America/Los_Angeles"
@@ -42,7 +48,18 @@ SOURCE_PRIORITY = {
     "gvda": 1,
     "libcal": 2,
     "kvmr": 3,
-    "civicengage": 4,
+    "crazyhorse": 4,
+    "goldenera": 5,
+    "bodhihive": 6,
+    "community": 7,
+    "civicengage": 8,
+}
+
+# Venue-specific dedup override: venue source wins for events at its own venue
+VENUE_SOURCE_MAP = {
+    "crazyhorse": "Crazy Horse Saloon",
+    "goldenera": "Golden Era Lounge",
+    "bodhihive": "Bodhi Hive",
 }
 
 
@@ -79,6 +96,36 @@ def parse_args() -> argparse.Namespace:
         type=Path,
         default=DEFAULT_GVDA_FILE,
         help=f"GVDA events file (default: {DEFAULT_GVDA_FILE})",
+    )
+    parser.add_argument(
+        "--crazyhorse-file",
+        type=Path,
+        default=DEFAULT_CRAZYHORSE_FILE,
+        help=f"Crazy Horse events file (default: {DEFAULT_CRAZYHORSE_FILE})",
+    )
+    parser.add_argument(
+        "--goldenera-file",
+        type=Path,
+        default=DEFAULT_GOLDENERA_FILE,
+        help=f"Golden Era events file (default: {DEFAULT_GOLDENERA_FILE})",
+    )
+    parser.add_argument(
+        "--bodhihive-file",
+        type=Path,
+        default=DEFAULT_BODHIHIVE_FILE,
+        help=f"Bodhi Hive events file (default: {DEFAULT_BODHIHIVE_FILE})",
+    )
+    parser.add_argument(
+        "--community-file",
+        type=Path,
+        default=DEFAULT_COMMUNITY_FILE,
+        help=f"Community events file (default: {DEFAULT_COMMUNITY_FILE})",
+    )
+    parser.add_argument(
+        "--event-tags-file",
+        type=Path,
+        default=DEFAULT_EVENT_TAGS,
+        help=f"Event tags config file (default: {DEFAULT_EVENT_TAGS})",
     )
     parser.add_argument(
         "--output-file",
@@ -153,6 +200,14 @@ def get_source_type(event: dict[str, Any]) -> str:
         return "gvda"
     if event_id.startswith("kvmr-"):
         return "kvmr"
+    if event_id.startswith("crazyhorse-"):
+        return "crazyhorse"
+    if event_id.startswith("goldenera-"):
+        return "goldenera"
+    if event_id.startswith("bodhihive-"):
+        return "bodhihive"
+    if event_id.startswith("community-"):
+        return "community"
     # Fallback: check source_type field
     source_type = event.get("source_type", "")
     if source_type == "feed":
@@ -163,6 +218,8 @@ def get_source_type(event: dict[str, Any]) -> str:
         return "libcal"
     if source_type == "rss":
         return "civicengage"
+    if source_type in ("crazyhorse", "goldenera", "bodhihive", "community"):
+        return source_type
     return "unknown"
 
 
@@ -268,14 +325,33 @@ def deduplicate_events(
                     continue
 
                 if is_duplicate(event_a, event_b, dedup_threshold, venue_threshold):
-                    # Keep the higher-priority source
-                    priority_a = SOURCE_PRIORITY.get(source_a, 99)
-                    priority_b = SOURCE_PRIORITY.get(source_b, 99)
+                    # Venue-specific override: if one source owns the venue, it wins
+                    venue_a = normalize_venue(event_a.get("venue_name", "") or "")
+                    venue_b = normalize_venue(event_b.get("venue_name", "") or "")
+                    venue_override = False
 
-                    if priority_a <= priority_b:
-                        winner_idx, loser_idx = i, j
-                    else:
-                        winner_idx, loser_idx = j, i
+                    for src_key, venue_name in VENUE_SOURCE_MAP.items():
+                        norm_venue_map = normalize_venue(venue_name)
+                        if source_a == src_key and norm_venue_map and venue_a and \
+                                token_sort_ratio(venue_a, norm_venue_map) >= venue_threshold:
+                            winner_idx, loser_idx = i, j
+                            venue_override = True
+                            break
+                        if source_b == src_key and norm_venue_map and venue_b and \
+                                token_sort_ratio(venue_b, norm_venue_map) >= venue_threshold:
+                            winner_idx, loser_idx = j, i
+                            venue_override = True
+                            break
+
+                    if not venue_override:
+                        # Default: keep the higher-priority source
+                        priority_a = SOURCE_PRIORITY.get(source_a, 99)
+                        priority_b = SOURCE_PRIORITY.get(source_b, 99)
+
+                        if priority_a <= priority_b:
+                            winner_idx, loser_idx = i, j
+                        else:
+                            winner_idx, loser_idx = j, i
 
                     winner = date_events[winner_idx]
                     loser = date_events[loser_idx]
@@ -373,6 +449,101 @@ def classify_family(
     return False
 
 
+def load_event_tags(path: Path) -> dict[str, Any]:
+    """Load event tag definitions from JSON config."""
+    if not path.exists():
+        print(f"[WARN] Event tags file not found: {path}", file=sys.stderr)
+        return {}
+    try:
+        data = json.loads(path.read_text(encoding="utf-8"))
+        return data.get("tags", {})
+    except (json.JSONDecodeError, OSError) as exc:
+        print(f"[WARN] Failed to parse event tags: {exc}", file=sys.stderr)
+        return {}
+
+
+def apply_event_tags(
+    events: list[dict[str, Any]], tag_config: dict[str, Any]
+) -> int:
+    """
+    Apply event type tags to all events based on keyword patterns and source defaults.
+
+    Returns the count of events that received at least one tag.
+    """
+    if not tag_config:
+        for event in events:
+            event.setdefault("event_tags", [])
+        return 0
+
+    # Pre-compile patterns for each tag
+    compiled_tags: dict[str, dict[str, Any]] = {}
+    for slug, cfg in tag_config.items():
+        pos = []
+        for p in cfg.get("positive_patterns", []):
+            try:
+                pos.append(re.compile(p, re.IGNORECASE))
+            except re.error:
+                pass
+        neg = []
+        for p in cfg.get("negative_patterns", []):
+            try:
+                neg.append(re.compile(p, re.IGNORECASE))
+            except re.error:
+                pass
+        compiled_tags[slug] = {
+            "positive": pos,
+            "negative": neg,
+            "source_defaults": cfg.get("source_defaults", []),
+            "default_excluded": cfg.get("default_excluded", False),
+        }
+
+    tagged_count = 0
+    for event in events:
+        # If event already has manual tags (from community form), preserve them
+        if event.get("tag_confidence") == "manual" and event.get("event_tags"):
+            tagged_count += 1
+            continue
+
+        source = get_source_type(event)
+        search_text = " ".join([
+            event.get("title", ""),
+            event.get("description", ""),
+        ]).lower()
+
+        matched_tags: list[str] = []
+        for slug, cfg in compiled_tags.items():
+            # Check source defaults
+            if source in cfg["source_defaults"]:
+                matched_tags.append(slug)
+                continue
+
+            # Check negative patterns first (for tags like family-kids)
+            neg_hit = False
+            for pat in cfg["negative"]:
+                if pat.search(search_text):
+                    neg_hit = True
+                    break
+            if neg_hit:
+                continue
+
+            # Check positive patterns
+            for pat in cfg["positive"]:
+                if pat.search(search_text):
+                    matched_tags.append(slug)
+                    break
+
+        event["event_tags"] = matched_tags
+
+        # Backward compat: derive is_family from family-kids tag
+        if "family-kids" in matched_tags:
+            event["is_family"] = True
+
+        if matched_tags:
+            tagged_count += 1
+
+    return tagged_count
+
+
 def ensure_trumba_fields(event: dict[str, Any]) -> None:
     """Add source_label and source_type to Trumba events if missing."""
     if not event.get("source_label"):
@@ -392,6 +563,10 @@ def main() -> int:
     civicengage_events = load_source_events(args.civicengage_file, "civicengage")
     kvmr_events = load_source_events(args.kvmr_file, "kvmr")
     gvda_events = load_source_events(args.gvda_file, "gvda")
+    crazyhorse_events = load_source_events(args.crazyhorse_file, "crazyhorse")
+    goldenera_events = load_source_events(args.goldenera_file, "goldenera")
+    bodhihive_events = load_source_events(args.bodhihive_file, "bodhihive")
+    community_events = load_source_events(args.community_file, "community")
 
     source_counts = {
         "trumba": len(trumba_events),
@@ -399,20 +574,25 @@ def main() -> int:
         "libcal": len(libcal_events),
         "kvmr": len(kvmr_events),
         "civicengage": len(civicengage_events),
+        "crazyhorse": len(crazyhorse_events),
+        "goldenera": len(goldenera_events),
+        "bodhihive": len(bodhihive_events),
+        "community": len(community_events),
     }
 
-    print(f"Source counts: trumba={source_counts['trumba']}, "
-          f"gvda={source_counts['gvda']}, "
-          f"libcal={source_counts['libcal']}, "
-          f"kvmr={source_counts['kvmr']}, "
-          f"civicengage={source_counts['civicengage']}", file=sys.stderr)
+    print("Source counts: " + ", ".join(
+        f"{k}={v}" for k, v in source_counts.items()
+    ), file=sys.stderr)
 
     # Step 2: Normalize -- ensure Trumba events have source fields
     for event in trumba_events:
         ensure_trumba_fields(event)
 
     # Combine all events
-    all_events = trumba_events + libcal_events + civicengage_events + kvmr_events + gvda_events
+    all_events = (
+        trumba_events + libcal_events + civicengage_events + kvmr_events + gvda_events +
+        crazyhorse_events + goldenera_events + bodhihive_events + community_events
+    )
 
     if not all_events:
         print("[WARN] No events from any source!", file=sys.stderr)
@@ -442,10 +622,18 @@ def main() -> int:
         for detail in dedup_details:
             print(detail, file=sys.stderr)
 
-    # Step 4: Classify family events
+    # Step 4: Apply event type tags
+    tag_config = load_event_tags(args.event_tags_file)
+    tagged_count = apply_event_tags(deduped, tag_config)
+
+    # Step 5: Classify family events (legacy, supplements family-kids tag)
     positive_patterns, negative_patterns = load_family_keywords(args.family_keywords)
     family_count = 0
     for event in deduped:
+        # If already tagged family-kids by the tag system, keep it
+        if event.get("is_family"):
+            family_count += 1
+            continue
         is_family = classify_family(event, positive_patterns, negative_patterns)
         event["is_family"] = is_family
         if is_family:
@@ -454,11 +642,12 @@ def main() -> int:
     # Sort by start_iso then event_id
     deduped.sort(key=lambda e: (e.get("start_iso", ""), e.get("event_id", "")))
 
-    # Step 5: Output wrapped format
+    # Step 6: Output wrapped format
     output = {
         "generated_at": now.isoformat(timespec="seconds"),
         "source_counts": source_counts,
         "dedup_removed": dedup_removed,
+        "event_tagged": tagged_count,
         "family_tagged": family_count,
         "events": deduped,
     }
@@ -480,6 +669,7 @@ def main() -> int:
     print(f"  flat_output={args.flat_output_file}", file=sys.stderr)
     print(f"  total={len(deduped)}", file=sys.stderr)
     print(f"  dedup_removed={dedup_removed}", file=sys.stderr)
+    print(f"  event_tagged={tagged_count}", file=sys.stderr)
     print(f"  family_tagged={family_count}", file=sys.stderr)
     print(f"  source_counts={source_counts}", file=sys.stderr)
 

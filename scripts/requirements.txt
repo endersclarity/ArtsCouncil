@@ -4,3 +4,5 @@ icalendar>=6.0.0
 feedparser>=6.0.0
 rapidfuzz>=3.0.0
 recurring-ical-events>=3.0.0
+gspread>=6.0.0
+google-auth>=2.20.0

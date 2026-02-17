@@ -1,0 +1,26 @@
+{
+  "tags": {
+    "live-music": {
+      "display": "Live Music",
+      "positive_patterns": [
+        "\\b(concert|live music|band|dj|open mic|jam|blues|jazz|rock|folk|bluegrass|reggae|hip hop|samba|acoustic|songwriter)\\b",
+        "\\b(featuring|ft\\.|feat\\.)\\b"
+      ],
+      "source_defaults": ["crazyhorse", "goldenera", "bodhihive"]
+    },
+    "family-kids": {
+      "display": "Family & Kids",
+      "positive_patterns": ["\\b(kids|children|family|toddler|youth|teen|storytime|lego|craft time|play group)\\b"],
+      "negative_patterns": ["\\b(children of|adults only|21\\+|18\\+|bar.*night)\\b"],
+      "default_excluded": true
+    },
+    "arts-gallery": {
+      "display": "Arts & Gallery",
+      "positive_patterns": ["\\b(gallery|exhibit|art show|opening reception|visual art|sculpture|painting|photography|craft fair)\\b"]
+    },
+    "community": {
+      "display": "Community",
+      "positive_patterns": ["\\b(fundraiser|benefit|community|volunteer|town hall|civic|meeting|cleanup|potluck)\\b"]
+    }
+  }
+}
