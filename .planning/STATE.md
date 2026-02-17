@@ -10,9 +10,9 @@ See: .planning/PROJECT.md (updated 2026-02-14)
 ## Current Position
 
 Phase: 02.2-live-music-venue-event-ingestion
-Plan: 2 of 3
-Status: Plan 02 complete. Event tagging system + 9-source merge pipeline + community form ingest. Plan 03 remaining (CI pipeline).
-Last activity: 2026-02-17 -- Executed 02.2-02: event_tags.json, extended merge pipeline, community ingest script, submit-event.html.
+Plan: 3 of 3
+Status: Phase 02.2 COMPLETE. All 3 plans executed. 9-source event pipeline with CI, tagging, and frontend filtering.
+Last activity: 2026-02-17 -- Executed 02.2-03: GitHub Actions 9-source workflow, frontend tag/source filtering.
 
 Progress: [████████████████████] 100% overall
 
@@ -113,7 +113,7 @@ Progress: [████████████████████] 100% ov
 ## Performance Metrics
 
 **Velocity:**
-- Total plans completed: 18 (Phase 2: 3, Phase 2.1: 2, Phase 2.2: 2, Phase 3: 2, Phase 4: 3, Phase 5: 2, Phase 6: 1, Phase 6.1: 1, Phase 3.1: 2 — Phase 1 plans obsolete)
+- Total plans completed: 19 (Phase 2: 3, Phase 2.1: 2, Phase 2.2: 3, Phase 3: 2, Phase 4: 3, Phase 5: 2, Phase 6: 1, Phase 6.1: 1, Phase 3.1: 2 — Phase 1 plans obsolete)
 - Average duration: 3.4min per plan
 
 **By Phase:**
@@ -129,7 +129,7 @@ Progress: [████████████████████] 100% ov
 | 6 | 1/1 | 15min | 15min | Claude Code via GSD |
 | 4 | 3/3 | 9min | 3min | Claude Code via GSD |
 | 6.1 | 1/1 | 3min | 3min | Claude Code via GSD |
-| 2.2 | 2/3 | 8min | 4min | Claude Code via GSD |
+| 2.2 | 3/3 | 11min | 3.7min | Claude Code via GSD |
 
 ## Accumulated Context
 
@@ -204,6 +204,9 @@ Recent decisions affecting current work:
 - [Phase 2.2]: Community form events get tag_confidence: manual (user-selected tags preserved as-is)
 - [Phase 2.2]: is_family backward compat maintained: derived from family-kids tag, then legacy classifier fills gaps
 - [Phase 2.2]: Extended source priority: trumba > gvda > libcal > kvmr > crazyhorse > goldenera > bodhihive > community > civicengage
+- [Phase 2.2]: Tag/source filter values use prefix dispatch (tag:live-music, source:kvmr) in shared dropdown with optgroup sections
+- [Phase 2.2]: normalizeEventCategoryFilter passes through tag:/source: prefixed values without normalization
+- [Phase 2.2]: Community ingest in CI uses temp file for Google credentials (/tmp/gsa.json) with cleanup
 
 ### Roadmap Evolution
 
@@ -227,6 +230,6 @@ Recent decisions affecting current work:
 ## Session Continuity
 
 Last session: 2026-02-17
-Stopped at: Completed 02.2-02-PLAN.md (event tagging + community form). Next: 02.2-03-PLAN.md
-Resume file: .planning/phases/02.2-live-music-venue-event-ingestion/02.2-02-SUMMARY.md
-Key artifacts: scripts/events/event_tags.json, scripts/events/merge_events.py, scripts/events/ingest_community_form.py
+Stopped at: Completed 02.2-03-PLAN.md (CI pipeline + frontend filtering). Phase 02.2 fully complete.
+Resume file: .planning/phases/02.2-live-music-venue-event-ingestion/02.2-03-SUMMARY.md
+Key artifacts: .github/workflows/refresh-events.yml, index-maplibre-events-filter-ui.js, index-maplibre-events-model.js
