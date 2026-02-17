@@ -12,7 +12,7 @@ See: .planning/PROJECT.md (updated 2026-02-14)
 Phase: Post-01.1 — demo-critical todo sprint
 Plan: N/A (between phases)
 Status: All planned phases (01.1 through 06.1) COMPLETE. 15 todos pending, 4 research briefs ready.
-Last activity: 2026-02-17 -- Quick task 1: Fix Joss Stone cross-source dedup.
+Last activity: 2026-02-17 -- Closed todo: Event images fallback (already implemented).
 
 Progress: [██████████████████░░] 90% overall
 
@@ -227,7 +227,7 @@ Recent decisions affecting current work:
 
 ### Pending Todos
 
-16 todos from stakeholder roundtable analysis (`.planning/todos/pending/`).
+15 todos from stakeholder roundtable analysis (`.planning/todos/pending/`).
 
 #### Pre-Research Available
 
