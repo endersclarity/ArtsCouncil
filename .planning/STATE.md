@@ -12,7 +12,7 @@ See: .planning/PROJECT.md (updated 2026-02-14)
 Phase: Post-01.1 — demo-critical todo sprint
 Plan: N/A (between phases)
 Status: All planned phases (01.1 through 06.1) COMPLETE. 15 todos pending, 4 research briefs ready.
-Last activity: 2026-02-17 -- Closed todo: Event images fallback (already implemented).
+Last activity: 2026-02-17 -- Quick task 2: Tonight filter chip added to events section.
 
 Progress: [██████████████████░░] 90% overall
 
@@ -288,10 +288,11 @@ Research artifacts outside the phase directory structure. Consult these when pla
 | # | Description | Date | Commit | Directory |
 |---|-------------|------|--------|-----------|
 | 1 | Fix Joss Stone cross-source dedup — venue-aware title threshold | 2026-02-17 | d4bd954 | [1-fix-joss-stone-cross-source-dedup-venue-](./quick/1-fix-joss-stone-cross-source-dedup-venue-/) |
+| 2 | Tonight filter chip for events — isEventTonight utility + HTML chip | 2026-02-17 | c207486 | [2-tonight-filter](./quick/2-tonight-filter/) |
 
 ## Session Continuity
 
 Last session: 2026-02-17
-Stopped at: Quick task 1 complete. Joss Stone dedup fixed. 15 todos remaining.
+Stopped at: Quick task 2 complete. Tonight filter chip added. 14 todos remaining.
 Resume with: /gsd:progress (shows accurate state) or /gsd:check-todos (shows prioritized backlog)
 Key artifacts: .planning/todo-research/ (4 research briefs + 3 audit docs)
