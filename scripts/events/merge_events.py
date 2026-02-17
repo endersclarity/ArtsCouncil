@@ -262,6 +262,18 @@ def is_duplicate(
 
     title_score = token_sort_ratio(title_a, title_b)
     if title_score < dedup_threshold:
+        # Secondary path: venue-aware matching for title variations
+        # (e.g., "Joss Stone" vs "Joss Stone at the Center for the Arts")
+        venue_a = event_a.get("venue_name", "") or ""
+        venue_b = event_b.get("venue_name", "") or ""
+        if venue_a.strip() and venue_b.strip():
+            norm_va = normalize_venue(venue_a)
+            norm_vb = normalize_venue(venue_b)
+            if norm_va and norm_vb:
+                venue_score = token_sort_ratio(norm_va, norm_vb)
+                shorter, longer = sorted([title_a, title_b], key=len)
+                if venue_score >= venue_threshold and shorter in longer:
+                    return True
         return False
 
     # Check venue similarity

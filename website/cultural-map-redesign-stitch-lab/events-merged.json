@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-02-16T23:33:50-08:00",
+  "generated_at": "2026-02-17T14:58:57-08:00",
   "source_counts": {
     "trumba": 155,
     "gvda": 44,
@@ -11,7 +11,7 @@
     "bodhihive": 0,
     "community": 0
   },
-  "dedup_removed": 20,
+  "dedup_removed": 21,
   "event_tagged": 181,
   "family_tagged": 53,
   "events": [
@@ -1596,6 +1596,7 @@
       "source_label": "Nevada County Arts Council",
       "source_labels": [
         "Nevada County Arts Council",
+        "KVMR",
         "Grass Valley Downtown Association"
       ],
       "event_tags": [
@@ -1908,23 +1909,6 @@
         "Health / Wellbeing"
       ],
       "image_url": "https://www.trumba.com/i/DgBbC-nOsZTVFxKamAZrjWfP.png",
-      "event_tags": []
-    },
-    {
-      "event_id": "kvmr-324554-1771441200-1771452000-20260218",
-      "title": "Joss Stone at the Center for the Arts",
-      "start_iso": "2026-02-18T19:00:00-08:00",
-      "end_iso": "2026-02-18T22:00:00-08:00",
-      "timezone": "America/Los_Angeles",
-      "venue_name": "The Center for the Arts",
-      "venue_city": "Grass Valley",
-      "source_type": "ical",
-      "source_ref": "https://www.kvmr.org/events/?ical=1",
-      "source_label": "KVMR",
-      "is_family": false,
-      "last_verified_at": "2026-02-15T10:20:52-08:00",
-      "description": "Presented by the Center for the Arts from 7:00 – 10:00 pm (with doors opening at 6:00) on Wednesday, February 18th, 2026. Joss Stone is a Grammy and Brit Award-winning artist who released her acclaimed debut album, The Soul Sessions in 2003, at the age of 16. Over her career, she has released nine studio albums, selling over 15 million copies worldwide. Stone has performed and collaborated with legendary artists including: James Brown, Burt Bacharach, Stevie Wonder, Gladys Knight, Sting, Van Mor",
-      "venue_address": "The Center for the Arts, 314 W. Main Street, Grass Valley, CA, 95945, United States",
       "event_tags": []
     },
     {
