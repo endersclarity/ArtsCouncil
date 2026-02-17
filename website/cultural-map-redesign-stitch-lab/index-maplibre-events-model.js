@@ -386,9 +386,21 @@
           return Array.isArray(tags) && tags.indexOf(tagSlug) !== -1;
         });
       } else if (eventCategoryFilter.indexOf('source:') === 0) {
-        var sourceType = eventCategoryFilter.replace('source:', '');
+        var sourceSlug = eventCategoryFilter.replace('source:', '');
+        var SOURCE_SLUG_TO_LABEL = {
+          trumba: 'Nevada County Arts Council',
+          kvmr: 'KVMR',
+          gvda: 'Grass Valley Downtown Association',
+          civicengage: 'City of Nevada City',
+          libcal: 'Nevada County Library',
+          crazyhorse: 'Crazy Horse Saloon',
+          goldenera: 'Golden Era Lounge',
+          bodhihive: 'Bodhi Hive',
+          community: 'Community'
+        };
+        var matchLabel = SOURCE_SLUG_TO_LABEL[sourceSlug] || sourceSlug;
         filtered = filtered.filter(function(event) {
-          return event && event.source_type === sourceType;
+          return event && event.source_label === matchLabel;
         });
       } else {
         filtered = filtered.filter((event) => {

@@ -1,6 +1,49 @@
 (function() {
   'use strict';
 
+  // Tag-based fallback images (watercolor assets from Arts Council 2019 deck)
+  var TAG_FALLBACK_IMAGES = {
+    'live-music': 'img/watercolor/performance.png',
+    'arts-gallery': 'img/watercolor/galleries.png',
+    'community': 'img/watercolor/cultural.png',
+    'family-kids': 'img/watercolor/fairs.png'
+  };
+  var DEFAULT_FALLBACK_IMAGE = 'img/watercolor/arts.png';
+
+  /**
+   * Resolve the best available image for an event using layered fallback:
+   * 1. event.image_url (from scraper/feed)
+   * 2. Matched venue hero image (from image_data.json)
+   * 3. Tag-based placeholder (watercolor asset)
+   */
+  function resolveEventImage(event, data, imageData) {
+    // Layer 1: event's own image
+    var url = typeof event.image_url === 'string' ? event.image_url.trim() : '';
+    if (url) return { src: url, isPlaceholder: false };
+
+    // Layer 2: matched venue image
+    if (Number.isInteger(event.matched_asset_idx) && data && imageData) {
+      var asset = data[event.matched_asset_idx];
+      if (asset && asset.n && imageData[asset.n]) {
+        var venueImg = imageData[asset.n].img;
+        if (venueImg) return { src: venueImg, isPlaceholder: false };
+      }
+    }
+
+    // Layer 3: tag-based fallback
+    var tags = event.event_tags;
+    if (Array.isArray(tags)) {
+      for (var i = 0; i < tags.length; i++) {
+        if (TAG_FALLBACK_IMAGES[tags[i]]) {
+          return { src: TAG_FALLBACK_IMAGES[tags[i]], isPlaceholder: true };
+        }
+      }
+    }
+
+    // Layer 4: generic fallback
+    return { src: DEFAULT_FALLBACK_IMAGE, isPlaceholder: true };
+  }
+
   function getEventsCategoryOptionsHTML({ data, cats, escapeHTML }) {
     const seen = new Set();
     const categories = data
@@ -39,9 +82,9 @@
     const eventTime = escapeHTML(formatEventDateRange(event));
     const rawDesc = getEventDisplayDescription(event);
     const shortDesc = escapeHTML(rawDesc.length > 260 ? `${rawDesc.slice(0, 257)}...` : rawDesc);
-    const imageURL = typeof event.image_url === 'string' ? event.image_url.trim() : '';
-    const imageHTML = imageURL
-      ? `<img class="map-event-image map-event-feature-media" src="${escapeHTML(imageURL)}" alt="${title}" loading="lazy" onerror="this.outerHTML='<div class=&quot;map-event-image map-event-feature-media placeholder&quot;>No image</div>'">`
+    var imgResolved = resolveEventImage(event, window.__culturalMapData, window.__culturalMapImageData);
+    const imageHTML = imgResolved.src
+      ? `<img class="map-event-image map-event-feature-media${imgResolved.isPlaceholder ? ' fallback' : ''}" src="${escapeHTML(imgResolved.src)}" alt="${title}" loading="lazy" onerror="this.outerHTML='<div class=&quot;map-event-image map-event-feature-media placeholder&quot;>No image</div>'">`
       : '<div class="map-event-image map-event-feature-media placeholder">No image</div>';
     var cardTicketUrl = typeof event.ticket_url === 'string' && event.ticket_url ? event.ticket_url : '';
     if (cardTicketUrl && cardTicketUrl.indexOf('http') === 0) {
@@ -98,9 +141,9 @@
         var analyticsRef2 = window.CulturalMapAnalytics;
         if (analyticsRef2) { rowTicketUrl = analyticsRef2.tagOutboundUrl(rowTicketUrl, 'event-ticket'); }
       }
-      const imageURL = typeof event.image_url === 'string' ? event.image_url.trim() : '';
-      const thumbHTML = imageURL
-        ? `<img class="map-event-row-thumb" src="${escapeHTML(imageURL)}" alt="${title}" loading="lazy" onerror="this.outerHTML='<div class=&quot;map-event-row-thumb placeholder&quot;></div>'">`
+      var thumbResolved = resolveEventImage(event, window.__culturalMapData, window.__culturalMapImageData);
+      const thumbHTML = thumbResolved.src
+        ? `<img class="map-event-row-thumb${thumbResolved.isPlaceholder ? ' fallback' : ''}" src="${escapeHTML(thumbResolved.src)}" alt="${title}" loading="lazy" onerror="this.outerHTML='<div class=&quot;map-event-row-thumb placeholder&quot;></div>'">`
         : '<div class="map-event-row-thumb placeholder"></div>';
       const ticket = rowTicketUrl
         ? `<a class="map-event-link map-event-row-link" href="${escapeHTML(rowTicketUrl)}" target="_blank" rel="noopener" data-track-outbound="event-ticket" data-track-title="${title}" data-track-venue="${venueName}">Details</a>`

@@ -10,19 +10,19 @@
     nextBtn,
     pageEl,
     filtered,
+    featuredEventId = null,
     scopeLabel,
     eventsView,
     escapeHTML,
     formatEventDateRange,
     getEventDisplayDescription,
-    getEventsCarouselVisibleSlots,
-    updateEventsSpotlightPageLabel,
-    startEventsRotation,
     stopEventsRotation,
-    keepPosition = false,
-    skipRotationRestart = false
+    keepPosition = false
   }) {
-    if (!listEl || !allListEl || !countEl || !pageEl) return;
+    if (!listEl || !allListEl || !countEl || !pageEl) return {
+      featuredEventId: null,
+      total: 0
+    };
     countEl.textContent = `${filtered.length} event${filtered.length === 1 ? '' : 's'}`;
     if (scopeEl) scopeEl.textContent = scopeLabel;
 
@@ -34,11 +34,30 @@
       if (prevBtn) prevBtn.disabled = true;
       if (nextBtn) nextBtn.disabled = true;
       stopEventsRotation();
-      return;
+      return {
+        featuredEventId: null,
+        total: 0
+      };
     }
 
+    // Broadsheet layout is date-chronological and editorial-led.
+    const byDate = filtered.slice().sort((a, b) => {
+      if (a._start_ts !== b._start_ts) return a._start_ts - b._start_ts;
+      return String(a.event_id || '').localeCompare(String(b.event_id || ''));
+    });
+    const hasEventImage = (event) => typeof (event && event.image_url) === 'string' && event.image_url.trim().length > 0;
+    const preferredId = String(featuredEventId || '');
+    let featuredEvent = byDate.find((event) => hasEventImage(event)) || byDate[0];
+    if (preferredId) {
+      const matched = byDate.find((event) => String(event.event_id || '') === preferredId);
+      if (matched) featuredEvent = matched;
+    }
+    const resolvedFeaturedId = String(featuredEvent.event_id || '');
+    const featured = [featuredEvent];
+    const schedule = byDate.filter((event) => String(event.event_id || '') !== resolvedFeaturedId);
+
     listEl.innerHTML = eventsView.getEventsCardsHTML({
-      events: filtered,
+      events: featured,
       escapeHTML,
       formatEventDateRange,
       getEventDisplayDescription
@@ -49,16 +68,26 @@
     }
 
     allListEl.innerHTML = eventsView.getEventsRowsHTML({
-      events: filtered,
+      events: schedule,
+      featuredEventId: resolvedFeaturedId,
       escapeHTML,
       formatEventDateRange
     });
 
-    const canStep = filtered.length > getEventsCarouselVisibleSlots();
+    if (!schedule.length) {
+      allListEl.innerHTML = '<div class="map-events-empty">No additional upcoming events for this filter.</div>';
+    }
+
+    const featuredIndex = byDate.findIndex((event) => String(event.event_id || '') === resolvedFeaturedId);
+    const canStep = byDate.length > 1;
     if (prevBtn) prevBtn.disabled = !canStep;
     if (nextBtn) nextBtn.disabled = !canStep;
-    updateEventsSpotlightPageLabel(filtered.length);
-    if (!skipRotationRestart) startEventsRotation(filtered.length);
+    pageEl.textContent = `Event ${Math.max(0, featuredIndex) + 1} of ${byDate.length}`;
+    stopEventsRotation();
+    return {
+      featuredEventId: resolvedFeaturedId,
+      total: byDate.length
+    };
   }
 
   function getDetailEventsHTML({

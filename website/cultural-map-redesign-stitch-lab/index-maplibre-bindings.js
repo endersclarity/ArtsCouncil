@@ -83,6 +83,23 @@
       });
     }
 
+    const eventsAudienceToggle = document.getElementById('mapEventsAudienceToggle');
+    if (eventsAudienceToggle) {
+      eventsAudienceToggle.addEventListener('click', () => {
+        const current = typeof ctx.getEventAudienceFilter === 'function'
+          ? String(ctx.getEventAudienceFilter() || '')
+          : 'exclude-kids-library';
+        const next = current === 'all' ? 'exclude-kids-library' : 'all';
+        var analytics = window.CulturalMapAnalytics;
+        if (analytics) {
+          analytics.track('events:audience-filter', { filter: next });
+        }
+        if (typeof ctx.setEventAudienceFilter === 'function') {
+          ctx.setEventAudienceFilter(next);
+        }
+      });
+    }
+
     const eventsCategorySelect = document.getElementById('mapEventsCategory');
     if (eventsCategorySelect) {
       eventsCategorySelect.addEventListener('change', () => {
@@ -93,40 +110,19 @@
     const eventsPrevBtn = document.getElementById('mapEventsPrev');
     if (eventsPrevBtn) {
       eventsPrevBtn.addEventListener('click', () => {
-        ctx.stopEventsRotation();
-        const filtered = ctx.getFilteredMapEvents();
-        if (ctx.stepEventsSpotlight(-1, true)) {
-          ctx.queueEventsRotationResume(filtered.length);
-        }
+        ctx.stepFeaturedEvent(-1);
       });
     }
 
     const eventsNextBtn = document.getElementById('mapEventsNext');
     if (eventsNextBtn) {
       eventsNextBtn.addEventListener('click', () => {
-        ctx.stopEventsRotation();
-        const filtered = ctx.getFilteredMapEvents();
-        if (ctx.stepEventsSpotlight(1, true)) {
-          ctx.queueEventsRotationResume(filtered.length);
-        }
+        ctx.stepFeaturedEvent(1);
       });
     }
 
     const eventsList = document.getElementById('mapEventsList');
     if (eventsList) {
-      let eventsScrollLabelFrame = null;
-      eventsList.addEventListener('mouseenter', ctx.stopEventsRotation);
-      eventsList.addEventListener('mouseleave', () => {
-        const filtered = ctx.getFilteredMapEvents();
-        ctx.startEventsRotation(filtered.length);
-      });
-      eventsList.addEventListener('scroll', () => {
-        if (eventsScrollLabelFrame !== null) return;
-        eventsScrollLabelFrame = requestAnimationFrame(() => {
-          eventsScrollLabelFrame = null;
-          ctx.updateEventsSpotlightPageLabel(ctx.getFilteredMapEvents().length);
-        });
-      }, { passive: true });
       eventsList.addEventListener('click', (event) => {
         var ticketLink = event.target.closest('[data-track-outbound="event-ticket"]');
         if (ticketLink) {
@@ -145,21 +141,6 @@
           event.stopPropagation();
           return;
         }
-        const card = event.target.closest('.map-event-item.mapped');
-        if (!card) return;
-        const eventId = card.getAttribute('data-event-id');
-        if (!eventId) return;
-        // Track event card click
-        var analytics = window.CulturalMapAnalytics;
-        if (analytics) {
-          var titleEl = card.querySelector('.map-event-title, .map-event-name');
-          var venueEl = card.querySelector('.map-event-venue, .map-event-location');
-          analytics.track('event:click', {
-            title: (titleEl ? titleEl.textContent : '').substring(0, 100),
-            venue: (venueEl ? venueEl.textContent : '').substring(0, 100)
-          });
-        }
-        ctx.focusEvent(eventId);
       });
     }
 
@@ -183,11 +164,11 @@
           event.stopPropagation();
           return;
         }
-        const card = event.target.closest('.map-event-row.mapped');
+        const card = event.target.closest('.map-event-row');
         if (!card) return;
         const eventId = card.getAttribute('data-event-id');
         if (!eventId) return;
-        ctx.focusEvent(eventId);
+        ctx.setFeaturedEvent(eventId);
       });
     }
 

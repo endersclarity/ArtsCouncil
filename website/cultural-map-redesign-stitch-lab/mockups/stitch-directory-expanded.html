@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Cultural Directory Expanded Results</title>
+<!-- Google Fonts: Material Symbols & Work Sans -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#c8923c",
+                        "background-light": "#F5F0E8", // Modified to match user request: Warm cream
+                        "background-dark": "#1f1a13",
+                        "card-light": "#FFFFFF",
+                        "card-dark": "#2a241c",
+                        "text-main": "#171512",
+                        "text-muted": "#827868",
+                    },
+                    fontFamily: {
+                        "display": ["Work Sans", "Noto Sans", "sans-serif"],
+                        "mono": ["Work Sans", "monospace"], // Simulating mono feel with Work Sans as per strict theme rules
+                    },
+                    borderRadius: {
+                        "DEFAULT": "1rem",
+                        "lg": "1.5rem",
+                        "xl": "2rem",
+                        "full": "9999px"
+                    },
+                    boxShadow: {
+                        'soft': '0 4px 20px -2px rgba(0, 0, 0, 0.05)',
+                        'hover': '0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)',
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background-light dark:bg-background-dark font-display antialiased min-h-screen flex flex-col">
+<!-- Header Navigation -->
+<header class="sticky top-0 z-50 w-full bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-sm border-b border-primary/10 dark:border-primary/5 transition-all duration-300">
+<div class="max-w-[1440px] mx-auto px-6 py-5 flex items-center justify-between">
+<a class="group flex items-center gap-2 text-text-main dark:text-white hover:text-primary transition-colors duration-200" href="#">
+<span class="material-symbols-outlined text-2xl group-hover:-translate-x-1 transition-transform">arrow_back</span>
+<span class="text-base font-medium tracking-wide">Categories</span>
+</a>
+<div class="hidden md:block">
+<h1 class="text-text-main dark:text-white text-lg font-bold tracking-tight">Nevada County Culture</h1>
+</div>
+<div class="flex items-center gap-4">
+<button aria-label="Search" class="p-2 rounded-full hover:bg-white dark:hover:bg-white/10 transition-colors text-text-main dark:text-white">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button aria-label="Menu" class="p-2 rounded-full hover:bg-white dark:hover:bg-white/10 transition-colors text-text-main dark:text-white relative">
+<span class="material-symbols-outlined">menu</span>
+</button>
+</div>
+</div>
+</header>
+<!-- Main Content -->
+<main class="flex-grow w-full max-w-[1440px] mx-auto px-6 py-10">
+<!-- Results Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-4">
+<div>
+<span class="inline-block px-3 py-1 bg-white dark:bg-card-dark rounded-full text-xs font-semibold uppercase tracking-widest text-primary mb-3 shadow-sm border border-primary/10">Historical Landmarks</span>
+<h2 class="text-4xl md:text-5xl font-bold text-text-main dark:text-white tracking-tight leading-tight">Explore Our Heritage</h2>
+</div>
+<div class="pb-1">
+<p class="font-mono text-sm text-text-muted dark:text-neutral-400 uppercase tracking-wider border-b border-primary/30 pb-1">
+                    Showing 20 of 219 Landmarks
+                </p>
+</div>
+</div>
+<!-- Filters (Simulated) -->
+<div class="flex gap-3 overflow-x-auto pb-8 scrollbar-hide mb-4">
+<button class="whitespace-nowrap px-6 py-2.5 rounded-full bg-primary text-white text-sm font-medium shadow-md shadow-primary/20">All Locations</button>
+<button class="whitespace-nowrap px-6 py-2.5 rounded-full bg-white dark:bg-card-dark text-text-muted dark:text-neutral-300 border border-transparent hover:border-primary/30 text-sm font-medium transition-all hover:shadow-soft">Nevada City</button>
+<button class="whitespace-nowrap px-6 py-2.5 rounded-full bg-white dark:bg-card-dark text-text-muted dark:text-neutral-300 border border-transparent hover:border-primary/30 text-sm font-medium transition-all hover:shadow-soft">Grass Valley</button>
+<button class="whitespace-nowrap px-6 py-2.5 rounded-full bg-white dark:bg-card-dark text-text-muted dark:text-neutral-300 border border-transparent hover:border-primary/30 text-sm font-medium transition-all hover:shadow-soft">Truckee</button>
+<button class="whitespace-nowrap px-6 py-2.5 rounded-full bg-white dark:bg-card-dark text-text-muted dark:text-neutral-300 border border-transparent hover:border-primary/30 text-sm font-medium transition-all hover:shadow-soft">Penn Valley</button>
+</div>
+<!-- Grid -->
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<article class="group relative flex flex-col bg-card-light dark:bg-card-dark rounded-xl overflow-hidden shadow-soft hover:shadow-hover hover:-translate-y-1 transition-all duration-300 ease-out cursor-pointer h-full">
+<div class="relative h-64 overflow-hidden">
+<img alt="Vintage hotel facade with ornate balconies" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Historic building facade in sunlight" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDFBpFwDbtaUi65mugpYu5qSzf3MMwzHkQNiGJRDRQP4fBxTo8LJA9T_GHDMevWr38c96I0JKCAq96PZrZYGt1NdDUxOVefuvbTuhbe3BGO_TW6_FC58fjauvqLQrgYyQLHs6WWzUMdoO67sUnBVBKn8Wt1IyGppJPHgkLetRCpy1-uinlRomY4eRcPl-uk8LsJH-f3bxa2AMuNKiATPfjoWt1D20XFylDXMAB-ll1_hImfAlrFFiyhSCx4qWYVk9WQoyBh7_LEzuC9"/>
+<div class="absolute top-4 left-4">
+<span class="inline-flex items-center px-3 py-1 rounded-full bg-white/90 dark:bg-black/80 backdrop-blur-sm text-xs font-bold uppercase tracking-wide text-primary shadow-sm">
+                            Historical Site
+                        </span>
+</div>
+</div>
+<div class="flex flex-col flex-grow p-6">
+<div class="flex justify-between items-start gap-4 mb-3">
+<div>
+<p class="text-xs font-semibold text-text-muted dark:text-neutral-400 uppercase tracking-wider mb-1">Nevada City</p>
+<h3 class="text-xl font-bold text-text-main dark:text-white leading-tight group-hover:text-primary transition-colors">The National Hotel</h3>
+</div>
+<div class="w-8 h-8 rounded-full border border-primary/20 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 shrink-0">
+<span class="material-symbols-outlined text-sm">arrow_outward</span>
+</div>
+</div>
+<p class="text-text-muted dark:text-neutral-400 text-sm leading-relaxed line-clamp-2">
+                        One of the oldest continuously operating hotels in the West, featuring Victorian elegance and a storied past dating back to the Gold Rush era.
+                    </p>
+</div>
+</article>
+<!-- Card 2 -->
+<article class="group relative flex flex-col bg-card-light dark:bg-card-dark rounded-xl overflow-hidden shadow-soft hover:shadow-hover hover:-translate-y-1 transition-all duration-300 ease-out cursor-pointer h-full">
+<div class="relative h-64 overflow-hidden">
+<img alt="Interior of an old theater with red seats" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Theater interior red curtain stage" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBFPSIfe4-_gn64IEn-n5kZEzo9VPG-v4gxtWNboxSzvzEVyX_SnigEGcAJRRLX0Rme8X9gi8hagPpfmDZ1cMh-_S8mWTuC1x8YXLNSuXp-kIXY6wVam3rTlniNED6jP5rR63xZsnmYmQ9JCh6I_WqfjliXtyrDiFVuikbhFH_H_sJKZr086t7ZrGVtNFLZ03tebyH4DPe6iH3WTc_lsGMu8i22AvAgN855lZ3JQX123rBL9_XE119S-eShHJE7rp-i7fjrUhw7UTME"/>
+<div class="absolute top-4 left-4">
+<span class="inline-flex items-center px-3 py-1 rounded-full bg-white/90 dark:bg-black/80 backdrop-blur-sm text-xs font-bold uppercase tracking-wide text-primary shadow-sm">
+                            Arts &amp; Culture
+                        </span>
+</div>
+</div>
+<div class="flex flex-col flex-grow p-6">
+<div class="flex justify-between items-start gap-4 mb-3">
+<div>
+<p class="text-xs font-semibold text-text-muted dark:text-neutral-400 uppercase tracking-wider mb-1">Nevada City</p>
+<h3 class="text-xl font-bold text-text-main dark:text-white leading-tight group-hover:text-primary transition-colors">Nevada Theatre</h3>
+</div>
+<div class="w-8 h-8 rounded-full border border-primary/20 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 shrink-0">
+<span class="material-symbols-outlined text-sm">arrow_outward</span>
+</div>
+</div>
+<p class="text-text-muted dark:text-neutral-400 text-sm leading-relaxed line-clamp-2">
+                        California's oldest existing theatre building, hosting diverse performances from films to live music in a stunning historic setting.
+                    </p>
+</div>
+</article>
+<!-- Card 3 -->
+<article class="group relative flex flex-col bg-card-light dark:bg-card-dark rounded-xl overflow-hidden shadow-soft hover:shadow-hover hover:-translate-y-1 transition-all duration-300 ease-out cursor-pointer h-full">
+<div class="relative h-64 overflow-hidden">
+<img alt="Close up of vintage mining equipment" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Rusted industrial machinery gear detail" src="https://lh3.googleusercontent.com/aida-public/AB6AXuATyxYCEOcNMACZE1gfgVTlzmRBqoeSdT8kHfhtce5jM6eKSNrEYFSL7geEhp3A5T4AWaDizEg85JpBz3HKtV4gC4ekBoA_BoMt_txnxQV3HAppPfZLb394F3OBMjx-LqXsEYrx9KG-YFwZi_DBgWrleHwuLUG6b6dqIT5TSXwFUChnhvR8wLHaYckX6S8HMYfLGc0qV2jrM6qpZHKEIydOsKa0bRsraX57doY3Nl0jNw_WQcTVw0E6Ypz5hOdugkv9L4Tg052Uw4mr"/>
+<div class="absolute top-4 left-4">
+<span class="inline-flex items-center px-3 py-1 rounded-full bg-white/90 dark:bg-black/80 backdrop-blur-sm text-xs font-bold uppercase tracking-wide text-primary shadow-sm">
+                            Museum
+                        </span>
+</div>
+</div>
+<div class="flex flex-col flex-grow p-6">
+<div class="flex justify-between items-start gap-4 mb-3">
+<div>
+<p class="text-xs font-semibold text-text-muted dark:text-neutral-400 uppercase tracking-wider mb-1">Grass Valley</p>
+<h3 class="text-xl font-bold text-text-main dark:text-white leading-tight group-hover:text-primary transition-colors">Empire Mine State Park</h3>
+</div>
+<div class="w-8 h-8 rounded-full border border-primary/20 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 shrink-0">
+<span class="material-symbols-outlined text-sm">arrow_outward</span>
+</div>
+</div>
+<p class="text-text-muted dark:text-neutral-400 text-sm leading-relaxed line-clamp-2">
+                        Explore the site of one of the oldest, deepest, and richest gold mines in California. A journey into the depths of history.
+                    </p>
+</div>
+</article>
+<!-- Card 4 -->
+<article class="group relative flex flex-col bg-card-light dark:bg-card-dark rounded-xl overflow-hidden shadow-soft hover:shadow-hover hover:-translate-y-1 transition-all duration-300 ease-out cursor-pointer h-full">
+<div class="relative h-64 overflow-hidden">
+<img alt="Wooden bridge over a river in forest" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Covered wooden bridge over river" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCn_ttrPYRg6BCeq-FVi50ftWKZQOnS2NK8o2f00bSo915-PXkzlGpkww9hWdzk5Ea4w1GEV8tjIeAioz2UmdmMeaa9n_7FLFjVPrIFVm7oWe9TcY2jNW6H5PNJdXlI3hxepfQyD9q0DGWUHbzqvVCb12Fo9jrAz5Eo9XtFyzKKroxQfodKW9a4WmCz_dZgR472gV-cqZAERSw5Ma2JW3FeU9NOjUEYcV0DtKqQhsz6mnKigp9oP-kQUxwPfpTGuOzdHUMPzpd7xrZW"/>
+<div class="absolute top-4 left-4">
+<span class="inline-flex items-center px-3 py-1 rounded-full bg-white/90 dark:bg-black/80 backdrop-blur-sm text-xs font-bold uppercase tracking-wide text-primary shadow-sm">
+                            Nature &amp; Landmark
+                        </span>
+</div>
+</div>
+<div class="flex flex-col flex-grow p-6">
+<div class="flex justify-between items-start gap-4 mb-3">
+<div>
+<p class="text-xs font-semibold text-text-muted dark:text-neutral-400 uppercase tracking-wider mb-1">Penn Valley</p>
+<h3 class="text-xl font-bold text-text-main dark:text-white leading-tight group-hover:text-primary transition-colors">Bridgeport Covered Bridge</h3>
+</div>
+<div class="w-8 h-8 rounded-full border border-primary/20 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 shrink-0">
+<span class="material-symbols-outlined text-sm">arrow_outward</span>
+</div>
+</div>
+<p class="text-text-muted dark:text-neutral-400 text-sm leading-relaxed line-clamp-2">
+                        The longest single-span wooden covered bridge in existence, this architectural marvel spans the South Yuba River.
+                    </p>
+</div>
+</article>
+<!-- Card 5 -->
+<article class="group relative flex flex-col bg-card-light dark:bg-card-dark rounded-xl overflow-hidden shadow-soft hover:shadow-hover hover:-translate-y-1 transition-all duration-300 ease-out cursor-pointer h-full">
+<div class="relative h-64 overflow-hidden">
+<img alt="Vintage steam train on tracks" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Steam train engine close up" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDG8ZMOrWtevpE8HGBpd4UUQAiVKiTsUNHsoG0ZDXvIT7btTwjTnHS-JL-PPCKBFnJGT7XnJei9Rrovojjcz68ELDmmkLLIL-ejzH-o2auzXiFAAL6acKbxgXN9miPMIIhRWZ5kuGc6owHXTUsx9JEUWk9oX9HEV4mPZdNNJysTRAbapAh0o4xySAcsxtaNYLD9_1ozn8h9axEl9Bys0doS16NFGLNZvGufmqH6wcw0R43B1C3DKkNlCWS7JGuy45_5Mhd7ySpt67hC"/>
+<div class="absolute top-4 left-4">
+<span class="inline-flex items-center px-3 py-1 rounded-full bg-white/90 dark:bg-black/80 backdrop-blur-sm text-xs font-bold uppercase tracking-wide text-primary shadow-sm">
+                            Museum
+                        </span>
+</div>
+</div>
+<div class="flex flex-col flex-grow p-6">
+<div class="flex justify-between items-start gap-4 mb-3">
+<div>
+<p class="text-xs font-semibold text-text-muted dark:text-neutral-400 uppercase tracking-wider mb-1">Nevada City</p>
+<h3 class="text-xl font-bold text-text-main dark:text-white leading-tight group-hover:text-primary transition-colors">Railroad Museum</h3>
+</div>
+<div class="w-8 h-8 rounded-full border border-primary/20 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 shrink-0">
+<span class="material-symbols-outlined text-sm">arrow_outward</span>
+</div>
+</div>
+<p class="text-text-muted dark:text-neutral-400 text-sm leading-relaxed line-clamp-2">
+                        Dedicated to the preservation of local railroad history, featuring restored narrow-gauge rolling stock and engines.
+                    </p>
+</div>
+</article>
+<!-- Card 6 -->
+<article class="group relative flex flex-col bg-card-light dark:bg-card-dark rounded-xl overflow-hidden shadow-soft hover:shadow-hover hover:-translate-y-1 transition-all duration-300 ease-out cursor-pointer h-full">
+<div class="relative h-64 overflow-hidden">
+<img alt="Quiet brick street in old town" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Brick building street corner shop" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2OES_e5eP23YoN-WPFT0OGZNHlbmC92-JK32vAwedXQuUdMiLmu9gLuhZu6NF3CTLgN-agokoJQHS7cKh9D1uU1Y8jUqiypWD6xqGzBwHuxJ4lCmqUgFM9vYoKuWWBKKwkNCro8BoXQTgBX4qlWIK3d9WgrOrjgI38Iqvk8xp4mDBpJA19i0RstUBT5enK0ic6q-Fys4-tSAaNz0mx7iFnjWAIrg2wcjrrfw5T43iPVNIdLUU4Ula-alvjQXwTTCmXE96GX5aaEXg"/>
+<div class="absolute top-4 left-4">
+<span class="inline-flex items-center px-3 py-1 rounded-full bg-white/90 dark:bg-black/80 backdrop-blur-sm text-xs font-bold uppercase tracking-wide text-primary shadow-sm">
+                            Shopping &amp; Dining
+                        </span>
+</div>
+</div>
+<div class="flex flex-col flex-grow p-6">
+<div class="flex justify-between items-start gap-4 mb-3">
+<div>
+<p class="text-xs font-semibold text-text-muted dark:text-neutral-400 uppercase tracking-wider mb-1">Truckee</p>
+<h3 class="text-xl font-bold text-text-main dark:text-white leading-tight group-hover:text-primary transition-colors">Historic Downtown</h3>
+</div>
+<div class="w-8 h-8 rounded-full border border-primary/20 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-white transition-all duration-300 shrink-0">
+<span class="material-symbols-outlined text-sm">arrow_outward</span>
+</div>
+</div>
+<p class="text-text-muted dark:text-neutral-400 text-sm leading-relaxed line-clamp-2">
+                        Stroll through the charming streets of historic downtown Truckee, filled with unique boutiques and local eateries.
+                    </p>
+</div>
+</article>
+</div>
+<!-- Footer / Pagination -->
+<div class="mt-20 flex justify-center pb-12">
+<button class="group flex items-center gap-2 px-8 py-3 rounded-full border border-primary/40 hover:border-primary text-text-main dark:text-white hover:text-primary transition-all duration-300 hover:shadow-soft bg-white dark:bg-card-dark">
+<span class="font-bold text-sm tracking-wide">Show More Locations</span>
+<span class="material-symbols-outlined text-lg group-hover:translate-y-0.5 transition-transform">expand_more</span>
+</button>
+</div>
+</main>
+<!-- Simple Footer for context -->
+<footer class="bg-white dark:bg-card-dark border-t border-primary/10 py-10">
+<div class="max-w-[1440px] mx-auto px-6 text-center md:text-left flex flex-col md:flex-row justify-between items-center gap-6">
+<div class="flex items-center gap-4 text-text-main dark:text-white">
+<div class="size-6 bg-primary rounded-full"></div>
+<span class="font-bold text-lg">Nevada County Culture</span>
+</div>
+<p class="text-sm text-text-muted dark:text-neutral-500">© 2024 Nevada County Tourism. All rights reserved.</p>
+</div>
+</footer>
+</body></html>

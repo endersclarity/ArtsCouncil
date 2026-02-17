@@ -22,7 +22,7 @@
 <link rel="preconnect" href="https://api.maptiler.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700;900&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="index-maplibre-hero-intent.css">
-<link rel="stylesheet" href="index-maplibre-hero-intent-stitch-frontend-design-pass.css">
+<link rel="stylesheet" href="index-maplibre-hero-intent-stitch-frontend-design-pass.css?v=20260217d">
 <script defer src="https://cloud.umami.is/script.js" data-website-id="14ecf234-cd96-4e6c-91c2-cc27babc095d" data-domains="cultural-map-redesign-stitch-lab.vercel.app"></script>
 </head>
 <body class="theme-intent">
@@ -172,27 +172,10 @@
   <div id="itineraryHeroCards" class="itinerary-hero-cards itinerary-hero-cards--hidden" aria-hidden="true"></div>
 </section>
 
-<!-- ====== ADAPTIVE SPLIT LAYOUT (starts after hero, map scrolls into view naturally) ====== -->
-<div class="split-layout">
-
-<!-- ====== LEFT: Content Column ====== -->
-<div class="content-column">
-
-<!-- ====== 3. SPREAD: Story cards (editorial + events) ====== -->
-<section class="spread" id="mapSection" aria-label="Map and editorial modules">
+<!-- ====== 3. EDITORIAL FLOW: Events then Narratives ====== -->
+<section class="spread spread--editorial-flow" aria-label="Editorial modules">
   <aside class="stack">
-    <!-- Editorial stories -->
-    <article class="story-card story-card--editorial">
-      <div class="map-rail-intent map-rail-intent-editorials">
-        <div class="map-rail-intent-head">
-          <div class="intent-editorial-rail-eyebrow">from MUSE &mdash; the Arts Council's print journal</div>
-          <h3 class="section-header">Featured Narratives</h3>
-        </div>
-        <div class="intent-editorial-rail-list" id="intentEditorialRailList"></div>
-      </div>
-    </article>
-
-    <!-- Events -->
+    <!-- Happening Now -->
     <article class="story-card story-card--events">
       <div class="map-rail-intent map-rail-intent-events">
         <div class="map-rail-intent-head">
@@ -203,13 +186,20 @@
             <summary>
               <h3 class="section-header">Upcoming Events</h3>
               <span class="map-addon-summary-right">
-                <span class="map-addon-count" id="mapEventsCount">0 events</span>
+                <span class="map-addon-count">Events</span>
                 <span class="map-addon-caret">&#9662;</span>
               </span>
             </summary>
             <div class="map-addon-body">
-              <div class="map-events-header">
-                <h3 class="map-events-title">What's On</h3>
+              <div class="events-broadsheet-heading">
+                <div class="events-broadsheet-title-row">
+                  <h3 class="events-broadsheet-title">Happening Now</h3>
+                  <span class="events-broadsheet-title-rule" aria-hidden="true"></span>
+                </div>
+                <p class="events-broadsheet-kicker">Arts • Music • Theater • Food • Community</p>
+              </div>
+              <div class="events-broadsheet-meta">
+                <span class="map-events-count" id="mapEventsCount">0 events</span>
                 <span class="map-events-count" id="mapEventsScope">All categories</span>
               </div>
               <div class="map-events-filters" id="mapEventsFilters">
@@ -217,7 +207,9 @@
                 <button class="map-events-chip" type="button" data-event-filter="today">Today</button>
                 <button class="map-events-chip" type="button" data-event-filter="weekend">Weekend</button>
                 <button class="map-events-chip" type="button" data-event-filter="14d">2 Weeks</button>
-                <button class="map-events-chip" type="button" data-event-filter="family">Family & Kids</button>
+              </div>
+              <div class="map-events-audience-row">
+                <button class="map-events-chip map-events-audience-toggle" id="mapEventsAudienceToggle" type="button" aria-pressed="false">Show Kids/Library</button>
               </div>
               <div class="map-events-category-row">
                 <label class="map-events-category-label" for="mapEventsCategory">Category</label>
@@ -225,15 +217,19 @@
                   <option value="all">All categories</option>
                 </select>
               </div>
-              <div class="map-events-carousel">
-                <button class="map-events-nav" id="mapEventsPrev" type="button" aria-label="Previous spotlight cards">&#9664;</button>
-                <div class="map-events-list" id="mapEventsList"></div>
-                <button class="map-events-nav" id="mapEventsNext" type="button" aria-label="Next spotlight cards">&#9654;</button>
+              <div class="events-broadsheet-grid">
+                <section class="events-broadsheet-feature">
+                  <div class="map-events-list events-broadsheet-feature-list" id="mapEventsList"></div>
+                </section>
+                <aside class="events-broadsheet-schedule">
+                  <h4 class="events-broadsheet-schedule-head">Upcoming Schedule</h4>
+                  <div class="map-events-all-list events-broadsheet-schedule-list" id="mapEventsAllList"></div>
+                </aside>
               </div>
-              <div class="map-events-page" id="mapEventsPage">Page 1 / 1</div>
-              <div class="map-events-all">
-                <div class="map-events-all-head">All upcoming events</div>
-                <div class="map-events-all-list" id="mapEventsAllList"></div>
+              <div class="events-broadsheet-pagination">
+                <button class="map-events-nav" id="mapEventsPrev" type="button" aria-label="Previous spotlight cards">&#9664;</button>
+                <button class="map-events-nav" id="mapEventsNext" type="button" aria-label="Next spotlight cards">&#9654;</button>
+                <div class="map-events-page" id="mapEventsPage">Spotlight 1 / 1</div>
               </div>
               <div class="hub-subpage-link">
                 <a href="events.html">See all events &rarr;</a>
@@ -243,180 +239,38 @@
         </div>
       </div>
     </article>
+
+    <!-- MUSE -->
+    <article class="story-card story-card--editorial muse-filmstrip" id="muse" aria-label="MUSE editorial filmstrip">
+      <div class="muse-filmstrip-shell">
+        <aside class="muse-filmstrip-mast" aria-hidden="true">
+          <span>MUSE</span>
+        </aside>
+        <div class="muse-filmstrip-main">
+          <header class="muse-filmstrip-head">
+            <p class="muse-filmstrip-tagline">A Guide to Local Arts and Culture</p>
+            <p class="muse-filmstrip-meta">Issue 03 / 2026 &nbsp;&middot;&nbsp; Published by Nevada County Arts Council</p>
+          </header>
+          <div class="muse-filmstrip-stage">
+            <button class="muse-filmstrip-control" id="museFilmstripPrev" type="button" aria-label="Previous MUSE story">
+              <span aria-hidden="true">&#9664;</span>
+            </button>
+            <div class="muse-filmstrip-track" id="museFilmstripTrack" role="list" aria-label="MUSE stories"></div>
+            <button class="muse-filmstrip-control" id="museFilmstripNext" type="button" aria-label="Next MUSE story">
+              <span aria-hidden="true">&#9654;</span>
+            </button>
+          </div>
+          <footer class="muse-filmstrip-footer">
+            <p>Six years of arts journalism.</p>
+            <a href="#" class="muse-filmstrip-archive-link">Read the full archive</a>
+          </footer>
+        </div>
+      </div>
+    </article>
   </aside>
 </section>
 
-
-</div><!-- /content-column -->
-
-<!-- ====== RIGHT: Map Column (sticky) ====== -->
-<div class="map-column">
-  <div class="panel">
-    <div class="map-panel-head">
-      <h2 class="map-panel-title">Interactive Map</h2>
-      <span class="pill">687 places</span>
-      <button class="map-expand-toggle" id="mapExpandToggle" type="button" aria-expanded="false">Expand Map</button>
-    </div>
-    <div class="map-active-banner" id="mapActiveBanner">
-      <div class="map-active-banner-inner">
-        <div class="map-active-dot" id="mapActiveDot"></div>
-        <div class="map-active-text">Showing <strong id="mapActiveCount">0</strong> <span id="mapActiveName">places</span></div>
-        <button class="map-active-clear" id="mapActiveClear">Clear filter</button>
-      </div>
-    </div>
-    <div class="map-container">
-      <div id="map"></div>
-      <div class="map-overlay-controls">
-        <button class="map-filter-toggle" id="mapFilterToggle" type="button" aria-expanded="false" aria-controls="mapFilterPanel">
-          <span class="map-filter-toggle-dot" aria-hidden="true"></span>
-          <span>Filters</span>
-          <span class="map-filter-toggle-meta" id="mapFilterToggleMeta">All</span>
-          <span class="map-filter-toggle-caret" aria-hidden="true">&#9662;</span>
-        </button>
-        <div class="map-filter-panel" id="mapFilterPanel">
-          <div class="map-filter-bar" id="filterBar"></div>
-        </div>
-        <div class="map-overlay-secondary">
-          <button class="map-legend-toggle" id="mapLegendToggle" type="button" aria-expanded="false" aria-controls="mapLegendPanel">
-            <span class="map-legend-dot" aria-hidden="true"></span>
-            <span>Legend</span>
-          </button>
-          <div class="map-legend-panel" id="mapLegendPanel"></div>
-        </div>
-      </div>
-      <div class="corridor-panel" id="corridorPanel"></div>
-    </div>
-    <div class="map-addons" id="mapAddons">
-      <details class="map-guides" id="mapGuides">
-        <summary>
-          <h3 class="section-header">Routes &amp; Experiences</h3>
-          <span class="map-addon-summary-right">
-            <span class="map-addon-count" id="mapGuidesCount">0 guides</span>
-            <span class="map-addon-caret">&#9662;</span>
-          </span>
-        </summary>
-        <div class="map-guides-body">
-          <details class="map-subaddon" id="corridorAddon">
-            <summary>
-              <h3 class="section-header">Heritage Corridors</h3>
-              <span class="map-addon-summary-right">
-                <span class="map-addon-count" id="corridorAddonCount">0 routes</span>
-                <span class="map-addon-caret">&#9662;</span>
-              </span>
-            </summary>
-            <div class="map-addon-body">
-              <div class="corridor-cards" id="corridorCards"></div>
-            </div>
-          </details>
-          <details class="map-subaddon" id="experienceAddon">
-            <summary>
-              <h3 class="section-header">Experiences</h3>
-              <span class="map-addon-summary-right">
-                <span class="map-addon-count" id="experienceAddonCount">0 routes</span>
-                <span class="map-addon-caret">&#9662;</span>
-              </span>
-            </summary>
-            <div class="map-addon-body">
-              <div class="experience-cards" id="experienceCards"></div>
-            </div>
-          </details>
-        </div>
-      </details>
-    </div>
-  </div>
-</div><!-- /map-column -->
-
-</div><!-- /split-layout -->
-
 </main>
-
-<!-- ====== MUSE EDITORIAL (kept for JS wiring, hidden in intent theme) ====== -->
-<div class="muse-section" id="muse">
-  <div class="muse-section-header reveal">
-    <div class="muse-section-tag">from MUSE &mdash; the Arts Council&rsquo;s print journal</div>
-    <h2 class="muse-section-title">From MUSE</h2>
-    <p class="muse-section-sub">Feature stories from <em>MUSE</em>, the Nevada County Arts Council's print journal &mdash; now mapped to the places they describe.</p>
-  </div>
-
-  <div class="muse-cards">
-    <details class="muse-card">
-      <summary>
-        <div class="muse-card-eyebrow">Routes &amp; Heritage</div>
-        <div class="muse-card-title">Our Cultural Corridors</div>
-        <div class="muse-card-quote">&ldquo;Nevada County&rsquo;s highways are more than just roads&mdash;they are cultural corridors, weaving together stories of California&rsquo;s First Peoples, Gold Rush miners, artists, and dreamers.&rdquo;</div>
-        <div class="muse-card-author">&mdash; Jesse Locks</div>
-        <span class="muse-card-toggle">Read more &darr;</span>
-      </summary>
-      <div class="muse-card-body">
-        <p>Highways 49, 20, and 40&mdash;each with its own distinct heritage&mdash;form a network that connects the county&rsquo;s vibrant California Cultural Districts and historic landmarks, while offering breathtaking views of rolling foothills, towering pines, and High Sierra vistas.</p>
-        <div class="muse-corridors">
-          <details class="muse-corridor">
-            <summary>Highway 40 &mdash; the Lincoln Highway</summary>
-            <div class="muse-corridor-body">
-              <p>Before Interstate 80 sped travelers through the Sierra, there was &ldquo;Old Highway 40&rdquo;&mdash;part of America&rsquo;s first transcontinental road. Ancient petroglyphs near Donner Summit, etched into granite thousands of years ago by the Martis People, offer a glimpse into the lives of the region&rsquo;s earliest inhabitants.</p>
-              <p>From Clair Tappan Lodge to Rainbow Lodge, and the &ldquo;20 Mile Museum&rdquo; from Donner Lake to Cisco Grove, every curve tells a story of migration, innovation, and the spirit of the Sierra.</p>
-            </div>
-          </details>
-          <details class="muse-corridor">
-            <summary>Highway 20 &mdash; wagon trail to modern artery</summary>
-            <div class="muse-corridor-body">
-              <p>Stretching east to west, Highway 20 traces its roots to the 19th-century California Trail. The historic <a class="asset-link" data-asset-name="Washington Hotel" href="#">Washington Hotel</a>, built in 1857, continues to serve as the community hub. Further south is Rough and Ready, founded in 1849&mdash;its mining heritage lives on in street names like Tornado, Gamble, and To Hell and Back Lane.</p>
-            </div>
-          </details>
-          <details class="muse-corridor">
-            <summary>Highway 49 &mdash; the golden chain of history</summary>
-            <div class="muse-corridor-body">
-              <p>The Golden Chain Highway links historic Gold Rush towns. <a class="asset-link" data-asset-name="Empire Mine State Historic Park" href="#">Empire Mine State Historic Park</a> in Grass Valley is one of the oldest, deepest, and richest gold mines in California. On the San Juan Ridge, the <a class="asset-link" data-asset-name="North Columbia Schoolhouse Cultural Center" href="#">North Columbia Schoolhouse Cultural Center</a>&mdash;a restored 1875 schoolhouse built by miners for their children&mdash;now hosts the internationally renowned Sierra Storytelling Festival.</p>
-            </div>
-          </details>
-        </div>
-      </div>
-    </details>
-
-    <details class="muse-card">
-      <summary>
-        <div class="muse-card-eyebrow">Community &amp; Place</div>
-        <div class="muse-card-title">Rural is the New Cool</div>
-        <div class="muse-card-quote">&ldquo;Few areas in Northern California, and beyond, can match the density of creativity we boast. Visitors come for our trails, wild spaces, and dreamy foothills&mdash;yet our cultural scene remains one of our most captivating surprises.&rdquo;</div>
-        <div class="muse-card-author">&mdash; Diana Arbex, GV-NC Cultural District</div>
-        <span class="muse-card-toggle">Read more &darr;</span>
-      </summary>
-      <div class="muse-card-body">
-        <p>Our cultural richness is a reflection of the Nisenan and Washoe Peoples, whose traditions and enduring presence continue to shape our region. That richness is also carried forth by visionaries like Pulitzer Prize&ndash;winning poet Gary Snyder, whose arrival in the 1960s helped seed a generation of creatives.</p>
-        <p>Drive north on Highway 49 to <a class="asset-link" data-asset-name="North Columbia Schoolhouse Cultural Center" href="#">North Columbia Schoolhouse Cultural Center</a>, and you will feel time slow down. Stop at <a class="asset-link" data-asset-name="Mother Truckers" href="#">Mother Truckers</a> for one of its signature t-shirts illustrated by the late Randi Griffin. On arriving at &ldquo;the Schoolhouse,&rdquo; you&rsquo;ll find the Ridge&rsquo;s cultural epicenter&mdash;its walls hold decades of stories, folk music, poetry, and art.</p>
-        <p>Back in Nevada City, download the Tree Tour in the STORY app and experience heirloom trees planted by Gold Rush horticulturist Felix Gillet. Visit the Crystal Rainbow Rock Shop, Winnie Superette&mdash;an Asian market hung with contemporary art&mdash;and Communal Caf&eacute; for coffee among locals.</p>
-      </div>
-    </details>
-
-    <details class="muse-card">
-      <summary>
-        <div class="muse-card-eyebrow">Arts &amp; Landscape</div>
-        <div class="muse-card-title">Off the Wall: Art in Nature</div>
-        <div class="muse-card-quote">&ldquo;Art in nature is such a beautiful process. We listen and we watch and we feel what is happening in the environment, and then we create from there.&rdquo;</div>
-        <div class="muse-card-author">&mdash; Jenny Hale, place-based artist</div>
-        <span class="muse-card-toggle">Read more &darr;</span>
-      </summary>
-      <div class="muse-card-body">
-        <p>Each June, on trails across Nevada County, stars sway from low branches&mdash;the work of artists from <a class="asset-link" data-asset-name="Neighborhood Center of the Arts" href="#">Neighborhood Center of the Arts</a>, created for <a class="asset-link" data-asset-name="Bear Yuba Land Trust" href="#">Bear Yuba Land Trust</a>&rsquo;s Summer Star Hike Challenge. With over 50 miles of trails and 26,000 acres conserved, that&rsquo;s quite the canvas.</p>
-        <p>Since 2023, Art in Nature commissions have included Mekdela Maskal&rsquo;s naturally dyed prayer flags, Peggy Wright&rsquo;s nest of intertwined debris, and Andres Amador&rsquo;s &ldquo;Connections&rdquo;&mdash;a mycelium-like path through fallen trees on Hirschman&rsquo;s trail. For the Nisenan Gateway at Wildflower Ridge, artist Jenny Hale collaborated with the Nevada City Rancheria Nisenan Tribe to create a willow-and-cedar gateway honoring the land&rsquo;s original use as a Native trail.</p>
-      </div>
-    </details>
-
-    <details class="muse-card">
-      <summary>
-        <div class="muse-card-eyebrow">Truckee Cultural District</div>
-        <div class="muse-card-title">Mountain Heart, Small-Town Soul</div>
-        <div class="muse-card-quote">&ldquo;Our community&rsquo;s character is wrapped up in a certain sturdiness and a willingness to go out into nature regardless of how bad&mdash;or for some, how wonderful&mdash;that bad weather is.&rdquo;</div>
-        <div class="muse-card-author">&mdash; Mayor Jan Zabriskie, Town of Truckee</div>
-        <span class="muse-card-toggle">Read more &darr;</span>
-      </summary>
-      <div class="muse-card-body">
-        <p>In 2024, Visit Truckee-Tahoe unveiled a new brand: &ldquo;Mountain Heart. Small Town Soul.&rdquo;&mdash;reflecting a community that is passionate and protective, pioneering and progressive, charming and a little funky. Visitors want to feel like locals, care about leaving a lighter footprint, and prefer scenery over a scene.</p>
-        <p>For coffee, try Mountain Brew Coffee. For wine with a little funk, visit <a class="asset-link" data-asset-name="Truckee River Winery" href="#">Truckee River Winery</a> or <a class="asset-link" data-asset-name="The Pour House" href="#">The Pour House</a>. Downtown galleries&mdash;<a class="asset-link" data-asset-name="Mountain Arts Collective" href="#">Mountain Arts Collective</a>, Piper J Gallery, <a class="asset-link" data-asset-name="Riverside Studios" href="#">Riverside Studios</a>&mdash;offer a sampling of the creative talent in the district. And if you&rsquo;re staying up late, the historic <a class="asset-link" data-asset-name="Pastime Club" href="#">Pastime Club</a> vibrates after hours with pool, shuffleboard, and live entertainment.</p>
-      </div>
-    </details>
-  </div>
-</div>
 
 <!-- ====== EXPLORE DIRECTORY ====== -->
 <section class="explore-section" id="exploreSection">
@@ -491,6 +345,85 @@
   </div>
 </section>
 
+<!-- ====== BOTTOM MAP SECTION ====== -->
+<section class="map-bottom-section" id="mapSection" aria-label="Interactive map and filters">
+  <div class="map-column">
+    <div class="panel">
+      <div class="map-panel-head">
+        <h2 class="map-panel-title">Interactive Map</h2>
+        <span class="pill">687 places</span>
+        <button class="map-expand-toggle" id="mapExpandToggle" type="button" aria-expanded="false">Expand Map</button>
+      </div>
+      <div class="map-active-banner" id="mapActiveBanner">
+        <div class="map-active-banner-inner">
+          <div class="map-active-dot" id="mapActiveDot"></div>
+          <div class="map-active-text">Showing <strong id="mapActiveCount">0</strong> <span id="mapActiveName">places</span></div>
+          <button class="map-active-clear" id="mapActiveClear">Clear filter</button>
+        </div>
+      </div>
+      <div class="map-container">
+        <div id="map"></div>
+        <div class="map-overlay-controls">
+          <button class="map-filter-toggle" id="mapFilterToggle" type="button" aria-expanded="false" aria-controls="mapFilterPanel">
+            <span class="map-filter-toggle-dot" aria-hidden="true"></span>
+            <span>Filters</span>
+            <span class="map-filter-toggle-meta" id="mapFilterToggleMeta">All</span>
+            <span class="map-filter-toggle-caret" aria-hidden="true">&#9662;</span>
+          </button>
+          <div class="map-filter-panel" id="mapFilterPanel">
+            <div class="map-filter-bar" id="filterBar"></div>
+          </div>
+          <div class="map-overlay-secondary">
+            <button class="map-legend-toggle" id="mapLegendToggle" type="button" aria-expanded="false" aria-controls="mapLegendPanel">
+              <span class="map-legend-dot" aria-hidden="true"></span>
+              <span>Legend</span>
+            </button>
+            <div class="map-legend-panel" id="mapLegendPanel"></div>
+          </div>
+        </div>
+        <div class="corridor-panel" id="corridorPanel"></div>
+      </div>
+      <div class="map-addons" id="mapAddons">
+        <details class="map-guides" id="mapGuides">
+          <summary>
+            <h3 class="section-header">Routes &amp; Experiences</h3>
+            <span class="map-addon-summary-right">
+              <span class="map-addon-count" id="mapGuidesCount">0 guides</span>
+              <span class="map-addon-caret">&#9662;</span>
+            </span>
+          </summary>
+          <div class="map-guides-body">
+            <details class="map-subaddon" id="corridorAddon">
+              <summary>
+                <h3 class="section-header">Heritage Corridors</h3>
+                <span class="map-addon-summary-right">
+                  <span class="map-addon-count" id="corridorAddonCount">0 routes</span>
+                  <span class="map-addon-caret">&#9662;</span>
+                </span>
+              </summary>
+              <div class="map-addon-body">
+                <div class="corridor-cards" id="corridorCards"></div>
+              </div>
+            </details>
+            <details class="map-subaddon" id="experienceAddon">
+              <summary>
+                <h3 class="section-header">Experiences</h3>
+                <span class="map-addon-summary-right">
+                  <span class="map-addon-count" id="experienceAddonCount">0 routes</span>
+                  <span class="map-addon-caret">&#9662;</span>
+                </span>
+              </summary>
+              <div class="map-addon-body">
+                <div class="experience-cards" id="experienceCards"></div>
+              </div>
+            </details>
+          </div>
+        </details>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ====== DETAIL PANEL ====== -->
 <div class="detail-panel-overlay" id="panelOverlay"></div>
 <div class="detail-panel" id="detailPanel">
@@ -539,15 +472,15 @@
 <script src="https://cdn.jsdelivr.net/npm/@turf/turf@6/turf.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
 <script src="index-maplibre-config.js"></script>
-<script src="index-maplibre-core-utils.js"></script>
+<script src="index-maplibre-core-utils.js?v=20260217c"></script>
 <script src="index-maplibre-analytics.js"></script>
 <script src="index-maplibre-events-utils.js"></script>
-<script src="index-maplibre-events-model.js"></script>
+<script src="index-maplibre-events-model.js?v=20260217c"></script>
 <script src="index-maplibre-events-carousel.js"></script>
 <script src="index-maplibre-events-view.js"></script>
 <script src="index-maplibre-events-search.js"></script>
-<script src="index-maplibre-events-filter-ui.js"></script>
-<script src="index-maplibre-events-controller.js"></script>
+<script src="index-maplibre-events-filter-ui.js?v=20260217c"></script>
+<script src="index-maplibre-events-controller.js?v=20260217b"></script>
 <script src="index-maplibre-hours-utils.js"></script>
 <script src="index-maplibre-explore-model.js"></script>
 <script src="index-maplibre-explore-view.js"></script>
@@ -580,13 +513,13 @@
 <script src="index-maplibre-deeplink-bridge.js"></script>
 <script src="index-maplibre-page-effects.js"></script>
 <script src="index-maplibre-map-scroll-observer.js"></script>
-<script src="index-maplibre-bindings.js"></script>
+<script src="index-maplibre-bindings.js?v=20260217c"></script>
 <script src="index-maplibre-chat-view.js"></script>
 <script src="index-maplibre-chat-controller.js"></script>
 <script src="index-maplibre-chat-widget.js"></script>
 <script src="index-maplibre-photo-carousel.js"></script>
 <script src="index-maplibre-email-capture.js"></script>
-<script src="index-maplibre.js"></script>
+<script src="index-maplibre.js?v=20260217d"></script>
 <script>
   if (window.CulturalMapDeepLinkBridge) {
     window.CulturalMapDeepLinkBridge.init();

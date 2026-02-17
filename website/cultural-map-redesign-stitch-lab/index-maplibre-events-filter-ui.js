@@ -51,10 +51,7 @@
       '  <option value="source:trumba">Arts Council</option>',
       '  <option value="source:kvmr">KVMR</option>',
       '  <option value="source:gvda">GVDA</option>',
-      '  <option value="source:crazyhorse">Crazy Horse</option>',
-      '  <option value="source:goldenera">Golden Era</option>',
-      '  <option value="source:bodhihive">Bodhi Hive</option>',
-      '  <option value="source:community">Community</option>',
+      '  <option value="source:libcal">County Library</option>',
       '</optgroup>'
     ].join('\n');
   }

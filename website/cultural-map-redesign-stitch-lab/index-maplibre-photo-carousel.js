@@ -156,8 +156,7 @@
     var mapToggle = qs('#mapExpandToggle');
     if (mapToggle) {
       mapToggle.addEventListener('click', function() {
-        var expanded = document.querySelector('.adaptive-layout') &&
-          document.querySelector('.adaptive-layout').classList.contains('map-zone--expanded');
+        var expanded = mapToggle.getAttribute('aria-expanded') === 'true';
         setMapExpanded(!expanded);
       });
     }
@@ -166,10 +165,17 @@
   function setMapExpanded(expanded) {
     var wrap = qs('.adaptive-layout');
     var mapToggle = qs('#mapExpandToggle');
-    if (!wrap || !mapToggle) return;
-    wrap.classList.toggle('map-zone--expanded', !!expanded);
-    mapToggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
-    mapToggle.textContent = expanded ? 'Map Expanded' : 'Expand Map';
+    var mapSection = qs('#mapSection');
+    if (wrap && wrap.classList) {
+      wrap.classList.toggle('map-zone--expanded', !!expanded);
+    }
+    if (mapToggle) {
+      mapToggle.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+      mapToggle.textContent = expanded ? 'Map Expanded' : 'Expand Map';
+    }
+    if (expanded && mapSection) {
+      mapSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
   }
 
   /* ── Hero Photo Carousel ── */
@@ -232,4 +238,3 @@
     resumeCarousel: resumeCarousel
   };
 })();
-

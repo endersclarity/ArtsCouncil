@@ -92,7 +92,7 @@
   assertModuleMethods(eventsCarousel, ['createEventsCarouselController', 'getEventsCarouselVisibleSlots', 'getEventsCarouselStep'], 'Missing CulturalMapEventsCarousel. Ensure index-maplibre-events-carousel.js loads before index-maplibre.js');
   assertModuleMethods(eventsView, ['getEventsCategoryOptionsHTML', 'getEventsScopeLabel', 'getEventsCardsHTML', 'getEventsRowsHTML'], 'Missing CulturalMapEventsView. Ensure index-maplibre-events-view.js loads before index-maplibre.js');
   assertModuleMethods(eventsSearch, ['getSearchMatchedEvents', 'getSearchEventMatchesHTML'], 'Missing CulturalMapEventsSearch. Ensure index-maplibre-events-search.js loads before index-maplibre.js');
-  assertModuleMethods(eventsFilterUI, ['updateMapEventsFilterUI', 'buildMapEventsCategorySelect', 'updateMapEventsCategoryUI', 'normalizeEventCategoryFilter'], 'Missing CulturalMapEventsFilterUI. Ensure index-maplibre-events-filter-ui.js loads before index-maplibre.js');
+  assertModuleMethods(eventsFilterUI, ['updateMapEventsFilterUI', 'updateMapEventsAudienceUI', 'buildMapEventsCategorySelect', 'updateMapEventsCategoryUI', 'normalizeEventCategoryFilter'], 'Missing CulturalMapEventsFilterUI. Ensure index-maplibre-events-filter-ui.js loads before index-maplibre.js');
   assertModuleMethods(eventsController, ['buildMapEventsList', 'getDetailEventsHTML'], 'Missing CulturalMapEventsController. Ensure index-maplibre-events-controller.js loads before index-maplibre.js');
   assertModuleMethods(hoursUtils, ['getHoursState', 'getHoursLabel', 'getHoursRank', 'getTodayHoursDisplay'], 'Missing CulturalMapHoursUtils. Ensure index-maplibre-hours-utils.js loads before index-maplibre.js');
   assertModuleMethods(exploreModel, ['getFilteredData'], 'Missing CulturalMapExploreModel. Ensure index-maplibre-explore-model.js loads before index-maplibre.js');
@@ -144,7 +144,9 @@
   let openNowMode = false;
   let events14dMode = false;
   let eventDateFilter = 'all';
+  let eventAudienceFilter = 'exclude-kids-library';
   let eventCategoryFilter = 'all';
+  let featuredEventId = null;
   let eventsListPage = 0;
   let suppressUrlSync = false;
   let deepLinkAppliedOnce = false;
@@ -230,6 +232,7 @@
     DATA = data;
     window.__culturalMapData = DATA;
     IMAGE_DATA = images;
+    window.__culturalMapImageData = IMAGE_DATA;
     EXPERIENCES = experiences;
     ITINERARIES = Array.isArray(itinerariesData) ? itinerariesData : [];
     MUSE_EDITORIALS = Array.isArray(museEditorials) ? museEditorials : [];
@@ -299,7 +302,6 @@
     ensureMapEventsHint();
     initScrollReveal();
     initMuseShowcase();
-    renderIntentEditorialRail();
     initIntentDiscoveryTabs();
     registerPublicDeepLinkBridge();
     bindEvents();
@@ -336,10 +338,12 @@
   let museStoryOverlayEl = null;
   let museStoryPanelEl = null;
   let museStoryOpenId = null;
+  let museFilmstripSyncRaf = null;
+  const MUSE_FILMSTRIP_FALLBACK_IMAGE = 'img/watercolor/badge.png';
 
   function initMuseShowcase() {
-    renderMuseShowcaseSection();
     ensureMuseStoryPanel();
+    renderMuseFilmstrip();
   }
 
   function normalizeIntentLookupToken(value) {
@@ -601,12 +605,8 @@
         el.addEventListener('click', function() {
           var idx = el.getAttribute('data-demo-pick-editorial');
           if (idx !== '' && idx !== null) {
-            var museCards = document.querySelectorAll('.muse-card');
-            var card = museCards[parseInt(idx, 10)];
-            if (card) {
-              card.open = true;
-              card.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }
+            var editorial = (MUSE_EDITORIALS || [])[parseInt(idx, 10)];
+            if (editorial && editorial.id) openMuseStory(String(editorial.id));
           }
         });
       });
@@ -759,48 +759,7 @@
   }
 
   function renderIntentEditorialRail() {
-    if (!isIntentTheme) return;
-    const listEl = document.getElementById('intentEditorialRailList');
-    if (!listEl) return;
-    const picks = (MUSE_EDITORIALS || []).slice(0, 6);
-    if (!picks.length) {
-      listEl.innerHTML = '<div class="intent-strip-empty">No featured stories available right now.</div>';
-      return;
-    }
-
-    listEl.innerHTML = picks.map((item) => {
-      const id = item && item.id ? String(item.id) : '';
-      const eyebrow = item && item.eyebrow ? String(item.eyebrow) : 'Feature';
-      const title = item && item.title ? String(item.title) : 'Untitled';
-      const quote = item && item.lead_quote && item.lead_quote.text ? String(item.lead_quote.text) : '';
-      const summary = item && item.dek ? String(item.dek) : 'Open the story to explore linked places on the map.';
-      const cover = item && item.cover_image ? String(item.cover_image) : '';
-      return `
-        <article class="intent-editorial-card">
-          <div class="intent-editorial-top">
-            <div class="intent-editorial-thumb-wrap">
-              ${cover
-                ? `<img class="intent-editorial-thumb" src="${escapeHTML(cover)}" alt="${escapeHTML(title)}" loading="lazy">`
-                : '<div class="intent-editorial-thumb placeholder">No image</div>'}
-            </div>
-            <div class="intent-editorial-topcopy">
-              <span class="intent-editorial-kicker">${escapeHTML(eyebrow)}</span>
-              <h4 class="intent-editorial-title">${escapeHTML(title)}</h4>
-            </div>
-          </div>
-          ${quote ? `<p class="intent-editorial-quote">${escapeHTML(quote)}</p>` : ''}
-          <p class="intent-editorial-summary">${escapeHTML(summary)}</p>
-          <button class="intent-editorial-open" type="button" data-intent-editorial-rail="${escapeHTML(id)}">Open story</button>
-        </article>
-      `;
-    }).join('');
-
-    listEl.querySelectorAll('[data-intent-editorial-rail]').forEach((el) => {
-      el.addEventListener('click', () => {
-        const id = el.getAttribute('data-intent-editorial-rail');
-        if (id) openMuseStory(id);
-      });
-    });
+    renderMuseFilmstrip();
   }
 
   function refreshIntentDiscoveryContent() {
@@ -1116,55 +1075,172 @@
     document.body.classList.remove('muse-story-open');
   }
 
-  function renderMuseShowcaseSection() {
-    const section = document.querySelector('.muse-section');
-    if (!section) return;
-    if (!Array.isArray(MUSE_EDITORIALS) || !MUSE_EDITORIALS.length) return;
+  function getMuseFilmstripCardCover(editorial) {
+    if (!editorial || !editorial.cover_image) return MUSE_FILMSTRIP_FALLBACK_IMAGE;
+    return String(editorial.cover_image);
+  }
 
-    const issue = MUSE_EDITORIALS[0] && MUSE_EDITORIALS[0].muse_issue ? String(MUSE_EDITORIALS[0].muse_issue) : "MUSE";
-    const cardsHTML = MUSE_EDITORIALS.map((e) => {
-      if (!e || !e.id) return '';
-      const id = String(e.id);
-      const cover = e.cover_image ? String(e.cover_image) : '';
-      const eyebrow = e.eyebrow ? String(e.eyebrow) : 'From MUSE';
-      const title = e.title ? String(e.title) : 'Untitled';
-      const dek = e.dek ? String(e.dek) : '';
-      const quote = e.lead_quote && e.lead_quote.text
-        ? String(e.lead_quote.text)
-        : '';
+  function buildMuseFilmstripCardsHTML(editorials) {
+    const list = Array.isArray(editorials) ? editorials : [];
+    return list.map((editorial) => {
+      if (!editorial || !editorial.id) return '';
+      const id = String(editorial.id);
+      const title = editorial.title ? String(editorial.title) : 'Untitled';
+      const eyebrow = editorial.eyebrow ? String(editorial.eyebrow) : 'From MUSE';
+      const category = editorial.primary_category ? String(editorial.primary_category) : '';
+      const meta = category ? `${eyebrow} / ${category}` : eyebrow;
+      const cover = getMuseFilmstripCardCover(editorial);
       return `
-        <button class="muse-story-card" type="button" data-editorial-id="${escapeHTML(id)}">
-          <div class="muse-story-card-media" ${cover ? `style="--muse-card-cover: url('${escapeHTML(cover)}')"` : ''}></div>
-          <div class="muse-story-card-body">
-            <div class="muse-story-card-eyebrow">${escapeHTML(eyebrow)}</div>
-            <div class="muse-story-card-title">${escapeHTML(title)}</div>
-            ${quote ? `<div class="muse-story-card-quote">${escapeHTML(quote)}</div>` : ''}
-            ${dek ? `<div class="muse-story-card-dek">${escapeHTML(dek)}</div>` : ''}
-            <div class="muse-story-card-cta">Open story</div>
+        <article class="muse-filmstrip-card" role="button" tabindex="0" data-editorial-id="${escapeHTML(id)}" aria-label="Open story: ${escapeHTML(title)}">
+          <figure class="muse-filmstrip-card-media-wrap">
+            <img class="muse-filmstrip-card-media" src="${escapeHTML(cover)}" alt="${escapeHTML(title)}" loading="lazy">
+          </figure>
+          <div class="muse-filmstrip-card-copy">
+            <h4 class="muse-filmstrip-card-title">${escapeHTML(title)}</h4>
+            <p class="muse-filmstrip-card-meta">${escapeHTML(meta)}</p>
           </div>
-        </button>
+        </article>
       `;
     }).join('');
+  }
 
-    section.innerHTML = `
-      <div class="muse-section-header reveal">
-        <div class="muse-section-tag">from ${escapeHTML(issue)}</div>
-        <h2 class="muse-section-title">Stories that map to places</h2>
-      </div>
-      <div class="muse-showcase-row" role="list">
-        ${cardsHTML}
-      </div>
-    `;
+  function getMuseFilmstripScrollStep(trackEl) {
+    if (!trackEl || !trackEl.querySelector) return 0;
+    const firstCard = trackEl.querySelector('.muse-filmstrip-card');
+    if (!firstCard || !firstCard.getBoundingClientRect) return 0;
+    const cardWidth = firstCard.getBoundingClientRect().width || 0;
+    const computed = window.getComputedStyle ? window.getComputedStyle(trackEl) : null;
+    const gapRaw = computed ? (computed.columnGap || computed.gap || '0') : '0';
+    const gap = Number.parseFloat(gapRaw) || 0;
+    return Math.max(0, Math.round(cardWidth + gap));
+  }
 
-    if (!section.dataset.museBound) {
-      section.dataset.museBound = '1';
-      section.addEventListener('click', (ev) => {
-        const btn = ev.target && ev.target.closest ? ev.target.closest('.muse-story-card') : null;
-        if (!btn) return;
-        const id = btn.getAttribute('data-editorial-id') || '';
-        openMuseStory(id);
+  function updateMuseFilmstripControlState(trackEl, prevBtn, nextBtn, cardCount) {
+    if (!prevBtn || !nextBtn) return;
+    if (!trackEl || cardCount < 2) {
+      prevBtn.disabled = true;
+      nextBtn.disabled = true;
+      return;
+    }
+    const maxScrollLeft = Math.max(0, (trackEl.scrollWidth || 0) - (trackEl.clientWidth || 0));
+    const current = Math.max(0, trackEl.scrollLeft || 0);
+    prevBtn.disabled = current <= 2;
+    nextBtn.disabled = current >= (maxScrollLeft - 2);
+  }
+
+  function updateMuseFilmstripActiveCard(trackEl) {
+    if (!trackEl || !trackEl.querySelectorAll) return;
+    const cards = Array.from(trackEl.querySelectorAll('.muse-filmstrip-card'));
+    if (!cards.length) return;
+    if (cards.length === 1) {
+      cards[0].classList.add('is-active');
+      return;
+    }
+
+    const center = (trackEl.scrollLeft || 0) + ((trackEl.clientWidth || 0) / 2);
+    let activeIdx = 0;
+    let activeDistance = Number.POSITIVE_INFINITY;
+
+    cards.forEach((card, idx) => {
+      const cardCenter = (card.offsetLeft || 0) + ((card.offsetWidth || 0) / 2);
+      const distance = Math.abs(cardCenter - center);
+      if (distance < activeDistance) {
+        activeDistance = distance;
+        activeIdx = idx;
+      }
+    });
+
+    cards.forEach((card, idx) => {
+      card.classList.toggle('is-active', idx === activeIdx);
+    });
+  }
+
+  function syncMuseFilmstripState(trackEl, prevBtn, nextBtn, cardCount) {
+    updateMuseFilmstripControlState(trackEl, prevBtn, nextBtn, cardCount);
+    updateMuseFilmstripActiveCard(trackEl);
+  }
+
+  function scheduleMuseFilmstripSync(trackEl, prevBtn, nextBtn, cardCount) {
+    if (museFilmstripSyncRaf && typeof cancelAnimationFrame === 'function') {
+      cancelAnimationFrame(museFilmstripSyncRaf);
+    }
+    museFilmstripSyncRaf = requestAnimationFrame(() => {
+      museFilmstripSyncRaf = null;
+      syncMuseFilmstripState(trackEl, prevBtn, nextBtn, cardCount);
+    });
+  }
+
+  function stepMuseFilmstrip(trackEl, direction) {
+    if (!trackEl) return;
+    const step = getMuseFilmstripScrollStep(trackEl);
+    if (!step) return;
+    const offset = step * direction;
+    if (typeof trackEl.scrollBy === 'function') {
+      trackEl.scrollBy({ left: offset, behavior: 'smooth' });
+    } else {
+      trackEl.scrollLeft = (trackEl.scrollLeft || 0) + offset;
+    }
+  }
+
+  function renderMuseFilmstrip() {
+    const trackEl = document.getElementById('museFilmstripTrack');
+    const prevBtn = document.getElementById('museFilmstripPrev');
+    const nextBtn = document.getElementById('museFilmstripNext');
+    if (!trackEl) return;
+
+    const stories = (MUSE_EDITORIALS || []).filter((item) => item && item.id);
+    if (!stories.length) {
+      trackEl.innerHTML = '<p class="muse-filmstrip-empty">No MUSE stories available right now.</p>';
+      updateMuseFilmstripControlState(trackEl, prevBtn, nextBtn, 0);
+      return;
+    }
+
+    trackEl.innerHTML = buildMuseFilmstripCardsHTML(stories);
+    trackEl.scrollLeft = 0;
+    const getCardCount = () => trackEl.querySelectorAll('.muse-filmstrip-card').length;
+
+    if (!trackEl.dataset.museBound) {
+      trackEl.dataset.museBound = '1';
+      trackEl.addEventListener('click', (event) => {
+        const card = event.target && event.target.closest ? event.target.closest('.muse-filmstrip-card[data-editorial-id]') : null;
+        if (!card) return;
+        const id = card.getAttribute('data-editorial-id') || '';
+        if (id) openMuseStory(id);
+      });
+      trackEl.addEventListener('keydown', (event) => {
+        if (event.key !== 'Enter' && event.key !== ' ') return;
+        const card = event.target && event.target.closest ? event.target.closest('.muse-filmstrip-card[data-editorial-id]') : null;
+        if (!card) return;
+        event.preventDefault();
+        const id = card.getAttribute('data-editorial-id') || '';
+        if (id) openMuseStory(id);
+      });
+      trackEl.addEventListener('scroll', () => {
+        scheduleMuseFilmstripSync(trackEl, prevBtn, nextBtn, getCardCount());
       });
     }
+
+    if (prevBtn && !prevBtn.dataset.museBound) {
+      prevBtn.dataset.museBound = '1';
+      prevBtn.addEventListener('click', () => {
+        stepMuseFilmstrip(trackEl, -1);
+        scheduleMuseFilmstripSync(trackEl, prevBtn, nextBtn, getCardCount());
+      });
+    }
+
+    if (nextBtn && !nextBtn.dataset.museBound) {
+      nextBtn.dataset.museBound = '1';
+      nextBtn.addEventListener('click', () => {
+        stepMuseFilmstrip(trackEl, 1);
+        scheduleMuseFilmstripSync(trackEl, prevBtn, nextBtn, getCardCount());
+      });
+    }
+
+    syncMuseFilmstripState(trackEl, prevBtn, nextBtn, getCardCount());
+  }
+
+  function renderMuseShowcaseSection() {
+    renderMuseFilmstrip();
   }
 
   // ============================================================
@@ -1219,6 +1295,7 @@
 	      idx,
 	      event,
 	      eventDate: eventDateFilter && eventDateFilter !== 'all' ? String(eventDateFilter) : null,
+	      eventAudience: eventAudienceFilter && eventAudienceFilter !== 'exclude-kids-library' ? String(eventAudienceFilter) : null,
 	      eventCat: eventCategoryFilter && eventCategoryFilter !== 'all' ? String(eventCategoryFilter) : null
 	    };
 	  }
@@ -1238,6 +1315,7 @@
 	      idx: state.muse || state.pid ? null : state.idx,
 	      event: state.event,
 	      eventDate: state.eventDate,
+	      eventAudience: state.eventAudience,
 	      eventCat: state.eventCat
 	    });
     const url = `${location.pathname}${search}${location.hash || ''}`;
@@ -1450,9 +1528,13 @@
 	    const focusPid = parsed.pid ? String(parsed.pid) : '';
 	    const focusIdx = parsed.idx;
     const eventDateAllowed = new Set(['all', 'today', 'weekend', '14d']);
+    const eventAudienceAllowed = new Set(['exclude-kids-library', 'all']);
     const nextEventDate = parsed.eventDate && eventDateAllowed.has(String(parsed.eventDate))
       ? String(parsed.eventDate)
       : 'all';
+    const nextEventAudience = parsed.eventAudience && eventAudienceAllowed.has(String(parsed.eventAudience))
+      ? String(parsed.eventAudience)
+      : 'exclude-kids-library';
     const nextEventCat = parsed.eventCat ? String(parsed.eventCat) : 'all';
 
     // Track deep link arrivals (only on first apply, not popstate-driven refreshes)
@@ -1492,6 +1574,7 @@
 
       // Events UI filters (always set so back/forward is deterministic)
       setEventDateFilter(nextEventDate);
+      setEventAudienceFilter(nextEventAudience);
       setEventCategoryFilter(nextEventCat);
 
       // Experience (URL is source of truth)
@@ -1620,6 +1703,7 @@
     return eventsModel.getFilteredMapEvents({
       events: EVENTS,
       eventDateFilter,
+      eventAudienceFilter,
       eventCategoryFilter,
       data: DATA,
       isEventUpcoming,
@@ -1632,15 +1716,61 @@
     });
   }
 
+  function getChronologicalFilteredMapEvents() {
+    return getFilteredMapEvents().slice().sort((a, b) => {
+      if (a._start_ts !== b._start_ts) return a._start_ts - b._start_ts;
+      return String(a.event_id || '').localeCompare(String(b.event_id || ''));
+    });
+  }
+
+  function setFeaturedEvent(eventId) {
+    const byDate = getChronologicalFilteredMapEvents();
+    if (!byDate.length) {
+      featuredEventId = null;
+      return false;
+    }
+    const targetId = String(eventId || '');
+    const matched = byDate.find((event) => String(event.event_id || '') === targetId);
+    if (!matched) return false;
+    featuredEventId = targetId;
+    buildMapEventsList({ keepPosition: true, skipRotationRestart: true });
+    return true;
+  }
+
+  function stepFeaturedEvent(direction = 1) {
+    const byDate = getChronologicalFilteredMapEvents();
+    if (byDate.length <= 1) return false;
+    let currentIndex = byDate.findIndex((event) => String(event.event_id || '') === String(featuredEventId || ''));
+    if (currentIndex < 0) currentIndex = 0;
+    const step = direction < 0 ? -1 : 1;
+    const nextIndex = (currentIndex + step + byDate.length) % byDate.length;
+    featuredEventId = String(byDate[nextIndex].event_id || '');
+    buildMapEventsList({ keepPosition: true, skipRotationRestart: true });
+    return true;
+  }
+
   function updateMapEventsFilterUI() {
     eventsFilterUI.updateMapEventsFilterUI({
       eventDateFilter
+    });
+    const audienceToggleEl = document.getElementById('mapEventsAudienceToggle');
+    eventsFilterUI.updateMapEventsAudienceUI({
+      toggleEl: audienceToggleEl,
+      eventAudienceFilter
     });
   }
 
   // Lifted for deep-linking (apply URL state can reuse these setters).
   function setEventDateFilter(filterValue) {
     eventDateFilter = filterValue;
+    eventsListPage = 0;
+    buildMapEventsList();
+    updateMapEventsFilterUI();
+    syncUrlFromApp();
+  }
+
+  function setEventAudienceFilter(filterValue) {
+    eventAudienceFilter = filterValue === 'all' ? 'all' : 'exclude-kids-library';
     eventsListPage = 0;
     buildMapEventsList();
     updateMapEventsFilterUI();
@@ -1691,7 +1821,7 @@
       eventCategoryFilter,
       cats: CATS
     });
-    eventsController.buildMapEventsList({
+    const renderedState = eventsController.buildMapEventsList({
       listEl,
       allListEl,
       countEl,
@@ -1700,19 +1830,20 @@
       nextBtn,
       pageEl,
       filtered,
+      featuredEventId,
       scopeLabel,
       eventsView,
       escapeHTML,
       formatEventDateRange,
       getEventDisplayDescription,
       getDistanceLabelForEvent,
-      getEventsCarouselVisibleSlots: () => eventsCarousel.getEventsCarouselVisibleSlots(),
-      updateEventsSpotlightPageLabel: (totalCards) => eventsCarouselController.updatePageLabel(totalCards),
-      startEventsRotation: (totalCards) => eventsCarouselController.start(totalCards),
       stopEventsRotation: () => eventsCarouselController.stop(),
       keepPosition,
       skipRotationRestart
     });
+    if (renderedState && Object.prototype.hasOwnProperty.call(renderedState, 'featuredEventId')) {
+      featuredEventId = renderedState.featuredEventId || null;
+    }
 
     refreshIntentDiscoveryContent();
   }
@@ -2957,6 +3088,8 @@
       buildList,
       exploreSetCategory,
       setEventDateFilter,
+      getEventAudienceFilter: () => eventAudienceFilter,
+      setEventAudienceFilter,
       setEventCategoryFilter,
       stopEventsRotation: () => eventsCarouselController.stop(),
       getFilteredMapEvents,
@@ -2964,6 +3097,8 @@
       queueEventsRotationResume: (totalCards, delayMs = 520) => eventsCarouselController.queueResume(totalCards, delayMs),
       startEventsRotation: (totalCards) => eventsCarouselController.start(totalCards),
       updateEventsSpotlightPageLabel: (totalCards) => eventsCarouselController.updatePageLabel(totalCards),
+      setFeaturedEvent,
+      stepFeaturedEvent,
       focusEvent: focusEventById,
       buildMapEventsList,
       clearAllMapFilters: () => {
