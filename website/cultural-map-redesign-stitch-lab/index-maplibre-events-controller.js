@@ -54,7 +54,7 @@
     }
     const resolvedFeaturedId = String(featuredEvent.event_id || '');
     const featured = [featuredEvent];
-    const schedule = byDate.filter((event) => String(event.event_id || '') !== resolvedFeaturedId);
+    const schedule = byDate;
 
     listEl.innerHTML = eventsView.getEventsCardsHTML({
       events: featured,
