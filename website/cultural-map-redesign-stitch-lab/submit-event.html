@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Submit an Event | Explore Nevada County</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream: #f5f0e8;
+      --ink: #1a1612;
+      --gold: #c8943e;
+      --rust: #b85c38;
+      --slate: #6b7280;
+      --border: #e2ddd4;
+    }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      line-height: 1.6;
+      min-height: 100vh;
+    }
+
+    .page-header {
+      text-align: center;
+      padding: 3rem 1.5rem 2rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .page-header h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.4rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 0.5rem;
+    }
+
+    .page-header .subtitle {
+      font-size: 0.95rem;
+      color: var(--slate);
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .content {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 2rem 1.5rem 4rem;
+    }
+
+    .intro {
+      margin-bottom: 2rem;
+      font-size: 1.05rem;
+      color: var(--ink);
+    }
+
+    .intro p {
+      margin-bottom: 1rem;
+    }
+
+    .form-container {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      margin-bottom: 2rem;
+    }
+
+    .form-container iframe {
+      width: 100%;
+      min-height: 1200px;
+      border: none;
+    }
+
+    .form-placeholder {
+      padding: 3rem 2rem;
+      text-align: center;
+      color: var(--slate);
+    }
+
+    .form-placeholder p {
+      margin-bottom: 1rem;
+    }
+
+    .form-placeholder .setup-note {
+      font-size: 0.85rem;
+      background: #fef9ef;
+      border: 1px solid var(--gold);
+      border-radius: 6px;
+      padding: 1rem;
+      margin-top: 1.5rem;
+      color: var(--ink);
+    }
+
+    .direct-link {
+      text-align: center;
+      margin-bottom: 2rem;
+      font-size: 0.95rem;
+      color: var(--slate);
+    }
+
+    .direct-link a {
+      color: var(--gold);
+      text-decoration: underline;
+      font-weight: 500;
+    }
+
+    .direct-link a:hover {
+      color: var(--rust);
+    }
+
+    .guidelines {
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .guidelines h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+    }
+
+    .guidelines ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .guidelines li {
+      padding: 0.4rem 0;
+      padding-left: 1.5rem;
+      position: relative;
+      font-size: 0.95rem;
+    }
+
+    .guidelines li::before {
+      content: "\2713";
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+      font-weight: 600;
+    }
+
+    .back-link {
+      text-align: center;
+      padding: 1rem 0;
+    }
+
+    .back-link a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--ink);
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.95rem;
+      padding: 0.6rem 1.2rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      transition: border-color 0.2s, background 0.2s;
+    }
+
+    .back-link a:hover {
+      border-color: var(--gold);
+      background: #fff;
+    }
+
+    @media (max-width: 600px) {
+      .page-header h1 { font-size: 1.8rem; }
+      .content { padding: 1.5rem 1rem 3rem; }
+      .form-container iframe { min-height: 900px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="page-header">
+    <h1>Submit an Event</h1>
+    <p class="subtitle">Help us build a complete cultural calendar for Nevada County</p>
+  </header>
+
+  <main class="content">
+
+    <div class="intro">
+      <p>Know about an upcoming event in Nevada County? Submit it here and we'll add it to the cultural calendar. We welcome live music shows, gallery openings, community gatherings, family events, and everything in between.</p>
+      <p>Submissions are reviewed before they appear on the map. Most events are approved within 24 hours.</p>
+    </div>
+
+    <div class="guidelines">
+      <h2>What to Submit</h2>
+      <ul>
+        <li>Live music performances at local venues</li>
+        <li>Art exhibitions, gallery openings, and studio tours</li>
+        <li>Community events, fundraisers, and town gatherings</li>
+        <li>Family and kids activities</li>
+        <li>Recurring events (weekly jams, monthly open mics)</li>
+      </ul>
+    </div>
+
+    <div class="form-container">
+      <!-- Replace the placeholder below with your Google Form embed URL -->
+      <!-- Example: <iframe src="https://docs.google.com/forms/d/e/YOUR_FORM_ID/viewform?embedded=true"></iframe> -->
+      <div class="form-placeholder">
+        <p>The event submission form will appear here once it has been configured.</p>
+        <div class="setup-note">
+          <strong>Setup required:</strong> Create a Google Form with the fields listed in the plan (Event Name, Date, Start Time, End Time, Venue, Event Type, Description, Ticket URL, Image URL, Recurring, Submitter Name, Submitter Email), link it to a Google Sheet, then replace this placeholder with the form's embed iframe URL.
+        </div>
+      </div>
+    </div>
+
+    <div class="direct-link">
+      <!-- Replace # with the direct Google Form URL -->
+      Or <a href="#" target="_blank" rel="noopener">fill out the form directly</a> if the embed doesn't load.
+    </div>
+
+    <div class="back-link">
+      <a href="index-maplibre-hero-intent-stitch-frontend-design-pass.html">
+        &larr; Back to the Cultural Map
+      </a>
+    </div>
+
+  </main>
+
+</body>
+</html>
