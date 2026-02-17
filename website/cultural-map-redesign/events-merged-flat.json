@@ -1,79 +1,5 @@
 [
   {
-    "event_id": "civic-20260216-city-hall-closed-in-observance",
-    "title": "City Hall Closed in Observance of President's Day",
-    "start_iso": "2026-02-16T00:00:00-08:00",
-    "end_iso": "2026-02-16T23:59:00-08:00",
-    "timezone": "America/Los_Angeles",
-    "venue_name": "317 Broad Street",
-    "venue_city": "Nevada City",
-    "source_type": "rss",
-    "source_ref": "https://www.nevadacityca.gov/RSSFeed.aspx?ModID=58&CID=Events-Calendar-24",
-    "source_label": "City of Nevada City",
-    "is_family": false,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
-    "description": "Event date: February 16, 2026 Event Time: 12:00 AM - 11:59 PMLocation: 317 Broad Street(530) 265-2496Nevada City, CA 95959",
-    "ticket_url": "https://ca-nevadacity.civicplus.com/Calendar.aspx?EID=967"
-  },
-  {
-    "event_id": "libcal-LibCal-20247-16149462-20260216",
-    "title": "ALL LIBRARIES CLOSED - President's Day",
-    "start_iso": "2026-02-16T00:00:00-08:00",
-    "end_iso": "2026-02-17T00:00:00-08:00",
-    "timezone": "America/Los_Angeles",
-    "venue_name": "Nevada County Library",
-    "venue_city": "Nevada City",
-    "source_type": "ical",
-    "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
-    "source_label": "Nevada County Library",
-    "is_family": false,
-    "last_verified_at": "2026-02-15T23:53:28-08:00"
-  },
-  {
-    "event_id": "trumba-196757536",
-    "title": "Mobilize | Art Inspiring Activism with Wild & Scenic Film Festival Exhibition",
-    "start_iso": "2026-02-16T08:00:00-08:00",
-    "end_iso": "2026-02-16T17:00:00-08:00",
-    "timezone": "America/Los_Angeles",
-    "venue_name": "Eric Rood Center",
-    "source_type": "feed",
-    "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-    "last_verified_at": "2026-02-15T23:53:27-08:00",
-    "venue_city": "Nevada City",
-    "ticket_url": "https://www.nevadacountyarts.org/happening-now-blog/mobilize",
-    "tags": [
-      "Art & Gallery",
-      "Visual Arts"
-    ],
-    "image_url": "https://www.trumba.com/i/DgCX2vrEpel-8aNzWE5b8cFb.jpg?w=900",
-    "description": "Mobilize is the first exhibition of 2026 under Art in Public Spaces and celebrates a 15-year partnership between Nevada County Arts Council and Wild & Scenic Film Festival. This year’s festival theme and title of the Rood Center exhibition, MOBILIZE, serves as a call to action and a celebration of progress toward tangible change. The exhibition explores Wild and Scenic’s rich history and its visual art exhibition, utilizing visual language to elevate voices, organize efforts, and address environmental challenges.",
-    "source_label": "Nevada County Arts Council",
-    "is_family": false
-  },
-  {
-    "event_id": "trumba-195322383",
-    "title": "Nevada City Odd Fellows Open Mic",
-    "start_iso": "2026-02-16T18:30:00-08:00",
-    "end_iso": "2026-02-16T21:00:00-08:00",
-    "timezone": "America/Los_Angeles",
-    "venue_name": "Seven Stars Gallery 210 Spring Street",
-    "source_type": "feed",
-    "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-    "last_verified_at": "2026-02-15T23:53:27-08:00",
-    "venue_city": "Nevada City",
-    "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3devent%26eventid%3d195322383",
-    "tags": [
-      "Children / Family",
-      "Community",
-      "Literary Arts",
-      "Music / Concert"
-    ],
-    "image_url": "https://www.trumba.com/i/DgBdHmbH9bk2SvN1RLvWqbxt.jpg?w=900",
-    "description": "The most relaxed, most welcoming open mic in Western Nevada County",
-    "source_label": "Nevada County Arts Council",
-    "is_family": false
-  },
-  {
     "event_id": "trumba-196757537",
     "title": "Mobilize | Art Inspiring Activism with Wild & Scenic Film Festival Exhibition",
     "start_iso": "2026-02-17T08:00:00-08:00",
@@ -82,7 +8,7 @@
     "venue_name": "Eric Rood Center",
     "source_type": "feed",
     "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-    "last_verified_at": "2026-02-15T23:53:27-08:00",
+    "last_verified_at": "2026-02-16T23:50:28-08:00",
     "venue_city": "Nevada City",
     "ticket_url": "https://www.nevadacountyarts.org/happening-now-blog/mobilize",
     "tags": [
@@ -106,7 +32,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": true,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "Join Miss Emily for Baby Storytime at the historic Grass Valley Library. This short story time is filled with rhymes, songs, and stories for the youngest children and their caregivers. We invite you to linger and enjoy each other's company after the story time. Toys will be provided.",
     "venue_address": "Grass Valley Library"
   },
@@ -122,7 +48,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": true,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "Looking for a great way to engage with your little ones? Join us for a delightful morning of story and song with Miss Betsey every Tuesday at the Penn Valley Library!",
     "venue_address": "Penn Valley Library"
   },
@@ -138,7 +64,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": false,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "This is a weekly class for English language learners to learn, improve and practice their English speaking skills. Conversation practice will be emphasized. All levels welcome. No registration required. ¿Necesita mejorar su comunicación en inglés? ¡Únase a nosotros al clase del inglés y practique con plática y más! No necesita inscribirse.",
     "venue_address": "Study Nook, Grass Valley Library"
   },
@@ -154,7 +80,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": false,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "Join us for a Spanish conversation group for Spanish language learners! Volunteer instructors will lead the group and facilitate this opportunity to practice conversational skills and maybe make some friends while they're at it.",
     "venue_address": "Gene Albaugh Community Room, Madelyn Helling Library"
   },
@@ -170,7 +96,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": false,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "Understanding Probate in California Presented by: Dylan Hendricks, Attorney Nevada County Law Library in Collaboration with Nevada County Library, 980 Helling Way, Nevada City 95959 Attendance may be in person at the Madelyn Helling Branch of the Nevada County Library, OR via MS Teams from 12:00 p.m. – 1:00 p.m. This free seminar is geared towards the non-legal community, although everyone is welcome. No MCLE credit is offered. These seminars are designed for information only and do not constitu",
     "venue_address": "CTC Classroom, Madelyn Helling Library"
   },
@@ -186,7 +112,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": false,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "Join us for \"Just Books\" Book Club. We meet at 1:00 pm the third Tuesday of each month in the Donner Room, upstairs at the Joseph Center, 10075 Levon Ave, Truckee.",
     "venue_address": "Donner Room - Joseph Center, Truckee Library"
   },
@@ -202,7 +128,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": false,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "Practice reading aloud with Raven, the therapy dog! Bring a book from home or choose one from our shelves.",
     "venue_address": "Bear River Library"
   },
@@ -218,7 +144,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": true,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "Use your imagination and create a LEGO masterpiece! All your projectss will go on display in the Children's Library. For ages 6 and older.",
     "venue_address": "Bear River Library Community Room, Bear River Library"
   },
@@ -231,7 +157,7 @@
     "venue_name": "Miners Foundry Cultural Center",
     "source_type": "feed",
     "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-    "last_verified_at": "2026-02-15T23:53:27-08:00",
+    "last_verified_at": "2026-02-16T23:50:28-08:00",
     "venue_city": "Nevada City",
     "ticket_url": "https://www.facebook.com/groups/246116427305067/?ref=share_group_link&mibextid=wwXIfr",
     "tags": [
@@ -254,7 +180,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": false,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "This is a weekly conversation group for English language learners to learn, improve and practice their English speaking skills. Conversation practice will be emphasized. All levels welcome. No registration required. ¿Necesita mejorar su comunicación en inglés? ¡Únase a nosotros al clase del inglés y practique en pláticas y más! No necesita inscribirse.",
     "venue_address": "Truckee Library"
   },
@@ -270,7 +196,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": false,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "\"Defer no time, delays have dangerous ends..\" If you're craving some classics, join us at Bard to the Bone! Each month, we’ll focus on one of William Shakespeare’s plays and discuss what was interesting, funny, or downright confusing about the text or the adaptations we watched. Whether you’re a lifelong fan, a critic, or an interested amateur, we’re excited to have a lively discussion every time. This month, our selection is Henry VI parts 1 & 2!",
     "venue_address": "Grass Valley Library"
   },
@@ -283,7 +209,7 @@
     "venue_name": "Odd Fellows Hall, 212 Spring Street, Nevada City CA 95959",
     "source_type": "feed",
     "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-    "last_verified_at": "2026-02-15T23:53:27-08:00",
+    "last_verified_at": "2026-02-16T23:50:28-08:00",
     "venue_city": "Nevada City",
     "ticket_url": "https://www.nevadacountyswings.org",
     "tags": [
@@ -304,7 +230,7 @@
     "venue_name": "The Center for the Arts",
     "source_type": "feed",
     "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-    "last_verified_at": "2026-02-15T23:53:27-08:00",
+    "last_verified_at": "2026-02-16T23:50:28-08:00",
     "venue_city": "Grass Valley",
     "ticket_url": "https://jossstone.com/",
     "tags": [
@@ -324,7 +250,7 @@
     "venue_name": "Eric Rood Center",
     "source_type": "feed",
     "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-    "last_verified_at": "2026-02-15T23:53:27-08:00",
+    "last_verified_at": "2026-02-16T23:50:28-08:00",
     "venue_city": "Nevada City",
     "ticket_url": "https://www.nevadacountyarts.org/happening-now-blog/mobilize",
     "tags": [
@@ -348,7 +274,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": true,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "Caregivers and their little ones are invited to join us at the Madelyn Helling Library for time to play, learn, sing, read, and have fun together! Each session will feature a storytime, snacks, and an opportunity to learn together. No registration required. Ages 0-5",
     "venue_address": "Gene Albaugh Community Room, Marian E. Gallaher Amphitheater, Madelyn Helling Library"
   },
@@ -364,7 +290,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": false,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "Have a question about your device? Need to have your computer, tablet, or phone looked at? Want to learn more about the Library’s digital services and how to use them? Drop in from 1:00PM-3:00PM every Wednesday at the Madelyn Helling Library for help from friendly Library volunteers and staff. There will be free coffee and snacks, too!",
     "venue_address": "CTC Classroom, Madelyn Helling Library"
   },
@@ -380,7 +306,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": false,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "This is a weekly conversation group for English language learners to learn, improve and practice their English speaking skills. Conversation practice will be emphasized. All levels welcome. No registration required. ¿Necesita mejorar su comunicación en inglés? ¡Únase a nosotros al clase del inglés y practique con plática y más! No necesita inscribirse.",
     "venue_address": "Truckee Library"
   },
@@ -393,7 +319,7 @@
     "venue_name": "Nevada City Winery",
     "source_type": "feed",
     "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-    "last_verified_at": "2026-02-15T23:53:27-08:00",
+    "last_verified_at": "2026-02-16T23:50:28-08:00",
     "venue_city": "Nevada City",
     "ticket_url": "https://www.ncwinery.com/events",
     "tags": [
@@ -416,7 +342,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": true,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "Join us in the Grass Valley Library kid's room and let's have fun creating, building, and learning together. This program is open to all youth, but is best suited for kids ages 8-12.",
     "venue_address": "Grass Valley Library"
   },
@@ -432,7 +358,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": false,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "Need a hand with a tricky math problem or a confusing assignment? Truckee Library's Homework Help program is here for you! Friendly volunteers are available to support students in grades K–12 with schoolwork. Just drop in. No appointment needed!",
     "venue_address": "Truckee Library"
   },
@@ -448,7 +374,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": false,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "Practice reading aloud trained dog, Inky or Mojo! Color a bookmark, collect a sticker each time you visit a dog, and after five stickers choose a book to keep!",
     "venue_address": "Madelyn Helling Library"
   },
@@ -464,7 +390,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": true,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "Join us for building adventures with our LEGO Club at Penn Valley Library! Let your imagination run wild with your designs. Remember to take a photo of your creations, as the LEGOS live at the library and must stay in the children's room. All ages welcome, though some LEGOs are not suited for babies and toddlers.",
     "venue_address": "Penn Valley Library"
   },
@@ -480,7 +406,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": false,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "Get free legal help from an attorney every month at the Truckee Library Workspace, 10879 Donner Pass Rd. in Truckee. Sign-up for a free 15-minute legal consultation with a local volunteer attorney through our online calendar or by calling (530) 582-7846. The Lawyer in the Library program is ideal for self-represented litigants in need of general legal guidance. Lawyer in the Library will provide help with criminal, trust/estate, and general legal matters. Lawyer in the Library is designed to hel",
     "venue_address": "Workspace Meeting Room, Truckee Library"
   },
@@ -496,7 +422,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": false,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "Looking to infuse your week with a burst of creativity? Join the Grass Valley Adult Art Club! Each week, we’ll explore a new project designed to spark your imagination and offer your mind a refreshing escape through an hour of hands-on creation. All materials are provided, and artists of every skill level are welcome to join. February Schedule: 2/4 Doodle Hearts 2/11 Vintage Valentines 2/18 Paper Horses 2/25 Painted Hearts",
     "venue_address": "Downtown Grass Valley, Grass Valley Library"
   },
@@ -512,7 +438,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": false,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "Join us every Wednesday for a craft at the library! The library will provide all materials. ¡Únete a nosotros para una manualidad en la biblioteca! La biblioteca proporcionará todos los materiales.",
     "venue_address": "Truckee Library"
   },
@@ -528,7 +454,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": false,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "Queer Reads is a monthly adult book club (18 ) celebrating the diverse voices of queer authors, characters, stories and joy. Join us each month as we celebrate queer storytelling and foster the discovery of new ideas and unfamiliar lived-experiences. Copies of the next month's book are available on a first-come first-served basis at all Queer Reads meetings and at the Nevada County Library. January 21st- Freshwater, by Akwaeke Emezi February 18th- Harriet Tubman Live in Concert, by Bob the Drag ",
     "venue_address": "Madelyn Helling Library"
   },
@@ -541,7 +467,7 @@
     "venue_name": "Eric Rood Center",
     "source_type": "feed",
     "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-    "last_verified_at": "2026-02-15T23:53:27-08:00",
+    "last_verified_at": "2026-02-16T23:50:28-08:00",
     "venue_city": "Nevada City",
     "ticket_url": "https://www.nevadacountyarts.org/happening-now-blog/mobilize",
     "tags": [
@@ -565,7 +491,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": false,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "Use breathing techniques, gentle movement, and meditation to cleanse, strengthen, and circulate your life energy (qi), Qigong promotes health and vitality and a tranquil state that we call a “Qigong state of mind.” These sessions provide a practical, easy-to-follow, daily ritual to self-healing, presented by Connecting Point & Nevada County Library.",
     "venue_address": "Madelyn Helling Library"
   },
@@ -581,7 +507,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": true,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "Stories, songs, and rhymes for babies, toddlers, and little learners ages 0 - 4. Story time is 20 - 30 minutes long and includes scarves or egg shakers and interactive songs and games. After storytime, enjoy the library play space and art corner!",
     "venue_address": "Bear River Library"
   },
@@ -597,7 +523,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": true,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "Join us for stories, songs and rhymes. It is a great way to build early literacy, creativity and social skills. Únete con nosotros para cuentos, cantos y rimas. Es una manera buena para desarrollar alfabetización temprana, creatividad, y habilidades sociales.",
     "venue_address": "Truckee Library"
   },
@@ -613,7 +539,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": false,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "Family Story Time at Grass Valley Library, every Thursday at 11 am Children of all ages are welcome; content geared toward ages 1 to 5 years. After storytime, we invite you to visit with other caregivers and parents in the storytime space. Welcome to all! We look forward to reading & singing with you!",
     "venue_address": "Grass Valley Library"
   },
@@ -626,7 +552,7 @@
     "venue_name": "The Center for the Arts",
     "source_type": "feed",
     "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-    "last_verified_at": "2026-02-15T23:53:27-08:00",
+    "last_verified_at": "2026-02-16T23:50:28-08:00",
     "venue_city": "Grass Valley",
     "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3devent%26eventid%3d190611793",
     "tags": [
@@ -649,7 +575,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": false,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "Join us and our Resident Tech Expert Mike B. as we delve into all things social media? What to learn what all the fuss is about TikTok or Instagram? Curious about the differences between X and Threads? Are there so many social media platforms out there and friends who want you to join that you just feel like you don't know where to start? Never fear, the library is here! Join us on Thursday, February 19th, from 2PM to 4PM as we talk about tech!",
     "venue_address": "CTC Classroom, Madelyn Helling Library"
   },
@@ -665,7 +591,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": false,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "This is a weekly conversation group for intermediate to advanced level English language learners to learn, improve and practice their English-speaking skills. Conversation practice will be emphasized. No registration required. ¿Necesita mejorar su comunicación en inglés? ¡Únase a nosotros al clase del inglés y practique con plática y más! No necesita inscribirse.",
     "venue_address": "Study Nook, Grass Valley Library"
   },
@@ -681,7 +607,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": false,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "Get certified to use our new Bambu Lab X1 Carbon 3D printer! Even if you’ve completed our Makerbot certification, you’ll need to attend this updated session to use the new printer. Completion of this class is required for independent use. Sign up today! Ages 8 & up. Children under 13 must be accompanied by parent or guardian. We recommend bringing your own laptop with Bambu Studio installed, so you can gain experience using it with your personal account. We also suggest installing the Bambu Hand",
     "venue_address": "Truckee Library"
   },
@@ -697,7 +623,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": false,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "Come level up your cooperative skills, share your creativity, and forge lifelong friendships through the power of play. Never played D&D before? That's okay! We'll teach you. D&D is easy to learn and a blast to play. Come with friends and our Dungeon Masters will start a new campaign just for you! Our D&D club features miniatures, terrain, dice for all, and plenty of player guides. Just show up with your mind tuned to adventure and you'll be in the right place. This program is best suited for te",
     "venue_address": "Gene Albaugh Community Room, Madelyn Helling Library"
   },
@@ -713,7 +639,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": false,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "Is that a chill creeping through the air… or is it just time for Book Club 217? Join Crystal, your Ghost Host, for a lively discussion of all things horror and speculative fiction. We meet monthly at The Cauldron — upstairs at 107 W. Main Street in Grass Valley. Grab this month’s pick and bring a friend — because there’s safety in numbers.",
     "venue_address": "Downtown Grass Valley, Grass Valley Library"
   },
@@ -726,7 +652,7 @@
     "venue_name": "The Curious Forge",
     "source_type": "feed",
     "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-    "last_verified_at": "2026-02-15T23:53:27-08:00",
+    "last_verified_at": "2026-02-16T23:50:28-08:00",
     "venue_city": "Nevada City",
     "ticket_url": "https://thecuriousforge.org/product/mingle-and-make-needle-felting/",
     "tags": [
@@ -748,7 +674,7 @@
     "venue_name": "Oddfellows Hall",
     "source_type": "feed",
     "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-    "last_verified_at": "2026-02-15T23:53:27-08:00",
+    "last_verified_at": "2026-02-16T23:50:28-08:00",
     "venue_city": "Nevada City",
     "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3devent%26eventid%3d196396177",
     "tags": [
@@ -770,7 +696,7 @@
     "venue_name": "11761 Ridge Road",
     "source_type": "feed",
     "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-    "last_verified_at": "2026-02-15T23:53:27-08:00",
+    "last_verified_at": "2026-02-16T23:50:28-08:00",
     "venue_city": "Grass Valley",
     "ticket_url": "https://www.nevadauniondance.com/",
     "tags": [
@@ -794,7 +720,7 @@
     "venue_name": "Eric Rood Center",
     "source_type": "feed",
     "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-    "last_verified_at": "2026-02-15T23:53:27-08:00",
+    "last_verified_at": "2026-02-16T23:50:28-08:00",
     "venue_city": "Nevada City",
     "ticket_url": "https://www.nevadacountyarts.org/happening-now-blog/mobilize",
     "tags": [
@@ -818,7 +744,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": false,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "This is a weekly class for English language learners to learn, improve and practice their English speaking skills. Conversation practice will be emphasized. All levels welcome. No registration required. ¿Necesita mejorar su comunicación en inglés? ¡Únase a nosotros al clase del inglés y practique con plática y más! No necesita inscribirse.",
     "venue_address": "Study Nook, Grass Valley Library"
   },
@@ -834,7 +760,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": false,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "Children of all ages (with a favorite adult) have fun with engaging books, songs and activities as they build their early literacy skills. Drop-in program in the Children's Room at the Madelyn Helling Library.",
     "venue_address": "Madelyn Helling Library"
   },
@@ -850,7 +776,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": false,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "Sudoku for Seniors is a relaxed, instructor-led class designed to build confidence and sharpen the mind through number puzzles. Participants will learn easy strategies, practice at their own pace, and enjoy a social, low-pressure environment—no prior Sudoku experience required.",
     "venue_address": "Madelyn Helling Library"
   },
@@ -866,7 +792,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": true,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "Teen-led Dungeons & Dragons Meet Up at the Grass Valley Library. Bring your own DM, if you are starting a new campaign. We provide the space, you provide the adventuring party.",
     "venue_address": "Grass Valley Library"
   },
@@ -882,7 +808,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": true,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "Join us for building adventures with our DUPLO Club! Let your imagination run wild with your designs. Please don't forget to take a picture of your creation, as the DUPLOS live at the library and cannot be taken home. All ages welcome.",
     "venue_address": "Truckee Library"
   },
@@ -895,7 +821,7 @@
     "venue_name": "11761 Ridge Road",
     "source_type": "feed",
     "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-    "last_verified_at": "2026-02-15T23:53:27-08:00",
+    "last_verified_at": "2026-02-16T23:50:28-08:00",
     "venue_city": "Grass Valley",
     "ticket_url": "https://www.nevadauniondance.com/",
     "tags": [
@@ -919,7 +845,7 @@
     "venue_name": "Mcknight crossing shopping center",
     "source_type": "feed",
     "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-    "last_verified_at": "2026-02-15T23:53:27-08:00",
+    "last_verified_at": "2026-02-16T23:50:28-08:00",
     "venue_city": "Grass Valley",
     "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3devent%26eventid%3d191631905",
     "tags": [
@@ -939,7 +865,7 @@
     "venue_name": "Kidzone Museum",
     "source_type": "feed",
     "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-    "last_verified_at": "2026-02-15T23:53:27-08:00",
+    "last_verified_at": "2026-02-16T23:50:28-08:00",
     "venue_city": "Truckee",
     "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3devent%26eventid%3d172588778",
     "tags": [
@@ -961,7 +887,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": false,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "Join Literary Yarns every Saturday at the Grass Valley library for a casual fiber-arts meetup. Bring a fiber project and settle in for as much or as little of the morning as you like, crafting alongside others in a relaxed, book-filled space.",
     "venue_address": "Grass Valley Library"
   },
@@ -977,7 +903,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": false,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "A Yoga class to support flexibility, strength, breathing and overall wellness. All experience levels are welcome! A limited number of yoga mats will be provided, but participants are encouraged to bring their own mat if they own one. This class is open to ages 16 and up. This class is taught by Grace Kendrick, E-RYT, CAS. More about Grace: Grace is an experienced Registered Yoga Teacher (e-RYT) and Certified Ayurveda Specialist (C.A.S.) holding yoga certifications through the White Lotus Foundat",
     "venue_address": "Main Reading Room, Madelyn Helling Library"
   },
@@ -993,7 +919,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": false,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "Get certified to use our new Bambu Lab X1 Carbon 3D printer! Even if you’ve completed our Makerbot certification, you’ll need to attend this updated session to use the new printer. Completion of this class is required for independent use. Sign up today! Ages 8 & up. Children under 13 must be accompanied by parent or guardian. We recommend bringing your own laptop with Bambu Studio installed, so you can gain experience using it with your personal account. We also suggest installing the Bambu Hand",
     "venue_address": "Truckee Library"
   },
@@ -1006,7 +932,7 @@
     "venue_name": "12075 Auburn Rd. Grass Valley, CA 95949",
     "source_type": "feed",
     "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-    "last_verified_at": "2026-02-15T23:53:27-08:00",
+    "last_verified_at": "2026-02-16T23:50:28-08:00",
     "venue_city": "Grass Valley",
     "ticket_url": "https://www.northstarhouse.org/event-details/community-game-day",
     "tags": [
@@ -1026,7 +952,7 @@
     "venue_name": "Inner Path, 300 Commercial Street, Nevada City, CA",
     "source_type": "feed",
     "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-    "last_verified_at": "2026-02-15T23:53:27-08:00",
+    "last_verified_at": "2026-02-16T23:50:28-08:00",
     "venue_city": "Nevada City",
     "ticket_url": "https://www.nevadacity.innerpath.org",
     "tags": [
@@ -1048,7 +974,7 @@
     "venue_name": "11761 Ridge Road",
     "source_type": "feed",
     "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-    "last_verified_at": "2026-02-15T23:53:27-08:00",
+    "last_verified_at": "2026-02-16T23:50:28-08:00",
     "venue_city": "Grass Valley",
     "ticket_url": "https://www.nevadauniondance.com/",
     "tags": [
@@ -1072,7 +998,7 @@
     "venue_name": "The Curious Forge",
     "source_type": "feed",
     "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-    "last_verified_at": "2026-02-15T23:53:27-08:00",
+    "last_verified_at": "2026-02-16T23:50:28-08:00",
     "venue_city": "Nevada City",
     "ticket_url": "https://thecuriousforge.org/product/nature-infused-bookmaking-journey/",
     "tags": [
@@ -1094,7 +1020,7 @@
     "venue_name": "The Curious Forge",
     "source_type": "feed",
     "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-    "last_verified_at": "2026-02-15T23:53:27-08:00",
+    "last_verified_at": "2026-02-16T23:50:28-08:00",
     "venue_city": "Nevada City",
     "ticket_url": "https://thecuriousforge.org/product/nature-infused-bookmaking-journey/",
     "tags": [
@@ -1116,7 +1042,7 @@
     "venue_name": "The Curious Forge",
     "source_type": "feed",
     "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-    "last_verified_at": "2026-02-15T23:53:27-08:00",
+    "last_verified_at": "2026-02-16T23:50:28-08:00",
     "venue_city": "Nevada City",
     "ticket_url": "https://thecuriousforge.org/product/flameworking-everything-marbles/",
     "tags": [
@@ -1138,7 +1064,7 @@
     "venue_name": "The Center for the Arts",
     "source_type": "feed",
     "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-    "last_verified_at": "2026-02-15T23:53:27-08:00",
+    "last_verified_at": "2026-02-16T23:50:28-08:00",
     "venue_city": "Grass Valley",
     "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3devent%26eventid%3d192053639",
     "tags": [
@@ -1158,7 +1084,7 @@
     "venue_name": "Eric Rood Center",
     "source_type": "feed",
     "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-    "last_verified_at": "2026-02-15T23:53:27-08:00",
+    "last_verified_at": "2026-02-16T23:50:28-08:00",
     "venue_city": "Nevada City",
     "ticket_url": "https://www.nevadacountyarts.org/happening-now-blog/mobilize",
     "tags": [
@@ -1182,7 +1108,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": false,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "Cool Hand Uke’s Strum Bums Ukulele Extravaganza Rescue and Relief Band, known simply as the Strum Bums, began in 2000 as a weekly class at the Senior Center when it was located at the Nevada County Fairgrounds. Twenty or so seniors showed up for the first class. Fifteen or so continued. Today there are nearly 75 members on its email list. Join the Strum Bums on Mondays from 3:00pm-4:30pm at the Madelyn Helling Library to get your Ukulele chops ready for showtime! Local Ukulele Legend Dan Scanlan",
     "venue_address": "CTC Classroom, Madelyn Helling Library"
   },
@@ -1195,7 +1121,7 @@
     "venue_name": "The Curious Forge",
     "source_type": "feed",
     "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-    "last_verified_at": "2026-02-15T23:53:27-08:00",
+    "last_verified_at": "2026-02-16T23:50:28-08:00",
     "venue_city": "Nevada City",
     "ticket_url": "https://thecuriousforge.org/product/youth-ceramics-class/",
     "tags": [
@@ -1217,7 +1143,7 @@
     "venue_name": "Seven Stars Gallery 210 Spring Street",
     "source_type": "feed",
     "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-    "last_verified_at": "2026-02-15T23:53:27-08:00",
+    "last_verified_at": "2026-02-16T23:50:28-08:00",
     "venue_city": "Nevada City",
     "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3devent%26eventid%3d195322384",
     "tags": [
@@ -1240,7 +1166,7 @@
     "venue_name": "Eric Rood Center",
     "source_type": "feed",
     "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-    "last_verified_at": "2026-02-15T23:53:27-08:00",
+    "last_verified_at": "2026-02-16T23:50:28-08:00",
     "venue_city": "Nevada City",
     "ticket_url": "https://www.nevadacountyarts.org/happening-now-blog/mobilize",
     "tags": [
@@ -1264,7 +1190,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": true,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "Join Miss Emily for Baby Storytime at the historic Grass Valley Library. This short story time is filled with rhymes, songs, and stories for the youngest children and their caregivers. We invite you to linger and enjoy each other's company after the story time. Toys will be provided.",
     "venue_address": "Grass Valley Library"
   },
@@ -1280,7 +1206,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": true,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "Looking for a great way to engage with your little ones? Join us for a delightful morning of story and song with Miss Betsey every Tuesday at the Penn Valley Library!",
     "venue_address": "Penn Valley Library"
   },
@@ -1296,7 +1222,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": false,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "This is a weekly class for English language learners to learn, improve and practice their English speaking skills. Conversation practice will be emphasized. All levels welcome. No registration required. ¿Necesita mejorar su comunicación en inglés? ¡Únase a nosotros al clase del inglés y practique con plática y más! No necesita inscribirse.",
     "venue_address": "Study Nook, Grass Valley Library"
   },
@@ -1312,7 +1238,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": false,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "Join us for a Spanish conversation group for Spanish language learners! Volunteer instructors will lead the group and facilitate this opportunity to practice conversational skills and maybe make some friends while they're at it.",
     "venue_address": "CTC Classroom, Madelyn Helling Library"
   },
@@ -1328,7 +1254,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": false,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "Practice reading aloud with Raven, the therapy dog! Bring a book from home or choose one from our shelves.",
     "venue_address": "Bear River Library"
   },
@@ -1344,7 +1270,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": true,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "Use your imagination and create a LEGO masterpiece! All your projectss will go on display in the Children's Library. For ages 6 and older.",
     "venue_address": "Bear River Library Community Room, Bear River Library"
   },
@@ -1357,7 +1283,7 @@
     "venue_name": "Miners Foundry Cultural Center",
     "source_type": "feed",
     "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-    "last_verified_at": "2026-02-15T23:53:27-08:00",
+    "last_verified_at": "2026-02-16T23:50:28-08:00",
     "venue_city": "Nevada City",
     "ticket_url": "https://www.facebook.com/groups/246116427305067/?ref=share_group_link&mibextid=wwXIfr",
     "tags": [
@@ -1380,7 +1306,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": false,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "“There’s no way I’m kissin’ a frog and eatin’ a bug on the same day.” -Princess Tiana Leap on over to the Grass Valley Library on February 24th for a Family Movie Night that’s sure to be TOAD-ally magical. No need to KISS any frogs! Just bring the whole POND… er, family, for an evening full of laughs, charm, and bayou-style fun! It’ll be a RIBBETING good time, so don’t FROG-get to join us! The Princess and the Frog is rated G. Runtime 97 minutes. © Walt Disney Pictures",
     "venue_address": "Downtown Grass Valley, Grass Valley Library"
   },
@@ -1396,7 +1322,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": false,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "This is a weekly conversation group for English language learners to learn, improve and practice their English speaking skills. Conversation practice will be emphasized. All levels welcome. No registration required. ¿Necesita mejorar su comunicación en inglés? ¡Únase a nosotros al clase del inglés y practique en pláticas y más! No necesita inscribirse.",
     "venue_address": "Truckee Library"
   },
@@ -1409,7 +1335,7 @@
     "venue_name": "Eric Rood Center",
     "source_type": "feed",
     "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-    "last_verified_at": "2026-02-15T23:53:27-08:00",
+    "last_verified_at": "2026-02-16T23:50:28-08:00",
     "venue_city": "Nevada City",
     "ticket_url": "https://www.nevadacountyarts.org/happening-now-blog/mobilize",
     "tags": [
@@ -1433,7 +1359,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": true,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "We'll have a pajama party at this Stay & Play. Snuggle up! Caregivers and their little ones are invited to join us at the Madelyn Helling Library for time to play, learn, sing, read, and have fun together! Each session will feature a story time, snacks, and an opportunity to learn together. No registration required. Ages 0-5",
     "venue_address": "Gene Albaugh Community Room, Marian E. Gallaher Amphitheater, Madelyn Helling Library"
   },
@@ -1449,7 +1375,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": false,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "Have a question about your device? Need to have your computer, tablet, or phone looked at? Want to learn more about the Library’s digital services and how to use them? Drop in from 1:00PM-3:00PM every Wednesday at the Madelyn Helling Library for help from friendly Library volunteers and staff. There will be free coffee and snacks, too!",
     "venue_address": "CTC Classroom, Madelyn Helling Library"
   },
@@ -1465,7 +1391,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": false,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "This is a weekly conversation group for English language learners to learn, improve and practice their English speaking skills. Conversation practice will be emphasized. All levels welcome. No registration required. ¿Necesita mejorar su comunicación en inglés? ¡Únase a nosotros al clase del inglés y practique con plática y más! No necesita inscribirse.",
     "venue_address": "Truckee Library"
   },
@@ -1481,7 +1407,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": true,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "Join us in the Grass Valley Library kid's room and let's have fun creating, building, and learning together. This program is open to all youth, but is best suited for kids ages 8-12.",
     "venue_address": "Grass Valley Library"
   },
@@ -1497,7 +1423,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": false,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "Practice reading aloud trained dog, Inky or Mojo! Color a bookmark, collect a sticker each time you visit a dog, and after five stickers choose a book to keep!",
     "venue_address": "Madelyn Helling Library"
   },
@@ -1513,7 +1439,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": true,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "Join us for building adventures with our LEGO Club at Penn Valley Library! Let your imagination run wild with your designs. Remember to take a photo of your creations, as the LEGOS live at the library and must stay in the children's room. All ages welcome, though some LEGOs are not suited for babies and toddlers.",
     "venue_address": "Penn Valley Library"
   },
@@ -1529,7 +1455,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": false,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "Looking to infuse your week with a burst of creativity? Join the Grass Valley Adult Art Club! Each week, we’ll explore a new project designed to spark your imagination and offer your mind a refreshing escape through an hour of hands-on creation. All materials are provided, and artists of every skill level are welcome to join. February Schedule: 2/4 Doodle Hearts 2/11 Vintage Valentines 2/18 Paper Horses 2/25 Painted Hearts",
     "venue_address": "Downtown Grass Valley, Grass Valley Library"
   },
@@ -1545,7 +1471,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": false,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "Join us every Wednesday for a craft at the library! The library will provide all materials. ¡Únete a nosotros para una manualidad en la biblioteca! La biblioteca proporcionará todos los materiales.",
     "venue_address": "Truckee Library"
   },
@@ -1558,7 +1484,7 @@
     "venue_name": "Members homes",
     "source_type": "feed",
     "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-    "last_verified_at": "2026-02-15T23:53:27-08:00",
+    "last_verified_at": "2026-02-16T23:50:28-08:00",
     "venue_city": "Grass Valley",
     "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3devent%26eventid%3d183038849",
     "tags": [
@@ -1579,7 +1505,7 @@
     "venue_name": "The Curious Forge",
     "source_type": "feed",
     "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-    "last_verified_at": "2026-02-15T23:53:27-08:00",
+    "last_verified_at": "2026-02-16T23:50:28-08:00",
     "venue_city": "Nevada City",
     "ticket_url": "https://thecuriousforge.org/product/mingle-make-enameling-jewelry-pendants/",
     "tags": [
@@ -1601,7 +1527,7 @@
     "venue_name": "The Center for the Arts",
     "source_type": "feed",
     "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-    "last_verified_at": "2026-02-15T23:53:27-08:00",
+    "last_verified_at": "2026-02-16T23:50:28-08:00",
     "venue_city": "Grass Valley",
     "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3devent%26eventid%3d191385019",
     "tags": [
@@ -1620,7 +1546,7 @@
     "venue_name": "Miners Foundry Cultural Center",
     "source_type": "feed",
     "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-    "last_verified_at": "2026-02-15T23:53:27-08:00",
+    "last_verified_at": "2026-02-16T23:50:28-08:00",
     "venue_city": "Nevada City",
     "ticket_url": "https://www.inconcertsierra.org/pages/concerts/broadwayinlove.php",
     "tags": [
@@ -1640,7 +1566,7 @@
     "venue_name": "Eric Rood Center",
     "source_type": "feed",
     "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-    "last_verified_at": "2026-02-15T23:53:27-08:00",
+    "last_verified_at": "2026-02-16T23:50:28-08:00",
     "venue_city": "Nevada City",
     "ticket_url": "https://www.nevadacountyarts.org/happening-now-blog/mobilize",
     "tags": [
@@ -1664,7 +1590,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": false,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "Use breathing techniques, gentle movement, and meditation to cleanse, strengthen, and circulate your life energy (qi), Qigong promotes health and vitality and a tranquil state that we call a “Qigong state of mind.” These sessions provide a practical, easy-to-follow, daily ritual to self-healing, presented by Connecting Point & Nevada County Library.",
     "venue_address": "Madelyn Helling Library"
   },
@@ -1680,7 +1606,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": true,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "Join us for stories, songs and rhymes. It is a great way to build early literacy, creativity and social skills. Únete con nosotros para cuentos, cantos y rimas. Es una manera buena para desarrollar alfabetización temprana, creatividad, y habilidades sociales.",
     "venue_address": "Truckee Library"
   },
@@ -1696,7 +1622,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": false,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "Join us for stories, songs and rhymes. It is a great way to build early literacy, creativity and social skills. Únete a nosotros para cuentos, cantos y rimas. Es una manera buena para desarrollar alfabetización temprana, creatividad, y habilidades sociales.",
     "venue_address": "Truckee Library"
   },
@@ -1712,7 +1638,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": false,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "Family Story Time at Grass Valley Library, every Thursday at 11 am Children of all ages are welcome; content geared toward ages 1 to 5 years. After storytime, we invite you to visit with other caregivers and parents in the storytime space. Welcome to all! We look forward to reading & singing with you!",
     "venue_address": "Grass Valley Library"
   },
@@ -1728,7 +1654,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": false,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "Do you enjoy discussing the latest literary trends and bestselling titles? If so, Penn Valley Library has a book club for you! Join us at the library on the fourth Thursday of the month at 2PM for a casual chat and a cup of coffee. The schedule for 2026 is: January 29: The Frozen River” by Ariel Lawhorn February 26: “Twice” by Mitch Albom March 26: “North Woods” By Daniel Mason April 23: “A Marriage at Sea” by Sophie Elmhirst May 28: “Queens of Crime” by Marie Benedict June 25: “Three Days in Ju",
     "venue_address": "Penn Valley Library"
   },
@@ -1744,7 +1670,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": false,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "This is a weekly conversation group for intermediate to advanced level English language learners to learn, improve and practice their English-speaking skills. Conversation practice will be emphasized. No registration required. ¿Necesita mejorar su comunicación en inglés? ¡Únase a nosotros al clase del inglés y practique con plática y más! No necesita inscribirse.",
     "venue_address": "Study Nook, Grass Valley Library"
   },
@@ -1760,7 +1686,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": false,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "Come level up your cooperative skills, share your creativity, and forge lifelong friendships through the power of play. Never played D&D before? That's okay! We'll teach you. D&D is easy to learn and a blast to play. Come with friends and our Dungeon Masters will start a new campaign just for you! Our D&D club features miniatures, terrain, dice for all, and plenty of player guides. Just show up with your mind tuned to adventure and you'll be in the right place. This program is best suited for te",
     "venue_address": "Gene Albaugh Community Room, Madelyn Helling Library"
   },
@@ -1773,7 +1699,7 @@
     "venue_name": "Nevada City Winery",
     "source_type": "feed",
     "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-    "last_verified_at": "2026-02-15T23:53:27-08:00",
+    "last_verified_at": "2026-02-16T23:50:28-08:00",
     "venue_city": "Nevada City",
     "ticket_url": "https://www.ncwinery.com/events",
     "tags": [
@@ -1793,7 +1719,7 @@
     "venue_name": "Grass Valley Brewing Co",
     "source_type": "feed",
     "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-    "last_verified_at": "2026-02-15T23:53:27-08:00",
+    "last_verified_at": "2026-02-16T23:50:28-08:00",
     "venue_city": "Grass Valley",
     "ticket_url": "https://www.gvbrew.com/",
     "tags": [
@@ -1814,7 +1740,7 @@
     "venue_name": "Oddfellows Hall",
     "source_type": "feed",
     "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-    "last_verified_at": "2026-02-15T23:53:27-08:00",
+    "last_verified_at": "2026-02-16T23:50:28-08:00",
     "venue_city": "Nevada City",
     "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3devent%26eventid%3d196396178",
     "tags": [
@@ -1836,7 +1762,7 @@
     "venue_name": "Eric Rood Center",
     "source_type": "feed",
     "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-    "last_verified_at": "2026-02-15T23:53:27-08:00",
+    "last_verified_at": "2026-02-16T23:50:28-08:00",
     "venue_city": "Nevada City",
     "ticket_url": "https://www.nevadacountyarts.org/happening-now-blog/mobilize",
     "tags": [
@@ -1860,7 +1786,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": false,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "This is a weekly class for English language learners to learn, improve and practice their English speaking skills. Conversation practice will be emphasized. All levels welcome. No registration required. ¿Necesita mejorar su comunicación en inglés? ¡Únase a nosotros al clase del inglés y practique con plática y más! No necesita inscribirse.",
     "venue_address": "Study Nook, Grass Valley Library"
   },
@@ -1876,7 +1802,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": false,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "Children of all ages (with a favorite adult) have fun with engaging books, songs and activities as they build their early literacy skills. Drop-in program in the Children's Room at the Madelyn Helling Library.",
     "venue_address": "Madelyn Helling Library"
   },
@@ -1892,7 +1818,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": false,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "Sudoku for Seniors is a relaxed, instructor-led class designed to build confidence and sharpen the mind through number puzzles. Participants will learn easy strategies, practice at their own pace, and enjoy a social, low-pressure environment—no prior Sudoku experience required.",
     "venue_address": "Madelyn Helling Library"
   },
@@ -1908,7 +1834,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": true,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "Teen-led Dungeons & Dragons Meet Up at the Grass Valley Library. Bring your own DM, if you are starting a new campaign. We provide the space, you provide the adventuring party.",
     "venue_address": "Grass Valley Library"
   },
@@ -1924,7 +1850,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": true,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "Join us for building adventures with our DUPLO Club! Let your imagination run wild with your designs. Please don't forget to take a picture of your creation, as the DUPLOS live at the library and cannot be taken home. All ages welcome.",
     "venue_address": "Truckee Library"
   },
@@ -1937,7 +1863,7 @@
     "venue_name": "Mcknight crossing shopping center",
     "source_type": "feed",
     "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-    "last_verified_at": "2026-02-15T23:53:27-08:00",
+    "last_verified_at": "2026-02-16T23:50:28-08:00",
     "venue_city": "Grass Valley",
     "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3devent%26eventid%3d191631906",
     "tags": [
@@ -1957,7 +1883,7 @@
     "venue_name": "Kidzone Museum",
     "source_type": "feed",
     "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-    "last_verified_at": "2026-02-15T23:53:27-08:00",
+    "last_verified_at": "2026-02-16T23:50:28-08:00",
     "venue_city": "Truckee",
     "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3devent%26eventid%3d172932092",
     "tags": [
@@ -1979,7 +1905,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": false,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "Join Literary Yarns every Saturday at the Grass Valley library for a casual fiber-arts meetup. Bring a fiber project and settle in for as much or as little of the morning as you like, crafting alongside others in a relaxed, book-filled space.",
     "venue_address": "Grass Valley Library"
   },
@@ -1992,7 +1918,7 @@
     "venue_name": "Truckee Library",
     "source_type": "feed",
     "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-    "last_verified_at": "2026-02-15T23:53:27-08:00",
+    "last_verified_at": "2026-02-16T23:50:28-08:00",
     "venue_city": "Truckee",
     "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3devent%26eventid%3d116790096",
     "tags": [
@@ -2012,7 +1938,7 @@
     "venue_name": "The Curious Forge",
     "source_type": "feed",
     "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-    "last_verified_at": "2026-02-15T23:53:27-08:00",
+    "last_verified_at": "2026-02-16T23:50:28-08:00",
     "venue_city": "Nevada City",
     "ticket_url": "https://thecuriousforge.org/product/glassblowing-taster-experience-30-minutes/",
     "tags": [
@@ -2037,7 +1963,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": false,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "A Yoga class to support flexibility, strength, breathing and overall wellness. All experience levels are welcome! A limited number of yoga mats will be provided, but participants are encouraged to bring their own mat if they own one. This class is open to ages 16 and up. This class is taught by Grace Kendrick, E-RYT, CAS. More about Grace: Grace is an experienced Registered Yoga Teacher (e-RYT) and Certified Ayurveda Specialist (C.A.S.) holding yoga certifications through the White Lotus Foundat",
     "venue_address": "Main Reading Room, Madelyn Helling Library"
   },
@@ -2050,7 +1976,7 @@
     "venue_name": "The Curious Forge",
     "source_type": "feed",
     "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-    "last_verified_at": "2026-02-15T23:53:27-08:00",
+    "last_verified_at": "2026-02-16T23:50:28-08:00",
     "venue_city": "Nevada City",
     "ticket_url": "https://thecuriousforge.org/product/custom-hat-making/",
     "tags": [
@@ -2072,7 +1998,7 @@
     "venue_name": "The Curious Forge",
     "source_type": "feed",
     "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-    "last_verified_at": "2026-02-15T23:53:27-08:00",
+    "last_verified_at": "2026-02-16T23:50:28-08:00",
     "venue_city": "Nevada City",
     "ticket_url": "https://thecuriousforge.org/product/custom-hat-making/",
     "tags": [
@@ -2097,7 +2023,7 @@
     "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
     "source_label": "Nevada County Library",
     "is_family": false,
-    "last_verified_at": "2026-02-15T23:53:28-08:00",
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
     "description": "Get to know your library better by completing the monthly scavenger hunt! One prize per participant, per visit. Available at the following Nevada County Library locations: Truckee, Madelyn Helling, Grass Valley, and Bear River.",
     "venue_address": "Truckee Library"
   },
@@ -2110,7 +2036,7 @@
     "venue_name": "Senior Services",
     "source_type": "feed",
     "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-    "last_verified_at": "2026-02-15T23:53:27-08:00",
+    "last_verified_at": "2026-02-16T23:50:28-08:00",
     "venue_city": "Truckee",
     "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3devent%26eventid%3d118676669",
     "tags": [
@@ -2130,7 +2056,7 @@
     "venue_name": "The Curious Forge",
     "source_type": "feed",
     "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-    "last_verified_at": "2026-02-15T23:53:27-08:00",
+    "last_verified_at": "2026-02-16T23:50:28-08:00",
     "venue_city": "Nevada City",
     "ticket_url": "https://thecuriousforge.org/product/woodturning-class/",
     "tags": [
@@ -2152,7 +2078,7 @@
     "venue_name": "Commercial Street in Nevada City and at the Miners Foundry.",
     "source_type": "feed",
     "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-    "last_verified_at": "2026-02-15T23:53:27-08:00",
+    "last_verified_at": "2026-02-16T23:50:28-08:00",
     "venue_city": "Nevada City",
     "ticket_url": "https://catsweb.org",
     "tags": [
@@ -2172,7 +2098,7 @@
     "venue_name": "The Curious Forge",
     "source_type": "feed",
     "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-    "last_verified_at": "2026-02-15T23:53:27-08:00",
+    "last_verified_at": "2026-02-16T23:50:28-08:00",
     "venue_city": "Nevada City",
     "ticket_url": "https://thecuriousforge.org/product/sunday-ceramics/",
     "tags": [
@@ -2194,7 +2120,7 @@
     "venue_name": "Grass Valley Brewing Company",
     "source_type": "feed",
     "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-    "last_verified_at": "2026-02-15T23:53:27-08:00",
+    "last_verified_at": "2026-02-16T23:50:28-08:00",
     "venue_city": "Grass Valley",
     "ticket_url": "https://www.threetimesthrough.com/",
     "tags": [
@@ -2213,7 +2139,7 @@
     "venue_name": "Nevada Theatre",
     "source_type": "feed",
     "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-    "last_verified_at": "2026-02-15T23:53:27-08:00",
+    "last_verified_at": "2026-02-16T23:50:28-08:00",
     "venue_city": "Nevada City",
     "ticket_url": "https://www.theonyxtheatre.com/movies/531-north-by-northwest-1959/",
     "tags": [
@@ -2221,6 +2147,88 @@
     ],
     "image_url": "https://www.trumba.com/i/DgCRvXb4ZCNXWanEOTIJNzJQ.jpg?w=900",
     "description": "NORTH BY NORTHWEST finds New York City ad executive Roger O. Thornhill (Cary Grant) pursued by ruthless spy Phillip Vandamm (James Mason) after Thornhill is mistaken for a government agent. Hunted relentlessly by Vandamm's associates, the harried Thornhill ends up on a cross-country journey, meeting the beautiful and mysterious Eve Kendall (Eva Marie Saint) along the way. Soon Vandamm's henchmen close in on Thornhill, resulting in some of the most iconic action sequences of all time.",
+    "source_label": "Nevada County Arts Council",
+    "is_family": false
+  },
+  {
+    "event_id": "trumba-196757546",
+    "title": "Mobilize | Art Inspiring Activism with Wild & Scenic Film Festival Exhibition",
+    "start_iso": "2026-03-02T08:00:00-08:00",
+    "end_iso": "2026-03-02T17:00:00-08:00",
+    "timezone": "America/Los_Angeles",
+    "venue_name": "Eric Rood Center",
+    "source_type": "feed",
+    "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
+    "last_verified_at": "2026-02-16T23:50:28-08:00",
+    "venue_city": "Nevada City",
+    "ticket_url": "https://www.nevadacountyarts.org/happening-now-blog/mobilize",
+    "tags": [
+      "Art & Gallery",
+      "Visual Arts"
+    ],
+    "image_url": "https://www.trumba.com/i/DgCX2vrEpel-8aNzWE5b8cFb.jpg?w=900",
+    "description": "Mobilize is the first exhibition of 2026 under Art in Public Spaces and celebrates a 15-year partnership between Nevada County Arts Council and Wild & Scenic Film Festival. This year’s festival theme and title of the Rood Center exhibition, MOBILIZE, serves as a call to action and a celebration of progress toward tangible change. The exhibition explores Wild and Scenic’s rich history and its visual art exhibition, utilizing visual language to elevate voices, organize efforts, and address environmental challenges.",
+    "source_label": "Nevada County Arts Council",
+    "is_family": false
+  },
+  {
+    "event_id": "libcal-LibCal-20247-16035873-20260302",
+    "title": "Ukulele for the People",
+    "start_iso": "2026-03-02T15:00:00-08:00",
+    "end_iso": "2026-03-02T16:30:00-08:00",
+    "timezone": "America/Los_Angeles",
+    "venue_name": "CTC Classroom",
+    "venue_city": "Nevada City",
+    "source_type": "ical",
+    "source_ref": "https://nevadacountyca.libcal.com/ical_subscribe.php?src=p&cid=20247",
+    "source_label": "Nevada County Library",
+    "is_family": false,
+    "last_verified_at": "2026-02-16T23:50:29-08:00",
+    "description": "Cool Hand Uke’s Strum Bums Ukulele Extravaganza Rescue and Relief Band, known simply as the Strum Bums, began in 2000 as a weekly class at the Senior Center when it was located at the Nevada County Fairgrounds. Twenty or so seniors showed up for the first class. Fifteen or so continued. Today there are nearly 75 members on its email list. Join the Strum Bums on Mondays from 3:00pm-4:30pm at the Madelyn Helling Library to get your Ukulele chops ready for showtime! Local Ukulele Legend Dan Scanlan",
+    "venue_address": "CTC Classroom, Madelyn Helling Library"
+  },
+  {
+    "event_id": "trumba-196984285",
+    "title": "Glassblowing for Beginners – Make a Paperweight",
+    "start_iso": "2026-03-02T17:30:00-08:00",
+    "end_iso": "2026-03-02T20:30:00-08:00",
+    "timezone": "America/Los_Angeles",
+    "venue_name": "The Curious Forge",
+    "source_type": "feed",
+    "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
+    "last_verified_at": "2026-02-16T23:50:28-08:00",
+    "venue_city": "Nevada City",
+    "ticket_url": "https://thecuriousforge.org/product/glassblowing-for-beginners/",
+    "tags": [
+      "Art & Gallery",
+      "Visual Arts",
+      "Workshop"
+    ],
+    "image_url": "https://www.trumba.com/i/DgDVJy45%2A0A5ojPX2UdnR5%2AN.jpg?w=900",
+    "description": "Glassblowing for Beginners Level 1 – An introduction to Glassblowing, Experience the enchanting art of glassblowing and transform molten glass into a stunning physical creation in just 3 hours! This beginner-friendly class is designed to introduce you to the fundamentals of glassblowing and let you unleash your creativity., Starting with a brief safety and tool identification talk, we’ll quickly move on to the exciting part – working with hot glass! You’ll have the opportunity to gather glass, manipulate it with fire and tools, and shape it into a beautiful work of art. Under the guidance of our experienced glassblower, you’ll create a one-of-a-kind colored glass paperweight that you can proudly display in your home or office. This hands-on class will allow you to experience the magic of glassblowing while learning a new skill that you can continue to develop. Don’t miss out on this unique opportunity to explore the ancient art of glassblowing and create a beautiful piece of art to take home!, Your stunning glass creations will be ready for pickup at The Forge within a few days of your class, or you can opt for the convenience of having your masterpiece shipped to you for a small shipping and handling fee., Disclaimer: Occasionally, hot glass may break during the annealing process. If your glass piece breaks, you will have the option to select a similar replacement piece from our stock of handblown glass items., Ages 14+, Price: $180, Class minimum 2 students/maximum 4 students. If the class minimum is not met, the class will be rescheduled to a later date.",
+    "source_label": "Nevada County Arts Council",
+    "is_family": false
+  },
+  {
+    "event_id": "trumba-195322385",
+    "title": "Nevada City Odd Fellows Open Mic",
+    "start_iso": "2026-03-02T18:30:00-08:00",
+    "end_iso": "2026-03-02T21:00:00-08:00",
+    "timezone": "America/Los_Angeles",
+    "venue_name": "Seven Stars Gallery 210 Spring Street",
+    "source_type": "feed",
+    "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
+    "last_verified_at": "2026-02-16T23:50:28-08:00",
+    "venue_city": "Nevada City",
+    "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3devent%26eventid%3d195322385",
+    "tags": [
+      "Children / Family",
+      "Community",
+      "Literary Arts",
+      "Music / Concert"
+    ],
+    "image_url": "https://www.trumba.com/i/DgBdHmbH9bk2SvN1RLvWqbxt.jpg?w=900",
+    "description": "The most relaxed, most welcoming open mic in Western Nevada County",
     "source_label": "Nevada County Arts Council",
     "is_family": false
   }

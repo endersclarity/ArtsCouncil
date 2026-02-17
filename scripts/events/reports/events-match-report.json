@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-02-16T07:53:29.228260+00:00",
+  "generated_at": "2026-02-17T07:50:30.555286+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
     "total_events": 123,
-    "matched_events": 91,
-    "unmatched_events": 32,
+    "matched_events": 90,
+    "unmatched_events": 33,
     "matched_by_pid": 0,
     "matched_by_alias": 2,
-    "matched_by_name_city": 26,
-    "matched_by_name_city_fuzzy": 63,
+    "matched_by_name_city": 27,
+    "matched_by_name_city_fuzzy": 61,
     "upcoming_14d": 123
   },
   "unmatched_venues": [
@@ -19,8 +19,17 @@
       "venue_name": "Eric Rood Center",
       "venue_city": "Nevada City",
       "count": 10,
-      "sample_event_id": "trumba-196757536",
+      "sample_event_id": "trumba-196757537",
       "sample_title": "Mobilize | Art Inspiring Activism with Wild & Scenic Film Festival Exhibition",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "ctcclassroom|nevadacity",
+      "venue_name": "CTC Classroom",
+      "venue_city": "Nevada City",
+      "count": 7,
+      "sample_event_id": "libcal-LibCal-20247-16290013-20260217",
+      "sample_title": "Lunchtime Legal Seminar: Understanding Probate in California",
       "candidate_assets": []
     },
     {
@@ -30,15 +39,6 @@
       "count": 6,
       "sample_event_id": "libcal-LibCal-20247-15952660-20260217",
       "sample_title": "English Language Class",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "ctcclassroom|nevadacity",
-      "venue_name": "CTC Classroom",
-      "venue_city": "Nevada City",
-      "count": 6,
-      "sample_event_id": "libcal-LibCal-20247-16290013-20260217",
-      "sample_title": "Lunchtime Legal Seminar: Understanding Probate in California",
       "candidate_assets": []
     },
     {
