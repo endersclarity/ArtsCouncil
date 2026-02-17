@@ -9,10 +9,10 @@ See: .planning/PROJECT.md (updated 2026-02-14)
 
 ## Current Position
 
-Phase: 01.1-demo-visual-polish
-Plan: 0 of ? (needs /gsd:plan-phase)
-Status: Research complete. Design spec (24 decisions) + 4 team analyses written. PRIORITIZED-ACTION-PLAN.md has build order. Needs planning then execution.
-Last activity: 2026-02-16 -- Design discussion + team analysis (UX, Tech, Competitive, Demo Strategy). Phase 01.1 inserted into roadmap.
+Phase: 02.2-live-music-venue-event-ingestion
+Plan: 1 of 3
+Status: Plan 01 complete. 4 venues added, 2 removed, 2 ingest scripts created. Plans 02-03 remaining.
+Last activity: 2026-02-17 -- Executed 02.2-01: venue data + ingest scripts for Crazy Horse iCal and Squarespace JSON.
 
 Progress: [████████████████████] 100% overall
 
@@ -194,6 +194,10 @@ Recent decisions affecting current work:
 - [Phase 4]: Chatbot uses functional register (knowledgeable local, not editorial) — direct, name-first, concise
 - [Phase 4]: Platform name "Explore Nevada County" kept as-is; decision deferred to Diana/Eliza for Wednesday meeting
 - [Phase 4]: Sub-page SEO title tags use real keywords (not development artifact text)
+- [Phase 2.2]: Crazy Horse venue_name hardcoded (single-venue iCal feed)
+- [Phase 2.2]: Squarespace ingest defaults venue_city to Nevada City (all current targets are NC venues)
+- [Phase 2.2]: New venue categories: Bodhi Hive/Stardust Station/The Unchurch = Performing Arts, The Fern = Eat, Drink & Stay
+- [Phase 2.2]: Parameterized Squarespace script serves multiple venues via --site-url/--source-name CLI args
 
 ### Roadmap Evolution
 
@@ -216,7 +220,7 @@ Recent decisions affecting current work:
 
 ## Session Continuity
 
-Last session: 2026-02-16
-Stopped at: Phase 02.2 context gathered. Next: /gsd:plan-phase 2.2
-Resume file: .planning/phases/02.2-live-music-venue-event-ingestion/02.2-CONTEXT.md
-Key artifacts: .planning/phases/02.2-live-music-venue-event-ingestion/02.2-CONTEXT.md
+Last session: 2026-02-17
+Stopped at: Completed 02.2-01-PLAN.md (venue data + ingest scripts). Next: 02.2-02-PLAN.md
+Resume file: .planning/phases/02.2-live-music-venue-event-ingestion/02.2-01-SUMMARY.md
+Key artifacts: scripts/events/ingest_crazyhorse_ical.py, scripts/events/ingest_squarespace_events.py
