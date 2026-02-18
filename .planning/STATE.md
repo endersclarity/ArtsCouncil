@@ -151,6 +151,7 @@ Progress: [████████████████████] 100% ov
 | 8 | 4/4 | 27min | 6.75min | Claude Code via GSD |
 | Phase 09-directory-page-redesign P02 | 3 | 2 tasks | 1 files |
 | Phase 09-directory-page-redesign P03 | 4 | 3 tasks | 2 files |
+| Phase 09.1-directory-audit-fixes P02 | 8 | 2 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -286,6 +287,10 @@ Recent decisions affecting current work:
 - [Phase 09.1-01]: city values in data-city HTML attributes escaped (defense in depth, even though data is controlled)
 - [Phase 09.1-01]: onCitySelect removed from buildCityFilterPills signature and caller — city pill clicks use DOM delegation in controller
 - [Phase 09.1-01]: directoryHeaderArea.innerHTML='' guarded with null check, cleared in else branch when exploreSetCategory(null) called
+- [Phase 09.1-02]: dataIndexMap keyed by asset name for O(1) events sort — names unique in data.json
+- [Phase 09.1-02]: getStore remains internal in dreamboard-model — only removed from public API export
+- [Phase 09.1-02]: getModel() re-checks window.CulturalMapDreamboardModel each call until model.hasPlace truthy
+- [Phase 09.1-02]: renderEventBookmarkButton venue/layer params default empty string — backward compatible
 
 ### Roadmap Evolution
 
@@ -349,10 +354,11 @@ Research artifacts outside the phase directory structure. Consult these when pla
 |---|-------------|------|--------|-----------|
 | 1 | Fix Joss Stone cross-source dedup — venue-aware title threshold | 2026-02-17 | d4bd954 | [1-fix-joss-stone-cross-source-dedup-venue-](./quick/1-fix-joss-stone-cross-source-dedup-venue-/) |
 | 2 | Tonight filter chip for events — isEventTonight utility + HTML chip | 2026-02-17 | c207486 | [2-tonight-filter](./quick/2-tonight-filter/) |
+| 3 | Phase 8 bug fixes: chat fence strip, past event filter, canonical names, ID collision, events bookmarks | 2026-02-18 | 06e84bf | [3-fix-phase-8-remaining-bugs-and-run-full-](./quick/3-fix-phase-8-remaining-bugs-and-run-full-/) |
 
 ## Session Continuity
 
 Last session: 2026-02-18
-Stopped at: Completed 09.1-01-PLAN.md (XSS fix, back button, header clear, dead param removal).
+Stopped at: Completed quick-3 (Phase 8 bug fixes: fence strip, past event filter, canonical names, ID collision, events bookmarks).
 Resume with: Run /gsd:execute-phase 09.1 to continue with 09.1-02-PLAN.md (B2 null guards, B4 mobile toggle, should-fix items).
 Key artifacts: .planning/phases/09.1-directory-audit-fixes/09.1-01-SUMMARY.md
