@@ -451,6 +451,7 @@
       '  opacity: 0; transition: opacity 0.2s;',
       '}',
       '.dreamboard-card:hover .remove-btn { opacity: 1; }',
+      '@media (hover: none) { .dreamboard-card .remove-btn { opacity: 0.6; } }',
 
       /* Limit notes */
       '.tb-limit-note {',

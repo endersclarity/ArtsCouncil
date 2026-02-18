@@ -692,7 +692,7 @@
       return;
     }
 
-    var url = window.location.origin + '/trip.html?trip=' + encoded;
+    var url = window.location.origin + '/trip.html?trip=' + encodeURIComponent(encoded);
 
     // Copy to clipboard with fallback
     if (navigator.clipboard && navigator.clipboard.writeText) {

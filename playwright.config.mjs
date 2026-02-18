@@ -2,14 +2,14 @@ import { defineConfig } from '@playwright/test';
 
 export default defineConfig({
   testDir: './tests',
-  testMatch: 'uat-phase08-trip-builder.mjs',
-  timeout: 120_000,
+  testMatch: /test_phase09_directory_uat\.js|uat-phase08-trip-builder\.mjs|uat-phase08-live-chatbot\.mjs/,
+  timeout: 90_000,
   expect: { timeout: 10_000 },
   use: {
-    headless: false,
+    headless: true,
     viewport: { width: 1400, height: 900 },
     launchOptions: {
-      slowMo: 300,
+      slowMo: 0,
     },
     screenshot: 'only-on-failure',
     video: 'off',

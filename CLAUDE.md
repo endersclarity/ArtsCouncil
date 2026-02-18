@@ -115,6 +115,48 @@ No build step required. Just:
 
 **IMPORTANT:** Some features require a MapTiler API key. Free tier allows 100k tile loads/month. Key is hardcoded in `index-maplibre-config.js` as `MAPTILER_KEY`.
 
+### Automated Verification with `playwright-cli`
+
+**`playwright-cli` is the go-to tool for verifying work on this project.** Use it instead of writing throwaway Node scripts or guessing at selectors.
+
+**DOM-first workflow — never write tests without reading the live DOM:**
+
+1. Start the dev server: `/serve` (port 8001)
+2. Inspect the live page:
+   ```bash
+   playwright-cli open http://localhost:8001/directory.html
+   playwright-cli snapshot                    # get element refs (e1, e2...)
+   playwright-cli click e5                    # interact — auto-generates test code
+   playwright-cli eval "document.title"       # run JS in page context
+   ```
+3. Use discovered selectors to write `npx playwright test` specs
+4. Run: `npx playwright test tests/test_phaseXX_*.js --reporter=list`
+
+**During `/gsd:verify-work`:** When GSD verify-work extracts testable deliverables from SUMMARY.md files, default to **automated Playwright tests** instead of manual conversational UAT:
+- Use `playwright-cli snapshot` to inspect the live DOM for each test case
+- Write a Playwright test file (`tests/test_phaseXX_*.js`) with assertions derived from actual DOM state
+- Run all tests headless against localhost:8001
+- Record pass/fail results into the UAT.md file
+- Only fall back to manual testing for things that can't be automated (visual judgment, UX feel, copy review)
+
+**Key commands:**
+
+| Task | Command |
+|------|---------|
+| Open browser | `playwright-cli open http://localhost:8001/page.html` |
+| DOM snapshot | `playwright-cli snapshot` |
+| Click element | `playwright-cli click e3` |
+| Fill input | `playwright-cli fill e5 "search text"` |
+| Evaluate JS | `playwright-cli eval "document.querySelectorAll('.class').length"` |
+| Screenshot | `playwright-cli screenshot --filename=verify.png` |
+| Console logs | `playwright-cli console` |
+| Network | `playwright-cli network` |
+| Close | `playwright-cli close` |
+
+**Existing test files:** `tests/test_phase*.js` — Playwright test specs per phase. Config: `playwright.config.mjs` (headless, 1400x900 viewport, 60s timeout).
+
+**Never do this:** Write Playwright tests by reading local HTML source files and guessing selectors. Always inspect the live rendered DOM first.
+
 ### Common Gotchas
 
 - **Module load order** — If you get "Missing CulturalMap*" errors, check script order in HTML
