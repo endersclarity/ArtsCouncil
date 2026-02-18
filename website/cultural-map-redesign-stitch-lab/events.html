@@ -195,6 +195,7 @@
       animation: none !important;
     }
     .date-group-header { opacity:1; transform:none; }
+    .card-expanded-body { transition: none !important; }
   }
 
   /* ─────────────────────────────────────────────────────────
@@ -235,11 +236,11 @@
   .card-image {
     width: 100%;
     height: 140px;
-    object-fit: cover;
+    object-fit: contain;
     object-position: center;
     display: block;
     border-bottom: 2px solid #121212;
-    background: #e8e8e8;
+    background: white;
   }
   @media (max-width: 480px) {
     .card-image { height: 110px; }
@@ -269,6 +270,44 @@
     }
     .card-image { height: 90px; }
   }
+
+  /* ── Expandable card ── */
+  .card-expanded-body {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.28s cubic-bezier(0.25, 1, 0.5, 1);
+    border-top: 0px solid #121212;
+  }
+  .glass-card.expanded .card-expanded-body {
+    max-height: 600px;
+    border-top-width: 2px;
+  }
+  .card-expand-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    font-size: 0.6rem;
+    color: #aaa;
+    margin-top: 0.4rem;
+    padding-top: 0.25rem;
+    cursor: pointer;
+    transition: color 0.15s;
+    user-select: none;
+    letter-spacing: 0.06em;
+  }
+  .card-expand-toggle:hover { color: #121212; }
+  .glass-card.expanded .card-expand-toggle { color: #121212; }
+  .glass-card.expanded h3 {
+    -webkit-line-clamp: unset !important;
+    display: block !important;
+  }
+  .glass-card.expanded .card-desc {
+    -webkit-line-clamp: unset !important;
+    display: block !important;
+  }
+  .glass-card { cursor: pointer; }
+  .glass-card a,
+  .glass-card .events-page-bookmark { cursor: default; }
 </style>
 </head>
 <body class="min-h-screen">
@@ -628,6 +667,17 @@
     headers.forEach(function(h) { observer.observe(h); });
   }
 
+  function bindCardExpansion() {
+    var container = document.getElementById('eventsListView');
+    if (!container) return;
+    container.addEventListener('click', function(e) {
+      if (e.target.closest('a') || e.target.closest('.events-page-bookmark')) return;
+      var card = e.target.closest('article.glass-card');
+      if (!card) return;
+      card.classList.toggle('expanded');
+    });
+  }
+
   function renderEvents(events) {
     var container = document.getElementById('eventsListView');
     var filtered = filterEvents(events);
@@ -726,7 +776,7 @@
 
         /* Description */
         if (ev.description) {
-          html += '<p style="' +
+          html += '<p class="card-desc" style="' +
             'color:#555;font-size:0.82rem;line-height:1.45;margin-bottom:0.4rem;' +
             'overflow:hidden;text-overflow:ellipsis;' +
             'display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical' +
@@ -738,6 +788,9 @@
         html += '📍 ' + escapeHtml(ev.venue_name || 'Venue TBD');
         if (ev.venue_city) html += ' · ' + escapeHtml(ev.venue_city);
         html += '</div>';
+
+        /* Expand toggle */
+        html += '<div class="card-expand-toggle" aria-label="Expand event details">&#9660;</div>';
 
         html += '</div>'; /* end middle */
 
@@ -768,6 +821,37 @@
 
         html += '</div>'; /* end right */
         html += '</div>'; /* end three-column row */
+
+        /* ── Expanded body ── */
+        html += '<div class="card-expanded-body" style="padding:1rem 1.25rem 1.25rem;background:white">';
+
+        if (ev.description) {
+          html += '<p style="font-size:0.9rem;line-height:1.65;color:#333;margin:0 0 0.75rem">' +
+            escapeHtml(ev.description) + '</p>';
+        }
+
+        if (ev.end_iso) {
+          html += '<div style="font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;color:#666;margin-bottom:0.6rem">' +
+            'Ends ' + escapeHtml(formatTime(parseISO(ev.end_iso))) + '</div>';
+        }
+
+        if (ev.tags && ev.tags.length) {
+          html += '<div style="display:flex;flex-wrap:wrap;gap:0.35rem;margin-bottom:0.75rem">';
+          ev.tags.forEach(function(tag) {
+            html += '<span style="font-size:0.72rem;font-weight:700;text-transform:uppercase;' +
+              'letter-spacing:0.04em;background:#121212;color:white;padding:0.15rem 0.5rem">' +
+              escapeHtml(tag) + '</span>';
+          });
+          html += '</div>';
+        }
+
+        if (!ev.ticket_url && ev.source_ref) {
+          html += '<a href="' + escapeHtml(ev.source_ref) + '" target="_blank" rel="noopener" ' +
+            'class="ticket-btn" style="display:inline-block">More info →</a>';
+        }
+
+        html += '</div>'; /* end expanded body */
+
         html += '</article>';
       });
     });
@@ -775,6 +859,10 @@
     container.innerHTML = html;
     animateCardsIn(container);
     initDateHeaderReveals(container);
+    if (!window._cardExpansionBound) {
+      bindCardExpansion();
+      window._cardExpansionBound = true;
+    }
   }
 
   function populateSourceDropdown(events) {
