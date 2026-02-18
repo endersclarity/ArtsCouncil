@@ -230,6 +230,20 @@
 
   /* Filter button press feedback */
   .filter-btn:active { transform: scale(0.97); }
+
+  /* ── Event card thumbnail ── */
+  .card-image {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    border-bottom: 2px solid #121212;
+    background: #e8e8e8;
+  }
+  @media (max-width: 480px) {
+    .card-image { height: 110px; }
+  }
 </style>
 </head>
 <body class="min-h-screen">
@@ -636,7 +650,20 @@
         cardIdx++;
 
         /* ── Card shell ── */
-        html += '<article class="glass-card" style="display:flex;overflow:hidden;margin-bottom:0.875rem">';
+        html += '<article class="glass-card" style="display:flex;flex-direction:column;overflow:hidden;margin-bottom:0.875rem">';
+
+        /* Thumbnail image */
+        if (ev.image_url) {
+          html += '<img class="card-image"' +
+            ' src="' + escapeHtml(ev.image_url) + '"' +
+            ' alt="' + escapeHtml(ev.title) + '"' +
+            ' loading="lazy"' +
+            ' onerror="this.style.display=\'none\'"' +
+            '>';
+        }
+
+        /* Three-column row */
+        html += '<div style="display:flex;overflow:hidden;width:100%">';
 
         /* Left — colored date panel */
         html += '<div style="' +
@@ -715,6 +742,7 @@
           '</button>';
 
         html += '</div>'; /* end right */
+        html += '</div>'; /* end three-column row */
         html += '</article>';
       });
     });
