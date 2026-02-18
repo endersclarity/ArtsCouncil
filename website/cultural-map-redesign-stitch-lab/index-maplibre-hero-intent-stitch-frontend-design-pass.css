@@ -3860,11 +3860,15 @@ body.theme-intent {
     display: none;
   }
 
+  /* S12: Ensure mast wraps cleanly at narrow widths without overflow */
   .mast-inner {
     width: calc(100% - 1rem);
+    flex-wrap: wrap;
+    min-height: unset;
   }
 
   .mast-brand {
+    flex: 1 1 auto;
     font-size: 0.98rem;
     letter-spacing: 0;
   }
@@ -4076,4 +4080,21 @@ body.theme-intent {
   .lodging-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* S13: Ensure city filter pills are visible in expanded list view on mobile */
+@media (max-width: 600px) {
+  #directoryHeaderArea .directory-filters {
+    display: flex;
+    flex-wrap: wrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    gap: 0.4rem;
+    padding-bottom: 0.25rem;
+  }
+}
+
+/* B4: Hub page map section mobile collapse */
+.map-section--collapsed {
+  display: none !important;
 }

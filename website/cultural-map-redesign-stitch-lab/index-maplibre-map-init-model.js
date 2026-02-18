@@ -25,19 +25,23 @@
 
   function getMapStyle(maptilerKey) {
     return maptilerKey !== 'GET_YOUR_FREE_KEY_AT_MAPTILER_COM'
-      ? `https://api.maptiler.com/maps/landscape/style.json?key=${maptilerKey}`
+      ? 'https://api.maptiler.com/maps/landscape/style.json?key=' + maptilerKey
       : getFallbackStyle();
   }
 
-  function getMapInitOptions({ style, cooperativeGestures = false }) {
+  function getMapInitOptions(opts) {
+    var style = opts.style;
+    var cooperativeGestures = opts.cooperativeGestures !== undefined ? opts.cooperativeGestures : false;
+    // S14: Mobile-aware initial zoom — show full county at narrow viewports
+    var isMobile = window.innerWidth <= 600;
     return {
       container: 'map',
-      style,
+      style: style,
       center: [-120.8, 39.22],
-      zoom: 9,
-      pitch: 35,
-      bearing: -15,
-      cooperativeGestures,
+      zoom: isMobile ? 8.5 : 9,
+      pitch: isMobile ? 0 : 35,
+      bearing: isMobile ? 0 : -15,
+      cooperativeGestures: cooperativeGestures,
       antialias: true,
       maxPitch: 70
     };
