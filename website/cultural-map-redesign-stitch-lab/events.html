@@ -432,28 +432,23 @@
         </div>
       </div>
 
-      <!-- Source dropdown -->
+      <!-- Source pills -->
       <div class="mb-5">
-        <label for="eventsSource" class="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-1.5">
-          Source
-        </label>
-        <select
-          id="eventsSource"
-          aria-label="Filter by source"
-          class="w-full border-2 border-mondrian-black px-3 py-2 text-sm font-bold bg-white focus:outline-none focus:ring-2 focus:ring-primary">
-          <option value="all">All sources</option>
-        </select>
+        <label class="block text-xs font-bold uppercase tracking-widest text-gray-400 mb-1.5">Source</label>
+        <div id="eventsSourcePills" class="flex flex-col gap-1">
+          <!-- Populated by JS -->
+        </div>
       </div>
 
-      <!-- Family toggle -->
+      <!-- Family & Library toggle -->
       <div class="flex items-center gap-2.5">
         <input
           type="checkbox"
-          id="eventsFamilyToggle"
+          id="eventsIncludeKidsLibrary"
           class="w-4 h-4 border-2 border-mondrian-black cursor-pointer accent-primary rounded-none">
-        <label for="eventsFamilyToggle"
+        <label for="eventsIncludeKidsLibrary"
                class="text-xs font-bold uppercase tracking-wide cursor-pointer select-none">
-          Family &amp; Kids only
+          Include Family &amp; Library
         </label>
       </div>
     </div>
@@ -543,7 +538,7 @@
     text: '',
     dateRange: 'all',
     source: 'all',
-    familyOnly: false
+    includeKidsAndLibrary: false   /* hidden by default */
   };
 
   function now() {
@@ -620,8 +615,11 @@
       var dt = parseISO(ev.start_iso);
       if (!matchesDateFilter(dt, currentFilters.dateRange)) return false;
       if (!matchesTextFilter(ev, currentFilters.text)) return false;
+      /* Hide family/kids and library events unless toggle is on */
+      if (!currentFilters.includeKidsAndLibrary) {
+        if (ev.is_family || ev.source_label === 'Nevada County Library') return false;
+      }
       if (currentFilters.source !== 'all' && ev.source_label !== currentFilters.source) return false;
-      if (currentFilters.familyOnly && !ev.is_family) return false;
       return true;
     });
   }
@@ -886,17 +884,37 @@
     }
   }
 
-  function populateSourceDropdown(events) {
+  /* Short display labels for source pills */
+  var SOURCE_SHORT = {
+    'Nevada County Arts Council': 'Arts Council',
+    'KVMR': 'KVMR',
+    'Grass Valley Downtown Association': 'GV Downtown',
+    'Nevada County Library': 'NC Library',
+    'City of Nevada City': 'Nevada City',
+    'Golden Era Lounge': 'Golden Era',
+    'Crazy Horse Saloon': 'Crazy Horse'
+  };
+
+  function populateSourcePills(events) {
     var sources = {};
     events.forEach(function(ev) {
       if (ev.source_label) sources[ev.source_label] = true;
     });
-    var dropdown = document.getElementById('eventsSource');
+    var container = document.getElementById('eventsSourcePills');
+    var html = '<button class="filter-btn active" type="button" data-source="all">All Sources</button>';
     Object.keys(sources).sort().forEach(function(src) {
-      var opt = document.createElement('option');
-      opt.value = src;
-      opt.textContent = src;
-      dropdown.appendChild(opt);
+      var label = SOURCE_SHORT[src] || src;
+      html += '<button class="filter-btn" type="button" data-source="' +
+        src + '" title="' + src + '">' + label + '</button>';
+    });
+    container.innerHTML = html;
+    container.addEventListener('click', function(e) {
+      var btn = e.target.closest ? e.target.closest('[data-source]') : null;
+      if (!btn) return;
+      container.querySelectorAll('[data-source]').forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      currentFilters.source = btn.getAttribute('data-source');
+      renderEvents(allEvents);
     });
   }
 
@@ -921,13 +939,8 @@
       });
     });
 
-    document.getElementById('eventsSource').addEventListener('change', function(e) {
-      currentFilters.source = e.target.value;
-      renderEvents(allEvents);
-    });
-
-    document.getElementById('eventsFamilyToggle').addEventListener('change', function(e) {
-      currentFilters.familyOnly = e.target.checked;
+    document.getElementById('eventsIncludeKidsLibrary').addEventListener('change', function(e) {
+      currentFilters.includeKidsAndLibrary = e.target.checked;
       renderEvents(allEvents);
     });
   }
@@ -981,7 +994,7 @@
       .then(function(events) {
         allEvents = events;
         document.getElementById('eventsTotal').textContent = events.length;
-        populateSourceDropdown(events);
+        populateSourcePills(events);
         renderEvents(events);
         bindFilters();
         bindBookmarkDelegation();
