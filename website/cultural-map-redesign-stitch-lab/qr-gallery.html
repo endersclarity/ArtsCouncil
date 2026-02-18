@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Highway 49 Arts Trail | QR Code Gallery</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=DM+Sans:wght@300;400;500;700&family=Archivo:wght@500;700;900&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --ink:#1a1612;
+  --cream:#f7f3ed;
+  --cream-warm:#f4efe6;
+  --gold:#c8943e;
+  --gold-deep:#a87830;
+  --navy:#0d1c34;
+  --navy-mid:#122748;
+  --navy-light:#1a3158;
+  --muted:rgba(26,22,18,0.12);
+  --card-radius:14px;
+}
+
+html{
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+  scroll-behavior:smooth;
+}
+
+body{
+  font-family:"DM Sans",system-ui,sans-serif;
+  color:var(--ink);
+  background:var(--cream);
+  line-height:1.6;
+  overflow-x:hidden;
+}
+
+/* ── Mast ── */
+.mast{
+  background:linear-gradient(115deg,var(--navy) 0%,var(--navy-mid) 60%,var(--navy-light) 100%);
+  position:sticky;
+  top:0;
+  z-index:100;
+  padding:.65rem 1.5rem;
+  border-bottom:1px solid rgba(255,255,255,0.08);
+}
+.mast-inner{
+  max-width:1280px;
+  margin:auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+.mast-brand{
+  font-family:"Playfair Display",Georgia,serif;
+  font-weight:700;
+  font-size:1.15rem;
+  color:rgba(245,240,232,0.95);
+  text-decoration:none;
+  letter-spacing:.02em;
+}
+.mast-nav a{
+  color:rgba(245,240,232,.6);
+  text-decoration:none;
+  font-size:.72rem;
+  font-weight:700;
+  font-family:"Archivo",sans-serif;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  margin-left:1.5rem;
+  transition:color .2s;
+}
+.mast-nav a:hover{color:var(--gold)}
+.mast-nav .active{color:var(--gold)}
+
+/* ── Hero ── */
+.hero{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  min-height:32vh;
+  padding:3.5rem 1.5rem 2rem;
+  text-align:center;
+}
+.hero-badge{
+  display:inline-block;
+  font-family:"Archivo",sans-serif;
+  font-size:.7rem;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.14em;
+  color:var(--gold-deep);
+  margin-bottom:1.25rem;
+}
+.hero h1{
+  font-family:"Playfair Display",Georgia,serif;
+  font-size:clamp(2.2rem,5vw,3.8rem);
+  font-weight:900;
+  line-height:1.1;
+  color:var(--ink);
+  margin-bottom:1rem;
+}
+.hero h1 em{
+  font-style:italic;
+  color:var(--gold);
+}
+.hero-rule{
+  width:80px;
+  height:2px;
+  background:var(--gold);
+  border:none;
+  margin:0 auto 1rem;
+  opacity:.6;
+}
+.hero-sub{
+  font-family:"DM Sans",sans-serif;
+  font-size:1rem;
+  color:rgba(26,22,18,.45);
+  font-style:italic;
+  letter-spacing:.01em;
+}
+
+/* ── Gallery Overview (now at top) ── */
+.gallery-overview{
+  padding:1rem 1.5rem 3rem;
+  text-align:center;
+}
+.gallery-overview-label{
+  font-family:"Archivo",sans-serif;
+  font-size:.68rem;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.14em;
+  color:var(--gold-deep);
+  margin-bottom:.75rem;
+}
+.gallery-overview h2{
+  font-family:"Playfair Display",Georgia,serif;
+  font-size:clamp(1.4rem,3vw,2rem);
+  font-weight:700;
+  color:var(--ink);
+  margin-bottom:.5rem;
+}
+.gallery-overview-sub{
+  font-size:.9rem;
+  color:rgba(26,22,18,.4);
+  font-style:italic;
+  margin-bottom:1rem;
+}
+.gallery-scope{
+  font-size:.85rem;
+  color:rgba(26,22,18,.55);
+  margin-bottom:2rem;
+}
+.gallery-scope a{
+  color:var(--gold-deep);
+  text-decoration:underline;
+  text-underline-offset:.15em;
+}
+.gallery-thumbs{
+  display:flex;
+  gap:.75rem;
+  justify-content:center;
+  flex-wrap:wrap;
+  max-width:1100px;
+  margin:0 auto 1rem;
+}
+.gallery-thumb-wrap{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:.4rem;
+  cursor:pointer;
+  text-decoration:none;
+}
+.gallery-thumb{
+  width:clamp(100px,12vw,140px);
+  aspect-ratio:5/7;
+  object-fit:cover;
+  border-radius:6px;
+  box-shadow:0 4px 16px rgba(26,22,18,.1);
+  transition:transform .2s,box-shadow .2s;
+}
+.gallery-thumb-wrap:hover .gallery-thumb{
+  transform:translateY(-4px);
+  box-shadow:0 8px 24px rgba(26,22,18,.16);
+}
+.gallery-thumb-label{
+  font-family:"DM Sans",sans-serif;
+  font-size:.7rem;
+  font-weight:500;
+  color:rgba(26,22,18,.5);
+  text-align:center;
+  max-width:140px;
+}
+
+/* ── Venue Detail Sections ── */
+.venue-section{
+  padding:3rem 1.5rem;
+  position:relative;
+  max-width:1000px;
+  margin:0 auto;
+}
+.venue-section::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:50%;
+  transform:translateX(-50%);
+  width:min(600px,60%);
+  height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  opacity:.3;
+}
+
+.venue-header{
+  display:flex;
+  align-items:center;
+  gap:.65rem;
+  margin-bottom:1.5rem;
+  justify-content:center;
+}
+.venue-num{
+  width:30px;
+  height:30px;
+  border-radius:50%;
+  background:var(--gold);
+  color:#fff;
+  font-family:"Archivo",sans-serif;
+  font-weight:700;
+  font-size:.78rem;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  flex-shrink:0;
+}
+.venue-name{
+  font-family:"Playfair Display",Georgia,serif;
+  font-size:1.25rem;
+  font-weight:700;
+  color:var(--ink);
+}
+.venue-city{
+  font-family:"DM Sans",sans-serif;
+  font-size:.8rem;
+  color:rgba(26,22,18,.4);
+  margin-left:.15rem;
+}
+
+.venue-content{
+  display:flex;
+  align-items:flex-start;
+  justify-content:center;
+  gap:2rem;
+}
+
+.venue-flyer-link{
+  display:block;
+  text-decoration:none;
+  line-height:0;
+  flex-shrink:0;
+}
+
+.venue-flyer{
+  display:block;
+  width:min(55vw,420px);
+  max-height:75vh;
+  object-fit:contain;
+  border-radius:6px;
+  box-shadow:
+    0 8px 30px rgba(26,22,18,.12),
+    0 2px 8px rgba(26,22,18,.06);
+  transition:box-shadow .2s;
+}
+.venue-flyer-link:hover .venue-flyer{
+  box-shadow:
+    0 12px 40px rgba(26,22,18,.16),
+    0 4px 12px rgba(26,22,18,.08);
+}
+
+.venue-qr{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:.6rem;
+  flex-shrink:0;
+}
+.venue-qr img{
+  width:140px;
+  height:140px;
+  border-radius:8px;
+  box-shadow:0 4px 16px rgba(26,22,18,.08);
+  background:#fff;
+  padding:8px;
+}
+.venue-qr-label{
+  font-family:"Archivo",sans-serif;
+  font-size:.62rem;
+  font-weight:700;
+  text-transform:uppercase;
+  letter-spacing:.1em;
+  color:var(--gold-deep);
+  text-align:center;
+}
+.venue-qr-hint{
+  font-family:"DM Sans",sans-serif;
+  font-size:.7rem;
+  color:rgba(26,22,18,.35);
+  text-align:center;
+  max-width:140px;
+  line-height:1.4;
+}
+
+/* ── Footer ── */
+.colophon{
+  text-align:center;
+  padding:2.5rem 1.5rem 1.5rem;
+  border-top:1px solid var(--muted);
+  margin-top:2rem;
+}
+.colophon p{
+  font-size:.72rem;
+  color:rgba(26,22,18,.3);
+}
+.colophon a{
+  color:var(--gold-deep);
+  text-decoration:none;
+}
+
+/* ── Responsive ── */
+@media(max-width:700px){
+  .hero{min-height:auto;padding:2.5rem 1rem 1.5rem}
+  .hero h1{font-size:1.8rem}
+  .venue-section{padding:2rem 1rem}
+  .venue-content{
+    flex-direction:column;
+    align-items:center;
+  }
+  .venue-flyer{width:88vw}
+  .venue-qr{
+    flex-direction:row;
+    gap:1rem;
+    margin-top:.5rem;
+  }
+  .venue-qr img{width:100px;height:100px;padding:6px}
+  .venue-qr-text{display:flex;flex-direction:column;gap:.2rem}
+  .gallery-thumb{width:70px}
+  .gallery-thumb-label{font-size:.6rem;max-width:70px}
+  .mast-nav{display:none}
+}
+
+@media(min-width:1400px){
+  .venue-flyer{width:min(50vw,480px)}
+  .venue-qr img{width:160px;height:160px}
+}
+
+/* ── Print ── */
+@media print{
+  .mast,.colophon{display:none}
+  .venue-section{page-break-inside:avoid;padding:1rem}
+  .venue-flyer{width:300px}
+  .venue-qr img{width:100px;height:100px}
+  .gallery-overview{page-break-after:always}
+  .gallery-thumbs{gap:.5rem}
+  .gallery-thumb{width:80px}
+}
+</style>
+</head>
+<body>
+
+<header class="mast" role="banner">
+  <div class="mast-inner">
+    <a href="index-maplibre-hero-intent-stitch-frontend-design-pass.html" class="mast-brand">Explore Nevada County</a>
+    <nav class="mast-nav" aria-label="Primary">
+      <a href="events.html">Events</a>
+      <a href="itineraries.html">Itineraries</a>
+      <a href="directory.html">Directory</a>
+      <a href="index-maplibre-hero-intent-stitch-frontend-design-pass.html#mapSection">Map</a>
+      <a href="qr-gallery.html" class="active">QR Demo</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+<!-- ── Hero ── -->
+<section class="hero">
+  <div class="hero-badge">Explore Nevada County</div>
+  <h1>Highway 49 <em>Arts Trail</em></h1>
+  <hr class="hero-rule">
+  <p class="hero-sub">Seven venues. Two towns. One creative corridor.</p>
+</section>
+
+<!-- ── Gallery Overview (top — see all 7 at a glance) ── -->
+<section class="gallery-overview">
+  <div class="gallery-overview-label">The Full Trail</div>
+  <h2>Seven Stops Along Highway 49</h2>
+  <p class="gallery-overview-sub">Click any flyer to jump to its detail &amp; QR code</p>
+  <p class="gallery-scope">Featuring 7 of 25 stops on the Nevada County Cultural Trail. <a href="directory.html">Browse all venues</a></p>
+  <div class="gallery-thumbs">
+    <a class="gallery-thumb-wrap" href="#venue-1">
+      <img src="img/flyers/center-for-the-arts-flyer.png" alt="Center for the Arts" class="gallery-thumb">
+      <span class="gallery-thumb-label">Center for the Arts</span>
+    </a>
+    <a class="gallery-thumb-wrap" href="#venue-2">
+      <img src="img/flyers/miners-foundry-flyer.png" alt="Miners Foundry" class="gallery-thumb">
+      <span class="gallery-thumb-label">Miners Foundry</span>
+    </a>
+    <a class="gallery-thumb-wrap" href="#venue-3">
+      <img src="img/flyers/nevada-theatre-flyer.png" alt="Nevada Theatre" class="gallery-thumb">
+      <span class="gallery-thumb-label">Nevada Theatre</span>
+    </a>
+    <a class="gallery-thumb-wrap" href="#venue-4">
+      <img src="img/flyers/off-broadstreet-flyer.png" alt="Off Broadstreet Theatre" class="gallery-thumb">
+      <span class="gallery-thumb-label">Off Broadstreet</span>
+    </a>
+    <a class="gallery-thumb-wrap" href="#venue-5">
+      <img src="img/flyers/firehouse-no-1-flyer.png" alt="Firehouse No. 1 Museum" class="gallery-thumb">
+      <span class="gallery-thumb-label">Firehouse No. 1</span>
+    </a>
+    <a class="gallery-thumb-wrap" href="#venue-6">
+      <img src="img/flyers/elixart-flyer.png" alt="Elixart" class="gallery-thumb">
+      <span class="gallery-thumb-label">Elixart</span>
+    </a>
+    <a class="gallery-thumb-wrap" href="#venue-7">
+      <img src="img/flyers/onyx-theater-flyer.png" alt="The Onyx Theater" class="gallery-thumb">
+      <span class="gallery-thumb-label">The Onyx Theater</span>
+    </a>
+  </div>
+</section>
+
+<!-- ── Stop 1: Center for the Arts ── -->
+<section class="venue-section" id="venue-1">
+  <div class="venue-header">
+    <div class="venue-num">1</div>
+    <span class="venue-name">Center for the Arts</span>
+    <span class="venue-city">Grass Valley</span>
+  </div>
+  <div class="venue-content">
+    <a class="venue-flyer-link" href="index-maplibre-hero-intent-stitch-frontend-design-pass.html?pid=ChIJt2PNaTxwm4ARu524zpcVxWs" target="_blank">
+      <img src="img/flyers/center-for-the-arts-flyer.png" alt="Center for the Arts venue flyer" class="venue-flyer" loading="eager">
+    </a>
+    <div class="venue-qr">
+      <img src="img/qr/center-for-the-arts.png" alt="QR code for Center for the Arts">
+      <span class="venue-qr-label">Scan to explore</span>
+      <span class="venue-qr-hint">Opens map &amp; flies to venue</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── Stop 2: Miners Foundry ── -->
+<section class="venue-section" id="venue-2">
+  <div class="venue-header">
+    <div class="venue-num">2</div>
+    <span class="venue-name">Miners Foundry</span>
+    <span class="venue-city">Nevada City</span>
+  </div>
+  <div class="venue-content">
+    <a class="venue-flyer-link" href="index-maplibre-hero-intent-stitch-frontend-design-pass.html?pid=ChIJu1ZmXHB6m4ARNXdM6WBO8T4" target="_blank">
+      <img src="img/flyers/miners-foundry-flyer.png" alt="Miners Foundry venue flyer" class="venue-flyer" loading="lazy">
+    </a>
+    <div class="venue-qr">
+      <img src="img/qr/miners-foundry.png" alt="QR code for Miners Foundry">
+      <span class="venue-qr-label">Scan to explore</span>
+      <span class="venue-qr-hint">Opens map &amp; flies to venue</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── Stop 3: Nevada Theatre ── -->
+<section class="venue-section" id="venue-3">
+  <div class="venue-header">
+    <div class="venue-num">3</div>
+    <span class="venue-name">Nevada Theatre</span>
+    <span class="venue-city">Nevada City</span>
+  </div>
+  <div class="venue-content">
+    <a class="venue-flyer-link" href="index-maplibre-hero-intent-stitch-frontend-design-pass.html?pid=ChIJuzmHQSR7m4AR4OFD5xqVttc" target="_blank">
+      <img src="img/flyers/nevada-theatre-flyer.png" alt="Nevada Theatre venue flyer" class="venue-flyer" loading="lazy">
+    </a>
+    <div class="venue-qr">
+      <img src="img/qr/nevada-theatre.png" alt="QR code for Nevada Theatre">
+      <span class="venue-qr-label">Scan to explore</span>
+      <span class="venue-qr-hint">Opens map &amp; flies to venue</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── Stop 4: Off Broadstreet Theatre ── -->
+<section class="venue-section" id="venue-4">
+  <div class="venue-header">
+    <div class="venue-num">4</div>
+    <span class="venue-name">Off Broadstreet Theatre</span>
+    <span class="venue-city">Nevada City</span>
+  </div>
+  <div class="venue-content">
+    <a class="venue-flyer-link" href="index-maplibre-hero-intent-stitch-frontend-design-pass.html?pid=ChIJn493t3F6m4ARmvhamCAoJwc" target="_blank">
+      <img src="img/flyers/off-broadstreet-flyer.png" alt="Off Broadstreet Theatre venue flyer" class="venue-flyer" loading="lazy">
+    </a>
+    <div class="venue-qr">
+      <img src="img/qr/off-broadstreet.png" alt="QR code for Off Broadstreet Theatre">
+      <span class="venue-qr-label">Scan to explore</span>
+      <span class="venue-qr-hint">Opens map &amp; flies to venue</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── Stop 5: Firehouse No. 1 Museum ── -->
+<section class="venue-section" id="venue-5">
+  <div class="venue-header">
+    <div class="venue-num">5</div>
+    <span class="venue-name">Firehouse No. 1 Museum</span>
+    <span class="venue-city">Nevada City</span>
+  </div>
+  <div class="venue-content">
+    <a class="venue-flyer-link" href="index-maplibre-hero-intent-stitch-frontend-design-pass.html?pid=ChIJG4mtkXF6m4ARmuG6et5Qcp0" target="_blank">
+      <img src="img/flyers/firehouse-no-1-flyer.png" alt="Firehouse No. 1 Museum venue flyer" class="venue-flyer" loading="lazy">
+    </a>
+    <div class="venue-qr">
+      <img src="img/qr/firehouse-no-1.png" alt="QR code for Firehouse No. 1 Museum">
+      <span class="venue-qr-label">Scan to explore</span>
+      <span class="venue-qr-hint">Opens map &amp; flies to venue</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── Stop 6: Elixart ── -->
+<section class="venue-section" id="venue-6">
+  <div class="venue-header">
+    <div class="venue-num">6</div>
+    <span class="venue-name">Elixart</span>
+    <span class="venue-city">Grass Valley</span>
+  </div>
+  <div class="venue-content">
+    <a class="venue-flyer-link" href="index-maplibre-hero-intent-stitch-frontend-design-pass.html?place=Elixart+Herbal+Lounge+%26+Gallery" target="_blank">
+      <img src="img/flyers/elixart-flyer.png" alt="Elixart Herbal Lounge and Gallery venue flyer" class="venue-flyer" loading="lazy">
+    </a>
+    <div class="venue-qr">
+      <img src="img/qr/elixart.png" alt="QR code for Elixart">
+      <span class="venue-qr-label">Scan to explore</span>
+      <span class="venue-qr-hint">Opens map &amp; flies to venue</span>
+    </div>
+  </div>
+</section>
+
+<!-- ── Stop 7: The Onyx Theater ── -->
+<section class="venue-section" id="venue-7">
+  <div class="venue-header">
+    <div class="venue-num">7</div>
+    <span class="venue-name">The Onyx Theater</span>
+    <span class="venue-city">Nevada City</span>
+  </div>
+  <div class="venue-content">
+    <a class="venue-flyer-link" href="index-maplibre-hero-intent-stitch-frontend-design-pass.html?pid=ChIJz0aTkYJwm4ARxF2cWI2gbvA" target="_blank">
+      <img src="img/flyers/onyx-theater-flyer.png" alt="The Onyx Theater venue flyer" class="venue-flyer" loading="lazy">
+    </a>
+    <div class="venue-qr">
+      <img src="img/qr/onyx-theater.png" alt="QR code for The Onyx Theater">
+      <span class="venue-qr-label">Scan to explore</span>
+      <span class="venue-qr-hint">Opens map &amp; flies to venue</span>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="colophon">
+  <p><a href="index-maplibre-hero-intent-stitch-frontend-design-pass.html">Explore Nevada County</a> &mdash; Nevada County Arts Council</p>
+</footer>
+
+</body>
+</html>

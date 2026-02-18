@@ -73,7 +73,7 @@
     var result = {};
     var catsRaw = params.get('cats');
     result.cats = catsRaw ? catsRaw.split(',').map(function(c) { return decodeURIComponent(c.trim()); }).filter(Boolean) : [];
-    var scalars = ['open', 'events14d', 'experience', 'itinerary', 'muse', 'pid', 'event', 'eventDate', 'eventCat', 'eventAudience', 'trip'];
+    var scalars = ['open', 'events14d', 'experience', 'itinerary', 'muse', 'pid', 'event', 'eventDate', 'eventCat', 'eventAudience', 'trip', 'place'];
     for (var i = 0; i < scalars.length; i++) {
       var key = scalars[i];
       var val = params.get(key);

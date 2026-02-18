@@ -1380,7 +1380,24 @@
   function findVenueByPid(pid) {
     const p = String(pid || '');
     if (!p) return null;
-    return (DATA || []).find((v) => v && v.pid === p) || null;
+    var matches = (DATA || []).filter(function(v) { return v && v.pid === p; });
+    if (matches.length <= 1) return matches[0] || null;
+    var priority = {
+      'Historic Landmarks': 1,
+      'Performance Spaces': 2,
+      'Galleries, Studios & Museums': 3,
+      'Eat, Drink & Stay': 4,
+      'Cultural Organizations': 5,
+      'Preservation & Culture': 6,
+      'Walks & Trails': 7,
+      'Public Art': 8,
+      'Fairs & Festivals': 9,
+      'Film & Media': 10
+    };
+    matches.sort(function(a, b) {
+      return (priority[a.l] || 99) - (priority[b.l] || 99);
+    });
+    return matches[0];
   }
 
   function normalizePlaceSearchName(value) {
@@ -1546,6 +1563,7 @@
 	    const focusMuse = parsed.muse ? String(parsed.muse) : '';
 	    const focusEvent = parsed.event ? String(parsed.event) : '';
 	    const focusPid = parsed.pid ? String(parsed.pid) : '';
+	    const focusPlace = parsed.place ? String(parsed.place) : '';
 	    const focusIdx = parsed.idx;
     const eventDateAllowed = new Set(['all', 'today', 'weekend', '14d']);
     const eventAudienceAllowed = new Set(['exclude-kids-library', 'all']);
@@ -1619,6 +1637,9 @@
 	        focusMusePlaceById(focusMuse);
 	      } else {
 	        let venue = focusPid ? findVenueByPid(focusPid) : null;
+	        if (!venue && focusPlace) {
+	          venue = findVenueByName(focusPlace);
+	        }
 	        if (!venue && focusIdx !== null && focusIdx !== undefined) {
 	          venue = findVenueByIdx(Number(focusIdx));
 	        }
