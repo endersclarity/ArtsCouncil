@@ -115,7 +115,13 @@
     if (dbView) {
       var eventDateStr = event.start_datetime || '';
       eventBookmarkHTML = '<span style="float:right;margin-top:-2px;">' +
-        dbView.renderEventBookmarkButton(event.title || '', eventDateStr, 18) + '</span>';
+        dbView.renderEventBookmarkButton(
+          event.title || '',
+          eventDateStr,
+          18,
+          event.venue_name || event.location || '',
+          event.category || ''
+        ) + '</span>';
     }
 
     return `
@@ -176,7 +182,13 @@
       if (dbViewRow) {
         var rowDateStr = event.start_datetime || '';
         rowBookmarkHTML = '<span style="float:right;margin-top:-2px;">' +
-          dbViewRow.renderEventBookmarkButton(event.title || '', rowDateStr, 16) + '</span>';
+          dbViewRow.renderEventBookmarkButton(
+            event.title || '',
+            rowDateStr,
+            16,
+            event.venue_name || event.location || '',
+            event.category || ''
+          ) + '</span>';
       }
 
       return `
