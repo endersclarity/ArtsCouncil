@@ -320,7 +320,7 @@ Actual: 2 -> 2.1 -> 3 -> 5 -> 6 -> 6.1 -> 4 -> 3.1 -> 2.2 -> 01.1
 | 06.1. Deep Analytics | 1/1 | COMPLETE | 2026-02-16 |
 | 7. Demand Signal Reporting | 0/3 | Not started | - |
 | 8. AI Trip Builder | 3/4 | IN PROGRESS | - |
-| 9. Directory Page Redesign | 0/TBD | Not planned | - |
+| 9. Directory Page Redesign | 0/4 | PLANNED | - |
 
 ### Phase 9: Directory Page Redesign
 
@@ -408,10 +408,10 @@ Actual: 2 -> 2.1 -> 3 -> 5 -> 6 -> 6.1 -> 4 -> 3.1 -> 2.2 -> 01.1
 - **Execution order**: Follow priority path 09-01 → 09-02 → 09-03 → 09-04 (foundation must complete before interactions, deep links before interactions to avoid state mess)
 - **Staffing**: Critical issues (C1-C5) estimated 8-12 hours; major issues another 16-20 hours; minor + data ~8 hours total. Roughly 2-3 days full-time or 1.5 weeks part-time.
 
-**Plans:** 4 plans TBD
+**Plans:** 4 plans in 3 waves
 
 Plans:
-- [ ] 09-01-PLAN.md — Foundation: header/nav visual match, color tokens, hours/events wiring, CSS base (Wave 1)
-- [ ] 09-02-PLAN.md — Deep link system: robust loading/error states, back/forward history, stable IDs, breadcrumbs (Wave 1)
-- [ ] 09-03-PLAN.md — Interactions: list-map hover sync, pagination, empty state, mobile collapse, a11y polish (Wave 2)
-- [ ] 09-04-PLAN.md — Data fixes + QR integration: coordinates, deduplication, gallery scope messaging (Wave 2)
+- [ ] 09-01-PLAN.md — Foundation: header/nav match, sidebar colors, hours/events wiring, CSS base (Wave 1)
+- [ ] 09-02-PLAN.md — Deep link system: card re-render fix, pushState/popstate, loading/error states, breadcrumbs (Wave 2)
+- [ ] 09-03-PLAN.md — Interactions: empty state, sort, hover sync, mobile map toggle, footer, keyboard a11y (Wave 3)
+- [ ] 09-04-PLAN.md — Data fixes + QR: coordinate audit, deduplication, Elixart ?place= link, scope messaging (Wave 2, parallel with 09-02)
