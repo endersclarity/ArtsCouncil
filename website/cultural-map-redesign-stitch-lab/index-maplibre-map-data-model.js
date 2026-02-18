@@ -68,6 +68,7 @@
   function buildAssetsGeoJSON({
     data,
     cats,
+    getCategoryIconKey,
     getHoursState,
     getHoursLabel,
     getEventCountForAsset14d
@@ -99,6 +100,7 @@
             event_count_14d: eventCount14d,
             has_events_14d: eventCount14d > 0,
             color: (cats[item.l] || { color: '#999' }).color,
+            icon_key: getCategoryIconKey ? getCategoryIconKey(item.l) : '',
             idx: i
           },
           geometry: {
@@ -143,7 +145,12 @@
     const imgHTML = imgInfo
       ? `<img class="tooltip-img" src="${imgInfo.img}" alt="${imgInfo.alt || props.name}" onerror="this.parentNode.removeChild(this)">`
       : `<div class="tooltip-placeholder" style="background:linear-gradient(135deg, ${cfg.color}, ${cfg.color}dd)"><img src="img/watercolor/${wcSlug}.png" class="tooltip-watercolor" alt="" onerror="this.style.display='none'"></div>`;
-    return `${imgHTML}<div class="tooltip-body"><strong>${props.name}</strong><div class="tooltip-cat"><span class="tooltip-cat-dot" style="background:${cfg.color}"></span>${props.layer}</div>${props.city ? '<div class="tooltip-city">' + props.city + ', CA</div>' : ''}${eventLine}</div>`;
+    var tooltipBookmark = '';
+    var dbView = window.CulturalMapDreamboardView;
+    if (dbView) {
+      tooltipBookmark = '<span class="tooltip-bookmark-wrap">' + dbView.renderBookmarkButton(props.name, 18) + '</span>';
+    }
+    return `${imgHTML}<div class="tooltip-body"><strong>${props.name}</strong>${tooltipBookmark}<div class="tooltip-cat"><span class="tooltip-cat-dot" style="background:${cfg.color}"></span>${props.layer}</div>${props.city ? '<div class="tooltip-city">' + props.city + ', CA</div>' : ''}${eventLine}</div>`;
   }
 
   function getCategoryIconKey(layerName) {

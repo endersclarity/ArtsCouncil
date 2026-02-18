@@ -110,11 +110,19 @@
       ? `<span class="map-event-badge source">${escapeHTML(sourceLabel)}</span>`
       : '';
 
+    var eventBookmarkHTML = '';
+    var dbView = window.CulturalMapDreamboardView;
+    if (dbView) {
+      var eventDateStr = event.start_datetime || '';
+      eventBookmarkHTML = '<span style="float:right;margin-top:-2px;">' +
+        dbView.renderEventBookmarkButton(event.title || '', eventDateStr, 18) + '</span>';
+    }
+
     return `
       <div class="map-event-item map-event-feature ${mapped ? 'mapped' : 'unmapped'}" data-event-id="${escapeHTML(event.event_id || '')}">
         ${imageHTML}
         <div class="map-event-feature-date">${eventTime}</div>
-        <h4 class="map-event-title map-event-feature-title">${title}</h4>
+        <h4 class="map-event-title map-event-feature-title">${title}${eventBookmarkHTML}</h4>
         <p class="map-event-desc map-event-feature-desc">${shortDesc}</p>
         <div class="map-event-meta map-event-feature-meta">
           <span class="map-event-venue">${venueName}</span>
@@ -163,12 +171,20 @@
       const sourceBadge = sourceLabel && sourceLabel !== 'Nevada County Arts Council'
         ? `<span class="map-event-badge source">${escapeHTML(sourceLabel)}</span>`
         : '';
+      var rowBookmarkHTML = '';
+      var dbViewRow = window.CulturalMapDreamboardView;
+      if (dbViewRow) {
+        var rowDateStr = event.start_datetime || '';
+        rowBookmarkHTML = '<span style="float:right;margin-top:-2px;">' +
+          dbViewRow.renderEventBookmarkButton(event.title || '', rowDateStr, 16) + '</span>';
+      }
+
       return `
         <div class="map-event-row ${mapped ? 'mapped' : 'unmapped'} ${isActive ? 'is-active' : ''}" data-event-id="${escapeHTML(eventId)}">
           ${thumbHTML}
           <div class="map-event-row-copy">
             <div class="map-event-row-date">${eventTime}</div>
-            <div class="map-event-row-title">${title}</div>
+            <div class="map-event-row-title">${title}${rowBookmarkHTML}</div>
             <div class="map-event-row-meta">
               <span class="map-event-venue">${venueName}</span>
               ${seriesBadge}

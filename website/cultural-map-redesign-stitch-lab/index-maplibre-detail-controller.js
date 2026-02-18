@@ -72,7 +72,17 @@
       expBadge.innerHTML = '';
     }
 
-    document.getElementById('detailName').textContent = asset.n;
+    var detailNameEl = document.getElementById('detailName');
+    detailNameEl.textContent = asset.n;
+    // Inject bookmark button next to venue name
+    var dbView = window.CulturalMapDreamboardView;
+    if (dbView) {
+      dbView.injectCSS();
+      var bookmarkWrap = document.createElement('span');
+      bookmarkWrap.style.cssText = 'display:inline-block;vertical-align:middle;margin-left:6px;';
+      bookmarkWrap.innerHTML = dbView.renderBookmarkButton(asset.n, 24) + dbView.renderFirstUseLabel();
+      detailNameEl.appendChild(bookmarkWrap);
+    }
     document.getElementById('detailDesc').textContent = asset.d || 'No description available.';
     document.getElementById('detailDesc').style.display = asset.d ? 'block' : 'none';
 

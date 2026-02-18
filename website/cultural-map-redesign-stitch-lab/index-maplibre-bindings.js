@@ -226,6 +226,112 @@
         ctx.clearAllMapFilters();
       });
     }
+
+    // ---- Dream Board bookmark delegation ----
+    var dbModel = window.CulturalMapDreamboardModel;
+    var dbView = window.CulturalMapDreamboardView;
+    if (dbModel && dbView) {
+      dbView.injectCSS();
+
+      // Place bookmark clicks (detail panel, directory cards, map tooltips)
+      document.body.addEventListener('click', function(e) {
+        var btn = e.target.closest('.bookmark-btn');
+        if (!btn) return;
+        e.stopPropagation();
+        e.preventDefault();
+        var assetName = btn.getAttribute('data-asset-name');
+        if (!assetName) return;
+
+        if (dbModel.hasPlace(assetName)) {
+          // Remove
+          dbModel.removePlace(assetName);
+          dbView.updateButtonVisual(btn, false);
+          dbView.showToast(assetName + ' removed from your trip', function() {
+            // Undo: re-add
+            var fakeAsset = { n: assetName, l: '', c: '' };
+            dbModel.addPlace(fakeAsset);
+            dbView.updateButtonVisual(btn, true);
+            dbView.updateBadge();
+            dbView.refreshAllBookmarkButtons();
+          });
+        } else {
+          // Add
+          var assetData = null;
+          // Try to find full asset data for denormalization
+          if (window.__culturalMapData) {
+            for (var i = 0; i < window.__culturalMapData.length; i++) {
+              if (window.__culturalMapData[i].n && window.__culturalMapData[i].n.toLowerCase() === assetName.toLowerCase()) {
+                assetData = window.__culturalMapData[i];
+                break;
+              }
+            }
+          }
+          if (!assetData) assetData = { n: assetName, l: '', c: '' };
+          var added = dbModel.addPlace(assetData);
+          if (added) {
+            dbView.updateButtonVisual(btn, true);
+            dbView.markFirstUseSeen();
+            dbView.showToast(assetName + ' added to your trip', function() {
+              // Undo: remove
+              dbModel.removePlace(assetName);
+              dbView.updateButtonVisual(btn, false);
+              dbView.updateBadge();
+              dbView.refreshAllBookmarkButtons();
+            });
+          } else {
+            dbView.showToast('Trip is full (30 items max). Remove something first.');
+          }
+        }
+        dbView.updateBadge();
+        dbView.refreshAllBookmarkButtons();
+      });
+
+      // Event bookmark clicks
+      document.body.addEventListener('click', function(e) {
+        var btn = e.target.closest('.event-bookmark-btn');
+        if (!btn) return;
+        e.stopPropagation();
+        e.preventDefault();
+        var title = btn.getAttribute('data-event-title');
+        var date = btn.getAttribute('data-event-date');
+        if (!title) return;
+
+        if (dbModel.hasEvent(title, date)) {
+          dbModel.removeEvent(title, date);
+          dbView.updateButtonVisual(btn, false);
+          dbView.showToast('Event removed from your trip', function() {
+            dbModel.addEvent({ title: title, date: date, venue: '', layer: '' });
+            dbView.updateButtonVisual(btn, true);
+            dbView.updateBadge();
+          });
+        } else {
+          var added = dbModel.addEvent({ title: title, date: date, venue: '', layer: '' });
+          if (added) {
+            dbView.updateButtonVisual(btn, true);
+            dbView.markFirstUseSeen();
+            dbView.showToast('Event added to your trip', function() {
+              dbModel.removeEvent(title, date);
+              dbView.updateButtonVisual(btn, false);
+              dbView.updateBadge();
+            });
+          } else {
+            dbView.showToast('Trip is full (30 items max). Remove something first.');
+          }
+        }
+        dbView.updateBadge();
+      });
+
+      // Page-load badge init
+      dbView.updateBadge();
+
+      // Cross-tab sync via storage event
+      window.addEventListener('storage', function(e) {
+        if (e.key === 'ncac-dreamboard') {
+          dbView.updateBadge();
+          dbView.refreshAllBookmarkButtons();
+        }
+      });
+    }
   }
 
   function initScrollObserver() {

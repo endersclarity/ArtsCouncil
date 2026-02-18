@@ -41,11 +41,13 @@
    */
   function buildDirectoryHeader({ name, count, color }) {
     return '<div class="directory-header">' +
+      '<button class="directory-back-btn" aria-label="Back to all categories">&larr;</button>' +
       '<div class="directory-header-badge" style="background:' + color + '"></div>' +
       '<div class="directory-header-text">' +
         '<h2 class="directory-header-title">Explore ' + name + '</h2>' +
         '<span class="directory-header-count">' + count + ' places</span>' +
       '</div>' +
+      '<a href="directory.html?cat=' + encodeURIComponent(name) + '" class="directory-map-link">Explore on map &rarr;</a>' +
     '</div>';
   }
 
@@ -113,12 +115,19 @@
     var desc = asset.d ? asset.d.replace(/<[^>]*>/g, '').slice(0, 100) : '';
     var cityLabel = asset.c || '';
 
+    // Bookmark icon in top-right corner
+    var bookmarkCorner = '';
+    var dbView = window.CulturalMapDreamboardView;
+    if (dbView) {
+      bookmarkCorner = '<div class="card-bookmark-wrap">' + dbView.renderBookmarkButton(asset.n, 20) + '</div>';
+    }
+
     var html = '<div class="directory-item-photo">' +
         '<img src="' + photoSrc + '" alt="" loading="lazy" onerror="this.src=\'' + fallback + '\'">';
     if (subBadge) {
       html += '<span class="directory-item-badge" style="background:' + cfg.color + '">' + subBadge + '</span>';
     }
-    html += '</div>' +
+    html += bookmarkCorner + '</div>' +
       '<div class="directory-item-body">';
     if (cityLabel) {
       html += '<span class="directory-item-city">' + cityLabel + '</span>';
