@@ -333,6 +333,28 @@
       // Map is already loaded at this point in normal flows; if not, load handler will apply once.
       applyDeepLinkFromLocation();
     });
+
+    // --- Analytics: session:start (fires once per page load) ---
+    if (window.CulturalMapAnalytics) {
+      CulturalMapAnalytics.track('session:start', { referrer: document.referrer || 'direct' });
+    }
+
+    // --- Analytics: page:section-visibility (one-shot per section) ---
+    var _sectionTracked = {};
+    var sectionObs = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting && !_sectionTracked[entry.target.id]) {
+          _sectionTracked[entry.target.id] = true;
+          if (window.CulturalMapAnalytics) {
+            CulturalMapAnalytics.track('page:section-visibility', { section: entry.target.id });
+          }
+        }
+      });
+    }, { threshold: 0.3 });
+    ['districtSpread', 'exploreSection', 'mapSection'].forEach(function(id) {
+      var el = document.getElementById(id);
+      if (el) sectionObs.observe(el);
+    });
   }
 
   function ensureMapEventsHint() {
