@@ -16,18 +16,37 @@
 <body class="theme-intent trip-page">
 
 <header class="mast mast--intent" role="banner">
-  <div class="brand">
-    <h1 class="mast-name" translate="no">Explore Nevada County</h1>
-    <nav class="stitch-top-nav" aria-label="Primary">
-      <a href="index-maplibre-hero-intent-stitch-frontend-design-pass.html">Back to Explore</a>
+  <div class="mast-inner">
+    <a href="index-maplibre-hero-intent-stitch-frontend-design-pass.html" class="mast-brand" aria-label="Explore Nevada County homepage" translate="no">Explore Nevada County</a>
+    <nav class="mast-nav-desktop" aria-label="Primary">
       <a href="events.html">Events</a>
       <a href="itineraries.html">Itineraries</a>
       <a href="directory.html">Directory</a>
       <a href="trip.html" class="nav-active trip-nav-link">My Trip <span class="trip-badge" style="display:none">0</span></a>
     </nav>
+    <div class="mast-actions">
+      <button class="mast-hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="hamburgerOverlay">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 6h16v2H4zM4 11h16v2H4zM4 16h16v2H4z"></path>
+        </svg>
+      </button>
+    </div>
   </div>
-  <div class="edition">February 2026 &middot; Updated weekly</div>
 </header>
+
+<div class="hamburger-overlay" id="hamburgerOverlay" hidden>
+  <div class="hamburger-panel" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <button class="hamburger-close" type="button" aria-label="Close menu">&times;</button>
+    <nav class="hamburger-nav" aria-label="Full navigation">
+      <a href="index-maplibre-hero-intent-stitch-frontend-design-pass.html">Home</a>
+      <a href="events.html">Events</a>
+      <a href="itineraries.html">Itineraries</a>
+      <a href="directory.html">Directory</a>
+      <a href="trip.html" class="nav-active trip-nav-link">My Trip <span class="trip-badge" style="display:none">0</span></a>
+      <a href="https://www.nevadacountyarts.org" target="_blank" rel="noopener">About / Contact</a>
+    </nav>
+  </div>
+</div>
 
 <main class="subpage-content" id="trip-content">
   <div class="subpage-back-row">
@@ -82,6 +101,8 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 </script>
+
+<script src="index-maplibre-photo-carousel.js"></script>
 
 <!-- Translation widget: JigsawStack free tier (160+ languages, 1M tokens/mo, no CC) -->
 <div class="translation-widget"></div>
