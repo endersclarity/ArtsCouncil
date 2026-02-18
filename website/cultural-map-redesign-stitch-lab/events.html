@@ -189,10 +189,47 @@
     a {
       transition: none !important;
     }
-    .loading-pulse {
+    .loading-pulse,
+    .hero-events, .hero-calendar, .hero-subtitle,
+    .card-enter, .star-popping {
       animation: none !important;
     }
+    .date-group-header { opacity:1; transform:none; }
   }
+
+  /* ─────────────────────────────────────────────────────────
+     ANIMATION PASS
+     ease-out-expo  cubic-bezier(0.16,1,0.3,1)  — entrances
+     ease-out-quart cubic-bezier(0.25,1,0.5,1)  — micro-interactions
+  ───────────────────────────────────────────────────────── */
+
+  /* Keyframes */
+  @keyframes slideInLeft  { from{transform:translateX(-20px);opacity:0} to{transform:none;opacity:1} }
+  @keyframes slideInRight { from{transform:translateX(20px);opacity:0}  to{transform:none;opacity:1} }
+  @keyframes fadeUp       { from{transform:translateY(10px);opacity:0}  to{transform:none;opacity:1} }
+  @keyframes cardEnter    { from{transform:translateY(16px);opacity:0}  to{transform:none;opacity:1} }
+  @keyframes headerSlide  { from{transform:translateX(-12px);opacity:0} to{transform:none;opacity:1} }
+  @keyframes starPop      { 0%{transform:scale(1)} 50%{transform:scale(1.45)} 100%{transform:scale(1)} }
+
+  /* Hero entrance — runs once on page load */
+  .hero-events   { animation: slideInLeft  0.45s cubic-bezier(0.16,1,0.3,1) both; }
+  .hero-calendar { animation: slideInRight 0.45s cubic-bezier(0.16,1,0.3,1) 0.08s both; }
+  .hero-subtitle { animation: fadeUp       0.4s  cubic-bezier(0.16,1,0.3,1) 0.16s both; }
+
+  /* Card stagger-in — applied by JS to first 8 cards on each render */
+  .card-enter { animation: cardEnter 0.32s cubic-bezier(0.25,1,0.5,1) both; }
+
+  /* Date group headers — hidden until IntersectionObserver reveals them */
+  .date-group-header { opacity:0; transform:translateX(-12px); }
+  .date-group-header.date-header-visible {
+    animation: headerSlide 0.35s cubic-bezier(0.25,1,0.5,1) both;
+  }
+
+  /* Bookmark star pop — class toggled by JS */
+  .star-popping { animation: starPop 0.28s cubic-bezier(0.25,1,0.5,1); }
+
+  /* Filter button press feedback */
+  .filter-btn:active { transform: scale(0.97); }
 </style>
 </head>
 <body class="min-h-screen">
@@ -253,9 +290,9 @@
 <div class="max-w-7xl mx-auto px-4 pt-8 pb-4">
   <div class="glass-card p-8 mb-6" style="box-shadow: 12px 12px 0 #E30022;">
     <div class="mb-4 leading-none">
-      <span style="font-size:clamp(3rem,8vw,6rem);font-weight:900;text-transform:uppercase;letter-spacing:-0.02em;color:#121212">EVENTS </span><span style="display:inline-block;font-size:clamp(3rem,8vw,6rem);font-weight:900;text-transform:uppercase;letter-spacing:-0.02em;background:#121212;color:#f2cc0d;padding:0 0.35rem">CALENDAR</span>
+      <span class="hero-events" style="font-size:clamp(3rem,8vw,6rem);font-weight:900;text-transform:uppercase;letter-spacing:-0.02em;color:#121212">EVENTS </span><span class="hero-calendar" style="display:inline-block;font-size:clamp(3rem,8vw,6rem);font-weight:900;text-transform:uppercase;letter-spacing:-0.02em;background:#121212;color:#f2cc0d;padding:0 0.35rem">CALENDAR</span>
     </div>
-    <div style="border-left:8px solid #0050EF;padding-left:1rem;margin-top:1.25rem">
+    <div class="hero-subtitle" style="border-left:8px solid #0050EF;padding-left:1rem;margin-top:1.25rem">
       <p style="font-size:1.1rem;font-weight:600;color:#121212;line-height:1.5">
         <span id="eventsTotal">0</span> events across Nevada County &mdash;
         from galleries, theaters, libraries, and community spaces
@@ -529,6 +566,28 @@
     { bg: '#121212', fg: '#ffffff' }
   ];
 
+  function animateCardsIn(container) {
+    var cards = container.querySelectorAll('article.glass-card');
+    cards.forEach(function(card, i) {
+      if (i >= 8) return;
+      card.style.animationDelay = (i * 60) + 'ms';
+      card.classList.add('card-enter');
+    });
+  }
+
+  function initDateHeaderReveals(container) {
+    if (!window.IntersectionObserver) return;
+    var headers = container.querySelectorAll('.date-group-header');
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (!entry.isIntersecting) return;
+        entry.target.classList.add('date-header-visible');
+        observer.unobserve(entry.target);
+      });
+    }, { threshold: 0.1 });
+    headers.forEach(function(h) { observer.observe(h); });
+  }
+
   function renderEvents(events) {
     var container = document.getElementById('eventsListView');
     var filtered = filterEvents(events);
@@ -548,7 +607,7 @@
 
     groups.forEach(function(group) {
       /* ── Date group header ── */
-      html += '<div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1.25rem;margin-top:2.25rem">';
+      html += '<div class="date-group-header" style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1.25rem;margin-top:2.25rem">';
       html += '<div style="height:4px;width:2.5rem;background:#121212;flex-shrink:0"></div>';
       html += '<span style="font-weight:800;font-size:1rem;text-transform:uppercase;letter-spacing:0.08em;' +
               'background:white;padding:0.2rem 0.75rem;border:2px solid #121212;white-space:nowrap">' +
@@ -660,6 +719,8 @@
     });
 
     container.innerHTML = html;
+    animateCardsIn(container);
+    initDateHeaderReveals(container);
   }
 
   function populateSourceDropdown(events) {
@@ -733,6 +794,10 @@
       btn.style.borderColor  = '#121212';
       btn.innerHTML = isNowBookmarked ? '&#9733;' : '&#9734;';
       btn.setAttribute('aria-label', isNowBookmarked ? 'Remove from trip board' : 'Save to trip board');
+      btn.classList.remove('star-popping');
+      void btn.offsetWidth; /* reflow — allows re-trigger on repeat clicks */
+      btn.classList.add('star-popping');
+      setTimeout(function() { btn.classList.remove('star-popping'); }, 300);
       /* Update badge count */
       try {
         var raw   = localStorage.getItem('ncac-dreamboard');
