@@ -5,12 +5,145 @@
 
   var MAX_MESSAGES = 10; // 5 turns (user + model)
   var MAX_INPUT_LENGTH = 500;
+  var USER_TRIPS_KEY = 'ncac-user-trips';
 
   var state = {
     messages: [],
     isLoading: false,
     sessionHash: ''
   };
+
+  // -----------------------------------------------------------------
+  // {{ITINERARY}} block parser
+  // -----------------------------------------------------------------
+
+  /**
+   * Parse the raw content inside an {{ITINERARY|...}} block into an
+   * itinerary-schema-compatible trip object.
+   * Returns null if parsing fails or produces no valid days/stops.
+   */
+  function parseItineraryBlock(rawContent) {
+    if (!rawContent) return null;
+    // Strip markdown code fences if Gemini wrapped them
+    var cleaned = rawContent.replace(/```[a-z]*\n?/g, '').replace(/```/g, '');
+    var lines = cleaned.split('\n').map(function(l) { return l.trim(); }).filter(Boolean);
+    if (lines.length < 2) return null;
+
+    // First line is header: "Trip Title|N-day"
+    var header = lines[0].split('|');
+    var trip = {
+      id: 'usr-' + Math.floor(Date.now() / 1000),
+      title: (header[0] || 'My Trip').trim(),
+      subtitle: '',
+      duration: (header[1] || '1-day').trim(),
+      season: 'year-round',
+      heroImage: '',
+      description: '',
+      created: Date.now(),
+      modified: Date.now(),
+      theme: { accent: '#c8943e', routeColor: '#7a9e7e', background: '#f5f0e8' },
+      days: []
+    };
+
+    var currentDay = null;
+    for (var i = 1; i < lines.length; i++) {
+      var line = lines[i];
+      if (line.indexOf('DAY|') === 0 || line.indexOf('DAY |') === 0) {
+        var dayParts = line.split('|');
+        currentDay = {
+          label: (dayParts[1] || ('Day ' + (trip.days.length + 1))).trim(),
+          stops: []
+        };
+        trip.days.push(currentDay);
+      } else if ((line.indexOf('STOP|') === 0 || line.indexOf('STOP |') === 0) && currentDay) {
+        var parts = line.split('|');
+        currentDay.stops.push({
+          asset: (parts[1] || '').trim(),
+          time: (parts[2] || '09:00').trim(),
+          duration: parseInt(parts[3], 10) || 60,
+          narrative: (parts.slice(4).join('|') || '').trim(),
+          tip: ''
+        });
+      }
+      // Skip unparseable lines silently (lenient parser)
+    }
+
+    // Recalculate duration from actual day count
+    if (trip.days.length > 0) {
+      trip.duration = trip.days.length + '-day';
+    }
+
+    // Validate: at least 1 day with 1 stop
+    var hasStops = trip.days.some(function(d) { return d.stops.length > 0; });
+    return hasStops ? trip : null;
+  }
+
+  /**
+   * Build a compact itinerary summary card to render inside the chat bubble.
+   */
+  function buildItineraryChatCard(trip) {
+    var totalStops = 0;
+    var daysHtml = '';
+    for (var i = 0; i < trip.days.length; i++) {
+      var day = trip.days[i];
+      totalStops += day.stops.length;
+      daysHtml += '<div class="chat-itin-day">' +
+        '<strong>' + escapeHTMLBasic(day.label) + '</strong> &mdash; ' +
+        day.stops.length + ' stop' + (day.stops.length !== 1 ? 's' : '') +
+        '</div>';
+    }
+
+    return '<div class="chat-itin-card" data-trip-id="' + escapeAttr(trip.id) + '">' +
+      '<div class="chat-itin-title">' + escapeHTMLBasic(trip.title) + '</div>' +
+      '<div class="chat-itin-meta">' + escapeHTMLBasic(trip.duration) + ' &middot; ' + totalStops + ' stops</div>' +
+      '<div class="chat-itin-days">' + daysHtml + '</div>' +
+      '<a href="trip.html" class="chat-itin-cta">View &amp; Edit on Trip Page &rarr;</a>' +
+      '</div>';
+  }
+
+  /**
+   * Save a parsed trip to localStorage (fallback if TripBuilderModel not yet loaded).
+   */
+  function saveUserTrip(trip) {
+    // Prefer the tripbuilder model if available (from plan 08-02)
+    if (window.CulturalMapTripBuilderModel && typeof window.CulturalMapTripBuilderModel.saveTrip === 'function') {
+      window.CulturalMapTripBuilderModel.saveTrip(trip);
+      return;
+    }
+    // Fallback: save directly to localStorage
+    try {
+      var raw = localStorage.getItem(USER_TRIPS_KEY);
+      var store = raw ? JSON.parse(raw) : null;
+      if (!store || !store.version) {
+        store = { version: 1, trips: [] };
+      }
+      if (!Array.isArray(store.trips)) store.trips = [];
+      // Deduplicate by id
+      store.trips = store.trips.filter(function(t) { return t.id !== trip.id; });
+      store.trips.unshift(trip);
+      // Cap at 20 trips
+      if (store.trips.length > 20) store.trips = store.trips.slice(0, 20);
+      localStorage.setItem(USER_TRIPS_KEY, JSON.stringify(store));
+    } catch (e) {
+      console.warn('[Chat] Failed to save trip:', e);
+    }
+  }
+
+  /**
+   * Build dream board payload for the API request.
+   */
+  function getDreamBoardPayload() {
+    if (!window.CulturalMapDreamboardModel) return null;
+    var model = window.CulturalMapDreamboardModel;
+    var places = typeof model.getPlaces === 'function' ? model.getPlaces() : [];
+    var events = typeof model.getEvents === 'function' ? model.getEvents() : [];
+    var names = places.map(function(p) { return p.asset; });
+    var eventNames = events.map(function(e) {
+      return e.venue ? e.venue + ' (' + e.title + ')' : e.title;
+    });
+    var combined = names.concat(eventNames);
+    return combined.length > 0 ? combined : null;
+  }
 
   function generateSessionHash() {
     if (typeof crypto !== 'undefined' && crypto.randomUUID) {
@@ -43,6 +176,43 @@
     // Render welcome message
     if (chatView.renderWelcome) {
       chatView.renderWelcome();
+    }
+
+    // Handle ?chat=trip deep link parameter
+    handleChatDeepLink();
+  }
+
+  /**
+   * Check for ?chat=trip URL parameter and auto-open chat in trip planning mode.
+   */
+  function handleChatDeepLink() {
+    try {
+      var params = new URLSearchParams(window.location.search);
+      if (params.get('chat') !== 'trip') return;
+      var planType = params.get('plan');
+
+      // Auto-open chat panel after a brief delay (let DOM settle)
+      setTimeout(function() {
+        if (window.CulturalMapChatWidget && typeof window.CulturalMapChatWidget.open === 'function') {
+          window.CulturalMapChatWidget.open();
+        }
+
+        // Auto-send trip planning prompt based on plan type
+        var promptMap = {
+          '1day': 'Plan me a 1-day trip using my saved places',
+          '2day': 'Plan me a 2-day trip using my saved places',
+          'organize': 'Organize all my saved places into a logical trip plan'
+        };
+
+        if (planType && promptMap[planType]) {
+          setTimeout(function() {
+            submitPrompt(promptMap[planType]);
+          }, 300);
+        }
+        // If just ?chat=trip with no plan param, chat opens with welcome + trip cards visible
+      }, 200);
+    } catch (e) {
+      // Ignore deep link errors silently
     }
   }
 
@@ -102,14 +272,21 @@
 
     var typingEl = chatView.renderTypingIndicator ? chatView.renderTypingIndicator() : null;
 
+    // Build API payload with optional dream board context
+    var apiPayload = {
+      messages: state.messages,
+      sessionHash: state.sessionHash
+    };
+    var dreamBoardNames = getDreamBoardPayload();
+    if (dreamBoardNames) {
+      apiPayload.dreamBoard = dreamBoardNames;
+    }
+
     // Call API
     fetch('/api/chat', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        messages: state.messages,
-        sessionHash: state.sessionHash
-      })
+      body: JSON.stringify(apiPayload)
     })
     .then(function(res) {
       if (res.status === 429) {
@@ -188,6 +365,27 @@
         '</div>';
     });
 
+    // Handle {{ITINERARY}} blocks — parse, save trip, render card
+    var itinRegex = /\{\{\s*ITINERARY\s*\|([^}]*(?:\n[^}]*)*)\}\}/;
+    var itinMatch = html.match(itinRegex);
+    if (itinMatch) {
+      var rawBlock = itinMatch[1];
+      var trip = parseItineraryBlock(rawBlock);
+      if (trip) {
+        // Save trip to localStorage
+        saveUserTrip(trip);
+        // Replace the {{ITINERARY}} block with a rendered card
+        var cardHTML = buildItineraryChatCard(trip);
+        html = html.replace(itinRegex, cardHTML);
+      } else {
+        // Parsing failed — show fallback message
+        html = html.replace(itinRegex,
+          '<div class="chat-itin-error">' +
+          'I had trouble formatting that itinerary. Let me try again &mdash; could you rephrase your request?' +
+          '</div>');
+      }
+    }
+
     // Convert **text** to bold
     html = html.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
 
@@ -250,7 +448,8 @@
     submitPrompt: submitPrompt,
     hasMessages: hasMessages,
     handleAssetClick: handleAssetClick,
-    parseResponse: parseResponse
+    parseResponse: parseResponse,
+    parseItineraryBlock: parseItineraryBlock
   };
 
 })();

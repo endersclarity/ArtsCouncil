@@ -2,6 +2,30 @@
   'use strict';
 
   var messagesContainer = null;
+  var tripCssInjected = false;
+
+  // Trip planning style cards — shown when dream board has items
+  var TRIP_STYLE_CARDS = [
+    {
+      icon: '\uD83D\uDCC5', // calendar emoji
+      label: '1-Day Plan',
+      plan: '1day',
+      prompt: 'Plan me a 1-day trip using my saved places'
+    },
+    {
+      icon: '\uD83D\uDDD3\uFE0F', // spiral calendar emoji
+      label: '2-Day Plan',
+      plan: '2day',
+      prompt: 'Plan me a 2-day trip using my saved places'
+    },
+    {
+      icon: '\u2728', // sparkles emoji
+      label: 'Just Organize My List',
+      plan: 'organize',
+      prompt: 'Organize all my saved places into a logical trip plan'
+    }
+  ];
+
   var STYLE_CARDS = [
     {
       icon: '🧭',
@@ -94,7 +118,68 @@
     }
   }
 
+  /**
+   * Render trip planning style cards (shown when dream board has items).
+   */
+  function renderTripStyleCards() {
+    return '<div class="chat-trip-cards">' +
+      '<div class="chat-trip-cards-label">Plan your saved places:</div>' +
+      TRIP_STYLE_CARDS.map(function(card) {
+        return '<button type="button" class="chat-trip-card" data-trip-plan="' + escapeHTML(card.plan) + '" data-trip-prompt="' + escapeHTML(card.prompt) + '">' +
+          '<span class="chat-trip-card-icon">' + card.icon + '</span>' +
+          '<span class="chat-trip-card-label">' + escapeHTML(card.label) + '</span>' +
+          '</button>';
+      }).join('') +
+      '</div>';
+  }
+
+  /**
+   * Wire click handlers for trip planning style cards.
+   */
+  function wireTripCardActions(scope) {
+    var cards = scope.querySelectorAll('[data-trip-plan]');
+    for (var i = 0; i < cards.length; i++) {
+      cards[i].addEventListener('click', function(event) {
+        var prompt = event.currentTarget.getAttribute('data-trip-prompt') || '';
+        if (!prompt) return;
+        clearWelcomeState();
+        if (window.CulturalMapChatController && typeof window.CulturalMapChatController.submitPrompt === 'function') {
+          window.CulturalMapChatController.submitPrompt(prompt);
+        }
+      });
+    }
+  }
+
+  /**
+   * Inject CSS for chat itinerary card and trip style cards (once).
+   */
+  function injectTripCSS() {
+    if (tripCssInjected) return;
+    tripCssInjected = true;
+    var style = document.createElement('style');
+    style.textContent =
+      /* Trip planning style cards */
+      '.chat-trip-cards { display: flex; flex-wrap: wrap; gap: 6px; padding: 8px 0 4px; }' +
+      '.chat-trip-cards-label { width: 100%; font-size: 0.75rem; color: #8a8278; margin-bottom: 2px; font-family: "DM Sans", sans-serif; }' +
+      '.chat-trip-card { display: inline-flex; align-items: center; gap: 6px; border: 1px solid #c8943e; border-radius: 8px; padding: 6px 12px; cursor: pointer; background: transparent; font-family: "DM Sans", sans-serif; font-size: 0.8rem; color: #1a1612; transition: background 0.15s, box-shadow 0.15s; }' +
+      '.chat-trip-card:hover { background: #f5f0e8; box-shadow: 0 1px 4px rgba(200,148,62,0.18); }' +
+      '.chat-trip-card-icon { font-size: 1rem; }' +
+      '.chat-trip-card-label { font-weight: 500; }' +
+      /* Itinerary card rendered in chat bubble */
+      '.chat-itin-card { border-left: 3px solid #c8943e; background: #f5f0e8; padding: 12px; border-radius: 8px; margin: 8px 0; }' +
+      '.chat-itin-title { font-family: "Playfair Display", serif; font-size: 1rem; font-weight: 700; color: #1a1612; margin-bottom: 4px; }' +
+      '.chat-itin-meta { font-family: "DM Sans", sans-serif; font-size: 0.78rem; color: #8a8278; margin-bottom: 8px; }' +
+      '.chat-itin-days { margin-bottom: 8px; }' +
+      '.chat-itin-day { font-family: "DM Sans", sans-serif; font-size: 0.8rem; color: #1a1612; padding: 2px 0; }' +
+      '.chat-itin-cta { display: inline-block; font-family: "DM Sans", sans-serif; font-size: 0.82rem; color: #c8943e; text-decoration: none; font-weight: 600; margin-top: 4px; }' +
+      '.chat-itin-cta:hover { text-decoration: underline; }' +
+      /* Error fallback */
+      '.chat-itin-error { font-style: italic; color: #8a8278; padding: 8px 0; font-family: "DM Sans", sans-serif; font-size: 0.85rem; }';
+    document.head.appendChild(style);
+  }
+
   function renderWelcome() {
+    injectTripCSS();
     var c = getContainer();
     if (!c) return;
     c.innerHTML = '';
@@ -104,6 +189,19 @@
       'Hi! I\'m your Nevada County concierge. Ask me about restaurants, galleries, events, hiking trails, or anything to do around here.' +
       '</div>';
     c.appendChild(div);
+
+    // Show trip planning style cards if dream board has items
+    var dreamboardCount = 0;
+    if (window.CulturalMapDreamboardModel && typeof window.CulturalMapDreamboardModel.getItemCount === 'function') {
+      dreamboardCount = window.CulturalMapDreamboardModel.getItemCount();
+    }
+    if (dreamboardCount > 0) {
+      var tripCardsWrap = document.createElement('div');
+      tripCardsWrap.className = 'chat-welcome';
+      tripCardsWrap.innerHTML = renderTripStyleCards();
+      c.appendChild(tripCardsWrap);
+      wireTripCardActions(tripCardsWrap);
+    }
 
     var cardsWrap = document.createElement('div');
     cardsWrap.className = 'chat-welcome';
