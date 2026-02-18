@@ -364,7 +364,7 @@ Research artifacts outside the phase directory structure. Consult these when pla
 ### Blockers/Concerns
 
 - ~~MAP DOES NOT RENDER~~ RESOLVED (commit `48a9486`)
-- ~~Wednesday Feb 18 deadline~~ PASSED — Committee presentation held, positive reception
+- **Wednesday Feb 18 deadline** — Committee presentation at Gold Miners Inn, 12:00–1:30 PM TODAY. Platform ready.
 - ~~Event coverage gaps~~ RESOLVED (Phase 2.1 adds KVMR + GVDA, 176 total events)
 - Phase 5 (AI Concierge): Gemini free tier may not cover projected token usage
 - Phase 5 (AI Concierge): data.json needs status/last_verified fields
