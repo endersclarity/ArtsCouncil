@@ -1,8 +1,7 @@
 (function() {
   'use strict';
 
-  // TODO: Replace with actual Apps Script deployment URL before demo.
-  var APPS_SCRIPT_URL = 'https://script.google.com/macros/s/PLACEHOLDER/exec';
+  var SUBSCRIBE_URL = '/api/subscribe';
   var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
   function setStatus(text, isError) {
@@ -12,6 +11,17 @@
     status.textContent = text;
     status.classList.toggle('is-error', !!isError);
     status.classList.toggle('is-success', !isError);
+  }
+
+  function getSelectedInterests() {
+    var grid = document.getElementById('interestGrid');
+    if (!grid) return [];
+    var checked = grid.querySelectorAll('input[name="interest"]:checked');
+    var interests = [];
+    for (var i = 0; i < checked.length; i++) {
+      interests.push(checked[i].value);
+    }
+    return interests;
   }
 
   function init() {
@@ -28,23 +38,30 @@
         return;
       }
 
+      var interests = getSelectedInterests();
       button.disabled = true;
       button.textContent = 'Subscribing...';
       setStatus('Adding you to the list...', false);
 
-      fetch(APPS_SCRIPT_URL, {
+      fetch(SUBSCRIBE_URL, {
         method: 'POST',
-        mode: 'no-cors',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          email: email,
-          timestamp: new Date().toISOString()
-        })
+        body: JSON.stringify({ email: email, interests: interests })
       })
-        .then(function() {
-          setStatus("You're in! Welcome to the loop.", false);
-          input.disabled = true;
-          button.textContent = 'Subscribed';
+        .then(function(res) { return res.json(); })
+        .then(function(data) {
+          if (data.ok) {
+            var msg = interests.length > 0
+              ? "You're in! Your first Pulse arrives Wednesday."
+              : "You're in! Select some interests above to personalize your digest.";
+            setStatus(data.message || msg, false);
+            input.disabled = true;
+            button.textContent = 'Subscribed';
+          } else {
+            setStatus(data.error || 'Something went wrong. Try again?', true);
+            button.disabled = false;
+            button.textContent = 'Subscribe';
+          }
         })
         .catch(function() {
           setStatus('Something went wrong. Try again?', true);
@@ -58,4 +75,3 @@
     init: init
   };
 })();
-
