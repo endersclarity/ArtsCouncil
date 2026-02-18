@@ -291,7 +291,8 @@
       var raw = results[0];
       imageData = results[1] || {};
 
-      allData = raw.map(function(item, idx) {
+      // Build rawMapped with stable idx-based IDs (needed for event index alignment)
+      var rawMapped = raw.map(function(item, idx) {
         var normalized = normalizeCategory(item.l);
         return {
           id: idx,
@@ -307,10 +308,39 @@
           x: parseFloat(item.x) || 0,
           y: parseFloat(item.y) || 0
         };
-      }).filter(function(d) { return CATS[d.l]; });
+      });
+
+      // Store raw (unfiltered) for events index alignment — events.index.json uses raw array positions
+      rawDataForEvents = rawMapped;
+
+      // Filter to valid categories for display
+      allData = rawMapped.filter(function(d) { return CATS[d.l]; });
 
       var sub = document.querySelector('.directory-pane-subtitle');
       if (sub) sub.textContent = allData.length + ' cultural assets across ' + Object.keys(CATS).length + ' categories';
+
+      // Fetch events data (non-blocking — events are optional enhancement)
+      Promise.all([
+        fetch('events-merged-flat.json').then(function(r) { return r.json(); }).catch(function() { return []; }),
+        fetch('events.index.json').then(function(r) { return r.json(); }).catch(function() { return {}; })
+      ]).then(function(eventResults) {
+        var rawEvents = eventResults[0];
+        var eventIndex = eventResults[1];
+        if (eventsModel.buildVenueEventIndex) {
+          var result = eventsModel.buildVenueEventIndex({
+            data: rawDataForEvents,
+            eventIndex: eventIndex,
+            events: rawEvents,
+            makeEventVenueKey: eventsUtils.makeEventVenueKey || function() { return ''; },
+            parseEventDate: eventsUtils.parseEventDate || function() { return null; }
+          });
+          if (result && result.matchedEventsByAsset) {
+            matchedEventsByAsset = result.matchedEventsByAsset;
+          }
+        }
+      }).catch(function(err) {
+        console.warn('[Directory] Events fetch failed (non-critical):', err);
+      });
     });
   }
 
@@ -362,9 +392,9 @@
         data: allData,
         cats: CATS,
         getCategoryIconKey: mapDataModel.getCategoryIconKey,
-        getHoursState: function() { return 'unknown'; },
-        getHoursLabel: function() { return ''; },
-        getEventCountForAsset14d: function() { return 0; },
+        getHoursState: function(asset) { return hoursUtils.getHoursState ? hoursUtils.getHoursState(asset) : 'unknown'; },
+        getHoursLabel: function(state) { return hoursUtils.getHoursLabel ? hoursUtils.getHoursLabel(state) : ''; },
+        getEventCountForAsset14d: function(asset) { return getEventCountForAsset14d(asset.id); },
         getDistanceMilesForAssetIdx: function() { return -1; },
         formatDistanceMiles: function() { return ''; }
       });
@@ -751,7 +781,7 @@
         hoursState: hoursState,
         hoursLabel: hoursLabel,
         todayHours: todayHours,
-        eventCount14d: 0,
+        eventCount14d: getEventCountForAsset14d(asset.id),
         eventWindowDays: 14,
         escapeHTML: escapeHtml
       });
