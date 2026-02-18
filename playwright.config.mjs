@@ -2,7 +2,7 @@ import { defineConfig } from '@playwright/test';
 
 export default defineConfig({
   testDir: './tests',
-  testMatch: /test_phase09_directory_uat\.js|uat-phase08-trip-builder\.mjs|uat-phase08-live-chatbot\.mjs/,
+  testMatch: /test_phase09_directory_uat\.js|uat-phase08-trip-builder\.mjs|uat-phase08-live-chatbot\.mjs|test_district_intent_modal\.js/,
   timeout: 90_000,
   expect: { timeout: 10_000 },
   use: {
