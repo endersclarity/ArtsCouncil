@@ -429,7 +429,13 @@
 
 <!-- ====== MAP SECTION INTRO ====== -->
 <div class="map-section-intro">
-  <h2 class="map-section-heading">Explore the Map</h2>
+  <div class="map-section-intro-left">
+    <div class="map-section-gold-bar-row">
+      <span class="map-section-gold-bar"></span>
+      <span class="map-section-kicker">Interactive Guide</span>
+    </div>
+    <h2 class="map-section-heading">Explore the<br><span>Heritage Map</span></h2>
+  </div>
   <p class="map-section-desc">Every venue, trail, gallery, and stage — all in one place.</p>
 </div>
 
@@ -437,9 +443,6 @@
 <section class="map-bottom-section" id="mapSection" aria-label="Interactive map and filters">
   <div class="map-column">
     <div class="panel">
-      <div class="map-panel-head">
-        <h2 class="map-panel-title">Interactive Map</h2>
-      </div>
       <div class="map-active-banner" id="mapActiveBanner">
         <div class="map-active-banner-inner">
           <div class="map-active-dot" id="mapActiveDot"></div>
@@ -557,7 +560,7 @@
       <a href="events.html">Events</a>
       <a href="itineraries.html">Itineraries</a>
       <a href="directory.html">Directory</a>
-      <a href="my-trip.html">My Trip</a>
+      <a href="trip.html">My Trip</a>
     </nav>
     <div class="colophon-meta">
       <span>&copy; 2026 Nevada County Arts Council</span>
@@ -698,7 +701,7 @@
     card.classList.remove('district-feature-card--active');
     card.setAttribute('aria-expanded', 'false');
     var exp = card.querySelector('.district-card-expansion');
-    if (exp) { exp.setAttribute('aria-hidden', 'true'); exp.hidden = true; }
+    if (exp) { exp.setAttribute('aria-hidden', 'true'); }
   }
 
   function expandCard(card, intentKey) {
@@ -712,6 +715,8 @@
       a.href = 'directory.html?cat=' + encodeURIComponent(sub.cat);
       a.setAttribute('role', 'listitem');
       a.style.animationDelay = (i * 0.07) + 's';
+      var catColor = (config.CATS && config.CATS[sub.cat] && config.CATS[sub.cat].color) || '#c8943e';
+      a.style.setProperty('--tile-color', catColor);
       a.innerHTML =
         '<span class="district-subcat-label">' + escapeHtml(sub.label) + '</span>' +
         '<span class="district-subcat-meta">' + escapeHtml(sub.cat) + '</span>';
