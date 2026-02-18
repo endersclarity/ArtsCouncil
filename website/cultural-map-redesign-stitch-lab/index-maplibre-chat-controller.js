@@ -32,7 +32,7 @@
     // First line is header: "Trip Title|N-day"
     var header = lines[0].split('|');
     var trip = {
-      id: 'usr-' + Math.floor(Date.now() / 1000),
+      id: 'usr-' + Date.now() + '-' + Math.random().toString(36).slice(2, 7),
       title: (header[0] || 'My Trip').trim(),
       subtitle: '',
       duration: (header[1] || '1-day').trim(),
@@ -108,6 +108,9 @@
     // Prefer the tripbuilder model if available (from plan 08-02)
     if (window.CulturalMapTripBuilderModel && typeof window.CulturalMapTripBuilderModel.saveTrip === 'function') {
       window.CulturalMapTripBuilderModel.saveTrip(trip);
+      if (typeof window.CulturalMapTripBuilderModel.setActiveTrip === 'function') {
+        window.CulturalMapTripBuilderModel.setActiveTrip(trip.id);
+      }
       return;
     }
     // Fallback: save directly to localStorage
@@ -121,6 +124,7 @@
       // Deduplicate by id
       store.trips = store.trips.filter(function(t) { return t.id !== trip.id; });
       store.trips.unshift(trip);
+      store.activeTrip = trip.id;
       // Cap at 20 trips
       if (store.trips.length > 20) store.trips = store.trips.slice(0, 20);
       localStorage.setItem(USER_TRIPS_KEY, JSON.stringify(store));
@@ -137,7 +141,21 @@
     var model = window.CulturalMapDreamboardModel;
     var places = typeof model.getPlaces === 'function' ? model.getPlaces() : [];
     var events = typeof model.getEvents === 'function' ? model.getEvents() : [];
-    var names = places.map(function(p) { return p.asset; });
+
+    // Fix C (Task 24): Use canonical .n field from stored data object; fallback to .asset display name
+    var names = places.map(function(p) {
+      return (p.data && p.data.n) ? p.data.n : (p.asset || '');
+    });
+
+    // Fix B (Task 27): Filter out past events before sending to Gemini
+    var nowMs = Date.now();
+    events = events.filter(function(e) {
+      if (!e.start_iso) return true; // keep if no date (safe default)
+      try {
+        return new Date(e.start_iso).getTime() >= nowMs;
+      } catch(ex) { return true; }
+    });
+
     var eventNames = events.map(function(e) {
       return e.venue ? e.venue + ' (' + e.title + ')' : e.title;
     });
@@ -370,6 +388,9 @@
         '<a href="https://heyzine.com/flip-book/87a3c8db0f.html" target="_blank" rel="noopener" class="chat-muse-link">Read in MUSE &rarr;</a>' +
         '</div>';
     });
+
+    // Fix A (Task 25): Strip outer markdown code fences that Gemini sometimes wraps around the full response
+    html = html.replace(/^```[a-z]*\n?/m, '').replace(/\n?```$/m, '');
 
     // Handle {{ITINERARY}} blocks — parse, save trip, render card
     var itinRegex = /\{\{\s*ITINERARY\s*\|([^}]*(?:\n[^}]*)*)\}\}/;

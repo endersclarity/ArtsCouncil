@@ -235,9 +235,9 @@ module.exports = async function handler(req, res) {
     const dreamBoard = req.body.dreamBoard;
     if (Array.isArray(dreamBoard) && dreamBoard.length > 0) {
       const safeNames = dreamBoard.slice(0, 50).map(n => sanitize(String(n)));
-      const contextNote = '\n\nThe user has saved these places to their trip dream board:\n' +
+      const contextNote = '\n\nThe user has saved these places to their trip dream board — use these exact place names in STOP lines:\n' +
         safeNames.map(n => '- ' + n).join('\n') +
-        '\n\nIncorporate these places when planning an itinerary. If they say "plan my trip" or click a planning card, use these as the starting set.';
+        '\n\nIncorporate these places when planning an itinerary. Place names in {{ITINERARY}} STOP lines must match this list exactly.';
       const lastMsg = sanitized[sanitized.length - 1];
       sanitized[sanitized.length - 1] = {
         role: lastMsg.role,
