@@ -39,7 +39,7 @@
   function createTrip(title) {
     var store = getStore();
     var trip = {
-      id: 'usr-' + Math.floor(Date.now() / 1000),
+      id: 'usr-' + Date.now() + '-' + Math.random().toString(36).slice(2, 7),
       title: title || 'My Trip',
       subtitle: '',
       duration: '1-day',
@@ -190,7 +190,7 @@
       var json = decodeURIComponent(escape(atob(encoded)));
       var compact = JSON.parse(json);
       var trip = {
-        id: 'usr-' + Math.floor(Date.now() / 1000),
+        id: 'usr-' + Date.now() + '-' + Math.random().toString(36).slice(2, 7),
         title: compact.t || 'Shared Trip',
         subtitle: '',
         duration: '1-day',
