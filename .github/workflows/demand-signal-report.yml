@@ -1,0 +1,72 @@
+# Monthly Demand Signal Report
+#
+# Generates a demand signal JSON report from Umami analytics + Supabase chat logs.
+# Runs on the 1st of every month (previous month's data) or manually via Actions UI.
+#
+# NOTE: UMAMI_BEARER_TOKEN expires quarterly (Umami Cloud free tier limitation).
+# To refresh: log into cloud.umami.is -> browser console ->
+#   JSON.parse(localStorage.getItem('umami.auth')).token
+# Then update the UMAMI_BEARER_TOKEN secret in this repo's Settings -> Secrets.
+#
+# Required secrets:
+#   UMAMI_WEBSITE_ID     - Umami Cloud website UUID
+#   UMAMI_BEARER_TOKEN   - Bearer token (expires, refresh quarterly)
+#   SUPABASE_URL         - Supabase project URL
+#   SUPABASE_SECRET_KEY  - Supabase secret key (bypasses RLS)
+
+name: Monthly Demand Signal Report
+
+on:
+  schedule:
+    - cron: '0 9 1 * *'   # 9am UTC on the 1st of every month
+  workflow_dispatch:       # Allow manual trigger from Actions UI
+
+permissions:
+  contents: write
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Calculate date range (previous month)
+        id: dates
+        run: |
+          MONTH_START=$(date -d "$(date +%Y-%m-01) -1 month" +%Y-%m-01)
+          MONTH_END=$(date -d "$(date +%Y-%m-01) -1 day" +%Y-%m-%d)
+          MONTH_LABEL=$(date -d "$MONTH_START" +%Y-%m)
+          echo "MONTH_START=$MONTH_START" >> $GITHUB_OUTPUT
+          echo "MONTH_END=$MONTH_END" >> $GITHUB_OUTPUT
+          echo "MONTH_LABEL=$MONTH_LABEL" >> $GITHUB_OUTPUT
+          echo "Generating report for $MONTH_START to $MONTH_END"
+
+      - name: Run demand signal pull
+        env:
+          UMAMI_WEBSITE_ID: ${{ secrets.UMAMI_WEBSITE_ID }}
+          UMAMI_BEARER_TOKEN: ${{ secrets.UMAMI_BEARER_TOKEN }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SECRET_KEY: ${{ secrets.SUPABASE_SECRET_KEY }}
+        run: |
+          mkdir -p reports
+          node scripts/demand-signal-pull.mjs \
+            --from "${{ steps.dates.outputs.MONTH_START }}" \
+            --to "${{ steps.dates.outputs.MONTH_END }}" \
+            --out "reports/${{ steps.dates.outputs.MONTH_LABEL }}-demand-signals.json" \
+            --verbose
+
+      - name: Commit report
+        run: |
+          git config user.email "reports@exploregvnc.com"
+          git config user.name "Demand Signal Bot"
+          git add reports/
+          git diff --staged --quiet || git commit -m "chore: monthly demand signal report ${{ steps.dates.outputs.MONTH_LABEL }}"
+          git push
