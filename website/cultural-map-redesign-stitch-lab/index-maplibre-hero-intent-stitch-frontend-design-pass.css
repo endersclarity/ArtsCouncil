@@ -3206,6 +3206,238 @@ body.theme-intent {
   transform: translateX(3px);
 }
 
+/* ── Lodging card footer / Book Direct ── */
+.lodging-card-footer {
+  padding: 0 1rem 0.85rem;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.lodging-card-book-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3em;
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: var(--gold, #c8943e);
+  text-decoration: none;
+  border: 1.5px solid var(--gold, #c8943e);
+  border-radius: 6px;
+  padding: 0.35rem 0.75rem;
+  transition: background 0.18s ease, color 0.18s ease;
+}
+
+.lodging-card-book-btn:hover,
+.lodging-card-book-btn:focus-visible {
+  background: var(--gold, #c8943e);
+  color: #fff;
+  outline: none;
+}
+
+/* When Holbrooke dates are set, subtle indicator */
+.lodging-card-book-btn--dated {
+  background: var(--gold, #c8943e);
+  color: #fff;
+}
+
+/* ── Lodging date-picker modal ── */
+.lodging-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lodging-modal[hidden] {
+  display: none;
+}
+
+body.lodging-modal-open {
+  overflow: hidden;
+}
+
+.lodging-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(26, 22, 18, 0.55);
+  backdrop-filter: blur(2px);
+  cursor: pointer;
+}
+
+.lodging-modal-panel {
+  position: relative;
+  z-index: 1;
+  background: var(--cream, #f5f0e8);
+  border-radius: 14px;
+  box-shadow: 0 24px 64px rgba(26, 22, 18, 0.22);
+  padding: 2rem 2.2rem 1.8rem;
+  width: min(420px, calc(100vw - 2rem));
+  text-align: left;
+}
+
+.lodging-modal-close {
+  position: absolute;
+  top: 0.85rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  line-height: 1;
+  color: rgba(26, 22, 18, 0.5);
+  cursor: pointer;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  transition: color 0.15s ease;
+}
+
+.lodging-modal-close:hover {
+  color: var(--ink, #1a1612);
+}
+
+.lodging-modal-eyebrow {
+  margin: 0 0 0.25rem;
+  font-family: "JetBrains Mono", monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #b75c38;
+  font-weight: 700;
+}
+
+.lodging-modal-title {
+  margin: 0 0 1.4rem;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.5rem;
+  color: var(--ink, #1a1612);
+}
+
+.lodging-modal-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1.4rem;
+}
+
+.lodging-modal-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.lodging-modal-label {
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: rgba(26, 22, 18, 0.6);
+}
+
+.lodging-modal-date-input {
+  appearance: none;
+  -webkit-appearance: none;
+  background: #fff;
+  border: 1.5px solid rgba(26, 22, 18, 0.18);
+  border-radius: 8px;
+  padding: 0.6rem 0.85rem;
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-size: 0.98rem;
+  color: var(--ink, #1a1612);
+  width: 100%;
+  box-sizing: border-box;
+  transition: border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.lodging-modal-date-input:focus {
+  outline: none;
+  border-color: var(--gold, #c8943e);
+  box-shadow: 0 0 0 3px rgba(200, 148, 62, 0.15);
+}
+
+.lodging-guest-counter {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  background: #fff;
+  border: 1.5px solid rgba(26, 22, 18, 0.18);
+  border-radius: 8px;
+  overflow: hidden;
+  width: fit-content;
+}
+
+.lodging-guest-btn {
+  background: transparent;
+  border: none;
+  padding: 0.6rem 1rem;
+  font-size: 1.1rem;
+  line-height: 1;
+  color: var(--ink, #1a1612);
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.lodging-guest-btn:hover:not(:disabled) {
+  background: rgba(200, 148, 62, 0.1);
+}
+
+.lodging-guest-btn:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.lodging-guest-count {
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  min-width: 2rem;
+  text-align: center;
+  color: var(--ink, #1a1612);
+}
+
+.lodging-modal-search-btn {
+  width: 100%;
+  background: var(--gold, #c8943e);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0.85rem 1.4rem;
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: background 0.2s ease, transform 0.15s ease;
+}
+
+.lodging-modal-search-btn:hover {
+  background: var(--gold-deep, #a67830);
+  transform: translateY(-1px);
+}
+
+.lodging-modal-hint {
+  margin: 0.75rem 0 0;
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-size: 0.77rem;
+  color: rgba(26, 22, 18, 0.45);
+  text-align: center;
+}
+
+/* Mobile: full-width sheet from bottom */
+@media (max-width: 600px) {
+  .lodging-modal {
+    align-items: flex-end;
+  }
+  .lodging-modal-panel {
+    width: 100%;
+    border-radius: 16px 16px 0 0;
+    padding-bottom: calc(1.8rem + env(safe-area-inset-bottom, 0px));
+  }
+}
+
 .asset-link {
   color: var(--ink);
   font-weight: 700;

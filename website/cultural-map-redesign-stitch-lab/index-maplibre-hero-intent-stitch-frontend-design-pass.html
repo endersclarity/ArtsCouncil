@@ -398,6 +398,9 @@
           <p class="lodging-card-city">Nevada City</p>
           <p class="lodging-card-blurb">Oldest continuously operating hotel west of the Rockies — since 1856.</p>
         </div>
+        <div class="lodging-card-footer">
+          <a class="lodging-card-book-btn" data-hotel="National Exchange Hotel" href="https://www.guestreservations.com/the-national-exchange-hotel/booking" target="_blank" rel="noopener" tabindex="-1" aria-label="Book National Exchange Hotel direct">Book Direct &rarr;</a>
+        </div>
       </article>
       <article class="lodging-card" data-asset-name="The Holbrooke Hotel" tabindex="0" role="button" aria-label="View The Holbrooke Hotel details">
         <div class="lodging-card-img-wrap">
@@ -407,6 +410,9 @@
           <h3 class="lodging-card-name">The Holbrooke Hotel</h3>
           <p class="lodging-card-city">Grass Valley</p>
           <p class="lodging-card-blurb">Once host to four U.S. presidents. Gold Rush history in every hallway.</p>
+        </div>
+        <div class="lodging-card-footer">
+          <a class="lodging-card-book-btn" data-hotel="The Holbrooke Hotel" href="https://be.synxis.com/?hotel=31398" target="_blank" rel="noopener" tabindex="-1" aria-label="Book The Holbrooke Hotel direct">Book Direct &rarr;</a>
         </div>
       </article>
       <article class="lodging-card" data-asset-name="Harmony Ridge Lodge" tabindex="0" role="button" aria-label="View Harmony Ridge Lodge details">
@@ -418,6 +424,9 @@
           <p class="lodging-card-city">Nevada City</p>
           <p class="lodging-card-blurb">Rustic luxury tucked into the Sierra pines along Highway 20.</p>
         </div>
+        <div class="lodging-card-footer">
+          <a class="lodging-card-book-btn" data-hotel="Harmony Ridge Lodge" href="https://www.guestreservations.com/harmony-ridge-lodge/booking" target="_blank" rel="noopener" tabindex="-1" aria-label="Book Harmony Ridge Lodge direct">Book Direct &rarr;</a>
+        </div>
       </article>
     </div>
     <a class="lodging-vrbo-cta" id="lodgingVrboCta" href="https://www.vrbo.com/search?destination=Nevada+County%2C+CA" target="_blank" rel="noopener">
@@ -426,6 +435,36 @@
     </a>
   </div>
 </section>
+
+<!-- ====== LODGING DATE-PICKER MODAL ====== -->
+<div id="lodgingDateModal" class="lodging-modal" role="dialog" aria-modal="true" aria-label="Choose your travel dates" hidden>
+  <div class="lodging-modal-backdrop" id="lodgingModalBackdrop"></div>
+  <div class="lodging-modal-panel">
+    <button class="lodging-modal-close" id="lodgingModalClose" aria-label="Close">&times;</button>
+    <p class="lodging-modal-eyebrow">Plan your visit</p>
+    <h3 class="lodging-modal-title">When are you visiting?</h3>
+    <div class="lodging-modal-fields">
+      <div class="lodging-modal-field">
+        <label class="lodging-modal-label" for="lodgingCheckin">Check-in</label>
+        <input type="date" id="lodgingCheckin" class="lodging-modal-date-input" />
+      </div>
+      <div class="lodging-modal-field">
+        <label class="lodging-modal-label" for="lodgingCheckout">Check-out</label>
+        <input type="date" id="lodgingCheckout" class="lodging-modal-date-input" />
+      </div>
+      <div class="lodging-modal-field">
+        <label class="lodging-modal-label">Adults</label>
+        <div class="lodging-guest-counter">
+          <button class="lodging-guest-btn" id="lodgingGuestDec" aria-label="Fewer guests">&#x2212;</button>
+          <span class="lodging-guest-count" id="lodgingAdults">2</span>
+          <button class="lodging-guest-btn" id="lodgingGuestInc" aria-label="More guests">&#x2B;</button>
+        </div>
+      </div>
+    </div>
+    <button id="lodgingModalSearch" class="lodging-modal-search-btn">Find Places to Stay &rarr;</button>
+    <p class="lodging-modal-hint">Opens VRBO in a new tab with your dates pre-selected.</p>
+  </div>
+</div>
 
 <!-- ====== MAP SECTION INTRO ====== -->
 <div class="map-section-intro">
@@ -642,7 +681,7 @@
 <script src="index-maplibre-chat-controller.js"></script>
 <script src="index-maplibre-chat-widget.js"></script>
 <script src="index-maplibre-photo-carousel.js"></script>
-<script src="index-maplibre-lodging-section.js"></script>
+<script src="index-maplibre-lodging-section.js?v=20260218a"></script>
 <script src="index-maplibre-email-capture.js"></script>
 <script src="index-maplibre.js?v=20260217d"></script>
 <script>
