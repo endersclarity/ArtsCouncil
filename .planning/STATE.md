@@ -150,6 +150,7 @@ Progress: [████████████████████] 100% ov
 | 2.2 | 3/3 | 11min | 3.7min | Claude Code via GSD |
 | 8 | 4/4 | 27min | 6.75min | Claude Code via GSD |
 | Phase 09-directory-page-redesign P02 | 3 | 2 tasks | 1 files |
+| Phase 09-directory-page-redesign P03 | 4 | 3 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -263,6 +264,9 @@ Recent decisions affecting current work:
 - [Phase 9-04]: Multi-location businesses renamed (City) suffix — Avanguardia, South Pine Cafe, The Pour House are distinct physical venues, not duplicates
 - [Phase 9-04]: ?place= name-based hub deep link added — parseDeepLinkSearch + focusPlace in applyDeepLinkFromLocation, uses existing findVenueByName()
 - [Phase 9-04]: Alan Thiesen Trail fixed coords to -121.075, 39.165 (Alta Sierra); Sawtooth Trailhead to -120.154, 39.411 (Stampede/Truckee area)
+- [Phase 09-03]: promoteId:'idx' added to assets GeoJSON source for setFeatureState support
+- [Phase 09-03]: Both setHoveredFeatureId callbacks call highlightSidebarCard(v) for map->list hover coverage
+- [Phase 09-03]: Category grid overridden to 2-column with \!important; fuzzy ?cat= partial match added
 
 ### Roadmap Evolution
 
