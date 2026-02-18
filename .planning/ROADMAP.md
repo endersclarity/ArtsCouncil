@@ -13,109 +13,7 @@ Transform the existing 687-asset cultural map into an editorial-quality experien
 | **M3: Measurement** | 6.1 | Deep instrumentation for committee metrics |
 | **M4: Intelligence** | 7 | Monthly demand signal reporting |
 | **M5: Personalization** | 8 | AI-powered trip planning |
-| **M6: Directory Redesign** | 9 | Directory page rebuild from 26-item audit |
-
-**Note on execution history:** Phases 1-6.1 were delivered deadline-driven (Feb 18 committee demo), not dependency-driven. Five decimal phases (01.1, 02.1, 02.2, 03.1, 06.1) were inserted as urgent needs arose. Going forward, enforce dependency order to avoid rework.
-
-## Phases
-
-**Phase Numbering:**
-- Integer phases (1, 2, 3): Planned milestone work
-- Decimal phases (2.1, 2.2): Urgent insertions (marked with INSERTED)
-
-Decimal phases appear between their surrounding integers in numeric order.
-
-- [~] **Phase 1: Design & Visual Refresh** - Lock visual direction and ship MUSE-adjacent aesthetic across all surfaces *(~60% — layout shipped by Codex, map broken)*
-- [x] **Phase 01.1: Demo Visual Polish** - INSERTED: Ship visual polish for Wed Feb 18 committee demo — hero overhaul, hybrid nav, AI style cards, email capture, editorial deep links. Informed by design discussion + 4-agent analysis team (UX, Tech Feasibility, Competitive Gap, Demo Strategy). See `.planning/DESIGN-SPEC.md` + `.planning/analysis/PRIORITIZED-ACTION-PLAN.md`
-- [x] **Phase 2: Tier 2 Events** - Triple event coverage by aggregating LibCal and CivicEngage feeds alongside Trumba
-- [x] **Phase 02.1: KVMR + GVDA Event Source Ingestion** - Add KVMR iCal and GVDA Trumba JSON feeds to close event coverage gaps before Wednesday demo
-- [x] **Phase 02.2: Live Music & Venue Event Ingestion** - INSERTED: Add missing live music venues to asset data, ingest venue-owned event feeds (Crazy Horse iCal, Squarespace scrapers), create Live Music category/tag system, scope community submission form and dedicated Live Music subpage (completed 2026-02-17)
-- [x] **Phase 3: Itineraries** - Authored multi-day trip plans that visitors can browse, follow on the map, and export to calendar
-- [x] **Phase 03.1: Content Architecture & Demo Curation** - INSERTED: Hub adaptive map layout, curated featured demo content, Events + Itineraries sub-pages
-- [x] **Phase 4: Copy & Positioning** - Reframe all text to drive visitors downtown, not into the woods
-- [x] **Phase 5: AI Concierge** - Gemini-powered chatbot that answers "what should I do tonight?" grounded in MUSE content
-- [x] **Phase 6: Analytics Foundation** - Instrument every meaningful interaction so the committee can prove referral value
-- [x] **Phase 06.1: Deep Analytics Instrumentation** - INSERTED: 7 additional event types for marker clicks, itinerary engagement, event ticket attribution
-- [ ] **Phase 7: Demand Signal Reporting** - Monthly intelligence reports the committee can use to make data-driven decisions
-- [ ] **Phase 8: AI Trip Builder** - Dream board + AI-powered itinerary planning: users collect places and events, converse with the concierge to organize them into structured trip plans
-- [ ] **Phase 9: Directory Page Redesign** - Rebuild directory page to match hub editorial aesthetic, wire stubbed features (hours, events), fix interaction bugs, improve mobile UX
-
-## Phase Details
-
-### Phase 1: Design & Visual Refresh
-**Goal**: The platform looks and feels like a polished MUSE-inspired travel publication, not a government listings site
-**Depends on**: Nothing (first phase)
-**Requirements**: DSGN-01, DSGN-02, DSGN-03, DSGN-04, DSGN-05, DSGN-06, DSGN-07
-**Success Criteria** (revised to reflect Codex reality):
-  1. Magazine-style layout exists with editorial typography, cream/ink color palette, and MUSE-inspired aesthetic ✅ (Codex built layout, commit `b2d7e48`)
-  2. Map renders correctly with 3D terrain and all 687 markers ✅ (fixed in commit `48a9486`)
-  3. Hero section reads as intentional editorial layout ✅ (rebuilt in Phase 01.1)
-  4. Mobile layout functional at 375px — PARTIAL (not fully tested, known issues in Phase 01.1)
-  5. Copy references visitor experiences, not "cultural assets" ✅ (completed in Phase 4)
-**Plans**: 3 plans (ALL OBSOLETE — Codex rebuilt from scratch)
-
-Plans:
-- [~] 01-01-PLAN.md — Replace :root design tokens *(OBSOLETE)*
-- [~] 01-02-PLAN.md — Apply editorial card tokens *(OBSOLETE)*
-- [~] 01-03-PLAN.md — Layout rebuild + copy reframing *(OBSOLETE)*
-
-**NOTE**: Original GSD plans were conservative token swaps that produced no visible change. Codex (OpenAI) independently built a magazine-style layout rebuild. Remaining Phase 1 gaps (mobile, copy) were closed by Phases 01.1 and 4. See `01-03-SUMMARY.md` for completion assessment.
-
-### Phase 01.1: Demo Visual Polish (INSERTED)
-
-**Goal:** Ship visual polish for Wed Feb 18 committee demo — hero overhaul, hybrid nav, AI style cards (in-chat only), email capture, community photo grid, editorial deep links
-**Depends on:** Phase 1 (~60% complete — magazine layout exists)
-**Requirements:** DSGN-01, DSGN-02, DSGN-03, DSGN-04, DSGN-05, DSGN-06
-**Success Criteria** (what must be TRUE):
-  1. Hero section reads as magazine cover (photo carousel + editorial typography + brand mark)
-  2. Top bar is clean and minimal (brand mark + expandable search + nav links on desktop, hamburger on mobile)
-  3. AI Concierge has style cards inside chat panel for friction-free demo
-  4. Email capture form exists in footer with Google Sheet backend
-  5. Community photo grid shows UGC potential near footer
-  6. Committee member can load the URL and immediately understand this is a tourism platform
-**Plans**: 3 plans
-
-Plans:
-- [x] 01.1-01-PLAN.md — Hero visual overhaul + clean top bar (Wave 1)
-- [x] 01.1-02-PLAN.md — AI Concierge style cards + editorial deep links (Wave 2)
-- [x] 01.1-03-PLAN.md — Footer features (email capture, photo grid) + layout polish + verification (Wave 3)
-
-### Phase 2: Tier 2 Events
-**Goal**: The events section shows 3x more events by aggregating library and municipal calendars alongside Trumba, with source attribution and family filtering
-**Depends on**: Phase 1 (soft — event card styling established, but can ship independently)
-**Requirements**: EVNT-01, EVNT-02, EVNT-03, EVNT-04, EVNT-05, EVNT-06, EVNT-07, EVNT-08, EVNT-09
-**Success Criteria** (what must be TRUE):
-  1. Events from LibCal and CivicEngage appear alongside Trumba events in the carousel and list views
-  2. Each event card shows a source attribution badge ("From Nevada County Library", "From City of Grass Valley")
-  3. Duplicate events (same title + date + venue across sources) appear only once
-  4. A "Family & Kids" filter chip narrows the event list to family-friendly events
-  5. If the merged JSON is unavailable, events gracefully fall back to Trumba RSS (no blank section)
-**Plans**: 3 plans
-
-Plans:
-- [x] 02-01-PLAN.md — LibCal iCal and CivicEngage RSS ingest scripts (Wave 1)
-- [x] 02-02-PLAN.md — Merge/dedup pipeline, family classifier, and GitHub Actions cron (Wave 2)
-- [x] 02-03-PLAN.md — Client integration: source badges, family filter chip, fallback loading (Wave 3)
-
-### Phase 02.1: KVMR + GVDA Event Source Ingestion (INSERTED)
-
-**Goal:** Add KVMR community radio iCal and GVDA Trumba JSON as 4th and 5th event sources, closing coverage gaps (Mardi Gras, downtown events) before the Wednesday Feb 18 committee demo
-**Depends on:** Phase 2
-**Plans:** 2 plans
-
-Plans:
-- [x] 02.1-01-PLAN.md — KVMR iCal and GVDA Trumba JSON ingest scripts (Wave 1)
-- [x] 02.1-02-PLAN.md — Merge pipeline extension and GitHub Actions workflow update (Wave 2)
-
-### Phase 02.2: Live Music & Venue Event Ingestion (INSERTED)
-
-**Goal:** Surface Nevada County's live music scene by adding missing venues to the asset map, ingesting venue-owned event feeds as sources 6-9, creating a "Live Music" event tag/category system, and scoping a community submission form for venues without structured calendars. Potential dedicated Live Music subpage.
-**Depends on:** Phase 02.1
-**Plans:** 3/3 plans complete
-
-**Research completed (Perplexity, 2026-02-17):**
-
-| Venue | In Assets? | Events Feed? | Ingestion Strategy |
+| **M6: Directory Redesign** | 9 | 1/4 | In Progress|  | In Assets? | Events Feed? | Ingestion Strategy |
 |-------|-----------|-------------|-------------------|
 | Crazy Horse Saloon (230 Commercial, NC) | Yes | iCal via WP Events Calendar | **Tier 1: iCal subscribe** (like KVMR) |
 | Golden Era Lounge (309 Broad, NC) | Yes | Squarespace /events | **Tier 2: HTML scraper** |
@@ -408,7 +306,7 @@ Actual: 2 -> 2.1 -> 3 -> 5 -> 6 -> 6.1 -> 4 -> 3.1 -> 2.2 -> 01.1
 - **Execution order**: Follow priority path 09-01 → 09-02 → 09-03 → 09-04 (foundation must complete before interactions, deep links before interactions to avoid state mess)
 - **Staffing**: Critical issues (C1-C5) estimated 8-12 hours; major issues another 16-20 hours; minor + data ~8 hours total. Roughly 2-3 days full-time or 1.5 weeks part-time.
 
-**Plans:** 4 plans in 3 waves
+**Plans:** 1/4 plans executed
 
 Plans:
 - [ ] 09-01-PLAN.md — Foundation: header/nav match, sidebar colors, hours/events wiring, CSS base (Wave 1)

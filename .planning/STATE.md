@@ -9,12 +9,12 @@ See: .planning/PROJECT.md (updated 2026-02-14)
 
 ## Current Position
 
-Phase: 08-ai-trip-builder
-Plan: 4 of 4 COMPLETE
-Status: All plans complete. Phase 08 finished -- full AI Trip Builder feature shipped.
-Last activity: 2026-02-18 -- Phase 08 Plan 04: Finalized itinerary rendering, share URL, deep link, analytics (human verification checkpoint deferred).
+Phase: 09-directory-page-redesign
+Plan: 1 of 4 COMPLETE
+Status: Plan 09-01 complete. Directory foundation rebuilt: hub-matched header, editorial palette, real hours + events data.
+Last activity: 2026-02-18 -- Phase 09 Plan 01: Directory header/nav rebuilt, dark sidebar replaced with editorial cream palette, hours and events wiring live.
 
-Progress: [████████████████████] 100% overall
+Progress: [████████████████████] 100% overall (Phase 09 in progress)
 
 ## What's Actually Shipped
 
@@ -251,6 +251,10 @@ Recent decisions affecting current work:
 - [Phase 8]: Map visibility check includes both dream board items and trip stops
 - [Phase 8]: ?chat=trip deep link handled by chat-controller.js init (no index-maplibre.js changes needed)
 - [Phase 8]: trip.html loads 12 scripts total (was 8): added itinerary-model, itinerary-calendar, itinerary-view, corridor-map + Turf.js CDN
+- [Phase 9]: Dark charcoal sidebar (#1f2937) replaced entirely with editorial cream/ink/gold palette — no dark theme preserved
+- [Phase 9]: rawDataForEvents (unfiltered) preserved before .filter() so events.index.json matched_asset_idx values align correctly with buildVenueEventIndex() input
+- [Phase 9]: Hours pill class names use hours-open/hours-closed/hours-unknown (not BEM hours-pill--open) matching detailView buildDetailMetaHTML output
+- [Phase 9]: CulturalMapPhotoCarousel.init() reused for directory hamburger; cloneCategoryGrid() silently no-ops (no #categoryGrid in directory)
 
 ### Roadmap Evolution
 
@@ -316,6 +320,6 @@ Research artifacts outside the phase directory structure. Consult these when pla
 ## Session Continuity
 
 Last session: 2026-02-18
-Stopped at: Completed 08-04-PLAN.md (finalized rendering + share URL + deep link + analytics). Phase 08 fully complete.
-Resume with: Next phase (Phase 9: Directory Page Redesign or Phase 7: Demand Signal Reporting)
-Key artifacts: .planning/phases/08-ai-trip-builder/08-01-SUMMARY.md through 08-04-SUMMARY.md, .planning/brainstorm/trip-builder/ (4 design docs from brainstorm team)
+Stopped at: Completed 09-01-PLAN.md (directory foundation: header rebuild, editorial palette, hours + events wiring).
+Resume with: Phase 09 Plan 02: Directory interaction polish (card expand/collapse re-render bug, city filter ghost state, deep link improvements)
+Key artifacts: .planning/phases/09-directory-page-redesign/09-01-SUMMARY.md, website/cultural-map-redesign-stitch-lab/directory.html
