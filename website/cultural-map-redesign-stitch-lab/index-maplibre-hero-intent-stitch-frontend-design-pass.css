@@ -295,7 +295,16 @@ body.theme-intent {
 
 .colophon {
   background: transparent;
-  border-top-color: rgba(16, 33, 61, 0.12);
+  padding: 2rem 1.5rem 1.5rem;
+  border-top: 1px solid rgba(16, 33, 61, 0.12);
+  color: var(--ink, #1a1612);
+}
+.colophon .colophon-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 @media (max-width: 1080px) {
@@ -2764,6 +2773,45 @@ body.theme-intent {
   font-family: "DM Sans", system-ui, sans-serif;
 }
 
+/* ── Interest Chips (Weekly Pulse) ── */
+.interest-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.6rem;
+  max-width: 520px;
+  margin: 0 auto 1.4rem;
+}
+.interest-chip {
+  cursor: pointer;
+}
+.interest-chip input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+.interest-chip-label {
+  display: inline-block;
+  padding: 0.5rem 1.1rem;
+  border-radius: 999px;
+  border: 1.5px solid rgba(245, 240, 232, 0.35);
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: rgba(245, 240, 232, 0.85);
+  transition: all 0.2s ease;
+  user-select: none;
+}
+.interest-chip-label:hover {
+  border-color: var(--gold, #c8943e);
+  color: var(--gold, #c8943e);
+}
+.interest-chip input:checked + .interest-chip-label {
+  background: var(--gold, #c8943e);
+  border-color: var(--gold, #c8943e);
+  color: #fff;
+}
+
 /* ── Plan Your Stay / Lodging ── */
 .lodging-section {
   margin-top: 1.1rem;
@@ -4097,4 +4145,208 @@ body.theme-intent {
 /* B4: Hub page map section mobile collapse */
 .map-section--collapsed {
   display: none !important;
+}
+
+/* ================================================================
+   DISTRICT INTENT MODAL
+   Desktop: centered overlay. Mobile (≤600px): bottom sheet.
+   ================================================================ */
+
+.intent-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(26, 22, 18, 0.55);
+  z-index: 1400;
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  animation: intentBackdropIn 0.2s ease;
+}
+
+@keyframes intentBackdropIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.intent-modal {
+  position: fixed;
+  z-index: 1401;
+  background: var(--cream, #f5f0e8);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(580px, calc(100vw - 2rem));
+  max-height: calc(100vh - 4rem);
+  overflow-y: auto;
+  border-radius: 0;
+  border: 1px solid rgba(26, 22, 18, 0.14);
+  box-shadow: 0 16px 48px rgba(26, 22, 18, 0.22);
+  animation: intentModalIn 0.22s ease;
+}
+
+@keyframes intentModalIn {
+  from { opacity: 0; transform: translate(-50%, calc(-50% + 12px)); }
+  to   { opacity: 1; transform: translate(-50%, -50%); }
+}
+
+.intent-modal-inner {
+  padding: clamp(1.6rem, 3vw, 2.4rem);
+  position: relative;
+}
+
+.intent-modal-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: 1px solid rgba(26, 22, 18, 0.18);
+  border-radius: 0;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--ink, #1a1612);
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.intent-modal-close:hover {
+  border-color: var(--gold, #c8943e);
+  background: rgba(200, 148, 62, 0.07);
+}
+
+.intent-modal-kicker {
+  margin: 0 0 0.4rem;
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  color: #a65436;
+}
+
+.intent-modal-title {
+  margin: 0 0 1.4rem;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+  font-weight: 700;
+  line-height: 1.15;
+  color: var(--ink, #1a1612);
+  padding-right: 2.5rem;
+}
+
+.intent-modal-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border: 1px solid rgba(26, 22, 18, 0.14);
+  margin-bottom: 1.1rem;
+}
+
+.intent-modal-subcat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: clamp(0.9rem, 2vw, 1.2rem);
+  background: var(--cream, #f5f0e8);
+  border: none;
+  border-right: 1px solid rgba(26, 22, 18, 0.14);
+  border-bottom: 1px solid rgba(26, 22, 18, 0.14);
+  text-align: left;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--ink, #1a1612);
+  transition: background 0.16s ease;
+  min-height: 80px;
+}
+
+.intent-modal-subcat:nth-child(even) {
+  border-right: none;
+}
+
+.intent-modal-subcat:nth-child(n+3) {
+  border-bottom: none;
+}
+
+.intent-modal-subcat:hover,
+.intent-modal-subcat:focus {
+  background: rgba(200, 148, 62, 0.09);
+  outline: none;
+}
+
+.intent-subcat-label {
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 0.92rem;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--ink, #1a1612);
+}
+
+.intent-subcat-meta {
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-size: 0.68rem;
+  color: rgba(26, 22, 18, 0.52);
+}
+
+.intent-modal-explore-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.85rem 1.2rem;
+  background: var(--ink, #1a1612);
+  color: var(--cream, #f5f0e8);
+  font-family: "DM Sans", system-ui, sans-serif;
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  border: none;
+  border-radius: 0;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+
+.intent-modal-explore-btn:hover {
+  background: var(--gold, #c8943e);
+  color: var(--ink, #1a1612);
+}
+
+@media (max-width: 600px) {
+  .intent-modal {
+    top: auto;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    transform: none;
+    max-height: 88vh;
+    border-bottom: none;
+    border-left: none;
+    border-right: none;
+    border-top: 1px solid rgba(26, 22, 18, 0.18);
+    border-radius: 0;
+    animation: intentSheetIn 0.28s cubic-bezier(0.32, 0.72, 0, 1);
+  }
+
+  @keyframes intentSheetIn {
+    from { transform: translateY(100%); }
+    to   { transform: translateY(0); }
+  }
+
+  .intent-modal-inner::before {
+    content: '';
+    display: block;
+    width: 36px;
+    height: 4px;
+    background: rgba(26, 22, 18, 0.18);
+    border-radius: 2px;
+    margin: 0 auto 1.2rem;
+  }
+
+  .intent-modal-close {
+    top: 0.75rem;
+    right: 0.75rem;
+  }
 }
