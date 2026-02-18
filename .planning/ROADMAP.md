@@ -324,55 +324,94 @@ Actual: 2 -> 2.1 -> 3 -> 5 -> 6 -> 6.1 -> 4 -> 3.1 -> 2.2 -> 01.1
 
 ### Phase 9: Directory Page Redesign
 
-**Goal:** The directory page (directory.html) matches the hub's editorial aesthetic, has working hours/events features, handles all interaction edge cases gracefully, and provides a polished split-pane browse experience on desktop and mobile
+**Goal:** The directory page (directory.html) matches the hub's editorial aesthetic, has fully working hours/events features, handles all interaction edge cases gracefully, fixes data quality issues, and provides a polished split-pane browse experience on desktop and mobile with robust deep linking and QR code gallery support
 **Depends on:** Phase 01.1 (hard — hub header/nav markup to replicate), Phase 2 (hard — events data for card badges), Phase 3 (soft — hours utils already available)
-**Requirements:** 26-item audit from 3-agent team review (UX, Visual Design, Functional QA) — see below
+**Requirements:** 32-item consolidated audit from 3 sources: ROADMAP 26-item review + 5 absorbed todos + 6 QR journey audit findings (auditor team, 2026-02-18) — see below
 
-**Audit Summary (2026-02-17):**
+**Consolidated Audit Summary (2026-02-18, 32 issues):**
 
-Critical (5):
-1. Header doesn't match hub — uses old dark `.brand`/`.stitch-top-nav` instead of new `.mast-inner` cream/blur
-2. Nav hidden on mobile (<1080px) — no hamburger, users trapped
-3. Dark sidebar (`#1f2937` Tailwind charcoal) clashes with editorial cream/ink/gold
-4. Hours stubbed to "unknown" — `getHoursState()` always returns 'unknown'
-5. Events stubbed to 0 — `getEventCountForAsset14d()` always returns 0
+**Critical Issues (5 — blocks all other work):**
+- C1: Header doesn't match hub — uses old dark `.brand`/`.stitch-top-nav` instead of new `.mast-inner` cream/blur
+- C2: Nav hidden on mobile (<1080px) — no hamburger, users trapped
+- C3: Dark sidebar (`#1f2937` Tailwind charcoal) clashes with editorial cream/ink/gold
+- C4: Hours stubbed to "unknown" — `getHoursState()` always returns 'unknown'
+- C5: Events stubbed to 0 — `getEventCountForAsset14d()` always returns 0
 
-Major (11):
-6. Expanded card destroyed on search/filter re-render (innerHTML nuke)
-7. No browser back/forward (replaceState only, no popstate)
-8. No empty state for zero search results
-9. Missing `.hours-pill` base CSS (renders as plain text)
-10. Category grid too dense (3-col in half-width pane)
-11. Skeletal footer (just copyright line)
-12. Missing Archivo font in Google Fonts link
-13. Mobile map 50vh with no collapse toggle
-14. No sort options for venue lists
-15. No list-map hover sync (panes feel disconnected)
-16. Pagination lacks progress ("Show more" with no count)
+**Major Issues (16 — core features + UX gaps):**
+- M1: Expanded card destroyed on search/filter re-render (innerHTML nuke) — detail state lost during filter updates
+- M2: No browser back/forward (replaceState only, no popstate) — browser history broken
+- M3: No empty state for zero search results — users see blank list without feedback
+- M4: Missing `.hours-pill` base CSS (renders as plain text)
+- M5: Category grid too dense (3-col in half-width pane) — mobile legibility poor
+- M6: Skeletal footer (just copyright line) — missing footer content
+- M7: Missing Archivo font in Google Fonts link — typography incomplete
+- M8: Mobile map 50vh with no collapse toggle — can't maximize list space
+- M9: No sort options for venue lists — hard to browse at scale
+- M10: No list-map hover sync (panes feel disconnected) — marker/card highlighting missing
+- M11: Pagination lacks progress ("Show more" with no count) — users don't know scope
+- M12: **[NEW]** Deep link loading state — no spinner/toast when ?pid= or ?place= present on slow mobile
+- M13: **[NEW]** Silent deep link failure — if findVenueByPid() returns null, no error message or analytics
+- M14: **[NEW]** popstate handler drops deep links — browser back/forward before map load silently fails
+- M15: **[NEW]** No "back to trail" breadcrumb — detail panel lacks context/navigation back
+- M16: **[NEW]** Gallery shows 7/25 QR codes with no scope messaging — committee confusion on coverage
 
-Minor (10):
-17-26. Silent deep link failure, ambiguous search scope, city filter threshold, no sticky header, no keyboard a11y, fallback ID mismatch, deep link timing, inline tooltip styles, search focus ring, expanded card contrast
+**Minor Issues (11 — polish + a11y + data quality):**
+- Min1: **[NEW]** ?idx=544 fragility — Elixart uses raw array index instead of stable pid (if data re-sorted, points to wrong venue)
+- Min2: Silent deep link failure (category/fuzzy match edge cases)
+- Min3: City filter threshold not defined
+- Min4: No sticky header on scroll — search/category pills scroll out of view
+- Min5: No keyboard a11y (tab order, focus trap, search submit)
+- Min6: Fallback ID mismatch (deep link parameter names inconsistent: `?pid=` vs `?idx=` vs `?place=`)
+- Min7: Deep link timing (race condition on map load)
+- Min8: Inline tooltip styles (hoverPopup not using editorial tokens)
+- Min9: Search focus ring missing (a11y)
+- Min10: Expanded card contrast (text readability in detail panel may fail WCAG AA)
+- Min11: Deduplicate same-category entries in data.json (3 duplicates visible: Avanguardia Winery, South Pine Cafe, The Pour House)
+
+**Data Quality Issues (2 — visible in directory):**
+- D1: Fix 3 assets with incorrect map coordinates (Alan Thiesen Trail, Sawtooth Trailhead, Coburn Music render in wrong locations)
+- D2: Deduplicate same-category entries in data.json (Min11 dup) — 3 duplicates in Eat/Drink/Stay category
 
 **Success Criteria** (what must be TRUE):
-  1. Directory header matches hub's `.mast-inner` structure (cream/blur, sticky, hamburger on mobile)
-  2. Sidebar/list uses editorial color tokens (`--cream`, `--ink`, `--gold`) — not Tailwind charcoal
-  3. Hours status is real (calls `hoursUtils.getHoursState()`) with "Open Now" toggle filter
-  4. Event counts are real (from merged events data) with event badges on cards
-  5. Expanded cards survive search/filter re-renders without content flash
-  6. Browser back/forward works through category → card → back navigation
-  7. Zero-results search shows "No results found" message
-  8. Mobile users can navigate to all pages (hamburger or visible nav)
-  9. Mobile map pane is collapsible to maximize list browsing space
-  10. "Show more" displays remaining count (e.g., "Show 97 more")
+  1. Directory header matches hub's `.mast-inner` structure (cream/blur, sticky, hamburger on mobile) — **C1, C2**
+  2. Sidebar/list uses editorial color tokens (`--cream`, `--ink`, `--gold`) — not Tailwind charcoal — **C3**
+  3. Hours status is real (calls `hoursUtils.getHoursState()`) with "Open Now" toggle filter — **C4**
+  4. Event counts are real (from merged events data) with event badges on cards — **C5**
+  5. Expanded cards survive search/filter re-renders without content flash — **M1**
+  6. Browser back/forward works through category → card → back navigation — **M2**
+  7. Zero-results search shows "No results found" message — **M3**
+  8. Mobile users can navigate to all pages (hamburger or visible nav) — **C2**
+  9. Mobile map pane is collapsible to maximize list browsing space — **M8**
+  10. "Show more" displays remaining count (e.g., "Show 97 more") — **M11**
+  11. Deep links (?pid=, ?place=) load with visual feedback (spinner/toast) and fail gracefully with error message — **M12, M13**
+  12. Browser back/forward works for deep links even if map not yet loaded — **M14**
+  13. List-map hover sync: hovering card highlights marker, hovering marker highlights card — **M10**
+  14. QR gallery section displays scope messaging (7/25 featured, with explanation) — **M16**
+  15. Data quality: 3 bad coordinates fixed, 3 duplicate entries deduplicated, consistent stable ID system (pid only, no idx) — **D1, D2, Min1**
 
 **Absorbs todos:**
-- category-cards-split-pane-directory (this IS the directory redesign concept)
-- directory-map-hover-tooltips-missing-on-nearby-markers (directory-specific map bug)
-- directory-page-card-expansion-and-deep-linking (directory interaction feature)
-- deduplicate-same-category-entries-in-data-json (data quality: 3 duplicate assets visible in directory)
-- fix-3-assets-with-incorrect-map-coordinates (data quality: 3 coordinate anomalies visible on directory map)
+- category-cards-split-pane-directory (this IS the directory redesign)
+- directory-map-hover-tooltips-missing-on-nearby-markers (M10)
+- directory-page-card-expansion-and-deep-linking (M1, M2, M12-M15)
+- deduplicate-same-category-entries-in-data-json (D2, Min11)
+- fix-3-assets-with-incorrect-map-coordinates (D1)
 
-**Plans:** 0 plans
+**Proposed Plan Breakdown (4 sub-phases):**
+
+- [ ] 09-01-PLAN.md — **Foundation (C1-C5, M4, M7):** Header/nav visual match, color tokens audit, hours wiring, events wiring, CSS base styles. *Priority: unblocks all other work*
+- [ ] 09-02-PLAN.md — **Deep Link System (M1, M2, M12-M15, Min1, Min6, Min7):** Robust deep link loading/error handling, back/forward history, stable pid system (remove idx fragility), breadcrumb navigation
+- [ ] 09-03-PLAN.md — **Interactions + Hover Sync (M10, M11, M3, M5, M6, M8, M9, Min2-Min5, Min8-Min10):** List-map sync, pagination, empty state, sort/filter UX, mobile collapse, footer content, sticky header, a11y fixes, tooltip tokens
+- [ ] 09-04-PLAN.md — **Data Fixes + QR Integration (D1, D2, M16, Min11):** Coordinate corrections (3), deduplication (3), QR gallery scope messaging, final polish + verification
+
+**Notes:**
+- **NEW issues (6 from QR journey audit):** M12, M13, M14, M15, M16, Min1 — arose from beta testing deep links via QR codes; essential for committee gallery workflow
+- **Execution order**: Follow priority path 09-01 → 09-02 → 09-03 → 09-04 (foundation must complete before interactions, deep links before interactions to avoid state mess)
+- **Staffing**: Critical issues (C1-C5) estimated 8-12 hours; major issues another 16-20 hours; minor + data ~8 hours total. Roughly 2-3 days full-time or 1.5 weeks part-time.
+
+**Plans:** 4 plans TBD
 
 Plans:
-- [ ] TBD (run /gsd:plan-phase 9 to break down)
+- [ ] 09-01-PLAN.md — Foundation: header/nav visual match, color tokens, hours/events wiring, CSS base (Wave 1)
+- [ ] 09-02-PLAN.md — Deep link system: robust loading/error states, back/forward history, stable IDs, breadcrumbs (Wave 1)
+- [ ] 09-03-PLAN.md — Interactions: list-map hover sync, pagination, empty state, mobile collapse, a11y polish (Wave 2)
+- [ ] 09-04-PLAN.md — Data fixes + QR integration: coordinates, deduplication, gallery scope messaging (Wave 2)

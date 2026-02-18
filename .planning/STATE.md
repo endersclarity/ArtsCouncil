@@ -10,9 +10,9 @@ See: .planning/PROJECT.md (updated 2026-02-14)
 ## Current Position
 
 Phase: 08-ai-trip-builder
-Plan: 1 of 4 COMPLETE
-Status: Plan 08-01 complete (dream board model + bookmark icons). 3 plans remaining in phase 08.
-Last activity: 2026-02-18 -- Phase 08 Plan 01: Dream board localStorage model and bookmark icons across all surfaces.
+Plan: 3 of 4 COMPLETE
+Status: Plans 08-01, 08-02, 08-03 complete. 1 plan remaining (08-04: finalized rendering + share + calendar).
+Last activity: 2026-02-18 -- Phase 08 Plan 03: Chatbot trip planning mode (system prompt, ITINERARY parser, dream board context, style cards).
 
 Progress: [██████████████████░░] 90% overall
 
@@ -223,6 +223,12 @@ Recent decisions affecting current work:
 - [Phase 8]: Bookmark button CSS injected via injectCSS() pattern (same as itinerary-view.js)
 - [Phase 8]: Undo in toast uses model re-add/re-remove (no localStorage snapshot rollback)
 - [Phase 8]: Bookmark delegation: body-level click handlers for .bookmark-btn and .event-bookmark-btn
+- [Phase 8]: Dream board context injected into last user message (not system prompt) to preserve Gemini prompt cache
+- [Phase 8]: Pipe-delimited {{ITINERARY}} block format for LLM structured output (not JSON, ~15% malformation rate)
+- [Phase 8]: Lenient ITINERARY parser: defaults time to 09:00, duration to 60min, skips unparseable lines
+- [Phase 8]: saveUserTrip delegates to TripBuilderModel.saveTrip when available, falls back to direct localStorage
+- [Phase 8]: Trip planning style cards conditionally shown only when dream board has >0 items
+- [Phase 8]: User trip IDs prefixed with 'usr-' to distinguish from curated itineraries
 
 ### Roadmap Evolution
 
@@ -296,6 +302,6 @@ Research artifacts outside the phase directory structure. Consult these when pla
 ## Session Continuity
 
 Last session: 2026-02-18
-Stopped at: Completed 08-01-PLAN.md (dream board model + bookmark icons). Plan 08-02 (trip page) is next.
-Resume with: /gsd:execute-phase 08 (continues with plan 08-02)
-Key artifacts: .planning/todo-research/ (4 research briefs + 3 audit docs), .planning/brainstorm/trip-builder/ (4 design docs from brainstorm team), .planning/phases/08-ai-trip-builder/08-01-SUMMARY.md
+Stopped at: Completed 08-03-PLAN.md (chatbot trip planning mode). Plan 08-04 (finalized rendering + share + calendar) is next.
+Resume with: /gsd:execute-phase 08 (continues with plan 08-04)
+Key artifacts: .planning/todo-research/ (4 research briefs + 3 audit docs), .planning/brainstorm/trip-builder/ (4 design docs from brainstorm team), .planning/phases/08-ai-trip-builder/08-01-SUMMARY.md, 08-02-SUMMARY.md (if exists), 08-03-SUMMARY.md
