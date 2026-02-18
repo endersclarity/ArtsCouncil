@@ -201,7 +201,9 @@
   var MAPTILER_KEY = config.MAPTILER_KEY || 'LrWxywMynJX4Y3SvVJby';
   var CATS         = config.CATS || {};
   var ICONS        = config.ICONS || {};
-  var CATEGORY_MAP = config.CATEGORY_MAP || {};
+  var CATEGORY_MAP    = config.CATEGORY_MAP    || {};
+  var INTENT_GROUPS   = config.INTENT_GROUPS   || {};
+  var INTENT_META     = config.INTENT_META     || {};
   var MAP_CENTER   = [-120.8, 39.22];
   var MAP_ZOOM     = 9;
   var PAGE_SIZE    = 30;
@@ -223,7 +225,9 @@
   var rawDataForEvents = [];
   var imageData = {};
   var map = null;
-  var activeCategory = null;
+  var activeCategory   = null;
+  var activeIntentKey  = null;
+  var activeIntentCats = [];
   var activeCityFilter = '';
   var searchQuery = '';
   var listPage = 0;
@@ -611,7 +615,9 @@
     if (!map || !map.getLayer('assets-circle')) return;
 
     var filter = null;
-    if (activeCategory) {
+    if (activeIntentCats.length) {
+      filter = ['in', ['get', 'layer'], ['literal', activeIntentCats]];
+    } else if (activeCategory) {
       filter = ['==', ['get', 'layer'], activeCategory];
     }
     if (activeCityFilter) {
@@ -717,6 +723,85 @@
     }
   }
 
+  function selectIntentGroup(intentKey) {
+    var cats = INTENT_GROUPS[intentKey] || [];
+    if (!cats.length) return;
+
+    var meta = INTENT_META[intentKey] || { label: intentKey, subhead: '' };
+
+    activeIntentKey  = intentKey;
+    activeIntentCats = cats;
+    activeCategory   = null;
+    activeCityFilter = '';
+    searchQuery      = '';
+    listPage         = 0;
+    activeItemId     = null;
+    document.getElementById('directorySearch').value = '';
+    collapseCardImmediate();
+
+    var catGrid  = document.getElementById('directoryCatGrid');
+    var expanded = document.getElementById('directoryExpandedView');
+    catGrid.style.display  = 'none';
+    expanded.style.display = '';
+
+    // Build header + city pills
+    var headerEl = document.getElementById('directoryHeaderArea');
+    var intentData = allData.filter(function(d) { return cats.indexOf(d.l) !== -1; });
+    var cityCounts = {};
+    intentData.forEach(function(d) {
+      if (d.c) cityCounts[d.c] = (cityCounts[d.c] || 0) + 1;
+    });
+    var cities = Object.keys(cityCounts)
+      .filter(function(c) { return cityCounts[c] >= CITY_FILTER_MIN; })
+      .sort(function(a, b) { return cityCounts[b] - cityCounts[a]; });
+
+    var html =
+      '<div class="directory-header">' +
+        '<button class="directory-back-btn" aria-label="Back to all categories">&larr;</button>' +
+        '<div class="directory-header-text">' +
+          '<h2 class="directory-header-title">' + escapeHtml(meta.label) + '</h2>' +
+          '<span class="directory-header-count">' + intentData.length + ' places</span>' +
+        '</div>' +
+      '</div>';
+
+    html += '<div class="directory-filters">';
+    html += '<button class="directory-filter-pill active" data-city="">All Locations</button>';
+    cities.forEach(function(city) {
+      html += '<button class="directory-filter-pill" data-city="' + escapeHtml(city) + '">' + escapeHtml(city) + '</button>';
+    });
+    html += '</div>';
+
+    headerEl.innerHTML = html;
+
+    headerEl.querySelector('.directory-back-btn').addEventListener('click', function() {
+      activeIntentKey  = null;
+      activeIntentCats = [];
+      selectCategory(null);
+    });
+
+    headerEl.querySelectorAll('.directory-filter-pill').forEach(function(pill) {
+      pill.addEventListener('click', function() {
+        collapseCardImmediate();
+        activeCityFilter = pill.dataset.city || '';
+        headerEl.querySelectorAll('.directory-filter-pill').forEach(function(p) {
+          p.classList.toggle('active', (p.dataset.city || '') === activeCityFilter);
+        });
+        listPage = 0;
+        updateMapFilter();
+        renderList();
+      });
+    });
+
+    var intentUrl = new URL(window.location);
+    intentUrl.searchParams.set('intent', intentKey);
+    intentUrl.searchParams.delete('cat');
+    intentUrl.searchParams.delete('place');
+    history.pushState({ intent: intentKey }, '', intentUrl);
+
+    updateMapFilter();
+    renderList();
+  }
+
   function getCategoryBounds(cat) {
     var items = allData.filter(function(d) { return d.l === cat; });
     if (!items.length) return null;
@@ -796,7 +881,9 @@
   // === Filtered Data ===
   function getFilteredData() {
     var filtered = allData.slice(); // copy so sort doesn't mutate allData
-    if (activeCategory) {
+    if (activeIntentCats.length) {
+      filtered = filtered.filter(function(d) { return activeIntentCats.indexOf(d.l) !== -1; });
+    } else if (activeCategory) {
       filtered = filtered.filter(function(d) { return d.l === activeCategory; });
     }
     if (activeCityFilter) {
@@ -1130,8 +1217,13 @@
         });
       }
 
-      // Deep linking: ?place=Venue+Name or ?cat=Category&place=Venue+Name
+      // Deep linking: ?intent=KEY, ?place=Venue+Name, or ?cat=Category
       var urlParams = new URLSearchParams(window.location.search);
+      var urlIntent = urlParams.get('intent');
+      if (urlIntent && INTENT_GROUPS[urlIntent]) {
+        selectIntentGroup(urlIntent);
+        return;
+      }
       var urlPlace = urlParams.get('place');
       if (urlPlace) {
         showToast('Loading ' + urlPlace + '...');
@@ -1179,7 +1271,9 @@
         if (!state) {
           // Back to initial state — show all categories
           collapseCardImmediate();
-          activeCategory = null;
+          activeCategory   = null;
+          activeIntentKey  = null;
+          activeIntentCats = [];
           activeCityFilter = '';
           searchQuery = '';
           document.getElementById('directorySearch').value = '';
@@ -1191,6 +1285,11 @@
         }
 
         collapseCardImmediate();
+
+        if (state.intent) {
+          selectIntentGroup(state.intent);
+          return;
+        }
 
         if (state.cat && state.cat !== activeCategory) {
           activeCategory = state.cat;
