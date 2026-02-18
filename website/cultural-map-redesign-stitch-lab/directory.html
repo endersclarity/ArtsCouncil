@@ -129,6 +129,9 @@
     </div>
   </div>
 
+  <button class="directory-map-toggle" id="directoryMapToggle" type="button" aria-label="Toggle map">
+    <span class="directory-map-toggle-text">Hide Map</span>
+  </button>
   <div class="map-pane">
     <div id="map"></div>
   </div>
@@ -1070,6 +1073,19 @@
         listPage++;
         renderList();
       });
+
+      // M8 — Mobile map collapse toggle
+      var mapToggle = document.getElementById('directoryMapToggle');
+      if (mapToggle) {
+        mapToggle.addEventListener('click', function() {
+          var mapPane = document.querySelector('.map-pane');
+          var isHidden = mapPane.classList.toggle('map-pane--collapsed');
+          mapToggle.querySelector('.directory-map-toggle-text').textContent = isHidden ? 'Show Map' : 'Hide Map';
+          if (!isHidden && map) {
+            setTimeout(function() { map.resize(); }, 300);
+          }
+        });
+      }
 
       // Deep linking: ?place=Venue+Name or ?cat=Category&place=Venue+Name
       var urlParams = new URLSearchParams(window.location.search);
