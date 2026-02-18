@@ -227,7 +227,7 @@ Recent decisions affecting current work:
 
 ### Pending Todos
 
-15 todos from stakeholder roundtable analysis (`.planning/todos/pending/`).
+16 todos in `.planning/todos/pending/`.
 
 #### Pre-Research Available
 
