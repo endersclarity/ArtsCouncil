@@ -9,10 +9,10 @@ See: .planning/PROJECT.md (updated 2026-02-14)
 
 ## Current Position
 
-Phase: 09-directory-page-redesign
-Plan: 4 of 4 COMPLETE
-Status: Plan 09-04 complete. Data quality audit: 2 coordinate fixes (Alan Thiesen Trail, Sawtooth Trailhead), 3 multi-location renames (Avanguardia, South Pine Cafe, The Pour House). QR gallery Elixart link migrated from ?idx=544 to stable ?place= deep link. Scope messaging added.
-Last activity: 2026-02-18 -- Phase 09 Plan 04: data.json coordinate + dedup fixes, QR gallery Elixart ?idx→?place, scope messaging, ?place= hub deep link support.
+Phase: 07-demand-signal-reporting
+Plan: 0 of 3 (POC + scoping complete, plans not yet created)
+Status: POC proved analytics pipeline. 3-agent team scoped instrumentation gaps (12 events), pipeline architecture, and committee report format. Ready for /gsd:plan-phase 7.
+Last activity: 2026-02-18 -- Phase 7 team scoping: instrumenter/pipeline/reporter agents produced 8 planning docs.
 
 Progress: [████████████████████] 100% overall (Phase 09 in progress)
 
@@ -267,6 +267,12 @@ Recent decisions affecting current work:
 - [Phase 09-03]: promoteId:'idx' added to assets GeoJSON source for setFeatureState support
 - [Phase 09-03]: Both setHoveredFeatureId callbacks call highlightSidebarCard(v) for map->list hover coverage
 - [Phase 09-03]: Category grid overridden to 2-column with \!important; fuzzy ?cat= partial match added
+- [Phase 7]: session_hash (crypto.randomUUID or fallback) generated at bootstrap, injected as property on ALL analytics.track() calls — single highest-ROI instrumentation change
+- [Phase 7]: 7-type intent taxonomy: tonight_planner, trip_researcher, art_seeker, family_planner, event_hunter, local_explorer, casual_browser — rule-based, highest-confidence signal wins
+- [Phase 7]: Business referral scoring: 4-tier hierarchy (outbound clicks 100-40pts → detail opens 10pts → marker clicks 5pts → chat recommendations 1pt)
+- [Phase 7]: Report format: 1-page markdown → Pandoc PDF. Monthly GitHub Actions cron (1st of month) + manual CLI
+- [Phase 7]: Umami Cloud constraint: no service account API key, Bearer token expires quarterly, must refresh via browser login
+- [Phase 7]: Chat deep link click tracking (`chat:deeplink-click`) is biggest instrumentation gap — chatbot recommends 8-12 venues per query with zero click attribution
 
 ### Roadmap Evolution
 
@@ -275,6 +281,7 @@ Recent decisions affecting current work:
 - Phase 03.1 inserted after Phase 3: Content Architecture & Demo Curation (URGENT) — Site has all plumbing (events, itineraries, chat, analytics) but content architecture and curation not demo-ready. Need to define single-page progressive disclosure vs. multi-page, curate featured content showing aggregation value (Stardust Station, Local Adventure Mama gaps), and structure demo experience for Wednesday committee presentation.
 - Phase 9 added: Directory Page Polish — 26-item audit from 3-agent team review (UX analyst, visual design critic, functional QA). Covers header rebuild, sidebar redesign, stubbed hours/events features, interaction bugs, mobile UX fixes.
 - Phase 02.2 inserted after Phase 02.1: Live Music & Venue Event Ingestion — Nevada County's live music scene is invisible on the site. 4 venues missing from asset data entirely (Bodhi Hive, Stardust Station, The Unchurch, The Fern), 2 existing venues have almost no events flowing (Crazy Horse, Golden Era). Ol' Republic permanently closed. Research via Perplexity identified 3 tiers: iCal (Crazy Horse), HTML scraping (Golden Era, Bodhi Hive, The Fern), community submission form (Stardust Station, The Unchurch). Also creates Live Music category/tag system and absorbs 4 related event todos.
+- Phase 7 scoped (2026-02-18): POC complete + 3-agent team refined plan stubs. Key finding: session_hash on all events is highest-ROI change (60% → 95% intent accuracy). Dependency chain: 07-01 (instrumentation) blocks 07-02 (pipeline) and 07-03 (report). Umami Cloud token expiry is a known constraint — no service account API key available.
 
 ### Pending Todos
 
@@ -332,6 +339,6 @@ Research artifacts outside the phase directory structure. Consult these when pla
 ## Session Continuity
 
 Last session: 2026-02-18
-Stopped at: Completed 09-04-PLAN.md (data quality: coordinate fixes, multi-location renames, QR gallery Elixart ?idx→?place, scope messaging, ?place= hub deep link support).
-Resume with: Phase 09 all plans complete. Phase 09 done.
-Key artifacts: .planning/phases/09-directory-page-redesign/09-04-SUMMARY.md, website/cultural-map-redesign-stitch-lab/data.json, website/cultural-map-redesign-stitch-lab/qr-gallery.html
+Stopped at: Phase 7 POC complete, team scoping complete, ROADMAP updated. Ready for /gsd:plan-phase 7.
+Resume with: Run /gsd:plan-phase 7 to create executable 07-01/02/03-PLAN.md files.
+Key artifacts: .planning/phases/07-demand-signal-reporting/POC-INTERNAL-BRIEF.md, .planning/phases/07-demand-signal-reporting/PIPELINE-ARCHITECTURE.md, .planning/phases/07-demand-signal-reporting/COMMITTEE-REPORT-TEMPLATE.md

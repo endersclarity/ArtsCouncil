@@ -134,22 +134,29 @@ Plans:
 **Goal**: The committee receives a monthly intelligence report showing what visitors searched for, clicked on, and asked the chatbot -- actionable data no other small-town DMO has
 **Depends on**: Phase 5 (hard — Supabase chatbot logs), Phase 6 (hard — Umami event data)
 **Requirements**: REPT-01, REPT-02, REPT-03, REPT-04, REPT-05, REPT-06, REPT-07, REPT-08
+**POC Status**: Complete (2026-02-18). Synthetic user swarm + Umami API + Supabase REST access proven. Blind intent reconstruction ~60% from aggregate data. See `.planning/phases/07-demand-signal-reporting/POC-INTERNAL-BRIEF.md`.
 **Success Criteria** (what must be TRUE):
-  1. Running the report script produces a markdown file with top 10 assets by detail opens and outbound clicks
+  1. Running the report script produces a markdown file with top 10 venues by detail opens and outbound clicks
   2. Report includes category filter frequency ranking and zero-result search queries
-  3. Report includes chatbot intent distribution (eat/see/do/stay/navigate)
-  4. Report is readable as markdown and convertible to PDF for committee meetings
-  5. Report can be triggered manually or via scheduled GitHub Action
-**Plans**: TBD
+  3. Report includes chatbot intent distribution (dining/lodging/outdoor/arts/same_day/future_trip/family/live_music)
+  4. Report is readable as markdown and convertible to PDF via Pandoc for committee meetings
+  5. Report can be triggered manually via CLI or via monthly GitHub Actions cron
+  6. session_hash property is present on all custom analytics events, enabling per-visitor journey reconstruction
+  7. Chatbot deep link clicks (`chat:deeplink-click`) are tracked with asset attribution
+  8. Business referral ranking scores venues across 4 tiers (outbound clicks → detail opens → marker clicks → chat recommendations)
 
 **Absorbs todos:**
 - analytics-mockup-report (demo preview of Phase 7's reporting capability)
 - demo-deep-link-bookmarks (demo script showing features to committee)
 
+**Key constraint:** Umami Cloud has no service account API key. Bearer token from `localStorage['umami.auth']` expires — requires quarterly manual refresh or headless browser token-refresh script.
+
+**Dependency chain:** 07-01 must ship before 07-02/07-03 (pipeline and report depend on new instrumentation data).
+
 Plans:
-- [ ] 07-01: Umami Stats API data pull and aggregation script
-- [ ] 07-02: Supabase chatbot log aggregation and intent classification
-- [ ] 07-03: Report template, markdown/PDF output, and GitHub Actions trigger
+- [ ] 07-01-PLAN.md — Instrumentation gaps: 12 new analytics events (chat:deeplink-click, chat:query-sent, session:start, explore:* 3 events, itinerary:scroll-depth, itinerary:show-map-click, page:section-visibility, chat:open/close) + session_hash injection on all 37 existing events
+- [ ] 07-02-PLAN.md — Reporting pipeline: `scripts/demand-signal-pull.mjs` (Umami API + Supabase REST → unified JSON), 7-type intent classification (tonight_planner/trip_researcher/art_seeker/family_planner/event_hunter/local_explorer/casual_browser), business referral scoring (4-tier hierarchy), GitHub Actions monthly cron
+- [ ] 07-03-PLAN.md — Committee report: markdown template with KPIs/demand signals/business ranking/chatbot insights, Pandoc PDF conversion, sample report, delivery automation script
 
 ### Phase 8: AI Trip Builder
 **Goal**: Visitors can collect places and events into a personal dream board, then converse with the AI concierge to organize them into a structured, shareable, calendar-exportable trip plan — the first DMO trip builder where AI is the primary organizer, not drag-and-drop UI
@@ -216,7 +223,7 @@ Actual: 2 -> 2.1 -> 3 -> 5 -> 6 -> 6.1 -> 4 -> 3.1 -> 2.2 -> 01.1
 | 5. AI Concierge | 2/2 | COMPLETE | 2026-02-15 |
 | 6. Analytics Foundation | 1/1 | COMPLETE | 2026-02-16 |
 | 06.1. Deep Analytics | 1/1 | COMPLETE | 2026-02-16 |
-| 7. Demand Signal Reporting | 0/3 | Not started | - |
+| 7. Demand Signal Reporting | 0/3 | POC + scoping complete | - |
 | 8. AI Trip Builder | 3/4 | IN PROGRESS | - |
 | 9. Directory Page Redesign | 0/4 | PLANNED | - |
 
