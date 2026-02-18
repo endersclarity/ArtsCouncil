@@ -10,9 +10,9 @@ See: .planning/PROJECT.md (updated 2026-02-14)
 ## Current Position
 
 Phase: 09-directory-page-redesign
-Plan: 1 of 4 COMPLETE
-Status: Plan 09-01 complete. Directory foundation rebuilt: hub-matched header, editorial palette, real hours + events data.
-Last activity: 2026-02-18 -- Phase 09 Plan 01: Directory header/nav rebuilt, dark sidebar replaced with editorial cream palette, hours and events wiring live.
+Plan: 2 of 4 COMPLETE
+Status: Plan 09-02 complete. Directory deep link + history system: pushState/popstate navigation, collapse-before-render bug fix, toast notifications, breadcrumb.
+Last activity: 2026-02-18 -- Phase 09 Plan 02: pushState/popstate history, collapseCardImmediate in search/filter, deep link loading state, error toast, breadcrumb.
 
 Progress: [████████████████████] 100% overall (Phase 09 in progress)
 
@@ -149,6 +149,7 @@ Progress: [████████████████████] 100% ov
 | 6.1 | 1/1 | 3min | 3min | Claude Code via GSD |
 | 2.2 | 3/3 | 11min | 3.7min | Claude Code via GSD |
 | 8 | 4/4 | 27min | 6.75min | Claude Code via GSD |
+| Phase 09-directory-page-redesign P02 | 3 | 2 tasks | 1 files |
 
 ## Accumulated Context
 
@@ -255,6 +256,10 @@ Recent decisions affecting current work:
 - [Phase 9]: rawDataForEvents (unfiltered) preserved before .filter() so events.index.json matched_asset_idx values align correctly with buildVenueEventIndex() input
 - [Phase 9]: Hours pill class names use hours-open/hours-closed/hours-unknown (not BEM hours-pill--open) matching detailView buildDetailMetaHTML output
 - [Phase 9]: CulturalMapPhotoCarousel.init() reused for directory hamburger; cloneCategoryGrid() silently no-ops (no #categoryGrid in directory)
+- [Phase 09]: history.pushState used for all meaningful directory state transitions — replaceState only for initial seed; ensures back/forward navigates real states
+- [Phase 09]: collapseCardImmediate() must be the FIRST call in onSearch() and city filter pill handler — ordering is critical to prevent ghost active state before renderList() destroys DOM
+- [Phase 09]: popstate handler registered inside loadData().then() so allData is populated for place-name lookup
+- [Phase 09]: map.flyTo() guarded with map.loaded() check — deep links via QR codes may call expandCard() before MapLibre fires load event
 
 ### Roadmap Evolution
 
@@ -320,6 +325,6 @@ Research artifacts outside the phase directory structure. Consult these when pla
 ## Session Continuity
 
 Last session: 2026-02-18
-Stopped at: Completed 09-01-PLAN.md (directory foundation: header rebuild, editorial palette, hours + events wiring).
-Resume with: Phase 09 Plan 02: Directory interaction polish (card expand/collapse re-render bug, city filter ghost state, deep link improvements)
-Key artifacts: .planning/phases/09-directory-page-redesign/09-01-SUMMARY.md, website/cultural-map-redesign-stitch-lab/directory.html
+Stopped at: Completed 09-02-PLAN.md (directory deep link + history system: pushState/popstate, toast, breadcrumb).
+Resume with: Phase 09 Plan 03: Card redesign (richer card UI, photo treatment, expanded detail layout)
+Key artifacts: .planning/phases/09-directory-page-redesign/09-02-SUMMARY.md, website/cultural-map-redesign-stitch-lab/directory.html
