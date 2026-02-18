@@ -1,6 +1,10 @@
 (function() {
   'use strict';
 
+  // XSS prevention: escape all user-data before innerHTML injection (B1 fix)
+  var escapeHTML = (window.CulturalMapCoreUtils && window.CulturalMapCoreUtils.escapeHTML)
+    || function(v) { return String(v || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;'); };
+
   /**
    * Build the 8 photo-hero category cards (collapsed state).
    * 4x2 grid on desktop, 3-col tablet, 2-col mobile.
@@ -24,10 +28,10 @@
       card.style.setProperty('--card-accent', cfg.color);
       card.innerHTML =
         '<div class="directory-card-photo">' +
-          '<img src="' + (heroImg || fallback) + '" alt="' + name + '" loading="lazy" onerror="this.src=\'' + fallback + '\'">' +
+          '<img src="' + (heroImg || fallback) + '" alt="' + escapeHTML(name) + '" loading="lazy" onerror="this.src=\'' + fallback + '\'">' +
           '<div class="directory-card-overlay"></div>' +
           '<div class="directory-card-content">' +
-            '<h3 class="directory-card-name">' + name + '</h3>' +
+            '<h3 class="directory-card-name">' + escapeHTML(name) + '</h3>' +
             '<span class="directory-card-count">' + (counts[name] || 0) + ' places</span>' +
           '</div>' +
         '</div>';
@@ -44,7 +48,7 @@
       '<button class="directory-back-btn" aria-label="Back to all categories">&larr;</button>' +
       '<div class="directory-header-badge" style="background:' + color + '"></div>' +
       '<div class="directory-header-text">' +
-        '<h2 class="directory-header-title">Explore ' + name + '</h2>' +
+        '<h2 class="directory-header-title">Explore ' + escapeHTML(name) + '</h2>' +
         '<span class="directory-header-count">' + count + ' places</span>' +
       '</div>' +
       '<a href="directory.html?cat=' + encodeURIComponent(name) + '" class="directory-map-link">Explore on map &rarr;</a>' +
@@ -54,11 +58,11 @@
   /**
    * Build city filter pills row.
    */
-  function buildCityFilterPills({ cities, activeCity, onCitySelect }) {
+  function buildCityFilterPills({ cities, activeCity }) {
     var html = '<div class="directory-filters">';
     html += '<button class="directory-filter-pill' + (!activeCity ? ' active' : '') + '" data-city="">All Locations</button>';
     cities.forEach(function(city) {
-      html += '<button class="directory-filter-pill' + (activeCity === city ? ' active' : '') + '" data-city="' + city + '">' + city + '</button>';
+      html += '<button class="directory-filter-pill' + (activeCity === city ? ' active' : '') + '" data-city="' + escapeHTML(city) + '">' + escapeHTML(city) + '</button>';
     });
     html += '</div>';
     return html;
@@ -125,16 +129,16 @@
     var html = '<div class="directory-item-photo">' +
         '<img src="' + photoSrc + '" alt="" loading="lazy" onerror="this.src=\'' + fallback + '\'">';
     if (subBadge) {
-      html += '<span class="directory-item-badge" style="background:' + cfg.color + '">' + subBadge + '</span>';
+      html += '<span class="directory-item-badge" style="background:' + cfg.color + '">' + escapeHTML(subBadge) + '</span>';
     }
     html += bookmarkCorner + '</div>' +
       '<div class="directory-item-body">';
     if (cityLabel) {
-      html += '<span class="directory-item-city">' + cityLabel + '</span>';
+      html += '<span class="directory-item-city">' + escapeHTML(cityLabel) + '</span>';
     }
-    html += '<h3 class="directory-item-name">' + asset.n + '</h3>';
+    html += '<h3 class="directory-item-name">' + escapeHTML(asset.n) + '</h3>';
     if (desc) {
-      html += '<p class="directory-item-desc">' + desc + '</p>';
+      html += '<p class="directory-item-desc">' + escapeHTML(desc) + '</p>';
     }
     // Status pills
     var pills = '';
