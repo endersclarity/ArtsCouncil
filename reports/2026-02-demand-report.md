@@ -1,14 +1,14 @@
 # Nevada County Arts Council — Visitor Demand Signal Report
 
 **Report Period:** February 2026
-**Report Date:** February 17, 2026
+**Report Date:** February 18, 2026
 **Data Source:** Cultural Map analytics (Umami + AI Concierge logs)
 
 ---
 
 ## Executive Summary
 
-This month, **5 visitors** explored our cultural asset map, generating **68 engagement events** and **2 direct business referrals**.
+This month, **5 visitors** explored our cultural asset map, generating **73 engagement events** and **2 direct business referrals**.
 
 ---
 
@@ -17,9 +17,9 @@ This month, **5 visitors** explored our cultural asset map, generating **68 enga
 | Metric | Value |
 |--------|-------|
 | Total Visitors | 5 |
-| Total Page Views | 90 |
-| Avg Visit Duration | 3.2 min |
-| Bounce Rate | 10.0% |
+| Total Page Views | 95 |
+| Avg Visit Duration | 0.0 min |
+| Bounce Rate | 9.1% |
 | Direct Business Referrals | 2 |
 
 ---
@@ -31,25 +31,25 @@ This month, **5 visitors** explored our cultural asset map, generating **68 enga
 | Rank | Category | Filter Count |
 |------|----------|-------------|
 | 1 | Walks & Trails | 2 |
-| 2 | Historic Landmarks | 2 |
-| 3 | Galleries | 1 |
-| 4 | Eat, Drink & Stay | 1 |
+| 2 | Galleries & Museums | 2 |
+| 3 | Historic Landmarks | 2 |
+| 4 | Eat, Drink & Stay | 2 |
 | 5 | Cultural Organizations | 1 |
 
 ### Top Venues by Engagement
 
 | Rank | Venue | Detail Opens | Outbound Clicks | Score |
 |------|-------|-------------|-----------------|-------|
-| 1 | Odd Fellows Hall | 0 | 2 | 200 |
-| 2 | Empire Mine State Historic Park | 2 | 0 | 25 |
-| 3 | LeeAnn Brook Gallery | 1 | 0 | 10 |
-| 4 | Center for the Arts | 1 | 0 | 10 |
-| 5 | Holbrooke Hotel | 0 | 0 | 10 |
-| 6 | Watershed | 0 | 0 | 10 |
-| 7 | 1849 Brewing Company | 0 | 0 | 10 |
-| 8 | Wild Eye Pub | 0 | 0 | 10 |
-| 9 | Three Forks Bakery & Brewing Co. | 0 | 0 | 10 |
-| 10 | Friar Tuck's Restaurant | 0 | 0 | 10 |
+| 1 | Odd Fellows Hall, 212 Spring Street, Nevada City CA 95959 | 0 | 2 | 200 |
+| 2 | Mothers Day Springtime Event at Empire Mine | 2 | 0 | 25 |
+| 3 | Center for the Arts | 1 | 0 | 15 |
+| 4 | LeeAnn Brook Gallery | 1 | 0 | 10 |
+| 5 | Cirino’s at Main Street | 0 | 0 | 10 |
+| 6 | Watershed Restaurant | 0 | 0 | 10 |
+| 7 | The Holbrooke Hotel | 0 | 0 | 10 |
+| 8 | Tofanelli’s Gold Country Bistro | 0 | 0 | 5 |
+| 9 | MeZe Eatery | 0 | 0 | 5 |
+| 10 | Sergio’s Caffe | 0 | 0 | 5 |
 
 ### Zero-Result Searches (Unmet Demand)
 
@@ -63,67 +63,68 @@ No zero-result searches this period.
 
 | Rank | Business | City | Category | Score | Primary Signal |
 |------|----------|------|----------|-------|---------------|
-| 1 | Odd Fellows Hall | Nevada City | Performing Arts | 200 | outbound:event-ticket |
-| 2 | Empire Mine State Historic Park | Grass Valley | Historic Landmarks | 25 | detail:open |
-| 3 | LeeAnn Brook Gallery | Nevada City | Galleries | 10 | detail:open |
-| 4 | Center for the Arts | Grass Valley | Performing Arts | 10 | detail:open |
-| 5 | Holbrooke Hotel | Grass Valley | Eat, Drink & Stay | 10 | chat:recommended |
-| 6 | Watershed | Grass Valley | Eat, Drink & Stay | 10 | chat:recommended |
-| 7 | 1849 Brewing Company | Grass Valley | Eat, Drink & Stay | 10 | chat:recommended |
-| 8 | Wild Eye Pub | Grass Valley | Eat, Drink & Stay | 10 | chat:recommended |
-| 9 | Three Forks Bakery & Brewing Co. | Grass Valley | Eat, Drink & Stay | 10 | chat:recommended |
-| 10 | Friar Tuck's Restaurant | Grass Valley | Eat, Drink & Stay | 10 | chat:recommended |
+| 1 | Odd Fellows Hall, 212 Spring Street, Nevada City CA 95959 | N/A | N/A | 200 | outbound:event-ticket |
+| 2 | Mothers Day Springtime Event at Empire Mine | N/A | N/A | 25 | detail:open |
+| 3 | Center for the Arts | N/A | N/A | 15 | detail:open |
+| 4 | LeeAnn Brook Gallery | N/A | N/A | 10 | detail:open |
+| 5 | Cirino’s at Main Street | N/A | N/A | 10 | chat:recommended |
+| 6 | Watershed Restaurant | N/A | N/A | 10 | chat:recommended |
+| 7 | The Holbrooke Hotel | N/A | N/A | 10 | chat:recommended |
+| 8 | Tofanelli’s Gold Country Bistro | N/A | N/A | 5 | chat:recommended |
+| 9 | MeZe Eatery | N/A | N/A | 5 | chat:recommended |
+| 10 | Sergio’s Caffe | N/A | N/A | 5 | chat:recommended |
 
-**Note:** 6 venues in this ranking have chatbot recommendations but no click-through tracking. Scores may undercount actual referral value.
+**Note:** 7 venues in this ranking have chatbot recommendations but no click-through tracking. Scores may undercount actual referral value.
 
 ---
 
 ## AI Concierge Insights
 
 ### Query Volume
-- **Total queries:** 2
-- **Avg response time:** 10,749ms
+- **Total queries:** 5
+- **Avg response time:** 6,740ms
 
 ### Intent Distribution
 
 | Intent | Count | % |
 |--------|-------|---|
-| dining | 2 | 66.7% |
-| same_day | 1 | 33.3% |
+| dining | 2 | 50.0% |
+| lodging | 1 | 25.0% |
+| same_day | 1 | 25.0% |
 
 ### Top Venues Recommended by AI
 
 | Venue | Times Recommended |
 |-------|------------------|
-| Holbrooke Hotel | 2 |
-| Watershed | 2 |
-| 1849 Brewing Company | 2 |
-| Wild Eye Pub | 2 |
-| Three Forks Bakery & Brewing Co. | 2 |
-| Friar Tuck's Restaurant | 2 |
-| Tofanelli's Gold Country Bistro | 1 |
-| Cirino's at Main Street | 1 |
+| Cirino’s at Main Street | 2 |
+| Watershed Restaurant | 2 |
+| The Holbrooke Hotel | 2 |
+| Tofanelli’s Gold Country Bistro | 1 |
 | MeZe Eatery | 1 |
-| Sergio's Caffe | 1 |
+| Sergio’s Caffe | 1 |
+| 1849 Brewing Company | 1 |
+| Wild Eye Pub | 1 |
+| Center for the Arts | 1 |
+| Three Forks Bakery & Brewing Co. | 1 |
 
 ---
 
 ## Visitor Intent Clusters
-
-### tonight_planner
-- **Confidence:** HIGH
-- **Estimated visitors:** 2
-- **Evidence:** outbound:event-ticket (2), events:date-filter=tonight (2), chat dining queries (2)
 
 ### trip_researcher
 - **Confidence:** HIGH
 - **Estimated visitors:** 1
 - **Evidence:** outbound:lodging-vrbo (1), events:date-filter=weekend (1)
 
+### tonight_planner
+- **Confidence:** HIGH
+- **Estimated visitors:** 1
+- **Evidence:** outbound:event-ticket (2), events:date-filter=tonight (2), chat dining queries (2)
+
 ### casual_browser
 - **Confidence:** LOW
-- **Estimated visitors:** 2
-- **Evidence:** residual visitors (2), category:filter=Cultural Organizations (1)
+- **Estimated visitors:** 3
+- **Evidence:** residual visitors (3)
 
 ---
 
@@ -131,10 +132,9 @@ No zero-result searches this period.
 
 | Page | Views | % of Total |
 |------|-------|-----------|
-| /index-maplibre-hero-intent-stitch-frontend-design-pass.html | 57 | 63.3% |
-| /directory.html | 12 | 13.3% |
-| /events.html | 11 | 12.2% |
-| /itineraries.html | 10 | 11.1% |
+| 2026-02-18T00:00:00Z | 64 | 67.4% |
+| 2026-02-17T00:00:00Z | 26 | 27.4% |
+| 2026-02-16T00:00:00Z | 5 | 5.3% |
 
 ---
 
@@ -142,9 +142,9 @@ No zero-result searches this period.
 
 | Feature | Count |
 |---------|-------|
-| toggle:open-now | 25 |
-| toggle:events-14d | 24 |
-| category:filter | 7 |
+| toggle:open-now | 27 |
+| toggle:events-14d | 25 |
+| category:filter | 9 |
 | detail:open | 4 |
 | marker:click | 1 |
 | outbound:event-ticket | 2 |

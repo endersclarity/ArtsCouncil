@@ -144,9 +144,22 @@ async function fetchUmamiData() {
     propertyValues[key] = values;
   }
 
-  // 5. Page view breakdown
+  // 5. Page view breakdown — try multiple Umami API approaches
   log('Fetching page view metrics...');
-  const pageMetrics = await umamiGet('/metrics', { ...timeParams, type: 'url' });
+  var pageMetrics = [];
+  try {
+    pageMetrics = await umamiGet('/metrics', { ...timeParams, type: 'url' });
+  } catch (e) {
+    log('Page view /metrics?type=url failed (' + e.message.slice(0, 80) + '), trying /pageviews...');
+    try {
+      const pv = await umamiGet('/pageviews', { ...timeParams, unit: 'day' });
+      // /pageviews returns { pageviews: [{t,y}], sessions: [{t,y}] } — flatten to url-like
+      pageMetrics = (pv && pv.pageviews) ? pv.pageviews.map(function(d) { return { x: d.t || d.x, y: d.y }; }) : [];
+    } catch (e2) {
+      log('Page view fallback also failed — continuing without page breakdown');
+      pageMetrics = [];
+    }
+  }
 
   return { stats, eventMetrics, eventProperties, propertyValues, pageMetrics };
 }
