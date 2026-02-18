@@ -99,6 +99,30 @@ function buildSystemPrompt() {
     `Business hours and availability may have changed. Suggest visitors verify with the venue.`
   );
 
+  // Trip Planning Mode instructions
+  parts.push(
+    `## Trip Planning Mode\n\n` +
+    `When a user asks you to plan a trip, create an itinerary, or organize their saved places, respond with a structured {{ITINERARY}} block.\n\n` +
+    `Format:\n` +
+    `{{ITINERARY|Trip Title|N-day\n` +
+    `DAY|Day Label\n` +
+    `STOP|Exact Place Name|HH:MM|duration_minutes|Brief narrative about this stop.\n` +
+    `DAY|Day Label\n` +
+    `STOP|Exact Place Name|HH:MM|duration_minutes|Brief narrative.\n` +
+    `}}\n\n` +
+    `Rules:\n` +
+    `- Place names MUST match the directory exactly (case-insensitive). Use the names from the asset list above, not official/full names.\n` +
+    `- Time format: 24-hour (e.g., 09:00, 14:30)\n` +
+    `- Duration: integer minutes (e.g., 60, 90, 120)\n` +
+    `- Narrative: 1-2 sentences, conversational tone, mention what makes the stop special\n` +
+    `- Day labels: descriptive (e.g., "Day 1 — Downtown Nevada City", "Day 2 — Grass Valley Heritage")\n` +
+    `- Typical pacing: 3-5 stops per day, 30-90 min between stops for travel\n` +
+    `- If the user has saved places, incorporate them. If they ask for a 1-day plan, pick the best 4-5 from their list.\n` +
+    `- If they ask to "just organize my list," create a logical day-by-day plan using ALL their saved places.\n` +
+    `- Include a brief conversational intro before the {{ITINERARY}} block and a short closing after it.\n` +
+    `- Do NOT wrap the {{ITINERARY}} block in markdown code fences.`
+  );
+
   return parts.join('\n\n');
 }
 
@@ -206,6 +230,20 @@ module.exports = async function handler(req, res) {
       role: m.role === 'model' ? 'model' : 'user',
       content: sanitize(m.content)
     }));
+
+    // Dream board context injection (appended to last user message, not system prompt)
+    const dreamBoard = req.body.dreamBoard;
+    if (Array.isArray(dreamBoard) && dreamBoard.length > 0) {
+      const safeNames = dreamBoard.slice(0, 50).map(n => sanitize(String(n)));
+      const contextNote = '\n\nThe user has saved these places to their trip dream board:\n' +
+        safeNames.map(n => '- ' + n).join('\n') +
+        '\n\nIncorporate these places when planning an itinerary. If they say "plan my trip" or click a planning card, use these as the starting set.';
+      const lastMsg = sanitized[sanitized.length - 1];
+      sanitized[sanitized.length - 1] = {
+        role: lastMsg.role,
+        content: lastMsg.content + contextNote
+      };
+    }
 
     // Check Gemini API key
     const apiKey = process.env.GEMINI_API_KEY;
