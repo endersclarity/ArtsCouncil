@@ -244,6 +244,31 @@
   @media (max-width: 480px) {
     .card-image { height: 110px; }
   }
+
+  /* ── Mobile touch-target & readability pass (≤599px) ── */
+  @media (max-width: 599px) {
+    .filter-btn {
+      min-height: 40px;
+      font-size: 0.875rem;
+      padding: 0.5rem 0.875rem;
+    }
+    .ticket-btn {
+      min-height: 36px;
+      padding: 0.5rem 0.625rem;
+      font-size: 0.7rem;
+    }
+    .events-page-bookmark {
+      width: 36px !important;
+      height: 36px !important;
+      font-size: 1rem !important;
+    }
+    .events-sidebar input[type="text"],
+    .events-sidebar select {
+      min-height: 40px;
+      font-size: 0.875rem;
+    }
+    .card-image { height: 90px; }
+  }
 </style>
 </head>
 <body class="min-h-screen">
@@ -308,7 +333,7 @@
       <span class="hero-events" style="font-size:clamp(3rem,8vw,6rem);font-weight:900;text-transform:uppercase;letter-spacing:-0.02em;color:#121212">EVENTS </span><span class="hero-calendar" style="display:inline-block;font-size:clamp(3rem,8vw,6rem);font-weight:900;text-transform:uppercase;letter-spacing:-0.02em;background:#121212;color:#f2cc0d;padding:0 0.35rem">CALENDAR</span>
     </div>
     <div class="hero-subtitle" style="border-left:8px solid #0050EF;padding-left:1rem;margin-top:1.25rem">
-      <p style="font-size:1.1rem;font-weight:600;color:#121212;line-height:1.5">
+      <p style="font-size:clamp(0.9rem,3vw,1.1rem);font-weight:600;color:#121212;line-height:1.5">
         <span id="eventsTotal">0</span> events across Nevada County &mdash;
         from galleries, theaters, libraries, and community spaces
       </p>
@@ -625,7 +650,7 @@
       html += '<div class="date-group-header" style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1.25rem;margin-top:2.25rem">';
       html += '<div style="height:4px;width:2.5rem;background:#121212;flex-shrink:0"></div>';
       html += '<span style="font-weight:800;font-size:1rem;text-transform:uppercase;letter-spacing:0.08em;' +
-              'background:white;padding:0.2rem 0.75rem;border:2px solid #121212;white-space:nowrap">' +
+              'background:white;padding:0.2rem 0.75rem;border:2px solid #121212">' +
               escapeHtml(formatDate(group.date)) + '</span>';
       html += '<div style="height:4px;flex:1;background:#121212"></div>';
       html += '</div>';
