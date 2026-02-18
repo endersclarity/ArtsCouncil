@@ -287,8 +287,8 @@ Plans:
 
 Plans:
 - [x] 08-01-PLAN.md — Dream board model (localStorage CRUD, wishlist schema) + "Add to Trip" bookmark buttons across all surfaces (detail panel, directory cards, events, map popups)
-- [ ] 08-02-PLAN.md — Trip page (`trip.html`) with two-zone layout, dream board rendering, curated "Make it mine" bridge, multi-trip management UI
-- [ ] 08-03-PLAN.md — Chatbot itinerary planning mode: Gemini prompt extension, {{ITINERARY}} block format + parser, chat controller integration, dream board context pre-seeding
+- [x] 08-02-PLAN.md — Trip page (`trip.html`) with two-zone layout, dream board rendering, curated "Make it mine" bridge, multi-trip management UI
+- [x] 08-03-PLAN.md — Chatbot itinerary planning mode: Gemini prompt extension, {{ITINERARY}} block format + parser, chat controller integration, dream board context pre-seeding
 - [ ] 08-04-PLAN.md — Finalized itinerary rendering (reuse existing view), calendar export, shareable URL encoding, analytics events, polish
 
 ## Progress
@@ -319,7 +319,7 @@ Actual: 2 -> 2.1 -> 3 -> 5 -> 6 -> 6.1 -> 4 -> 3.1 -> 2.2 -> 01.1
 | 6. Analytics Foundation | 1/1 | COMPLETE | 2026-02-16 |
 | 06.1. Deep Analytics | 1/1 | COMPLETE | 2026-02-16 |
 | 7. Demand Signal Reporting | 0/3 | Not started | - |
-| 8. AI Trip Builder | 1/4 | IN PROGRESS | - |
+| 8. AI Trip Builder | 3/4 | IN PROGRESS | - |
 | 9. Directory Page Redesign | 0/TBD | Not planned | - |
 
 ### Phase 9: Directory Page Redesign

@@ -223,6 +223,13 @@ Recent decisions affecting current work:
 - [Phase 8]: Bookmark button CSS injected via injectCSS() pattern (same as itinerary-view.js)
 - [Phase 8]: Undo in toast uses model re-add/re-remove (no localStorage snapshot rollback)
 - [Phase 8]: Bookmark delegation: body-level click handlers for .bookmark-btn and .event-bookmark-btn
+- [Phase 8]: Trip page uses minimal script set (8 scripts) vs hub's 36+ -- only config, core-utils, dreamboard, tripbuilder, analytics
+- [Phase 8]: Inline MapLibre map hidden when dream board empty, shown with gold pins when items exist
+- [Phase 8]: "Make it mine" only appears on curated itineraries (id not starting with 'usr-')
+- [Phase 8]: Badge CSS duplicated as inline style on subpages since dreamboard-view.js not loaded there
+- [Phase 8]: Trip name rename uses prompt() for v1 simplicity (inline editing deferred)
+- [Phase 8]: User trips schema: { version: 1, trips: [...], activeTrip: 'usr-...' } in 'ncac-user-trips' localStorage key
+- [Phase 8]: URL encoding uses single-letter keys (t/d/s/a/m/r) + base64 with 1800 char safety limit
 - [Phase 8]: Dream board context injected into last user message (not system prompt) to preserve Gemini prompt cache
 - [Phase 8]: Pipe-delimited {{ITINERARY}} block format for LLM structured output (not JSON, ~15% malformation rate)
 - [Phase 8]: Lenient ITINERARY parser: defaults time to 09:00, duration to 60min, skips unparseable lines
