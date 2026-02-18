@@ -7,8 +7,10 @@
   var activeToastEl = null;
 
   function getModel() {
-    if (!model) model = window.CulturalMapDreamboardModel || {};
-    return model;
+    if (!model || !model.hasPlace) {
+      model = window.CulturalMapDreamboardModel || null;
+    }
+    return model || {};
   }
 
   /**
@@ -41,18 +43,22 @@
    * @param {number} [size] - icon size in px (default 24)
    * @returns {string} HTML string
    */
-  function renderEventBookmarkButton(title, date, size) {
+  function renderEventBookmarkButton(title, date, size, venue, layer) {
     var s = size || 24;
     var m = getModel();
     var active = m.hasEvent ? m.hasEvent(title, date) : false;
     var escapedTitle = String(title || '').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
     var escapedDate = String(date || '').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+    var escapedVenue = String(venue || '').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+    var escapedLayer = String(layer || '').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
     var fillColor = active ? '#c8943e' : 'none';
     var strokeColor = active ? '#c8943e' : '#8a8278';
     var label = active ? 'Remove from trip' : 'Save to trip';
     return '<button class="event-bookmark-btn' + (active ? ' active' : '') + '" ' +
       'data-event-title="' + escapedTitle + '" ' +
       'data-event-date="' + escapedDate + '" ' +
+      'data-event-venue="' + escapedVenue + '" ' +
+      'data-event-layer="' + escapedLayer + '" ' +
       'aria-label="' + label + '" title="' + label + '" type="button">' +
       '<svg viewBox="0 0 24 24" width="' + s + '" height="' + s + '">' +
       '<path d="M5 3a2 2 0 0 0-2 2v16l9-4 9 4V5a2 2 0 0 0-2-2H5z" ' +
@@ -141,12 +147,11 @@
     var m = getModel();
     var count = m.getItemCount ? m.getItemCount() : 0;
     var badges = document.querySelectorAll('.trip-badge');
-    for (var i = 0; i < badges.length; i++) {
-      var badge = badges[i];
+    badges.forEach(function(badge) {
       if (count > 0) {
         badge.textContent = count;
         badge.style.display = '';
-        // Pulse animation on increment
+        // Pulse animation on increment (S8 fix — forEach scope prevents var-in-loop closure bug)
         var gsap = window.gsap;
         if (gsap) {
           gsap.fromTo(badge,
@@ -160,7 +165,7 @@
         badge.style.display = 'none';
         badge.textContent = '0';
       }
-    }
+    });
   }
 
   /**

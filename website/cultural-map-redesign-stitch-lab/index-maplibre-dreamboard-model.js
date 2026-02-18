@@ -171,7 +171,6 @@
   }
 
   window.CulturalMapDreamboardModel = {
-    getStore: getStore,
     addPlace: addPlace,
     removePlace: removePlace,
     hasPlace: hasPlace,
