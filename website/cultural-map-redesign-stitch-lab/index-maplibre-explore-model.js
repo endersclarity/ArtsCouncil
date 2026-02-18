@@ -44,13 +44,18 @@
     }
 
     if (events14dMode) {
+      // Pre-build index map for O(1) lookup (S2 fix — replaces O(n) data.indexOf per comparison)
+      var dataIndexMap = {};
+      for (var i = 0; i < data.length; i++) {
+        dataIndexMap[data[i].n] = i;
+      }
       filtered = filtered.filter(function(d) {
-        var idx = data.indexOf(d);
+        var idx = dataIndexMap[d.n] !== undefined ? dataIndexMap[d.n] : -1;
         return getEventCountForAsset14d(idx) > 0;
       });
       filtered = filtered.sort(function(a, b) {
-        var ai = data.indexOf(a);
-        var bi = data.indexOf(b);
+        var ai = dataIndexMap[a.n] !== undefined ? dataIndexMap[a.n] : -1;
+        var bi = dataIndexMap[b.n] !== undefined ? dataIndexMap[b.n] : -1;
         var diff = getEventCountForAsset14d(bi) - getEventCountForAsset14d(ai);
         if (diff !== 0) return diff;
         return (a.n || '').localeCompare(b.n || '');
@@ -80,7 +85,7 @@
   }
 
   window.CulturalMapExploreModel = {
-    getFilteredData,
-    getAvailableCities
+    getFilteredData: getFilteredData,
+    getAvailableCities: getAvailableCities
   };
 })();
