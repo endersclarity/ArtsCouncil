@@ -3,9 +3,9 @@ status: complete
 phase: 08-ai-trip-builder
 source: 08-01-SUMMARY.md, 08-02-SUMMARY.md, 08-03-SUMMARY.md, 08-04-SUMMARY.md
 started: 2026-02-18T12:00:00Z
-updated: 2026-02-18T14:00:00Z
-method: Playwright 1.58.2 headed Chromium (automated)
-test-script: tests/uat-phase08-trip-builder.mjs
+updated: 2026-02-18T06:00:00Z
+method: Playwright 1.59.0-alpha headless Chromium (automated, live Vercel)
+test-script: tests/uat-phase08-trip-builder.mjs, tests/uat-phase08-live-chatbot.mjs
 ---
 
 ## Current Test
@@ -47,7 +47,7 @@ result: PASS — Chat FAB visible and clicked. 3 trip planning cards visible: "1
 
 ### 8. Chatbot Generates Itinerary from Dream Board
 expected: Click a trip planning style card (e.g., "1-Day Plan"). The chatbot receives your dream board items as context and responds with a structured itinerary. An in-chat summary card appears with a gold border showing stops and a "View & Edit on Trip Page" CTA link.
-result: PARTIAL — Trip card clicked. POST request sent to /api/chat with dream board context. On localhost, /api/chat returns 404 (expected — serverless function only runs on Vercel). Error message displayed correctly. Full E2E test requires Vercel deployment.
+result: PASS — Full E2E verified on live Vercel (2026-02-18). FAB opens panel (.chat-fab--ready → #chatPanel.chat-panel--open). Trip cards appear (1day/2day/organize). Clicking "1-Day Plan" sends prompt to Gemini via /api/chat. Bot responds with itinerary card (.chat-itin-card rendered with title + meta + CTA). "View & Edit" navigates to trip.html with activeTrip set in localStorage. Test: tests/uat-phase08-live-chatbot.mjs T16-C/D/E (46s, headless Chromium).
 
 ### 9. Finalized Itinerary on Trip Page
 expected: After the chatbot generates a trip, navigate to trip.html. The itinerary zone shows the AI-generated trip with day tabs (if multi-day), stop cards with times and narratives, and Google Calendar export links per stop. A gold "Built with the Local Concierge" attribution bar appears below the itinerary.
@@ -65,11 +65,15 @@ result: PASS — Shared trip URL decoded and rendered. Trip saved to localStorag
 expected: Navigate to events.html, itineraries.html, or directory.html with items in your dream board. The "My Trip" nav link shows a badge with the correct item count.
 result: PASS — Badge visible on all 3 subpages: Events=true(9), Itineraries=true(9), Directory=true(9).
 
+### 13. Analytics Events Fire Correctly (T17)
+expected: During the chatbot flow, Umami analytics events fire: chat:open, chat:query-sent (with query_length > 0), trip:itinerary-generated (with stops > 0). All events carry session_hash.
+result: PASS — Verified on live Vercel (2026-02-18). window.umami.track intercepted via property descriptor in addInitScript. chat:open, chat:query-sent, trip:itinerary-generated all confirmed. session_hash present on Umami-level events. Test: tests/uat-phase08-live-chatbot.mjs T17.
+
 ## Summary
 
-total: 12
-passed: 9
-partial: 2
+total: 13
+passed: 11
+partial: 1
 issues: 0
 skipped: 1
 
@@ -77,13 +81,11 @@ skipped: 1
 
 1. **Test 1 (partial):** Detail panel bookmark button not tested via UI click. The bookmark model API works, but opening a detail panel via Playwright requires precise map marker or list item interaction. Recommend manual spot-check.
 2. **Test 3 (skipped):** Undo toast flow not tested due to test ordering. Toast appears (confirmed in test 2), but undo button interaction deferred. Recommend manual spot-check.
-3. **Test 8 (partial):** Chatbot E2E requires Vercel deployment for /api/chat serverless function. Client-side flow (card click → API request with dream board context) confirmed working. Full test on live deployment recommended.
 
 ## Notes
 
-- All automated tests run via Playwright 1.58.2 in headed Chromium at 1400x900 viewport
-- Tests run serially with shared browser context to simulate real user session
-- Dream board state persists across tests via localStorage
-- Screenshots captured at `.tmp-uat-p08-*.png` for visual verification
-- Test script: `tests/uat-phase08-trip-builder.mjs`
-- Config: `playwright.config.mjs`
+- Local tests: Playwright 1.58.2 headed Chromium at 1400x900, localhost:8001
+- Live tests: Playwright 1.59.0-alpha headless Chromium, cultural-map-redesign-stitch-lab.vercel.app
+- Dream board state injected via localStorage before page load in live tests
+- Test scripts: `tests/uat-phase08-trip-builder.mjs` (local), `tests/uat-phase08-live-chatbot.mjs` (live Vercel)
+- Config: `playwright.config.mjs` (testMatch includes both, global timeout 90s)
