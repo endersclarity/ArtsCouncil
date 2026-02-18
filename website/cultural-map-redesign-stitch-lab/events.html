@@ -146,14 +146,34 @@
     vertical-align: middle;
   }
 
+  /* ── Skip-to-content — keyboard bypass ── */
+  .skip-link {
+    position: absolute;
+    top: -100%;
+    left: 0.5rem;
+    z-index: 9999;
+    padding: 0.5rem 1rem;
+    background: #121212;
+    color: #f2cc0d;
+    font-weight: 700;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    text-decoration: none;
+    border: 2px solid #f2cc0d;
+  }
+  .skip-link:focus { top: 0.5rem; outline: 3px solid #f2cc0d; }
+
   /* ── Focus visible — keyboard nav ── */
+  /* Blue (#0050EF) on white = 6.2:1 contrast — passes WCAG 1.4.11 (3:1 min).
+     Yellow (#f2cc0d) on white = 1.56:1 — FAILS. All rings now use blue. */
   .filter-btn:focus-visible {
-    outline: 3px solid #f2cc0d;
+    outline: 3px solid #0050EF;
     outline-offset: 2px;
   }
   input:focus-visible,
   select:focus-visible {
-    outline: 3px solid #f2cc0d;
+    outline: 3px solid #0050EF;
     outline-offset: 2px;
   }
   .events-page-bookmark:focus-visible {
@@ -161,7 +181,17 @@
     outline-offset: 3px;
   }
   a:focus-visible {
-    outline: 3px solid #f2cc0d;
+    outline: 3px solid #0050EF;
+    outline-offset: 2px;
+  }
+  /* <details><summary> needs explicit focus ring — browsers don't always provide one */
+  .filter-section summary:focus-visible {
+    outline: 3px solid #0050EF;
+    outline-offset: 2px;
+  }
+  /* Expand toggle button */
+  .card-expand-toggle:focus-visible {
+    outline: 3px solid #0050EF;
     outline-offset: 2px;
   }
 
@@ -196,6 +226,8 @@
     }
     .date-group-header { opacity:1; transform:none; }
     .card-expanded-body { transition: none !important; }
+    /* filter-btn:active transform was missing from reduced-motion override */
+    .filter-btn:active { transform: none !important; }
   }
 
   /* ─────────────────────────────────────────────────────────
@@ -267,24 +299,24 @@
   /* ── Mobile touch-target & readability pass (≤599px) ── */
   @media (max-width: 599px) {
     .filter-btn {
-      min-height: 40px;
+      min-height: 44px; /* WCAG 2.5.5 minimum 44×44px touch target */
       font-size: 0.875rem;
       padding: 0.5rem 0.875rem;
     }
     .ticket-btn {
-      min-height: 36px;
+      min-height: 40px;
       padding: 0.5rem 0.625rem;
       font-size: 0.7rem;
     }
     .events-page-bookmark {
-      width: 36px !important;
-      height: 36px !important;
-      font-size: 1rem !important;
+      width: 44px !important;  /* was 36px — WCAG 2.5.5 requires 44×44px */
+      height: 44px !important;
+      font-size: 1.125rem !important;
     }
     .events-sidebar input[type="text"],
     .events-sidebar select {
-      min-height: 40px;
-      font-size: 0.875rem;
+      min-height: 44px;
+      font-size: 1rem; /* was 0.875rem — iOS Safari auto-zooms at <16px */
     }
     .card-image-wrap { height: 150px; }
   }
@@ -347,7 +379,18 @@
     max-height: 600px;
     border-top-width: 2px;
   }
+  /* Bookmark minimum size on desktop (28px → 36px baseline) */
+  .events-page-bookmark {
+    min-width: 36px;
+    min-height: 36px;
+  }
   .card-expand-toggle {
+    /* button reset — was a <div>, now a <button> */
+    background: none;
+    border: none;
+    width: 100%;
+    font-family: inherit;
+    /* visual styles */
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -389,6 +432,9 @@
   <div class="block-yellow"></div>
   <div class="block-white"></div>
 </div>
+
+<!-- Skip-to-content: first focusable element on page — keyboard bypass blocks (WCAG 2.4.1) -->
+<a href="#eventsMain" class="skip-link">Skip to events</a>
 
 <!-- ═══════════════════════════════════════════════════
      STICKY NAVBAR
@@ -451,7 +497,7 @@
 <div class="max-w-7xl mx-auto px-4 pb-20 flex gap-6 items-start events-layout">
 
   <!-- ── Sidebar ── -->
-  <aside class="w-72 flex-shrink-0 sticky top-16 events-sidebar">
+  <aside class="w-72 flex-shrink-0 sticky top-16 events-sidebar" aria-label="Event filters">
     <div class="glass-card p-5" style="box-shadow: 8px 8px 0 #0050EF;">
       <h2 class="text-lg font-black uppercase tracking-widest mb-5 border-b-4 border-mondrian-black pb-2">
         FILTER BY
@@ -466,7 +512,7 @@
           type="text"
           id="eventsSearch"
           placeholder="Events, venues, descriptions…"
-          class="w-full border-2 border-mondrian-black px-3 py-2 text-sm font-medium focus:outline-none focus:ring-2 focus:ring-primary bg-white placeholder-gray-400">
+          class="w-full border-2 border-mondrian-black px-3 py-2 text-sm font-medium bg-white placeholder-gray-400">
       </div>
 
       <!-- Date range chips — 2-col grid -->
@@ -511,8 +557,8 @@
   </aside>
 
   <!-- ── Events list ── -->
-  <main class="flex-1 min-w-0">
-    <div id="eventsListView" aria-live="polite" aria-label="Events list">
+  <main id="eventsMain" class="flex-1 min-w-0">
+    <div id="eventsListView" aria-live="polite" aria-atomic="false" aria-label="Events list">
       <div class="glass-card p-10 text-center loading-pulse">
         <div class="text-2xl font-black uppercase tracking-widest text-mondrian-black">Loading Events…</div>
       </div>
@@ -533,7 +579,7 @@
     </div>
     <div>
       <div class="text-xs font-bold uppercase tracking-widest text-white/30 mb-3">Navigate</div>
-      <nav class="flex flex-col gap-2">
+      <nav class="flex flex-col gap-2" aria-label="Footer navigation">
         <a href="index-maplibre-hero-intent-stitch-frontend-design-pass.html"
            class="text-white/60 hover:text-primary text-sm font-bold transition-colors">Explore</a>
         <a href="events.html" class="text-primary text-sm font-bold">Events</a>
@@ -745,7 +791,13 @@
       if (e.target.closest('a') || e.target.closest('.events-page-bookmark')) return;
       var card = e.target.closest('article.glass-card');
       if (!card) return;
-      card.classList.toggle('expanded');
+      var isExpanded = card.classList.toggle('expanded');
+      /* Sync aria-expanded on the toggle button so screen readers announce state */
+      var toggleBtn = card.querySelector('.card-expand-toggle');
+      if (toggleBtn) {
+        toggleBtn.setAttribute('aria-expanded', isExpanded ? 'true' : 'false');
+        toggleBtn.setAttribute('aria-label', isExpanded ? 'Collapse event details' : 'Expand event details');
+      }
     });
   }
 
@@ -753,6 +805,10 @@
     var container = document.getElementById('eventsListView');
     var filtered = filterEvents(events);
     var groups = groupByDate(filtered);
+
+    /* Update header count to reflect filtered results (not stale JSON total) */
+    var countEl = document.getElementById('eventsTotal');
+    if (countEl) countEl.textContent = filtered.length;
 
     if (filtered.length === 0) {
       container.innerHTML =
@@ -805,7 +861,7 @@
             escapeHtml(ev.image_url) + '\')"></div>';
           html += '<img class="card-image"' +
             ' src="' + escapeHtml(ev.image_url) + '"' +
-            ' alt="' + escapeHtml(ev.title) + '"' +
+            ' alt="' + escapeHtml(ev.title || 'Event image') + '"' +
             ' loading="lazy"' +
             ' onerror="this.closest(\'.card-image-wrap\').style.display=\'none\'"' +
             '>';
@@ -860,12 +916,13 @@
 
         /* Venue */
         html += '<div style="display:flex;align-items:center;gap:0.3rem;font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.04em;color:#444">';
-        html += '📍 ' + escapeHtml(ev.venue_name || 'Venue TBD');
+        /* aria-hidden on emoji — screen reader announces "pushpin symbol" otherwise */
+        html += '<span aria-hidden="true">📍</span> ' + escapeHtml(ev.venue_name || 'Venue TBD');
         if (ev.venue_city) html += ' · ' + escapeHtml(ev.venue_city);
         html += '</div>';
 
-        /* Expand toggle */
-        html += '<div class="card-expand-toggle" aria-label="Expand event details">&#9660;</div>';
+        /* Expand toggle — <button> so keyboard users can Tab to it and press Enter/Space */
+        html += '<button type="button" class="card-expand-toggle" aria-label="Expand event details" aria-expanded="false">&#9660;</button>';
 
         html += '</div>'; /* end middle */
 
@@ -1055,7 +1112,7 @@
       .then(function(res) { return res.json(); })
       .then(function(events) {
         allEvents = events;
-        document.getElementById('eventsTotal').textContent = events.length;
+        /* eventsTotal is now set dynamically in renderEvents() to show filtered count */
         populateSourcePills(events);
         renderEvents(events);
         bindFilters();
