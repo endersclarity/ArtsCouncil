@@ -10,9 +10,9 @@ See: .planning/PROJECT.md (updated 2026-02-14)
 ## Current Position
 
 Phase: 09-directory-page-redesign
-Plan: 2 of 4 COMPLETE
-Status: Plan 09-02 complete. Directory deep link + history system: pushState/popstate navigation, collapse-before-render bug fix, toast notifications, breadcrumb.
-Last activity: 2026-02-18 -- Phase 09 Plan 02: pushState/popstate history, collapseCardImmediate in search/filter, deep link loading state, error toast, breadcrumb.
+Plan: 4 of 4 COMPLETE
+Status: Plan 09-04 complete. Data quality audit: 2 coordinate fixes (Alan Thiesen Trail, Sawtooth Trailhead), 3 multi-location renames (Avanguardia, South Pine Cafe, The Pour House). QR gallery Elixart link migrated from ?idx=544 to stable ?place= deep link. Scope messaging added.
+Last activity: 2026-02-18 -- Phase 09 Plan 04: data.json coordinate + dedup fixes, QR gallery Elixart ?idx→?place, scope messaging, ?place= hub deep link support.
 
 Progress: [████████████████████] 100% overall (Phase 09 in progress)
 
@@ -260,6 +260,9 @@ Recent decisions affecting current work:
 - [Phase 09]: collapseCardImmediate() must be the FIRST call in onSearch() and city filter pill handler — ordering is critical to prevent ghost active state before renderList() destroys DOM
 - [Phase 09]: popstate handler registered inside loadData().then() so allData is populated for place-name lookup
 - [Phase 09]: map.flyTo() guarded with map.loaded() check — deep links via QR codes may call expandCard() before MapLibre fires load event
+- [Phase 9-04]: Multi-location businesses renamed (City) suffix — Avanguardia, South Pine Cafe, The Pour House are distinct physical venues, not duplicates
+- [Phase 9-04]: ?place= name-based hub deep link added — parseDeepLinkSearch + focusPlace in applyDeepLinkFromLocation, uses existing findVenueByName()
+- [Phase 9-04]: Alan Thiesen Trail fixed coords to -121.075, 39.165 (Alta Sierra); Sawtooth Trailhead to -120.154, 39.411 (Stampede/Truckee area)
 
 ### Roadmap Evolution
 
@@ -325,6 +328,6 @@ Research artifacts outside the phase directory structure. Consult these when pla
 ## Session Continuity
 
 Last session: 2026-02-18
-Stopped at: Completed 09-02-PLAN.md (directory deep link + history system: pushState/popstate, toast, breadcrumb).
-Resume with: Phase 09 Plan 03: Card redesign (richer card UI, photo treatment, expanded detail layout)
-Key artifacts: .planning/phases/09-directory-page-redesign/09-02-SUMMARY.md, website/cultural-map-redesign-stitch-lab/directory.html
+Stopped at: Completed 09-04-PLAN.md (data quality: coordinate fixes, multi-location renames, QR gallery Elixart ?idx→?place, scope messaging, ?place= hub deep link support).
+Resume with: Phase 09 all plans complete. Phase 09 done.
+Key artifacts: .planning/phases/09-directory-page-redesign/09-04-SUMMARY.md, website/cultural-map-redesign-stitch-lab/data.json, website/cultural-map-redesign-stitch-lab/qr-gallery.html

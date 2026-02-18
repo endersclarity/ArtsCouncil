@@ -13,7 +13,7 @@ Transform the existing 687-asset cultural map into an editorial-quality experien
 | **M3: Measurement** | 6.1 | Deep instrumentation for committee metrics |
 | **M4: Intelligence** | 7 | Monthly demand signal reporting |
 | **M5: Personalization** | 8 | AI-powered trip planning |
-| **M6: Directory Redesign** | 9 | 2/4 | In Progress|  | In Assets? | Events Feed? | Ingestion Strategy |
+| **M6: Directory Redesign** | 9 | 3/4 | In Progress|  | In Assets? | Events Feed? | Ingestion Strategy |
 |-------|-----------|-------------|-------------------|
 | Crazy Horse Saloon (230 Commercial, NC) | Yes | iCal via WP Events Calendar | **Tier 1: iCal subscribe** (like KVMR) |
 | Golden Era Lounge (309 Broad, NC) | Yes | Squarespace /events | **Tier 2: HTML scraper** |
@@ -306,7 +306,7 @@ Actual: 2 -> 2.1 -> 3 -> 5 -> 6 -> 6.1 -> 4 -> 3.1 -> 2.2 -> 01.1
 - **Execution order**: Follow priority path 09-01 → 09-02 → 09-03 → 09-04 (foundation must complete before interactions, deep links before interactions to avoid state mess)
 - **Staffing**: Critical issues (C1-C5) estimated 8-12 hours; major issues another 16-20 hours; minor + data ~8 hours total. Roughly 2-3 days full-time or 1.5 weeks part-time.
 
-**Plans:** 2/4 plans executed
+**Plans:** 3/4 plans executed
 
 Plans:
 - [ ] 09-01-PLAN.md — Foundation: header/nav match, sidebar colors, hours/events wiring, CSS base (Wave 1)
