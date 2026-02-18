@@ -22,7 +22,7 @@
 .tooltip-body .tooltip-cat { display: flex; align-items: center; gap: 0.35rem; opacity: 0.75; font-size: 0.72rem; font-weight: 500; }
 .tooltip-body .tooltip-cat-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
 .tooltip-body .tooltip-city { opacity: 0.6; font-size: 0.7rem; margin-top: 0.2rem; }
-.tooltip-event { margin-top: 0.28rem; display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.56rem; letter-spacing: 0.08em; text-transform: uppercase; color: #934512; }
+.tooltip-event { margin-top: 0.28rem; display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.56rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--rust, #934512); }
 .tooltip-event::before { content: '\25F7'; font-size: 0.64rem; }
 .trip-nav-link{position:relative}.trip-badge{display:inline-flex;align-items:center;justify-content:center;background:#c8943e;color:#fff;border-radius:50%;width:18px;height:18px;font-family:"DM Sans",sans-serif;font-size:.68rem;font-weight:700;line-height:1;position:absolute;top:-6px;right:-10px}
 .directory-toast {
@@ -265,6 +265,20 @@
       : 0;
   }
 
+  // === Map-List Hover Sync ===
+  // Called whenever the map hover feature changes — highlights sidebar card
+  function highlightSidebarCard(assetId) {
+    var prev = document.querySelector('.directory-item--hover');
+    if (prev) prev.classList.remove('directory-item--hover');
+    if (assetId !== null && assetId !== undefined) {
+      var card = document.querySelector('.directory-item[data-asset-id="' + assetId + '"]');
+      if (card) {
+        card.classList.add('directory-item--hover');
+        card.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      }
+    }
+  }
+
   // === Marker Icon Registration (ported from index-maplibre.js) ===
   function stripSvgWrapper(svgMarkup) {
     var raw = String(svgMarkup || '').trim();
@@ -458,7 +472,7 @@
         formatDistanceMiles: function() { return ''; }
       });
 
-      map.addSource('assets', { type: 'geojson', data: geojson });
+      map.addSource('assets', { type: 'geojson', data: geojson, promoteId: 'idx' });
 
       // Real layer definitions from hub
       map.addLayer(assetLayerDefs.getAssetsCircleLayerDef());
@@ -515,7 +529,7 @@
           getActiveExperience: function() { return null; },
           getOpenNowMode: function() { return false; },
           getHoveredFeatureId: function() { return hoveredFeatureId; },
-          setHoveredFeatureId: function(v) { hoveredFeatureId = v; },
+          setHoveredFeatureId: function(v) { hoveredFeatureId = v; highlightSidebarCard(v); },
           isCoarsePointer: isCoarsePointer,
           smartLabelsEnabled: !isCoarsePointer,
           labelMaxVisible: 32,
@@ -536,7 +550,7 @@
           hoverPopup: hoverPopup,
           markMapInteracted: labelFns.markMapInteracted || function() {},
           getHoveredFeatureId: function() { return hoveredFeatureId; },
-          setHoveredFeatureId: function(v) { hoveredFeatureId = v; },
+          setHoveredFeatureId: function(v) { hoveredFeatureId = v; highlightSidebarCard(v); },
           buildFeatureTooltipHTML: function(props) {
             if (mapDataModel.buildFeatureTooltipHTML) {
               return mapDataModel.buildFeatureTooltipHTML({
@@ -646,7 +660,12 @@
             '<span class="directory-card-count">' + (counts[name] || 0) + ' places</span>' +
           '</div>' +
         '</div>';
+      card.setAttribute('tabindex', '0');
+      card.setAttribute('role', 'button');
       card.addEventListener('click', function() { selectCategory(name); });
+      card.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selectCategory(name); }
+      });
       grid.appendChild(card);
     });
   }
@@ -850,7 +869,31 @@
       html += '</div>';
 
       item.innerHTML = html;
+      item.setAttribute('tabindex', '0');
+      item.setAttribute('role', 'button');
       item.addEventListener('click', function() { selectItem(asset); });
+      item.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); selectItem(asset); }
+      });
+      // M10 — List → Map hover sync
+      item.addEventListener('mouseenter', function() {
+        if (!map || isCoarsePointer) return;
+        var featureId = asset.id;
+        if (hoveredFeatureId !== null && hoveredFeatureId !== undefined) {
+          map.setFeatureState({ source: 'assets', id: hoveredFeatureId }, { hover: false });
+        }
+        hoveredFeatureId = featureId;
+        map.setFeatureState({ source: 'assets', id: featureId }, { hover: true });
+        item.classList.add('directory-item--hover');
+      });
+      item.addEventListener('mouseleave', function() {
+        if (!map || isCoarsePointer) return;
+        if (hoveredFeatureId !== null && hoveredFeatureId !== undefined) {
+          map.setFeatureState({ source: 'assets', id: hoveredFeatureId }, { hover: false });
+          hoveredFeatureId = null;
+        }
+        item.classList.remove('directory-item--hover');
+      });
       list.appendChild(item);
     });
 
