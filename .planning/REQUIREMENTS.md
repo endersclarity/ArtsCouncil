@@ -83,14 +83,14 @@ Requirements for this milestone. Each maps to roadmap phases. MVP (Phases 1-5) d
 
 ### Demand Signal Reporting (Epic 7 -- Growth)
 
-- [ ] **REPT-01**: Monthly report script pulls Plausible data via Stats API
-- [ ] **REPT-02**: Monthly report script pulls Supabase chatbot query logs
-- [ ] **REPT-03**: Report includes top 10 assets by detail opens and outbound clicks
-- [ ] **REPT-04**: Report includes category filter frequency ranking
+- [x] **REPT-01**: Monthly report script pulls Plausible data via Stats API
+- [x] **REPT-02**: Monthly report script pulls Supabase chatbot query logs
+- [x] **REPT-03**: Report includes top 10 assets by detail opens and outbound clicks
+- [x] **REPT-04**: Report includes category filter frequency ranking
 - [x] **REPT-05**: Report includes zero-result search queries (demand signal data)
-- [ ] **REPT-06**: Report includes chatbot intent distribution (eat/see/do/stay/navigate)
+- [x] **REPT-06**: Report includes chatbot intent distribution (eat/see/do/stay/navigate)
 - [ ] **REPT-07**: Report output as markdown convertible to PDF for committee meetings
-- [ ] **REPT-08**: Report runnable via GitHub Actions or manual trigger
+- [x] **REPT-08**: Report runnable via GitHub Actions or manual trigger
 
 ## v2 Requirements
 
@@ -193,14 +193,14 @@ Which phases cover which requirements. Updated during roadmap creation.
 | ANLYT-12 | Phase 6 | Pending |
 | ANLYT-13 | Phase 6 | Pending |
 | ANLYT-14 | Phase 6 | Pending |
-| REPT-01 | Phase 7 | Pending |
-| REPT-02 | Phase 7 | Pending |
-| REPT-03 | Phase 7 | Pending |
-| REPT-04 | Phase 7 | Pending |
+| REPT-01 | Phase 7 | Complete |
+| REPT-02 | Phase 7 | Complete |
+| REPT-03 | Phase 7 | Complete |
+| REPT-04 | Phase 7 | Complete |
 | REPT-05 | Phase 7 | Complete |
-| REPT-06 | Phase 7 | Pending |
+| REPT-06 | Phase 7 | Complete |
 | REPT-07 | Phase 7 | Pending |
-| REPT-08 | Phase 7 | Pending |
+| REPT-08 | Phase 7 | Complete |
 
 **Coverage:**
 - v1 requirements: 60 total

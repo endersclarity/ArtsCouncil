@@ -10,9 +10,9 @@ See: .planning/PROJECT.md (updated 2026-02-14)
 ## Current Position
 
 Phase: 07-demand-signal-reporting
-Plan: 1 of 3
-Status: 07-01 complete (instrumentation gaps closed). session_hash on all events + 8 new event types across 6 modules. Ready for 07-02 (pipeline).
-Last activity: 2026-02-18 -- 07-01 executed: session_hash injection + chat/explore/session analytics events.
+Plan: 2 of 3
+Status: 07-02 complete (pipeline script + GitHub Actions workflow). demand-signal-pull.mjs queries Umami + Supabase, classifies intent, scores venue attribution. Ready for 07-03 (report template).
+Last activity: 2026-02-18 -- 07-02 executed: demand-signal-pull.mjs pipeline + GitHub Actions monthly cron workflow.
 
 Progress: [████████████████████] 100% overall (Phase 09 in progress)
 
@@ -276,6 +276,12 @@ Recent decisions affecting current work:
 - [Phase 7-01]: session_hash uses sessionStorage (not localStorage) — resets per tab close, matches Umami session semantics
 - [Phase 7-01]: chat:deeplink-click tracking placed in chat-view.js (where click handler actually lives) not chat-controller.js
 - [Phase 7-01]: explore:search fires alongside existing search:query (both debounced 800ms) — pipeline uses explore:search for directory-specific interactions
+- [Phase 7-02]: Zero npm dependencies for pipeline script — native fetch (Node 18+) + --env-file flag for env loading
+- [Phase 7-02]: Supabase duplicate created_at query params via manual string concatenation (URLSearchParams would overwrite)
+- [Phase 7-02]: Intent clusters classify aggregate signal patterns per period (not individual visitors) — Umami Cloud API limitation
+- [Phase 7-02]: Venue attribution capped at top 20 results for focused committee reporting
+- [Phase 7-02]: Chat recommendation extraction deduplicates per response (venue mentioned 3x in one response = 1 recommendation)
+- [Phase 7-02]: 401 error provides exact localStorage extraction command for token refresh
 
 ### Roadmap Evolution
 
@@ -343,6 +349,6 @@ Research artifacts outside the phase directory structure. Consult these when pla
 ## Session Continuity
 
 Last session: 2026-02-18
-Stopped at: Completed 07-01-PLAN.md (analytics instrumentation gaps). 07-02 (pipeline) and 07-03 (report) remain.
-Resume with: Run /gsd:execute-phase 07 to continue with 07-02-PLAN.md (reporting pipeline).
-Key artifacts: .planning/phases/07-demand-signal-reporting/07-01-SUMMARY.md, .planning/phases/07-demand-signal-reporting/PIPELINE-ARCHITECTURE.md
+Stopped at: Completed 07-02-PLAN.md (demand signal pipeline + GitHub Actions). 07-03 (report template) remains.
+Resume with: Run /gsd:execute-phase 07 to continue with 07-03-PLAN.md (committee report template).
+Key artifacts: .planning/phases/07-demand-signal-reporting/07-02-SUMMARY.md, scripts/demand-signal-pull.mjs, .github/workflows/demand-signal-report.yml
