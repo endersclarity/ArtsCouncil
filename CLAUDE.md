@@ -194,8 +194,62 @@ Local env file: `.env` (project root, gitignored)
 | `SUPABASE_ANON_KEY` | Supabase publishable key (insert-only RLS) | `.env` + Vercel production |
 | `GOOGLE_PLACES_API_KEY` | Google Places API (future use) | `.env` only |
 | `SUPABASE_DB_PASSWORD` | Supabase DB password (admin, not used in code) | `.env` only |
+| `UMAMI_WEBSITE_ID` | Umami Cloud website identifier | `.env` only |
+| `UMAMI_SHARE_URL` | Umami public share dashboard (visual only, no API) | `.env` only |
+| `UMAMI_USER_ID` | Umami Cloud user UUID | `.env` only |
 
-**Supabase project:** `tguligitecsfxfkycknh` — has `chat_logs` table with insert-only RLS policy for anonymous query logging.
+| `SUPABASE_SECRET_KEY` | Supabase secret key (bypasses RLS, server-side only) | `.env` only |
+
+**Supabase project:** `tguligitecsfxfkycknh` — has `chat_logs` table with insert-only RLS policy on anon key. To **read** chat_logs, use the secret key:
+
+```bash
+curl -s \
+  -H "apikey: $SUPABASE_SECRET_KEY" \
+  -H "Authorization: Bearer $SUPABASE_SECRET_KEY" \
+  "$SUPABASE_URL/rest/v1/chat_logs?select=*&order=created_at.desc&limit=20"
+```
+
+**Table schema:** `chat_logs` — `id` (uuid), `created_at`, `session_hash`, `query_text`, `response_text`, `intent`, `assets_referenced`, `duration_ms`, `model`, `ip_hash`, `meta`
+
+**Login:** GitHub OAuth via `supabase.com/dashboard` (endersclarity account). Dashboard URL: `https://supabase.com/dashboard/project/tguligitecsfxfkycknh`
+
+### Umami Analytics API (Phase 6/7)
+
+**Dashboard:** `https://cloud.umami.is` — login with `development@thenorthstarhouse.org`
+**Share URL:** `https://cloud.umami.is/share/875bmvTJ7Hd2oLAx` (visual dashboard only, no REST API)
+
+**API authentication:** The Umami Cloud REST API uses a Bearer token stored in `localStorage['umami.auth']` when logged into the dashboard. The public `/api/` path returns 401 — must use the internal path prefix `/analytics/us/api/`.
+
+**Key API endpoints** (all require `Authorization: Bearer <token>` header):
+
+```
+GET /analytics/us/api/websites/{WEBSITE_ID}/events/stats?startAt={ms}&endAt={ms}
+  → {events, visitors, visits, uniqueEvents}
+
+GET /analytics/us/api/websites/{WEBSITE_ID}/metrics?startAt={ms}&endAt={ms}&type=event
+  → [{x: "event:name", y: count}, ...]
+
+GET /analytics/us/api/websites/{WEBSITE_ID}/event-data/properties?startAt={ms}&endAt={ms}
+  → [{eventName, propertyName, total}, ...] — lists all event+property combos
+
+GET /analytics/us/api/websites/{WEBSITE_ID}/event-data/values?startAt={ms}&endAt={ms}&event={name}&propertyName={prop}
+  → [{value, total}, ...] — breakdown of a specific property's values
+```
+
+**Workflow to pull analytics data from terminal:**
+1. Open `cloud.umami.is` in agent-browser, log in
+2. Extract token: `localStorage.getItem('umami.auth')` (JSON-encoded, parse it)
+3. Use `fetch()` from browser context with `{headers: {'Authorization': 'Bearer ' + token}}`
+4. Or save the token to `.env` and use `curl` with `-H "Authorization: Bearer $UMAMI_API_TOKEN"`
+
+**Custom events tracked** (as of Phase 6 instrumentation in `index-maplibre-analytics.js`):
+- `toggle:open-now` / `toggle:events-14d` — feature toggle state changes (property: `state`)
+- `category:filter` / `category:clear` — category pill clicks (property: `category`)
+- `detail:open` — venue detail panel opened (properties: `name`, `city`, `category`)
+- `events:date-filter` — time filter chips (property: `filter` = tonight/weekend/etc)
+- `outbound:event-ticket` — click-through to event ticket URL (properties: `url`, `title`, `venue`)
+- `outbound:lodging-vrbo` — click-through to VRBO (property: `url`)
+- `marker:click` — map marker clicked (properties: `name`, `city`, `category`)
 
 ### AI Concierge Architecture (Phase 5)
 
