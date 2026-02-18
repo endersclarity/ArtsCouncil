@@ -2,34 +2,36 @@
   'use strict';
 
   function bindEvents(ctx) {
-    document.getElementById('detailClose').addEventListener('click', ctx.closeDetail);
-    document.getElementById('panelOverlay').addEventListener('click', ctx.closeDetail);
-    document.addEventListener('keydown', (event) => {
+    var detailClose = document.getElementById('detailClose');
+    var panelOverlay = document.getElementById('panelOverlay');
+    if (detailClose) detailClose.addEventListener('click', ctx.closeDetail);
+    if (panelOverlay) panelOverlay.addEventListener('click', ctx.closeDetail);
+    document.addEventListener('keydown', function(event) {
       if (event.key === 'Escape') {
         ctx.closeDetail();
         ctx.collapseMapOverlays();
       }
     });
 
-    const overlayControls = document.querySelector('.map-overlay-controls');
-    const filterToggle = document.getElementById('mapFilterToggle');
-    const legendToggle = document.getElementById('mapLegendToggle');
+    var overlayControls = document.querySelector('.map-overlay-controls');
+    var filterToggle = document.getElementById('mapFilterToggle');
+    var legendToggle = document.getElementById('mapLegendToggle');
     if (overlayControls) {
-      overlayControls.addEventListener('click', (event) => event.stopPropagation());
+      overlayControls.addEventListener('click', function(event) { event.stopPropagation(); });
     }
     if (filterToggle) {
-      filterToggle.addEventListener('click', () => {
+      filterToggle.addEventListener('click', function() {
         ctx.markMapInteracted();
         ctx.toggleMapFiltersExpanded();
       });
     }
     if (legendToggle) {
-      legendToggle.addEventListener('click', () => {
+      legendToggle.addEventListener('click', function() {
         ctx.markMapInteracted();
         ctx.toggleMapLegendExpanded();
       });
     }
-    document.addEventListener('click', () => {
+    document.addEventListener('click', function() {
       if (ctx.getMapFiltersExpanded()) ctx.setMapFiltersExpanded(false);
       if (ctx.getMapLegendExpanded()) ctx.setMapLegendExpanded(false);
     });
@@ -49,34 +51,43 @@
       });
     });
 
-    document.getElementById('searchInput').addEventListener('input', () => {
-      const val = document.getElementById('searchInput').value.trim();
-      const wrapper = document.getElementById('exploreListWrapper');
-      const catGrid = document.getElementById('exploreCats');
-      if (val) {
-        wrapper.classList.add('visible');
-        if (catGrid) catGrid.style.display = 'none';
-      } else if (ctx.getActiveCategoryCount() === 0) {
-        wrapper.classList.remove('visible');
-        if (catGrid) catGrid.style.display = '';
-      }
-      ctx.resetListPage();
-      ctx.buildList();
-    });
+    var searchInput = document.getElementById('searchInput');
+    if (searchInput) {
+      searchInput.addEventListener('input', function() {
+        var val = searchInput.value.trim();
+        var wrapper = document.getElementById('exploreListWrapper');
+        var catGrid = document.getElementById('exploreCats');
+        if (val) {
+          wrapper.classList.add('visible');
+          if (catGrid) catGrid.style.display = 'none';
+        } else if (ctx.getActiveCategoryCount() === 0) {
+          wrapper.classList.remove('visible');
+          if (catGrid) catGrid.style.display = '';
+        }
+        ctx.resetListPage();
+        ctx.buildList();
+      });
+    }
 
-    document.getElementById('loadMoreBtn').addEventListener('click', () => {
-      ctx.incrementListPage();
-      ctx.buildList();
-    });
+    var loadMoreBtn = document.getElementById('loadMoreBtn');
+    if (loadMoreBtn) {
+      loadMoreBtn.addEventListener('click', function() {
+        ctx.incrementListPage();
+        ctx.buildList();
+      });
+    }
 
-    document.getElementById('exploreListBack').addEventListener('click', () => {
-      ctx.exploreSetCategory(null);
-    });
+    var exploreListBack = document.getElementById('exploreListBack');
+    if (exploreListBack) {
+      exploreListBack.addEventListener('click', function() {
+        ctx.exploreSetCategory(null);
+      });
+    }
 
-    const eventsFilters = document.getElementById('mapEventsFilters');
+    var eventsFilters = document.getElementById('mapEventsFilters');
     if (eventsFilters) {
-      eventsFilters.addEventListener('click', (event) => {
-        const chip = event.target.closest('[data-event-filter]');
+      eventsFilters.addEventListener('click', function(event) {
+        var chip = event.target.closest('[data-event-filter]');
         if (!chip) return;
         var analytics = window.CulturalMapAnalytics;
         if (analytics) {
@@ -86,13 +97,13 @@
       });
     }
 
-    const eventsAudienceToggle = document.getElementById('mapEventsAudienceToggle');
+    var eventsAudienceToggle = document.getElementById('mapEventsAudienceToggle');
     if (eventsAudienceToggle) {
-      eventsAudienceToggle.addEventListener('click', () => {
-        const current = typeof ctx.getEventAudienceFilter === 'function'
+      eventsAudienceToggle.addEventListener('click', function() {
+        var current = typeof ctx.getEventAudienceFilter === 'function'
           ? String(ctx.getEventAudienceFilter() || '')
           : 'exclude-kids-library';
-        const next = current === 'all' ? 'exclude-kids-library' : 'all';
+        var next = current === 'all' ? 'exclude-kids-library' : 'all';
         var analytics = window.CulturalMapAnalytics;
         if (analytics) {
           analytics.track('events:audience-filter', { filter: next });
@@ -103,30 +114,30 @@
       });
     }
 
-    const eventsCategorySelect = document.getElementById('mapEventsCategory');
+    var eventsCategorySelect = document.getElementById('mapEventsCategory');
     if (eventsCategorySelect) {
-      eventsCategorySelect.addEventListener('change', () => {
+      eventsCategorySelect.addEventListener('change', function() {
         ctx.setEventCategoryFilter(eventsCategorySelect.value);
       });
     }
 
-    const eventsPrevBtn = document.getElementById('mapEventsPrev');
+    var eventsPrevBtn = document.getElementById('mapEventsPrev');
     if (eventsPrevBtn) {
-      eventsPrevBtn.addEventListener('click', () => {
+      eventsPrevBtn.addEventListener('click', function() {
         ctx.stepFeaturedEvent(-1);
       });
     }
 
-    const eventsNextBtn = document.getElementById('mapEventsNext');
+    var eventsNextBtn = document.getElementById('mapEventsNext');
     if (eventsNextBtn) {
-      eventsNextBtn.addEventListener('click', () => {
+      eventsNextBtn.addEventListener('click', function() {
         ctx.stepFeaturedEvent(1);
       });
     }
 
-    const eventsList = document.getElementById('mapEventsList');
+    var eventsList = document.getElementById('mapEventsList');
     if (eventsList) {
-      eventsList.addEventListener('click', (event) => {
+      eventsList.addEventListener('click', function(event) {
         var ticketLink = event.target.closest('[data-track-outbound="event-ticket"]');
         if (ticketLink) {
           var analytics = window.CulturalMapAnalytics;
@@ -139,7 +150,7 @@
           }
           return; // Let the link navigate naturally
         }
-        const link = event.target.closest('.map-event-link');
+        var link = event.target.closest('.map-event-link');
         if (link) {
           event.stopPropagation();
           return;
@@ -147,9 +158,9 @@
       });
     }
 
-    const allEventsList = document.getElementById('mapEventsAllList');
+    var allEventsList = document.getElementById('mapEventsAllList');
     if (allEventsList) {
-      allEventsList.addEventListener('click', (event) => {
+      allEventsList.addEventListener('click', function(event) {
         var ticketLink = event.target.closest('[data-track-outbound="event-ticket"]');
         if (ticketLink) {
           var analytics = window.CulturalMapAnalytics;
@@ -162,22 +173,22 @@
           }
           return;
         }
-        const link = event.target.closest('.map-event-link');
+        var link = event.target.closest('.map-event-link');
         if (link) {
           event.stopPropagation();
           return;
         }
-        const card = event.target.closest('.map-event-row');
+        var card = event.target.closest('.map-event-row');
         if (!card) return;
-        const eventId = card.getAttribute('data-event-id');
+        var eventId = card.getAttribute('data-event-id');
         if (!eventId) return;
         ctx.setFeaturedEvent(eventId);
       });
     }
 
-    const eventsDetails = document.getElementById('mapEventsDetails');
+    var eventsDetails = document.getElementById('mapEventsDetails');
     if (eventsDetails) {
-      eventsDetails.addEventListener('toggle', () => {
+      eventsDetails.addEventListener('toggle', function() {
         var analytics = window.CulturalMapAnalytics;
         if (analytics) {
           analytics.track('events:toggle', { state: eventsDetails.open ? 'open' : 'closed' });
@@ -190,9 +201,9 @@
       });
     }
 
-    const searchEventsList = document.getElementById('exploreEventResults');
+    var searchEventsList = document.getElementById('exploreEventResults');
     if (searchEventsList) {
-      searchEventsList.addEventListener('click', (event) => {
+      searchEventsList.addEventListener('click', function(event) {
         var ticketLink = event.target.closest('[data-track-outbound="event-ticket"]');
         if (ticketLink) {
           var analytics = window.CulturalMapAnalytics;
@@ -205,14 +216,14 @@
           }
           return;
         }
-        const link = event.target.closest('.explore-search-event-link');
+        var link = event.target.closest('.explore-search-event-link');
         if (link) {
           event.stopPropagation();
           return;
         }
-        const card = event.target.closest('.explore-search-event.mapped');
+        var card = event.target.closest('.explore-search-event.mapped');
         if (!card) return;
-        const eventId = card.getAttribute('data-event-id');
+        var eventId = card.getAttribute('data-event-id');
         if (!eventId) return;
         ctx.focusEvent(eventId);
       });
@@ -220,7 +231,7 @@
 
     var clearBtn = document.getElementById('mapActiveClear');
     if (clearBtn) {
-      clearBtn.addEventListener('click', () => {
+      clearBtn.addEventListener('click', function() {
         var analytics = window.CulturalMapAnalytics;
         if (analytics) analytics.track('category:clear', {});
         ctx.clearAllMapFilters();
@@ -298,6 +309,8 @@
         e.preventDefault();
         var title = btn.getAttribute('data-event-title');
         var date = btn.getAttribute('data-event-date');
+        var venue = btn.getAttribute('data-event-venue') || '';
+        var layer = btn.getAttribute('data-event-layer') || '';
         if (!title) return;
 
         if (dbModel.hasEvent(title, date)) {
@@ -306,12 +319,13 @@
           var analytics = window.CulturalMapAnalytics;
           if (analytics) analytics.track('trip:bookmark-remove', { name: (title || '').substring(0, 100) });
           dbView.showToast('Event removed from your trip', function() {
-            dbModel.addEvent({ title: title, date: date, venue: '', layer: '' });
+            dbModel.addEvent({ title: title, date: date, venue: venue, layer: layer });
             dbView.updateButtonVisual(btn, true);
             dbView.updateBadge();
+            dbView.refreshAllBookmarkButtons();
           });
         } else {
-          var added = dbModel.addEvent({ title: title, date: date, venue: '', layer: '' });
+          var added = dbModel.addEvent({ title: title, date: date, venue: venue, layer: layer });
           if (added) {
             dbView.updateButtonVisual(btn, true);
             dbView.markFirstUseSeen();
@@ -321,12 +335,14 @@
               dbModel.removeEvent(title, date);
               dbView.updateButtonVisual(btn, false);
               dbView.updateBadge();
+              dbView.refreshAllBookmarkButtons();
             });
           } else {
             dbView.showToast('Trip is full (30 items max). Remove something first.');
           }
         }
         dbView.updateBadge();
+        dbView.refreshAllBookmarkButtons();
       });
 
       // Page-load badge init
