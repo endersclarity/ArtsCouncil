@@ -700,5 +700,110 @@
     </a>
   </div>
 </div>
+
+<script>
+(function() {
+  'use strict';
+
+  var config = window.CulturalMapConfig || {};
+  var INTENT_SUBCATEGORIES = config.INTENT_SUBCATEGORIES || {};
+  var INTENT_META = config.INTENT_META || {};
+
+  var modal    = document.getElementById('intentModal');
+  var backdrop = document.getElementById('intentModalBackdrop');
+  var closeBtn = document.getElementById('intentModalClose');
+  var grid     = document.getElementById('intentModalGrid');
+  var kicker   = document.getElementById('intentModalKicker');
+  var title    = document.getElementById('intentModalTitle');
+  var exploreBtn = document.getElementById('intentModalExploreBtn');
+
+  var lastFocused = null;
+
+  function escapeHtml(str) {
+    return String(str)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;');
+  }
+
+  function openModal(intentKey) {
+    var meta = INTENT_META[intentKey] || {};
+    var subs = INTENT_SUBCATEGORIES[intentKey] || [];
+
+    kicker.textContent = meta.label || intentKey;
+    title.textContent  = meta.subhead || '';
+    exploreBtn.href    = 'directory.html?intent=' + encodeURIComponent(intentKey);
+
+    grid.innerHTML = '';
+    subs.forEach(function(sub) {
+      var a = document.createElement('a');
+      a.className = 'intent-modal-subcat';
+      a.href = 'directory.html?cat=' + encodeURIComponent(sub.cat);
+      a.innerHTML =
+        '<span class="intent-subcat-label">' + escapeHtml(sub.label) + '</span>' +
+        '<span class="intent-subcat-meta">' + escapeHtml(sub.cat) + '</span>';
+      grid.appendChild(a);
+    });
+
+    lastFocused = document.activeElement;
+    modal.hidden    = false;
+    backdrop.hidden = false;
+    modal.removeAttribute('aria-hidden');
+    backdrop.removeAttribute('aria-hidden');
+    document.body.style.overflow = 'hidden';
+    closeBtn.focus();
+  }
+
+  function closeModal() {
+    modal.hidden    = true;
+    backdrop.hidden = true;
+    modal.setAttribute('aria-hidden', 'true');
+    backdrop.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    if (lastFocused) lastFocused.focus();
+  }
+
+  // Wire district cards
+  var cards = document.querySelectorAll('.district-feature-card');
+  Array.prototype.forEach.call(cards, function(card) {
+    var labelEl = card.querySelector('.district-feature-label');
+    if (!labelEl) return;
+    var intentKey = labelEl.textContent.trim().toLowerCase();
+
+    card.setAttribute('role', 'button');
+    card.setAttribute('tabindex', '0');
+    card.style.cursor = 'pointer';
+
+    card.addEventListener('click', function() { openModal(intentKey); });
+    card.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(intentKey); }
+    });
+  });
+
+  closeBtn.addEventListener('click', closeModal);
+  backdrop.addEventListener('click', closeModal);
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && !modal.hidden) closeModal();
+  });
+
+  modal.addEventListener('keydown', function(e) {
+    if (e.key !== 'Tab') return;
+    var focusable = Array.prototype.slice.call(
+      modal.querySelectorAll('a[href], button:not([disabled]), [tabindex="0"]')
+    );
+    if (!focusable.length) return;
+    var first = focusable[0];
+    var last  = focusable[focusable.length - 1];
+    if (e.shiftKey) {
+      if (document.activeElement === first) { e.preventDefault(); last.focus(); }
+    } else {
+      if (document.activeElement === last) { e.preventDefault(); first.focus(); }
+    }
+  });
+
+})();
+</script>
 </body>
 </html>
