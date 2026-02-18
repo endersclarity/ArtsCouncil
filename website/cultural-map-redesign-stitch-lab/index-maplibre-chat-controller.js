@@ -159,7 +159,7 @@
     var eventNames = events.map(function(e) {
       return e.venue ? e.venue + ' (' + e.title + ')' : e.title;
     });
-    var combined = names.concat(eventNames);
+    var combined = names.concat(eventNames).filter(function(n) { return n.trim().length > 0; });
     return combined.length > 0 ? combined : null;
   }
 

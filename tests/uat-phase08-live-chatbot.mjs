@@ -17,9 +17,10 @@ import { test, expect } from '@playwright/test';
 const LIVE_URL =
   'https://cultural-map-redesign-stitch-lab.vercel.app/index-maplibre-hero-intent-stitch-frontend-design-pass.html';
 
-// Two saved places so trip planning cards appear
+// Two saved places so trip planning cards appear.
+// Schema must match what addPlace() stores: asset/layer/city (NOT name/category).
 const DREAMBOARD =
-  '{"version":1,"places":[{"id":"p1","name":"Nevada Theatre","category":"Performing Arts","city":"Nevada City"},{"id":"p2","name":"Miners Foundry","category":"Cultural Organizations","city":"Nevada City"}],"events":[]}';
+  '{"version":1,"places":[{"asset":"Nevada Theatre","layer":"Performing Arts","city":"Nevada City","addedAt":1700000000000,"source":"detail"},{"asset":"Miners Foundry","layer":"Cultural Organizations","city":"Nevada City","addedAt":1700000000001,"source":"detail"}],"events":[]}';
 
 /**
  * Common setup: inject localStorage + analytics interceptors before navigation.
