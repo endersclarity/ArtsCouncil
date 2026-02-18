@@ -105,6 +105,9 @@
         catGrid.style.display = '';
         document.getElementById('searchInput').value = '';
         setCategory(null);
+        // Clear stale category header (S9 fix)
+        var headerArea = document.getElementById('directoryHeaderArea');
+        if (headerArea) headerArea.innerHTML = '';
       }
       setListPage(0);
       buildList();
@@ -126,10 +129,17 @@
       });
       html += exploreView.buildCityFilterPills({
         cities: cities,
-        activeCity: activeCityFilter,
-        onCitySelect: null // we'll bind via event delegation
+        activeCity: activeCityFilter
       });
       headerEl.innerHTML = html;
+
+      // Wire back button (B3 fix)
+      var backBtn = headerEl.querySelector('.directory-back-btn');
+      if (backBtn) {
+        backBtn.addEventListener('click', function() {
+          exploreSetCategory(null);
+        });
+      }
 
       // Bind city filter pill clicks via delegation
       headerEl.querySelectorAll('.directory-filter-pill').forEach(function(pill) {
