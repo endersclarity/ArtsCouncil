@@ -123,12 +123,56 @@
     'Local': '#2d4a3e'
   };
 
+  var INTENT_GROUPS = {
+    'atmosphere': ['Performance Spaces', 'Eat, Drink & Stay', 'Galleries & Museums', 'Historic Landmarks'],
+    'commerce':   ['Galleries & Museums', 'Eat, Drink & Stay', 'Cultural Organizations', 'Education'],
+    'culture':    ['Performance Spaces', 'Galleries & Museums', 'Historic Landmarks', 'Cultural Organizations'],
+    'community':  ['Cultural Organizations', 'Eat, Drink & Stay', 'Education', 'Walks & Trails']
+  };
+
+  var INTENT_SUBCATEGORIES = {
+    'atmosphere': [
+      { label: 'Live Music & Shows',  cat: 'Performance Spaces' },
+      { label: 'Eat & Drink',         cat: 'Eat, Drink & Stay' },
+      { label: 'Art After Hours',     cat: 'Galleries & Museums' },
+      { label: 'Historic Venues',     cat: 'Historic Landmarks' }
+    ],
+    'commerce': [
+      { label: 'Galleries & Studios', cat: 'Galleries & Museums' },
+      { label: 'Local Eats & Drink',  cat: 'Eat, Drink & Stay' },
+      { label: 'Arts Organizations',  cat: 'Cultural Organizations' },
+      { label: 'Crafts & Learning',   cat: 'Education' }
+    ],
+    'culture': [
+      { label: 'Performance & Theater', cat: 'Performance Spaces' },
+      { label: 'Galleries & Art',       cat: 'Galleries & Museums' },
+      { label: 'History & Landmarks',   cat: 'Historic Landmarks' },
+      { label: 'Arts Organizations',    cat: 'Cultural Organizations' }
+    ],
+    'community': [
+      { label: 'Gathering Spots',      cat: 'Cultural Organizations' },
+      { label: 'Cafes & Food',         cat: 'Eat, Drink & Stay' },
+      { label: 'Education & Learning', cat: 'Education' },
+      { label: 'Trails & Parks',       cat: 'Walks & Trails' }
+    ]
+  };
+
+  var INTENT_META = {
+    'atmosphere': { label: 'Atmosphere', subhead: 'The plaza after dark' },
+    'commerce':   { label: 'Commerce',   subhead: 'Found, not franchised' },
+    'culture':    { label: 'Culture',    subhead: 'A stage for every story' },
+    'community':  { label: 'Community',  subhead: 'Pull up a chair' }
+  };
+
   window.CulturalMapConfig = {
     MAPTILER_KEY,
     ICONS,
     CATS,
     CATEGORY_MAP,
     CATEGORY_HEROES,
+    INTENT_GROUPS: INTENT_GROUPS,
+    INTENT_SUBCATEGORIES: INTENT_SUBCATEGORIES,
+    INTENT_META: INTENT_META,
     DEMO_FEATURED_PICKS: DEMO_FEATURED_PICKS,
     DEMO_SOURCE_COLORS: DEMO_SOURCE_COLORS
   };
