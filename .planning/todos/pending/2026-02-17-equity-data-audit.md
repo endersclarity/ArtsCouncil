@@ -28,6 +28,18 @@ Phase 5 (2027) work:
 3. **Category evolution** — Add filters for "Family-Friendly," "Free Events," "Youth Programs," "Multilingual Spaces"
 4. **Content partnerships** — Co-create content with underserved communities rather than curating from outside
 
+## Progress Log
+
+### 2026-02-18 — Multilingual access (translation layer)
+
+Added JigsawStack translation widget to all 5 active pages (hub, events, directory, itineraries, trip). 163 languages available via bottom-left globe button. Spanish-speaking visitors can now read the full platform in their language on demand. `autoDetectLanguage: true` means users with Spanish browser settings get auto-translated on load.
+
+This addresses the **language access barrier** for the Latino/a/x community gap, but does NOT address the **data representation gap** — there are still few Latino/a/x cultural assets, venues, or events in the underlying dataset. Both layers matter.
+
+Remaining equity work is still Phase 5 (2027): data audit, community listening, category evolution, content partnerships.
+
+---
+
 ## References
 
 - Culture Forward: "Persistent access issues affect youth, Latino/a/x, Indigenous, Black, and immigrant communities"
