@@ -286,9 +286,13 @@
       <div class="section-tag">Directory</div>
       <h2 class="section-heading">Explore by Category</h2>
     </div>
+    <!-- B4: Mobile map toggle — hidden on desktop, shown at <900px -->
+    <button class="directory-map-toggle" id="hubMapToggle" type="button" aria-label="Toggle map view">
+      <span class="directory-map-toggle-text">View on Map</span>
+    </button>
     <div class="directory-search-wrap">
       <svg class="directory-search-icon" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="7.5" cy="7.5" r="5"/><path d="M11.5 11.5L16 16"/></svg>
-      <input type="text" class="explore-search" id="searchInput" placeholder="Search 687 places\u2026">
+      <input type="text" class="explore-search" id="searchInput" placeholder="Search 687 places&#8230;">
     </div>
   </div>
   <div class="directory-grid" id="exploreCats"></div>
@@ -524,6 +528,27 @@
   </div>
 </footer>
 
+<!-- B4: Hub map toggle wiring -->
+<script>
+(function() {
+  'use strict';
+  document.addEventListener('DOMContentLoaded', function() {
+    var hubMapToggle = document.getElementById('hubMapToggle');
+    var mapSection = document.getElementById('mapSection');
+    if (!hubMapToggle || !mapSection) return;
+    hubMapToggle.addEventListener('click', function() {
+      var isCollapsed = mapSection.classList.toggle('map-section--collapsed');
+      hubMapToggle.querySelector('.directory-map-toggle-text').textContent =
+        isCollapsed ? 'View on Map' : 'Hide Map';
+      hubMapToggle.setAttribute('aria-expanded', String(!isCollapsed));
+      // Resize map after expand to fix tile gaps
+      if (!isCollapsed && window.CulturalMapApp && window.CulturalMapApp.map) {
+        setTimeout(function() { window.CulturalMapApp.map.resize(); }, 300);
+      }
+    });
+  });
+})();
+</script>
 <script src="https://unpkg.com/maplibre-gl@4.5.0/dist/maplibre-gl.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@turf/turf@6/turf.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
