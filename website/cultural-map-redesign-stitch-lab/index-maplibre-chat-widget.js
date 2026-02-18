@@ -84,6 +84,10 @@
     fabEl.classList.add('chat-fab--hidden');
     document.body.classList.add('chat-open');
 
+    // Track chat panel open
+    var analytics = window.CulturalMapAnalytics;
+    if (analytics) analytics.track('chat:open', {});
+
     if (chatController.hasMessages && !chatController.hasMessages()) {
       if (chatView.renderWelcome) {
         chatView.renderWelcome();
@@ -109,6 +113,10 @@
     if (!panelEl || !fabEl) return;
 
     isOpenState = false;
+
+    // Track chat panel close
+    var analytics = window.CulturalMapAnalytics;
+    if (analytics) analytics.track('chat:close', {});
 
     if (window.gsap) {
       gsap.to(panelEl, {

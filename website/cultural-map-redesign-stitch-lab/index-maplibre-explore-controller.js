@@ -177,6 +177,14 @@
         if (_searchTrackTimer) clearTimeout(_searchTrackTimer);
         _searchTrackTimer = setTimeout(function() {
           _trackSearch(searchVal, filtered.length);
+          // explore:search — directory-specific search event for reporting pipeline
+          var analytics = window.CulturalMapAnalytics;
+          if (analytics) {
+            analytics.track('explore:search', {
+              query: searchVal.substring(0, 100),
+              results_count: filtered.length
+            });
+          }
         }, 800);
       }
       var end = (getListPage() + 1) * listPageSize;
@@ -206,7 +214,18 @@
           getHoursState: getHoursState,
           getEventCount14d: function(item) { return getEventCountForAsset14d(data.indexOf(item)); },
           getHoursLabel: getHoursLabel,
-          onOpenDetail: function(item) { openDetail(item); }
+          onOpenDetail: function(item) {
+            // Track explore card expansion for reporting pipeline
+            var analytics = window.CulturalMapAnalytics;
+            if (analytics) {
+              analytics.track('explore:card-expand', {
+                name: (item.n || '').substring(0, 100),
+                category: item.l || '',
+                city: item.c || ''
+              });
+            }
+            openDetail(item);
+          }
         }));
       });
 

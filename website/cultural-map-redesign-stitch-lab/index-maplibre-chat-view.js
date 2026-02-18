@@ -242,6 +242,14 @@
             pid: link.getAttribute('data-pid'),
             name: link.getAttribute('data-asset-name')
           };
+          // Track chat deep link click
+          var analytics = window.CulturalMapAnalytics;
+          if (analytics) {
+            analytics.track('chat:deeplink-click', {
+              venue: (payload.name || '').substring(0, 100),
+              pid: (payload.pid || '').substring(0, 100)
+            });
+          }
           if (window.CulturalMapDeepLinkBridge && window.CulturalMapDeepLinkBridge.navigate) {
             window.CulturalMapDeepLinkBridge.navigate(payload);
           } else if (window.CulturalMapChatController && window.CulturalMapChatController.handleAssetClick) {

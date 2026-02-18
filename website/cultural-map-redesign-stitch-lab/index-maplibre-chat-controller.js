@@ -282,6 +282,12 @@
       apiPayload.dreamBoard = dreamBoardNames;
     }
 
+    // Track query submission (privacy: only log length, not content)
+    var analytics = window.CulturalMapAnalytics;
+    if (analytics) {
+      analytics.track('chat:query-sent', { query_length: sanitized.length });
+    }
+
     // Call API
     fetch('/api/chat', {
       method: 'POST',
