@@ -81,3 +81,34 @@ The analytics-mockup-report todo (2026-02-17) is now partially superseded since 
 - Small sample size (5 visitors) makes percentages misleading — frame as "early signals" not "trends"
 - Page view breakdown shows dates not URLs (Umami Cloud API limitation on free tier)
 - Venue names in attribution sometimes include full addresses (data normalization needed)
+
+---
+
+## Roundtable Findings (2026-02-18)
+
+See `.planning/EXECUTION-ORDER.md` for full ranked stack. This is Tier 2 (NEXT — needs format decision).
+
+### Analytics-mockup-report absorbed
+
+`2026-02-17-analytics-mockup-report.md` is now **closed as superseded** and moved to `todos/done/`. This todo is the single deliverable. Both purposes are served here.
+
+### Add "at scale" projection section
+
+The real February data (5 visitors) risks looking underwhelming to a committee that doesn't understand soft launch dynamics. Add a **"Projected at Scale" section** showing what the report looks like at 500 visitors/month — same format, synthetic but realistic numbers. This shows the vision alongside the early signal. One deliverable, both purposes (real data + committee vision).
+
+### Framing guidance
+
+**Frame:** "Early signals from soft launch — proof the intelligence infrastructure works."
+**Do not frame as:** "Our February analytics." The narrative is the infrastructure, not the numbers.
+
+Committee pitch: *"No other small-town DMO generates this kind of demand intelligence. We're 5 visitors in and we already know which venues are getting referrals, what visitors are asking the AI, and which intent clusters are dominant. At 500 visitors, this becomes a monthly intelligence briefing."*
+
+### Format decision needed
+
+Choose format before executing:
+1. **Pandoc PDF** — `pandoc reports/2026-02-demand-report.md -o report.pdf` — trivial, already supported
+2. **Branded one-pager** — Stitch design pass, cream/ink/gold palette, 1-2 days
+3. **Slide deck** — 5 slides pulling key data, medium effort
+4. **Email summary** — 3-4 bullets, monthly cadence
+
+**Recommendation:** Pandoc PDF first (ship fast), then branded one-pager for next committee meeting.

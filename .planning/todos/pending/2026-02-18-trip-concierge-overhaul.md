@@ -65,3 +65,40 @@ After the concierge generates an itinerary, clicking "View and edit on trip page
 6. **Fix dream board place persistence** — debug `ncac-dreamboard` localStorage write when saving venues/places (not just events) from detail panel
 7. **Improve empty state guidance** — add a visual cue or inline tip pointing users to the bookmark icon on detail panels and directory cards
 8. **Clarify trip naming** — consolidate "My Trip" concept with named trips; remove confusing dual-label UI
+
+---
+
+## Roundtable Findings (2026-02-18)
+
+See `.planning/EXECUTION-ORDER.md` for full ranked stack.
+
+### Scope corrections
+
+**Loading animation (#4) — ALREADY EXISTS.** Tech-lead confirmed a typing indicator is already present in the chat widget. Remove from solution scope; verify visually before re-implementing.
+
+**"Start exploring" (#2) — FEATURE REQUEST, not a bug.** The button is a working `<a>` tag. It's not broken — it points to the wrong destination. This is a deliberate decision needed, not a bug fix. Options: (a) open concierge pre-seeded with a planning prompt, (b) scroll to map section, (c) navigate to directory.html. Decide destination before implementing.
+
+### Dream board surface area — wider than originally scoped
+
+The "Save to Trip" bookmark button appears on **three primary hub page surfaces**: map detail panel, directory cards, and map tooltips — not just on trip.html. This means the persistence bug (if confirmed) affects the main user flow, not a hidden trip-page-only feature. It's trust-eroding to show a "saved" state that doesn't persist on the hub's primary interaction surfaces.
+
+**Repro instructions:** Open the map detail panel for a place/venue (NOT an event), click "Save to Trip," check `ncac-dreamboard` key in localStorage DevTools. If key is absent or `places: []`, bug is confirmed.
+
+**Files:** `index-maplibre-dreamboard-model.js`, `index-maplibre-detail-view.js`, `index-maplibre-bindings.js`
+
+### Execution split
+
+This umbrella was split into two independent workstreams:
+
+**Split A — bugs only (Tier 1, P1):**
+- Dream board place persistence (repro timebox → fix if confirmed)
+- "Start exploring" destination (feature request, not bug — decide destination first)
+
+**Split B — visual redesign (Tier 3, independent of chrome/nav):**
+- Stitch redesign pass on trip.html
+- Style cards rework
+- Itinerary output verbosity (system prompt tuning)
+- Empty state guidance
+- Trip naming clarification
+
+The visual redesign is NOT blocked by chrome/nav. trip.html gets a nav shell in the same Tier 1 batch as the homepage quick wins.

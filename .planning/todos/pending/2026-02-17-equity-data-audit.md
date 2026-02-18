@@ -46,3 +46,15 @@ Remaining equity work is still Phase 5 (2027): data audit, community listening, 
 - Culture Forward: "Support historically underinvested communities through visibility and funding" (Pillar 4, Strategy 2)
 - Synthesizer: "This is not a feature gap. It's a data problem."
 - Culture Forward extraction: Section 2 (Community Research Findings) — 629 survey responses, 12 listening sessions
+
+---
+
+## Roundtable Findings (2026-02-18)
+
+See `.planning/EXECUTION-ORDER.md` for full ranked stack. This is Tier 4 (Deferred, 2027 / Phase 5).
+
+**Confirmed:** This is a community engagement problem, not a code problem. No amount of engineering closes the data representation gap without listening sessions and content partnerships.
+
+**Insurance action (do now, ~30 min):** Write a 1-page talking-points document for when committee asks about Indigenous representation. Standard answer: *"The translation widget addresses language access for 163 languages. Data representation — Indigenous cultural sites, Latino/a/x community spaces — requires community partnerships we're planning for Phase 5 in 2027. We're in conversations with [Washoe Tribe / Nevada City Rancheria Nisenan / Latino/x orgs] about co-creating that content."*
+
+This talking-points doc is a document task, not a development sprint. Write it in `docs/committee/` or `docs/correspondence/` when the opportunity arises.

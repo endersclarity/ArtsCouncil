@@ -45,3 +45,28 @@ This section likely needs a Stitch redesign pass once the scope of changes is cl
 
 - `2026-02-17-homepage-section-reorder.md` — pitch-before-tools reorder is about the map section's position
 - `2026-02-18-directory-map-hover-tooltips-missing-on-nearby-markers.md` — map UX fix, covered in same pass
+
+---
+
+## Roundtable Findings (2026-02-18)
+
+See `.planning/EXECUTION-ORDER.md` for full ranked stack. Split into Tier 1 quick wins and Tier 3 redesign remainder.
+
+### Quick wins (Tier 1 — do today, zero risk)
+
+- **"687 places" text removal** — pure HTML deletion, no JS dependencies
+- **Expand button removal** — tech-lead confirmed no JS dependencies. Just remove the button element. No null querySelector errors expected — verify once, ship.
+- **Bottom stats bar removal** — pure HTML deletion, zero risk
+
+All three are in the same 30-minute session as the sub-page nav copy work.
+
+### Redesign remainder (Tier 3 — next sprint)
+
+- **Section reorder (pitch before map)** — tech-lead confirmed SAFE. No scroll sentinel, IntersectionObserver, or GSAP animation breakage expected. Standard HTML restructure.
+- **Routes & Experiences section** — decision: **restyle as a compact section** rather than absorbing into the map legend/filter overlay. Design-lead + devil reached consensus that the absorption approach adds JS complexity; a visual restyle is cleaner and achieves the same goal.
+- **Legend SVG markers** — straightforward: add `<img>` tags in the legend matching the map layer symbols. Easy implementation.
+- **Directory hover tooltips** — isolated wiring bug. Hub page uses `assetInteractions.bindAssetInteractions()` with `mouseenter`/`mouseleave` on `assets-circle` and `assets-hit` layers. Directory page init sequence is likely missing this call.
+
+### Not blocked by chrome/nav
+
+The map section is on the hub page which already has nav. This work does not depend on the chrome/nav umbrella completing first.

@@ -33,3 +33,27 @@ CSS tokens also conflict: old base styles from before the Codex magazine layout 
 
 - `2026-02-18-sub-page-visual-polish-pass.md` — uniform nav + editorial shell on all sub-pages is the same scope
 - `2026-02-16-visual-consistency-sweep.md` — CSS token conflicts between old base and Codex magazine layout
+
+---
+
+## Roundtable Findings (2026-02-18)
+
+See `.planning/EXECUTION-ORDER.md` for full ranked stack. Execution split across Tier 1 and opportunistic.
+
+### Sticky nav — 15 minute fix (Tier 1)
+
+Root cause: `position:sticky` failing inside a CSS grid row context. This is a known browser quirk — sticky only works when no ancestor has `overflow: hidden` or when the element is inside a flex/grid container that clips it. Check the nav's parent elements for `overflow` settings or grid row height constraints.
+
+**This is a 15-minute isolated CSS fix.** Not a 2-3 hour project.
+
+### Sub-page nav — 2 HTML blocks + 1 script (Tier 1, same session)
+
+Tech-lead confirmed the recipe: copy 2 HTML blocks (the `.mast` element + the hamburger overlay) and include 1 script tag (the nav/hamburger JS) into each of the 4 sub-pages. ~15 minutes per page, ~1 hour total. Do this in the same session as the map quick wins.
+
+### CSS token conflicts — opportunistic, NOT a scheduled task
+
+Design-lead confirmed blast radius is near zero — every `var(--gold)` and `var(--cream)` consumer has a fallback value. The conflicts are cosmetic and section-local. Fix opportunistically the next time you're editing the stitch CSS. Do NOT schedule as a standalone task — it doesn't warrant its own session.
+
+### Footer consistency
+
+Scope TBD — defer until after sticky nav and sub-page nav are shipped. Assess what's actually needed once the nav shell is consistent.

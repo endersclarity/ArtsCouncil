@@ -38,3 +38,11 @@ The roundtable's core tension: the platform tries to serve both tourists and loc
 - Synthesizer Tension 1: "Tourist vs. Local — Two-mode architecture"
 - Local advocate: "Separate visitor content from local utility. Create a /local mode."
 - Tourist advocate: "Feels built for the committee, not tourists"
+
+---
+
+## Roundtable Findings (2026-02-18)
+
+See `.planning/EXECUTION-ORDER.md` for full ranked stack. This is Tier 4 (Deferred, 2027 / Phase 5).
+
+**Confirmed deferred.** Current site serves the primary audience (visitors/committee) well. Local mode is a strategic evolution that requires architectural work estimated at 2-3 weeks. No current urgency. Pick up in Phase 5 planning.

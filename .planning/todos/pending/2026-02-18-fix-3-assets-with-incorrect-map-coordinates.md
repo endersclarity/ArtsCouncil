@@ -29,3 +29,25 @@ Reference: Original ArcGIS REST endpoint for cross-checking:
 ```
 https://services9.arcgis.com/dunJqHWsrgVVzHCy/arcgis/rest/services/{LAYER_NAME}/FeatureServer/0/query?where=1%3D1&outFields=*&f=geojson
 ```
+
+---
+
+## Roundtable Findings (2026-02-18)
+
+See `.planning/EXECUTION-ORDER.md` for full ranked stack. This is Tier 1 (do today).
+
+### Verify status before executing
+
+STATE.md Phase 9-04 decisions may have already fixed Alan Thiesen Trail (idx 631) and Sawtooth Trailhead (idx 668). Check current `x` and `y` values in `data.json` before doing any work. If they're in Nevada County range (-120.0 to -121.0, 39.0 to 39.5), they're already fixed. Coburn Music (-120.21, 39.64) is the most likely to still need correction.
+
+### Check experiences.json before shipping
+
+Before updating or removing any coordinate entry, verify none of the 3 assets appear in `experiences.json`. If an asset is a stop in a curated route, coordinate changes must not break its stop reference.
+
+### Dedup todo closed as invalid
+
+The companion dedup todo (`2026-02-17-deduplicate-same-category-entries-in-data-json.md`) has been **closed as invalid** — those "duplicates" are multi-location businesses (Avanguardia Winery tasting room + winery, South Pine Cafe Nevada City + Grass Valley, The Pour House Truckee + Grass Valley). Avanguardia appears twice in `experiences.json` as intentional separate stops in a curated route. Do not delete them.
+
+### Safe to edit
+
+Data.json is read at runtime; no modules reference entries by array index. Coordinate changes are safe. Entry count changes are also safe — modules iterate generically.
