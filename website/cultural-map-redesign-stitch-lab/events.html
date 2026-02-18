@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="index-maplibre-hero-intent-stitch-frontend-design-pass.css">
 <script defer src="https://cloud.umami.is/script.js" data-website-id="14ecf234-cd96-4e6c-91c2-cc27babc095d" data-domains="cultural-map-redesign-stitch-lab.vercel.app"></script>
 <script src="https://cdn.jsdelivr.net/npm/luxon@3.4.4/build/global/luxon.min.js"></script>
+<script src="index-maplibre-dreamboard-model.js"></script>
 <style>.trip-nav-link{position:relative}.trip-badge{display:inline-flex;align-items:center;justify-content:center;background:#c8943e;color:#fff;border-radius:50%;width:18px;height:18px;font-family:"DM Sans",sans-serif;font-size:.68rem;font-weight:700;line-height:1;position:absolute;top:-6px;right:-10px}</style>
 </head>
 <body class="theme-intent events-page">
@@ -238,6 +239,18 @@
         html += familyBadge;
         if (ev.ticket_url) html += '<a class="events-ticket-link" href="' + escapeHtml(ev.ticket_url) + '" target="_blank" rel="noopener">Tickets</a>';
         html += '  </div>';
+        var dbModel = window.CulturalMapDreamboardModel;
+        var isBookmarked = dbModel && typeof dbModel.hasEvent === 'function' && dbModel.hasEvent(ev.title, ev.start_iso || '');
+        var bmColor = isBookmarked ? '#c8943e' : '#ccc';
+        var bmTextColor = isBookmarked ? '#c8943e' : '#999';
+        html += '<button class="events-page-bookmark"' +
+          ' data-event-title="' + escapeHtml(ev.title) + '"' +
+          ' data-event-venue="' + escapeHtml(ev.venue_name || '') + '"' +
+          ' data-event-start="' + escapeHtml(ev.start_iso || '') + '"' +
+          ' aria-label="' + (isBookmarked ? 'Remove from dream board' : 'Save to dream board') + '"' +
+          ' style="background:none;border:1.5px solid ' + bmColor + ';border-radius:50%;width:32px;height:32px;cursor:pointer;font-size:16px;line-height:1;color:' + bmTextColor + ';flex-shrink:0;">' +
+          (isBookmarked ? '&#9733;' : '&#9734;') +
+          '</button>';
         html += '</div>';
       });
       html += '</div>';
@@ -292,6 +305,44 @@
     });
   }
 
+  function bindBookmarkDelegation() {
+    document.body.addEventListener('click', function(e) {
+      var btn = e.target.closest ? e.target.closest('.events-page-bookmark') : null;
+      if (!btn) return;
+      var dbModel = window.CulturalMapDreamboardModel;
+      if (!dbModel) return;
+      var evTitle = btn.getAttribute('data-event-title') || '';
+      var evVenue = btn.getAttribute('data-event-venue') || '';
+      var evStart = btn.getAttribute('data-event-start') || '';
+      var isNowBookmarked;
+      if (typeof dbModel.hasEvent === 'function' && dbModel.hasEvent(evTitle, evStart)) {
+        if (typeof dbModel.removeEvent === 'function') dbModel.removeEvent(evTitle, evStart);
+        isNowBookmarked = false;
+      } else {
+        if (typeof dbModel.addEvent === 'function') {
+          dbModel.addEvent({ title: evTitle, venue: evVenue, date: evStart });
+        }
+        isNowBookmarked = true;
+      }
+      // Update button state inline
+      btn.style.borderColor = isNowBookmarked ? '#c8943e' : '#ccc';
+      btn.style.color = isNowBookmarked ? '#c8943e' : '#999';
+      btn.innerHTML = isNowBookmarked ? '&#9733;' : '&#9734;';
+      btn.setAttribute('aria-label', isNowBookmarked ? 'Remove from dream board' : 'Save to dream board');
+      // Update badge count
+      try {
+        var raw = localStorage.getItem('ncac-dreamboard');
+        var store = raw ? JSON.parse(raw) : null;
+        var count = store ? (store.places || []).length + (store.events || []).length : 0;
+        var badge = document.querySelector('.trip-badge');
+        if (badge) {
+          badge.textContent = count;
+          badge.style.display = count > 0 ? '' : 'none';
+        }
+      } catch(err) { /* ignore */ }
+    });
+  }
+
   function init() {
     fetch('events-merged-flat.json')
       .then(function(res) { return res.json(); })
@@ -301,6 +352,7 @@
         populateSourceDropdown(events);
         renderEvents(events);
         bindFilters();
+        bindBookmarkDelegation();
       })
       .catch(function(err) {
         console.error('Failed to load events:', err);
