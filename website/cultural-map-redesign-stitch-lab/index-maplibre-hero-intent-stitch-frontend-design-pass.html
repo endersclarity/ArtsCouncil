@@ -32,13 +32,13 @@
 <!-- ====== 1. TOP BAR ====== -->
 <header class="mast mast--intent" role="banner">
   <div class="mast-inner">
-    <a href="#" class="mast-brand" aria-label="Explore Nevada County homepage">Explore Nevada County</a>
+    <a href="#" class="mast-brand" aria-label="Explore Nevada County homepage" translate="no">Explore Nevada County</a>
     <nav class="mast-nav-desktop" aria-label="Primary">
       <a href="events.html">Events</a>
       <a href="itineraries.html">Itineraries</a>
       <a href="directory.html">Directory</a>
       <a href="#mapSection" data-nav-action="expand-map">Map</a>
-      <a href="#muse">MUSE</a>
+      <a href="#muse" translate="no">MUSE</a>
       <a href="qr-gallery.html" style="color:var(--gold)">QR Demo</a>
       <a href="trip.html" class="trip-nav-link">My Trip <span class="trip-badge" style="display:none">0</span></a>
     </nav>
@@ -69,7 +69,7 @@
       <a href="itineraries.html">Itineraries</a>
       <a href="directory.html">Directory</a>
       <a href="#mapSection" data-nav-action="expand-map">Map</a>
-      <a href="#muse">MUSE</a>
+      <a href="#muse" translate="no">MUSE</a>
       <a href="trip.html" class="trip-nav-link">My Trip <span class="trip-badge" style="display:none">0</span></a>
       <details class="hamburger-section">
         <summary>Categories</summary>
@@ -116,9 +116,9 @@
     </div>
     <div class="hero-editorial-copy">
       <div class="hero-brand">
-        <div class="cover-tag">Nevada County Cultural District</div>
-        <h1 class="hero-title">Explore Nevada County</h1>
-        <p class="hero-subtitle">Nevada County Cultural District</p>
+        <div class="cover-tag" translate="no">Nevada County Cultural District</div>
+        <h1 class="hero-title" translate="no">Explore Nevada County</h1>
+        <p class="hero-subtitle" translate="no">Nevada County Cultural District</p>
         <p class="hero-geo">Grass Valley · Nevada City · Truckee · the Sierra foothills</p>
       </div>
       <p class="hero-editorial-quote">"Where vintage record shops meet Victorian architecture."</p>
@@ -251,7 +251,7 @@
     <article class="story-card story-card--editorial muse-filmstrip" id="muse" aria-label="MUSE editorial filmstrip">
       <div class="muse-filmstrip-shell">
         <aside class="muse-filmstrip-mast" aria-hidden="true">
-          <span>MUSE</span>
+          <span translate="no">MUSE</span>
         </aside>
         <div class="muse-filmstrip-main">
           <header class="muse-filmstrip-head">
@@ -347,18 +347,7 @@
   </div>
 </section>
 
-<section class="email-capture" aria-label="Newsletter signup">
-  <div class="email-capture-inner">
-    <h2 class="email-capture-title">Stay in the Loop</h2>
-    <p class="email-capture-sub">Weekly updates on events and hidden gems in Nevada County.</p>
-    <form class="email-capture-form" id="emailCaptureForm">
-      <input type="email" class="email-capture-input" id="emailCaptureInput" placeholder="your@email.com" required aria-label="Email address">
-      <button type="submit" class="email-capture-btn" id="emailCaptureBtn">Subscribe</button>
-    </form>
-    <div class="email-capture-status" id="emailCaptureStatus" hidden></div>
-    <p class="email-capture-privacy">No spam. Unsubscribe anytime. We respect your inbox.</p>
-  </div>
-</section>
+<!-- email capture moved to footer (Your Weekly Pulse) -->
 
 <!-- ====== PLAN YOUR STAY ====== -->
 <section class="lodging-section reveal" aria-label="Plan your stay">
@@ -521,10 +510,63 @@
   </div>
 </section>
 
+<!-- ====== YOUR WEEKLY PULSE ====== -->
+<section class="email-capture" aria-label="Newsletter signup">
+  <div class="email-capture-inner">
+    <h2 class="email-capture-title">Your Weekly Pulse</h2>
+    <p class="email-capture-sub">A personalized digest of events and hidden gems, filtered to what you actually care about.</p>
+    <div class="interest-grid" id="interestGrid">
+      <label class="interest-chip">
+        <input type="checkbox" name="interest" value="live-music">
+        <span class="interest-chip-label">Live Music</span>
+      </label>
+      <label class="interest-chip">
+        <input type="checkbox" name="interest" value="galleries">
+        <span class="interest-chip-label">Galleries &amp; Studios</span>
+      </label>
+      <label class="interest-chip">
+        <input type="checkbox" name="interest" value="food-wine">
+        <span class="interest-chip-label">Food &amp; Wine</span>
+      </label>
+      <label class="interest-chip">
+        <input type="checkbox" name="interest" value="family-kids">
+        <span class="interest-chip-label">Family &amp; Kids</span>
+      </label>
+      <label class="interest-chip">
+        <input type="checkbox" name="interest" value="workshops">
+        <span class="interest-chip-label">Workshops &amp; Classes</span>
+      </label>
+      <label class="interest-chip">
+        <input type="checkbox" name="interest" value="outdoor">
+        <span class="interest-chip-label">Outdoor &amp; Trails</span>
+      </label>
+    </div>
+    <form class="email-capture-form" id="emailCaptureForm">
+      <input type="email" class="email-capture-input" id="emailCaptureInput" placeholder="your@email.com" required aria-label="Email address">
+      <button type="submit" class="email-capture-btn" id="emailCaptureBtn">Subscribe</button>
+    </form>
+    <div class="email-capture-status" id="emailCaptureStatus" hidden></div>
+    <p class="email-capture-privacy">No spam. Unsubscribe anytime. We respect your inbox.</p>
+  </div>
+</section>
+
 <footer class="colophon">
   <div class="colophon-inner">
-    <span>&copy; 2026 Nevada County Arts Council</span>
-    <a href="index.html">View Leaflet version</a>
+    <div class="colophon-brand">
+      <strong translate="no">Explore Nevada County</strong>
+      <span>A project of the Nevada County Arts Council Experience Planning Committee</span>
+    </div>
+    <nav class="colophon-links" aria-label="Footer">
+      <a href="index-maplibre-hero-intent-stitch-frontend-design-pass.html">Explore</a>
+      <a href="events.html">Events</a>
+      <a href="itineraries.html">Itineraries</a>
+      <a href="directory.html">Directory</a>
+      <a href="my-trip.html">My Trip</a>
+    </nav>
+    <div class="colophon-meta">
+      <span>&copy; 2026 Nevada County Arts Council</span>
+      <span>141 E Main St, Nevada City, CA 95959</span>
+    </div>
   </div>
 </footer>
 
@@ -622,5 +664,20 @@
   }
 </script>
 <div id="itineraryOverlay" class="itinerary-overlay"></div>
+
+<!-- Translation widget: JigsawStack free tier (160+ languages, 1M tokens/mo, no CC) -->
+<div class="translation-widget"></div>
+<script defer src="https://unpkg.com/translation-widget@latest/dist/index.min.js"></script>
+<script defer type="module">
+  TranslationWidget("pk_305d2aaf3f0c4bf5cb987b5f1f2ed58ecb4e15abd616cfb0191d89fb5fb10965c96e99ed3688a2f600bffae42b5c5a4527b9f0ba5aaac90280b0b4fcb199d2c1024YGo4qsaeZMveL5GTkF", {
+    pageLanguage: "en",
+    position: "bottom-left",
+    autoDetectLanguage: true,
+    theme: {
+      baseColor: "#c8943e",
+      textColor: "#1a1612"
+    }
+  });
+</script>
 </body>
 </html>

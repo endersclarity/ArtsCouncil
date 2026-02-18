@@ -16,7 +16,7 @@
 
 <header class="mast mast--intent" role="banner">
   <div class="brand">
-    <h1 class="mast-name">Explore Nevada County</h1>
+    <h1 class="mast-name" translate="no">Explore Nevada County</h1>
     <nav class="stitch-top-nav" aria-label="Primary">
       <a href="index-maplibre-hero-intent-stitch-frontend-design-pass.html">Back to Explore</a>
       <a href="events.html">Events</a>
@@ -166,6 +166,21 @@
     if (badge && count > 0) { badge.textContent = count; badge.style.display = ''; }
   } catch(e) {}
 })();
+</script>
+
+<!-- Translation widget: JigsawStack free tier (160+ languages, 1M tokens/mo, no CC) -->
+<div class="translation-widget"></div>
+<script defer src="https://unpkg.com/translation-widget@latest/dist/index.min.js"></script>
+<script defer type="module">
+  TranslationWidget("pk_305d2aaf3f0c4bf5cb987b5f1f2ed58ecb4e15abd616cfb0191d89fb5fb10965c96e99ed3688a2f600bffae42b5c5a4527b9f0ba5aaac90280b0b4fcb199d2c1024YGo4qsaeZMveL5GTkF", {
+    pageLanguage: "en",
+    position: "bottom-left",
+    autoDetectLanguage: true,
+    theme: {
+      baseColor: "#c8943e",
+      textColor: "#1a1612"
+    }
+  });
 </script>
 </body>
 </html>
