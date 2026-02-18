@@ -161,7 +161,7 @@ No zero-result searches this period.
 - **Session tracking:** session_hash property on all events enables per-visitor journey reconstruction
 
 ### Known Measurement Gaps
-1. Chatbot deep link clicks: Not yet instrumented — chatbot referral value may be undercounted
+1. Chatbot deep link clicks: Instrumented but no clicks recorded this period — chatbot referral value may be undercounted
 2. Session-level journeys: Umami Cloud API provides aggregate counts, not per-session event streams
 
 ---

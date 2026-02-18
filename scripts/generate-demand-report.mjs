@@ -416,8 +416,8 @@ let techSection = `## Technical Notes
 
 ### Known Measurement Gaps
 1. Chatbot deep link clicks: ${hasChatDeeplink
-  ? 'Now tracked'
-  : 'Not yet instrumented — chatbot referral value may be undercounted'}
+  ? 'Now tracked — click-through data included in venue attribution'
+  : 'Instrumented but no clicks recorded this period — chatbot referral value may be undercounted'}
 2. Session-level journeys: Umami Cloud API provides aggregate counts, not per-session event streams
 
 ---
