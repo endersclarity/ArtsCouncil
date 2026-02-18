@@ -571,7 +571,8 @@
 
     switch (filter) {
       case 'all':
-        return true;
+        /* "All" still means upcoming only — no past events */
+        return eventDt >= today;
       case 'today':
         return getDateKey(eventDt) === getDateKey(today);
       case 'weekend': {
@@ -591,16 +592,16 @@
         return evKey === getDateKey(saturday) || evKey === getDateKey(sunday);
       }
       case 'week': {
-        var weekStart = today.startOf('week');
-        var weekEnd = weekStart.plus({ days: 6 }).endOf('day');
-        return eventDt >= weekStart && eventDt <= weekEnd;
+        /* "This week" = today through end of Sunday, not past Mon/Tue */
+        var weekEnd = today.startOf('week').plus({ days: 6 }).endOf('day');
+        return eventDt >= today && eventDt <= weekEnd;
       }
       case '2weeks': {
         var end2w = today.plus({ days: 14 }).endOf('day');
         return eventDt >= today && eventDt <= end2w;
       }
       default:
-        return true;
+        return eventDt >= today;
     }
   }
 
