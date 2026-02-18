@@ -7,7 +7,7 @@
 <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.5.0/dist/maplibre-gl.css" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="index-maplibre-hero-intent.css">
 <link rel="stylesheet" href="index-maplibre-hero-intent-stitch-frontend-design-pass.css">
 <style>
@@ -31,18 +31,45 @@
 <body class="theme-intent directory-page">
 
 <header class="mast mast--intent" role="banner">
-  <div class="brand">
-    <h1 class="mast-name">Explore Nevada County</h1>
-    <nav class="stitch-top-nav" aria-label="Primary">
-      <a href="index-maplibre-hero-intent-stitch-frontend-design-pass.html">Back to Explore</a>
+  <div class="mast-inner">
+    <a href="index-maplibre-hero-intent-stitch-frontend-design-pass.html" class="mast-brand" aria-label="Explore Nevada County homepage">Explore Nevada County</a>
+    <nav class="mast-nav-desktop" aria-label="Primary">
       <a href="events.html">Events</a>
       <a href="itineraries.html">Itineraries</a>
       <a href="directory.html" class="nav-active">Directory</a>
+      <a href="index-maplibre-hero-intent-stitch-frontend-design-pass.html#mapSection">Map</a>
+      <a href="trip.html" class="trip-nav-link">My Trip <span class="trip-badge" style="display:none">0</span></a>
+    </nav>
+    <div class="mast-actions">
+      <button class="mast-search-toggle" type="button" aria-label="Open search" aria-expanded="false">
+        <svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20" fill="currentColor">
+          <path d="M11 4a7 7 0 1 1 0 14a7 7 0 0 1 0-14m0-2a9 9 0 1 0 5.65 16l4.67 4.68l1.41-1.41l-4.68-4.67A9 9 0 0 0 11 2z"></path>
+        </svg>
+      </button>
+      <div class="mast-search-field" hidden>
+        <input type="search" class="mast-search-input" placeholder="Search places..." aria-label="Search">
+        <button type="button" class="mast-search-close" aria-label="Close search">&times;</button>
+      </div>
+      <button class="mast-hamburger" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="hamburgerOverlay">
+        <svg viewBox="0 0 24 24" aria-hidden="true" width="20" height="20" fill="currentColor">
+          <path d="M4 6h16v2H4zM4 11h16v2H4zM4 16h16v2H4z"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+</header>
+<div class="hamburger-overlay" id="hamburgerOverlay" hidden>
+  <div class="hamburger-panel" role="dialog" aria-modal="true" aria-label="Navigation menu">
+    <button class="hamburger-close" type="button" aria-label="Close menu">&times;</button>
+    <nav class="hamburger-nav" aria-label="Full navigation">
+      <a href="events.html">Events</a>
+      <a href="itineraries.html">Itineraries</a>
+      <a href="directory.html">Directory</a>
+      <a href="index-maplibre-hero-intent-stitch-frontend-design-pass.html">Explore</a>
       <a href="trip.html" class="trip-nav-link">My Trip <span class="trip-badge" style="display:none">0</span></a>
     </nav>
   </div>
-  <div class="edition">February 2026</div>
-</header>
+</div>
 
 <main class="directory-split">
   <div class="directory-pane" id="directoryPane">
@@ -89,6 +116,9 @@
 <script src="index-maplibre-map-label-controller.js"></script>
 <script src="index-maplibre-asset-interactions.js"></script>
 <script src="index-maplibre-detail-view.js"></script>
+<script src="index-maplibre-events-utils.js"></script>
+<script src="index-maplibre-events-model.js"></script>
+<script src="index-maplibre-photo-carousel.js"></script>
 
 <script>
 (function() {
@@ -106,6 +136,9 @@
   var mapInteractionModel = window.CulturalMapMapInteractionModel || {};
   var hoursUtils = window.CulturalMapHoursUtils || {};
   var detailView = window.CulturalMapDetailView || {};
+  var eventsUtils = window.CulturalMapEventsUtils || {};
+  var eventsModel = window.CulturalMapEventsModel || {};
+  var matchedEventsByAsset = new Map();
 
   var MAPTILER_KEY = config.MAPTILER_KEY || 'LrWxywMynJX4Y3SvVJby';
   var CATS         = config.CATS || {};
@@ -128,6 +161,7 @@
 
   // === State ===
   var allData = [];
+  var rawDataForEvents = [];
   var imageData = {};
   var map = null;
   var activeCategory = null;
@@ -160,6 +194,17 @@
     div.textContent = str;
     return div.innerHTML;
   };
+
+  function getEventCountForAsset14d(assetIdx) {
+    return eventsModel.getEventCountForAsset14d
+      ? eventsModel.getEventCountForAsset14d({
+          matchedEventsByAsset: matchedEventsByAsset,
+          assetIdx: assetIdx,
+          isEventWithinDays: eventsUtils.isEventWithinDays || function() { return false; },
+          days: 14
+        })
+      : 0;
+  }
 
   // === Marker Icon Registration (ported from index-maplibre.js) ===
   function stripSvgWrapper(svgMarkup) {
@@ -885,6 +930,11 @@
           }
         }
       }
+
+      // Initialize hamburger/search toggle from photo-carousel module
+      if (window.CulturalMapPhotoCarousel && window.CulturalMapPhotoCarousel.init) {
+        window.CulturalMapPhotoCarousel.init();
+      }
     });
   }
 
@@ -901,8 +951,10 @@
     var raw = localStorage.getItem('ncac-dreamboard');
     var store = raw ? JSON.parse(raw) : null;
     var count = store ? (store.places || []).length + (store.events || []).length : 0;
-    var badge = document.querySelector('.trip-badge');
-    if (badge && count > 0) { badge.textContent = count; badge.style.display = ''; }
+    var badges = document.querySelectorAll('.trip-badge');
+    badges.forEach(function(badge) {
+      if (count > 0) { badge.textContent = count; badge.style.display = ''; }
+    });
   } catch(e) {}
 })();
 </script>
