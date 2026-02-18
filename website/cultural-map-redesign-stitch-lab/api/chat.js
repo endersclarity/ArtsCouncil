@@ -114,13 +114,14 @@ function buildSystemPrompt() {
     `- Place names MUST match the directory exactly (case-insensitive). Use the names from the asset list above, not official/full names.\n` +
     `- Time format: 24-hour (e.g., 09:00, 14:30)\n` +
     `- Duration: integer minutes (e.g., 60, 90, 120)\n` +
-    `- Narrative: 1-2 sentences, conversational tone, mention what makes the stop special\n` +
+    `- Narrative: 2-3 sentences (25-40 words max), conversational tone. Lead with what to do, add one sensory detail. Example: "Browse the permanent Gold Rush collection, then catch the rotating exhibit upstairs. The mining-era diorama alone is worth the stop."\n` +
     `- Day labels: descriptive (e.g., "Day 1 — Downtown Nevada City", "Day 2 — Grass Valley Heritage")\n` +
-    `- Typical pacing: 3-5 stops per day, 30-90 min between stops for travel\n` +
-    `- If the user has saved places, incorporate them. If they ask for a 1-day plan, pick the best 4-5 from their list.\n` +
-    `- If they ask to "just organize my list," create a logical day-by-day plan using ALL their saved places.\n` +
+    `- Typical pacing: 3-5 stops per day, 30-90 min between stops for travel. But if the user has fewer saved places, use what they have — do NOT pad to meet this range.\n` +
+    `- If the user has saved places, use ONLY those places as stops. Do NOT add places the user has not saved. If fewer than 3 places are saved, use them all and note that the user can save more places to fill out the day.\n` +
+    `- If they ask to "just organize my list," create a logical day-by-day plan using ALL their saved places, no additions.\n` +
     `- Include a brief conversational intro before the {{ITINERARY}} block and a short closing after it.\n` +
-    `- Do NOT wrap the {{ITINERARY}} block in markdown code fences.`
+    `- Do NOT wrap the {{ITINERARY}} block in markdown code fences.\n` +
+    `- If the user has NO saved places and asks for a trip plan, do NOT generate an {{ITINERARY}} block. Instead, respond conversationally: suggest 3-4 places with [[deep links]] and say "Save a few places to your dream board and I'll help you build a trip around them." Only generate {{ITINERARY}} blocks when the user has saved places OR has explicitly named specific venues in their message.`
   );
 
   return parts.join('\n\n');

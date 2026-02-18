@@ -147,14 +147,8 @@
       return (p.data && p.data.n) ? p.data.n : (p.asset || '');
     });
 
-    // Fix B (Task 27): Filter out past events before sending to Gemini
-    var nowMs = Date.now();
-    events = events.filter(function(e) {
-      if (!e.start_iso) return true; // keep if no date (safe default)
-      try {
-        return new Date(e.start_iso).getTime() >= nowMs;
-      } catch(ex) { return true; }
-    });
+    // Past-event filtering deferred until dreamboard stores ISO dates.
+    // All saved events pass through; AI has date context from the event display string.
 
     var eventNames = events.map(function(e) {
       return e.venue ? e.venue + ' (' + e.title + ')' : e.title;
@@ -401,6 +395,15 @@
       if (trip) {
         // Save trip to localStorage
         saveUserTrip(trip);
+        // Show confirmation toast and pulse trip badge
+        if (window.CulturalMapDreamboardView && window.CulturalMapDreamboardView.showToast) {
+          window.CulturalMapDreamboardView.showToast('Itinerary saved to your trip!');
+        }
+        var badges = document.querySelectorAll('.trip-badge');
+        for (var b = 0; b < badges.length; b++) {
+          badges[b].classList.add('badge-pulse');
+          setTimeout(function(el) { el.classList.remove('badge-pulse'); }, 1500, badges[b]);
+        }
         // Track itinerary generation
         var analytics = window.CulturalMapAnalytics;
         if (analytics) {

@@ -117,7 +117,7 @@
     // Itinerary zone
     var itZone = document.getElementById('itinerary-zone');
     if (itZone) {
-      itZone.innerHTML = tripView.renderItineraryZone(activeTrip);
+      itZone.innerHTML = tripView.renderItineraryZone(activeTrip, store);
     }
 
     // Unplanned zone
@@ -183,17 +183,33 @@
         return;
       }
 
-      // Plan trip CTA
+      // Plan trip CTA — open chat in-page if available, else fallback to hub
       if (target.closest('#plan-trip-cta')) {
-        window.location.href = HUB_URL + '?chat=trip';
+        if (window.CulturalMapChatWidget && window.CulturalMapChatWidget.open) {
+          window.CulturalMapChatWidget.open();
+        } else {
+          window.location.href = HUB_URL + '?chat=trip';
+        }
         return;
       }
 
-      // Style card click
+      // Style card click — open chat with contextual prompt if available
       var styleCard = target.closest('.style-card');
       if (styleCard) {
         var plan = styleCard.getAttribute('data-plan') || '';
-        window.location.href = HUB_URL + '?chat=trip&plan=' + encodeURIComponent(plan);
+        if (window.CulturalMapChatWidget && window.CulturalMapChatWidget.open) {
+          window.CulturalMapChatWidget.open();
+          if (window.CulturalMapChatController && window.CulturalMapChatController.submitPrompt) {
+            var places = dreamboardModel.getPlaces ? dreamboardModel.getPlaces() : [];
+            var placeNames = places.map(function(p) { return p.asset || p.n || ''; }).filter(Boolean).join(', ');
+            var prompt = plan === 'organize'
+              ? 'Organize my saved places into a trip: ' + placeNames
+              : 'Plan a ' + plan + ' trip using my saved places: ' + placeNames;
+            window.CulturalMapChatController.submitPrompt(prompt);
+          }
+        } else {
+          window.location.href = HUB_URL + '?chat=trip&plan=' + encodeURIComponent(plan);
+        }
         return;
       }
 
