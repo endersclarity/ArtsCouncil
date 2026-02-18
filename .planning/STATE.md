@@ -309,7 +309,7 @@ Recent decisions affecting current work:
 
 ### Pending Todos
 
-9 todos in `.planning/todos/pending/`. Triaged 2026-02-18 (5 moved to done/).
+12 todos in `.planning/todos/pending/`. Triaged 2026-02-18 (5 moved to done/).
 
 #### Absorbed by Phases (will be addressed during phase execution)
 
