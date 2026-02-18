@@ -223,7 +223,7 @@ Actual: 2 -> 2.1 -> 3 -> 5 -> 6 -> 6.1 -> 4 -> 3.1 -> 2.2 -> 01.1
 | 5. AI Concierge | 2/2 | COMPLETE | 2026-02-15 |
 | 6. Analytics Foundation | 1/1 | COMPLETE | 2026-02-16 |
 | 06.1. Deep Analytics | 1/1 | COMPLETE | 2026-02-16 |
-| 7. Demand Signal Reporting | 0/3 | POC + scoping complete | - |
+| 7. Demand Signal Reporting | 0/3 | PLANNED (3 plans, 3 waves) | - |
 | 8. AI Trip Builder | 3/4 | IN PROGRESS | - |
 | 9. Directory Page Redesign | 0/4 | PLANNED | - |
 
@@ -320,3 +320,35 @@ Plans:
 - [ ] 09-02-PLAN.md — Deep link system: card re-render fix, pushState/popstate, loading/error states, breadcrumbs (Wave 2)
 - [ ] 09-03-PLAN.md — Interactions: empty state, sort, hover sync, mobile map toggle, footer, keyboard a11y (Wave 3)
 - [ ] 09-04-PLAN.md — Data fixes + QR: coordinate audit, deduplication, Elixart ?place= link, scope messaging (Wave 2, parallel with 09-02)
+
+### Phase 09.1: Directory Audit Fixes (INSERTED)
+
+**Goal:** Fix 4 blockers and 14 should-fix issues found by 3-agent audit team (code auditor + functional tester + responsive tester) on Phase 09 directory work
+**Depends on:** Phase 9
+**Audit source:** Team audit 2026-02-18 — code-auditor (Sonnet), functional-tester (Sonnet), responsive-tester (Sonnet)
+
+**Blockers (4):**
+- B1: XSS — asset names rendered unescaped into innerHTML (explore-view.js)
+- B2: Null guards missing on getElementById calls (explore-controller.js, bindings.js)
+- B3: `.directory-back-btn` in hub explore header never wired (explore-controller.js)
+- B4: No mobile map toggle button on hub page directory section
+
+**Should-Fix (14):**
+- S1: Event bookmarks store empty venue/layer — trip builder has no venue context
+- S2: O(n²) Array.indexOf in events14dMode sort (explore-model.js)
+- S3/S4: Dead `onCitySelect` callback parameter in explore-view API
+- S5: Mixed ES5/ES6 across modules (convention is ES5 per CLAUDE.md)
+- S6: `getStore` exported unnecessarily on dreamboard model public API
+- S7: Dreamboard view lazy model init silently no-ops if script order wrong
+- S8: Classic var-in-loop closure bug in GSAP badge pulse
+- S9: `exploreSetCategory(null)` doesn't clear directoryHeaderArea
+- S10: Search placeholder shows literal `\u2026` instead of ellipsis
+- S11: Detail panel 440px too wide at true 768px tablet
+- S12: Nav may not wrap at true 768px
+- S13: City filter pills hidden on mobile in list view
+- S14: Default map zoom on mobile shows wrong area
+
+**Plans:** 0 plans
+
+Plans:
+- [ ] TBD (run /gsd:plan-phase 09.1 to break down)
