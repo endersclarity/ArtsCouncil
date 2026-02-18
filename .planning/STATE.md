@@ -247,31 +247,23 @@ Recent decisions affecting current work:
 
 ### Pending Todos
 
-15 todos in `.planning/todos/pending/`. Restructured by phase absorption (from GSD Framework Audit, 2026-02-18):
+9 todos in `.planning/todos/pending/`. Triaged 2026-02-18 (5 moved to done/).
 
 #### Absorbed by Phases (will be addressed during phase execution)
 
 **Phase 7 (Demand Signal Reporting):**
 - analytics-mockup-report — demo preview of reporting capability
-- demo-deep-link-bookmarks — demo script for committee presentation
-
-**Phase 8 (AI Trip Builder):**
-- itinerary-show-on-map-ux — fix before reusing itinerary view in plan 08-04
-- vrbo-plan-your-stay — lodging as trip planning extension
 
 **Phase 9 (Directory Page Redesign):**
-- category-cards-split-pane-directory — this IS the directory redesign concept
-- directory-map-hover-tooltips-missing-on-nearby-markers — directory map bug
-- directory-page-card-expansion-and-deep-linking — directory interaction feature
-- deduplicate-same-category-entries-in-data-json — data quality: 3 duplicate assets
-- fix-3-assets-with-incorrect-map-coordinates — data quality: 3 coordinate anomalies
+- directory-map-hover-tooltips-missing-on-nearby-markers — directory map bug (PARTIAL: code exists, hover may not fire at zoom 17)
+- deduplicate-same-category-entries-in-data-json — data quality: 3 duplicate assets (confirmed: Avanguardia, South Pine, Pour House)
+- fix-3-assets-with-incorrect-map-coordinates — data quality: 3 coordinate anomalies (confirmed: Coburn Music, Alan Thiesen Trail, Sawtooth Trailhead)
 
 #### Standalone (Critical Path)
 - visual-consistency-sweep — magazine CSS conflicts, blocks polish
 - homepage-section-reorder — post-01.1 hierarchy fix (pitch first, tools second)
 
 #### Deferred (Research / Strategic — no current phase)
-- mindtrip-gap-analysis — competitive research, informs post-MVP roadmap
 - two-mode-architecture — strategic architecture decision, post-MVP
 - equity-data-audit — community listening required, post-MVP
 - career-pathways-section — new content vertical, post-MVP

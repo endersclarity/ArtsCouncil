@@ -520,6 +520,28 @@
       '  text-align: center; font-style: italic; padding: 0.5rem 0;',
       '}',
 
+      /* Share button */
+      '.tb-itinerary-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem; }',
+      '.tb-share-btn {',
+      '  display: inline-flex; align-items: center; gap: 0.3rem;',
+      '  font-family: "DM Sans", sans-serif; font-size: 0.78rem; font-weight: 600;',
+      '  padding: 0.4rem 0.85rem; border: 1px solid #c8943e; border-radius: 6px;',
+      '  background: transparent; color: #c8943e; cursor: pointer; transition: all 0.2s;',
+      '}',
+      '.tb-share-btn:hover { background: #c8943e; color: #fff; }',
+
+      /* Calendar button in trip stop */
+      '.tb-stop-actions { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-top: 0.35rem; }',
+      '.tb-stop-calendar-btn {',
+      '  display: inline-flex; align-items: center; gap: 0.3rem;',
+      '  font-family: "DM Sans", sans-serif; font-size: 0.68rem; font-weight: 600;',
+      '  letter-spacing: 0.04em; text-transform: uppercase; text-decoration: none;',
+      '  padding: 0.3rem 0.6rem; border-radius: 5px;',
+      '  background: rgba(200,148,62,0.1); border: 1px solid rgba(200,148,62,0.25); color: #c8943e;',
+      '  transition: background 0.15s;',
+      '}',
+      '.tb-stop-calendar-btn:hover { background: rgba(200,148,62,0.2); }',
+
       /* Map container */
       '#trip-map {',
       '  width: 100%; height: 400px; border-radius: 12px; overflow: hidden;',

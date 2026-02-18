@@ -387,6 +387,15 @@
 
     if (dbView && dbView.updateBadge) dbView.updateBadge();
 
+    // Track make-it-mine analytics
+    var analytics = window.CulturalMapAnalytics;
+    if (analytics) {
+      analytics.track('trip:make-it-mine', {
+        itinerary_id: (state.activeId || '').substring(0, 100),
+        stops_added: addedCount
+      });
+    }
+
     // Show toast with count and link to trip page
     var toastMsg = addedCount + ' place' + (addedCount !== 1 ? 's' : '') + ' added to your dream board' +
       ' <a href="trip.html" style="color:#c8943e;font-weight:600;text-decoration:underline;margin-left:0.5rem;">View Trip</a>';

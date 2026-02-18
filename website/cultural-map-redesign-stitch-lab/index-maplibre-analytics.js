@@ -19,7 +19,16 @@
  *   outbound:website   — Website link clicked            { venue, url }
  *   outbound:phone     — Phone link clicked              { venue }
  *   outbound:directions — Directions link clicked        { venue }
+ *   outbound:lodging-vrbo — VRBO CTA clicked             { url }
+ *   lodging:card-click — Lodging card clicked            { name, city }
  *   deeplink:arrive    — Deep link detected on load      { type, value }
+ *   trip:bookmark-add  — Place/event bookmarked           { name, source }
+ *   trip:bookmark-remove — Bookmark removed               { name }
+ *   trip:created       — New trip created via model        { title }
+ *   trip:itinerary-generated — {{ITINERARY}} parsed       { title, stops, days }
+ *   trip:shared        — Share URL copied to clipboard     { title, stops }
+ *   trip:calendar-export — Calendar link clicked (trip)    { stop_name, trip_title }
+ *   trip:make-it-mine  — Curated itinerary cloned         { itinerary_id, stops_added }
  */
 (function() {
   'use strict';

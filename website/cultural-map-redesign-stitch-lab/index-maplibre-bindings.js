@@ -246,6 +246,8 @@
           // Remove
           dbModel.removePlace(assetName);
           dbView.updateButtonVisual(btn, false);
+          var analytics = window.CulturalMapAnalytics;
+          if (analytics) analytics.track('trip:bookmark-remove', { name: (assetName || '').substring(0, 100) });
           dbView.showToast(assetName + ' removed from your trip', function() {
             // Undo: re-add
             var fakeAsset = { n: assetName, l: '', c: '' };
@@ -271,6 +273,8 @@
           if (added) {
             dbView.updateButtonVisual(btn, true);
             dbView.markFirstUseSeen();
+            var analytics = window.CulturalMapAnalytics;
+            if (analytics) analytics.track('trip:bookmark-add', { name: (assetName || '').substring(0, 100), source: 'place' });
             dbView.showToast(assetName + ' added to your trip', function() {
               // Undo: remove
               dbModel.removePlace(assetName);
@@ -299,6 +303,8 @@
         if (dbModel.hasEvent(title, date)) {
           dbModel.removeEvent(title, date);
           dbView.updateButtonVisual(btn, false);
+          var analytics = window.CulturalMapAnalytics;
+          if (analytics) analytics.track('trip:bookmark-remove', { name: (title || '').substring(0, 100) });
           dbView.showToast('Event removed from your trip', function() {
             dbModel.addEvent({ title: title, date: date, venue: '', layer: '' });
             dbView.updateButtonVisual(btn, true);
@@ -309,6 +315,8 @@
           if (added) {
             dbView.updateButtonVisual(btn, true);
             dbView.markFirstUseSeen();
+            var analytics = window.CulturalMapAnalytics;
+            if (analytics) analytics.track('trip:bookmark-add', { name: (title || '').substring(0, 100), source: 'event' });
             dbView.showToast('Event added to your trip', function() {
               dbModel.removeEvent(title, date);
               dbView.updateButtonVisual(btn, false);

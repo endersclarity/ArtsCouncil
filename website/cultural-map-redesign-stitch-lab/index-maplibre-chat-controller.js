@@ -374,6 +374,17 @@
       if (trip) {
         // Save trip to localStorage
         saveUserTrip(trip);
+        // Track itinerary generation
+        var analytics = window.CulturalMapAnalytics;
+        if (analytics) {
+          var totalStops = 0;
+          for (var si = 0; si < trip.days.length; si++) totalStops += trip.days[si].stops.length;
+          analytics.track('trip:itinerary-generated', {
+            title: (trip.title || '').substring(0, 100),
+            stops: totalStops,
+            days: trip.days.length
+          });
+        }
         // Replace the {{ITINERARY}} block with a rendered card
         var cardHTML = buildItineraryChatCard(trip);
         html = html.replace(itinRegex, cardHTML);
