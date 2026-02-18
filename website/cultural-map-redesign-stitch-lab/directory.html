@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Directory | Explore Nevada County Cultural District</title>
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.5.0/dist/maplibre-gl.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="index-maplibre-hero-intent.css">
+<link rel="stylesheet" href="index-maplibre-hero-intent-stitch-frontend-design-pass.css">
+<script defer src="https://cloud.umami.is/script.js" data-website-id="14ecf234-cd96-4e6c-91c2-cc27babc095d" data-domains="cultural-map-redesign-stitch-lab.vercel.app"></script>
+</head>
+<body class="theme-intent directory-page">
+
+<header class="mast mast--intent" role="banner">
+  <div class="brand">
+    <h1 class="mast-name">Explore Nevada County</h1>
+    <nav class="stitch-top-nav" aria-label="Primary">
+      <a href="index-maplibre-hero-intent-stitch-frontend-design-pass.html">Back to Explore</a>
+      <a href="events.html">Events</a>
+      <a href="itineraries.html">Itineraries</a>
+      <a href="directory.html" class="nav-active">Directory</a>
+    </nav>
+  </div>
+  <div class="edition">February 2026</div>
+</header>
+
+<main class="directory-split">
+  <div class="directory-pane" id="directoryPane">
+    <h2 class="directory-pane-title">Explore by Category</h2>
+    <p class="directory-pane-subtitle">687 cultural assets across 8 categories</p>
+    <input type="text" class="directory-search-input" id="directorySearch" placeholder="Search places, categories..." aria-label="Search the directory">
+
+    <div class="directory-grid" id="directoryCatGrid"></div>
+
+    <div id="directoryExpandedView" style="display:none;">
+      <div id="directoryHeaderArea"></div>
+      <div class="directory-results" id="directoryResults"></div>
+      <button class="explore-load-more" id="directoryLoadMore" style="display:none;">Show more</button>
+    </div>
+  </div>
+
+  <div class="map-pane">
+    <div id="map"></div>
+  </div>
+</main>
+
+<footer class="colophon">
+  <div class="colophon-inner">
+    <span>&copy; 2026 Nevada County Arts Council</span>
+    <a href="index-maplibre-hero-intent-stitch-frontend-design-pass.html">Back to Explore</a>
+  </div>
+</footer>
+
+<!-- Libraries (same as hub page) -->
+<script src="https://unpkg.com/maplibre-gl@4.5.0/dist/maplibre-gl.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@turf/turf@6/turf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+
+<!-- Modular map scripts (real modules from hub) -->
+<script src="index-maplibre-config.js"></script>
+<script src="index-maplibre-core-utils.js?v=20260217c"></script>
+<script src="index-maplibre-map-init-model.js"></script>
+<script src="index-maplibre-map-style-model.js"></script>
+<script src="index-maplibre-map-interaction-model.js"></script>
+<script src="index-maplibre-map-data-model.js"></script>
+<script src="index-maplibre-asset-layer-defs.js"></script>
+<script src="index-maplibre-map-render-controller.js"></script>
+<script src="index-maplibre-hours-utils.js"></script>
+<script src="index-maplibre-map-label-controller.js"></script>
+<script src="index-maplibre-asset-interactions.js"></script>
+<script src="index-maplibre-detail-view.js"></script>
+
+<script>
+(function() {
+  'use strict';
+
+  // === Pull in real modules ===
+  var config       = window.CulturalMapConfig || {};
+  var coreUtils    = window.CulturalMapCoreUtils || {};
+  var mapInitModel = window.CulturalMapMapInitModel || {};
+  var mapDataModel = window.CulturalMapMapDataModel || {};
+  var assetLayerDefs = window.CulturalMapAssetLayerDefs || {};
+  var mapLabelControllerModule = window.CulturalMapMapLabelController || {};
+  var assetInteractions = window.CulturalMapAssetInteractions || {};
+  var mapStyleModel = window.CulturalMapMapStyleModel || {};
+  var mapInteractionModel = window.CulturalMapMapInteractionModel || {};
+  var hoursUtils = window.CulturalMapHoursUtils || {};
+  var detailView = window.CulturalMapDetailView || {};
+
+  var MAPTILER_KEY = config.MAPTILER_KEY || 'LrWxywMynJX4Y3SvVJby';
+  var CATS         = config.CATS || {};
+  var ICONS        = config.ICONS || {};
+  var CATEGORY_MAP = config.CATEGORY_MAP || {};
+  var MAP_CENTER   = [-120.8, 39.22];
+  var MAP_ZOOM     = 9;
+  var PAGE_SIZE    = 30;
+
+  var CATEGORY_HEROES = {
+    'Historic Landmarks':     'Bridgeport Covered Bridge',
+    'Eat, Drink & Stay':      'Broad Street Bistro and Gallery',
+    'Cultural Organizations': 'North Star Historic Conservancy',
+    'Galleries & Museums':    'Art Works Gallery Co-op',
+    'Fairs & Festivals':      'Victorian Christmas',
+    'Walks & Trails':         'South Yuba River State Park',
+    'Public Art':             'Sculpture - Western Gateway Park',
+    'Performance Spaces':     'Nevada Theatre'
+  };
+
+  // === State ===
+  var allData = [];
+  var imageData = {};
+  var map = null;
+  var activeCategory = null;
+  var activeCityFilter = '';
+  var searchQuery = '';
+  var listPage = 0;
+  var activeItemId = null;
+  var hoverPopup = null;
+  var hoveredFeatureId = null;
+  var mapLabelController = null;
+  var isCoarsePointer = window.matchMedia('(pointer: coarse)').matches;
+
+  // === Helpers ===
+  function normalizeCategory(raw) {
+    return CATEGORY_MAP[raw] || raw;
+  }
+
+  function extractCity(addr) {
+    if (!addr) return '';
+    var parts = addr.split(',');
+    if (parts.length >= 2) {
+      return parts[parts.length - 2].trim().replace(/\s+\d{5}.*/, '');
+    }
+    return '';
+  }
+
+  var escapeHtml = coreUtils.escapeHTML || function(str) {
+    if (!str) return '';
+    var div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  };
+
+  // === Marker Icon Registration (ported from index-maplibre.js) ===
+  function stripSvgWrapper(svgMarkup) {
+    var raw = String(svgMarkup || '').trim();
+    if (!raw) return '';
+    return raw.replace(/^<svg[^>]*>/i, '').replace(/<\/svg>\s*$/i, '');
+  }
+
+  function buildCategoryMarkerSvg(opts) {
+    var glyphSvg = opts.glyphSvg;
+    var markerColor = opts.markerColor;
+    var size = opts.size || 36;
+    var innerGlyph = stripSvgWrapper(glyphSvg) || '<circle cx="9" cy="9" r="4.5" fill="currentColor"/>';
+    var glyphSize = Math.round(size * 0.5);
+    var glyphOffset = Math.round((size - glyphSize) / 2);
+    return '<svg xmlns="http://www.w3.org/2000/svg" width="' + size + '" height="' + size + '" viewBox="0 0 ' + size + ' ' + size + '">' +
+      '<circle cx="' + (size / 2) + '" cy="' + (size / 2) + '" r="' + ((size / 2) - 1) + '" fill="' + markerColor + '" fill-opacity="0.95" stroke="#ffffff" stroke-width="2.2"/>' +
+      '<svg x="' + glyphOffset + '" y="' + glyphOffset + '" width="' + glyphSize + '" height="' + glyphSize + '" viewBox="0 0 18 18" color="#ffffff" fill="none" stroke="#ffffff">' +
+        innerGlyph +
+      '</svg>' +
+    '</svg>';
+  }
+
+  function rasterizeSvgToImageData(svgMarkup, size) {
+    size = size || 72;
+    var blob = new Blob([svgMarkup], { type: 'image/svg+xml;charset=utf-8' });
+    var objectUrl = URL.createObjectURL(blob);
+    return new Promise(function(resolve, reject) {
+      var img = new Image();
+      img.decoding = 'async';
+      img.onload = function() {
+        var canvas = document.createElement('canvas');
+        canvas.width = size;
+        canvas.height = size;
+        var ctx = canvas.getContext('2d');
+        if (!ctx) { reject(new Error('No canvas context')); return; }
+        ctx.drawImage(img, 0, 0, size, size);
+        URL.revokeObjectURL(objectUrl);
+        resolve(ctx.getImageData(0, 0, size, size));
+      };
+      img.onerror = function() {
+        URL.revokeObjectURL(objectUrl);
+        reject(new Error('SVG load failed'));
+      };
+      img.src = objectUrl;
+    });
+  }
+
+  function registerCategoryMarkerIcons() {
+    var layerNames = Object.keys(CATS);
+    var chain = Promise.resolve(0);
+
+    layerNames.forEach(function(layerName) {
+      chain = chain.then(function(count) {
+        var key = mapDataModel.getCategoryIconKey(layerName);
+        if (map.hasImage(key)) return count + 1;
+
+        var cfg = CATS[layerName] || {};
+        var glyphSvg = ICONS[layerName] || '';
+        var svgMarkup = buildCategoryMarkerSvg({
+          glyphSvg: glyphSvg,
+          markerColor: cfg.color || '#4a6b7c'
+        });
+
+        return rasterizeSvgToImageData(svgMarkup, 72).then(function(imgData) {
+          map.addImage(key, imgData, { pixelRatio: 2 });
+          return count + 1;
+        }).catch(function(err) {
+          console.warn('[Directory] Failed icon for "' + layerName + '"', err);
+          return count;
+        });
+      });
+    });
+
+    return chain;
+  }
+
+  // === Data Loading ===
+  function loadData() {
+    return Promise.all([
+      fetch('data.json').then(function(r) { return r.json(); }),
+      fetch('image_data.json').then(function(r) { return r.json(); }).catch(function() { return {}; })
+    ]).then(function(results) {
+      var raw = results[0];
+      imageData = results[1] || {};
+
+      allData = raw.map(function(item, idx) {
+        var normalized = normalizeCategory(item.l);
+        return {
+          id: idx,
+          n: item.n || '',
+          l: normalized,
+          l_original: normalized !== item.l ? item.l : '',
+          c: item.c || extractCity(item.a),
+          a: item.a || '',
+          d: item.d || '',
+          h: item.h || '',
+          p: item.p || '',
+          w: item.w || '',
+          x: parseFloat(item.x) || 0,
+          y: parseFloat(item.y) || 0
+        };
+      }).filter(function(d) { return CATS[d.l]; });
+
+      var sub = document.querySelector('.directory-pane-subtitle');
+      if (sub) sub.textContent = allData.length + ' cultural assets across ' + Object.keys(CATS).length + ' categories';
+    });
+  }
+
+  // === Map Setup (using real modules) ===
+  function initMap() {
+    var style = mapInitModel.getMapStyle(MAPTILER_KEY);
+    var opts = mapInitModel.getMapInitOptions({ style: style, cooperativeGestures: false });
+
+    // Override pitch/bearing for directory (start flat, cinematic on click)
+    opts.pitch = 35;
+    opts.bearing = -15;
+
+    map = new maplibregl.Map(opts);
+    map.addControl(new maplibregl.NavigationControl({ showCompass: true, showZoom: true }), 'top-right');
+
+    map.on('load', function() {
+      // Jump to cinematic defaults
+      map.jumpTo({ pitch: 35, bearing: -15 });
+
+      // 3D terrain
+      if (MAPTILER_KEY && MAPTILER_KEY !== 'GET_YOUR_FREE_KEY_AT_MAPTILER_COM') {
+        map.addSource('terrain-dem', {
+          type: 'raster-dem',
+          url: 'https://api.maptiler.com/tiles/terrain-rgb-v2/tiles.json?key=' + MAPTILER_KEY,
+          tileSize: 256
+        });
+        map.addControl(new maplibregl.TerrainControl({
+          source: 'terrain-dem',
+          exaggeration: 2
+        }));
+        var isMobile = window.matchMedia('(max-width: 600px)').matches;
+        if (!isMobile) {
+          map.setTerrain({ source: 'terrain-dem', exaggeration: 2 });
+        }
+      }
+
+      // County outline
+      fetch('nevada-county.geojson')
+        .then(function(r) { return r.json(); })
+        .then(function(countyOutline) {
+          if (mapDataModel.addCountyOutlineLayer) {
+            mapDataModel.addCountyOutlineLayer({ map: map, countyOutline: countyOutline });
+          }
+        })
+        .catch(function() { /* optional */ });
+
+      // Build GeoJSON using real module
+      var geojson = mapDataModel.buildAssetsGeoJSON({
+        data: allData,
+        cats: CATS,
+        getCategoryIconKey: mapDataModel.getCategoryIconKey,
+        getHoursState: function() { return 'unknown'; },
+        getHoursLabel: function() { return ''; },
+        getEventCountForAsset14d: function() { return 0; },
+        getDistanceMilesForAssetIdx: function() { return -1; },
+        formatDistanceMiles: function() { return ''; }
+      });
+
+      map.addSource('assets', { type: 'geojson', data: geojson });
+
+      // Real layer definitions from hub
+      map.addLayer(assetLayerDefs.getAssetsCircleLayerDef());
+
+      // Register icon markers then add symbol layer
+      registerCategoryMarkerIcons().then(function(count) {
+        if (count > 0) {
+          map.addLayer(assetLayerDefs.getAssetsSymbolLayerDef());
+        }
+      });
+
+      // Hit layer for easier clicking
+      map.addLayer(assetLayerDefs.getAssetsHitLayerDef());
+
+      // Mobile labels on touch devices
+      if (isCoarsePointer) {
+        map.addLayer(assetLayerDefs.getAssetsMobileLabelsLayerDef({
+          mobileLabelMinZoom: 11.2,
+          mobileLabelSizeBase: 11,
+          mobileLabelSizeLarge: 13
+        }));
+      }
+
+      // Hover popup for tooltips
+      hoverPopup = new maplibregl.Popup({
+        closeButton: false, closeOnClick: false, offset: 14, maxWidth: '280px',
+        className: 'cultural-tooltip'
+      });
+
+      // Smart label controller (progressive disclosure on zoom)
+      if (mapLabelControllerModule.createMapLabelController) {
+        var noop = function() {};
+        mapLabelController = mapLabelControllerModule.createMapLabelController({
+          map: map,
+          data: allData,
+          cats: CATS,
+          escapeHTML: escapeHtml,
+          mapInteractionModel: mapInteractionModel,
+          mapStyleModel: mapStyleModel,
+          hoverPopup: hoverPopup,
+          buildFeatureTooltipHTML: function(opts) {
+            if (mapDataModel.buildFeatureTooltipHTML) {
+              return mapDataModel.buildFeatureTooltipHTML({
+                props: opts.props, cats: CATS, imageData: imageData, eventWindowDays: 14
+              });
+            }
+            return '<b>' + escapeHtml(opts.props.name) + '</b>';
+          },
+          openDetail: function(venue) {
+            var idx = (typeof venue.id !== 'undefined') ? venue.id : -1;
+            var asset = allData.find(function(d) { return d.id === idx; });
+            if (asset) expandCard(asset);
+          },
+          getActiveExperience: function() { return null; },
+          getOpenNowMode: function() { return false; },
+          getHoveredFeatureId: function() { return hoveredFeatureId; },
+          setHoveredFeatureId: function(v) { hoveredFeatureId = v; },
+          isCoarsePointer: isCoarsePointer,
+          smartLabelsEnabled: !isCoarsePointer,
+          labelMaxVisible: 32,
+          labelAllThreshold: 16,
+          labelSubsetCount: 12,
+          mobileLabelMinZoom: 11.2,
+          mobileLabelMaxVisible: 46
+        });
+      }
+
+      // Bind asset interactions (hover tooltips, click-to-detail)
+      if (assetInteractions.bindAssetInteractions) {
+        var labelFns = mapLabelController || {};
+        assetInteractions.bindAssetInteractions({
+          map: map,
+          isCoarsePointer: isCoarsePointer,
+          data: allData,
+          hoverPopup: hoverPopup,
+          markMapInteracted: labelFns.markMapInteracted || function() {},
+          getHoveredFeatureId: function() { return hoveredFeatureId; },
+          setHoveredFeatureId: function(v) { hoveredFeatureId = v; },
+          buildFeatureTooltipHTML: function(props) {
+            if (mapDataModel.buildFeatureTooltipHTML) {
+              return mapDataModel.buildFeatureTooltipHTML({
+                props: props, cats: CATS, imageData: imageData, eventWindowDays: 14
+              });
+            }
+            return '<b>' + escapeHtml(props.name) + '</b>';
+          },
+          openDetail: function(venue) {
+            var idx = (typeof venue.id !== 'undefined') ? venue.id : -1;
+            var asset = allData.find(function(d) { return d.id === idx; });
+            if (asset) expandCard(asset);
+          },
+          cancelTour: function() {},
+          showTourPopup: function() {},
+          hideTourPopup: function() {},
+          updateMapProgressiveLabels: labelFns.updateMapProgressiveLabels || function() {},
+          updateMobileLabelLayerVisibility: labelFns.updateMobileLabelLayerVisibility || function() {},
+          scheduleSmartLabelUpdate: labelFns.scheduleSmartLabelUpdate || function() {},
+          updateMapFilters: function() { updateMapFilter(); }
+        });
+      } else {
+        // Fallback: basic click handlers
+        map.on('click', 'assets-hit', onMapMarkerClick);
+        map.on('click', 'assets-circle', onMapMarkerClick);
+        map.on('mouseenter', 'assets-circle', function() { map.getCanvas().style.cursor = 'pointer'; });
+        map.on('mouseleave', 'assets-circle', function() { map.getCanvas().style.cursor = ''; });
+      }
+    });
+  }
+
+  // Select an item by its index (used by label/interaction clicks)
+  function selectItemById(idx) {
+    var asset = allData.find(function(d) { return d.id === idx; });
+    if (!asset) return;
+
+    // If asset is in a different category, switch sidebar to it
+    if (!activeCategory || asset.l !== activeCategory) {
+      activeCategory = asset.l;
+      activeCityFilter = '';
+      listPage = 0;
+      document.getElementById('directorySearch').value = '';
+      searchQuery = '';
+      var catGrid = document.getElementById('directoryCatGrid');
+      var expanded = document.getElementById('directoryExpandedView');
+      catGrid.style.display = 'none';
+      expanded.style.display = '';
+      buildHeaderAndFilters(asset.l);
+      updateMapFilter();
+      renderList();
+    }
+
+    selectItem(asset);
+  }
+
+  function updateMapFilter() {
+    if (!map || !map.getLayer('assets-circle')) return;
+
+    var filter = null;
+    if (activeCategory) {
+      filter = ['==', ['get', 'layer'], activeCategory];
+    }
+    if (activeCityFilter) {
+      var cityFilter = ['==', ['get', 'city'], activeCityFilter];
+      filter = filter ? ['all', filter, cityFilter] : cityFilter;
+    }
+
+    var q = searchQuery.toLowerCase().trim();
+    if (q) {
+      var matchingIds = getFilteredData().map(function(d) { return d.id; });
+      var idFilter = ['in', ['get', 'idx'], ['literal', matchingIds]];
+      filter = filter ? ['all', filter, idFilter] : idFilter;
+    }
+
+    map.setFilter('assets-circle', filter);
+    map.setFilter('assets-hit', filter);
+    if (map.getLayer('assets-symbols')) {
+      map.setFilter('assets-symbols', filter);
+    }
+  }
+
+  // === Category Cards ===
+  function renderCategoryCards() {
+    var grid = document.getElementById('directoryCatGrid');
+    grid.innerHTML = '';
+    var counts = {};
+    allData.forEach(function(d) { counts[d.l] = (counts[d.l] || 0) + 1; });
+
+    Object.entries(CATS).forEach(function(entry) {
+      var name = entry[0];
+      var cfg = entry[1];
+      var heroAssetName = CATEGORY_HEROES[name];
+      var heroImg = heroAssetName && imageData[heroAssetName] ? imageData[heroAssetName].img : '';
+      var fallback = 'img/watercolor/' + (cfg.watercolor || 'landmarks') + '.png';
+
+      var card = document.createElement('article');
+      card.className = 'directory-card';
+      card.dataset.category = name;
+      card.style.setProperty('--card-accent', cfg.color);
+      card.innerHTML =
+        '<div class="directory-card-photo">' +
+          '<img src="' + (heroImg || fallback) + '" alt="' + escapeHtml(name) + '" loading="lazy" onerror="this.src=\'' + fallback + '\'">' +
+          '<div class="directory-card-overlay"></div>' +
+          '<div class="directory-card-content">' +
+            '<h3 class="directory-card-name">' + escapeHtml(name) + '</h3>' +
+            '<span class="directory-card-count">' + (counts[name] || 0) + ' places</span>' +
+          '</div>' +
+        '</div>';
+      card.addEventListener('click', function() { selectCategory(name); });
+      grid.appendChild(card);
+    });
+  }
+
+  // === Category Selection ===
+  function selectCategory(cat) {
+    activeCategory = cat;
+    activeCityFilter = '';
+    searchQuery = '';
+    listPage = 0;
+    activeItemId = null;
+    document.getElementById('directorySearch').value = '';
+
+    collapseCardImmediate();
+
+    var catGrid = document.getElementById('directoryCatGrid');
+    var expanded = document.getElementById('directoryExpandedView');
+
+    if (cat) {
+      catGrid.style.display = 'none';
+      expanded.style.display = '';
+      buildHeaderAndFilters(cat);
+    } else {
+      catGrid.style.display = '';
+      expanded.style.display = 'none';
+    }
+
+    updateMapFilter();
+    renderList();
+
+    if (cat) {
+      var bounds = getCategoryBounds(cat);
+      if (bounds) {
+        map.fitBounds(bounds, { padding: 60, duration: 1200, pitch: 45, bearing: -15 });
+      }
+    } else {
+      map.flyTo({ center: MAP_CENTER, zoom: MAP_ZOOM, pitch: 35, bearing: -15, duration: 1000 });
+    }
+  }
+
+  function getCategoryBounds(cat) {
+    var items = allData.filter(function(d) { return d.l === cat; });
+    if (!items.length) return null;
+    var bounds = new maplibregl.LngLatBounds();
+    items.forEach(function(d) { bounds.extend([d.x, d.y]); });
+    return bounds;
+  }
+
+  // === Header + City Filters ===
+  function buildHeaderAndFilters(cat) {
+    var headerEl = document.getElementById('directoryHeaderArea');
+    var cfg = CATS[cat] || { color: '#999' };
+    var categoryData = allData.filter(function(d) { return d.l === cat; });
+
+    var cityCounts = {};
+    categoryData.forEach(function(d) {
+      if (d.c) cityCounts[d.c] = (cityCounts[d.c] || 0) + 1;
+    });
+    var cities = Object.entries(cityCounts)
+      .filter(function(p) { return p[1] >= 3; })
+      .sort(function(a, b) { return b[1] - a[1]; })
+      .map(function(p) { return p[0]; });
+
+    var html = '<div class="directory-header">' +
+      '<button class="directory-back-btn" aria-label="Back to all categories">&larr;</button>' +
+      '<div class="directory-header-badge" style="background:' + cfg.color + '"></div>' +
+      '<div class="directory-header-text">' +
+        '<h2 class="directory-header-title">Explore ' + escapeHtml(cat) + '</h2>' +
+        '<span class="directory-header-count">' + categoryData.length + ' places</span>' +
+      '</div>' +
+    '</div>';
+
+    html += '<div class="directory-filters">';
+    html += '<button class="directory-filter-pill active" data-city="">All Locations</button>';
+    cities.forEach(function(city) {
+      html += '<button class="directory-filter-pill" data-city="' + escapeHtml(city) + '">' + escapeHtml(city) + '</button>';
+    });
+    html += '</div>';
+
+    headerEl.innerHTML = html;
+
+    headerEl.querySelector('.directory-back-btn').addEventListener('click', function() {
+      selectCategory(null);
+    });
+
+    headerEl.querySelectorAll('.directory-filter-pill').forEach(function(pill) {
+      pill.addEventListener('click', function() {
+        activeCityFilter = pill.dataset.city || '';
+        headerEl.querySelectorAll('.directory-filter-pill').forEach(function(p) {
+          p.classList.toggle('active', (p.dataset.city || '') === activeCityFilter);
+        });
+        listPage = 0;
+        updateMapFilter();
+        renderList();
+      });
+    });
+  }
+
+  // === Filtered Data ===
+  function getFilteredData() {
+    var filtered = allData;
+    if (activeCategory) {
+      filtered = filtered.filter(function(d) { return d.l === activeCategory; });
+    }
+    if (activeCityFilter) {
+      filtered = filtered.filter(function(d) { return d.c === activeCityFilter; });
+    }
+    var q = searchQuery.toLowerCase().trim();
+    if (q) {
+      filtered = filtered.filter(function(d) {
+        return (d.n && d.n.toLowerCase().indexOf(q) !== -1) ||
+          (d.c && d.c.toLowerCase().indexOf(q) !== -1) ||
+          (d.d && d.d.toLowerCase().indexOf(q) !== -1) ||
+          (d.l && d.l.toLowerCase().indexOf(q) !== -1);
+      });
+    }
+    return filtered;
+  }
+
+  // === Render List ===
+  function renderList() {
+    var list = document.getElementById('directoryResults');
+    var loadMore = document.getElementById('directoryLoadMore');
+    var filtered = getFilteredData();
+    var end = (listPage + 1) * PAGE_SIZE;
+    var visible = filtered.slice(0, end);
+
+    list.innerHTML = '';
+    visible.forEach(function(asset) {
+      var cfg = CATS[asset.l] || { color: '#999' };
+      var imgInfo = imageData[asset.n];
+      var fallback = 'img/watercolor/' + (cfg.watercolor || 'landmarks') + '.png';
+      var photoSrc = imgInfo ? imgInfo.img : fallback;
+      var desc = asset.d ? asset.d.replace(/<[^>]*>/g, '').slice(0, 100) : '';
+
+      var item = document.createElement('article');
+      item.className = 'directory-item';
+      item.dataset.assetId = asset.id;
+      if (activeItemId === asset.id) item.classList.add('directory-item--active');
+
+      var html = '<div class="directory-item-photo">' +
+        '<img src="' + photoSrc + '" alt="" loading="lazy" onerror="this.src=\'' + fallback + '\'">';
+      if (asset.l_original) {
+        html += '<span class="directory-item-badge" style="background:' + cfg.color + '">' + escapeHtml(asset.l_original) + '</span>';
+      }
+      html += '</div><div class="directory-item-body">';
+      if (asset.c) {
+        html += '<span class="directory-item-city">' + escapeHtml(asset.c) + '</span>';
+      }
+      html += '<h3 class="directory-item-name">' + escapeHtml(asset.n) + '</h3>';
+      if (desc) {
+        html += '<p class="directory-item-desc">' + escapeHtml(desc) + '</p>';
+      }
+      html += '</div>';
+
+      item.innerHTML = html;
+      item.addEventListener('click', function() { selectItem(asset); });
+      list.appendChild(item);
+    });
+
+    if (loadMore) {
+      loadMore.style.display = end >= filtered.length ? 'none' : 'block';
+    }
+  }
+
+  // === Expand / Collapse — In-Place with GSAP ===
+  function expandCard(asset) {
+    // If clicking the already-expanded card, collapse it (toggle)
+    if (activeItemId === asset.id) {
+      collapseCard();
+      return;
+    }
+
+    // Collapse any currently expanded card first (no animation for swap)
+    collapseCardImmediate();
+
+    activeItemId = asset.id;
+
+    var cardEl = document.querySelector('.directory-item[data-asset-id="' + asset.id + '"]');
+    if (!cardEl) return;
+
+    // Build hours + meta
+    var hoursState = hoursUtils.getHoursState ? hoursUtils.getHoursState(asset) : 'unknown';
+    var hoursLabel = hoursUtils.getHoursLabel ? hoursUtils.getHoursLabel(hoursState) : '';
+    var todayHours = hoursUtils.getTodayHoursDisplay ? hoursUtils.getTodayHoursDisplay(asset) : null;
+
+    var metaHTML = '';
+    if (detailView.buildDetailMetaHTML) {
+      metaHTML = detailView.buildDetailMetaHTML({
+        asset: asset,
+        hoursState: hoursState,
+        hoursLabel: hoursLabel,
+        todayHours: todayHours,
+        eventCount14d: 0,
+        eventWindowDays: 14,
+        escapeHTML: escapeHtml
+      });
+    }
+
+    var fullDesc = asset.d ? asset.d.replace(/<[^>]*>/g, '') : '';
+
+    // Build expanded content div
+    var expandedDiv = document.createElement('div');
+    expandedDiv.className = 'directory-item-expanded';
+    expandedDiv.innerHTML =
+      (fullDesc ? '<p class="directory-item-full-desc">' + escapeHtml(fullDesc) + '</p>' : '') +
+      '<div class="detail-meta">' + metaHTML + '</div>';
+
+    cardEl.appendChild(expandedDiv);
+    cardEl.classList.add('directory-item--expanded');
+
+    // Tell grid not to stretch row siblings
+    var grid = document.getElementById('directoryResults');
+    grid.classList.add('has-expanded');
+
+    // GSAP animate open
+    gsap.fromTo(expandedDiv,
+      { height: 0, opacity: 0, overflow: 'hidden' },
+      { height: 'auto', opacity: 1, duration: 0.35, ease: 'power2.out', onComplete: function() {
+        expandedDiv.style.overflow = '';
+      }}
+    );
+
+    // Scroll card into view after animation
+    setTimeout(function() {
+      cardEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }, 200);
+
+    // Fly map — zoom close enough to see one intersection
+    map.flyTo({
+      center: [asset.x, asset.y],
+      zoom: 17,
+      pitch: 50,
+      bearing: -15,
+      duration: 1500
+    });
+
+    // Update URL
+    var url = new URL(window.location);
+    url.searchParams.set('cat', asset.l);
+    url.searchParams.set('place', asset.n);
+    history.replaceState(null, '', url);
+  }
+
+  function collapseCard() {
+    var cardEl = document.querySelector('.directory-item--expanded');
+    if (!cardEl) return;
+
+    var expandedDiv = cardEl.querySelector('.directory-item-expanded');
+    if (!expandedDiv) return;
+
+    // GSAP animate closed
+    gsap.to(expandedDiv, {
+      height: 0, opacity: 0, overflow: 'hidden', duration: 0.25, ease: 'power2.in',
+      onComplete: function() {
+        expandedDiv.remove();
+        cardEl.classList.remove('directory-item--expanded');
+        var grid = document.getElementById('directoryResults');
+        grid.classList.remove('has-expanded');
+      }
+    });
+
+    activeItemId = null;
+
+    // Remove place from URL
+    var url = new URL(window.location);
+    url.searchParams.delete('place');
+    history.replaceState(null, '', url);
+  }
+
+  // Instant collapse (no animation) for when swapping to a different card
+  function collapseCardImmediate() {
+    var cardEl = document.querySelector('.directory-item--expanded');
+    if (!cardEl) return;
+
+    var expandedDiv = cardEl.querySelector('.directory-item-expanded');
+    if (expandedDiv) expandedDiv.remove();
+    cardEl.classList.remove('directory-item--expanded');
+
+    var grid = document.getElementById('directoryResults');
+    grid.classList.remove('has-expanded');
+    activeItemId = null;
+  }
+
+  // === Click Sync: List → Map ===
+  function selectItem(asset) {
+    expandCard(asset);
+  }
+
+  // === Click Sync: Map → List ===
+  function onMapMarkerClick(e) {
+    if (!e.features || !e.features.length) return;
+    var f = e.features[0];
+    var assetId = f.properties.idx;
+    selectItemById(assetId);
+  }
+
+  // === Search ===
+  function onSearch() {
+    searchQuery = document.getElementById('directorySearch').value;
+    listPage = 0;
+
+    if (searchQuery.trim() && !activeCategory) {
+      document.getElementById('directoryCatGrid').style.display = 'none';
+      var expanded = document.getElementById('directoryExpandedView');
+      expanded.style.display = '';
+      var matchCount = getFilteredData().length;
+      document.getElementById('directoryHeaderArea').innerHTML =
+        '<div class="directory-header">' +
+          '<button class="directory-back-btn" aria-label="Clear search">&larr;</button>' +
+          '<div class="directory-header-text">' +
+            '<h2 class="directory-header-title">Search Results</h2>' +
+            '<span class="directory-header-count">' + matchCount + ' places</span>' +
+          '</div>' +
+        '</div>';
+      expanded.querySelector('.directory-back-btn').addEventListener('click', function() {
+        searchQuery = '';
+        document.getElementById('directorySearch').value = '';
+        selectCategory(null);
+      });
+    } else if (!searchQuery.trim() && !activeCategory) {
+      document.getElementById('directoryCatGrid').style.display = '';
+      document.getElementById('directoryExpandedView').style.display = 'none';
+    }
+
+    updateMapFilter();
+    renderList();
+  }
+
+  // === Init ===
+  function init() {
+    loadData().then(function() {
+      renderCategoryCards();
+      initMap();
+
+      var searchInput = document.getElementById('directorySearch');
+      var searchTimer = null;
+      searchInput.addEventListener('input', function() {
+        clearTimeout(searchTimer);
+        searchTimer = setTimeout(onSearch, 250);
+      });
+
+      document.getElementById('directoryLoadMore').addEventListener('click', function() {
+        listPage++;
+        renderList();
+      });
+
+      // Deep linking: ?place=Venue+Name or ?cat=Category&place=Venue+Name
+      var urlParams = new URLSearchParams(window.location.search);
+      var urlPlace = urlParams.get('place');
+      if (urlPlace) {
+        var target = allData.find(function(d) {
+          return d.n.toLowerCase() === urlPlace.toLowerCase();
+        });
+        if (target) {
+          selectCategory(target.l);
+          requestAnimationFrame(function() {
+            expandCard(target);
+          });
+        }
+      } else {
+        var urlCat = urlParams.get('cat');
+        if (urlCat) {
+          var match = Object.keys(CATS).find(function(k) {
+            return k.toLowerCase() === urlCat.toLowerCase() ||
+              k.replace(/[&,]/g, '').toLowerCase() === urlCat.replace(/[&,]/g, '').toLowerCase();
+          });
+          if (match) {
+            selectCategory(match);
+          }
+        }
+      }
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+</body>
+</html>
