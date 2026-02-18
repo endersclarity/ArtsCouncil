@@ -246,7 +246,8 @@
     inset: -30px;
     background-size: cover;
     background-position: center;
-    filter: blur(40px) brightness(0.5) saturate(1.4);
+    /* brighter + more saturated so edges fade to visible color, not dark void */
+    filter: blur(36px) brightness(0.68) saturate(2.0);
   }
   .card-image {
     position: relative;
@@ -255,8 +256,9 @@
     object-fit: contain;
     object-position: center;
     display: block;
-    -webkit-mask-image: radial-gradient(ellipse 85% 80% at center, black 55%, transparent 100%);
-    mask-image: radial-gradient(ellipse 85% 80% at center, black 55%, transparent 100%);
+    /* more aggressive fade — starts at 42%, full transparent at 92% */
+    -webkit-mask-image: radial-gradient(ellipse 88% 84% at center, black 42%, transparent 92%);
+    mask-image: radial-gradient(ellipse 88% 84% at center, black 42%, transparent 92%);
   }
   @media (max-width: 480px) {
     .card-image-wrap { height: 180px; }
