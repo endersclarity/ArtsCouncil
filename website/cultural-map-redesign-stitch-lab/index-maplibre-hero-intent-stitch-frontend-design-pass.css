@@ -2464,6 +2464,157 @@ body.theme-intent {
 
 /* ============ End Editorial Sidebar Styles ============ */
 
+/* ── Directory Polish: Empty State, Sort, Map Toggle, Hover Sync, A11y ── */
+
+/* M3 — Empty state (also in inline style, CSS file for overrides) */
+.directory-page .directory-empty-state {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  color: var(--ink, #1a1612);
+  opacity: 0.6;
+}
+.directory-page .directory-empty-state-msg {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+.directory-page .directory-empty-state-hint {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+}
+
+/* M9 — Sort dropdown */
+.directory-sort {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.3rem 0 0.5rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.78rem;
+}
+.directory-sort-label { color: var(--ink, #1a1612); opacity: 0.6; white-space: nowrap; }
+.directory-sort-select {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.78rem;
+  padding: 0.25rem 0.5rem;
+  border: 1px solid rgba(0,0,0,0.15);
+  border-radius: 6px;
+  background: var(--cream, #f5f0e8);
+  color: var(--ink, #1a1612);
+  cursor: pointer;
+}
+
+/* M8 — Mobile map collapse toggle */
+.directory-map-toggle {
+  display: none;
+  width: 100%;
+  padding: 0.4rem;
+  text-align: center;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  background: var(--cream, #f5f0e8);
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 0;
+  color: var(--ink, #1a1612);
+  cursor: pointer;
+}
+@media (max-width: 900px) {
+  .directory-map-toggle { display: block; }
+  .map-pane--collapsed { display: none !important; }
+}
+
+/* M5 — Category grid density: override to 2 columns inside split pane */
+.directory-page .directory-pane .directory-grid {
+  grid-template-columns: repeat(2, 1fr) !important;
+}
+@media (max-width: 600px) {
+  .directory-page .directory-pane .directory-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* M10 — Map-list hover sync */
+.directory-item--hover {
+  box-shadow: 0 0 0 2px var(--gold, #c8943e);
+  transition: box-shadow 0.15s ease;
+}
+
+/* Min4 — Sticky search input */
+.directory-page #directorySearch {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--cream, #f5f0e8);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
+}
+
+/* Min5 — Keyboard accessibility: focus rings */
+.directory-card:focus,
+.directory-item:focus {
+  outline: 2px solid var(--gold, #c8943e);
+  outline-offset: 2px;
+}
+
+/* Min9 — Search focus ring */
+.directory-search-input:focus {
+  outline: 2px solid var(--gold, #c8943e);
+  outline-offset: 2px;
+}
+
+/* Min10 — Expanded card WCAG AA contrast */
+.directory-page .directory-item-expanded { color: var(--ink, #1a1612); }
+.directory-page .directory-item-full-desc { color: var(--ink, #1a1612); opacity: 0.85; line-height: 1.6; }
+
+/* M6 — Footer colophon brand/links/meta */
+.colophon-brand {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-family: 'DM Sans', sans-serif;
+}
+.colophon-brand strong {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--ink, #1a1612);
+}
+.colophon-brand span {
+  font-size: 0.75rem;
+  color: rgba(26, 22, 18, 0.6);
+}
+.colophon-links {
+  display: flex;
+  gap: 1.2rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem;
+}
+.colophon-links a {
+  color: var(--gold, #c8943e);
+  text-decoration: none;
+}
+.colophon-links a:hover { text-decoration: underline; }
+.colophon-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.75rem;
+  color: rgba(26, 22, 18, 0.55);
+  text-align: right;
+}
+@media (max-width: 600px) {
+  .colophon-brand, .colophon-links, .colophon-meta {
+    text-align: center;
+    align-items: center;
+  }
+  .colophon-meta { text-align: center; }
+}
+
+/* ── End Directory Polish ── */
+
 .community-photos {
   margin-top: 4.2rem;
   border: 1px solid var(--muted-border);
