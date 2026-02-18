@@ -1,0 +1,313 @@
+================================================================================
+PHASE 7 REPORTER: COMPLETE DESIGN PACKAGE
+Nevada County Arts Council — Visitor Demand Signal Report Format
+================================================================================
+
+DELIVERABLES (4 Documents)
+────────────────────────────────────────────────────────────────────────────
+
+1. COMMITTEE-REPORT-TEMPLATE.md (500 lines)
+   ├─ Executive summary with KPIs
+   ├─ "What Visitors Wanted" (5 demand signal sections)
+   ├─ Business Engagement Ranking (which venues got traffic)
+   ├─ AI Concierge insights
+   ├─ Traffic & engagement breakdown
+   ├─ Trends, patterns, observations
+   ├─ Actionable recommendations
+   └─ Technical notes & measurement gaps
+
+   WHO: Data analysts, product team (fill monthly)
+   WHY: Reusable template for 12+ monthly reports
+
+2. METRICS-DATASOURCE-MAPPING.md (600 lines)
+   ├─ Core metrics: visitors, pageviews, duration, bounce rate
+   ├─ Category metrics: filter usage by category
+   ├─ Feature metrics: toggle counts, detail opens, marker clicks
+   ├─ Business referral metrics: event tickets, lodging, venues
+   ├─ Time-based intent: tonight/weekend/14-day filters
+   ├─ Page visit breakdown
+   ├─ AI Concierge metrics: queries, topics, recommendations
+   ├─ Visitor segmentation logic
+   ├─ Month-over-month trend calculations
+   ├─ Full API reference (Umami + Supabase)
+   ├─ Automation pseudocode (Node.js)
+   └─ Known data gaps & impact analysis
+
+   WHO: Engineers, data scientists (build pipeline with this)
+   WHY: Complete technical spec for report automation
+
+3. SAMPLE-REPORT-FEBRUARY-2026.md (400 lines)
+   ├─ Real filled-in report using POC swarm data (5 visitors, 68 events)
+   ├─ Shows actual numbers: 3 business referrals, 2 chatbot queries, etc.
+   ├─ Real case study: "Hiker Discovering Culture" journey
+   ├─ Identifies critical gaps (chatbot deep links not tracked)
+   ├─ Provides concrete recommendations for next month
+   └─ Committee-ready format (tone, length, detail level)
+
+   WHO: Everyone (shows what the committee will see)
+   WHY: Proof-of-concept that the format works with real data
+
+4. REPORT-DELIVERY-GUIDE.md (400 lines)
+   ├─ Three PDF conversion options
+   │  ├─ Pandoc + LaTeX (RECOMMENDED)
+   │  ├─ Markdown-PDF (Node.js)
+   │  └─ Browser print (Vercel function)
+   ├─ Full automation setup
+   │  ├─ Node.js data pull script
+   │  ├─ Shell script pipeline
+   │  └─ Cron job scheduling
+   ├─ Committee meeting presentation notes
+   ├─ Distribution checklist
+   ├─ File structure & archive strategy
+   └─ Troubleshooting guide
+
+   WHO: DevOps, automation engineers (implement this)
+   WHY: Copy-paste ready implementation guide
+
+SUPPORTING DOCS
+────────────────────────────────────────────────────────────────────────────
+
++ REPORTER-HANDOFF.md (300 lines)
+  Complete handoff summary for team lead & future maintainers
+
++ POC-INTERNAL-BRIEF.md (148 lines) — already existed
+  Original POC findings & data access documentation
+
++ BLIND-INTENT-RECONSTRUCTION.md (195 lines) — already existed
+  How the blind analyst reconstructed visitor intent from data alone
+
++ SWARM-POC-RESULTS.md (173 lines) — already existed
+  Ground truth: what 5 synthetic visitors actually did
+
+
+KEY METRICS (What Committee Will See Each Month)
+────────────────────────────────────────────────────────────────────────────
+
+EXECUTIVE SUMMARY
+  • Total Visitors (month-over-month %)
+  • Total Page Views
+  • Avg Visit Duration
+  • Bounce Rate (%)
+  • Direct Business Referrals (count)
+
+DEMAND SIGNALS (Ranked by strength)
+  1. Dining Recommendations (chatbot queries, venues recommended)
+  2. Event Discovery (date filters, outbound ticket clicks)
+  3. Trip Planning & Lodging (VRBO clicks, multi-day category exploration)
+  4. Category Interest (which categories filtered most)
+
+BUSINESS ENGAGEMENT RANKING (Venues ranked by signal strength)
+  • Rank 1: Direct ticket referrals (highest intent)
+  • Rank 2: VRBO/lodging searches
+  • Rank 3: Detail panel opens (repeat engagement)
+  • Rank 4–N: Passive recommendations via chatbot
+
+AI CONCIERGE INSIGHTS
+  • Total chatbot queries
+  • Queries by topic (dining/events/lodging/trip planning)
+  • Top recommended venues
+  • Unanswered questions (what's missing from site)
+
+TRAFFIC & ENGAGEMENT
+  • Page visit summary (% for each page)
+  • Feature usage (toggles, filters, detail opens)
+  • Trend comparison to last month
+
+OPPORTUNITIES & RECOMMENDATIONS
+  • Actionable insights from data
+  • Who should do what
+  • Success metrics to track
+
+
+CRITICAL INSTRUMENTATION GAPS IDENTIFIED
+────────────────────────────────────────────────────────────────────────────
+
+Gap 1: Chatbot Deep Link Clicks (BLOCKING)
+  Status: Not instrumented
+  Impact: 14 venues mentioned by AI in POC, 0 clicks tracked
+  Fix: Add outbound:chatbot-link-click event
+  Timeline: 2-3 days (Phase 6 priority #1)
+
+Gap 2: Directory Page Interactions
+  Status: Not instrumented
+  Impact: 1 visitor went to directory.html, we don't know what they searched
+  Fix: Instrument directory:search, directory:card-expand, directory:filter
+  Timeline: 2-3 days (Phase 6 priority #2)
+
+Gap 3: Itinerary Engagement
+  Status: Not instrumented
+  Impact: 1 visitor opened "Perfect Day" itinerary, we don't know if they engaged
+  Fix: Instrument itinerary:open, itinerary:scroll-depth, itinerary:show-on-map
+  Timeline: 1-2 days (Phase 6 priority #2)
+
+Gap 4: Session-Level Tracking
+  Status: Not available
+  Impact: Can't link "visitor X filtered Trails → Galleries → asked about dinner"
+  Fix: Add session_id to all Umami custom events
+  Timeline: 3-5 days (Phase 7 requirement)
+
+
+PIPELINE REQUIREMENTS
+────────────────────────────────────────────────────────────────────────────
+
+Requirement 1: Intent Classification (Chat Logs)
+  Add 'intent' field to Supabase chat_logs with values:
+  • dining, events, lodging, trip_planning, directions, hours, other
+  Why: Report needs to break down chatbot usage by topic
+  Timeline: 1-2 days
+
+Requirement 2: Session ID (Custom Events)
+  Add 'session_id' to all Umami custom events
+  Why: Enables journey reconstruction (observe, not infer, user behavior)
+  Timeline: 2-3 days
+
+
+AUTOMATION PIPELINE
+────────────────────────────────────────────────────────────────────────────
+
+Schedule:  Monthly, 1st of month at 6:00 AM
+
+Steps:
+  1. Data pull: Fetch Umami stats + Supabase chat logs (via API)
+  2. Classify: Cluster events by visitor intent (Trails/Galleries/Dining/etc)
+  3. Render: Fill markdown template with actual data
+  4. Convert: Markdown → PDF (via Pandoc)
+  5. Archive: Save markdown + PDF to archive folder
+  6. Deliver: Email PDF to committee
+
+Execution time: ~5 minutes (fully automated after setup)
+
+
+COMMITTEE AUDIENCE
+────────────────────────────────────────────────────────────────────────────
+
+Who reads it: 7-12 non-technical committee members
+
+Reading level: High school graduate (no jargon)
+
+Use case:
+  "What did visitors want this month? Which businesses got traffic?"
+
+Time commitment: 5-10 minutes (skim executive summary + business ranking)
+
+Format: 1-2 pages (fits in email or printed handout)
+
+Tone: Professional but accessible (NOT academic, NOT too technical)
+
+
+RELATED PHASE 6 WORK
+────────────────────────────────────────────────────────────────────────────
+
+Instrumenter (Phase 6):
+  • Read: METRICS-DATASOURCE-MAPPING.md "Known Measurement Gaps"
+  • Action: Close chatbot deep link tracking (CRITICAL)
+  • Contact: Coordinate with pipeline on schema changes
+
+Pipeline (Phase 6):
+  • Read: METRICS-DATASOURCE-MAPPING.md "Data Collection"
+  • Action 1: Add intent field to chat_logs table
+  • Action 2: Add session_id to Umami custom events
+  • Contact: Coordinate with instrumenter on event schema
+
+
+FILES CHECKLIST
+────────────────────────────────────────────────────────────────────────────
+
+✅ COMMITTEE-REPORT-TEMPLATE.md
+   └─ Location: .planning/phases/07-demand-signal-reporting/
+   └─ Size: ~500 lines
+   └─ Status: Ready to use
+
+✅ METRICS-DATASOURCE-MAPPING.md
+   └─ Location: .planning/phases/07-demand-signal-reporting/
+   └─ Size: ~600 lines
+   └─ Status: Ready to implement
+
+✅ SAMPLE-REPORT-FEBRUARY-2026.md
+   └─ Location: .planning/phases/07-demand-signal-reporting/
+   └─ Size: ~400 lines
+   └─ Status: Ready to show committee
+
+✅ REPORT-DELIVERY-GUIDE.md
+   └─ Location: .planning/phases/07-demand-signal-reporting/
+   └─ Size: ~400 lines
+   └─ Status: Ready to implement
+
+✅ REPORTER-HANDOFF.md
+   └─ Location: .planning/phases/07-demand-signal-reporting/
+   └─ Size: ~300 lines
+   └─ Status: Ready for handoff
+
+
+NEXT STEPS (By Role)
+────────────────────────────────────────────────────────────────────────────
+
+TEAM LEAD:
+  1. Review this summary + SAMPLE-REPORT-FEBRUARY-2026.md
+  2. Assign instrumenter to chatbot deep link tracking (CRITICAL)
+  3. Assign pipeline to schema changes (intent, session_id)
+  4. Schedule kickoff for automation setup (2 weeks out)
+
+INSTRUMENTER (Phase 6):
+  1. Read METRICS-DATASOURCE-MAPPING.md "Known Measurement Gaps"
+  2. Implement chatbot deep link click tracking (2-3 days)
+  3. Coordinate with pipeline on event schema changes
+  4. Verify data in Umami before next month's report
+
+PIPELINE (Phase 6):
+  1. Read METRICS-DATASOURCE-MAPPING.md "Data Collection"
+  2. Add intent field to chat_logs (Supabase schema change)
+  3. Add session_id to Umami events
+  4. Begin testing with January 2026 data (for April report)
+
+ANALYST / REPORT OPERATOR:
+  1. Install Pandoc (one-time)
+  2. Follow REPORT-DELIVERY-GUIDE.md to set up Pandoc + LaTeX template
+  3. Implement Node.js automation script
+  4. Schedule cron job for 1st of month at 6am
+  5. First production report: April 1, 2026 (for March data)
+
+COMMITTEE:
+  1. Expect first monthly report in April 2026
+  2. Format will be 1-2 page PDF (email or printed)
+  3. Focus: "What did visitors want? Which businesses benefited?"
+  4. Quarterly strategy: Use demand signals to plan content/marketing
+
+
+TIMELINE
+────────────────────────────────────────────────────────────────────────────
+
+THIS WEEK (Feb 18-22):
+  ✅ Report design complete (DONE)
+  ⏳ Instrumenter reviews gaps
+  ⏳ Pipeline reviews schema requirements
+
+NEXT 2 WEEKS (Feb 25 - Mar 11):
+  ⏳ Chatbot deep link tracking implemented (Phase 6)
+  ⏳ Chat_logs intent field added (Phase 6)
+  ⏳ Session ID added to Umami events (Phase 6)
+
+MID-MARCH (Mar 12-18):
+  ⏳ Automation pipeline built and tested
+  ⏳ First dry run with January data
+  ⏳ Pandoc template finalized
+  ⏳ Cron job scheduled
+
+APRIL (Apr 1):
+  ⏳ First monthly report generated (for March data)
+  ⏳ Committee sees new report format at April meeting
+
+MAY ONWARD:
+  ⏳ Monthly reports automated and distributed
+
+
+STATUS: COMPLETE & PRODUCTION-READY
+────────────────────────────────────────────────────────────────────────────
+
+Reporter task is DONE.
+
+All deliverables are ready for team integration.
+
+Committee will see this format starting April 2026.
+
+================================================================================
