@@ -113,6 +113,12 @@
         backdrop.addEventListener('click', function() { deactivateItinerary(); });
       }
 
+      // Bind "Make it mine" button
+      var mineBtn = container.querySelector('.itinerary-make-mine-btn');
+      if (mineBtn) {
+        mineBtn.addEventListener('click', function() { handleMakeItMine(); });
+      }
+
       // Bind calendar button tracking
       container.addEventListener('click', function(e) {
         var calBtn = e.target.closest('.itinerary-stop-calendar-btn, [href*="calendar.google.com"]');
@@ -337,6 +343,59 @@
   }
 
   /**
+   * Activate a user-generated trip (ad-hoc, not from itineraries.json).
+   * Resolves stops on-the-fly and renders using the same pipeline as curated itineraries.
+   * @param {Object} trip - itinerary-schema-compatible trip object
+   */
+  function activateUserTrip(trip) {
+    if (!trip || !trip.days) return;
+    var resolved = itineraryModel.resolveItineraryStops(trip, state.data);
+    if (!resolved || !resolved.length) return;
+
+    state.resolved[trip.id] = resolved;
+    state.activeId = trip.id;
+
+    var container = state.overlayContainer || document.getElementById('itineraryOverlay');
+    if (container) {
+      container.innerHTML = itineraryView.renderDetailOverlay(trip, resolved);
+      container.classList.add('active');
+    }
+
+    activateItineraryOnMap(trip.id, resolved, trip);
+  }
+
+  /**
+   * Handle "Make it mine" button click inside an itinerary overlay.
+   * Copies all resolved stops into the dream board.
+   */
+  function handleMakeItMine() {
+    if (!state.activeId) return;
+    var resolved = state.resolved[state.activeId];
+    if (!resolved || !resolved.length) return;
+
+    var dbModel = window.CulturalMapDreamboardModel;
+    var dbView = window.CulturalMapDreamboardView;
+    if (!dbModel || !dbModel.addPlace) return;
+
+    var addedCount = 0;
+    for (var i = 0; i < resolved.length; i++) {
+      if (resolved[i].data) {
+        var added = dbModel.addPlace(resolved[i].data, 'itinerary');
+        if (added) addedCount++;
+      }
+    }
+
+    if (dbView && dbView.updateBadge) dbView.updateBadge();
+
+    // Show toast with count and link to trip page
+    var toastMsg = addedCount + ' place' + (addedCount !== 1 ? 's' : '') + ' added to your dream board' +
+      ' <a href="trip.html" style="color:#c8943e;font-weight:600;text-decoration:underline;margin-left:0.5rem;">View Trip</a>';
+    if (dbView && dbView.showToast) {
+      dbView.showToast(toastMsg);
+    }
+  }
+
+  /**
    * Get the active itinerary id.
    * @returns {string|null}
    */
@@ -347,8 +406,10 @@
   window.CulturalMapItineraryController = {
     initItineraries: initItineraries,
     activateItinerary: activateItinerary,
+    activateUserTrip: activateUserTrip,
     deactivateItinerary: deactivateItinerary,
-    getActiveItineraryId: getActiveItineraryId
+    getActiveItineraryId: getActiveItineraryId,
+    handleMakeItMine: handleMakeItMine
   };
 
 })();

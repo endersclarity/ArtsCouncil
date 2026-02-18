@@ -31,6 +31,8 @@
       '.itinerary-overlay-title { font-family: var(--font-display, "Archivo", sans-serif); font-size: 1.5rem; font-weight: 800; margin: 0 0 0.25rem; color: var(--color-ink, #1a1612); }',
       '.itinerary-overlay-subtitle { font-family: var(--font-body, "DM Sans", sans-serif); font-size: 0.88rem; color: rgba(26,22,18,0.55); margin: 0 0 0.5rem; }',
       '.itinerary-overlay-badge { display: inline-block; font-size: 0.65rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; padding: 0.2rem 0.5rem; border-radius: 999px; color: #fff; }',
+      '.itinerary-make-mine-btn { display: inline-block; font-family: var(--font-body, "DM Sans", sans-serif); font-size: 0.78rem; font-weight: 600; padding: 0.45rem 1rem; border: 2px solid #c8943e; border-radius: 8px; background: transparent; color: #c8943e; cursor: pointer; transition: all 0.2s; margin-top: 0.5rem; }',
+      '.itinerary-make-mine-btn:hover { background: #c8943e; color: #fff; }',
 
       /* Day tabs */
       '.itinerary-day-tabs { display: flex; gap: 0; border-bottom: 2px solid rgba(217,212,202,0.5); margin-bottom: 1.25rem; }',
@@ -259,6 +261,7 @@
           '<span class="itinerary-overlay-badge" style="background:' + accent + ';">' + durLabel + '</span>' +
           '<h2 class="itinerary-overlay-title">' + (itinerary.title || '') + '</h2>' +
           '<p class="itinerary-overlay-subtitle">' + (itinerary.subtitle || '') + '</p>' +
+          ((!itinerary.id || itinerary.id.indexOf('usr-') !== 0) ? '<button class="itinerary-make-mine-btn" type="button" style="border-color:' + accent + ';color:' + accent + ';">Make it mine</button>' : '') +
         '</div>' +
         tabsHTML +
         daysHTML +

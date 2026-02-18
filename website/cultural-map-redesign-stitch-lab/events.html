@@ -11,6 +11,7 @@
 <link rel="stylesheet" href="index-maplibre-hero-intent-stitch-frontend-design-pass.css">
 <script defer src="https://cloud.umami.is/script.js" data-website-id="14ecf234-cd96-4e6c-91c2-cc27babc095d" data-domains="cultural-map-redesign-stitch-lab.vercel.app"></script>
 <script src="https://cdn.jsdelivr.net/npm/luxon@3.4.4/build/global/luxon.min.js"></script>
+<style>.trip-nav-link{position:relative}.trip-badge{display:inline-flex;align-items:center;justify-content:center;background:#c8943e;color:#fff;border-radius:50%;width:18px;height:18px;font-family:"DM Sans",sans-serif;font-size:.68rem;font-weight:700;line-height:1;position:absolute;top:-6px;right:-10px}</style>
 </head>
 <body class="theme-intent events-page">
 
@@ -21,6 +22,8 @@
       <a href="index-maplibre-hero-intent-stitch-frontend-design-pass.html">Back to Explore</a>
       <a href="events.html" class="nav-active">Events</a>
       <a href="itineraries.html">Itineraries</a>
+      <a href="directory.html">Directory</a>
+      <a href="trip.html" class="trip-nav-link">My Trip <span class="trip-badge" style="display:none">0</span></a>
     </nav>
   </div>
   <div class="edition">February 2026 · Updated weekly</div>
@@ -311,6 +314,17 @@
   } else {
     init();
   }
+})();
+</script>
+<script>
+(function() {
+  try {
+    var raw = localStorage.getItem('ncac-dreamboard');
+    var store = raw ? JSON.parse(raw) : null;
+    var count = store ? (store.places || []).length + (store.events || []).length : 0;
+    var badge = document.querySelector('.trip-badge');
+    if (badge && count > 0) { badge.textContent = count; badge.style.display = ''; }
+  } catch(e) {}
 })();
 </script>
 </body>
