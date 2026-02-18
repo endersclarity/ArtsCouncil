@@ -227,7 +227,7 @@ Recent decisions affecting current work:
 
 ### Pending Todos
 
-16 todos in `.planning/todos/pending/`.
+17 todos in `.planning/todos/pending/`.
 
 #### Pre-Research Available
 
