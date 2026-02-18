@@ -9,10 +9,10 @@ See: .planning/PROJECT.md (updated 2026-02-14)
 
 ## Current Position
 
-Phase: 07-demand-signal-reporting
-Plan: 2 of 3
-Status: 07-02 complete (pipeline script + GitHub Actions workflow). demand-signal-pull.mjs queries Umami + Supabase, classifies intent, scores venue attribution. Ready for 07-03 (report template).
-Last activity: 2026-02-18 -- 07-02 executed: demand-signal-pull.mjs pipeline + GitHub Actions monthly cron workflow.
+Phase: 09.1-directory-audit-fixes
+Plan: 1 of 2
+Status: 09.1-01 complete (XSS fix in explore-view.js, back button wiring + header clear in explore-controller.js). Plan 02 (B2 null guards, B4 mobile toggle, should-fix items) remains.
+Last activity: 2026-02-18 -- 09.1-01 executed: escapeHTML applied to all data interpolations, back button wired, stale header cleared, onCitySelect dead param removed.
 
 Progress: [████████████████████] 100% overall (Phase 09 in progress)
 
@@ -282,6 +282,10 @@ Recent decisions affecting current work:
 - [Phase 7-02]: Venue attribution capped at top 20 results for focused committee reporting
 - [Phase 7-02]: Chat recommendation extraction deduplicates per response (venue mentioned 3x in one response = 1 recommendation)
 - [Phase 7-02]: 401 error provides exact localStorage extraction command for token refresh
+- [Phase 09.1-01]: escapeHTML declared at top of explore-view.js IIFE with fallback impl — works regardless of core-utils load order
+- [Phase 09.1-01]: city values in data-city HTML attributes escaped (defense in depth, even though data is controlled)
+- [Phase 09.1-01]: onCitySelect removed from buildCityFilterPills signature and caller — city pill clicks use DOM delegation in controller
+- [Phase 09.1-01]: directoryHeaderArea.innerHTML='' guarded with null check, cleared in else branch when exploreSetCategory(null) called
 
 ### Roadmap Evolution
 
@@ -349,6 +353,6 @@ Research artifacts outside the phase directory structure. Consult these when pla
 ## Session Continuity
 
 Last session: 2026-02-18
-Stopped at: Completed 07-02-PLAN.md (demand signal pipeline + GitHub Actions). 07-03 (report template) remains.
-Resume with: Run /gsd:execute-phase 07 to continue with 07-03-PLAN.md (committee report template).
-Key artifacts: .planning/phases/07-demand-signal-reporting/07-02-SUMMARY.md, scripts/demand-signal-pull.mjs, .github/workflows/demand-signal-report.yml
+Stopped at: Completed 09.1-01-PLAN.md (XSS fix, back button, header clear, dead param removal).
+Resume with: Run /gsd:execute-phase 09.1 to continue with 09.1-02-PLAN.md (B2 null guards, B4 mobile toggle, should-fix items).
+Key artifacts: .planning/phases/09.1-directory-audit-fixes/09.1-01-SUMMARY.md

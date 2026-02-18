@@ -348,7 +348,7 @@ Plans:
 - S13: City filter pills hidden on mobile in list view
 - S14: Default map zoom on mobile shows wrong area
 
-**Plans:** 0 plans
+**Plans:** 2/4 plans executed
 
 Plans:
 - [ ] TBD (run /gsd:plan-phase 09.1 to break down)

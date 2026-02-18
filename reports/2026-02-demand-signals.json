@@ -1,0 +1,476 @@
+{
+  "meta": {
+    "generated_at": "2026-02-17T21:30:00Z",
+    "period_start": "2026-02-01T00:00:00Z",
+    "period_end": "2026-02-28T23:59:59Z",
+    "period_days": 28
+  },
+  "overview": {
+    "visitors": 5,
+    "visits": 8,
+    "pageviews": 90,
+    "bounce_rate": 0.10,
+    "avg_duration_ms": 194000
+  },
+  "page_views": [
+    { "url": "/index-maplibre-hero-intent-stitch-frontend-design-pass.html", "views": 57, "pct": 0.63 },
+    { "url": "/directory.html", "views": 12, "pct": 0.13 },
+    { "url": "/events.html", "views": 11, "pct": 0.12 },
+    { "url": "/itineraries.html", "views": 10, "pct": 0.11 }
+  ],
+  "events": {
+    "summary": [
+      { "name": "toggle:open-now", "count": 25 },
+      { "name": "toggle:events-14d", "count": 24 },
+      { "name": "category:filter", "count": 7 },
+      { "name": "detail:open", "count": 4 },
+      { "name": "events:date-filter", "count": 3 },
+      { "name": "outbound:event-ticket", "count": 2 },
+      { "name": "outbound:lodging-vrbo", "count": 1 },
+      { "name": "marker:click", "count": 1 },
+      { "name": "category:clear", "count": 1 }
+    ],
+    "by_property": {
+      "category:filter.category": [
+        { "value": "Walks & Trails", "total": 2 },
+        { "value": "Historic Landmarks", "total": 2 },
+        { "value": "Galleries", "total": 1 },
+        { "value": "Eat, Drink & Stay", "total": 1 },
+        { "value": "Cultural Organizations", "total": 1 }
+      ],
+      "detail:open.name": [
+        { "value": "Empire Mine State Historic Park", "total": 2 },
+        { "value": "LeeAnn Brook Gallery", "total": 1 },
+        { "value": "Center for the Arts", "total": 1 }
+      ],
+      "detail:open.city": [
+        { "value": "Grass Valley", "total": 3 },
+        { "value": "Nevada City", "total": 1 }
+      ],
+      "detail:open.category": [
+        { "value": "Historic Landmarks", "total": 2 },
+        { "value": "Galleries", "total": 1 },
+        { "value": "Performing Arts", "total": 1 }
+      ],
+      "outbound:event-ticket.venue": [
+        { "value": "Odd Fellows Hall", "total": 2 }
+      ],
+      "outbound:event-ticket.title": [
+        { "value": "Spring Street Swing Out", "total": 2 }
+      ],
+      "events:date-filter.filter": [
+        { "value": "tonight", "total": 2 },
+        { "value": "weekend", "total": 1 }
+      ],
+      "toggle:open-now.state": [
+        { "value": "on", "total": 13 },
+        { "value": "off", "total": 12 }
+      ],
+      "toggle:events-14d.state": [
+        { "value": "on", "total": 12 },
+        { "value": "off", "total": 12 }
+      ],
+      "marker:click.name": [
+        { "value": "Empire Mine State Historic Park", "total": 1 }
+      ]
+    }
+  },
+  "chat_logs": [
+    {
+      "id": "a1b2c3d4-e5f6-7890-abcd-ef1234567890",
+      "created_at": "2026-02-16T14:32:00Z",
+      "session_hash": "lx1a8bc2d3",
+      "query_text": "Where should I eat downtown tonight?",
+      "response_text": "Great question! Nevada City and Grass Valley have wonderful dining options. Here are some top picks:\n\n**Nevada City:**\n- [[Tofanelli's Gold Country Bistro|tofanellis]] - Farm-to-table California cuisine on Broad Street\n- [[Cirino's at Main Street|cirinos]] - Italian comfort food, cozy atmosphere\n- [[MeZe Eatery|meze]] - Mediterranean flavors with local ingredients\n- [[Sergio's Caffe|sergios]] - Classic Italian, excellent pasta\n\n**Grass Valley:**\n- [[Watershed|watershed]] - Craft cocktails and seasonal small plates\n- [[Holbrooke Hotel|holbrooke]] - Historic hotel restaurant, Gold Rush ambiance\n- [[1849 Brewing Company|1849-brewing]] - Local brewery with pub fare\n- [[Wild Eye Pub|wild-eye]] - Gastropub with live music nights\n- [[Three Forks Bakery & Brewing Co.|three-forks]] - Artisan bread and craft beer\n- [[Friar Tuck's Restaurant|friar-tucks]] - Classic American, family-friendly\n\nFor a special evening, I'd recommend [[Lefty's Grill|leftys]] or [[Pianeta|pianeta]] in Grass Valley, or [[Moody's Bistro|moodys]] in Truckee if you're willing to drive.",
+      "intent": "dining",
+      "assets_referenced": ["Tofanelli's Gold Country Bistro", "Cirino's at Main Street", "MeZe Eatery", "Sergio's Caffe", "Watershed", "Holbrooke Hotel", "1849 Brewing Company", "Wild Eye Pub", "Three Forks Bakery & Brewing Co.", "Friar Tuck's Restaurant", "Lefty's Grill", "Pianeta", "Moody's Bistro"],
+      "duration_ms": 11665,
+      "model": "gemini-2.0-flash",
+      "query_intents": ["dining", "same_day"]
+    },
+    {
+      "id": "b2c3d4e5-f6a7-8901-bcde-f12345678901",
+      "created_at": "2026-02-16T14:45:00Z",
+      "session_hash": "lx1a8bc2d3",
+      "query_text": "Where should I eat downtown Grass Valley?",
+      "response_text": "Grass Valley's downtown has some gems! Here are my top picks:\n\n- [[Holbrooke Hotel|holbrooke]] - Historic dining in the oldest hotel in the Gold Country. Great for a date night.\n- [[Watershed|watershed]] - Craft cocktails and creative seasonal small plates. Modern vibe.\n- [[1849 Brewing Company|1849-brewing]] - Local brewery with solid pub fare and live music some nights.\n- [[Wild Eye Pub|wild-eye]] - Gastropub on Mill Street with great burgers and craft beer.\n- [[Cottonwood Restaurant|cottonwood]] - Fine dining with a view, just outside downtown on Highway 49.\n\nFor a quick bite, try [[Three Forks Bakery & Brewing Co.|three-forks]] for artisan bread and pastries. If you're looking for Italian, [[Friar Tuck's Restaurant|friar-tucks]] has been a local favorite for decades.",
+      "intent": "dining",
+      "assets_referenced": ["Holbrooke Hotel", "Watershed", "1849 Brewing Company", "Wild Eye Pub", "Cottonwood Restaurant", "Three Forks Bakery & Brewing Co.", "Friar Tuck's Restaurant"],
+      "duration_ms": 9832,
+      "model": "gemini-2.0-flash",
+      "query_intents": ["dining"]
+    }
+  ],
+  "derived": {
+    "intent_clusters": {
+      "tonight_planner": {
+        "confidence": "HIGH",
+        "evidence": [
+          "outbound:event-ticket (2)",
+          "events:date-filter=tonight (2)",
+          "chat dining queries (2)"
+        ],
+        "estimated_visitor_count": 2
+      },
+      "trip_researcher": {
+        "confidence": "HIGH",
+        "evidence": [
+          "outbound:lodging-vrbo (1)",
+          "events:date-filter=weekend (1)"
+        ],
+        "estimated_visitor_count": 1
+      },
+      "casual_browser": {
+        "confidence": "LOW",
+        "evidence": [
+          "residual visitors (2)",
+          "category:filter=Cultural Organizations (1)"
+        ],
+        "estimated_visitor_count": 2
+      }
+    },
+    "venue_attribution": [
+      {
+        "venue": "Odd Fellows Hall",
+        "city": "Nevada City",
+        "category": "Performing Arts",
+        "signals": {
+          "outbound_ticket_clicks": 2,
+          "outbound_website_clicks": 0,
+          "detail_opens": 0,
+          "marker_clicks": 0,
+          "chat_recommendations": 0,
+          "chat_click_throughs": 0
+        },
+        "attribution_score": 200,
+        "tier": 1,
+        "primary_signal": "outbound:event-ticket"
+      },
+      {
+        "venue": "Empire Mine State Historic Park",
+        "city": "Grass Valley",
+        "category": "Historic Landmarks",
+        "signals": {
+          "outbound_ticket_clicks": 0,
+          "outbound_website_clicks": 0,
+          "detail_opens": 2,
+          "marker_clicks": 1,
+          "chat_recommendations": 0,
+          "chat_click_throughs": 0
+        },
+        "attribution_score": 25,
+        "tier": 2,
+        "primary_signal": "detail:open"
+      },
+      {
+        "venue": "LeeAnn Brook Gallery",
+        "city": "Nevada City",
+        "category": "Galleries",
+        "signals": {
+          "outbound_ticket_clicks": 0,
+          "outbound_website_clicks": 0,
+          "detail_opens": 1,
+          "marker_clicks": 0,
+          "chat_recommendations": 0,
+          "chat_click_throughs": 0
+        },
+        "attribution_score": 10,
+        "tier": 2,
+        "primary_signal": "detail:open"
+      },
+      {
+        "venue": "Center for the Arts",
+        "city": "Grass Valley",
+        "category": "Performing Arts",
+        "signals": {
+          "outbound_ticket_clicks": 0,
+          "outbound_website_clicks": 0,
+          "detail_opens": 1,
+          "marker_clicks": 0,
+          "chat_recommendations": 0,
+          "chat_click_throughs": 0
+        },
+        "attribution_score": 10,
+        "tier": 2,
+        "primary_signal": "detail:open"
+      },
+      {
+        "venue": "Holbrooke Hotel",
+        "city": "Grass Valley",
+        "category": "Eat, Drink & Stay",
+        "signals": {
+          "outbound_ticket_clicks": 0,
+          "outbound_website_clicks": 0,
+          "detail_opens": 0,
+          "marker_clicks": 0,
+          "chat_recommendations": 2,
+          "chat_click_throughs": 0
+        },
+        "attribution_score": 10,
+        "tier": 2,
+        "primary_signal": "chat:recommended",
+        "note": "Score may undercount -- chatbot click-through data depends on Phase 7 instrumentation"
+      },
+      {
+        "venue": "Watershed",
+        "city": "Grass Valley",
+        "category": "Eat, Drink & Stay",
+        "signals": {
+          "outbound_ticket_clicks": 0,
+          "outbound_website_clicks": 0,
+          "detail_opens": 0,
+          "marker_clicks": 0,
+          "chat_recommendations": 2,
+          "chat_click_throughs": 0
+        },
+        "attribution_score": 10,
+        "tier": 2,
+        "primary_signal": "chat:recommended",
+        "note": "Score may undercount -- chatbot click-through data depends on Phase 7 instrumentation"
+      },
+      {
+        "venue": "1849 Brewing Company",
+        "city": "Grass Valley",
+        "category": "Eat, Drink & Stay",
+        "signals": {
+          "outbound_ticket_clicks": 0,
+          "outbound_website_clicks": 0,
+          "detail_opens": 0,
+          "marker_clicks": 0,
+          "chat_recommendations": 2,
+          "chat_click_throughs": 0
+        },
+        "attribution_score": 10,
+        "tier": 2,
+        "primary_signal": "chat:recommended",
+        "note": "Score may undercount -- chatbot click-through data depends on Phase 7 instrumentation"
+      },
+      {
+        "venue": "Wild Eye Pub",
+        "city": "Grass Valley",
+        "category": "Eat, Drink & Stay",
+        "signals": {
+          "outbound_ticket_clicks": 0,
+          "outbound_website_clicks": 0,
+          "detail_opens": 0,
+          "marker_clicks": 0,
+          "chat_recommendations": 2,
+          "chat_click_throughs": 0
+        },
+        "attribution_score": 10,
+        "tier": 2,
+        "primary_signal": "chat:recommended",
+        "note": "Score may undercount -- chatbot click-through data depends on Phase 7 instrumentation"
+      },
+      {
+        "venue": "Three Forks Bakery & Brewing Co.",
+        "city": "Grass Valley",
+        "category": "Eat, Drink & Stay",
+        "signals": {
+          "outbound_ticket_clicks": 0,
+          "outbound_website_clicks": 0,
+          "detail_opens": 0,
+          "marker_clicks": 0,
+          "chat_recommendations": 2,
+          "chat_click_throughs": 0
+        },
+        "attribution_score": 10,
+        "tier": 2,
+        "primary_signal": "chat:recommended",
+        "note": "Score may undercount -- chatbot click-through data depends on Phase 7 instrumentation"
+      },
+      {
+        "venue": "Friar Tuck's Restaurant",
+        "city": "Grass Valley",
+        "category": "Eat, Drink & Stay",
+        "signals": {
+          "outbound_ticket_clicks": 0,
+          "outbound_website_clicks": 0,
+          "detail_opens": 0,
+          "marker_clicks": 0,
+          "chat_recommendations": 2,
+          "chat_click_throughs": 0
+        },
+        "attribution_score": 10,
+        "tier": 2,
+        "primary_signal": "chat:recommended",
+        "note": "Score may undercount -- chatbot click-through data depends on Phase 7 instrumentation"
+      },
+      {
+        "venue": "Tofanelli's Gold Country Bistro",
+        "city": "Grass Valley",
+        "category": "Eat, Drink & Stay",
+        "signals": {
+          "outbound_ticket_clicks": 0,
+          "outbound_website_clicks": 0,
+          "detail_opens": 0,
+          "marker_clicks": 0,
+          "chat_recommendations": 1,
+          "chat_click_throughs": 0
+        },
+        "attribution_score": 5,
+        "tier": 3,
+        "primary_signal": "chat:recommended",
+        "note": "Score may undercount -- chatbot click-through data depends on Phase 7 instrumentation"
+      },
+      {
+        "venue": "Cirino's at Main Street",
+        "city": "Nevada City",
+        "category": "Eat, Drink & Stay",
+        "signals": {
+          "outbound_ticket_clicks": 0,
+          "outbound_website_clicks": 0,
+          "detail_opens": 0,
+          "marker_clicks": 0,
+          "chat_recommendations": 1,
+          "chat_click_throughs": 0
+        },
+        "attribution_score": 5,
+        "tier": 3,
+        "primary_signal": "chat:recommended",
+        "note": "Score may undercount -- chatbot click-through data depends on Phase 7 instrumentation"
+      },
+      {
+        "venue": "MeZe Eatery",
+        "city": "Nevada City",
+        "category": "Eat, Drink & Stay",
+        "signals": {
+          "outbound_ticket_clicks": 0,
+          "outbound_website_clicks": 0,
+          "detail_opens": 0,
+          "marker_clicks": 0,
+          "chat_recommendations": 1,
+          "chat_click_throughs": 0
+        },
+        "attribution_score": 5,
+        "tier": 3,
+        "primary_signal": "chat:recommended",
+        "note": "Score may undercount -- chatbot click-through data depends on Phase 7 instrumentation"
+      },
+      {
+        "venue": "Sergio's Caffe",
+        "city": "Nevada City",
+        "category": "Eat, Drink & Stay",
+        "signals": {
+          "outbound_ticket_clicks": 0,
+          "outbound_website_clicks": 0,
+          "detail_opens": 0,
+          "marker_clicks": 0,
+          "chat_recommendations": 1,
+          "chat_click_throughs": 0
+        },
+        "attribution_score": 5,
+        "tier": 3,
+        "primary_signal": "chat:recommended",
+        "note": "Score may undercount -- chatbot click-through data depends on Phase 7 instrumentation"
+      },
+      {
+        "venue": "Cottonwood Restaurant",
+        "city": "Grass Valley",
+        "category": "Eat, Drink & Stay",
+        "signals": {
+          "outbound_ticket_clicks": 0,
+          "outbound_website_clicks": 0,
+          "detail_opens": 0,
+          "marker_clicks": 0,
+          "chat_recommendations": 1,
+          "chat_click_throughs": 0
+        },
+        "attribution_score": 5,
+        "tier": 3,
+        "primary_signal": "chat:recommended",
+        "note": "Score may undercount -- chatbot click-through data depends on Phase 7 instrumentation"
+      },
+      {
+        "venue": "Lefty's Grill",
+        "city": "Grass Valley",
+        "category": "Eat, Drink & Stay",
+        "signals": {
+          "outbound_ticket_clicks": 0,
+          "outbound_website_clicks": 0,
+          "detail_opens": 0,
+          "marker_clicks": 0,
+          "chat_recommendations": 1,
+          "chat_click_throughs": 0
+        },
+        "attribution_score": 5,
+        "tier": 3,
+        "primary_signal": "chat:recommended",
+        "note": "Score may undercount -- chatbot click-through data depends on Phase 7 instrumentation"
+      },
+      {
+        "venue": "Pianeta",
+        "city": "Grass Valley",
+        "category": "Eat, Drink & Stay",
+        "signals": {
+          "outbound_ticket_clicks": 0,
+          "outbound_website_clicks": 0,
+          "detail_opens": 0,
+          "marker_clicks": 0,
+          "chat_recommendations": 1,
+          "chat_click_throughs": 0
+        },
+        "attribution_score": 5,
+        "tier": 3,
+        "primary_signal": "chat:recommended",
+        "note": "Score may undercount -- chatbot click-through data depends on Phase 7 instrumentation"
+      },
+      {
+        "venue": "Moody's Bistro",
+        "city": "Truckee",
+        "category": "Eat, Drink & Stay",
+        "signals": {
+          "outbound_ticket_clicks": 0,
+          "outbound_website_clicks": 0,
+          "detail_opens": 0,
+          "marker_clicks": 0,
+          "chat_recommendations": 1,
+          "chat_click_throughs": 0
+        },
+        "attribution_score": 5,
+        "tier": 3,
+        "primary_signal": "chat:recommended",
+        "note": "Score may undercount -- chatbot click-through data depends on Phase 7 instrumentation"
+      }
+    ],
+    "demand_signals": {
+      "top_categories": [
+        "Walks & Trails",
+        "Historic Landmarks",
+        "Galleries",
+        "Eat, Drink & Stay",
+        "Cultural Organizations"
+      ],
+      "top_venues_by_engagement": [
+        "Empire Mine State Historic Park",
+        "LeeAnn Brook Gallery",
+        "Center for the Arts"
+      ],
+      "top_outbound_referrals": [
+        { "venue": "Odd Fellows Hall", "clicks": 2, "type": "outbound:event-ticket" }
+      ],
+      "chatbot_topics": ["dining", "same_day"],
+      "chatbot_venue_recs": [
+        { "venue": "Holbrooke Hotel", "recommended_count": 2 },
+        { "venue": "Watershed", "recommended_count": 2 },
+        { "venue": "1849 Brewing Company", "recommended_count": 2 },
+        { "venue": "Wild Eye Pub", "recommended_count": 2 },
+        { "venue": "Three Forks Bakery & Brewing Co.", "recommended_count": 2 },
+        { "venue": "Friar Tuck's Restaurant", "recommended_count": 2 },
+        { "venue": "Tofanelli's Gold Country Bistro", "recommended_count": 1 },
+        { "venue": "Cirino's at Main Street", "recommended_count": 1 },
+        { "venue": "MeZe Eatery", "recommended_count": 1 },
+        { "venue": "Sergio's Caffe", "recommended_count": 1 },
+        { "venue": "Cottonwood Restaurant", "recommended_count": 1 },
+        { "venue": "Lefty's Grill", "recommended_count": 1 },
+        { "venue": "Pianeta", "recommended_count": 1 },
+        { "venue": "Moody's Bistro", "recommended_count": 1 }
+      ],
+      "zero_result_searches": [],
+      "notable_patterns": [
+        "Tonight-planning cluster: tonight filter (2x) + event ticket clicks to Odd Fellows Hall + 2 dining chatbot queries suggests same-day visitor activity",
+        "Trip-research cluster: weekend filter (1x) + top category interest: Walks & Trails, Historic Landmarks indicates advance planning visitors"
+      ]
+    }
+  }
+}

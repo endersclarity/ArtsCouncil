@@ -1,0 +1,170 @@
+# Nevada County Arts Council — Visitor Demand Signal Report
+
+**Report Period:** February 2026
+**Report Date:** February 17, 2026
+**Data Source:** Cultural Map analytics (Umami + AI Concierge logs)
+
+---
+
+## Executive Summary
+
+This month, **5 visitors** explored our cultural asset map, generating **68 engagement events** and **2 direct business referrals**.
+
+---
+
+## Key Metrics
+
+| Metric | Value |
+|--------|-------|
+| Total Visitors | 5 |
+| Total Page Views | 90 |
+| Avg Visit Duration | 3.2 min |
+| Bounce Rate | 10.0% |
+| Direct Business Referrals | 2 |
+
+---
+
+## What Visitors Wanted (Demand Signals)
+
+### Category Interest Ranking
+
+| Rank | Category | Filter Count |
+|------|----------|-------------|
+| 1 | Walks & Trails | 2 |
+| 2 | Historic Landmarks | 2 |
+| 3 | Galleries | 1 |
+| 4 | Eat, Drink & Stay | 1 |
+| 5 | Cultural Organizations | 1 |
+
+### Top Venues by Engagement
+
+| Rank | Venue | Detail Opens | Outbound Clicks | Score |
+|------|-------|-------------|-----------------|-------|
+| 1 | Odd Fellows Hall | 0 | 2 | 200 |
+| 2 | Empire Mine State Historic Park | 2 | 0 | 25 |
+| 3 | LeeAnn Brook Gallery | 1 | 0 | 10 |
+| 4 | Center for the Arts | 1 | 0 | 10 |
+| 5 | Holbrooke Hotel | 0 | 0 | 10 |
+| 6 | Watershed | 0 | 0 | 10 |
+| 7 | 1849 Brewing Company | 0 | 0 | 10 |
+| 8 | Wild Eye Pub | 0 | 0 | 10 |
+| 9 | Three Forks Bakery & Brewing Co. | 0 | 0 | 10 |
+| 10 | Friar Tuck's Restaurant | 0 | 0 | 10 |
+
+### Zero-Result Searches (Unmet Demand)
+
+No zero-result searches this period.
+
+---
+
+## Business Engagement Ranking
+
+**Ranked by referral signal strength** (outbound clicks = strongest):
+
+| Rank | Business | City | Category | Score | Primary Signal |
+|------|----------|------|----------|-------|---------------|
+| 1 | Odd Fellows Hall | Nevada City | Performing Arts | 200 | outbound:event-ticket |
+| 2 | Empire Mine State Historic Park | Grass Valley | Historic Landmarks | 25 | detail:open |
+| 3 | LeeAnn Brook Gallery | Nevada City | Galleries | 10 | detail:open |
+| 4 | Center for the Arts | Grass Valley | Performing Arts | 10 | detail:open |
+| 5 | Holbrooke Hotel | Grass Valley | Eat, Drink & Stay | 10 | chat:recommended |
+| 6 | Watershed | Grass Valley | Eat, Drink & Stay | 10 | chat:recommended |
+| 7 | 1849 Brewing Company | Grass Valley | Eat, Drink & Stay | 10 | chat:recommended |
+| 8 | Wild Eye Pub | Grass Valley | Eat, Drink & Stay | 10 | chat:recommended |
+| 9 | Three Forks Bakery & Brewing Co. | Grass Valley | Eat, Drink & Stay | 10 | chat:recommended |
+| 10 | Friar Tuck's Restaurant | Grass Valley | Eat, Drink & Stay | 10 | chat:recommended |
+
+**Note:** 6 venues in this ranking have chatbot recommendations but no click-through tracking. Scores may undercount actual referral value.
+
+---
+
+## AI Concierge Insights
+
+### Query Volume
+- **Total queries:** 2
+- **Avg response time:** 10,749ms
+
+### Intent Distribution
+
+| Intent | Count | % |
+|--------|-------|---|
+| dining | 2 | 66.7% |
+| same_day | 1 | 33.3% |
+
+### Top Venues Recommended by AI
+
+| Venue | Times Recommended |
+|-------|------------------|
+| Holbrooke Hotel | 2 |
+| Watershed | 2 |
+| 1849 Brewing Company | 2 |
+| Wild Eye Pub | 2 |
+| Three Forks Bakery & Brewing Co. | 2 |
+| Friar Tuck's Restaurant | 2 |
+| Tofanelli's Gold Country Bistro | 1 |
+| Cirino's at Main Street | 1 |
+| MeZe Eatery | 1 |
+| Sergio's Caffe | 1 |
+
+---
+
+## Visitor Intent Clusters
+
+### tonight_planner
+- **Confidence:** HIGH
+- **Estimated visitors:** 2
+- **Evidence:** outbound:event-ticket (2), events:date-filter=tonight (2), chat dining queries (2)
+
+### trip_researcher
+- **Confidence:** HIGH
+- **Estimated visitors:** 1
+- **Evidence:** outbound:lodging-vrbo (1), events:date-filter=weekend (1)
+
+### casual_browser
+- **Confidence:** LOW
+- **Estimated visitors:** 2
+- **Evidence:** residual visitors (2), category:filter=Cultural Organizations (1)
+
+---
+
+## Traffic Breakdown
+
+| Page | Views | % of Total |
+|------|-------|-----------|
+| /index-maplibre-hero-intent-stitch-frontend-design-pass.html | 57 | 63.3% |
+| /directory.html | 12 | 13.3% |
+| /events.html | 11 | 12.2% |
+| /itineraries.html | 10 | 11.1% |
+
+---
+
+## Feature Usage
+
+| Feature | Count |
+|---------|-------|
+| toggle:open-now | 25 |
+| toggle:events-14d | 24 |
+| category:filter | 7 |
+| detail:open | 4 |
+| marker:click | 1 |
+| outbound:event-ticket | 2 |
+| outbound:lodging-vrbo | 1 |
+| events:date-filter | 3 |
+
+---
+
+## Technical Notes
+
+### Data Collection
+- **Umami analytics:** Privacy-first, no cookies, tracks custom events via provider-agnostic wrapper
+- **Supabase chat logs:** AI concierge queries and responses with session attribution
+- **Session tracking:** session_hash property on all events enables per-visitor journey reconstruction
+
+### Known Measurement Gaps
+1. Chatbot deep link clicks: Not yet instrumented — chatbot referral value may be undercounted
+2. Session-level journeys: Umami Cloud API provides aggregate counts, not per-session event streams
+
+---
+
+*Report generated by Cultural Map analytics pipeline*
+*Next report: March 2026*
