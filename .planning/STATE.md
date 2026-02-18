@@ -10,9 +10,9 @@ See: .planning/PROJECT.md (updated 2026-02-14)
 ## Current Position
 
 Phase: 09.1-directory-audit-fixes
-Plan: 2 of 4
-Status: 09.1-02 complete (O(1) events sort, dreamboard API cleanup, getModel fix, GSAP closure fix, venue/layer data attrs on event bookmark buttons). Plan 03 (bindings.js ES5 normalization + null guards) remains.
-Last activity: 2026-02-18 -- 09.1-02 executed: dataIndexMap for O(1) events14dMode sort; getStore removed from public API; getModel re-checks global until loaded; updateBadge forEach closure fix; renderEventBookmarkButton venue/layer attrs.
+Plan: 3 of 4
+Status: 09.1-03 complete (bindings.js null guards B2, ES5 conversion S5, venue/layer data chain S1). All 4 plans in phase 09.1 now have SUMMARYs.
+Last activity: 2026-02-18 -- 09.1-03 executed: 5 getElementById null guards in bindings.js; full ES5 conversion (0 const/let/arrow); event bookmark handler reads data-event-venue/data-event-layer; events-view.js passes venue_name+category to both renderEventBookmarkButton calls.
 
 Progress: [████████████████████] 100% overall (Phase 09 in progress)
 
@@ -153,6 +153,7 @@ Progress: [████████████████████] 100% ov
 | Phase 09-directory-page-redesign P03 | 4 | 3 tasks | 2 files |
 | Phase 09.1-directory-audit-fixes P02 | 8 | 2 tasks | 3 files |
 | Phase 09.1-directory-audit-fixes P04 | 10 | 2 tasks | 4 files |
+| Phase 09.1-directory-audit-fixes P03 | 3 | 2 tasks | 2 files |
 
 ## Accumulated Context
 
@@ -293,6 +294,8 @@ Recent decisions affecting current work:
 - [Phase 09.1-02]: getModel() re-checks window.CulturalMapDreamboardModel each call until model.hasPlace truthy
 - [Phase 09.1-02]: renderEventBookmarkButton venue/layer params default empty string — backward compatible
 - [Phase 09.1-04]: map-section--collapsed uses display:none !important in design-pass CSS; isMobile check at map init time not resize listener; HTML entity &#8230; for ellipsis in HTML attributes
+- [Phase 09.1-03]: B2 and S5 combined into Task 1 since both touch only bindings.js — one commit, two fixes
+- [Phase 09.1-03]: event.venue_name || event.location used as venue fallback in events-view.js renderEventBookmarkButton calls
 
 ### Roadmap Evolution
 
@@ -361,6 +364,6 @@ Research artifacts outside the phase directory structure. Consult these when pla
 ## Session Continuity
 
 Last session: 2026-02-18
-Stopped at: Completed 09.1-04-PLAN.md (mobile responsive polish: hub map toggle B4, placeholder fix S10, detail panel width S11, nav wrap S12, city pills S13, mobile zoom S14). Phase 09.1 all 4 plans executed.
+Stopped at: Completed 09.1-03-PLAN.md (bindings.js null guards B2, ES5 conversion S5, venue/layer data chain S1). Phase 09.1 all 4 plans now have SUMMARYs.
 Resume with: Phase 09.1 complete. Run /gsd:execute-phase 07 to continue with 07-03-PLAN.md (committee report template) or start a new phase.
-Key artifacts: .planning/phases/09.1-directory-audit-fixes/09.1-04-SUMMARY.md, website/cultural-map-redesign-stitch-lab/index-maplibre-hero-intent-stitch-frontend-design-pass.html, website/cultural-map-redesign-stitch-lab/index-maplibre-map-init-model.js
+Key artifacts: .planning/phases/09.1-directory-audit-fixes/09.1-03-SUMMARY.md, website/cultural-map-redesign-stitch-lab/index-maplibre-bindings.js, website/cultural-map-redesign-stitch-lab/index-maplibre-events-view.js
