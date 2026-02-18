@@ -9,10 +9,10 @@ See: .planning/PROJECT.md (updated 2026-02-14)
 
 ## Current Position
 
-Phase: Post-01.1 — demo-critical todo sprint
-Plan: N/A (between phases)
-Status: All planned phases (01.1 through 06.1) COMPLETE. 15 todos pending, 4 research briefs ready.
-Last activity: 2026-02-17 -- Quick task 2: Tonight filter chip added to events section.
+Phase: 08-ai-trip-builder
+Plan: 1 of 4 COMPLETE
+Status: Plan 08-01 complete (dream board model + bookmark icons). 3 plans remaining in phase 08.
+Last activity: 2026-02-18 -- Phase 08 Plan 01: Dream board localStorage model and bookmark icons across all surfaces.
 
 Progress: [██████████████████░░] 90% overall
 
@@ -217,27 +217,51 @@ Recent decisions affecting current work:
 - [Phase 2.2]: Tag/source filter values use prefix dispatch (tag:live-music, source:kvmr) in shared dropdown with optgroup sections
 - [Phase 2.2]: normalizeEventCategoryFilter passes through tag:/source: prefixed values without normalization
 - [Phase 2.2]: Community ingest in CI uses temp file for Google credentials (/tmp/gsa.json) with cleanup
+- [Phase 8]: Dream board localStorage key: 'ncac-dreamboard', schema: { version: 1, places: [...], events: [...] }
+- [Phase 8]: 30-item hard limit across places + events combined
+- [Phase 8]: Event bookmarks keyed by title+date combo for dedup
+- [Phase 8]: Bookmark button CSS injected via injectCSS() pattern (same as itinerary-view.js)
+- [Phase 8]: Undo in toast uses model re-add/re-remove (no localStorage snapshot rollback)
+- [Phase 8]: Bookmark delegation: body-level click handlers for .bookmark-btn and .event-bookmark-btn
 
 ### Roadmap Evolution
 
 - Phase 02.1 inserted after Phase 2: KVMR + GVDA Event Source Ingestion (URGENT) — Mardi Gras and other major events missing from all 3 existing sources. KVMR iCal + GVDA Trumba JSON add broadest community coverage before Wed demo.
 - Phase 06.1 inserted after Phase 6: Deep Analytics Instrumentation (URGENT) — Phase 6 covers basic interaction tracking but misses scroll depth, marker clicks, detail dwell time, itinerary engagement, and outbound click attribution. Adding these before Wednesday demo so first real traffic produces a rich story.
 - Phase 03.1 inserted after Phase 3: Content Architecture & Demo Curation (URGENT) — Site has all plumbing (events, itineraries, chat, analytics) but content architecture and curation not demo-ready. Need to define single-page progressive disclosure vs. multi-page, curate featured content showing aggregation value (Stardust Station, Local Adventure Mama gaps), and structure demo experience for Wednesday committee presentation.
+- Phase 9 added: Directory Page Polish — 26-item audit from 3-agent team review (UX analyst, visual design critic, functional QA). Covers header rebuild, sidebar redesign, stubbed hours/events features, interaction bugs, mobile UX fixes.
 - Phase 02.2 inserted after Phase 02.1: Live Music & Venue Event Ingestion — Nevada County's live music scene is invisible on the site. 4 venues missing from asset data entirely (Bodhi Hive, Stardust Station, The Unchurch, The Fern), 2 existing venues have almost no events flowing (Crazy Horse, Golden Era). Ol' Republic permanently closed. Research via Perplexity identified 3 tiers: iCal (Crazy Horse), HTML scraping (Golden Era, Bodhi Hive, The Fern), community submission form (Stardust Station, The Unchurch). Also creates Live Music category/tag system and absorbs 4 related event todos.
 
 ### Pending Todos
 
-17 todos in `.planning/todos/pending/`.
+15 todos in `.planning/todos/pending/`. Restructured by phase absorption (from GSD Framework Audit, 2026-02-18):
 
-#### Pre-Research Available
+#### Absorbed by Phases (will be addressed during phase execution)
 
-4 research briefs in `.planning/todo-research/`:
-- `events-ux-brief.md` — Tonight filter (HIGH, 30min), Joss Stone dedup (LOW, 10min), event images (ALREADY DONE)
-- `navigation-brief.md` — Deep link bookmarks (CRITICAL, verify-only), localStorage favorites (MEDIUM, 3-4hr), homepage reorder (MEDIUM, 1hr)
-- `demo-prep-brief.md` — Analytics mockup report (HIGH, new HTML page), visual consistency sweep (LOW, 25 lines), itinerary "Show on Map" UX (LOW, 35 lines)
-- `content-arch-brief.md` — Split-pane directory (LOW, defer to Phase 07), trip builder (HIGH, defer to Phase 08)
+**Phase 7 (Demand Signal Reporting):**
+- analytics-mockup-report — demo preview of reporting capability
+- demo-deep-link-bookmarks — demo script for committee presentation
 
-These briefs are GSD RESEARCH.md format — consume directly when running /gsd:plan-phase.
+**Phase 8 (AI Trip Builder):**
+- itinerary-show-on-map-ux — fix before reusing itinerary view in plan 08-04
+- vrbo-plan-your-stay — lodging as trip planning extension
+
+**Phase 9 (Directory Page Redesign):**
+- category-cards-split-pane-directory — this IS the directory redesign concept
+- directory-map-hover-tooltips-missing-on-nearby-markers — directory map bug
+- directory-page-card-expansion-and-deep-linking — directory interaction feature
+- deduplicate-same-category-entries-in-data-json — data quality: 3 duplicate assets
+- fix-3-assets-with-incorrect-map-coordinates — data quality: 3 coordinate anomalies
+
+#### Standalone (Critical Path)
+- visual-consistency-sweep — magazine CSS conflicts, blocks polish
+- homepage-section-reorder — post-01.1 hierarchy fix (pitch first, tools second)
+
+#### Deferred (Research / Strategic — no current phase)
+- mindtrip-gap-analysis — competitive research, informs post-MVP roadmap
+- two-mode-architecture — strategic architecture decision, post-MVP
+- equity-data-audit — community listening required, post-MVP
+- career-pathways-section — new content vertical, post-MVP
 
 ### Ad-Hoc Research
 
@@ -248,32 +272,11 @@ Research artifacts outside the phase directory structure. Consult these when pla
 | `.planning/todo-research/events-ux-brief.md` | Tonight filter spec, Joss Stone dedup root cause, event images (already done) | Planning any events module work |
 | `.planning/todo-research/navigation-brief.md` | 25+ demo deep link URLs, favorites module design, homepage reorder spec | Planning navigation/deep link/favorites work |
 | `.planning/todo-research/demo-prep-brief.md` | Analytics mockup data points, CSS conflict audit, itinerary "Show on Map" spec | Planning analytics mockup or itinerary UX |
-| `.planning/todo-research/content-arch-brief.md` | Split-pane directory design, trip builder data model + architecture | Planning explore redesign or trip builder (Phase 07-08) |
+| `.planning/todo-research/content-arch-brief.md` | Split-pane directory design, trip builder data model + architecture | Planning Phase 09 (Directory Redesign) or Phase 08 |
+| `.planning/brainstorm/trip-builder/` | 4-agent brainstorm: UX flows, technical architecture, competitive analysis, editorial design | Planning Phase 08 (AI Trip Builder) |
 | `.planning/todo-research/audit-*.md` | GSD process audit: expectations, actual state, recommendations | Understanding organizational decisions |
 | `.planning/roundtable/` | 6-part stakeholder roundtable simulation (tourist, local, committee, editor, advocate, synthesis) | Understanding committee priorities and demo strategy |
 | `.planning/analysis/` | UX audit, tech feasibility, competitive gap, demo strategy, prioritized action plan | Understanding pre-01.1 design decisions |
-
-#### Demo-Critical (Wave 2 — before Feb 18)
-1. Deep link bookmark cheat sheet (verify + document, no code)
-2. "Tonight" prominent filter (4 files, ~22 lines)
-3. Analytics mockup report (new standalone HTML, ~350 lines)
-
-#### Quick Wins (Wave 3)
-4. Joss Stone dedup (1 file, ~5 lines in merge_events.py)
-5. Homepage section reorder (HTML-only, move map section up)
-6. Visual consistency sweep (CSS cleanup, ~25 lines)
-
-#### Feature Development (Wave 4)
-7. localStorage favorites (new module + 5 file touches, ~260 lines)
-8. Itinerary "Show on Map" UX (2 files, ~35 lines)
-9. Event images tag expansion (1 file, ~8 lines — cosmetic only)
-
-#### Deferred (Wave 5 — post-demo)
-10. Split-pane directory → Phase 07 (2-3 sessions)
-11. In-house trip builder → Phase 08 (4-6 sessions)
-
-#### Parked (documented, no action)
-- Two-mode architecture, Equity data audit, Career pathways, VRBO integration, MindTrip gap analysis
 
 ### Blockers/Concerns
 
@@ -292,7 +295,7 @@ Research artifacts outside the phase directory structure. Consult these when pla
 
 ## Session Continuity
 
-Last session: 2026-02-17
-Stopped at: Quick task 2 complete. Tonight filter chip added. 14 todos remaining.
-Resume with: /gsd:progress (shows accurate state) or /gsd:check-todos (shows prioritized backlog)
-Key artifacts: .planning/todo-research/ (4 research briefs + 3 audit docs)
+Last session: 2026-02-18
+Stopped at: Completed 08-01-PLAN.md (dream board model + bookmark icons). Plan 08-02 (trip page) is next.
+Resume with: /gsd:execute-phase 08 (continues with plan 08-02)
+Key artifacts: .planning/todo-research/ (4 research briefs + 3 audit docs), .planning/brainstorm/trip-builder/ (4 design docs from brainstorm team), .planning/phases/08-ai-trip-builder/08-01-SUMMARY.md
