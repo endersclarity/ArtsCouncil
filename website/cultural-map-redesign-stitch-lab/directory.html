@@ -25,6 +25,22 @@
 .tooltip-event { margin-top: 0.28rem; display: inline-flex; align-items: center; gap: 0.3rem; font-size: 0.56rem; letter-spacing: 0.08em; text-transform: uppercase; color: #934512; }
 .tooltip-event::before { content: '\25F7'; font-size: 0.64rem; }
 .trip-nav-link{position:relative}.trip-badge{display:inline-flex;align-items:center;justify-content:center;background:#c8943e;color:#fff;border-radius:50%;width:18px;height:18px;font-family:"DM Sans",sans-serif;font-size:.68rem;font-weight:700;line-height:1;position:absolute;top:-6px;right:-10px}
+.directory-toast {
+  position: fixed; bottom: 1.5rem; left: 50%; transform: translateX(-50%);
+  background: var(--ink, #1a1612); color: var(--cream, #f5f0e8);
+  padding: 0.6rem 1.2rem; border-radius: 8px; font-size: 0.82rem;
+  font-family: 'DM Sans', sans-serif; z-index: 999; box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  transition: opacity 0.3s;
+}
+.directory-toast--error { background: #721c24; }
+.directory-breadcrumb {
+  display: flex; align-items: center; gap: 0.4rem; padding: 0.5rem 0;
+  font-size: 0.75rem; color: var(--ink, #1a1612); opacity: 0.7;
+  font-family: 'DM Sans', sans-serif;
+}
+.directory-breadcrumb a { color: var(--gold, #c8943e); text-decoration: none; }
+.directory-breadcrumb a:hover { text-decoration: underline; }
+.directory-breadcrumb strong { opacity: 1; font-weight: 600; }
 </style>
 <script defer src="https://cloud.umami.is/script.js" data-website-id="14ecf234-cd96-4e6c-91c2-cc27babc095d" data-domains="cultural-map-redesign-stitch-lab.vercel.app"></script>
 </head>
@@ -69,6 +85,10 @@
       <a href="trip.html" class="trip-nav-link">My Trip <span class="trip-badge" style="display:none">0</span></a>
     </nav>
   </div>
+</div>
+
+<div class="directory-toast" id="directoryToast" hidden>
+  <span class="directory-toast-text"></span>
 </div>
 
 <main class="directory-split">
@@ -618,6 +638,17 @@
     updateMapFilter();
     renderList();
 
+    // Push state for browser back/forward
+    var catUrl = new URL(window.location);
+    if (cat) {
+      catUrl.searchParams.set('cat', cat);
+      catUrl.searchParams.delete('place');
+    } else {
+      catUrl.searchParams.delete('cat');
+      catUrl.searchParams.delete('place');
+    }
+    history.pushState({ cat: cat || null, place: null }, '', catUrl);
+
     if (cat) {
       var bounds = getCategoryBounds(cat);
       if (bounds) {
@@ -675,6 +706,7 @@
 
     headerEl.querySelectorAll('.directory-filter-pill').forEach(function(pill) {
       pill.addEventListener('click', function() {
+        collapseCardImmediate();
         activeCityFilter = pill.dataset.city || '';
         headerEl.querySelectorAll('.directory-filter-pill').forEach(function(p) {
           p.classList.toggle('active', (p.dataset.city || '') === activeCityFilter);
@@ -817,19 +849,25 @@
     }, 200);
 
     // Fly map — zoom close enough to see one intersection
-    map.flyTo({
+    // Guard against pre-load race condition (deep link may trigger before map fully loads)
+    var flyOpts = {
       center: [asset.x, asset.y],
       zoom: 17,
       pitch: 50,
       bearing: -15,
       duration: 1500
-    });
+    };
+    if (map && map.loaded()) {
+      map.flyTo(flyOpts);
+    } else if (map) {
+      map.once('load', function() { map.flyTo(flyOpts); });
+    }
 
-    // Update URL
+    // Update URL with pushState for browser back/forward support
     var url = new URL(window.location);
     url.searchParams.set('cat', asset.l);
     url.searchParams.set('place', asset.n);
-    history.replaceState(null, '', url);
+    history.pushState({ cat: asset.l, place: asset.n }, '', url);
   }
 
   function collapseCard() {
@@ -852,10 +890,10 @@
 
     activeItemId = null;
 
-    // Remove place from URL
+    // Remove place from URL with pushState for browser back/forward support
     var url = new URL(window.location);
     url.searchParams.delete('place');
-    history.replaceState(null, '', url);
+    history.pushState({ cat: activeCategory || null, place: null }, '', url);
   }
 
   // Instant collapse (no animation) for when swapping to a different card
@@ -870,6 +908,23 @@
     var grid = document.getElementById('directoryResults');
     grid.classList.remove('has-expanded');
     activeItemId = null;
+  }
+
+  // === Toast Notifications ===
+  function showToast(msg, isError) {
+    var toast = document.getElementById('directoryToast');
+    if (!toast) return;
+    toast.querySelector('.directory-toast-text').textContent = msg;
+    toast.classList.toggle('directory-toast--error', !!isError);
+    toast.hidden = false;
+    if (isError) {
+      setTimeout(function() { toast.hidden = true; }, 4000);
+    }
+  }
+
+  function hideToast() {
+    var toast = document.getElementById('directoryToast');
+    if (toast) toast.hidden = true;
   }
 
   // === Click Sync: List → Map ===
@@ -887,6 +942,7 @@
 
   // === Search ===
   function onSearch() {
+    collapseCardImmediate();
     searchQuery = document.getElementById('directorySearch').value;
     listPage = 0;
 
@@ -919,6 +975,9 @@
 
   // === Init ===
   function init() {
+    // Set initial history state so popstate can restore it
+    history.replaceState({ cat: null, place: null }, '', window.location.href);
+
     loadData().then(function() {
       renderCategoryCards();
       initMap();
@@ -939,6 +998,7 @@
       var urlParams = new URLSearchParams(window.location.search);
       var urlPlace = urlParams.get('place');
       if (urlPlace) {
+        showToast('Loading ' + urlPlace + '...');
         var target = allData.find(function(d) {
           return d.n.toLowerCase() === urlPlace.toLowerCase();
         });
@@ -946,7 +1006,17 @@
           selectCategory(target.l);
           requestAnimationFrame(function() {
             expandCard(target);
+            hideToast();
+
+            // Breadcrumb for deep-linked entries
+            var breadcrumb = document.createElement('div');
+            breadcrumb.className = 'directory-breadcrumb';
+            breadcrumb.innerHTML = '<a href="directory.html">All Categories</a> <span>&rsaquo;</span> <a href="directory.html?cat=' + encodeURIComponent(target.l) + '">' + escapeHtml(target.l) + '</a> <span>&rsaquo;</span> <strong>' + escapeHtml(target.n) + '</strong>';
+            var headerArea = document.getElementById('directoryHeaderArea');
+            if (headerArea) headerArea.insertBefore(breadcrumb, headerArea.firstChild);
           });
+        } else {
+          showToast('Place "' + urlPlace + '" not found', true);
         }
       } else {
         var urlCat = urlParams.get('cat');
@@ -960,6 +1030,52 @@
           }
         }
       }
+
+      // Popstate handler — browser back/forward navigation
+      window.addEventListener('popstate', function(e) {
+        var state = e.state;
+        if (!state) {
+          // Back to initial state — show all categories
+          collapseCardImmediate();
+          activeCategory = null;
+          activeCityFilter = '';
+          searchQuery = '';
+          document.getElementById('directorySearch').value = '';
+          document.getElementById('directoryCatGrid').style.display = '';
+          document.getElementById('directoryExpandedView').style.display = 'none';
+          updateMapFilter();
+          map.flyTo({ center: MAP_CENTER, zoom: MAP_ZOOM, pitch: 35, bearing: -15, duration: 800 });
+          return;
+        }
+
+        collapseCardImmediate();
+
+        if (state.cat && state.cat !== activeCategory) {
+          activeCategory = state.cat;
+          activeCityFilter = '';
+          listPage = 0;
+          document.getElementById('directoryCatGrid').style.display = 'none';
+          document.getElementById('directoryExpandedView').style.display = '';
+          buildHeaderAndFilters(state.cat);
+          updateMapFilter();
+          renderList();
+        } else if (!state.cat) {
+          activeCategory = null;
+          activeCityFilter = '';
+          document.getElementById('directoryCatGrid').style.display = '';
+          document.getElementById('directoryExpandedView').style.display = 'none';
+          updateMapFilter();
+        }
+
+        if (state.place) {
+          var target = allData.find(function(d) {
+            return d.n.toLowerCase() === state.place.toLowerCase();
+          });
+          if (target) {
+            requestAnimationFrame(function() { expandCard(target); });
+          }
+        }
+      });
 
       // Initialize hamburger/search toggle from photo-carousel module
       if (window.CulturalMapPhotoCarousel && window.CulturalMapPhotoCarousel.init) {
