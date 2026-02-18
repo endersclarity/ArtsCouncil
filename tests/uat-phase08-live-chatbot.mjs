@@ -93,7 +93,7 @@ test('T16-A: FAB opens chat panel', async ({ page }) => {
 
   // Panel should be open, welcome message visible
   await expect(page.locator('#chatPanel.chat-panel--open')).toBeVisible({ timeout: 3_000 });
-  await expect(page.locator('.chat-welcome')).toBeVisible();
+  await expect(page.locator('.chat-msg--bot.chat-welcome').first()).toBeVisible();
 });
 
 // ─────────────────────────────────────────────────────────────────────────────
@@ -136,15 +136,22 @@ test('T16-C/D/E + T17: Gemini 1-day plan → itinerary card → trip.html + anal
   await expect(page.locator('.chat-msg--user')).toBeVisible({ timeout: 5_000 });
   await expect(page.locator('.chat-typing-wrapper')).toBeVisible({ timeout: 8_000 });
 
-  // Wait for Gemini to finish (typing indicator disappears)
-  await expect(page.locator('.chat-typing-wrapper')).not.toBeVisible({ timeout: 60_000 });
+  // Wait for Gemini to finish (typing indicator disappears) — up to 75s
+  await expect(page.locator('.chat-typing-wrapper')).not.toBeVisible({ timeout: 75_000 });
+
+  // Short settle wait for DOM to update after typing stops
+  await page.waitForTimeout(1500);
 
   // ── T16-D ──────────────────────────────────────────────────────────────────
   // Bot message present
   await expect(page.locator('.chat-msg--bot').last()).toBeVisible({ timeout: 5_000 });
 
+  // Diagnostic: capture what Gemini actually returned (helps debug if itin-card missing)
+  const botText = await page.locator('.chat-msg--bot').last().textContent().catch(() => '(could not read)');
+  console.log('[T16-D] Last bot message (first 300 chars):', botText?.slice(0, 300));
+
   // Itinerary card rendered from {{ITINERARY}} block
-  await expect(page.locator('.chat-itin-card')).toBeVisible({ timeout: 5_000 });
+  await expect(page.locator('.chat-itin-card')).toBeVisible({ timeout: 8_000 });
 
   // Title is non-empty
   const title = await page.locator('.chat-itin-title').textContent();
