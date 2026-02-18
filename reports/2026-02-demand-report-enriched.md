@@ -1,6 +1,6 @@
 # Nevada County Arts Council — Visitor Demand Signal Report
 
-**Report Period:** February 2026
+**Report Period:** February 16–18, 2026 (first 3 days of live analytics)
 **Report Date:** February 18, 2026
 **Data Source:** Cultural Map analytics (Umami + AI Concierge logs)
 
@@ -8,9 +8,9 @@
 
 ## Executive Summary
 
-In the final two weeks of February, **5 visitors** explored our cultural asset map, generating **73 engagement events** and **2 direct business referrals**. The platform revealed clear patterns in what visitors are looking for: **dining recommendations are the #1 chatbot use case**, **events with clear ticket paths drive conversions**, and **out-of-town visitors are actively using the map to plan multi-day trips**.
+In the first three days of live analytics (February 16–18), **5 visitors** explored our cultural asset map, generating **73 engagement events** and **2 direct business referrals**. The platform revealed clear patterns in what visitors are looking for: **dining recommendations are the #1 chatbot use case**, **events with clear ticket paths drive conversions**, and **out-of-town visitors are actively using the map to plan multi-day trips**.
 
-**Bottom line:** Our smallest sample size to date, but the highest-quality signals. Every visitor who spent more than 3 minutes on the site generated measurable intent data.
+**Bottom line:** Three days of data, but the highest-quality signals we could have hoped for. Every visitor who spent more than 3 minutes on the site generated measurable intent data.
 
 ---
 
@@ -157,11 +157,11 @@ Four signal-rich patterns emerged from this period's visitor journeys:
 
 ## Traffic Breakdown
 
-| Date | Views | % of Total |
-|------|-------|-----------|
-| 2026-02-18 | 64 | 67.4% |
-| 2026-02-17 | 26 | 27.4% |
-| 2026-02-16 | 5 | 5.3% |
+| Date | Views | % of Total | Note |
+|------|-------|-----------|------|
+| Feb 18, 2026 | 64 | 67.4% | Report generated this day |
+| Feb 17, 2026 | 26 | 27.4% | |
+| Feb 16, 2026 | 5 | 5.3% | First day of live analytics |
 
 ---
 
