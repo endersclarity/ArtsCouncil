@@ -87,7 +87,7 @@ Requirements for this milestone. Each maps to roadmap phases. MVP (Phases 1-5) d
 - [ ] **REPT-02**: Monthly report script pulls Supabase chatbot query logs
 - [ ] **REPT-03**: Report includes top 10 assets by detail opens and outbound clicks
 - [ ] **REPT-04**: Report includes category filter frequency ranking
-- [ ] **REPT-05**: Report includes zero-result search queries (demand signal data)
+- [x] **REPT-05**: Report includes zero-result search queries (demand signal data)
 - [ ] **REPT-06**: Report includes chatbot intent distribution (eat/see/do/stay/navigate)
 - [ ] **REPT-07**: Report output as markdown convertible to PDF for committee meetings
 - [ ] **REPT-08**: Report runnable via GitHub Actions or manual trigger
@@ -197,7 +197,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | REPT-02 | Phase 7 | Pending |
 | REPT-03 | Phase 7 | Pending |
 | REPT-04 | Phase 7 | Pending |
-| REPT-05 | Phase 7 | Pending |
+| REPT-05 | Phase 7 | Complete |
 | REPT-06 | Phase 7 | Pending |
 | REPT-07 | Phase 7 | Pending |
 | REPT-08 | Phase 7 | Pending |
