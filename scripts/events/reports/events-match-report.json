@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-02-17T07:50:30.555286+00:00",
+  "generated_at": "2026-02-18T07:49:52.554182+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 123,
-    "matched_events": 90,
-    "unmatched_events": 33,
+    "total_events": 191,
+    "matched_events": 136,
+    "unmatched_events": 55,
     "matched_by_pid": 0,
-    "matched_by_alias": 2,
-    "matched_by_name_city": 27,
-    "matched_by_name_city_fuzzy": 61,
-    "upcoming_14d": 123
+    "matched_by_alias": 17,
+    "matched_by_name_city": 35,
+    "matched_by_name_city_fuzzy": 84,
+    "upcoming_14d": 191
   },
   "unmatched_venues": [
     {
@@ -19,7 +19,7 @@
       "venue_name": "Eric Rood Center",
       "venue_city": "Nevada City",
       "count": 10,
-      "sample_event_id": "trumba-196757537",
+      "sample_event_id": "trumba-196757538",
       "sample_title": "Mobilize | Art Inspiring Activism with Wild & Scenic Film Festival Exhibition",
       "candidate_assets": []
     },
@@ -28,8 +28,8 @@
       "venue_name": "CTC Classroom",
       "venue_city": "Nevada City",
       "count": 7,
-      "sample_event_id": "libcal-LibCal-20247-16290013-20260217",
-      "sample_title": "Lunchtime Legal Seminar: Understanding Probate in California",
+      "sample_event_id": "libcal-LibCal-20247-16149486-20260218",
+      "sample_title": "Tech Drop In",
       "candidate_assets": []
     },
     {
@@ -37,8 +37,35 @@
       "venue_name": "Study Nook",
       "venue_city": "Grass Valley",
       "count": 6,
-      "sample_event_id": "libcal-LibCal-20247-15952660-20260217",
-      "sample_title": "English Language Class",
+      "sample_event_id": "libcal-LibCal-20247-15109005-20260219",
+      "sample_title": "Intermediate/Advanced English Conversation Group",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "axisgallery|nevadacounty",
+      "venue_name": "Axis Gallery",
+      "venue_city": "Nevada County",
+      "count": 4,
+      "sample_event_id": "kvmr-344167-1771588800-1771606800-20260220",
+      "sample_title": "Gardens of Huemanity at Axis Gallery",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "unknownvenue|truckee",
+      "venue_name": "Unknown venue",
+      "venue_city": "Truckee",
+      "count": 4,
+      "sample_event_id": "gvda-172588778",
+      "sample_title": "STEAM Exploration Saturdays",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "unknownvenue|grassvalley",
+      "venue_name": "Unknown venue",
+      "venue_city": "Grass Valley",
+      "count": 4,
+      "sample_event_id": "gvda-196120300",
+      "sample_title": "Community Game Day at North Star House",
       "candidate_assets": []
     },
     {
@@ -78,6 +105,87 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "unclesonnysbar|grassvalley",
+      "venue_name": "Uncle Sonny’s Bar",
+      "venue_city": "Grass Valley",
+      "count": 1,
+      "sample_event_id": "kvmr-305577-1771437600-1771444800-20260218",
+      "sample_title": "Bluegrass Jam Night at Uncle Sonny's Bar",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "bodhihive|nevadacity",
+      "venue_name": "Bodhi Hive",
+      "venue_city": "Nevada City",
+      "count": 1,
+      "sample_event_id": "kvmr-344767-1771513200-1771516800-20260219",
+      "sample_title": "Nevada County Cannabis Alliance Webinar: Using Local Policy to Scale Your Cannabis Business",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "brewbiltbrewhaus|nevadacity",
+      "venue_name": "BrewBilt BrewHaus",
+      "venue_city": "Nevada City",
+      "count": 1,
+      "sample_event_id": "gvda-196022440",
+      "sample_title": "BrewHaus Bingo",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "sansbackupplanrecordsat748zionstsuitea|nevadacity",
+      "venue_name": "Sans Backup Plan Records at 748 Zion St., Suite A",
+      "venue_city": "Nevada City",
+      "count": 1,
+      "sample_event_id": "gvda-196807325",
+      "sample_title": "Indie &amp; Dreampop Record Store Show: Living Hour, Rosemother &amp; Davia",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "sansbackupplanrecords|nevadacity",
+      "venue_name": "Sans Backup Plan Records",
+      "venue_city": "Nevada City",
+      "count": 1,
+      "sample_event_id": "kvmr-347865-1771527600-1771538400-20260219",
+      "sample_title": "Sans Backup Plan Records Live Music Event: Living Hour, Rosemother, and Davia",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "suttercreektheatre|nevadacounty",
+      "venue_name": "Sutter Creek Theatre",
+      "venue_city": "Nevada County",
+      "count": 1,
+      "sample_event_id": "kvmr-342901-1771617600-1771624800-20260220",
+      "sample_title": "Albert Cummings: Blues Guitar Pyrotechnics at Sutter Creek Theatre",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "sweetlandgardenmercantile|northsanjuan",
+      "venue_name": "Sweetland Garden Mercantile",
+      "venue_city": "North San Juan",
+      "count": 1,
+      "sample_event_id": "kvmr-345886-1771668000-1771682400-20260221",
+      "sample_title": "Fruit Tree Pruning and Organic Orchard Management Seminar",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "sammiesniftythriftshop|grassvalley",
+      "venue_name": "Sammie’s Nifty Thrift Shop",
+      "venue_city": "Grass Valley",
+      "count": 1,
+      "sample_event_id": "kvmr-344644-1771671600-1771682400-20260221",
+      "sample_title": "Nifty Adoption Day",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "innerpath|nevadacity",
+      "venue_name": "Inner Path",
+      "venue_city": "Nevada City",
+      "count": 1,
+      "sample_event_id": "kvmr-343246-1771693200-1771696800-20260221",
+      "sample_title": "Sound Blessings with Robin at Inner Path",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "membershomes|grassvalley",
       "venue_name": "Members homes",
       "venue_city": "Grass Valley",
@@ -93,6 +201,15 @@
       "count": 1,
       "sample_event_id": "trumba-118676669",
       "sample_title": "Seniors Pancake Breakfast",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "pobox1266|nevadacity",
+      "venue_name": "P.O. Box 1266",
+      "venue_city": "Nevada City",
+      "count": 1,
+      "sample_event_id": "gvda-194954756",
+      "sample_title": "Nevada City Chinese Lunar New Year Parade and Festival",
       "candidate_assets": []
     }
   ],
@@ -112,6 +229,7 @@
     "categories_seen": [
       "Performance Spaces",
       "Arts Organizations",
+      "Fairs & Festivals",
       "Galleries & Museums",
       "Cultural Resources",
       "Eat, Drink & Stay",
