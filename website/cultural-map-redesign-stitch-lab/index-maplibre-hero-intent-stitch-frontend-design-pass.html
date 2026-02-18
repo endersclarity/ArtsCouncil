@@ -13,6 +13,11 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Explore Nevada County | Galleries, Events &amp; Dining in the Sierra Foothills</title>
+<meta name="description" content="Discover Nevada County's galleries, events, dining, and trails. An interactive cultural map of Grass Valley, Nevada City, and the Sierra Foothills.">
+<meta property="og:title" content="Explore Nevada County">
+<meta property="og:description" content="Discover Nevada County's galleries, events, dining, and trails. An interactive cultural map of Grass Valley, Nevada City, and the Sierra Foothills.">
+<meta property="og:image" content="img/hero/hero-reference-nevada-city-mainstreet-bluehour-01.jpg">
+<meta property="og:type" content="website">
 <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.5.0/dist/maplibre-gl.css" />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,14 +35,14 @@
 <!-- ====== 1. TOP BAR ====== -->
 <header class="mast mast--intent" role="banner">
   <div class="mast-inner">
-    <a href="#" class="mast-brand" aria-label="Explore Nevada County homepage" translate="no">Explore Nevada County</a>
+    <a href="./" class="mast-brand" aria-label="Explore Nevada County homepage" translate="no">Explore Nevada County</a>
     <nav class="mast-nav-desktop" aria-label="Primary">
       <a href="events.html">Events</a>
       <a href="itineraries.html">Itineraries</a>
       <a href="directory.html">Directory</a>
       <a href="#mapSection" data-nav-action="expand-map">Map</a>
       <a href="#muse" translate="no">MUSE</a>
-      <a href="qr-gallery.html" style="color:var(--gold)">QR Demo</a>
+      <a href="qr-gallery.html">QR Demo</a>
       <a href="trip.html" class="trip-nav-link">My Trip <span class="trip-badge" style="display:none">0</span></a>
     </nav>
     <div class="mast-actions">
@@ -81,7 +86,7 @@
           <a href="qr-gallery.html">QR Demo Flyers</a>
         </div>
       </details>
-      <a href="#exploreSection">Directory</a>
+      <a href="#exploreSection">Explore list</a>
       <a href="https://www.nevadacountyarts.org" target="_blank" rel="noopener">About / Contact</a>
     </nav>
   </div>
@@ -98,7 +103,7 @@
       <div class="hero-photo-frame">
         <div class="cover-bg-wrap">
           <div class="hero-carousel">
-            <img class="cover-bg hero-slide hero-slide--active" src="img/hero/hero-reference-nevada-city-mainstreet-bluehour-01.jpg" alt="" loading="eager">
+            <img class="cover-bg hero-slide hero-slide--active" src="img/hero/hero-reference-nevada-city-mainstreet-bluehour-01.jpg" alt="Historic downtown Nevada City at blue hour, Broad Street storefronts lit warm" loading="eager">
             <img class="cover-bg hero-slide" src="img/hero/hero-reference-deloro-plaza-community-dining-01.jpg" alt="" loading="lazy">
             <img class="cover-bg hero-slide" src="img/hero/hero-reference-sharex-20260216-172644-landscape.jpg" alt="" loading="lazy">
             <img class="cover-bg hero-slide" src="img/hero/hero-reference-sharex-20260216-172708-landscape.jpg" alt="" loading="lazy">
@@ -136,37 +141,65 @@
     <h2>Two Gold Rush downtowns, reimagined for a new generation</h2>
   </div>
   <div class="district-spread-grid">
-    <article class="district-feature-card">
+    <article class="district-feature-card district-feature-card--ar-landscape" role="button" tabindex="0" data-intent="atmosphere">
       <figure>
         <img src="img/hero/hero-reference-sharex-20260216-173137-landscape.jpg" alt="Twilight string lights above a historic downtown street">
       </figure>
       <p class="district-feature-label">Atmosphere</p>
       <h3>The plaza after dark</h3>
       <p>String lights, warm storefront glow, and evening rituals that make downtown feel like a shared living room.</p>
+      <div class="district-card-expansion" aria-hidden="true" hidden>
+        <div class="district-card-subcats" role="list"></div>
+        <a class="district-card-explore-btn" href="directory.html">
+          Explore Further
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
     </article>
-    <article class="district-feature-card district-feature-card--offset">
+    <article class="district-feature-card district-feature-card--offset district-feature-card--ar-portrait" role="button" tabindex="0" data-intent="commerce">
       <figure>
         <img src="img/hero/hero-reference-sharex-20260216-172827-portrait.jpg" alt="Independent storefronts and local businesses in Nevada County">
       </figure>
       <p class="district-feature-label">Commerce</p>
       <h3>Found, not franchised</h3>
       <p>Independent shops and makers define the district, with local stories behind every shelf and window display.</p>
+      <div class="district-card-expansion" aria-hidden="true" hidden>
+        <div class="district-card-subcats" role="list"></div>
+        <a class="district-card-explore-btn" href="directory.html">
+          Explore Further
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
     </article>
-    <article class="district-feature-card">
+    <article class="district-feature-card district-feature-card--ar-landscape" role="button" tabindex="0" data-intent="culture">
       <figure>
         <img src="img/hero/hero-reference-nevada-city-rainy-night-bw-01.png" alt="Historic theater district at night with lit facades">
       </figure>
       <p class="district-feature-label">Culture</p>
       <h3>A stage for every story</h3>
       <p>Historic stages, galleries, and late-night venues keep tradition and experimentation in active conversation.</p>
+      <div class="district-card-expansion" aria-hidden="true" hidden>
+        <div class="district-card-subcats" role="list"></div>
+        <a class="district-card-explore-btn" href="directory.html">
+          Explore Further
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
     </article>
-    <article class="district-feature-card district-feature-card--offset">
+    <article class="district-feature-card district-feature-card--offset district-feature-card--ar-landscape" role="button" tabindex="0" data-intent="community">
       <figure>
         <img src="img/hero/hero-reference-deloro-plaza-community-dining-01.jpg" alt="Community table and dining scene in historic downtown">
       </figure>
       <p class="district-feature-label">Community</p>
       <h3>Pull up a chair</h3>
       <p>Shared tables, local food, and neighborhood rituals invite visitors to linger and participate, not just pass through.</p>
+      <div class="district-card-expansion" aria-hidden="true" hidden>
+        <div class="district-card-subcats" role="list"></div>
+        <a class="district-card-explore-btn" href="directory.html">
+          Explore Further
+          <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
     </article>
   </div>
   <blockquote class="district-spread-quote">
@@ -394,6 +427,12 @@
   </div>
 </section>
 
+<!-- ====== MAP SECTION INTRO ====== -->
+<div class="map-section-intro">
+  <h2 class="map-section-heading">Explore the Map</h2>
+  <p class="map-section-desc">Every venue, trail, gallery, and stage — all in one place.</p>
+</div>
+
 <!-- ====== BOTTOM MAP SECTION ====== -->
 <section class="map-bottom-section" id="mapSection" aria-label="Interactive map and filters">
   <div class="map-column">
@@ -427,45 +466,24 @@
             </button>
             <div class="map-legend-panel" id="mapLegendPanel"></div>
           </div>
-        </div>
-        <div class="corridor-panel" id="corridorPanel"></div>
-      </div>
-      <div class="map-addons" id="mapAddons">
-        <details class="map-guides" id="mapGuides">
-          <summary>
-            <h3 class="section-header">Routes &amp; Experiences</h3>
-            <span class="map-addon-summary-right">
-              <span class="map-addon-count" id="mapGuidesCount">0 guides</span>
-              <span class="map-addon-caret">&#9662;</span>
-            </span>
-          </summary>
-          <div class="map-guides-body">
-            <details class="map-subaddon" id="corridorAddon">
-              <summary>
-                <h3 class="section-header">Heritage Corridors</h3>
-                <span class="map-addon-summary-right">
-                  <span class="map-addon-count" id="corridorAddonCount">0 routes</span>
-                  <span class="map-addon-caret">&#9662;</span>
-                </span>
-              </summary>
-              <div class="map-addon-body">
+          <div class="map-overlay-routes">
+            <button class="map-routes-toggle" id="mapRoutesToggle" type="button" aria-expanded="false" aria-controls="mapRoutesPanel">
+              <span class="map-routes-dot" aria-hidden="true"></span>
+              <span>Routes</span>
+            </button>
+            <div class="map-routes-panel" id="mapRoutesPanel">
+              <div class="map-routes-section">
+                <div class="map-routes-label">Heritage Corridors</div>
                 <div class="corridor-cards" id="corridorCards"></div>
               </div>
-            </details>
-            <details class="map-subaddon" id="experienceAddon">
-              <summary>
-                <h3 class="section-header">Experiences</h3>
-                <span class="map-addon-summary-right">
-                  <span class="map-addon-count" id="experienceAddonCount">0 routes</span>
-                  <span class="map-addon-caret">&#9662;</span>
-                </span>
-              </summary>
-              <div class="map-addon-body">
+              <div class="map-routes-section">
+                <div class="map-routes-label">Experiences</div>
                 <div class="experience-cards" id="experienceCards"></div>
               </div>
-            </details>
+            </div>
           </div>
-        </details>
+        </div>
+        <div class="corridor-panel" id="corridorPanel"></div>
       </div>
     </div>
   </div>
@@ -658,27 +676,7 @@
   });
 </script>
 
-<!-- ====== DISTRICT INTENT MODAL ====== -->
-<div class="intent-modal-backdrop" id="intentModalBackdrop" aria-hidden="true" hidden></div>
-<div class="intent-modal" id="intentModal" role="dialog" aria-modal="true" aria-labelledby="intentModalTitle" hidden>
-  <div class="intent-modal-inner">
-    <button class="intent-modal-close" id="intentModalClose" type="button" aria-label="Close">
-      <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-        <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
-      </svg>
-    </button>
-    <p class="intent-modal-kicker" id="intentModalKicker"></p>
-    <h2 class="intent-modal-title" id="intentModalTitle"></h2>
-    <div class="intent-modal-grid" id="intentModalGrid"></div>
-    <a class="intent-modal-explore-btn" id="intentModalExploreBtn" href="directory.html">
-      Explore Further
-      <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
-        <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
-      </svg>
-    </a>
-  </div>
-</div>
-
+<!-- ====== DISTRICT CARD INLINE EXPANSION ====== -->
 <script>
 (function() {
   'use strict';
@@ -687,97 +685,98 @@
   var INTENT_SUBCATEGORIES = config.INTENT_SUBCATEGORIES || {};
   var INTENT_META = config.INTENT_META || {};
 
-  var modal    = document.getElementById('intentModal');
-  var backdrop = document.getElementById('intentModalBackdrop');
-  var closeBtn = document.getElementById('intentModalClose');
-  var grid     = document.getElementById('intentModalGrid');
-  var kicker   = document.getElementById('intentModalKicker');
-  var title    = document.getElementById('intentModalTitle');
-  var exploreBtn = document.getElementById('intentModalExploreBtn');
+  var activeCard = null;
 
-  var lastFocused = null;
-
-  function escapeHtml(str) {
-    return String(str)
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;');
+  function escapeHtml(s) {
+    return String(s)
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
   }
 
-  function openModal(intentKey) {
-    var meta = INTENT_META[intentKey] || {};
+  function collapseCard(card) {
+    if (!card) return;
+    card.classList.remove('district-feature-card--active');
+    card.setAttribute('aria-expanded', 'false');
+    var exp = card.querySelector('.district-card-expansion');
+    if (exp) { exp.setAttribute('aria-hidden', 'true'); exp.hidden = true; }
+  }
+
+  function expandCard(card, intentKey) {
     var subs = INTENT_SUBCATEGORIES[intentKey] || [];
 
-    kicker.textContent = meta.label || intentKey;
-    title.textContent  = meta.subhead || '';
-    exploreBtn.href    = 'directory.html?intent=' + encodeURIComponent(intentKey);
-
-    grid.innerHTML = '';
-    subs.forEach(function(sub) {
+    var subcatsEl = card.querySelector('.district-card-subcats');
+    subcatsEl.innerHTML = '';
+    subs.forEach(function(sub, i) {
       var a = document.createElement('a');
-      a.className = 'intent-modal-subcat';
+      a.className = 'district-card-subcat';
       a.href = 'directory.html?cat=' + encodeURIComponent(sub.cat);
+      a.setAttribute('role', 'listitem');
+      a.style.animationDelay = (i * 0.07) + 's';
       a.innerHTML =
-        '<span class="intent-subcat-label">' + escapeHtml(sub.label) + '</span>' +
-        '<span class="intent-subcat-meta">' + escapeHtml(sub.cat) + '</span>';
-      grid.appendChild(a);
+        '<span class="district-subcat-label">' + escapeHtml(sub.label) + '</span>' +
+        '<span class="district-subcat-meta">' + escapeHtml(sub.cat) + '</span>';
+      subcatsEl.appendChild(a);
     });
 
-    lastFocused = document.activeElement;
-    modal.hidden    = false;
-    backdrop.hidden = false;
-    modal.removeAttribute('aria-hidden');
-    backdrop.removeAttribute('aria-hidden');
-    document.body.style.overflow = 'hidden';
-    closeBtn.focus();
+    var exploreBtn = card.querySelector('.district-card-explore-btn');
+    if (exploreBtn) exploreBtn.href = 'directory.html?intent=' + encodeURIComponent(intentKey);
+
+    var exp = card.querySelector('.district-card-expansion');
+    if (exp) { exp.removeAttribute('aria-hidden'); exp.hidden = false; }
+    card.classList.add('district-feature-card--active');
+    card.setAttribute('aria-expanded', 'true');
   }
 
-  function closeModal() {
-    modal.hidden    = true;
-    backdrop.hidden = true;
-    modal.setAttribute('aria-hidden', 'true');
-    backdrop.setAttribute('aria-hidden', 'true');
-    document.body.style.overflow = '';
-    if (lastFocused) lastFocused.focus();
+  function handleCardClick(card, intentKey) {
+    var isActive = card.classList.contains('district-feature-card--active');
+    var allCards = Array.prototype.slice.call(
+      document.querySelectorAll('.district-feature-card')
+    );
+
+    if (activeCard) collapseCard(activeCard);
+    allCards.forEach(function(c) { c.classList.remove('district-feature-card--dimmed'); });
+
+    if (isActive) {
+      activeCard = null;
+      return;
+    }
+
+    expandCard(card, intentKey);
+    activeCard = card;
+    allCards.forEach(function(c) {
+      if (c !== card) c.classList.add('district-feature-card--dimmed');
+    });
   }
 
-  // Wire district cards
   var cards = document.querySelectorAll('.district-feature-card');
   Array.prototype.forEach.call(cards, function(card) {
-    var labelEl = card.querySelector('.district-feature-label');
-    if (!labelEl) return;
-    var intentKey = labelEl.textContent.trim().toLowerCase();
+    var intentKey = card.dataset.intent;
+    if (!intentKey) return;
 
     card.setAttribute('role', 'button');
     card.setAttribute('tabindex', '0');
-    card.style.cursor = 'pointer';
+    card.setAttribute('aria-expanded', 'false');
 
-    card.addEventListener('click', function() { openModal(intentKey); });
+    card.addEventListener('click', function(e) {
+      if (e.target.closest && e.target.closest('a[href]') &&
+          e.target.closest('.district-card-expansion')) return;
+      handleCardClick(card, intentKey);
+    });
     card.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); openModal(intentKey); }
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        handleCardClick(card, intentKey);
+      }
     });
   });
 
-  closeBtn.addEventListener('click', closeModal);
-  backdrop.addEventListener('click', closeModal);
-
   document.addEventListener('keydown', function(e) {
-    if (e.key === 'Escape' && !modal.hidden) closeModal();
-  });
-
-  modal.addEventListener('keydown', function(e) {
-    if (e.key !== 'Tab') return;
-    var focusable = Array.prototype.slice.call(
-      modal.querySelectorAll('a[href], button:not([disabled]), [tabindex="0"]')
-    );
-    if (!focusable.length) return;
-    var first = focusable[0];
-    var last  = focusable[focusable.length - 1];
-    if (e.shiftKey) {
-      if (document.activeElement === first) { e.preventDefault(); last.focus(); }
-    } else {
-      if (document.activeElement === last) { e.preventDefault(); first.focus(); }
+    if (e.key === 'Escape' && activeCard) {
+      collapseCard(activeCard);
+      document.querySelectorAll('.district-feature-card').forEach(function(c) {
+        c.classList.remove('district-feature-card--dimmed');
+      });
+      activeCard = null;
     }
   });
 

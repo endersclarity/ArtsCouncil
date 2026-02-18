@@ -164,6 +164,7 @@
   let exploreController = null;
   let mapFiltersExpanded = false;
   let mapLegendExpanded = false;
+  let mapRoutesExpanded = false;
   let experienceController = null;
   let mapLabelController = null;
   let cardElements = [];
@@ -1942,6 +1943,7 @@
     const guidesCountEl = document.getElementById('mapGuidesCount');
     const corridorCountEl = document.getElementById('corridorAddonCount');
     const experienceCountEl = document.getElementById('experienceAddonCount');
+    const routesOverlay = document.querySelector('.map-overlay-routes');
     const layout = catalogView.getExperienceLayoutState(EXPERIENCES);
 
     if (!layout.hasData) {
@@ -1949,8 +1951,10 @@
       if (guidesSection) guidesSection.style.display = 'none';
       if (corridorSection) corridorSection.style.display = 'none';
       if (exploreSection) exploreSection.style.display = 'none';
+      if (routesOverlay) routesOverlay.style.display = 'none';
       return;
     }
+    if (routesOverlay) routesOverlay.style.display = '';
 
     if (corridorContainer) corridorContainer.innerHTML = '';
     if (experienceContainer) experienceContainer.innerHTML = '';
@@ -2596,6 +2600,14 @@
     if (toggle) toggle.setAttribute('aria-expanded', mapLegendExpanded ? 'true' : 'false');
   }
 
+  function setMapRoutesExpanded(expanded) {
+    mapRoutesExpanded = !!expanded;
+    const overlay = document.querySelector('.map-overlay-controls');
+    const toggle = document.getElementById('mapRoutesToggle');
+    if (overlay) overlay.classList.toggle('routes-expanded', mapRoutesExpanded);
+    if (toggle) toggle.setAttribute('aria-expanded', mapRoutesExpanded ? 'true' : 'false');
+  }
+
   function syncMapFilterToggleMeta() {
     const meta = document.getElementById('mapFilterToggleMeta');
     filterUI.syncMapFilterToggleMeta({
@@ -3132,10 +3144,12 @@
       collapseMapOverlays: () => {
         setMapFiltersExpanded(false);
         setMapLegendExpanded(false);
+        setMapRoutesExpanded(false);
       },
       markMapInteracted,
       toggleMapFiltersExpanded: () => setMapFiltersExpanded(!mapFiltersExpanded),
       toggleMapLegendExpanded: () => setMapLegendExpanded(!mapLegendExpanded),
+      toggleMapRoutesExpanded: () => setMapRoutesExpanded(!mapRoutesExpanded),
       triggerGeolocation: () => {
         if (geolocateControl && typeof geolocateControl.trigger === 'function') {
           renderGeolocationStatus('Location: locating…', 'locating');
@@ -3144,8 +3158,10 @@
       },
       getMapFiltersExpanded: () => mapFiltersExpanded,
       getMapLegendExpanded: () => mapLegendExpanded,
+      getMapRoutesExpanded: () => mapRoutesExpanded,
       setMapFiltersExpanded,
       setMapLegendExpanded,
+      setMapRoutesExpanded,
       getActiveCategoryCount: () => activeCategories.size,
       resetListPage: () => { listPage = 0; },
       incrementListPage: () => { listPage++; },

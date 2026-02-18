@@ -16,6 +16,7 @@
     var overlayControls = document.querySelector('.map-overlay-controls');
     var filterToggle = document.getElementById('mapFilterToggle');
     var legendToggle = document.getElementById('mapLegendToggle');
+    var routesToggle = document.getElementById('mapRoutesToggle');
     if (overlayControls) {
       overlayControls.addEventListener('click', function(event) { event.stopPropagation(); });
     }
@@ -31,9 +32,16 @@
         ctx.toggleMapLegendExpanded();
       });
     }
+    if (routesToggle) {
+      routesToggle.addEventListener('click', function() {
+        ctx.markMapInteracted();
+        ctx.toggleMapRoutesExpanded();
+      });
+    }
     document.addEventListener('click', function() {
       if (ctx.getMapFiltersExpanded()) ctx.setMapFiltersExpanded(false);
       if (ctx.getMapLegendExpanded()) ctx.setMapLegendExpanded(false);
+      if (ctx.getMapRoutesExpanded()) ctx.setMapRoutesExpanded(false);
     });
 
     // Track MUSE editorial card expand/collapse
