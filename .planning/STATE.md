@@ -5,16 +5,16 @@
 See: .planning/PROJECT.md (updated 2026-02-14)
 
 **Core value:** Drive people to downtowns, local businesses, performance venues, and cultural spaces through an editorial-quality interactive experience that feels like MUSE magazine.
-**Current focus:** Demo-critical todo sprint — Tonight filter, deep link bookmarks, analytics mockup. Deadline Wed Feb 18 noon.
+**Current focus:** Post-committee sprint complete. No active phase. Next: new milestone planning.
 
 ## Current Position
 
-Phase: 09.1-directory-audit-fixes
-Plan: 3 of 4
-Status: 09.1-03 complete (bindings.js null guards B2, ES5 conversion S5, venue/layer data chain S1). All 4 plans in phase 09.1 now have SUMMARYs.
-Last activity: 2026-02-18 -- 09.1-03 executed: 5 getElementById null guards in bindings.js; full ES5 conversion (0 const/let/arrow); event bookmark handler reads data-event-venue/data-event-layer; events-view.js passes venue_name+category to both renderEventBookmarkButton calls.
+Phase: No active phase — all GSD phases complete
+Plan: N/A
+Status: Tier1 post-roundtable sprint complete (6/6 tasks). Phases 7, 9, 09.1 all fully executed. Stitch-lab deployed (commit 5fec226).
+Last activity: 2026-02-18 -- Tier1 sprint wrap: verified dreamboard (29/29 checks pass) + email capture (form + module + validation), committed index-maplibre-email-capture.js + vercel.json, deployed to stitch-lab Vercel.
 
-Progress: [████████████████████] 100% overall (Phase 09 in progress)
+Progress: [████████████████████] 100% overall (all planned phases complete)
 
 ## What's Actually Shipped
 
@@ -90,6 +90,22 @@ Progress: [████████████████████] 100% ov
 - 08-03: Chatbot trip planning mode with {{ITINERARY}} block parser, dream board context injection, trip style cards, ?chat=trip deep link
 - 08-04: Finalized itinerary rendering with resolved stops + calendar export, share trip via URL (base64), deep link for shared trips, 7 analytics events
 - Complete pipeline: bookmark -> dream board -> AI concierge -> itinerary -> map route -> share
+
+### Phase 7: Demand Signal Reporting (100%)
+- 3/3 plans complete
+- 07-01: session_hash on all analytics events (sessionStorage-based, per-tab), chat:deeplink-click instrumentation in chat-view.js, explore:search alongside existing search:query
+- 07-02: Zero-dependency pipeline script (native fetch, --env-file), Supabase + Umami data pull, intent classification (7-type taxonomy), venue attribution (4-tier scoring, top 20), monthly GitHub Actions cron
+- 07-03: Monthly committee report template (Pandoc markdown→PDF), 401 token refresh instructions
+- Umami Cloud constraint documented: no service account API key, Bearer token expires quarterly
+
+### Tier1 Post-Roundtable Sprint (100%)
+- 6/6 tasks complete (commits dedfb63, 607a8db, 4ba70a3, 5fec226)
+- T1: Sticky nav, uniform mast across all sub-pages
+- T2: District intent modal + Playwright tests
+- T3: Map/interactions polish + vercel.json redirects
+- T4: index-maplibre-email-capture.js IIFE — "Your Weekly Pulse" newsletter signup with interest grid
+- T5: Dreamboard verification (29/29 playwright checks pass)
+- T6: Email capture verification + commit + deploy to stitch-lab Vercel
 
 ### Phase 01.1: Demo Visual Polish (100%)
 - 3/3 plans complete (01.1-01: hero/top bar, 01.1-02: AI style cards/deep links, 01.1-03: footer/polish)
@@ -348,10 +364,11 @@ Research artifacts outside the phase directory structure. Consult these when pla
 ### Blockers/Concerns
 
 - ~~MAP DOES NOT RENDER~~ RESOLVED (commit `48a9486`)
-- **Wednesday Feb 18 deadline** — Committee presentation at Gold Miners Inn, 12:00-1:30 PM. Must have working map + events.
+- ~~Wednesday Feb 18 deadline~~ PASSED — Committee presentation held, positive reception
 - ~~Event coverage gaps~~ RESOLVED (Phase 2.1 adds KVMR + GVDA, 176 total events)
 - Phase 5 (AI Concierge): Gemini free tier may not cover projected token usage
 - Phase 5 (AI Concierge): data.json needs status/last_verified fields
+- No Phase 10 defined — ROADMAP needs next milestone planning
 
 ### Quick Tasks Completed
 
@@ -364,6 +381,6 @@ Research artifacts outside the phase directory structure. Consult these when pla
 ## Session Continuity
 
 Last session: 2026-02-18
-Stopped at: Completed 09.1-03-PLAN.md (bindings.js null guards B2, ES5 conversion S5, venue/layer data chain S1). Phase 09.1 all 4 plans now have SUMMARYs.
-Resume with: Phase 09.1 complete. Run /gsd:execute-phase 07 to continue with 07-03-PLAN.md (committee report template) or start a new phase.
-Key artifacts: .planning/phases/09.1-directory-audit-fixes/09.1-03-SUMMARY.md, website/cultural-map-redesign-stitch-lab/index-maplibre-bindings.js, website/cultural-map-redesign-stitch-lab/index-maplibre-events-view.js
+Stopped at: Tier1 post-roundtable sprint complete. All 6 tasks done. Deployed to stitch-lab (commit 5fec226, vercel prod).
+Resume with: Start new milestone planning via /gsd:new-milestone. No outstanding code work — this is a clean stopping point.
+Key artifacts: website/cultural-map-redesign-stitch-lab/index-maplibre-email-capture.js, website/cultural-map-redesign-stitch-lab/vercel.json, .tmp-verify-tier1.cjs (29/29 verification checks)
