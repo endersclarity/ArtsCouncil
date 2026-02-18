@@ -10,9 +10,9 @@ See: .planning/PROJECT.md (updated 2026-02-14)
 ## Current Position
 
 Phase: 09.1-directory-audit-fixes
-Plan: 1 of 2
-Status: 09.1-01 complete (XSS fix in explore-view.js, back button wiring + header clear in explore-controller.js). Plan 02 (B2 null guards, B4 mobile toggle, should-fix items) remains.
-Last activity: 2026-02-18 -- 09.1-01 executed: escapeHTML applied to all data interpolations, back button wired, stale header cleared, onCitySelect dead param removed.
+Plan: 2 of 4
+Status: 09.1-02 complete (O(1) events sort, dreamboard API cleanup, getModel fix, GSAP closure fix, venue/layer data attrs on event bookmark buttons). Plan 03 (bindings.js ES5 normalization + null guards) remains.
+Last activity: 2026-02-18 -- 09.1-02 executed: dataIndexMap for O(1) events14dMode sort; getStore removed from public API; getModel re-checks global until loaded; updateBadge forEach closure fix; renderEventBookmarkButton venue/layer attrs.
 
 Progress: [████████████████████] 100% overall (Phase 09 in progress)
 
@@ -359,6 +359,6 @@ Research artifacts outside the phase directory structure. Consult these when pla
 ## Session Continuity
 
 Last session: 2026-02-18
-Stopped at: Completed quick-3 (Phase 8 bug fixes: fence strip, past event filter, canonical names, ID collision, events bookmarks).
-Resume with: Run /gsd:execute-phase 09.1 to continue with 09.1-02-PLAN.md (B2 null guards, B4 mobile toggle, should-fix items).
-Key artifacts: .planning/phases/09.1-directory-audit-fixes/09.1-01-SUMMARY.md
+Stopped at: Completed 09.1-02-PLAN.md (data/logic fixes: O(1) events sort, dreamboard API cleanup, getModel fix, GSAP closure fix, venue/layer data attrs).
+Resume with: Run /gsd:execute-phase 09.1 to continue with 09.1-03-PLAN.md (bindings.js ES5 normalization + null guards B2).
+Key artifacts: .planning/phases/09.1-directory-audit-fixes/09.1-02-SUMMARY.md, website/cultural-map-redesign-stitch-lab/index-maplibre-dreamboard-view.js, website/cultural-map-redesign-stitch-lab/index-maplibre-explore-model.js
