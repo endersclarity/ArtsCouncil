@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-02-18T07:49:52.554182+00:00",
+  "generated_at": "2026-02-19T07:48:56.252889+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 191,
-    "matched_events": 136,
+    "total_events": 192,
+    "matched_events": 137,
     "unmatched_events": 55,
     "matched_by_pid": 0,
     "matched_by_alias": 17,
-    "matched_by_name_city": 35,
-    "matched_by_name_city_fuzzy": 84,
-    "upcoming_14d": 191
+    "matched_by_name_city": 34,
+    "matched_by_name_city_fuzzy": 86,
+    "upcoming_14d": 192
   },
   "unmatched_venues": [
     {
@@ -19,7 +19,7 @@
       "venue_name": "Eric Rood Center",
       "venue_city": "Nevada City",
       "count": 10,
-      "sample_event_id": "trumba-196757538",
+      "sample_event_id": "trumba-196757539",
       "sample_title": "Mobilize | Art Inspiring Activism with Wild & Scenic Film Festival Exhibition",
       "candidate_assets": []
     },
@@ -28,8 +28,8 @@
       "venue_name": "CTC Classroom",
       "venue_city": "Nevada City",
       "count": 7,
-      "sample_event_id": "libcal-LibCal-20247-16149486-20260218",
-      "sample_title": "Tech Drop In",
+      "sample_event_id": "libcal-LibCal-20247-16008793-20260219",
+      "sample_title": "Tech Talk: Introduction to Social Media",
       "candidate_assets": []
     },
     {
@@ -93,24 +93,6 @@
       "count": 2,
       "sample_event_id": "trumba-191631905",
       "sample_title": "Cars and coffee grass valley",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "workspacemeetingroom|truckee",
-      "venue_name": "Workspace Meeting Room",
-      "venue_city": "Truckee",
-      "count": 1,
-      "sample_event_id": "libcal-LibCal-20247-15847472-20260218",
-      "sample_title": "Lawyer in the Library- Truckee",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "unclesonnysbar|grassvalley",
-      "venue_name": "Uncle Sonny’s Bar",
-      "venue_city": "Grass Valley",
-      "count": 1,
-      "sample_event_id": "kvmr-305577-1771437600-1771444800-20260218",
-      "sample_title": "Bluegrass Jam Night at Uncle Sonny's Bar",
       "candidate_assets": []
     },
     {
@@ -186,6 +168,15 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "takenotetroupe|nevadacounty",
+      "venue_name": "Take Note Troupe",
+      "venue_city": "Nevada County",
+      "count": 1,
+      "sample_event_id": "kvmr-348295-1771700400-1771705800-20260221",
+      "sample_title": "\"I Love On the Spot\": On the Spot Improv Show",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "membershomes|grassvalley",
       "venue_name": "Members homes",
       "venue_city": "Grass Valley",
@@ -210,6 +201,15 @@
       "count": 1,
       "sample_event_id": "gvda-194954756",
       "sample_title": "Nevada City Chinese Lunar New Year Parade and Festival",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "workspacemeetingroom|truckee",
+      "venue_name": "Workspace Meeting Room",
+      "venue_city": "Truckee",
+      "count": 1,
+      "sample_event_id": "libcal-LibCal-20247-14949350-20260304",
+      "sample_title": "Wild About Wool in Truckee",
       "candidate_assets": []
     }
   ],
