@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-02-19T07:48:56.252889+00:00",
+  "generated_at": "2026-02-20T07:48:05.127366+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 192,
+    "total_events": 191,
     "matched_events": 137,
-    "unmatched_events": 55,
+    "unmatched_events": 54,
     "matched_by_pid": 0,
-    "matched_by_alias": 17,
-    "matched_by_name_city": 34,
-    "matched_by_name_city_fuzzy": 86,
-    "upcoming_14d": 192
+    "matched_by_alias": 18,
+    "matched_by_name_city": 35,
+    "matched_by_name_city_fuzzy": 84,
+    "upcoming_14d": 191
   },
   "unmatched_venues": [
     {
@@ -19,7 +19,7 @@
       "venue_name": "Eric Rood Center",
       "venue_city": "Nevada City",
       "count": 10,
-      "sample_event_id": "trumba-196757539",
+      "sample_event_id": "trumba-196757540",
       "sample_title": "Mobilize | Art Inspiring Activism with Wild & Scenic Film Festival Exhibition",
       "candidate_assets": []
     },
@@ -28,8 +28,8 @@
       "venue_name": "CTC Classroom",
       "venue_city": "Nevada City",
       "count": 7,
-      "sample_event_id": "libcal-LibCal-20247-16008793-20260219",
-      "sample_title": "Tech Talk: Introduction to Social Media",
+      "sample_event_id": "libcal-LibCal-20247-16035872-20260223",
+      "sample_title": "Ukulele for the People",
       "candidate_assets": []
     },
     {
@@ -37,15 +37,15 @@
       "venue_name": "Study Nook",
       "venue_city": "Grass Valley",
       "count": 6,
-      "sample_event_id": "libcal-LibCal-20247-15109005-20260219",
-      "sample_title": "Intermediate/Advanced English Conversation Group",
+      "sample_event_id": "libcal-LibCal-20247-15952751-20260220",
+      "sample_title": "English Language Class",
       "candidate_assets": []
     },
     {
       "venue_key": "axisgallery|nevadacounty",
       "venue_name": "Axis Gallery",
       "venue_city": "Nevada County",
-      "count": 4,
+      "count": 6,
       "sample_event_id": "kvmr-344167-1771588800-1771606800-20260220",
       "sample_title": "Gardens of Huemanity at Axis Gallery",
       "candidate_assets": []
@@ -72,18 +72,9 @@
       "venue_key": "11761ridgeroad|grassvalley",
       "venue_name": "11761 Ridge Road",
       "venue_city": "Grass Valley",
-      "count": 3,
-      "sample_event_id": "trumba-196247641",
-      "sample_title": "NU Dance 25th Annual Student Choreography Showcase",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "oddfellowshall|nevadacity",
-      "venue_name": "Oddfellows Hall",
-      "venue_city": "Nevada City",
       "count": 2,
-      "sample_event_id": "trumba-196396177",
-      "sample_title": "Motion Theater",
+      "sample_event_id": "trumba-196247642",
+      "sample_title": "NU Dance 25th Annual Student Choreography Showcase",
       "candidate_assets": []
     },
     {
@@ -96,39 +87,12 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "bodhihive|nevadacity",
-      "venue_name": "Bodhi Hive",
+      "venue_key": "oddfellowshall|nevadacity",
+      "venue_name": "Oddfellows Hall",
       "venue_city": "Nevada City",
-      "count": 1,
-      "sample_event_id": "kvmr-344767-1771513200-1771516800-20260219",
-      "sample_title": "Nevada County Cannabis Alliance Webinar: Using Local Policy to Scale Your Cannabis Business",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "brewbiltbrewhaus|nevadacity",
-      "venue_name": "BrewBilt BrewHaus",
-      "venue_city": "Nevada City",
-      "count": 1,
-      "sample_event_id": "gvda-196022440",
-      "sample_title": "BrewHaus Bingo",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "sansbackupplanrecordsat748zionstsuitea|nevadacity",
-      "venue_name": "Sans Backup Plan Records at 748 Zion St., Suite A",
-      "venue_city": "Nevada City",
-      "count": 1,
-      "sample_event_id": "gvda-196807325",
-      "sample_title": "Indie &amp; Dreampop Record Store Show: Living Hour, Rosemother &amp; Davia",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "sansbackupplanrecords|nevadacity",
-      "venue_name": "Sans Backup Plan Records",
-      "venue_city": "Nevada City",
-      "count": 1,
-      "sample_event_id": "kvmr-347865-1771527600-1771538400-20260219",
-      "sample_title": "Sans Backup Plan Records Live Music Event: Living Hour, Rosemother, and Davia",
+      "count": 2,
+      "sample_event_id": "trumba-196396178",
+      "sample_title": "Motion Theater",
       "candidate_assets": []
     },
     {
@@ -177,6 +141,15 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "chicochaihouse|nevadacounty",
+      "venue_name": "Chico Chaihouse",
+      "venue_city": "Nevada County",
+      "count": 1,
+      "sample_event_id": "kvmr-344081-1771761600-1771768800-20260222",
+      "sample_title": "2026 Punch Card Workshop in Chico",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "membershomes|grassvalley",
       "venue_name": "Members homes",
       "venue_city": "Grass Valley",
@@ -211,6 +184,15 @@
       "sample_event_id": "libcal-LibCal-20247-14949350-20260304",
       "sample_title": "Wild About Wool in Truckee",
       "candidate_assets": []
+    },
+    {
+      "venue_key": "nevadamuseumofart|renonv",
+      "venue_name": "Nevada Museum of Art",
+      "venue_city": "Reno, NV",
+      "count": 1,
+      "sample_event_id": "trumba-196872205",
+      "sample_title": "First Thursday with Musical Guest Bart Budwig",
+      "candidate_assets": []
     }
   ],
   "category_coverage": {
@@ -232,6 +214,7 @@
       "Fairs & Festivals",
       "Galleries & Museums",
       "Cultural Resources",
+      "Public Art",
       "Eat, Drink & Stay",
       "Walks & Trails"
     ],
