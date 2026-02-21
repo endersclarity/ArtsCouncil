@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-02-20T07:48:05.127366+00:00",
+  "generated_at": "2026-02-21T07:31:36.505197+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 191,
-    "matched_events": 137,
-    "unmatched_events": 54,
+    "total_events": 195,
+    "matched_events": 143,
+    "unmatched_events": 52,
     "matched_by_pid": 0,
-    "matched_by_alias": 18,
-    "matched_by_name_city": 35,
-    "matched_by_name_city_fuzzy": 84,
-    "upcoming_14d": 191
+    "matched_by_alias": 17,
+    "matched_by_name_city": 39,
+    "matched_by_name_city_fuzzy": 87,
+    "upcoming_14d": 195
   },
   "unmatched_venues": [
     {
@@ -19,7 +19,7 @@
       "venue_name": "Eric Rood Center",
       "venue_city": "Nevada City",
       "count": 10,
-      "sample_event_id": "trumba-196757540",
+      "sample_event_id": "trumba-196757541",
       "sample_title": "Mobilize | Art Inspiring Activism with Wild & Scenic Film Festival Exhibition",
       "candidate_assets": []
     },
@@ -37,17 +37,8 @@
       "venue_name": "Study Nook",
       "venue_city": "Grass Valley",
       "count": 6,
-      "sample_event_id": "libcal-LibCal-20247-15952751-20260220",
+      "sample_event_id": "libcal-LibCal-20247-15952661-20260224",
       "sample_title": "English Language Class",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "axisgallery|nevadacounty",
-      "venue_name": "Axis Gallery",
-      "venue_city": "Nevada County",
-      "count": 6,
-      "sample_event_id": "kvmr-344167-1771588800-1771606800-20260220",
-      "sample_title": "Gardens of Huemanity at Axis Gallery",
       "candidate_assets": []
     },
     {
@@ -60,21 +51,21 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "axisgallery|nevadacounty",
+      "venue_name": "Axis Gallery",
+      "venue_city": "Nevada County",
+      "count": 4,
+      "sample_event_id": "kvmr-344168-1771675200-1771693200-20260221",
+      "sample_title": "Gardens of Huemanity at Axis Gallery",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "unknownvenue|grassvalley",
       "venue_name": "Unknown venue",
       "venue_city": "Grass Valley",
       "count": 4,
       "sample_event_id": "gvda-196120300",
       "sample_title": "Community Game Day at North Star House",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "11761ridgeroad|grassvalley",
-      "venue_name": "11761 Ridge Road",
-      "venue_city": "Grass Valley",
-      "count": 2,
-      "sample_event_id": "trumba-196247642",
-      "sample_title": "NU Dance 25th Annual Student Choreography Showcase",
       "candidate_assets": []
     },
     {
@@ -96,12 +87,12 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "suttercreektheatre|nevadacounty",
-      "venue_name": "Sutter Creek Theatre",
-      "venue_city": "Nevada County",
-      "count": 1,
-      "sample_event_id": "kvmr-342901-1771617600-1771624800-20260220",
-      "sample_title": "Albert Cummings: Blues Guitar Pyrotechnics at Sutter Creek Theatre",
+      "venue_key": "nevadamuseumofart|renonv",
+      "venue_name": "Nevada Museum of Art",
+      "venue_city": "Reno, NV",
+      "count": 2,
+      "sample_event_id": "trumba-196872205",
+      "sample_title": "First Thursday with Musical Guest Bart Budwig",
       "candidate_assets": []
     },
     {
@@ -138,6 +129,15 @@
       "count": 1,
       "sample_event_id": "kvmr-348295-1771700400-1771705800-20260221",
       "sample_title": "\"I Love On the Spot\": On the Spot Improv Show",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "11761ridgeroad|grassvalley",
+      "venue_name": "11761 Ridge Road",
+      "venue_city": "Grass Valley",
+      "count": 1,
+      "sample_event_id": "trumba-196247643",
+      "sample_title": "NU Dance 25th Annual Student Choreography Showcase",
       "candidate_assets": []
     },
     {
@@ -186,12 +186,12 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "nevadamuseumofart|renonv",
-      "venue_name": "Nevada Museum of Art",
-      "venue_city": "Reno, NV",
+      "venue_key": "northwoodsclubhouse|truckee",
+      "venue_name": "Northwoods Clubhouse",
+      "venue_city": "Truckee",
       "count": 1,
-      "sample_event_id": "trumba-196872205",
-      "sample_title": "First Thursday with Musical Guest Bart Budwig",
+      "sample_event_id": "trumba-113922955",
+      "sample_title": "Kids Night Out",
       "candidate_assets": []
     }
   ],
@@ -213,6 +213,7 @@
       "Arts Organizations",
       "Fairs & Festivals",
       "Galleries & Museums",
+      "Preservation & Culture",
       "Cultural Resources",
       "Public Art",
       "Eat, Drink & Stay",
