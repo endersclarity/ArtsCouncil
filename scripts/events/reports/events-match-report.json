@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-02-21T07:31:36.505197+00:00",
+  "generated_at": "2026-02-22T07:35:25.176263+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
     "total_events": 195,
-    "matched_events": 143,
-    "unmatched_events": 52,
+    "matched_events": 148,
+    "unmatched_events": 47,
     "matched_by_pid": 0,
     "matched_by_alias": 17,
-    "matched_by_name_city": 39,
-    "matched_by_name_city_fuzzy": 87,
+    "matched_by_name_city": 41,
+    "matched_by_name_city_fuzzy": 90,
     "upcoming_14d": 195
   },
   "unmatched_venues": [
@@ -46,7 +46,7 @@
       "venue_name": "Unknown venue",
       "venue_city": "Truckee",
       "count": 4,
-      "sample_event_id": "gvda-172588778",
+      "sample_event_id": "gvda-172932092",
       "sample_title": "STEAM Exploration Saturdays",
       "candidate_assets": []
     },
@@ -54,8 +54,8 @@
       "venue_key": "axisgallery|nevadacounty",
       "venue_name": "Axis Gallery",
       "venue_city": "Nevada County",
-      "count": 4,
-      "sample_event_id": "kvmr-344168-1771675200-1771693200-20260221",
+      "count": 2,
+      "sample_event_id": "kvmr-344169-1771761600-1771779600-20260222",
       "sample_title": "Gardens of Huemanity at Axis Gallery",
       "candidate_assets": []
     },
@@ -63,18 +63,9 @@
       "venue_key": "unknownvenue|grassvalley",
       "venue_name": "Unknown venue",
       "venue_city": "Grass Valley",
-      "count": 4,
-      "sample_event_id": "gvda-196120300",
-      "sample_title": "Community Game Day at North Star House",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "mcknightcrossingshoppingcenter|grassvalley",
-      "venue_name": "Mcknight crossing shopping center",
-      "venue_city": "Grass Valley",
       "count": 2,
-      "sample_event_id": "trumba-191631905",
-      "sample_title": "Cars and coffee grass valley",
+      "sample_event_id": "gvda-172684494",
+      "sample_title": "Karaoke - Grass Valley Brewing Co.",
       "candidate_assets": []
     },
     {
@@ -87,6 +78,15 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "mcknightcrossingshoppingcenter|grassvalley",
+      "venue_name": "Mcknight crossing shopping center",
+      "venue_city": "Grass Valley",
+      "count": 2,
+      "sample_event_id": "trumba-191631906",
+      "sample_title": "Cars and coffee grass valley",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "nevadamuseumofart|renonv",
       "venue_name": "Nevada Museum of Art",
       "venue_city": "Reno, NV",
@@ -96,48 +96,12 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "sweetlandgardenmercantile|northsanjuan",
-      "venue_name": "Sweetland Garden Mercantile",
-      "venue_city": "North San Juan",
-      "count": 1,
-      "sample_event_id": "kvmr-345886-1771668000-1771682400-20260221",
-      "sample_title": "Fruit Tree Pruning and Organic Orchard Management Seminar",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "sammiesniftythriftshop|grassvalley",
-      "venue_name": "Sammie’s Nifty Thrift Shop",
+      "venue_key": "millstreetplaza|grassvalley",
+      "venue_name": "Mill Street Plaza",
       "venue_city": "Grass Valley",
-      "count": 1,
-      "sample_event_id": "kvmr-344644-1771671600-1771682400-20260221",
-      "sample_title": "Nifty Adoption Day",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "innerpath|nevadacity",
-      "venue_name": "Inner Path",
-      "venue_city": "Nevada City",
-      "count": 1,
-      "sample_event_id": "kvmr-343246-1771693200-1771696800-20260221",
-      "sample_title": "Sound Blessings with Robin at Inner Path",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "takenotetroupe|nevadacounty",
-      "venue_name": "Take Note Troupe",
-      "venue_city": "Nevada County",
-      "count": 1,
-      "sample_event_id": "kvmr-348295-1771700400-1771705800-20260221",
-      "sample_title": "\"I Love On the Spot\": On the Spot Improv Show",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "11761ridgeroad|grassvalley",
-      "venue_name": "11761 Ridge Road",
-      "venue_city": "Grass Valley",
-      "count": 1,
-      "sample_event_id": "trumba-196247643",
-      "sample_title": "NU Dance 25th Annual Student Choreography Showcase",
+      "count": 2,
+      "sample_event_id": "trumba-158432253",
+      "sample_title": "St. Piran's Day Celebration",
       "candidate_assets": []
     },
     {
@@ -156,6 +120,15 @@
       "count": 1,
       "sample_event_id": "trumba-183038849",
       "sample_title": "Playwriting Group",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "unclesonnysbar|grassvalley",
+      "venue_name": "Uncle Sonny’s Bar",
+      "venue_city": "Grass Valley",
+      "count": 1,
+      "sample_event_id": "kvmr-305578-1772042400-1772049600-20260225",
+      "sample_title": "Bluegrass Jam Night at Uncle Sonny's Bar",
       "candidate_assets": []
     },
     {
@@ -183,6 +156,15 @@
       "count": 1,
       "sample_event_id": "libcal-LibCal-20247-14949350-20260304",
       "sample_title": "Wild About Wool in Truckee",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "online|grassvalley",
+      "venue_name": "online",
+      "venue_city": "Grass Valley",
+      "count": 1,
+      "sample_event_id": "trumba-197534295",
+      "sample_title": "Opera 101: Musings with the Maestro",
       "candidate_assets": []
     },
     {
