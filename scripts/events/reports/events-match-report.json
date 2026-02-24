@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-02-23T07:54:13.355440+00:00",
+  "generated_at": "2026-02-24T07:50:56.872765+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 199,
-    "matched_events": 149,
-    "unmatched_events": 50,
+    "total_events": 207,
+    "matched_events": 152,
+    "unmatched_events": 55,
     "matched_by_pid": 0,
-    "matched_by_alias": 17,
-    "matched_by_name_city": 41,
-    "matched_by_name_city_fuzzy": 91,
-    "upcoming_14d": 199
+    "matched_by_alias": 16,
+    "matched_by_name_city": 43,
+    "matched_by_name_city_fuzzy": 93,
+    "upcoming_14d": 207
   },
   "unmatched_venues": [
     {
@@ -19,7 +19,7 @@
       "venue_name": "Eric Rood Center",
       "venue_city": "Nevada City",
       "count": 10,
-      "sample_event_id": "trumba-196757541",
+      "sample_event_id": "trumba-196757542",
       "sample_title": "Mobilize | Art Inspiring Activism with Wild & Scenic Film Festival Exhibition",
       "candidate_assets": []
     },
@@ -28,8 +28,8 @@
       "venue_name": "CTC Classroom",
       "venue_city": "Nevada City",
       "count": 7,
-      "sample_event_id": "libcal-LibCal-20247-16035872-20260223",
-      "sample_title": "Ukulele for the People",
+      "sample_event_id": "libcal-LibCal-20247-15952853-20260224",
+      "sample_title": "Spanish for Everyone",
       "candidate_assets": []
     },
     {
@@ -42,21 +42,21 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "unknownvenue|grassvalley",
+      "venue_name": "Unknown venue",
+      "venue_city": "Grass Valley",
+      "count": 6,
+      "sample_event_id": "gvda-172684494",
+      "sample_title": "Karaoke - Grass Valley Brewing Co.",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "unknownvenue|truckee",
       "venue_name": "Unknown venue",
       "venue_city": "Truckee",
       "count": 5,
       "sample_event_id": "gvda-172932092",
       "sample_title": "STEAM Exploration Saturdays",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "unknownvenue|grassvalley",
-      "venue_name": "Unknown venue",
-      "venue_city": "Grass Valley",
-      "count": 3,
-      "sample_event_id": "gvda-172684494",
-      "sample_title": "Karaoke - Grass Valley Brewing Co.",
       "candidate_assets": []
     },
     {
@@ -129,6 +129,24 @@
       "count": 1,
       "sample_event_id": "kvmr-348436-1772218800-1772229600-20260227",
       "sample_title": "Dirty Laundry, Dusty the Kid, and Awkward Pocket at Sans Backup Plan Records",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "suttercreektheatre|nevadacounty",
+      "venue_name": "Sutter Creek Theatre",
+      "venue_city": "Nevada County",
+      "count": 1,
+      "sample_event_id": "kvmr-342904-1772222400-1772229600-20260227",
+      "sample_title": "Ronnie Baker Brooks: Award-winning Blues Guitar at Sutter Creek Theatre",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "ohvparkscagov8230|truckee",
+      "venue_name": "ohv.parks.ca.gov&#8230;",
+      "venue_city": "Truckee",
+      "count": 1,
+      "sample_event_id": "gvda-197456429",
+      "sample_title": "Sierra Club Snowshoe to Castle Pass",
       "candidate_assets": []
     },
     {
