@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-02-24T07:50:56.872765+00:00",
+  "generated_at": "2026-02-25T07:51:30.771378+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 207,
-    "matched_events": 152,
-    "unmatched_events": 55,
+    "total_events": 210,
+    "matched_events": 153,
+    "unmatched_events": 57,
     "matched_by_pid": 0,
-    "matched_by_alias": 16,
-    "matched_by_name_city": 43,
-    "matched_by_name_city_fuzzy": 93,
-    "upcoming_14d": 207
+    "matched_by_alias": 17,
+    "matched_by_name_city": 45,
+    "matched_by_name_city_fuzzy": 91,
+    "upcoming_14d": 210
   },
   "unmatched_venues": [
     {
@@ -19,7 +19,7 @@
       "venue_name": "Eric Rood Center",
       "venue_city": "Nevada City",
       "count": 10,
-      "sample_event_id": "trumba-196757542",
+      "sample_event_id": "trumba-196757543",
       "sample_title": "Mobilize | Art Inspiring Activism with Wild & Scenic Film Festival Exhibition",
       "candidate_assets": []
     },
@@ -28,8 +28,17 @@
       "venue_name": "CTC Classroom",
       "venue_city": "Nevada City",
       "count": 7,
-      "sample_event_id": "libcal-LibCal-20247-15952853-20260224",
-      "sample_title": "Spanish for Everyone",
+      "sample_event_id": "libcal-LibCal-20247-16149487-20260225",
+      "sample_title": "Tech Drop In",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "unknownvenue|grassvalley",
+      "venue_name": "Unknown venue",
+      "venue_city": "Grass Valley",
+      "count": 7,
+      "sample_event_id": "gvda-172684494",
+      "sample_title": "Karaoke - Grass Valley Brewing Co.",
       "candidate_assets": []
     },
     {
@@ -37,17 +46,8 @@
       "venue_name": "Study Nook",
       "venue_city": "Grass Valley",
       "count": 6,
-      "sample_event_id": "libcal-LibCal-20247-15952661-20260224",
-      "sample_title": "English Language Class",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "unknownvenue|grassvalley",
-      "venue_name": "Unknown venue",
-      "venue_city": "Grass Valley",
-      "count": 6,
-      "sample_event_id": "gvda-172684494",
-      "sample_title": "Karaoke - Grass Valley Brewing Co.",
+      "sample_event_id": "libcal-LibCal-20247-15109006-20260226",
+      "sample_title": "Intermediate/Advanced English Conversation Group",
       "candidate_assets": []
     },
     {
@@ -84,6 +84,15 @@
       "count": 2,
       "sample_event_id": "trumba-191631906",
       "sample_title": "Cars and coffee grass valley",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "workspacemeetingroom|truckee",
+      "venue_name": "Workspace Meeting Room",
+      "venue_city": "Truckee",
+      "count": 2,
+      "sample_event_id": "libcal-LibCal-20247-14949350-20260304",
+      "sample_title": "Wild About Wool in Truckee",
       "candidate_assets": []
     },
     {
@@ -165,15 +174,6 @@
       "count": 1,
       "sample_event_id": "gvda-194954756",
       "sample_title": "Nevada City Chinese Lunar New Year Parade and Festival",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "workspacemeetingroom|truckee",
-      "venue_name": "Workspace Meeting Room",
-      "venue_city": "Truckee",
-      "count": 1,
-      "sample_event_id": "libcal-LibCal-20247-14949350-20260304",
-      "sample_title": "Wild About Wool in Truckee",
       "candidate_assets": []
     },
     {
