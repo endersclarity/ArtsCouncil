@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-02-25T07:51:30.771378+00:00",
+  "generated_at": "2026-02-26T07:51:16.122531+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 210,
-    "matched_events": 153,
-    "unmatched_events": 57,
+    "total_events": 209,
+    "matched_events": 149,
+    "unmatched_events": 60,
     "matched_by_pid": 0,
-    "matched_by_alias": 17,
-    "matched_by_name_city": 45,
-    "matched_by_name_city_fuzzy": 91,
-    "upcoming_14d": 210
+    "matched_by_alias": 18,
+    "matched_by_name_city": 43,
+    "matched_by_name_city_fuzzy": 88,
+    "upcoming_14d": 209
   },
   "unmatched_venues": [
     {
@@ -19,17 +19,8 @@
       "venue_name": "Eric Rood Center",
       "venue_city": "Nevada City",
       "count": 10,
-      "sample_event_id": "trumba-196757543",
+      "sample_event_id": "trumba-196757544",
       "sample_title": "Mobilize | Art Inspiring Activism with Wild & Scenic Film Festival Exhibition",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "ctcclassroom|nevadacity",
-      "venue_name": "CTC Classroom",
-      "venue_city": "Nevada City",
-      "count": 7,
-      "sample_event_id": "libcal-LibCal-20247-16149487-20260225",
-      "sample_title": "Tech Drop In",
       "candidate_assets": []
     },
     {
@@ -42,12 +33,30 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "ctcclassroom|nevadacity",
+      "venue_name": "CTC Classroom",
+      "venue_city": "Nevada City",
+      "count": 7,
+      "sample_event_id": "libcal-LibCal-20247-16035873-20260302",
+      "sample_title": "Ukulele for the People",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "studynook|grassvalley",
       "venue_name": "Study Nook",
       "venue_city": "Grass Valley",
       "count": 6,
       "sample_event_id": "libcal-LibCal-20247-15109006-20260226",
       "sample_title": "Intermediate/Advanced English Conversation Group",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "axisgallery|nevadacounty",
+      "venue_name": "Axis Gallery",
+      "venue_city": "Nevada County",
+      "count": 5,
+      "sample_event_id": "kvmr-344170-1772193600-1772211600-20260227",
+      "sample_title": "Gardens of Huemanity at Axis Gallery",
       "candidate_assets": []
     },
     {
@@ -66,15 +75,6 @@
       "count": 2,
       "sample_event_id": "trumba-196396178",
       "sample_title": "Motion Theater",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "axisgallery|nevadacounty",
-      "venue_name": "Axis Gallery",
-      "venue_city": "Nevada County",
-      "count": 2,
-      "sample_event_id": "kvmr-344170-1772193600-1772211600-20260227",
-      "sample_title": "Gardens of Huemanity at Axis Gallery",
       "candidate_assets": []
     },
     {
@@ -114,24 +114,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "membershomes|grassvalley",
-      "venue_name": "Members homes",
-      "venue_city": "Grass Valley",
-      "count": 1,
-      "sample_event_id": "trumba-183038849",
-      "sample_title": "Playwriting Group",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "unclesonnysbar|grassvalley",
-      "venue_name": "Uncle Sonny’s Bar",
-      "venue_city": "Grass Valley",
-      "count": 1,
-      "sample_event_id": "kvmr-305578-1772042400-1772049600-20260225",
-      "sample_title": "Bluegrass Jam Night at Uncle Sonny's Bar",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "sansbackupplanrecords|nevadacity",
       "venue_name": "Sans Backup Plan Records",
       "venue_city": "Nevada City",
@@ -147,6 +129,15 @@
       "count": 1,
       "sample_event_id": "kvmr-342904-1772222400-1772229600-20260227",
       "sample_title": "Ronnie Baker Brooks: Award-winning Blues Guitar at Sutter Creek Theatre",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "sammiesniftythriftshop|grassvalley",
+      "venue_name": "Sammie’s Nifty Thrift Shop",
+      "venue_city": "Grass Valley",
+      "count": 1,
+      "sample_event_id": "kvmr-344649-1772276400-1772287200-20260228",
+      "sample_title": "Nifty Adoption Day: Canine Edition",
       "candidate_assets": []
     },
     {
@@ -201,6 +192,15 @@
       "count": 1,
       "sample_event_id": "trumba-116325473",
       "sample_title": "Word Jam",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "membershomes|grassvalley",
+      "venue_name": "Members homes",
+      "venue_city": "Grass Valley",
+      "count": 1,
+      "sample_event_id": "trumba-183038850",
+      "sample_title": "Playwriting Group",
       "candidate_assets": []
     }
   ],
