@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-02-26T07:51:16.122531+00:00",
+  "generated_at": "2026-02-27T07:45:26.999210+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 209,
-    "matched_events": 149,
-    "unmatched_events": 60,
+    "total_events": 205,
+    "matched_events": 143,
+    "unmatched_events": 62,
     "matched_by_pid": 0,
-    "matched_by_alias": 18,
-    "matched_by_name_city": 43,
-    "matched_by_name_city_fuzzy": 88,
-    "upcoming_14d": 209
+    "matched_by_alias": 16,
+    "matched_by_name_city": 41,
+    "matched_by_name_city_fuzzy": 86,
+    "upcoming_14d": 205
   },
   "unmatched_venues": [
     {
@@ -19,8 +19,17 @@
       "venue_name": "Eric Rood Center",
       "venue_city": "Nevada City",
       "count": 10,
-      "sample_event_id": "trumba-196757544",
+      "sample_event_id": "trumba-196757545",
       "sample_title": "Mobilize | Art Inspiring Activism with Wild & Scenic Film Festival Exhibition",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "ctcclassroom|nevadacity",
+      "venue_name": "CTC Classroom",
+      "venue_city": "Nevada City",
+      "count": 8,
+      "sample_event_id": "libcal-LibCal-20247-16035873-20260302",
+      "sample_title": "Ukulele for the People",
       "candidate_assets": []
     },
     {
@@ -28,17 +37,8 @@
       "venue_name": "Unknown venue",
       "venue_city": "Grass Valley",
       "count": 7,
-      "sample_event_id": "gvda-172684494",
-      "sample_title": "Karaoke - Grass Valley Brewing Co.",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "ctcclassroom|nevadacity",
-      "venue_name": "CTC Classroom",
-      "venue_city": "Nevada City",
-      "count": 7,
-      "sample_event_id": "libcal-LibCal-20247-16035873-20260302",
-      "sample_title": "Ukulele for the People",
+      "sample_event_id": "gvda-196746888",
+      "sample_title": "The Practice of Us",
       "candidate_assets": []
     },
     {
@@ -46,8 +46,8 @@
       "venue_name": "Study Nook",
       "venue_city": "Grass Valley",
       "count": 6,
-      "sample_event_id": "libcal-LibCal-20247-15109006-20260226",
-      "sample_title": "Intermediate/Advanced English Conversation Group",
+      "sample_event_id": "libcal-LibCal-20247-15952752-20260227",
+      "sample_title": "English Language Class",
       "candidate_assets": []
     },
     {
@@ -66,15 +66,6 @@
       "count": 5,
       "sample_event_id": "gvda-172932092",
       "sample_title": "STEAM Exploration Saturdays",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "oddfellowshall|nevadacity",
-      "venue_name": "Oddfellows Hall",
-      "venue_city": "Nevada City",
-      "count": 2,
-      "sample_event_id": "trumba-196396178",
-      "sample_title": "Motion Theater",
       "candidate_assets": []
     },
     {
@@ -102,6 +93,15 @@
       "count": 2,
       "sample_event_id": "trumba-196872205",
       "sample_title": "First Thursday with Musical Guest Bart Budwig",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "oddfellowshall|nevadacity",
+      "venue_name": "Oddfellows Hall",
+      "venue_city": "Nevada City",
+      "count": 2,
+      "sample_event_id": "trumba-196396179",
+      "sample_title": "Motion Theater",
       "candidate_assets": []
     },
     {
@@ -138,6 +138,15 @@
       "count": 1,
       "sample_event_id": "kvmr-344649-1772276400-1772287200-20260228",
       "sample_title": "Nifty Adoption Day: Canine Edition",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "almanacadventureland|nevadacounty",
+      "venue_name": "Almanac Adventureland",
+      "venue_city": "Nevada County",
+      "count": 1,
+      "sample_event_id": "kvmr-347962-1772303400-1772312400-20260228",
+      "sample_title": "Puppet Wars: Family-Friendly Pro Wrestling in Alameda",
       "candidate_assets": []
     },
     {
