@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-02-27T07:45:26.999210+00:00",
+  "generated_at": "2026-02-28T07:26:08.355371+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 205,
+    "total_events": 206,
     "matched_events": 143,
-    "unmatched_events": 62,
+    "unmatched_events": 63,
     "matched_by_pid": 0,
-    "matched_by_alias": 16,
-    "matched_by_name_city": 41,
-    "matched_by_name_city_fuzzy": 86,
-    "upcoming_14d": 205
+    "matched_by_alias": 14,
+    "matched_by_name_city": 44,
+    "matched_by_name_city_fuzzy": 85,
+    "upcoming_14d": 206
   },
   "unmatched_venues": [
     {
@@ -19,7 +19,7 @@
       "venue_name": "Eric Rood Center",
       "venue_city": "Nevada City",
       "count": 10,
-      "sample_event_id": "trumba-196757545",
+      "sample_event_id": "trumba-196757546",
       "sample_title": "Mobilize | Art Inspiring Activism with Wild & Scenic Film Festival Exhibition",
       "candidate_assets": []
     },
@@ -46,17 +46,8 @@
       "venue_name": "Study Nook",
       "venue_city": "Grass Valley",
       "count": 6,
-      "sample_event_id": "libcal-LibCal-20247-15952752-20260227",
+      "sample_event_id": "libcal-LibCal-20247-15952662-20260303",
       "sample_title": "English Language Class",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "axisgallery|nevadacounty",
-      "venue_name": "Axis Gallery",
-      "venue_city": "Nevada County",
-      "count": 5,
-      "sample_event_id": "kvmr-344170-1772193600-1772211600-20260227",
-      "sample_title": "Gardens of Huemanity at Axis Gallery",
       "candidate_assets": []
     },
     {
@@ -66,6 +57,24 @@
       "count": 5,
       "sample_event_id": "gvda-172932092",
       "sample_title": "STEAM Exploration Saturdays",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "axisgallery|nevadacounty",
+      "venue_name": "Axis Gallery",
+      "venue_city": "Nevada County",
+      "count": 3,
+      "sample_event_id": "kvmr-344171-1772280000-1772298000-20260228",
+      "sample_title": "Gardens of Huemanity at Axis Gallery",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "nevadamuseumofart|renonv",
+      "venue_name": "Nevada Museum of Art",
+      "venue_city": "Reno, NV",
+      "count": 3,
+      "sample_event_id": "trumba-196872205",
+      "sample_title": "First Thursday with Musical Guest Bart Budwig",
       "candidate_assets": []
     },
     {
@@ -87,15 +96,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "nevadamuseumofart|renonv",
-      "venue_name": "Nevada Museum of Art",
-      "venue_city": "Reno, NV",
-      "count": 2,
-      "sample_event_id": "trumba-196872205",
-      "sample_title": "First Thursday with Musical Guest Bart Budwig",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "oddfellowshall|nevadacity",
       "venue_name": "Oddfellows Hall",
       "venue_city": "Nevada City",
@@ -114,24 +114,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "sansbackupplanrecords|nevadacity",
-      "venue_name": "Sans Backup Plan Records",
-      "venue_city": "Nevada City",
-      "count": 1,
-      "sample_event_id": "kvmr-348436-1772218800-1772229600-20260227",
-      "sample_title": "Dirty Laundry, Dusty the Kid, and Awkward Pocket at Sans Backup Plan Records",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "suttercreektheatre|nevadacounty",
-      "venue_name": "Sutter Creek Theatre",
-      "venue_city": "Nevada County",
-      "count": 1,
-      "sample_event_id": "kvmr-342904-1772222400-1772229600-20260227",
-      "sample_title": "Ronnie Baker Brooks: Award-winning Blues Guitar at Sutter Creek Theatre",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "sammiesniftythriftshop|grassvalley",
       "venue_name": "Sammie’s Nifty Thrift Shop",
       "venue_city": "Grass Valley",
@@ -147,6 +129,33 @@
       "count": 1,
       "sample_event_id": "kvmr-347962-1772303400-1772312400-20260228",
       "sample_title": "Puppet Wars: Family-Friendly Pro Wrestling in Alameda",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "suttercreektheatre|nevadacounty",
+      "venue_name": "Sutter Creek Theatre",
+      "venue_city": "Nevada County",
+      "count": 1,
+      "sample_event_id": "kvmr-342913-1772305200-1772312400-20260228",
+      "sample_title": "Flat Busted Band: Jason Aldean Tribute at Sutter Creek Theatre",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "theunchurch|grassvalley",
+      "venue_name": "The UnChurch",
+      "venue_city": "Grass Valley",
+      "count": 1,
+      "sample_event_id": "kvmr-348522-1772305200-1772316000-20260228",
+      "sample_title": "KVMRx Indie Disco: a DJ Dance Night at the UnChurch",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "thefern|nevadacity",
+      "venue_name": "The Fern",
+      "venue_city": "Nevada City",
+      "count": 1,
+      "sample_event_id": "kvmr-348194-1772312400-1772326800-20260228",
+      "sample_title": "Las Noches: Live at The Fern",
       "candidate_assets": []
     },
     {
@@ -195,6 +204,15 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "elk39slodge|grassvalley",
+      "venue_name": "Elk&#39;s Lodge",
+      "venue_city": "Grass Valley",
+      "count": 1,
+      "sample_event_id": "gvda-197826795",
+      "sample_title": "Nevada County Skate Second Annual Spaghetti Feed",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "darkhosecoffee|truckee",
       "venue_name": "Dark Hose Coffee",
       "venue_city": "Truckee",
@@ -233,6 +251,7 @@
       "Galleries & Museums",
       "Preservation & Culture",
       "Cultural Resources",
+      "Public Art",
       "Eat, Drink & Stay",
       "Walks & Trails"
     ],
