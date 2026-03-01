@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-02-28T07:26:08.355371+00:00",
+  "generated_at": "2026-03-01T07:32:28.434345+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
     "total_events": 206,
-    "matched_events": 143,
-    "unmatched_events": 63,
+    "matched_events": 146,
+    "unmatched_events": 60,
     "matched_by_pid": 0,
-    "matched_by_alias": 14,
-    "matched_by_name_city": 44,
-    "matched_by_name_city_fuzzy": 85,
+    "matched_by_alias": 12,
+    "matched_by_name_city": 40,
+    "matched_by_name_city_fuzzy": 94,
     "upcoming_14d": 206
   },
   "unmatched_venues": [
@@ -33,15 +33,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "unknownvenue|grassvalley",
-      "venue_name": "Unknown venue",
-      "venue_city": "Grass Valley",
-      "count": 7,
-      "sample_event_id": "gvda-196746888",
-      "sample_title": "The Practice of Us",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "studynook|grassvalley",
       "venue_name": "Study Nook",
       "venue_city": "Grass Valley",
@@ -51,20 +42,29 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "unknownvenue|grassvalley",
+      "venue_name": "Unknown venue",
+      "venue_city": "Grass Valley",
+      "count": 5,
+      "sample_event_id": "gvda-197734939",
+      "sample_title": "Adult Purim Celebration at the NCJCC",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "unknownvenue|truckee",
       "venue_name": "Unknown venue",
       "venue_city": "Truckee",
-      "count": 5,
-      "sample_event_id": "gvda-172932092",
-      "sample_title": "STEAM Exploration Saturdays",
+      "count": 4,
+      "sample_event_id": "gvda-118676669",
+      "sample_title": "Seniors Pancake Breakfast",
       "candidate_assets": []
     },
     {
       "venue_key": "axisgallery|nevadacounty",
       "venue_name": "Axis Gallery",
       "venue_city": "Nevada County",
-      "count": 3,
-      "sample_event_id": "kvmr-344171-1772280000-1772298000-20260228",
+      "count": 4,
+      "sample_event_id": "kvmr-344172-1772366400-1772384400-20260301",
       "sample_title": "Gardens of Huemanity at Axis Gallery",
       "candidate_assets": []
     },
@@ -72,18 +72,9 @@
       "venue_key": "nevadamuseumofart|renonv",
       "venue_name": "Nevada Museum of Art",
       "venue_city": "Reno, NV",
-      "count": 3,
+      "count": 4,
       "sample_event_id": "trumba-196872205",
       "sample_title": "First Thursday with Musical Guest Bart Budwig",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "mcknightcrossingshoppingcenter|grassvalley",
-      "venue_name": "Mcknight crossing shopping center",
-      "venue_city": "Grass Valley",
-      "count": 2,
-      "sample_event_id": "trumba-191631906",
-      "sample_title": "Cars and coffee grass valley",
       "candidate_assets": []
     },
     {
@@ -105,57 +96,21 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "mcknightcrossingshoppingcenter|grassvalley",
+      "venue_name": "Mcknight crossing shopping center",
+      "venue_city": "Grass Valley",
+      "count": 2,
+      "sample_event_id": "trumba-191631907",
+      "sample_title": "Cars and coffee grass valley",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "millstreetplaza|grassvalley",
       "venue_name": "Mill Street Plaza",
       "venue_city": "Grass Valley",
       "count": 2,
       "sample_event_id": "trumba-158432253",
       "sample_title": "St. Piran's Day Celebration",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "sammiesniftythriftshop|grassvalley",
-      "venue_name": "Sammie’s Nifty Thrift Shop",
-      "venue_city": "Grass Valley",
-      "count": 1,
-      "sample_event_id": "kvmr-344649-1772276400-1772287200-20260228",
-      "sample_title": "Nifty Adoption Day: Canine Edition",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "almanacadventureland|nevadacounty",
-      "venue_name": "Almanac Adventureland",
-      "venue_city": "Nevada County",
-      "count": 1,
-      "sample_event_id": "kvmr-347962-1772303400-1772312400-20260228",
-      "sample_title": "Puppet Wars: Family-Friendly Pro Wrestling in Alameda",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "suttercreektheatre|nevadacounty",
-      "venue_name": "Sutter Creek Theatre",
-      "venue_city": "Nevada County",
-      "count": 1,
-      "sample_event_id": "kvmr-342913-1772305200-1772312400-20260228",
-      "sample_title": "Flat Busted Band: Jason Aldean Tribute at Sutter Creek Theatre",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "theunchurch|grassvalley",
-      "venue_name": "The UnChurch",
-      "venue_city": "Grass Valley",
-      "count": 1,
-      "sample_event_id": "kvmr-348522-1772305200-1772316000-20260228",
-      "sample_title": "KVMRx Indie Disco: a DJ Dance Night at the UnChurch",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "thefern|nevadacity",
-      "venue_name": "The Fern",
-      "venue_city": "Nevada City",
-      "count": 1,
-      "sample_event_id": "kvmr-348194-1772312400-1772326800-20260228",
-      "sample_title": "Las Noches: Live at The Fern",
       "candidate_assets": []
     },
     {
@@ -186,6 +141,24 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "thehillmont|nevadacounty",
+      "venue_name": "The Hillmont",
+      "venue_city": "Nevada County",
+      "count": 1,
+      "sample_event_id": "kvmr-349421-1772474400-1772488800-20260302",
+      "sample_title": "Weekly Vinyl Night: Nancie's Records at The Hillmont in Auburn",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "unclesonnysbar|grassvalley",
+      "venue_name": "Uncle Sonny’s Bar",
+      "venue_city": "Grass Valley",
+      "count": 1,
+      "sample_event_id": "kvmr-305579-1772647200-1772654400-20260304",
+      "sample_title": "Bluegrass Jam Night at Uncle Sonny's Bar",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "online|grassvalley",
       "venue_name": "online",
       "venue_city": "Grass Valley",
@@ -201,6 +174,15 @@
       "count": 1,
       "sample_event_id": "trumba-113922955",
       "sample_title": "Kids Night Out",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "bodhihivestudio131|nevadacity",
+      "venue_name": "Bodhi Hive Studio #131",
+      "venue_city": "Nevada City",
+      "count": 1,
+      "sample_event_id": "trumba-198037335",
+      "sample_title": "Art Terrosa Studio Opening",
       "candidate_assets": []
     },
     {
