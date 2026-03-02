@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-03-01T07:32:28.434345+00:00",
+  "generated_at": "2026-03-02T07:49:07.006832+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 206,
-    "matched_events": 146,
+    "total_events": 205,
+    "matched_events": 145,
     "unmatched_events": 60,
     "matched_by_pid": 0,
-    "matched_by_alias": 12,
-    "matched_by_name_city": 40,
-    "matched_by_name_city_fuzzy": 94,
-    "upcoming_14d": 206
+    "matched_by_alias": 11,
+    "matched_by_name_city": 36,
+    "matched_by_name_city_fuzzy": 98,
+    "upcoming_14d": 205
   },
   "unmatched_venues": [
     {
@@ -33,6 +33,15 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "unknownvenue|grassvalley",
+      "venue_name": "Unknown venue",
+      "venue_city": "Grass Valley",
+      "count": 6,
+      "sample_event_id": "gvda-197734939",
+      "sample_title": "Adult Purim Celebration at the NCJCC",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "studynook|grassvalley",
       "venue_name": "Study Nook",
       "venue_city": "Grass Valley",
@@ -42,21 +51,12 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "unknownvenue|grassvalley",
-      "venue_name": "Unknown venue",
-      "venue_city": "Grass Valley",
-      "count": 5,
-      "sample_event_id": "gvda-197734939",
-      "sample_title": "Adult Purim Celebration at the NCJCC",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "unknownvenue|truckee",
-      "venue_name": "Unknown venue",
-      "venue_city": "Truckee",
+      "venue_key": "nevadamuseumofart|renonv",
+      "venue_name": "Nevada Museum of Art",
+      "venue_city": "Reno, NV",
       "count": 4,
-      "sample_event_id": "gvda-118676669",
-      "sample_title": "Seniors Pancake Breakfast",
+      "sample_event_id": "trumba-196872205",
+      "sample_title": "First Thursday with Musical Guest Bart Budwig",
       "candidate_assets": []
     },
     {
@@ -64,17 +64,17 @@
       "venue_name": "Axis Gallery",
       "venue_city": "Nevada County",
       "count": 4,
-      "sample_event_id": "kvmr-344172-1772366400-1772384400-20260301",
-      "sample_title": "Gardens of Huemanity at Axis Gallery",
+      "sample_event_id": "kvmr-348608-1772798400-1772816400-20260306",
+      "sample_title": "\"The Winters Where Catfish Sings\": Exhibition by Sokthea Chan at Axis Gallery",
       "candidate_assets": []
     },
     {
-      "venue_key": "nevadamuseumofart|renonv",
-      "venue_name": "Nevada Museum of Art",
-      "venue_city": "Reno, NV",
-      "count": 4,
-      "sample_event_id": "trumba-196872205",
-      "sample_title": "First Thursday with Musical Guest Bart Budwig",
+      "venue_key": "unknownvenue|truckee",
+      "venue_name": "Unknown venue",
+      "venue_city": "Truckee",
+      "count": 3,
+      "sample_event_id": "gvda-172932093",
+      "sample_title": "STEAM Exploration Saturdays",
       "candidate_assets": []
     },
     {
@@ -111,33 +111,6 @@
       "count": 2,
       "sample_event_id": "trumba-158432253",
       "sample_title": "St. Piran's Day Celebration",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "ohvparkscagov8230|truckee",
-      "venue_name": "ohv.parks.ca.gov&#8230;",
-      "venue_city": "Truckee",
-      "count": 1,
-      "sample_event_id": "gvda-197456429",
-      "sample_title": "Sierra Club Snowshoe to Castle Pass",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "seniorservices|truckee",
-      "venue_name": "Senior Services",
-      "venue_city": "Truckee",
-      "count": 1,
-      "sample_event_id": "trumba-118676669",
-      "sample_title": "Seniors Pancake Breakfast",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "pobox1266|nevadacity",
-      "venue_name": "P.O. Box 1266",
-      "venue_city": "Nevada City",
-      "count": 1,
-      "sample_event_id": "gvda-194954756",
-      "sample_title": "Nevada City Chinese Lunar New Year Parade and Festival",
       "candidate_assets": []
     },
     {
@@ -186,6 +159,15 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "torchclub|nevadacounty",
+      "venue_name": "Torch Club",
+      "venue_city": "Nevada County",
+      "count": 1,
+      "sample_event_id": "kvmr-348034-1772820000-1772827200-20260306",
+      "sample_title": "Mylar's Hippie Hour at the Torch Club",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "elk39slodge|grassvalley",
       "venue_name": "Elk&#39;s Lodge",
       "venue_city": "Grass Valley",
@@ -211,6 +193,24 @@
       "sample_event_id": "trumba-183038850",
       "sample_title": "Playwriting Group",
       "candidate_assets": []
+    },
+    {
+      "venue_key": "sdachurch|grassvalley",
+      "venue_name": "SDA Church",
+      "venue_city": "Grass Valley",
+      "count": 1,
+      "sample_event_id": "gvda-189280629",
+      "sample_title": "Frisson presented by InConcert Sierra",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "seventhdayadventistchurch|grassvalley",
+      "venue_name": "Seventh Day Adventist Church",
+      "venue_city": "Grass Valley",
+      "count": 1,
+      "sample_event_id": "trumba-187541529",
+      "sample_title": "Frisson presented by InConcert Sierra",
+      "candidate_assets": []
     }
   ],
   "category_coverage": {
@@ -233,7 +233,6 @@
       "Galleries & Museums",
       "Preservation & Culture",
       "Cultural Resources",
-      "Public Art",
       "Eat, Drink & Stay",
       "Walks & Trails"
     ],
