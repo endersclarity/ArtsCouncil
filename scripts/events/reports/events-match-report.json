@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-03-02T07:49:07.006832+00:00",
+  "generated_at": "2026-03-03T07:41:44.843706+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 205,
-    "matched_events": 145,
+    "total_events": 204,
+    "matched_events": 144,
     "unmatched_events": 60,
     "matched_by_pid": 0,
     "matched_by_alias": 11,
-    "matched_by_name_city": 36,
-    "matched_by_name_city_fuzzy": 98,
-    "upcoming_14d": 205
+    "matched_by_name_city": 38,
+    "matched_by_name_city_fuzzy": 95,
+    "upcoming_14d": 204
   },
   "unmatched_venues": [
     {
@@ -19,7 +19,7 @@
       "venue_name": "Eric Rood Center",
       "venue_city": "Nevada City",
       "count": 10,
-      "sample_event_id": "trumba-196757546",
+      "sample_event_id": "trumba-196757547",
       "sample_title": "Mobilize | Art Inspiring Activism with Wild & Scenic Film Festival Exhibition",
       "candidate_assets": []
     },
@@ -28,17 +28,8 @@
       "venue_name": "CTC Classroom",
       "venue_city": "Nevada City",
       "count": 8,
-      "sample_event_id": "libcal-LibCal-20247-16035873-20260302",
-      "sample_title": "Ukulele for the People",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "unknownvenue|grassvalley",
-      "venue_name": "Unknown venue",
-      "venue_city": "Grass Valley",
-      "count": 6,
-      "sample_event_id": "gvda-197734939",
-      "sample_title": "Adult Purim Celebration at the NCJCC",
+      "sample_event_id": "libcal-LibCal-20247-15952854-20260303",
+      "sample_title": "Spanish for Everyone",
       "candidate_assets": []
     },
     {
@@ -51,21 +42,30 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "axisgallery|nevadacounty",
+      "venue_name": "Axis Gallery",
+      "venue_city": "Nevada County",
+      "count": 5,
+      "sample_event_id": "kvmr-348608-1772798400-1772816400-20260306",
+      "sample_title": "\"The Winters Where Catfish Sings\": Exhibition by Sokthea Chan at Axis Gallery",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "unknownvenue|grassvalley",
+      "venue_name": "Unknown venue",
+      "venue_city": "Grass Valley",
+      "count": 5,
+      "sample_event_id": "gvda-197822500",
+      "sample_title": "Sierra Word Fest (formerly Sierra Writer&#39;s Conference)",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "nevadamuseumofart|renonv",
       "venue_name": "Nevada Museum of Art",
       "venue_city": "Reno, NV",
       "count": 4,
       "sample_event_id": "trumba-196872205",
       "sample_title": "First Thursday with Musical Guest Bart Budwig",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "axisgallery|nevadacounty",
-      "venue_name": "Axis Gallery",
-      "venue_city": "Nevada County",
-      "count": 4,
-      "sample_event_id": "kvmr-348608-1772798400-1772816400-20260306",
-      "sample_title": "\"The Winters Where Catfish Sings\": Exhibition by Sokthea Chan at Axis Gallery",
       "candidate_assets": []
     },
     {
@@ -114,24 +114,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "thehillmont|nevadacounty",
-      "venue_name": "The Hillmont",
-      "venue_city": "Nevada County",
-      "count": 1,
-      "sample_event_id": "kvmr-349421-1772474400-1772488800-20260302",
-      "sample_title": "Weekly Vinyl Night: Nancie's Records at The Hillmont in Auburn",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "unclesonnysbar|grassvalley",
-      "venue_name": "Uncle Sonny’s Bar",
-      "venue_city": "Grass Valley",
-      "count": 1,
-      "sample_event_id": "kvmr-305579-1772647200-1772654400-20260304",
-      "sample_title": "Bluegrass Jam Night at Uncle Sonny's Bar",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "online|grassvalley",
       "venue_name": "online",
       "venue_city": "Grass Valley",
@@ -177,6 +159,15 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "suttercreektheatre|nevadacounty",
+      "venue_name": "Sutter Creek Theatre",
+      "venue_city": "Nevada County",
+      "count": 1,
+      "sample_event_id": "kvmr-342916-1772910000-1772917200-20260307",
+      "sample_title": "Traveling Wilburys Revue at Sutter Creek Theatre: a Tribute to the Greatest Band Who Never Played Live",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "darkhosecoffee|truckee",
       "venue_name": "Dark Hose Coffee",
       "venue_city": "Truckee",
@@ -210,6 +201,15 @@
       "count": 1,
       "sample_event_id": "trumba-187541529",
       "sample_title": "Frisson presented by InConcert Sierra",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "meetingroom|pennvalley",
+      "venue_name": "Meeting Room",
+      "venue_city": "Penn Valley",
+      "count": 1,
+      "sample_event_id": "libcal-LibCal-20247-16276894-20260316",
+      "sample_title": "Lab Rats: A Science Book Club",
       "candidate_assets": []
     }
   ],
