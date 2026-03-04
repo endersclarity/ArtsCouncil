@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-03-03T07:41:44.843706+00:00",
+  "generated_at": "2026-03-04T07:37:20.721202+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 204,
-    "matched_events": 144,
-    "unmatched_events": 60,
+    "total_events": 207,
+    "matched_events": 143,
+    "unmatched_events": 64,
     "matched_by_pid": 0,
     "matched_by_alias": 11,
     "matched_by_name_city": 38,
-    "matched_by_name_city_fuzzy": 95,
-    "upcoming_14d": 204
+    "matched_by_name_city_fuzzy": 94,
+    "upcoming_14d": 207
   },
   "unmatched_venues": [
     {
@@ -19,7 +19,7 @@
       "venue_name": "Eric Rood Center",
       "venue_city": "Nevada City",
       "count": 10,
-      "sample_event_id": "trumba-196757547",
+      "sample_event_id": "trumba-196757548",
       "sample_title": "Mobilize | Art Inspiring Activism with Wild & Scenic Film Festival Exhibition",
       "candidate_assets": []
     },
@@ -28,8 +28,8 @@
       "venue_name": "CTC Classroom",
       "venue_city": "Nevada City",
       "count": 8,
-      "sample_event_id": "libcal-LibCal-20247-15952854-20260303",
-      "sample_title": "Spanish for Everyone",
+      "sample_event_id": "libcal-LibCal-20247-16149488-20260304",
+      "sample_title": "Tech Drop In",
       "candidate_assets": []
     },
     {
@@ -37,15 +37,15 @@
       "venue_name": "Study Nook",
       "venue_city": "Grass Valley",
       "count": 6,
-      "sample_event_id": "libcal-LibCal-20247-15952662-20260303",
-      "sample_title": "English Language Class",
+      "sample_event_id": "libcal-LibCal-20247-15109007-20260305",
+      "sample_title": "Intermediate/Advanced English Conversation Group",
       "candidate_assets": []
     },
     {
       "venue_key": "axisgallery|nevadacounty",
       "venue_name": "Axis Gallery",
       "venue_city": "Nevada County",
-      "count": 5,
+      "count": 6,
       "sample_event_id": "kvmr-348608-1772798400-1772816400-20260306",
       "sample_title": "\"The Winters Where Catfish Sings\": Exhibition by Sokthea Chan at Axis Gallery",
       "candidate_assets": []
@@ -54,7 +54,7 @@
       "venue_key": "unknownvenue|grassvalley",
       "venue_name": "Unknown venue",
       "venue_city": "Grass Valley",
-      "count": 5,
+      "count": 6,
       "sample_event_id": "gvda-197822500",
       "sample_title": "Sierra Word Fest (formerly Sierra Writer&#39;s Conference)",
       "candidate_assets": []
@@ -111,6 +111,15 @@
       "count": 2,
       "sample_event_id": "trumba-158432253",
       "sample_title": "St. Piran's Day Celebration",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "unknownvenue|nevadacity",
+      "venue_name": "Unknown venue",
+      "venue_city": "Nevada City",
+      "count": 2,
+      "sample_event_id": "gvda-191708165",
+      "sample_title": "Spring Street Swing Out",
       "candidate_assets": []
     },
     {
