@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-03-04T07:37:20.721202+00:00",
+  "generated_at": "2026-03-05T07:43:49.435375+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 207,
-    "matched_events": 143,
-    "unmatched_events": 64,
+    "total_events": 217,
+    "matched_events": 158,
+    "unmatched_events": 59,
     "matched_by_pid": 0,
-    "matched_by_alias": 11,
-    "matched_by_name_city": 38,
-    "matched_by_name_city_fuzzy": 94,
-    "upcoming_14d": 207
+    "matched_by_alias": 25,
+    "matched_by_name_city": 40,
+    "matched_by_name_city_fuzzy": 93,
+    "upcoming_14d": 210
   },
   "unmatched_venues": [
     {
@@ -19,7 +19,7 @@
       "venue_name": "Eric Rood Center",
       "venue_city": "Nevada City",
       "count": 10,
-      "sample_event_id": "trumba-196757548",
+      "sample_event_id": "trumba-196757549",
       "sample_title": "Mobilize | Art Inspiring Activism with Wild & Scenic Film Festival Exhibition",
       "candidate_assets": []
     },
@@ -28,8 +28,8 @@
       "venue_name": "CTC Classroom",
       "venue_city": "Nevada City",
       "count": 8,
-      "sample_event_id": "libcal-LibCal-20247-16149488-20260304",
-      "sample_title": "Tech Drop In",
+      "sample_event_id": "libcal-LibCal-20247-16008804-20260305",
+      "sample_title": "Tech Talk: How to Back Up Your Computer",
       "candidate_assets": []
     },
     {
@@ -60,30 +60,12 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "nevadamuseumofart|renonv",
-      "venue_name": "Nevada Museum of Art",
-      "venue_city": "Reno, NV",
-      "count": 4,
-      "sample_event_id": "trumba-196872205",
-      "sample_title": "First Thursday with Musical Guest Bart Budwig",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "unknownvenue|truckee",
       "venue_name": "Unknown venue",
       "venue_city": "Truckee",
       "count": 3,
       "sample_event_id": "gvda-172932093",
       "sample_title": "STEAM Exploration Saturdays",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "workspacemeetingroom|truckee",
-      "venue_name": "Workspace Meeting Room",
-      "venue_city": "Truckee",
-      "count": 2,
-      "sample_event_id": "libcal-LibCal-20247-14949350-20260304",
-      "sample_title": "Wild About Wool in Truckee",
       "candidate_assets": []
     },
     {
@@ -114,21 +96,21 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "workspacemeetingroom|truckee",
+      "venue_name": "Workspace Meeting Room",
+      "venue_city": "Truckee",
+      "count": 2,
+      "sample_event_id": "libcal-LibCal-20247-16217335-20260310",
+      "sample_title": "Capturing Better Portraits",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "unknownvenue|nevadacity",
       "venue_name": "Unknown venue",
       "venue_city": "Nevada City",
       "count": 2,
       "sample_event_id": "gvda-191708165",
       "sample_title": "Spring Street Swing Out",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "online|grassvalley",
-      "venue_name": "online",
-      "venue_city": "Grass Valley",
-      "count": 1,
-      "sample_event_id": "trumba-197534295",
-      "sample_title": "Opera 101: Musings with the Maestro",
       "candidate_assets": []
     },
     {
