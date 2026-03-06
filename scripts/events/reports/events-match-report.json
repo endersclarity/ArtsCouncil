@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-03-05T07:43:49.435375+00:00",
+  "generated_at": "2026-03-06T07:37:40.910614+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 217,
-    "matched_events": 158,
+    "total_events": 212,
+    "matched_events": 153,
     "unmatched_events": 59,
     "matched_by_pid": 0,
     "matched_by_alias": 25,
-    "matched_by_name_city": 40,
-    "matched_by_name_city_fuzzy": 93,
-    "upcoming_14d": 210
+    "matched_by_name_city": 38,
+    "matched_by_name_city_fuzzy": 90,
+    "upcoming_14d": 206
   },
   "unmatched_venues": [
     {
@@ -19,7 +19,7 @@
       "venue_name": "Eric Rood Center",
       "venue_city": "Nevada City",
       "count": 10,
-      "sample_event_id": "trumba-196757549",
+      "sample_event_id": "trumba-196757550",
       "sample_title": "Mobilize | Art Inspiring Activism with Wild & Scenic Film Festival Exhibition",
       "candidate_assets": []
     },
@@ -28,8 +28,8 @@
       "venue_name": "CTC Classroom",
       "venue_city": "Nevada City",
       "count": 8,
-      "sample_event_id": "libcal-LibCal-20247-16008804-20260305",
-      "sample_title": "Tech Talk: How to Back Up Your Computer",
+      "sample_event_id": "libcal-LibCal-20247-16035874-20260309",
+      "sample_title": "Ukulele for the People",
       "candidate_assets": []
     },
     {
@@ -37,8 +37,8 @@
       "venue_name": "Study Nook",
       "venue_city": "Grass Valley",
       "count": 6,
-      "sample_event_id": "libcal-LibCal-20247-15109007-20260305",
-      "sample_title": "Intermediate/Advanced English Conversation Group",
+      "sample_event_id": "libcal-LibCal-20247-15952753-20260306",
+      "sample_title": "English Language Class",
       "candidate_assets": []
     },
     {
@@ -69,15 +69,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "oddfellowshall|nevadacity",
-      "venue_name": "Oddfellows Hall",
-      "venue_city": "Nevada City",
-      "count": 2,
-      "sample_event_id": "trumba-196396179",
-      "sample_title": "Motion Theater",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "mcknightcrossingshoppingcenter|grassvalley",
       "venue_name": "Mcknight crossing shopping center",
       "venue_city": "Grass Valley",
@@ -102,6 +93,15 @@
       "count": 2,
       "sample_event_id": "libcal-LibCal-20247-16217335-20260310",
       "sample_title": "Capturing Better Portraits",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "oddfellowshall|nevadacity",
+      "venue_name": "Oddfellows Hall",
+      "venue_city": "Nevada City",
+      "count": 2,
+      "sample_event_id": "trumba-196396180",
+      "sample_title": "Motion Theater",
       "candidate_assets": []
     },
     {
