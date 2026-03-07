@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-03-06T07:37:40.910614+00:00",
+  "generated_at": "2026-03-07T07:28:02.833074+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 212,
-    "matched_events": 153,
-    "unmatched_events": 59,
+    "total_events": 207,
+    "matched_events": 150,
+    "unmatched_events": 57,
     "matched_by_pid": 0,
-    "matched_by_alias": 25,
-    "matched_by_name_city": 38,
-    "matched_by_name_city_fuzzy": 90,
-    "upcoming_14d": 206
+    "matched_by_alias": 26,
+    "matched_by_name_city": 35,
+    "matched_by_name_city_fuzzy": 89,
+    "upcoming_14d": 202
   },
   "unmatched_venues": [
     {
@@ -19,7 +19,7 @@
       "venue_name": "Eric Rood Center",
       "venue_city": "Nevada City",
       "count": 10,
-      "sample_event_id": "trumba-196757550",
+      "sample_event_id": "trumba-196757551",
       "sample_title": "Mobilize | Art Inspiring Activism with Wild & Scenic Film Festival Exhibition",
       "candidate_assets": []
     },
@@ -33,30 +33,30 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "studynook|grassvalley",
-      "venue_name": "Study Nook",
-      "venue_city": "Grass Valley",
-      "count": 6,
-      "sample_event_id": "libcal-LibCal-20247-15952753-20260306",
-      "sample_title": "English Language Class",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "axisgallery|nevadacounty",
-      "venue_name": "Axis Gallery",
-      "venue_city": "Nevada County",
-      "count": 6,
-      "sample_event_id": "kvmr-348608-1772798400-1772816400-20260306",
-      "sample_title": "\"The Winters Where Catfish Sings\": Exhibition by Sokthea Chan at Axis Gallery",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "unknownvenue|grassvalley",
       "venue_name": "Unknown venue",
       "venue_city": "Grass Valley",
       "count": 6,
       "sample_event_id": "gvda-197822500",
       "sample_title": "Sierra Word Fest (formerly Sierra Writer&#39;s Conference)",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "axisgallery|nevadacounty",
+      "venue_name": "Axis Gallery",
+      "venue_city": "Nevada County",
+      "count": 4,
+      "sample_event_id": "kvmr-348660-1772884800-1772902800-20260307",
+      "sample_title": "\"The Winters Where Catfish Sings\": Exhibition by Sokthea Chan at Axis Gallery",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "studynook|grassvalley",
+      "venue_name": "Study Nook",
+      "venue_city": "Grass Valley",
+      "count": 4,
+      "sample_event_id": "libcal-LibCal-20247-15952663-20260310",
+      "sample_title": "English Language Class",
       "candidate_assets": []
     },
     {
@@ -114,30 +114,12 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "northwoodsclubhouse|truckee",
-      "venue_name": "Northwoods Clubhouse",
-      "venue_city": "Truckee",
-      "count": 1,
-      "sample_event_id": "trumba-113922955",
-      "sample_title": "Kids Night Out",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "bodhihivestudio131|nevadacity",
-      "venue_name": "Bodhi Hive Studio #131",
-      "venue_city": "Nevada City",
-      "count": 1,
-      "sample_event_id": "trumba-198037335",
-      "sample_title": "Art Terrosa Studio Opening",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "torchclub|nevadacounty",
-      "venue_name": "Torch Club",
-      "venue_city": "Nevada County",
-      "count": 1,
-      "sample_event_id": "kvmr-348034-1772820000-1772827200-20260306",
-      "sample_title": "Mylar's Hippie Hour at the Torch Club",
+      "venue_key": "firstbaptistchurch|grassvalley",
+      "venue_name": "First Baptist Church",
+      "venue_city": "Grass Valley",
+      "count": 2,
+      "sample_event_id": "trumba-198214906",
+      "sample_title": "Decendants: The Musical",
       "candidate_assets": []
     },
     {
@@ -165,6 +147,33 @@
       "count": 1,
       "sample_event_id": "trumba-116325473",
       "sample_title": "Word Jam",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "thehillmont|nevadacounty",
+      "venue_name": "The Hillmont",
+      "venue_city": "Nevada County",
+      "count": 1,
+      "sample_event_id": "kvmr-349422-1773079200-1773093600-20260309",
+      "sample_title": "Weekly Vinyl Night: Nancie's Records at The Hillmont in Auburn",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "cresttheater|nevadacounty",
+      "venue_name": "Crest Theater",
+      "venue_city": "Nevada County",
+      "count": 1,
+      "sample_event_id": "kvmr-347658-1773082800-1773086400-20260309",
+      "sample_title": "An Evening with Michael Pollan at the Crest",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "placercountyhealthandhumanservicescentercordovaroom|nevadacounty",
+      "venue_name": "Placer County Health and Human Services Center: Cordova Room",
+      "venue_city": "Nevada County",
+      "count": 1,
+      "sample_event_id": "kvmr-349039-1773160200-1773167400-20260310",
+      "sample_title": "Sierra Foothills Audubon Society: \"For the Love of Birds\" Event",
       "candidate_assets": []
     },
     {
