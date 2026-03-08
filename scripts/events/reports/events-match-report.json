@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-03-07T07:28:02.833074+00:00",
+  "generated_at": "2026-03-08T07:30:16.157075+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 207,
-    "matched_events": 150,
-    "unmatched_events": 57,
+    "total_events": 206,
+    "matched_events": 148,
+    "unmatched_events": 58,
     "matched_by_pid": 0,
-    "matched_by_alias": 26,
-    "matched_by_name_city": 35,
-    "matched_by_name_city_fuzzy": 89,
-    "upcoming_14d": 202
+    "matched_by_alias": 23,
+    "matched_by_name_city": 31,
+    "matched_by_name_city_fuzzy": 94,
+    "upcoming_14d": 192
   },
   "unmatched_venues": [
     {
@@ -36,9 +36,9 @@
       "venue_key": "unknownvenue|grassvalley",
       "venue_name": "Unknown venue",
       "venue_city": "Grass Valley",
-      "count": 6,
-      "sample_event_id": "gvda-197822500",
-      "sample_title": "Sierra Word Fest (formerly Sierra Writer&#39;s Conference)",
+      "count": 7,
+      "sample_event_id": "gvda-196694601",
+      "sample_title": "Warrior Conditioning with Anthony Pietromonaco",
       "candidate_assets": []
     },
     {
@@ -60,30 +60,21 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "firstbaptistchurch|grassvalley",
+      "venue_name": "First Baptist Church",
+      "venue_city": "Grass Valley",
+      "count": 4,
+      "sample_event_id": "trumba-198214906",
+      "sample_title": "Decendants: The Musical",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "unknownvenue|truckee",
       "venue_name": "Unknown venue",
       "venue_city": "Truckee",
       "count": 3,
-      "sample_event_id": "gvda-172932093",
-      "sample_title": "STEAM Exploration Saturdays",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "mcknightcrossingshoppingcenter|grassvalley",
-      "venue_name": "Mcknight crossing shopping center",
-      "venue_city": "Grass Valley",
-      "count": 2,
-      "sample_event_id": "trumba-191631907",
-      "sample_title": "Cars and coffee grass valley",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "millstreetplaza|grassvalley",
-      "venue_name": "Mill Street Plaza",
-      "venue_city": "Grass Valley",
-      "count": 2,
-      "sample_event_id": "trumba-158432253",
-      "sample_title": "St. Piran's Day Celebration",
+      "sample_event_id": "gvda-116325473",
+      "sample_title": "Word Jam",
       "candidate_assets": []
     },
     {
@@ -105,30 +96,21 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "mcknightcrossingshoppingcenter|grassvalley",
+      "venue_name": "Mcknight crossing shopping center",
+      "venue_city": "Grass Valley",
+      "count": 2,
+      "sample_event_id": "trumba-191631908",
+      "sample_title": "Cars and coffee grass valley",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "unknownvenue|nevadacity",
       "venue_name": "Unknown venue",
       "venue_city": "Nevada City",
       "count": 2,
       "sample_event_id": "gvda-191708165",
       "sample_title": "Spring Street Swing Out",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "firstbaptistchurch|grassvalley",
-      "venue_name": "First Baptist Church",
-      "venue_city": "Grass Valley",
-      "count": 2,
-      "sample_event_id": "trumba-198214906",
-      "sample_title": "Decendants: The Musical",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "elk39slodge|grassvalley",
-      "venue_name": "Elk&#39;s Lodge",
-      "venue_city": "Grass Valley",
-      "count": 1,
-      "sample_event_id": "gvda-197826795",
-      "sample_title": "Nevada County Skate Second Annual Spaghetti Feed",
       "candidate_assets": []
     },
     {
@@ -210,6 +192,15 @@
       "count": 1,
       "sample_event_id": "libcal-LibCal-20247-16276894-20260316",
       "sample_title": "Lab Rats: A Science Book Club",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "wonderdocent|nevadacity",
+      "venue_name": "Wonder Docent",
+      "venue_city": "Nevada City",
+      "count": 1,
+      "sample_event_id": "trumba-197779849",
+      "sample_title": "UNESCO World Poetry Day",
       "candidate_assets": []
     }
   ],
