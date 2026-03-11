@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-03-10T07:40:09.607623+00:00",
+  "generated_at": "2026-03-11T07:42:50.612719+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 202,
-    "matched_events": 147,
-    "unmatched_events": 55,
+    "total_events": 203,
+    "matched_events": 149,
+    "unmatched_events": 54,
     "matched_by_pid": 0,
-    "matched_by_alias": 24,
-    "matched_by_name_city": 30,
-    "matched_by_name_city_fuzzy": 93,
-    "upcoming_14d": 177
+    "matched_by_alias": 25,
+    "matched_by_name_city": 29,
+    "matched_by_name_city_fuzzy": 95,
+    "upcoming_14d": 174
   },
   "unmatched_venues": [
     {
@@ -19,7 +19,7 @@
       "venue_name": "Eric Rood Center",
       "venue_city": "Nevada City",
       "count": 10,
-      "sample_event_id": "trumba-196757552",
+      "sample_event_id": "trumba-196757553",
       "sample_title": "Mobilize | Art Inspiring Activism with Wild & Scenic Film Festival Exhibition",
       "candidate_assets": []
     },
@@ -28,8 +28,8 @@
       "venue_name": "CTC Classroom",
       "venue_city": "Nevada City",
       "count": 8,
-      "sample_event_id": "libcal-LibCal-20247-15952855-20260310",
-      "sample_title": "CANCELLED 3/10: Spanish for Everyone",
+      "sample_event_id": "libcal-LibCal-20247-16149489-20260311",
+      "sample_title": "Tech Drop In",
       "candidate_assets": []
     },
     {
@@ -55,7 +55,7 @@
       "venue_name": "Study Nook",
       "venue_city": "Grass Valley",
       "count": 4,
-      "sample_event_id": "libcal-LibCal-20247-15952663-20260310",
+      "sample_event_id": "libcal-LibCal-20247-15952754-20260313",
       "sample_title": "English Language Class",
       "candidate_assets": []
     },
@@ -66,15 +66,6 @@
       "count": 4,
       "sample_event_id": "trumba-198214906",
       "sample_title": "Decendants: The Musical",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "workspacemeetingroom|truckee",
-      "venue_name": "Workspace Meeting Room",
-      "venue_city": "Truckee",
-      "count": 2,
-      "sample_event_id": "libcal-LibCal-20247-16217335-20260310",
-      "sample_title": "Capturing Better Portraits",
       "candidate_assets": []
     },
     {
@@ -183,6 +174,15 @@
       "count": 1,
       "sample_event_id": "libcal-LibCal-20247-16276894-20260316",
       "sample_title": "Lab Rats: A Science Book Club",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "workspacemeetingroom|truckee",
+      "venue_name": "Workspace Meeting Room",
+      "venue_city": "Truckee",
+      "count": 1,
+      "sample_event_id": "libcal-LibCal-20247-15847473-20260318",
+      "sample_title": "Lawyer in the Library- Truckee",
       "candidate_assets": []
     },
     {
