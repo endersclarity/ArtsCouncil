@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-03-11T07:42:50.612719+00:00",
+  "generated_at": "2026-03-12T07:45:57.948780+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 203,
-    "matched_events": 149,
+    "total_events": 202,
+    "matched_events": 148,
     "unmatched_events": 54,
     "matched_by_pid": 0,
-    "matched_by_alias": 25,
+    "matched_by_alias": 24,
     "matched_by_name_city": 29,
     "matched_by_name_city_fuzzy": 95,
-    "upcoming_14d": 174
+    "upcoming_14d": 172
   },
   "unmatched_venues": [
     {
@@ -19,7 +19,7 @@
       "venue_name": "Eric Rood Center",
       "venue_city": "Nevada City",
       "count": 10,
-      "sample_event_id": "trumba-196757553",
+      "sample_event_id": "trumba-196757554",
       "sample_title": "Mobilize | Art Inspiring Activism with Wild & Scenic Film Festival Exhibition",
       "candidate_assets": []
     },
@@ -28,8 +28,8 @@
       "venue_name": "CTC Classroom",
       "venue_city": "Nevada City",
       "count": 8,
-      "sample_event_id": "libcal-LibCal-20247-16149489-20260311",
-      "sample_title": "Tech Drop In",
+      "sample_event_id": "libcal-LibCal-20247-15559650-20260312",
+      "sample_title": "TWEEN the Pages: Bimonthly Book Club for Tweens",
       "candidate_assets": []
     },
     {
@@ -141,15 +141,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "membershomes|grassvalley",
-      "venue_name": "Members homes",
-      "venue_city": "Grass Valley",
-      "count": 1,
-      "sample_event_id": "trumba-183038850",
-      "sample_title": "Playwriting Group",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "sdachurch|grassvalley",
       "venue_name": "SDA Church",
       "venue_city": "Grass Valley",
@@ -192,6 +183,15 @@
       "count": 1,
       "sample_event_id": "trumba-197779849",
       "sample_title": "UNESCO World Poetry Day",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "membershomes|grassvalley",
+      "venue_name": "Members homes",
+      "venue_city": "Grass Valley",
+      "count": 1,
+      "sample_event_id": "trumba-183038851",
+      "sample_title": "Playwriting Group",
       "candidate_assets": []
     }
   ],
