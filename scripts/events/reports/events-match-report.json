@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-03-12T07:45:57.948780+00:00",
+  "generated_at": "2026-03-13T07:44:13.543674+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 202,
-    "matched_events": 148,
+    "total_events": 197,
+    "matched_events": 143,
     "unmatched_events": 54,
     "matched_by_pid": 0,
-    "matched_by_alias": 24,
-    "matched_by_name_city": 29,
-    "matched_by_name_city_fuzzy": 95,
-    "upcoming_14d": 172
+    "matched_by_alias": 23,
+    "matched_by_name_city": 28,
+    "matched_by_name_city_fuzzy": 92,
+    "upcoming_14d": 166
   },
   "unmatched_venues": [
     {
@@ -19,7 +19,7 @@
       "venue_name": "Eric Rood Center",
       "venue_city": "Nevada City",
       "count": 10,
-      "sample_event_id": "trumba-196757554",
+      "sample_event_id": "trumba-196757555",
       "sample_title": "Mobilize | Art Inspiring Activism with Wild & Scenic Film Festival Exhibition",
       "candidate_assets": []
     },
@@ -27,9 +27,9 @@
       "venue_key": "ctcclassroom|nevadacity",
       "venue_name": "CTC Classroom",
       "venue_city": "Nevada City",
-      "count": 8,
-      "sample_event_id": "libcal-LibCal-20247-15559650-20260312",
-      "sample_title": "TWEEN the Pages: Bimonthly Book Club for Tweens",
+      "count": 7,
+      "sample_event_id": "libcal-LibCal-20247-16035875-20260316",
+      "sample_title": "Ukulele for the People",
       "candidate_assets": []
     },
     {
@@ -37,8 +37,8 @@
       "venue_name": "Unknown venue",
       "venue_city": "Grass Valley",
       "count": 6,
-      "sample_event_id": "gvda-173276082",
-      "sample_title": "Karaoke - Grass Valley Brewing Co.",
+      "sample_event_id": "gvda-197068116",
+      "sample_title": "Reluctant Reformers: Mary Hallock Foote and Julia Morgan in the Progressive Era by Mary-Jo Wainwright",
       "candidate_assets": []
     },
     {
@@ -69,15 +69,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "oddfellowshall|nevadacity",
-      "venue_name": "Oddfellows Hall",
-      "venue_city": "Nevada City",
-      "count": 2,
-      "sample_event_id": "trumba-196396180",
-      "sample_title": "Motion Theater",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "mcknightcrossingshoppingcenter|grassvalley",
       "venue_name": "Mcknight crossing shopping center",
       "venue_city": "Grass Valley",
@@ -96,12 +87,30 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "meetingroom|pennvalley",
+      "venue_name": "Meeting Room",
+      "venue_city": "Penn Valley",
+      "count": 2,
+      "sample_event_id": "libcal-LibCal-20247-16276894-20260316",
+      "sample_title": "Lab Rats: A Science Book Club",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "unknownvenue|nevadacity",
       "venue_name": "Unknown venue",
       "venue_city": "Nevada City",
       "count": 2,
       "sample_event_id": "gvda-191708165",
       "sample_title": "Spring Street Swing Out",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "oddfellowshall|nevadacity",
+      "venue_name": "Oddfellows Hall",
+      "venue_city": "Nevada City",
+      "count": 2,
+      "sample_event_id": "trumba-196396181",
+      "sample_title": "Motion Theater",
       "candidate_assets": []
     },
     {
@@ -156,15 +165,6 @@
       "count": 1,
       "sample_event_id": "trumba-187541529",
       "sample_title": "Frisson presented by InConcert Sierra",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "meetingroom|pennvalley",
-      "venue_name": "Meeting Room",
-      "venue_city": "Penn Valley",
-      "count": 1,
-      "sample_event_id": "libcal-LibCal-20247-16276894-20260316",
-      "sample_title": "Lab Rats: A Science Book Club",
       "candidate_assets": []
     },
     {
