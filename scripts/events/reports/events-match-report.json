@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-03-13T07:44:13.543674+00:00",
+  "generated_at": "2026-03-14T07:34:05.339790+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 197,
-    "matched_events": 143,
-    "unmatched_events": 54,
+    "total_events": 199,
+    "matched_events": 141,
+    "unmatched_events": 58,
     "matched_by_pid": 0,
     "matched_by_alias": 23,
-    "matched_by_name_city": 28,
-    "matched_by_name_city_fuzzy": 92,
-    "upcoming_14d": 166
+    "matched_by_name_city": 29,
+    "matched_by_name_city_fuzzy": 89,
+    "upcoming_14d": 167
   },
   "unmatched_venues": [
     {
@@ -19,8 +19,17 @@
       "venue_name": "Eric Rood Center",
       "venue_city": "Nevada City",
       "count": 10,
-      "sample_event_id": "trumba-196757555",
+      "sample_event_id": "trumba-196757556",
       "sample_title": "Mobilize | Art Inspiring Activism with Wild & Scenic Film Festival Exhibition",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "unknownvenue|grassvalley",
+      "venue_name": "Unknown venue",
+      "venue_city": "Grass Valley",
+      "count": 8,
+      "sample_event_id": "gvda-198405081",
+      "sample_title": "Decisions About Dying",
       "candidate_assets": []
     },
     {
@@ -33,15 +42,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "unknownvenue|grassvalley",
-      "venue_name": "Unknown venue",
-      "venue_city": "Grass Valley",
-      "count": 6,
-      "sample_event_id": "gvda-197068116",
-      "sample_title": "Reluctant Reformers: Mary Hallock Foote and Julia Morgan in the Progressive Era by Mary-Jo Wainwright",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "axisgallery|nevadacounty",
       "venue_name": "Axis Gallery",
       "venue_city": "Nevada County",
@@ -51,11 +51,20 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "unknownvenue|nevadacity",
+      "venue_name": "Unknown venue",
+      "venue_city": "Nevada City",
+      "count": 4,
+      "sample_event_id": "gvda-198541121",
+      "sample_title": "Free Workshop: Totally Tomatoes",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "studynook|grassvalley",
       "venue_name": "Study Nook",
       "venue_city": "Grass Valley",
       "count": 4,
-      "sample_event_id": "libcal-LibCal-20247-15952754-20260313",
+      "sample_event_id": "libcal-LibCal-20247-15952664-20260317",
       "sample_title": "English Language Class",
       "candidate_assets": []
     },
@@ -93,15 +102,6 @@
       "count": 2,
       "sample_event_id": "libcal-LibCal-20247-16276894-20260316",
       "sample_title": "Lab Rats: A Science Book Club",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "unknownvenue|nevadacity",
-      "venue_name": "Unknown venue",
-      "venue_city": "Nevada City",
-      "count": 2,
-      "sample_event_id": "gvda-191708165",
-      "sample_title": "Spring Street Swing Out",
       "candidate_assets": []
     },
     {
