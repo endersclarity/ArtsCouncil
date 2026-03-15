@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-03-14T07:34:05.339790+00:00",
+  "generated_at": "2026-03-15T07:44:09.680148+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 199,
+    "total_events": 201,
     "matched_events": 141,
-    "unmatched_events": 58,
+    "unmatched_events": 60,
     "matched_by_pid": 0,
-    "matched_by_alias": 23,
+    "matched_by_alias": 21,
     "matched_by_name_city": 29,
-    "matched_by_name_city_fuzzy": 89,
-    "upcoming_14d": 167
+    "matched_by_name_city_fuzzy": 91,
+    "upcoming_14d": 172
   },
   "unmatched_venues": [
     {
@@ -27,9 +27,9 @@
       "venue_key": "unknownvenue|grassvalley",
       "venue_name": "Unknown venue",
       "venue_city": "Grass Valley",
-      "count": 8,
-      "sample_event_id": "gvda-198405081",
-      "sample_title": "Decisions About Dying",
+      "count": 9,
+      "sample_event_id": "gvda-197068116",
+      "sample_title": "Reluctant Reformers: Mary Hallock Foote and Julia Morgan in the Progressive Era by Mary-Jo Wainwright",
       "candidate_assets": []
     },
     {
@@ -51,15 +51,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "unknownvenue|nevadacity",
-      "venue_name": "Unknown venue",
-      "venue_city": "Nevada City",
-      "count": 4,
-      "sample_event_id": "gvda-198541121",
-      "sample_title": "Free Workshop: Totally Tomatoes",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "studynook|grassvalley",
       "venue_name": "Study Nook",
       "venue_city": "Grass Valley",
@@ -78,20 +69,20 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "mcknightcrossingshoppingcenter|grassvalley",
-      "venue_name": "Mcknight crossing shopping center",
-      "venue_city": "Grass Valley",
-      "count": 2,
-      "sample_event_id": "trumba-191631908",
-      "sample_title": "Cars and coffee grass valley",
+      "venue_key": "unknownvenue|nevadacity",
+      "venue_name": "Unknown venue",
+      "venue_city": "Nevada City",
+      "count": 3,
+      "sample_event_id": "gvda-198326438",
+      "sample_title": "Fogelberg Revisited &#8211; A Tribute to Dan Fogelberg",
       "candidate_assets": []
     },
     {
       "venue_key": "unknownvenue|truckee",
       "venue_name": "Unknown venue",
       "venue_city": "Truckee",
-      "count": 2,
-      "sample_event_id": "gvda-173596654",
+      "count": 3,
+      "sample_event_id": "gvda-173596655",
       "sample_title": "STEAM Exploration Saturdays",
       "candidate_assets": []
     },
@@ -111,6 +102,15 @@
       "count": 2,
       "sample_event_id": "trumba-196396181",
       "sample_title": "Motion Theater",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "mcknightcrossingshoppingcenter|grassvalley",
+      "venue_name": "Mcknight crossing shopping center",
+      "venue_city": "Grass Valley",
+      "count": 2,
+      "sample_event_id": "trumba-191631909",
+      "sample_title": "Cars and coffee grass valley",
       "candidate_assets": []
     },
     {
@@ -192,6 +192,15 @@
       "count": 1,
       "sample_event_id": "trumba-183038851",
       "sample_title": "Playwriting Group",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "artistshome|nevadacity",
+      "venue_name": "Artist's Home",
+      "venue_city": "Nevada City",
+      "count": 1,
+      "sample_event_id": "trumba-197744052",
+      "sample_title": "Mythos of the Feminine: A Home Exhibition",
       "candidate_assets": []
     }
   ],
