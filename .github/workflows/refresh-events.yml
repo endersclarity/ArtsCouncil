@@ -30,20 +30,16 @@ jobs:
       - name: Ingest Trumba RSS
         run: python scripts/events/ingest_trumba_rss.py
 
-      - name: Ingest LibCal iCal
-        run: python scripts/events/ingest_libcal_ical.py
-
-      - name: Ingest CivicEngage RSS
-        run: python scripts/events/ingest_civicengage_rss.py
-        continue-on-error: true  # CivicEngage is bonus, don't fail pipeline
-
-      - name: Ingest KVMR iCal
-        run: python scripts/events/ingest_kvmr_ical.py
-        continue-on-error: true  # KVMR is supplementary source
-
-      - name: Ingest GVDA Trumba JSON
-        run: python scripts/events/ingest_trumba_json.py
-        continue-on-error: true  # GVDA is supplementary source
+      # DISABLED — need permission before scraping these sources
+      # Re-enable after Monday meeting confirms approval
+      # - name: Ingest LibCal iCal
+      #   run: python scripts/events/ingest_libcal_ical.py
+      # - name: Ingest CivicEngage RSS
+      #   run: python scripts/events/ingest_civicengage_rss.py
+      # - name: Ingest KVMR iCal
+      #   run: python scripts/events/ingest_kvmr_ical.py
+      # - name: Ingest GVDA Trumba JSON
+      #   run: python scripts/events/ingest_trumba_json.py
 
       - name: Ingest Crazy Horse iCal
         run: python scripts/events/ingest_crazyhorse_ical.py
