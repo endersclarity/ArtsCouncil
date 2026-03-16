@@ -12,12 +12,411 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="14ecf234-cd96-4e6c-91c2-cc27babc095d" data-domains="arts-hub-v2.vercel.app"></script>
+
+  <style>
+    /* ── Directory page overrides ──────────────────────────────────────── */
+    :root {
+      --dir-primary: #FF2400;
+      --dir-primary-light: #FFF0ED;
+      --dir-charcoal: #1a1a1a;
+      --dir-muted: #6b7280;
+      --dir-border: #e5e7eb;
+      --dir-bg-alt: #f9fafb;
+    }
+
+    /* Page header */
+    .dir-header {
+      padding: 2.5rem 0 1.5rem;
+      border-bottom: 1px solid var(--dir-border);
+    }
+    .dir-header .section-label {
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+    .dir-header h1 {
+      margin: 0 0 0.5rem;
+      font-size: clamp(2rem, 5vw, 3rem);
+    }
+    .dir-header-meta {
+      color: var(--dir-muted);
+      font-size: 0.9rem;
+      margin: 0 0 1.25rem;
+      min-height: 1.2em;
+    }
+
+    /* Search bar */
+    .dir-search-wrap {
+      position: relative;
+      max-width: 620px;
+    }
+    .dir-search {
+      width: 100%;
+      padding: 0.75rem 1rem 0.75rem 2.75rem;
+      border: 3px solid var(--dir-charcoal);
+      border-radius: 6px;
+      font-size: 1rem;
+      font-family: inherit;
+      background: #fff;
+      transition: border-color 0.15s;
+      box-sizing: border-box;
+    }
+    .dir-search:focus {
+      outline: none;
+      border-color: var(--dir-primary);
+    }
+    .dir-search-icon {
+      position: absolute;
+      left: 0.75rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: var(--dir-muted);
+      pointer-events: none;
+      font-size: 1.2rem;
+    }
+
+    /* Filter pills row */
+    .dir-pills-wrap {
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--dir-border);
+    }
+    .dir-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      align-items: center;
+    }
+    .dir-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      padding: 0.35rem 0.85rem;
+      border-radius: 999px;
+      border: 1.5px solid var(--dir-charcoal);
+      background: #fff;
+      color: var(--dir-charcoal);
+      font-size: 0.8rem;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      transition: background 0.12s, color 0.12s, border-color 0.12s;
+      white-space: nowrap;
+    }
+    .dir-pill:hover {
+      background: var(--dir-bg-alt);
+    }
+    .dir-pill.active {
+      background: var(--dir-primary);
+      border-color: var(--dir-primary);
+      color: #fff;
+    }
+    .dir-pill-count {
+      opacity: 0.75;
+      font-weight: 400;
+    }
+
+    /* A-Z bar */
+    .dir-az-wrap {
+      position: sticky;
+      top: 60px; /* below nav */
+      z-index: 40;
+      background: #fff;
+      border-bottom: 1px solid var(--dir-border);
+      padding: 0.5rem 0;
+    }
+    .dir-az-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.1rem;
+      align-items: center;
+    }
+    .dir-az-btn {
+      display: inline-block;
+      width: 1.8rem;
+      height: 1.8rem;
+      line-height: 1.8rem;
+      text-align: center;
+      border-radius: 4px;
+      border: none;
+      background: none;
+      font-size: 0.8rem;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      color: var(--dir-charcoal);
+      transition: background 0.1s, color 0.1s;
+    }
+    .dir-az-btn:hover:not(.dim) {
+      background: var(--dir-primary);
+      color: #fff;
+    }
+    .dir-az-btn.dim {
+      color: #ccc;
+      cursor: default;
+      pointer-events: none;
+    }
+
+    /* Entry list */
+    .dir-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    /* Letter group heading */
+    .dir-letter-group {
+      /* anchor target for jump nav */
+    }
+    .dir-letter-heading {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      padding: 1.25rem 0 0.5rem;
+      position: sticky;
+      top: 108px; /* below nav + az-bar */
+      background: #fff;
+      z-index: 30;
+    }
+    .dir-letter-char {
+      font-size: 1.5rem;
+      font-weight: 900;
+      font-family: 'Playfair Display', Georgia, serif;
+      color: var(--dir-charcoal);
+      min-width: 1.6rem;
+    }
+    .dir-letter-rule {
+      flex: 1;
+      height: 1px;
+      background: var(--dir-border);
+    }
+
+    /* Individual entry row */
+    .dir-entry {
+      border-bottom: 1px solid var(--dir-border);
+      padding: 1.1rem 0;
+      display: flex;
+      align-items: baseline;
+      gap: 1rem;
+      transition: background 0.1s;
+      cursor: default;
+    }
+    .dir-entry:hover {
+      background: var(--dir-bg-alt);
+      margin: 0 -1rem;
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    .dir-entry-main {
+      flex: 1;
+      min-width: 0;
+    }
+    .dir-entry-row1 {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+    }
+    .dir-entry-name {
+      font-size: clamp(1.1rem, 2.5vw, 1.4rem);
+      font-weight: 800;
+      color: var(--dir-charcoal);
+      line-height: 1.2;
+      flex: 1;
+      min-width: 0;
+    }
+    .dir-entry-city {
+      font-size: 0.82rem;
+      color: var(--dir-muted);
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .dir-entry-row2 {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      margin-top: 0.3rem;
+      flex-wrap: wrap;
+    }
+    .dir-entry-badge {
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 0.15rem 0.55rem;
+      border-radius: 4px;
+      white-space: nowrap;
+    }
+    .dir-entry-badge--place {
+      background: var(--dir-bg-alt);
+      color: var(--dir-primary);
+      border: 1px solid #fdd;
+    }
+    .dir-entry-badge--artist {
+      background: var(--dir-primary-light);
+      color: var(--dir-primary);
+    }
+    .dir-entry-dot {
+      color: var(--dir-border);
+      font-size: 1rem;
+      line-height: 1;
+    }
+    .dir-entry-desc {
+      font-size: 0.85rem;
+      color: var(--dir-muted);
+      flex: 1;
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .dir-entry-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      flex-shrink: 0;
+      margin-left: auto;
+    }
+    .dir-entry-maplink {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.2rem;
+      color: var(--dir-muted);
+      font-size: 0.8rem;
+      text-decoration: none;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      transition: color 0.12s, background 0.12s;
+      white-space: nowrap;
+    }
+    .dir-entry-maplink:hover {
+      color: var(--dir-primary);
+      background: var(--dir-primary-light);
+    }
+    .dir-entry-maplink .material-symbols-outlined {
+      font-size: 1rem;
+      font-variation-settings: 'FILL' 1, 'wght' 400;
+    }
+    .dir-entry-weblink {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.2rem;
+      color: var(--dir-muted);
+      font-size: 0.8rem;
+      text-decoration: none;
+      padding: 0.25rem 0.5rem;
+      border-radius: 4px;
+      transition: color 0.12s, background 0.12s;
+      white-space: nowrap;
+    }
+    .dir-entry-weblink:hover {
+      color: var(--dir-primary);
+      background: var(--dir-primary-light);
+    }
+    .dir-entry-weblink .material-symbols-outlined {
+      font-size: 1rem;
+    }
+
+    /* Empty state */
+    .dir-empty {
+      display: none;
+      text-align: center;
+      padding: 4rem 0;
+      color: var(--dir-muted);
+    }
+    .dir-empty.visible {
+      display: block;
+    }
+    .dir-empty-icon {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      opacity: 0.3;
+    }
+    .dir-empty h3 {
+      font-size: 1.25rem;
+      margin: 0 0 0.5rem;
+      color: var(--dir-charcoal);
+    }
+    .dir-empty p {
+      margin: 0;
+      font-size: 0.9rem;
+    }
+
+    /* Pagination / show more */
+    .dir-pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 2rem 0;
+    }
+    .dir-pagination-info {
+      text-align: center;
+      padding: 1rem 0 0;
+      font-size: 0.85rem;
+      color: var(--dir-muted);
+    }
+    #dir-show-more-btn {
+      padding: 0.65rem 2rem;
+      background: var(--dir-primary);
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      font-family: inherit;
+      cursor: pointer;
+      transition: opacity 0.15s;
+    }
+    #dir-show-more-btn:hover {
+      opacity: 0.88;
+    }
+    #dir-show-more-btn:disabled {
+      opacity: 0.4;
+      cursor: default;
+    }
+
+    /* Loading skeleton */
+    .dir-loading {
+      padding: 3rem 0;
+      text-align: center;
+      color: var(--dir-muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 600px) {
+      .dir-entry {
+        flex-direction: column;
+        gap: 0.4rem;
+      }
+      .dir-entry-actions {
+        margin-left: 0;
+      }
+      .dir-entry-desc {
+        white-space: normal;
+        overflow: visible;
+        text-overflow: unset;
+      }
+      .dir-az-btn {
+        width: 1.5rem;
+        height: 1.5rem;
+        line-height: 1.5rem;
+        font-size: 0.7rem;
+      }
+      .dir-letter-heading {
+        top: 106px;
+      }
+    }
+  </style>
 </head>
 <body>
 
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
   <!-- ===== NAV ===== -->
-  <nav class="nav">
+  <nav class="nav" aria-label="Main">
     <div class="nav-left">
       <a href="index.html" class="nav-logo">
         <span>Nevada County</span>
@@ -38,7 +437,7 @@
   </nav>
 
   <!-- Mobile nav overlay -->
-  <div class="nav-mobile-overlay">
+  <div class="nav-mobile-overlay" role="navigation" aria-label="Mobile menu">
     <a href="index.html#map-main">Map</a>
     <a href="events.html">Events</a>
     <a href="stories.html">Stories</a>
@@ -46,17 +445,18 @@
   </div>
 
 
-  <!-- ===== SECTION 1: PAGE HEADER ===== -->
-  <section class="v2-dir-header container">
+  <!-- ===== PAGE HEADER ===== -->
+  <section id="main-content" class="dir-header container">
     <span class="section-label">DIRECTORY</span>
-    <div class="v2-dir-header-row">
-      <h1>Explore Nevada County</h1>
-    </div>
-    <p class="v2-dir-count" id="dir-page-count">Loading directory...</p>
-    <div class="v2-dir-search">
+    <h1>Explore Nevada County</h1>
+    <p class="dir-header-meta" id="dir-page-meta">Loading directory&hellip;</p>
+
+    <div class="dir-search-wrap">
+      <span class="dir-search-icon" aria-hidden="true">&#128269;</span>
       <input
         type="search"
         id="dir-search"
+        class="dir-search"
         placeholder="Search venues, artists, shops&hellip;"
         aria-label="Search directory"
         autocomplete="off"
@@ -65,35 +465,53 @@
   </section>
 
 
-  <!-- ===== SECTION 2: FILTER PILLS ===== -->
-  <section class="v2-dir-filters container">
-    <div class="pills-row" id="dir-filter-pills">
-      <button class="category-pill active" data-filter="all">All</button>
-      <button class="category-pill" data-filter="Venues &amp; Spaces">Venues &amp; Spaces</button>
-      <button class="category-pill" data-filter="Eat &amp; Drink">Eat &amp; Drink</button>
-      <button class="category-pill" data-filter="Artists">Artists</button>
-      <button class="category-pill" data-filter="Shops &amp; Makers">Shops &amp; Makers</button>
-      <button class="category-pill" data-filter="Organizations">Organizations</button>
-      <button class="category-pill" data-filter="Historic">Historic</button>
-      <button class="category-pill" data-filter="Outdoors">Outdoors</button>
+  <!-- ===== FILTER PILLS ===== -->
+  <section class="dir-pills-wrap container" aria-label="Filter by category">
+    <div class="dir-pills" id="dir-pills" role="group" aria-label="Category filters">
+      <button class="dir-pill active" data-filter="all">All <span class="dir-pill-count" id="pill-count-all"></span></button>
+      <button class="dir-pill" data-filter="Venues &amp; Spaces">Venues &amp; Spaces <span class="dir-pill-count" id="pill-count-venues"></span></button>
+      <button class="dir-pill" data-filter="Eat &amp; Drink">Eat &amp; Drink <span class="dir-pill-count" id="pill-count-eat"></span></button>
+      <button class="dir-pill" data-filter="Artists">Artists <span class="dir-pill-count" id="pill-count-artists"></span></button>
+      <button class="dir-pill" data-filter="Shops &amp; Makers">Shops &amp; Makers <span class="dir-pill-count" id="pill-count-shops"></span></button>
+      <button class="dir-pill" data-filter="Organizations">Organizations <span class="dir-pill-count" id="pill-count-orgs"></span></button>
+      <button class="dir-pill" data-filter="Historic">Historic <span class="dir-pill-count" id="pill-count-historic"></span></button>
+      <button class="dir-pill" data-filter="Outdoors">Outdoors <span class="dir-pill-count" id="pill-count-outdoors"></span></button>
     </div>
   </section>
 
 
-  <!-- ===== SECTION 3: CARD GRID ===== -->
-  <section class="container">
-    <div class="v2-dir-grid" id="dir-grid"></div>
-  </section>
-
-
-  <!-- ===== SECTION 4: SHOW MORE ===== -->
-  <div class="v2-events-loadmore" id="dir-loadmore-wrap" style="display:none;">
-    <button id="dir-load-more-btn">Show More</button>
-    <p id="dir-load-more-count"></p>
+  <!-- ===== A-Z BAR ===== -->
+  <div class="dir-az-wrap" aria-label="Jump to letter">
+    <div class="container">
+      <div class="dir-az-bar" id="dir-az-bar" role="navigation" aria-label="Alphabetical index">
+        <!-- Populated by JS -->
+      </div>
+    </div>
   </div>
 
 
-  <!-- ===== SECTION 5: NEWSLETTER ===== -->
+  <!-- ===== ENTRY LIST ===== -->
+  <main class="container">
+    <div id="dir-loading" class="dir-loading" aria-live="polite">Loading directory&hellip;</div>
+
+    <div id="dir-empty" class="dir-empty" aria-live="polite">
+      <div class="dir-empty-icon">&#128269;</div>
+      <h3>No results found</h3>
+      <p>Try a different search term or filter.</p>
+    </div>
+
+    <ul class="dir-list" id="dir-list" aria-label="Directory entries">
+      <!-- Populated by JS -->
+    </ul>
+
+    <div id="dir-pagination" class="dir-pagination" style="display:none;">
+      <button id="dir-show-more-btn" type="button">Show More</button>
+    </div>
+    <p class="dir-pagination-info" id="dir-pagination-info" style="display:none;"></p>
+  </main>
+
+
+  <!-- ===== NEWSLETTER ===== -->
   <section class="newsletter-section">
     <div class="container">
       <h2>Get weekly arts &amp; culture picks</h2>
@@ -126,11 +544,10 @@
         </div>
 
         <div class="footer-col">
-          <h4>Explore</h4>
+          <h4>Events</h4>
           <a href="events.html">Community Calendar</a>
-          <a href="directory.html">Venues</a>
-          <a href="stories.html">Stories</a>
-          <a href="#">Submit an Event</a>
+          <a href="submit-event.html">Submit an Event</a>
+          <a href="directory.html">Directory</a>
         </div>
 
         <div class="footer-col footer-newsletter">
@@ -181,107 +598,94 @@
   (function () {
     'use strict';
 
+    // ─── CONSTANTS ──────────────────────────────────────────────────────────
+    var PAGE_SIZE = 50;
+    var ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+
     // ─── STATE ──────────────────────────────────────────────────────────────
-    var allEntries = [];
-    var filteredEntries = [];
+    var allEntries = [];         // all normalized entries, sorted A-Z
+    var filteredEntries = [];    // after filter + search
     var activeFilter = 'all';
     var searchQuery = '';
-    var PAGE_SIZE = 24;
-    var shownCount = 0;
+    var shownCount = PAGE_SIZE;
 
     // ─── CATEGORY MAPPING ───────────────────────────────────────────────────
-    // Map cultural-assets assetType → display filter category
     function mapAssetCategory(assetType) {
       if (!assetType) return 'Venues & Spaces';
       var t = assetType;
 
-      // Eat & Drink
+      // Eat & Drink (incl. lodging as hospitality)
       if (t === 'Artisan Place to Eat, Drink or Stay') return 'Eat & Drink';
-      if (t === 'Breweries/Restaurants/Bars') return 'Eat & Drink';
-      if (t === 'Coffeehouses/Bakeries') return 'Eat & Drink';
-      if (t === 'Specialty Desserts') return 'Eat & Drink';
-      if (t === 'Winery/Tasting Rooms') return 'Eat & Drink';
-      if (t === 'Specialty Grocery Stores') return 'Eat & Drink';
-      if (t === 'Lodging') return 'Eat & Drink'; // lodging goes with eat/drink as hospitality
+      if (t === 'Breweries/Restaurants/Bars')          return 'Eat & Drink';
+      if (t === 'Coffeehouses/Bakeries')               return 'Eat & Drink';
+      if (t === 'Specialty Desserts')                  return 'Eat & Drink';
+      if (t === 'Winery/Tasting Rooms')                return 'Eat & Drink';
+      if (t === 'Specialty Grocery Stores')            return 'Eat & Drink';
+      if (t === 'Lodging')                             return 'Eat & Drink';
 
       // Shops & Makers
-      if (t === 'Artisan Places to Shop') return 'Shops & Makers';
-      if (t === 'Artisan Places') return 'Shops & Makers';
-      if (t === 'Gifts/Jewlery/Handmade') return 'Shops & Makers';
-      if (t === 'Clothing/Accessories') return 'Shops & Makers';
-      if (t === 'Antiques/Vintage Shops') return 'Shops & Makers';
-      if (t === 'Books/Music') return 'Shops & Makers';
-      if (t === 'Makerspace') return 'Shops & Makers';
-      if (t === 'Supplies/Services') return 'Shops & Makers';
-      if (t === 'Body Art') return 'Shops & Makers';
+      if (t === 'Artisan Places to Shop')   return 'Shops & Makers';
+      if (t === 'Artisan Places')           return 'Shops & Makers';
+      if (t === 'Gifts/Jewlery/Handmade')   return 'Shops & Makers';
+      if (t === 'Clothing/Accessories')     return 'Shops & Makers';
+      if (t === 'Antiques/Vintage Shops')   return 'Shops & Makers';
+      if (t === 'Books/Music')              return 'Shops & Makers';
+      if (t === 'Makerspace')               return 'Shops & Makers';
+      if (t === 'Supplies/Services')        return 'Shops & Makers';
+      if (t === 'Body Art')                 return 'Shops & Makers';
 
       // Organizations
-      if (t === 'Arts Organization') return 'Organizations';
-      if (t === 'Arts Organizations') return 'Organizations';
+      if (t === 'Arts Organization')                   return 'Organizations';
+      if (t === 'Arts Organizations')                  return 'Organizations';
       if (t === 'Preservation & Cultural Organization') return 'Organizations';
-      if (t === 'Cultural Resource / Media') return 'Organizations';
-      if (t === 'Local Media') return 'Organizations';
-      if (t === 'Business Development') return 'Organizations';
-      if (t === 'Production Companies') return 'Organizations';
-      if (t === 'Publishing') return 'Organizations';
-      if (t === 'Services') return 'Organizations';
-      if (t === 'Arts / Business Services') return 'Organizations';
+      if (t === 'Cultural Resource / Media')           return 'Organizations';
+      if (t === 'Local Media')                         return 'Organizations';
+      if (t === 'Business Development')                return 'Organizations';
+      if (t === 'Production Companies')                return 'Organizations';
+      if (t === 'Publishing')                          return 'Organizations';
+      if (t === 'Services')                            return 'Organizations';
+      if (t === 'Arts / Business Services')            return 'Organizations';
+      if (t === 'Fair or Festival')                    return 'Organizations';
 
       // Historic
       if (t === 'Historic Landmarks') return 'Historic';
 
       // Outdoors
       if (t === 'Walks and Trails') return 'Outdoors';
-      if (t === 'Recreation') return 'Outdoors';
-      if (t === 'Fair or Festival') return 'Outdoors';
+      if (t === 'Recreation')       return 'Outdoors';
 
-      // Venues & Spaces (default for arts/performance/gallery)
-      if (t === 'Gallery / Studio / Museum') return 'Venues & Spaces';
-      if (t === 'Art Galleries/Studios') return 'Venues & Spaces';
-      if (t === 'Museums/Cultural Centers') return 'Venues & Spaces';
-      if (t === 'Performance Spaces / Entertainment') return 'Venues & Spaces';
+      // Venues & Spaces (arts/performance/gallery/public art/etc.)
+      if (t === 'Gallery / Studio / Museum')             return 'Venues & Spaces';
+      if (t === 'Art Galleries/Studios')                 return 'Venues & Spaces';
+      if (t === 'Museums/Cultural Centers')              return 'Venues & Spaces';
+      if (t === 'Performance Spaces / Entertainment')    return 'Venues & Spaces';
       if (t === 'Performing Arts Organizations / Venues') return 'Venues & Spaces';
-      if (t === 'Entertainment') return 'Venues & Spaces';
-      if (t === 'Public Art') return 'Venues & Spaces';
+      if (t === 'Entertainment')                         return 'Venues & Spaces';
+      if (t === 'Public Art')                            return 'Venues & Spaces';
 
       return 'Venues & Spaces';
     }
 
-    // ─── GRADIENT FALLBACKS ─────────────────────────────────────────────────
-    var categoryGradients = {
-      'Venues & Spaces':  'linear-gradient(135deg, #2C5F4A, #3D7A62)',
-      'Eat & Drink':      'linear-gradient(135deg, #B85C38, #D4704A)',
-      'Artists':          'linear-gradient(135deg, #6B4E8C, #8B68AD)',
-      'Shops & Makers':   'linear-gradient(135deg, #A67C52, #C49A70)',
-      'Organizations':    'linear-gradient(135deg, #2B5C8C, #3D7BB5)',
-      'Historic':         'linear-gradient(135deg, #5C4A2A, #7A6440)',
-      'Outdoors':         'linear-gradient(135deg, #3A6B38, #527D50)'
-    };
-
-    function getGradient(category) {
-      return categoryGradients[category] || 'linear-gradient(135deg, #555, #333)';
-    }
-
-    // ─── HTML HELPERS ───────────────────────────────────────────────────────
-    function escapeHtml(str) {
+    // ─── HTML SAFETY ────────────────────────────────────────────────────────
+    function esc(str) {
       if (!str) return '';
       var div = document.createElement('div');
       div.textContent = str;
       return div.innerHTML;
     }
-
-    function escapeAttr(str) {
+    function escAttr(str) {
       if (!str) return '';
-      return String(str).replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+      return String(str).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/'/g, '&#39;');
     }
 
-    // ─── NORMALIZE ENTRIES ──────────────────────────────────────────────────
+    // ─── NORMALIZE ──────────────────────────────────────────────────────────
     function normalizePlace(asset, imageMap) {
       var category = mapAssetCategory(asset.assetType);
-      var imgData = imageMap[asset.name];
+      var imgData = imageMap && imageMap[asset.name];
       return {
         name: asset.name || '',
         category: category,
+        assetType: asset.assetType || '',
         description: asset.description || '',
         city: asset.city || '',
         website: asset.website || '',
@@ -297,6 +701,7 @@
       return {
         name: artist.name || '',
         category: 'Artists',
+        assetType: '',
         description: artist.medium || '',
         city: '',
         website: artist.website || '',
@@ -310,130 +715,247 @@
       };
     }
 
-    // ─── APPLY FILTERS & SEARCH ─────────────────────────────────────────────
+    // ─── PILL COUNTS ────────────────────────────────────────────────────────
+    var pillIdMap = {
+      'all':              'pill-count-all',
+      'Venues & Spaces':  'pill-count-venues',
+      'Eat & Drink':      'pill-count-eat',
+      'Artists':          'pill-count-artists',
+      'Shops & Makers':   'pill-count-shops',
+      'Organizations':    'pill-count-orgs',
+      'Historic':         'pill-count-historic',
+      'Outdoors':         'pill-count-outdoors'
+    };
+
+    function updatePillCounts(entries) {
+      var counts = { 'all': entries.length };
+      entries.forEach(function (e) {
+        counts[e.category] = (counts[e.category] || 0) + 1;
+      });
+      Object.keys(pillIdMap).forEach(function (key) {
+        var el = document.getElementById(pillIdMap[key]);
+        if (el) el.textContent = counts[key] ? '(' + counts[key].toLocaleString() + ')' : '';
+      });
+    }
+
+    // ─── A-Z BAR ────────────────────────────────────────────────────────────
+    function buildAZBar(presentLetters) {
+      var bar = document.getElementById('dir-az-bar');
+      if (!bar) return;
+      bar.innerHTML = '';
+      ALPHABET.forEach(function (letter) {
+        var btn = document.createElement('button');
+        btn.className = 'dir-az-btn' + (presentLetters.has(letter) ? '' : ' dim');
+        btn.textContent = letter;
+        btn.setAttribute('aria-label', 'Jump to ' + letter);
+        if (presentLetters.has(letter)) {
+          btn.addEventListener('click', function () {
+            var target = document.getElementById('dir-group-' + letter);
+            if (target) {
+              target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+          });
+        }
+        bar.appendChild(btn);
+      });
+    }
+
+    // ─── RENDER LIST ────────────────────────────────────────────────────────
+    function renderList() {
+      var list = document.getElementById('dir-list');
+      var emptyEl = document.getElementById('dir-empty');
+      var loadingEl = document.getElementById('dir-loading');
+      var paginationWrap = document.getElementById('dir-pagination');
+      var paginationInfo = document.getElementById('dir-pagination-info');
+      if (!list) return;
+
+      if (loadingEl) loadingEl.style.display = 'none';
+
+      var toShow = filteredEntries.slice(0, shownCount);
+      var total = filteredEntries.length;
+
+      if (total === 0) {
+        list.innerHTML = '';
+        if (emptyEl) emptyEl.classList.add('visible');
+        if (paginationWrap) paginationWrap.style.display = 'none';
+        if (paginationInfo) paginationInfo.style.display = 'none';
+        updateAZBar([]);
+        return;
+      }
+
+      if (emptyEl) emptyEl.classList.remove('visible');
+
+      // Build letter groups
+      var groups = {};   // letter -> [{entry, originalIndex}]
+      var presentLetters = new Set();
+      toShow.forEach(function (e) {
+        var ch = (e.name || '').toUpperCase().charAt(0);
+        if (!/[A-Z]/.test(ch)) ch = '#';
+        if (!groups[ch]) groups[ch] = [];
+        groups[ch].push(e);
+        if (/[A-Z]/.test(ch)) presentLetters.add(ch);
+      });
+
+      updateAZBar(presentLetters);
+
+      // Sort group keys
+      var groupKeys = Object.keys(groups).sort(function (a, b) {
+        if (a === '#') return 1;
+        if (b === '#') return -1;
+        return a < b ? -1 : 1;
+      });
+
+      var html = '';
+      groupKeys.forEach(function (letter) {
+        html += '<li class="dir-letter-group" id="dir-group-' + letter + '">';
+        html += '<div class="dir-letter-heading" aria-hidden="true">';
+        html += '<span class="dir-letter-char">' + esc(letter) + '</span>';
+        html += '<span class="dir-letter-rule"></span>';
+        html += '</div>';
+        html += '<ul class="dir-list" style="margin:0;padding:0;">';
+
+        groups[letter].forEach(function (e) {
+          var isArtist = e.type === 'artist';
+          var hasMap = !isArtist && e.lat && e.lng && e.name;
+          var hasWeb = !!e.website;
+
+          var websiteHref = e.website;
+          if (websiteHref && !/^https?:\/\//i.test(websiteHref)) {
+            websiteHref = 'https://' + websiteHref;
+          }
+
+          var badgeClass = isArtist ? 'dir-entry-badge dir-entry-badge--artist' : 'dir-entry-badge dir-entry-badge--place';
+          var badgeLabel = isArtist
+            ? esc(e.discipline ? e.discipline.split(',')[0].trim() : 'Artist')
+            : esc(e.assetType || e.category);
+
+          // Truncate description
+          var desc = e.description || '';
+          if (desc.length > 100) {
+            desc = desc.substring(0, 100).replace(/\s+\S*$/, '') + '\u2026';
+          }
+
+          html += '<li class="dir-entry">';
+          html += '<div class="dir-entry-main">';
+
+          // Row 1: name + city
+          html += '<div class="dir-entry-row1">';
+          html += '<span class="dir-entry-name">' + esc(e.name) + '</span>';
+          if (e.city) html += '<span class="dir-entry-city">' + esc(e.city) + '</span>';
+          html += '</div>';
+
+          // Row 2: badge · description · actions
+          html += '<div class="dir-entry-row2">';
+          html += '<span class="' + badgeClass + '">' + badgeLabel + '</span>';
+          if (desc) {
+            html += '<span class="dir-entry-dot" aria-hidden="true">&middot;</span>';
+            html += '<span class="dir-entry-desc" title="' + escAttr(e.description) + '">' + esc(desc) + '</span>';
+          }
+          html += '</div>';
+
+          html += '</div>'; // .dir-entry-main
+
+          // Actions (map pin + website)
+          html += '<div class="dir-entry-actions">';
+          if (hasMap) {
+            var encodedName = encodeURIComponent(e.name);
+            html += '<a href="index.html?venue=' + encodedName + '#map-main" class="dir-entry-maplink" title="See on map" aria-label="See ' + escAttr(e.name) + ' on map">';
+            html += '<span class="material-symbols-outlined" aria-hidden="true">location_on</span>';
+            html += '<span class="sr-only">Map</span>';
+            html += '</a>';
+          }
+          if (hasWeb) {
+            html += '<a href="' + escAttr(websiteHref) + '" target="_blank" rel="noopener" class="dir-entry-weblink" title="Visit website" aria-label="Visit ' + escAttr(e.name) + ' website">';
+            html += '<span class="material-symbols-outlined" aria-hidden="true">open_in_new</span>';
+            html += '<span class="sr-only">Website</span>';
+            html += '</a>';
+          }
+          html += '</div>'; // .dir-entry-actions
+
+          html += '</li>';
+        });
+
+        html += '</ul>';
+        html += '</li>';
+      });
+
+      list.innerHTML = html;
+
+      // Pagination
+      var shown = Math.min(shownCount, total);
+      if (shown < total) {
+        if (paginationWrap) paginationWrap.style.display = '';
+        if (paginationInfo) {
+          paginationInfo.style.display = '';
+          paginationInfo.textContent = 'Showing ' + shown.toLocaleString() + ' of ' + total.toLocaleString();
+        }
+      } else {
+        if (paginationWrap) paginationWrap.style.display = 'none';
+        if (paginationInfo) paginationInfo.style.display = 'none';
+      }
+    }
+
+    function updateAZBar(presentLetters) {
+      var bar = document.getElementById('dir-az-bar');
+      if (!bar) return;
+      var btns = bar.querySelectorAll('.dir-az-btn');
+      btns.forEach(function (btn) {
+        var letter = btn.textContent.trim();
+        if (presentLetters instanceof Set) {
+          if (presentLetters.has(letter)) {
+            btn.classList.remove('dim');
+            // Re-attach click if needed
+            btn.onclick = function () {
+              var target = document.getElementById('dir-group-' + letter);
+              if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            };
+          } else {
+            btn.classList.add('dim');
+            btn.onclick = null;
+          }
+        } else {
+          btn.classList.add('dim');
+          btn.onclick = null;
+        }
+      });
+    }
+
+    // ─── META / COUNT STRING ────────────────────────────────────────────────
+    function updateMeta() {
+      var meta = document.getElementById('dir-page-meta');
+      if (!meta) return;
+      var total = filteredEntries.length;
+      if (activeFilter === 'all') {
+        meta.textContent = total.toLocaleString() + ' places &amp; artists';
+        meta.innerHTML = total.toLocaleString() + ' places &amp; artists';
+      } else {
+        meta.textContent = total.toLocaleString() + ' ' + activeFilter.toLowerCase();
+      }
+    }
+
+    // ─── FILTER + SEARCH ────────────────────────────────────────────────────
     function applyFilters() {
       var q = searchQuery.trim().toLowerCase();
 
       filteredEntries = allEntries.filter(function (e) {
-        // Category filter
         if (activeFilter !== 'all' && e.category !== activeFilter) return false;
-        // Search filter
         if (q && !e._search.includes(q)) return false;
         return true;
       });
 
       shownCount = PAGE_SIZE;
-      renderGrid();
-      updateCounts();
-    }
-
-    // ─── RENDER CARDS ───────────────────────────────────────────────────────
-    function renderGrid() {
-      var grid = document.getElementById('dir-grid');
-      if (!grid) return;
-
-      var toShow = filteredEntries.slice(0, shownCount);
-      var html = '';
-
-      for (var i = 0; i < toShow.length; i++) {
-        var e = toShow[i];
-        var isArtist = e.type === 'artist';
-
-        var cardClass = 'v2-dir-card';
-        if (isArtist) cardClass += ' v2-dir-card--artist';
-
-        var websiteHtml = '';
-        if (e.website) {
-          var href = e.website;
-          if (!/^https?:\/\//i.test(href)) href = 'https://' + href;
-          websiteHtml = '<a href="' + escapeAttr(href) + '" target="_blank" rel="noopener" class="v2-dir-card-link">Visit site &rarr;</a>';
-        }
-
-        var mapLinkHtml = '';
-        if (!isArtist && e.lat && e.lng && e.name) {
-          var encodedName = encodeURIComponent(e.name);
-          mapLinkHtml = '<a href="index.html?venue=' + encodedName + '#map-main" class="v2-dir-card-link">See on Map &rarr;</a>';
-        }
-
-        var imageHtml = '';
-        if (!isArtist) {
-          if (e.image_url) {
-            imageHtml = '<div class="v2-dir-card-image" style="background-image:url(\'' + escapeAttr(e.image_url) + '\');"></div>';
-          } else {
-            imageHtml = '<div class="v2-dir-card-image" style="background:' + getGradient(e.category) + ';"></div>';
-          }
-        }
-
-        var descHtml = '';
-        if (e.description) {
-          var desc = e.description.length > 120 ? e.description.substring(0, 120).replace(/\s+\S*$/, '') + '\u2026' : e.description;
-          descHtml = '<p class="v2-dir-card-medium">' + escapeHtml(desc) + '</p>';
-        }
-
-        var cityHtml = '';
-        if (e.city) {
-          cityHtml = '<p class="v2-dir-card-city">' + escapeHtml(e.city) + '</p>';
-        }
-
-        var disciplineHtml = '';
-        if (isArtist && e.discipline) {
-          disciplineHtml = '<span class="v2-dir-card-discipline">' + escapeHtml(e.discipline.split(',')[0].trim()) + '</span>';
-        }
-
-        html += '<div class="' + cardClass + '">';
-        html += imageHtml;
-        html += '<div class="v2-dir-card-body">';
-        html += '<span class="v2-dir-card-category">' + escapeHtml(e.category) + '</span>';
-        if (disciplineHtml) html += disciplineHtml;
-        html += '<h3 class="v2-dir-card-name">' + escapeHtml(e.name) + '</h3>';
-        if (descHtml) html += descHtml;
-        if (cityHtml) html += cityHtml;
-        if (websiteHtml || mapLinkHtml) {
-          html += '<div class="v2-dir-card-links">';
-          html += websiteHtml;
-          html += mapLinkHtml;
-          html += '</div>';
-        }
-        html += '</div>';
-        html += '</div>';
-      }
-
-      if (toShow.length === 0) {
-        html = '<p style="text-align:center;color:var(--color-muted);padding:60px 0;grid-column:1/-1;">No results found. Try a different search or filter.</p>';
-      }
-
-      grid.innerHTML = html;
-    }
-
-    function updateCounts() {
-      var total = filteredEntries.length;
-      var shown = Math.min(shownCount, total);
-
-      var headerCount = document.getElementById('dir-page-count');
-      if (headerCount) {
-        var filterLabel = activeFilter === 'all' ? 'places &amp; artists' : escapeHtml(activeFilter).toLowerCase();
-        headerCount.innerHTML = total.toLocaleString() + ' ' + filterLabel;
-      }
-
-      var loadmoreWrap = document.getElementById('dir-loadmore-wrap');
-      var loadMoreBtn = document.getElementById('dir-load-more-btn');
-      var loadMoreCount = document.getElementById('dir-load-more-count');
-
-      if (total === 0 || shown >= total) {
-        if (loadmoreWrap) loadmoreWrap.style.display = 'none';
-      } else {
-        if (loadmoreWrap) loadmoreWrap.style.display = '';
-        if (loadMoreCount) loadMoreCount.textContent = shown + ' of ' + total + ' shown';
-      }
+      renderList();
+      updateMeta();
     }
 
     // ─── PILL WIRING ────────────────────────────────────────────────────────
     function initPills() {
-      document.querySelectorAll('#dir-filter-pills .category-pill').forEach(function (pill) {
+      document.querySelectorAll('#dir-pills .dir-pill').forEach(function (pill) {
         pill.addEventListener('click', function () {
-          document.querySelectorAll('#dir-filter-pills .category-pill').forEach(function (p) { p.classList.remove('active'); });
+          document.querySelectorAll('#dir-pills .dir-pill').forEach(function (p) {
+            p.classList.remove('active');
+          });
           pill.classList.add('active');
-          // Decode HTML entities in data-filter (handles &amp;)
           activeFilter = pill.dataset.filter;
           applyFilters();
         });
@@ -444,30 +966,29 @@
     function initSearch() {
       var input = document.getElementById('dir-search');
       if (!input) return;
-
-      var debounceTimer = null;
+      var timer = null;
       input.addEventListener('input', function () {
-        clearTimeout(debounceTimer);
-        debounceTimer = setTimeout(function () {
+        clearTimeout(timer);
+        timer = setTimeout(function () {
           searchQuery = input.value;
           applyFilters();
         }, 200);
       });
     }
 
-    // ─── LOAD MORE WIRING ───────────────────────────────────────────────────
-    function initLoadMore() {
-      var btn = document.getElementById('dir-load-more-btn');
+    // ─── SHOW MORE ──────────────────────────────────────────────────────────
+    function initShowMore() {
+      var btn = document.getElementById('dir-show-more-btn');
       if (btn) {
         btn.addEventListener('click', function () {
           shownCount += PAGE_SIZE;
-          renderGrid();
-          updateCounts();
+          renderList();
+          updateMeta();
         });
       }
     }
 
-    // ─── URL PARAM HANDLING ─────────────────────────────────────────────────
+    // ─── URL PARAM ──────────────────────────────────────────────────────────
     function handleUrlParams() {
       var params = new URLSearchParams(window.location.search);
       var q = params.get('q');
@@ -482,31 +1003,30 @@
     document.addEventListener('DOMContentLoaded', function () {
       initPills();
       initSearch();
-      initLoadMore();
+      initShowMore();
       handleUrlParams();
 
-      // Load both data files in parallel
+      // Pre-build A-Z bar (all dimmed) immediately
+      buildAZBar(new Set());
+
       Promise.all([
         fetch('data/cultural-assets.json').then(function (r) { return r.json(); }),
-        fetch('data/image_data.json').then(function (r) { return r.json(); }),
+        fetch('data/image_data.json').then(function (r) { return r.json(); }).catch(function () { return {}; }),
         fetch('data/artists.json').then(function (r) { return r.json(); })
       ])
       .then(function (results) {
-        var assets = results[0];
-        var imageMap = results[1];
-        var artists = results[2];
+        var assets   = results[0];
+        var imageMap = results[1] || {};
+        var artists  = results[2];
 
-        // Normalize cultural assets
-        var places = assets.map(function (a) {
-          return normalizePlace(a, imageMap);
-        });
+        var places = assets
+          .filter(function (a) { return a.name && a.name.trim(); })
+          .map(function (a) { return normalizePlace(a, imageMap); });
 
-        // Normalize artists
-        var artistEntries = artists.map(function (a) {
-          return normalizeArtist(a);
-        });
+        var artistEntries = artists
+          .filter(function (a) { return a.name && a.name.trim(); })
+          .map(function (a) { return normalizeArtist(a); });
 
-        // Merge and sort alphabetically
         allEntries = places.concat(artistEntries);
         allEntries.sort(function (a, b) {
           var na = a.name.toLowerCase();
@@ -514,16 +1034,15 @@
           return na < nb ? -1 : na > nb ? 1 : 0;
         });
 
+        updatePillCounts(allEntries);
         applyFilters();
       })
       .catch(function (err) {
         console.error('[directory.html] Failed to load data:', err);
-        var grid = document.getElementById('dir-grid');
-        if (grid) {
-          grid.innerHTML = '<p style="text-align:center;color:var(--color-muted);padding:60px 0;grid-column:1/-1;">Unable to load directory. Please try refreshing the page.</p>';
-        }
-        var headerCount = document.getElementById('dir-page-count');
-        if (headerCount) headerCount.textContent = 'Unable to load directory';
+        var loadingEl = document.getElementById('dir-loading');
+        if (loadingEl) loadingEl.textContent = 'Unable to load directory. Please try refreshing.';
+        var meta = document.getElementById('dir-page-meta');
+        if (meta) meta.textContent = 'Error loading data';
       });
     });
 
