@@ -314,7 +314,8 @@
         else if (venue) venueLine = escapeHtml(venue);
         else if (city) venueLine = escapeHtml(city);
 
-        html += '<a href="' + escapeAttr(url) + '" target="_blank" rel="noopener" class="v2-event-card">';
+        html += '<div class="v2-event-card">';
+        html += '<a href="' + escapeAttr(url) + '" target="_blank" rel="noopener" class="v2-event-card-link">';
         html += '<div class="v2-event-card-label">' + escapeHtml(mapped) + '</div>';
         html += '<div class="v2-event-card-image" style="' + imgStyle + '"></div>';
         html += '<div class="v2-event-card-body">';
@@ -325,6 +326,18 @@
         html += '<span class="v2-event-card-cta">Details &rarr;</span>';
         html += '</div>';
         html += '</a>';
+        if (url && url !== '#') {
+          var shareUrl = encodeURIComponent(url);
+          var shareText = encodeURIComponent((ev.title || '') + ' in Nevada County!');
+          html += '<div class="v2-event-share-wrap">';
+          html += '<button class="v2-event-share-btn" onclick="toggleEventShare(this)">Share</button>';
+          html += '<div class="v2-event-share-dropdown">';
+          html += '<a href="https://www.facebook.com/sharer/sharer.php?u=' + shareUrl + '" target="_blank" rel="noopener">Facebook</a>';
+          html += '<a href="https://twitter.com/intent/tweet?url=' + shareUrl + '&text=' + shareText + '" target="_blank" rel="noopener">X</a>';
+          html += '<button onclick="copyEventLink(this, \'' + escapeAttr(url).replace(/'/g, "\\'") + '\')">Copy Link</button>';
+          html += '</div></div>';
+        }
+        html += '</div>';
       }
 
       grid.innerHTML = html;
@@ -448,7 +461,37 @@
     });
 
   })();
+
+
+  // ─── SHARE DROPDOWN HELPERS ─────────────────────────────────────────────────
+  function toggleEventShare(btn) {
+    var dropdown = btn.nextElementSibling;
+    document.querySelectorAll('.v2-event-share-dropdown.open').forEach(function(d) {
+      if (d !== dropdown) d.classList.remove('open');
+    });
+    dropdown.classList.toggle('open');
+  }
+
+  function copyEventLink(btn, url) {
+    navigator.clipboard.writeText(url).then(function() {
+      var orig = btn.textContent;
+      btn.textContent = 'Copied!';
+      setTimeout(function() { btn.textContent = orig; }, 2000);
+    });
+  }
+
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.v2-event-share-wrap')) {
+      document.querySelectorAll('.v2-event-share-dropdown.open').forEach(function(d) {
+        d.classList.remove('open');
+      });
+    }
+  });
   </script>
+
+  <style>
+    .v2-event-card-link { display: block; text-decoration: none; color: inherit; }
+  </style>
 
   <script type="module" src="haptics.js"></script>
 </body>
