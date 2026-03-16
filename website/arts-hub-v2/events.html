@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Events — Nevada County Arts & Culture</title>
+  <meta name="description" content="Concerts, exhibitions, workshops, and more across western Nevada County. Browse upcoming events by date and category.">
+  <meta property="og:title" content="Events — Nevada County Arts & Culture">
+  <meta property="og:description" content="Concerts, exhibitions, workshops, and more across western Nevada County.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ===== NAV ===== -->
+  <nav class="nav" aria-label="Main">
+    <div class="nav-left">
+      <a href="index.html" class="nav-logo">
+        <span>Nevada County</span>
+        <span>Arts &amp; Culture</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html#map-main">Map</a></li>
+        <li><a href="events.html" class="nav-link-active">Events</a></li>
+        <li><a href="stories.html">Stories</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </div>
+    <button class="nav-hamburger" aria-label="Menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile nav overlay -->
+  <div class="nav-mobile-overlay" role="navigation" aria-label="Mobile menu">
+    <a href="index.html#map-main">Map</a>
+    <a href="events.html">Events</a>
+    <a href="stories.html">Stories</a>
+    <a href="about.html">About</a>
+  </div>
+
+
+  <!-- ===== SECTION 1: PAGE HEADER ===== -->
+  <section id="main-content" class="v2-events-header container">
+    <span class="section-label">What's Happening</span>
+    <div class="v2-events-header-row">
+      <h1 class="v2-events-title">Events</h1>
+      <a href="https://www.nevadacountyarts.org/submit-an-event" target="_blank" rel="noopener" class="v2-events-submit">Have an event? Submit it &rarr;</a>
+    </div>
+    <p class="v2-events-subtitle">Concerts, exhibitions, workshops, and more across western Nevada County.</p>
+    <p class="v2-events-count" id="events-page-count">Loading events...</p>
+  </section>
+
+
+  <!-- ===== SECTION 2: FILTER BAR ===== -->
+  <section class="v2-events-filter container">
+    <div class="pills-row" id="time-pills">
+      <button class="category-pill" data-time="tonight">Tonight</button>
+      <button class="category-pill" data-time="this-weekend">This Weekend</button>
+      <button class="category-pill active" data-time="this-month">This Month</button>
+    </div>
+    <div class="pills-row" id="category-pills">
+      <button class="category-pill active" data-cat="all">All</button>
+      <button class="category-pill" data-cat="Music & Concert">Music &amp; Concert</button>
+      <button class="category-pill" data-cat="Art & Gallery">Art &amp; Gallery</button>
+      <button class="category-pill" data-cat="Workshop & Talk">Workshop &amp; Talk</button>
+      <button class="category-pill" data-cat="Theatre & Film">Theatre &amp; Film</button>
+      <button class="category-pill" data-cat="Community">Community</button>
+    </div>
+  </section>
+
+
+  <!-- ===== SECTION 3: EVENT CARD GRID ===== -->
+  <section class="container">
+    <div class="v2-events-grid" id="events-grid"></div>
+  </section>
+
+
+  <!-- ===== SECTION 4: SHOW MORE ===== -->
+  <div class="v2-events-loadmore" id="loadmore-wrap" style="display:none;">
+    <button id="load-more-btn">Show More Events</button>
+    <p id="load-more-count"></p>
+  </div>
+
+
+  <!-- ===== SECTION 5: MAP TEASER ===== -->
+  <div class="v2-events-map-teaser">
+    <a href="index.html#map-main">See all events on the map &rarr;</a>
+  </div>
+
+
+  <!-- ===== SECTION 6: NEWSLETTER ===== -->
+  <section class="newsletter-section">
+    <div class="container">
+      <h2>Get weekly arts &amp; culture picks</h2>
+      <p class="subtitle">The best of Nevada County arts, delivered to your inbox.</p>
+      <form class="newsletter-form" action="#" method="post">
+        <div class="form-row">
+          <input type="email" placeholder="Your email address" required aria-label="Email address">
+          <button type="submit" class="btn-subscribe">Subscribe</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <span>Nevada County</span>
+        <span>Arts &amp; Culture</span>
+      </div>
+
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>About</h4>
+          <a href="about.html">Our Mission</a>
+          <a href="about.html#team">Our Team</a>
+          <a href="#">Cultural Districts</a>
+          <a href="#">Contact</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Events</h4>
+          <a href="events.html">Community Calendar</a>
+          <a href="submit-event.html">Submit an Event</a>
+          <a href="#">Venues</a>
+        </div>
+
+        <div class="footer-col footer-newsletter">
+          <h4>Connect</h4>
+          <form action="#" method="post">
+            <div class="form-row">
+              <input type="email" placeholder="Your email" aria-label="Footer email signup">
+              <button type="submit" class="btn-subscribe">Subscribe</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-divider"></div>
+      <div class="footer-copyright">&copy; 2026 Nevada County Arts &amp; Culture</div>
+    </div>
+  </footer>
+
+
+  <!-- ===== SCRIPTS ===== -->
+  <script>
+    // Hamburger toggle
+    (function () {
+      var btn = document.querySelector('.nav-hamburger');
+      var overlay = document.querySelector('.nav-mobile-overlay');
+      if (btn && overlay) {
+        btn.addEventListener('click', function () {
+          var expanded = btn.classList.toggle('active');
+          overlay.classList.toggle('active');
+          btn.setAttribute('aria-expanded', expanded);
+        });
+      }
+    })();
+  </script>
+
+  <script>
+    // Newsletter form feedback
+    document.querySelectorAll('form').forEach(function(form) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var row = form.querySelector('.form-row');
+        if (row) row.innerHTML = '<p style="color:var(--color-scarlet);font-weight:700;">Thanks! We\'ll be in touch.</p>';
+      });
+    });
+  </script>
+
+  <script>
+  (function () {
+    'use strict';
+
+    // ─── STATE ──────────────────────────────────────────────────────────────
+    var allEvents = [];
+    var filteredEvents = [];
+    var activeTimeFilter = 'this-month';
+    var activeCategoryFilter = 'all';
+    var PAGE_SIZE = 12;
+    var shownCount = 0;
+
+    // ─── DATE HELPERS ───────────────────────────────────────────────────────
+    var now = new Date();
+    var todayStr = now.toISOString().slice(0, 10);
+    var monthStr = todayStr.slice(0, 7);
+
+    // Weekend: Friday through Sunday
+    var dayOfWeek = now.getDay();
+    var fri = new Date(now);
+    var sun = new Date(now);
+    if (dayOfWeek === 0) { fri.setDate(now.getDate() - 2); sun.setDate(now.getDate()); }
+    else if (dayOfWeek === 6) { fri.setDate(now.getDate() - 1); sun.setDate(now.getDate() + 1); }
+    else { fri.setDate(now.getDate() + (5 - dayOfWeek)); sun.setDate(now.getDate() + (7 - dayOfWeek)); }
+    var friStr = fri.toISOString().slice(0, 10);
+    var sunStr = sun.toISOString().slice(0, 10);
+
+    var timeLabels = {
+      'tonight': 'tonight',
+      'this-weekend': 'this weekend',
+      'this-month': 'this month'
+    };
+
+    function getEventDate(ev) {
+      var raw = ev.date || ev.start || '';
+      if (!raw) return '';
+      return raw.slice(0, 10);
+    }
+
+    function filterByTime(events, timeKey) {
+      return events.filter(function (ev) {
+        var d = getEventDate(ev);
+        if (!d) return false;
+        if (timeKey === 'tonight') return d === todayStr;
+        if (timeKey === 'this-weekend') return d >= friStr && d <= sunStr;
+        if (timeKey === 'this-month') return d.slice(0, 7) === monthStr;
+        return true;
+      });
+    }
+
+    // ─── CATEGORY MAPPING ───────────────────────────────────────────────────
+    // Map event.category from Trumba to our display categories
+    function mapCategory(cat) {
+      if (!cat) return 'Community';
+      if (cat === 'Music & Concert') return 'Music & Concert';
+      if (cat === 'Art & Gallery') return 'Art & Gallery';
+      if (cat === 'Workshop & Talk') return 'Workshop & Talk';
+      if (cat === 'Dance & Theater') return 'Theatre & Film';
+      if (cat === 'Film') return 'Theatre & Film';
+      if (cat === 'Community') return 'Community';
+      if (cat === 'Festival & Fair') return 'Community';
+      return 'Community';
+    }
+
+    function filterByCategory(events, catKey) {
+      if (catKey === 'all') return events;
+      return events.filter(function (ev) {
+        return mapCategory(ev.category) === catKey;
+      });
+    }
+
+    // ─── CATEGORY GRADIENTS (no-image fallback) ────────────────────────────
+    var categoryGradients = {
+      'Music & Concert': 'linear-gradient(135deg, #9B59B6, #8E44AD)',
+      'Art & Gallery': 'linear-gradient(135deg, #E67E22, #D35400)',
+      'Workshop & Talk': 'linear-gradient(135deg, #27AE60, #229954)',
+      'Theatre & Film': 'linear-gradient(135deg, #2980B9, #2471A3)',
+      'Community': 'linear-gradient(135deg, #E74C3C, #C0392B)'
+    };
+
+    function getGradient(ev) {
+      var mapped = mapCategory(ev.category);
+      return categoryGradients[mapped] || 'linear-gradient(135deg, #7F8C8D, #566573)';
+    }
+
+    // ─── DATE FORMATTING ────────────────────────────────────────────────────
+    function formatEventDate(isoStr) {
+      if (!isoStr) return '';
+      try {
+        var d = new Date(isoStr + 'T12:00:00');
+        var opts = { weekday: 'short', month: 'short', day: 'numeric' };
+        return d.toLocaleDateString('en-US', opts);
+      } catch (e) {
+        return isoStr;
+      }
+    }
+
+    // ─── HTML HELPERS ───────────────────────────────────────────────────────
+    function escapeHtml(str) {
+      if (!str) return '';
+      var div = document.createElement('div');
+      div.textContent = str;
+      return div.innerHTML;
+    }
+
+    function escapeAttr(str) {
+      if (!str) return '';
+      return String(str).replace(/"/g, '&quot;').replace(/'/g, '&#39;');
+    }
+
+    // ─── RENDER CARDS ───────────────────────────────────────────────────────
+    function renderGrid() {
+      var grid = document.getElementById('events-grid');
+      if (!grid) return;
+
+      var toShow = filteredEvents.slice(0, shownCount);
+      var html = '';
+
+      for (var i = 0; i < toShow.length; i++) {
+        var ev = toShow[i];
+        var mapped = mapCategory(ev.category);
+        var url = ev.url || '#';
+        var imgStyle = ev.image_url
+          ? "background-image:url('" + escapeAttr(ev.image_url) + "');"
+          : 'background:' + getGradient(ev) + ';';
+
+        var venue = ev.asset_name || ev.venue || '';
+        var city = ev.city || '';
+        var venueLine = '';
+        if (venue && city) venueLine = escapeHtml(venue) + ' &middot; ' + escapeHtml(city);
+        else if (venue) venueLine = escapeHtml(venue);
+        else if (city) venueLine = escapeHtml(city);
+
+        html += '<div class="v2-event-card">';
+        html += '<a href="' + escapeAttr(url) + '" target="_blank" rel="noopener" class="v2-event-card-link">';
+        html += '<div class="v2-event-card-label">' + escapeHtml(mapped) + '</div>';
+        html += '<div class="v2-event-card-image" style="' + imgStyle + '"></div>';
+        html += '<div class="v2-event-card-body">';
+        html += '<h3 class="v2-event-card-title">' + escapeHtml(ev.title) + '</h3>';
+        html += '<p class="v2-event-card-date">' + formatEventDate(ev.date) + '</p>';
+        if (venueLine) html += '<p class="v2-event-card-venue">' + venueLine + '</p>';
+        if (ev.ticket_url) html += '<p class="v2-event-card-price">Tickets Available</p>';
+        html += '<span class="v2-event-card-cta">Details &rarr;</span>';
+        html += '</div>';
+        html += '</a>';
+        if (url && url !== '#') {
+          var shareUrl = encodeURIComponent(url);
+          var shareText = encodeURIComponent((ev.title || '') + ' in Nevada County!');
+          html += '<div class="v2-event-share-wrap">';
+          html += '<button class="v2-event-share-btn" onclick="toggleEventShare(this)">Share</button>';
+          html += '<div class="v2-event-share-dropdown">';
+          html += '<a href="https://www.facebook.com/sharer/sharer.php?u=' + shareUrl + '" target="_blank" rel="noopener">Facebook</a>';
+          html += '<a href="https://twitter.com/intent/tweet?url=' + shareUrl + '&text=' + shareText + '" target="_blank" rel="noopener">X</a>';
+          html += '<button onclick="copyEventLink(this, \'' + escapeAttr(url).replace(/'/g, "\\'") + '\')">Copy Link</button>';
+          html += '</div></div>';
+        }
+        html += '</div>';
+      }
+
+      grid.innerHTML = html;
+    }
+
+    function updateCounts() {
+      var total = filteredEvents.length;
+      var shown = Math.min(shownCount, total);
+
+      // Header count
+      var headerCount = document.getElementById('events-page-count');
+      if (headerCount) {
+        headerCount.textContent = 'Showing ' + total + ' event' + (total !== 1 ? 's' : '') + ' ' + timeLabels[activeTimeFilter];
+      }
+
+      // Load-more section
+      var loadmoreWrap = document.getElementById('loadmore-wrap');
+      var loadMoreBtn = document.getElementById('load-more-btn');
+      var loadMoreCount = document.getElementById('load-more-count');
+
+      if (total === 0 || shown >= total) {
+        if (loadmoreWrap) loadmoreWrap.style.display = 'none';
+      } else {
+        if (loadmoreWrap) loadmoreWrap.style.display = '';
+        if (loadMoreCount) loadMoreCount.textContent = shown + ' of ' + total + ' shown';
+      }
+    }
+
+    function applyFilters() {
+      var timeFiltered = filterByTime(allEvents, activeTimeFilter);
+      filteredEvents = filterByCategory(timeFiltered, activeCategoryFilter);
+
+      // Sort by date ascending
+      filteredEvents.sort(function (a, b) {
+        var da = getEventDate(a) || '';
+        var db = getEventDate(b) || '';
+        return da < db ? -1 : da > db ? 1 : 0;
+      });
+
+      shownCount = PAGE_SIZE;
+      renderGrid();
+      updateCounts();
+    }
+
+    // ─── AUTO-SELECT BEST TIME FILTER ───────────────────────────────────────
+    function autoSelectBestFilter() {
+      var tonightCount = filterByTime(allEvents, 'tonight').length;
+      var weekendCount = filterByTime(allEvents, 'this-weekend').length;
+
+      if (tonightCount >= 3) {
+        activeTimeFilter = 'tonight';
+      } else if (weekendCount >= 3) {
+        activeTimeFilter = 'this-weekend';
+      } else {
+        activeTimeFilter = 'this-month';
+      }
+
+      // Update pill active state
+      var timePills = document.querySelectorAll('#time-pills .category-pill');
+      timePills.forEach(function (p) {
+        p.classList.toggle('active', p.dataset.time === activeTimeFilter);
+      });
+    }
+
+    // ─── PILL WIRING ────────────────────────────────────────────────────────
+    function initPills() {
+      // Time pills
+      document.querySelectorAll('#time-pills .category-pill').forEach(function (pill) {
+        pill.addEventListener('click', function () {
+          document.querySelectorAll('#time-pills .category-pill').forEach(function (p) { p.classList.remove('active'); });
+          pill.classList.add('active');
+          activeTimeFilter = pill.dataset.time;
+          applyFilters();
+        });
+      });
+
+      // Category pills
+      document.querySelectorAll('#category-pills .category-pill').forEach(function (pill) {
+        pill.addEventListener('click', function () {
+          document.querySelectorAll('#category-pills .category-pill').forEach(function (p) { p.classList.remove('active'); });
+          pill.classList.add('active');
+          activeCategoryFilter = pill.dataset.cat;
+          applyFilters();
+        });
+      });
+
+      // Load more button
+      var loadMoreBtn = document.getElementById('load-more-btn');
+      if (loadMoreBtn) {
+        loadMoreBtn.addEventListener('click', function () {
+          shownCount += PAGE_SIZE;
+          renderGrid();
+          updateCounts();
+        });
+      }
+    }
+
+    // ─── BOOT ───────────────────────────────────────────────────────────────
+    document.addEventListener('DOMContentLoaded', function () {
+      initPills();
+
+      fetch('data/events-matched.json')
+        .then(function (r) { return r.json(); })
+        .then(function (data) {
+          var matched = data.matched || [];
+          var unmatched = data.unmatched || [];
+          allEvents = matched.concat(unmatched);
+
+          autoSelectBestFilter();
+          applyFilters();
+        })
+        .catch(function (err) {
+          console.error('[events.html] Failed to load events:', err);
+          var grid = document.getElementById('events-grid');
+          if (grid) {
+            grid.innerHTML = '<p style="text-align:center;color:var(--color-muted);padding:60px 0;">Unable to load events. Please try refreshing the page.</p>';
+          }
+          var headerCount = document.getElementById('events-page-count');
+          if (headerCount) headerCount.textContent = 'Unable to load events';
+        });
+    });
+
+  })();
+
+  // ─── SHARE DROPDOWN HELPERS ─────────────────────────────────────────────────
+  function toggleEventShare(btn) {
+    var dropdown = btn.nextElementSibling;
+    document.querySelectorAll('.v2-event-share-dropdown.open').forEach(function(d) {
+      if (d !== dropdown) d.classList.remove('open');
+    });
+    dropdown.classList.toggle('open');
+  }
+
+  function copyEventLink(btn, url) {
+    navigator.clipboard.writeText(url).then(function() {
+      var orig = btn.textContent;
+      btn.textContent = 'Copied!';
+      setTimeout(function() { btn.textContent = orig; }, 2000);
+    });
+  }
+
+  document.addEventListener('click', function(e) {
+    if (!e.target.closest('.v2-event-share-wrap')) {
+      document.querySelectorAll('.v2-event-share-dropdown.open').forEach(function(d) {
+        d.classList.remove('open');
+      });
+    }
+  });
+  </script>
+
+  <style>
+    /* Card link block — needed because wrapper changed from <a> to <div> */
+    .v2-event-card-link {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+    }
+
+    /* Share dropdown */
+    .v2-event-share-wrap {
+      position: relative;
+      padding: 8px 12px 10px;
+      border-top: 1px solid rgba(0,0,0,0.06);
+    }
+    .v2-event-share-btn {
+      font-family: inherit;
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--color-muted, #666);
+      background: none;
+      border: 1px solid currentColor;
+      border-radius: 20px;
+      padding: 3px 12px;
+      cursor: pointer;
+      transition: color 0.15s;
+    }
+    .v2-event-share-btn:hover {
+      color: var(--color-scarlet, #c0392b);
+    }
+    .v2-event-share-dropdown {
+      display: none;
+      position: absolute;
+      bottom: calc(100% + 4px);
+      left: 12px;
+      background: #fff;
+      border: 1px solid rgba(0,0,0,0.12);
+      border-radius: 8px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+      min-width: 140px;
+      z-index: 20;
+      overflow: hidden;
+    }
+    .v2-event-share-dropdown.open {
+      display: block;
+    }
+    .v2-event-share-dropdown a,
+    .v2-event-share-dropdown button {
+      display: block;
+      width: 100%;
+      padding: 10px 14px;
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 600;
+      color: #1a1a1a;
+      text-decoration: none;
+      text-align: left;
+      background: none;
+      border: none;
+      cursor: pointer;
+      transition: background 0.1s;
+    }
+    .v2-event-share-dropdown a:hover,
+    .v2-event-share-dropdown button:hover {
+      background: #f5f5f5;
+    }
+    .v2-event-share-dropdown a + a,
+    .v2-event-share-dropdown a + button,
+    .v2-event-share-dropdown button + button {
+      border-top: 1px solid rgba(0,0,0,0.06);
+    }
+  </style>
+
+</body>
+</html>
