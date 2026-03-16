@@ -70,16 +70,30 @@ jobs:
       - name: Rebuild venue index from merged events
         run: python scripts/events/build_event_index.py --events-file website/cultural-map-redesign/events-merged-flat.json
 
+      - name: Refresh Arts Hub events (Trumba only)
+        run: python scripts/geocode-assets.py || true && python scripts/fetch-trumba-events.py
+
+      - name: Match events to venues for Arts Hub V2
+        run: python scripts/match-events-to-venues.py
+
       - name: Commit updated event data
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore(data): refresh events from 9 sources (Trumba + LibCal + CivicEngage + KVMR + GVDA + Crazy Horse + Golden Era + Bodhi Hive + Community)"
-          file_pattern: "website/cultural-map-redesign/events*.json website/cultural-map-redesign-stitch-lab/events*.json scripts/events/reports/*.json"
+          file_pattern: "website/cultural-map-redesign/events*.json website/cultural-map-redesign-stitch-lab/events*.json scripts/events/reports/*.json website/arts-hub/data/events.json website/arts-hub-v2/data/events-matched.json"
           commit_user_name: "github-actions[bot]"
           commit_user_email: "github-actions[bot]@users.noreply.github.com"
+
+      - name: Deploy Arts Hub V2 to Vercel
+        run: |
+          cd website/arts-hub-v2
+          npx vercel --yes --prod --token ${{ secrets.VERCEL_TOKEN }}
+        continue-on-error: true
 
       - name: Report completion
         if: always()
         run: |
           echo "Refresh Events workflow completed"
           python -c "import json; d=json.load(open('website/cultural-map-redesign/events-merged.json')); print(f'Total: {len(d[\"events\"])}, Sources: {d[\"source_counts\"]}')" || true
+          python -c "import json; d=json.load(open('website/arts-hub/data/events.json')); print(f'Arts Hub events: {d[\"total\"]}')" || true
+          python -c "import json; d=json.load(open('website/arts-hub-v2/data/events-matched.json')); m=d.get('matched',[]); u=d.get('unmatched',[]); print(f'Arts Hub V2: {len(m)} matched, {len(u)} unmatched')" || true
