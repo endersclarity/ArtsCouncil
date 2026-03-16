@@ -1803,22 +1803,22 @@ body {
 }
 
 .v2-sidebar-share-btn {
-  display: inline-block;
-  margin-top: 6px;
+  display: block;
+  margin-top: 8px;
   font-family: var(--font-sans);
-  font-size: 11px;
+  font-size: 10px;
   font-weight: 700;
-  color: var(--color-scarlet);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-muted);
   background: none;
-  border: 1px solid var(--color-scarlet);
-  padding: 2px 10px;
+  border: none;
+  padding: 0;
   cursor: pointer;
-  transition: background 200ms ease, color 200ms ease;
 }
 
 .v2-sidebar-share-btn:hover {
-  background: var(--color-scarlet);
-  color: var(--color-white);
+  color: var(--color-scarlet);
 }
 
 .v2-event-card-maplink {
