@@ -155,7 +155,12 @@
           dedupOrder.push(titleKey);
         }
         var rawDate = rawEv.date || rawEv.start || '';
-        if (rawDate) dedupMap[titleKey].dates.push(rawDate);
+        // Dedup by date portion (YYYY-MM-DD) to catch entries with same date different timestamp formats
+        var dateDay = rawDate ? rawDate.slice(0, 10) : '';
+        var existingDays = dedupMap[titleKey].dates.map(function(d) { return d.slice(0, 10); });
+        if (rawDate && existingDays.indexOf(dateDay) === -1) {
+          dedupMap[titleKey].dates.push(rawDate);
+        }
       }
 
       // Event cards (deduped)
