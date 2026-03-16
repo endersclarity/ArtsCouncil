@@ -583,7 +583,7 @@
     if (!map) return;
     map.flyTo({
       center: [lng, lat],
-      zoom: 14,
+      zoom: 17,
       duration: 800,
     });
   }
@@ -644,7 +644,7 @@
 
     if (match) {
       var coords = match.geometry.coordinates;
-      map.flyTo({ center: coords, zoom: 15, duration: 1200 });
+      map.flyTo({ center: coords, zoom: 17, duration: 1200 });
 
       // Show a popup at the venue
       if (deepLinkPopup) deepLinkPopup.remove();
