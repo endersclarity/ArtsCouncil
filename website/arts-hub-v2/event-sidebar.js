@@ -144,9 +144,24 @@
       html += '<span class="v2-venue-group-fly">&#9656;</span>';
       html += '</div>';
 
-      // Event cards
+      // Dedup events by title within this venue
+      var dedupMap = {};
+      var dedupOrder = [];
       for (var e = 0; e < group.events.length; e++) {
-        var ev = group.events[e];
+        var rawEv = group.events[e];
+        var titleKey = (rawEv.title || '').toLowerCase();
+        if (!dedupMap[titleKey]) {
+          dedupMap[titleKey] = { ev: rawEv, dates: [] };
+          dedupOrder.push(titleKey);
+        }
+        var rawDate = rawEv.date || rawEv.start || '';
+        if (rawDate) dedupMap[titleKey].dates.push(rawDate);
+      }
+
+      // Event cards (deduped)
+      for (var di = 0; di < dedupOrder.length; di++) {
+        var item = dedupMap[dedupOrder[di]];
+        var ev = item.ev;
         var cats = ev.categories || (ev.category ? [ev.category] : []);
         var imgStyle = ev.image_url
           ? "background-image:url('" + ev.image_url + "');background-size:cover;background-position:center;"
@@ -160,7 +175,16 @@
 
         html += '<div class="v2-event-card-body">';
         html += '<h4>' + escapeHtml(ev.title) + '</h4>';
-        html += '<p class="v2-event-time">' + formatTime(ev.date || ev.start) + '</p>';
+        // Show all dates
+        if (item.dates.length > 1) {
+          html += '<div style="display:flex;flex-wrap:wrap;gap:4px;margin:4px 0;">';
+          item.dates.forEach(function(dt) {
+            html += '<span style="font-size:11px;font-weight:700;color:var(--color-scarlet);background:var(--color-scarlet-tint);padding:2px 6px;">' + formatTime(dt) + '</span>';
+          });
+          html += '</div>';
+        } else {
+          html += '<p class="v2-event-time">' + formatTime(ev.date || ev.start) + '</p>';
+        }
         var cat = ev.category || (ev.categories && ev.categories[0]) || '';
         if (cat) {
           html += '<span class="v2-event-category">' + escapeHtml(cat) + '</span>';
