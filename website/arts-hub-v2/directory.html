@@ -84,6 +84,7 @@
     .dir-pills-wrap {
       padding: 1rem 0;
       border-bottom: 1px solid var(--dir-border);
+      overflow: hidden; /* contain pill row hscroll to this section */
     }
     .dir-pills {
       display: flex;
@@ -128,6 +129,7 @@
       background: #fff;
       border-bottom: 1px solid var(--dir-border);
       padding: 0.5rem 0;
+      overflow: hidden; /* prevent child from creating page-level hscroll */
     }
     .dir-az-bar {
       display: flex;
@@ -396,20 +398,72 @@
       }
       .dir-entry-actions {
         margin-left: 0;
+        gap: 0.25rem;
+      }
+      /* Touch targets for map pin + website icons */
+      .dir-entry-maplink,
+      .dir-entry-weblink {
+        min-height: 44px;
+        min-width: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
       }
       .dir-entry-desc {
         white-space: normal;
         overflow: visible;
         text-overflow: unset;
       }
-      .dir-az-btn {
-        width: 1.5rem;
-        height: 1.5rem;
-        line-height: 1.5rem;
-        font-size: 0.7rem;
+      /* A-Z bar: horizontal scroll, no wrap */
+      .dir-az-bar {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 4px;
+        scrollbar-width: none;
+        gap: 0;
       }
+      .dir-az-bar::-webkit-scrollbar {
+        display: none;
+      }
+      .dir-az-btn {
+        width: 1.75rem;
+        height: 2.75rem; /* ~44px touch target */
+        line-height: 2.75rem;
+        font-size: 0.7rem;
+        flex-shrink: 0;
+      }
+      /* Filter pills: horizontal scroll, no wrap */
+      .dir-pills {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 4px;
+        scrollbar-width: none;
+      }
+      .dir-pills::-webkit-scrollbar {
+        display: none;
+      }
+      /* Pill touch targets */
+      .dir-pill {
+        padding: 0.55rem 0.85rem;
+        flex-shrink: 0;
+      }
+      /* Search input: full width (already width:100% but ensure box-sizing) */
+      .dir-search-wrap {
+        max-width: 100%;
+      }
+      /* Letter group heading sticky offset */
       .dir-letter-heading {
         top: 106px;
+      }
+      /* Entry name wraps on narrow screens */
+      .dir-entry-row1 {
+        flex-wrap: wrap;
+        gap: 0.25rem;
+      }
+      .dir-entry-city {
+        white-space: normal;
       }
     }
   </style>

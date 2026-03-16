@@ -1334,18 +1334,29 @@ body {
 @media (max-width: 768px) {
   .v2-stories-hero {
     height: 50vh;
-    min-height: 400px;
+    min-height: 380px;
     padding: var(--space-xl) var(--space-md);
   }
 
   .v2-stories-hero-title {
-    font-size: clamp(2rem, 6vw, 2.5rem);
+    font-size: clamp(1.75rem, 6vw, 2.5rem);
+  }
+
+  .v2-stories-hero-dek {
+    font-size: 1rem;
+  }
+
+  .v2-stories-hero-cta {
+    display: block;
+    text-align: center;
+    padding: 14px 16px;
   }
 
   .v2-stories-soundcheck-inner {
     flex-direction: column;
     align-items: flex-start;
     padding: var(--space-md);
+    gap: var(--space-md);
   }
 
   .v2-stories-soundcheck-content {
@@ -1357,12 +1368,23 @@ body {
     font-size: 2rem;
   }
 
+  .v2-stories-soundcheck-link {
+    white-space: normal;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
   .v2-stories-section {
     padding: var(--space-2xl) 0;
   }
 
   .v2-stories-grid {
     grid-template-columns: 1fr;
+  }
+
+  .v2-stories-grid--editorial {
+    gap: var(--space-lg);
   }
 
   .v2-stories-archive-grid {
@@ -1372,12 +1394,20 @@ body {
   .v2-stories-archive {
     padding: var(--space-2xl) 0;
   }
+
+  .v2-stories-archive-card {
+    padding: var(--space-md);
+  }
 }
 
 @media (max-width: 480px) {
   .v2-stories-hero {
     height: 45vh;
-    min-height: 350px;
+    min-height: 300px;
+  }
+
+  .v2-stories-hero-title {
+    font-size: 1.5rem;
   }
 }
 
@@ -1579,17 +1609,47 @@ body {
 @media (max-width: 768px) {
   .v2-story-hero {
     height: 45vh;
-    min-height: 350px;
+    min-height: 320px;
     padding: var(--space-xl) var(--space-md);
+  }
+
+  .v2-story-hero-title {
+    font-size: clamp(1.625rem, 5vw, 2.5rem);
   }
 
   .v2-story-article {
     padding: var(--space-xl) var(--space-md);
   }
 
+  .v2-story-body p {
+    font-size: 1rem;
+  }
+
+  .v2-story-pullquote {
+    margin: var(--space-lg) 0;
+    padding: var(--space-md) var(--space-md);
+  }
+
+  .v2-story-pullquote p {
+    font-size: 1.125rem;
+  }
+
   .v2-story-venue-card {
     flex-direction: column;
     align-items: flex-start;
+  }
+
+  .v2-story-venue-card a {
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .v2-story-back {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    padding: var(--space-md) var(--space-md);
   }
 
   .v2-story-related-grid {
@@ -1600,7 +1660,11 @@ body {
 @media (max-width: 480px) {
   .v2-story-hero {
     height: 40vh;
-    min-height: 300px;
+    min-height: 280px;
+  }
+
+  .v2-story-hero-title {
+    font-size: 1.5rem;
   }
 }
 
@@ -1901,6 +1965,55 @@ body {
     grid-template-columns: repeat(2, 1fr);
     gap: 16px;
   }
+
+  /* Filter pill rows: horizontal scroll, no overflow */
+  .v2-events-filter .pills-row {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 6px;
+    scrollbar-width: none; /* Firefox */
+    gap: 8px;
+  }
+  .v2-events-filter .pills-row::-webkit-scrollbar {
+    display: none; /* Chrome/Safari */
+  }
+
+  /* Map link + share area touch targets */
+  .v2-event-card-maplink {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+  }
+
+  .v2-event-share-wrap {
+    display: block;
+  }
+
+  .v2-event-share-btn {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+  }
+
+  /* Share dropdown: open downward on mobile to avoid top-clip */
+  .v2-event-share-dropdown {
+    bottom: auto;
+    top: 100%;
+    /* Prevent dropdown from escaping card right edge */
+    left: 0;
+    right: 0;
+    min-width: unset;
+    width: 100%;
+  }
+
+  /* Load more button: full width */
+  .v2-events-loadmore button {
+    width: 100%;
+    padding: 16px 24px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -2047,12 +2160,141 @@ body {
 }
 
 @media (max-width: 768px) {
+  .v2-submit-header {
+    padding: 40px 0 16px;
+  }
+
   .v2-submit-row {
     flex-direction: column;
+    gap: var(--space-lg);
+  }
+
+  .v2-submit-field input,
+  .v2-submit-field select,
+  .v2-submit-field textarea {
+    width: 100%;
+    min-height: 44px;
+    font-size: 1rem;
   }
 
   .v2-submit-btn {
     width: 100%;
+    min-height: 48px;
+  }
+}
+
+
+/* ============================================================
+   A.1 About Page
+   ============================================================ */
+.about-hero {
+  background: var(--color-charcoal);
+  color: var(--color-white);
+  padding: var(--space-2xl) var(--space-xl);
+  text-align: center;
+}
+
+.about-hero h1 {
+  font-family: var(--font-sans);
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 900;
+  line-height: 1.2;
+}
+
+.about-content {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: var(--space-2xl) var(--space-md);
+  font-family: var(--font-sans);
+  line-height: 1.8;
+}
+
+.about-content p {
+  font-size: clamp(1rem, 1.5vw, 1.0625rem);
+  color: var(--color-charcoal);
+  margin-bottom: var(--space-lg);
+}
+
+.about-content a {
+  color: var(--color-scarlet);
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.about-section-label {
+  display: block;
+  margin-top: var(--space-xl);
+  margin-bottom: var(--space-sm);
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-lg);
+  max-width: 860px;
+  margin: var(--space-lg) auto var(--space-2xl);
+  padding: 0 var(--space-md);
+}
+
+.team-card {
+  text-align: center;
+  border: 1px solid var(--color-border);
+  padding: var(--space-lg) var(--space-md);
+}
+
+.team-photo {
+  width: 80px;
+  height: 80px;
+  background: var(--color-subtle-bg);
+  border-radius: 50%;
+  margin: 0 auto var(--space-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-detail);
+  color: var(--color-muted);
+  border: 2px solid var(--color-border);
+}
+
+.team-card h3 {
+  font-family: var(--font-sans);
+  font-size: var(--text-card-title);
+  font-weight: 800;
+  color: var(--color-charcoal);
+  margin-bottom: 4px;
+}
+
+.team-card p {
+  font-size: var(--text-detail);
+  color: var(--color-muted);
+}
+
+@media (max-width: 768px) {
+  .about-hero {
+    padding: var(--space-xl) var(--space-md);
+  }
+
+  .about-hero h1 {
+    font-size: clamp(1.75rem, 5vw, 2.5rem);
+  }
+
+  .about-content {
+    padding: var(--space-xl) var(--space-md);
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+  }
+
+  .team-card {
+    padding: var(--space-md);
+  }
+}
+
+@media (max-width: 480px) {
+  .about-hero h1 {
+    font-size: 1.625rem;
   }
 }
 
@@ -2219,10 +2461,48 @@ body {
   text-decoration: none;
 }
 
+/* Native share button */
+.v2-share-native {
+  font-family: var(--font-sans);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-white);
+  background: var(--color-scarlet);
+  border: none;
+  cursor: pointer;
+  padding: 10px 20px;
+  min-height: 44px;
+  transition: background 200ms ease;
+}
+
+.v2-share-native:hover {
+  background: var(--color-scarlet-hover);
+}
+
 @media (max-width: 768px) {
   .v2-share-bar {
     padding: 0 var(--space-md);
     gap: var(--space-md);
+    flex-wrap: wrap;
+  }
+
+  .v2-share-native {
+    width: 100%;
+    text-align: center;
+  }
+
+  .v2-share-fallbacks {
+    flex-wrap: wrap;
+    gap: var(--space-sm) !important;
+  }
+}
+
+/* Share dropdown flex items need gap on mobile */
+@media (max-width: 480px) {
+  .v2-event-share-dropdown.open {
+    flex-direction: column;
+    gap: 12px;
+    padding: 12px;
   }
 }
 
