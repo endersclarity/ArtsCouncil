@@ -6,113 +6,59 @@
 
 import('https://cdn.jsdelivr.net/npm/web-haptics@0.0.6/dist/index.mjs')
   .then(function (module) {
-    var WebHaptics = module.default || module.WebHaptics || module;
+    var WebHaptics = module.WebHaptics;
+    if (!WebHaptics) return;
 
-    // Initialize — check what's available in the module export
-    var haptics;
-    try {
-      if (typeof WebHaptics === 'function' && WebHaptics.prototype) {
-        haptics = new WebHaptics();
-      } else if (typeof WebHaptics === 'object' && typeof WebHaptics.trigger === 'function') {
-        haptics = WebHaptics;
-      } else {
-        // Try to find the trigger function in the module
-        var keys = Object.keys(module);
-        for (var i = 0; i < keys.length; i++) {
-          if (typeof module[keys[i]] === 'function') {
-            haptics = module[keys[i]];
-            break;
-          }
-        }
-      }
-    } catch (e) {
-      // Haptics not supported — silent no-op
-      return;
-    }
+    var haptics = new WebHaptics();
 
-    if (!haptics) return;
-
-    // Helper to trigger a pattern safely
-    function triggerHaptic(pattern) {
-      try {
-        if (typeof haptics.trigger === 'function') {
-          haptics.trigger(pattern);
-        } else if (typeof haptics === 'function') {
-          haptics(pattern);
-        }
-      } catch (e) {
-        // Silent fail
-      }
-    }
-
-    // ─── EVENT DELEGATION ─────────────────────────────────────────────
-    // One listener on document, pattern matched by element type/class
+    // Available presets: success, warning, error, light, medium, heavy, soft, rigid, selection, nudge, buzz
 
     document.addEventListener('click', function (e) {
       var target = e.target.closest(
-        'button, .btn-subscribe, .v2-submit-btn, .category-pill, .v2-asset-pill, ' +
+        'button, a, .btn-subscribe, .v2-submit-btn, .category-pill, .v2-asset-pill, ' +
         '.v2-event-card, .v2-stories-card, .v2-stories-editorial, ' +
         '.v2-stories-hero-cta, .v2-story-back, .v2-event-share-btn, ' +
         '.nav-hamburger, .nav-mobile-overlay a, ' +
-        '.v2-dir-card, .v2-share-bar a, .v2-share-bar button'
+        '.v2-share-bar a, .v2-share-bar button, .dir-pill, .dir-az-btn, .dir-entry'
       );
 
       if (!target) return;
 
-      // CTA buttons — strong success haptic
+      // CTA buttons — strong
       if (target.matches('.btn-subscribe, .v2-submit-btn, .v2-stories-hero-cta')) {
-        triggerHaptic('success');
+        haptics.trigger('success');
         return;
       }
 
-      // Filter pills — light tap
-      if (target.matches('.category-pill, .v2-asset-pill')) {
-        triggerHaptic('click');
+      // Filter pills — selection tap
+      if (target.matches('.category-pill, .v2-asset-pill, .dir-pill, .dir-az-btn')) {
+        haptics.trigger('selection');
         return;
       }
 
-      // Cards — medium tap
-      if (
-        target.matches('.v2-event-card, .v2-stories-card, .v2-stories-editorial, .v2-dir-card') ||
-        target.closest('.v2-event-card, .v2-stories-card, .v2-stories-editorial, .v2-dir-card')
-      ) {
-        triggerHaptic('click');
-        return;
-      }
-
-      // Share buttons — light confirmation
+      // Share / copy — success
       if (target.matches('.v2-event-share-btn, .v2-share-bar button')) {
-        triggerHaptic('success');
+        haptics.trigger('light');
         return;
       }
 
-      // Nav hamburger — medium
+      // Nav hamburger
       if (target.matches('.nav-hamburger') || target.closest('.nav-hamburger')) {
-        triggerHaptic('click');
+        haptics.trigger('medium');
         return;
       }
 
-      // Mobile nav links — light
-      if (target.matches('.nav-mobile-overlay a')) {
-        triggerHaptic('click');
-        return;
-      }
-
-      // Any other button — default light tap
-      if (target.matches('button')) {
-        triggerHaptic('click');
-        return;
-      }
+      // Any other interactive element — light tap
+      haptics.trigger('light');
     });
 
-    // ─── MAP DETAIL PANEL OPEN ────────────────────────────────────────
-    // Watch for the detail panel opening (class change)
+    // Map detail panel open
     var detailPanel = document.getElementById('detail-panel');
     if (detailPanel) {
       var observer = new MutationObserver(function (mutations) {
         mutations.forEach(function (m) {
           if (m.attributeName === 'class' && detailPanel.classList.contains('open')) {
-            triggerHaptic('success');
+            haptics.trigger('medium');
           }
         });
       });
