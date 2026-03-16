@@ -358,7 +358,81 @@
     return 'linear-gradient(135deg, #3F3F3F, #6B6B6B)';
   }
 
-  // ─── DATA SANITIZATION ───────────────────────────────────────────────────
+  // ─── DATA SANITIZATION & VENUE RESOLUTION ───────────────────────────────
+
+  // Manual venue mapping for events the pipeline missed.
+  // Key: substring to match in title OR description (case-insensitive).
+  // Value: { asset_name, city, asset_lat, asset_lng }
+  var VENUE_FIXES = [
+    { match: ['Ceramics', 'Pottery', 'Spoon', 'Welding', 'Mosaic', 'Needle Felting', 'Mingle & Make',
+              'Woodshop', 'Glass Flameworking', 'Sewing Basics', 'CosPlay', 'Digital Arts Exploration',
+              'Youth Maker XD', 'Polymer Clay', 'Custom Hat Making', 'Watercolor Exploration',
+              'Make a Tiny Grief', 'Curious Forge'],
+      venue: { asset_name: 'The Curious Forge', city: 'Nevada City', asset_lat: 39.254933782504, asset_lng: -121.134189389754 } },
+    { match: ['Odd Fellows Open Mic'],
+      venue: { asset_name: 'Nevada City Odd Fellows Lodge', city: 'Nevada City', asset_lat: 39.2618, asset_lng: -121.0178 } },
+    { match: ['Church Street'],
+      venue: { asset_name: 'Church Street Art Gallery', city: 'Grass Valley', asset_lat: 39.2200, asset_lng: -121.0621 } },
+    { match: ['Empire Mine'],
+      venue: { asset_name: 'Empire Mine', city: 'Grass Valley', asset_lat: 39.2071, asset_lng: -121.0468 } },
+    { match: ['Spring Street Swing'],
+      venue: { asset_name: 'Miners Foundry', city: 'Nevada City', asset_lat: 39.2626, asset_lng: -121.0177 } },
+    { match: ['Decendants', 'Descendants', 'Astonishing Theater'],
+      venue: { asset_name: 'Center for the Arts', city: 'Grass Valley', asset_lat: 39.2186, asset_lng: -121.0606 } },
+    { match: ['Seasonal Invocations', 'St. Joseph'],
+      venue: { asset_name: 'St. Joseph Cultural Center', city: 'Grass Valley', asset_lat: 39.2145, asset_lng: -121.0674 } },
+    { match: ['STEAM Exploration', 'Kids Night Out'],
+      venue: { asset_name: 'Truckee Community Arts Center', city: 'Truckee', asset_lat: 39.3279, asset_lng: -120.1852 } },
+    { match: ['Cars and coffee'],
+      venue: { asset_name: 'Downtown Grass Valley', city: 'Grass Valley', asset_lat: 39.2193, asset_lng: -121.0610 } },
+    { match: ['Word Jam', 'Literary Crawl', '#socialsketch', 'First Fridays'],
+      venue: { asset_name: 'Word After Word Books', city: 'Truckee', asset_lat: 39.3279, asset_lng: -120.1852 } },
+    { match: ['Poetry in Parks'],
+      venue: { asset_name: 'Empire Mine', city: 'Grass Valley', asset_lat: 39.2071, asset_lng: -121.0468 } },
+    { match: ['Seniors Pancake'],
+      venue: { asset_name: 'Truckee Donner Senior Apartments', city: 'Truckee', asset_lat: 39.3280, asset_lng: -120.1830 } },
+    { match: ['Poetry Open Mic', 'Poetry Crawl', 'UNESCO World Poetry'],
+      venue: { asset_name: 'Nevada County Poetry', city: 'Nevada City', asset_lat: 39.2618, asset_lng: -121.0178 } },
+    { match: ['Good Morning Truckee'],
+      venue: { asset_name: 'Truckee Chamber of Commerce', city: 'Truckee', asset_lat: 39.3279, asset_lng: -120.1852 } },
+    { match: ['Dancing the Decades'],
+      venue: { asset_name: 'Veterans Memorial Hall', city: 'Grass Valley', asset_lat: 39.2193, asset_lng: -121.0610 } },
+    { match: ['Motion Theater'],
+      venue: { asset_name: 'Miners Foundry', city: 'Nevada City', asset_lat: 39.2626, asset_lng: -121.0177 } },
+    { match: ['Sound Blessings'],
+      venue: { asset_name: 'The Healing Center', city: 'Nevada City', asset_lat: 39.2618, asset_lng: -121.0178 } },
+    { match: ['Poetry Workshop', 'Imagination and Resistance'],
+      venue: { asset_name: 'Word After Word Books', city: 'Truckee', asset_lat: 39.3279, asset_lng: -120.1852 } },
+    { match: ['Spanish story time'],
+      venue: { asset_name: 'Truckee Library', city: 'Truckee', asset_lat: 39.3279, asset_lng: -120.1852 } },
+    { match: ['North Woods', 'On North Woods'],
+      venue: { asset_name: 'Word After Word Books', city: 'Truckee', asset_lat: 39.3279, asset_lng: -120.1852 } },
+    { match: ['Sounds from Darkness'],
+      venue: { asset_name: 'Center for the Arts', city: 'Grass Valley', asset_lat: 39.2186, asset_lng: -121.0606 } },
+    { match: ['Bear Yuba Land Trust'],
+      venue: { asset_name: 'Bear Yuba Land Trust', city: 'Grass Valley', asset_lat: 39.2193, asset_lng: -121.0610 } },
+    { match: ['Mythos of the Feminine'],
+      venue: { asset_name: 'Private Gallery', city: 'Nevada City', asset_lat: 39.2618, asset_lng: -121.0178 } },
+  ];
+
+  function resolveVenue(ev) {
+    if (ev.asset_name) return ev; // already matched
+    var text = ((ev.title || '') + ' ' + (ev.description || '')).toLowerCase();
+    for (var i = 0; i < VENUE_FIXES.length; i++) {
+      var fix = VENUE_FIXES[i];
+      for (var j = 0; j < fix.match.length; j++) {
+        if (text.indexOf(fix.match[j].toLowerCase()) !== -1) {
+          ev.asset_name = fix.venue.asset_name;
+          ev.city = fix.venue.city;
+          ev.asset_lat = fix.venue.asset_lat;
+          ev.asset_lng = fix.venue.asset_lng;
+          ev.community_event = false;
+          return ev;
+        }
+      }
+    }
+    return ev;
+  }
 
   function sanitizeEvents(events) {
     return events.map(function (ev) {
@@ -374,6 +448,8 @@
           ev.city = ev.city.slice(0, cutIdx);
         }
       }
+      // Resolve unmatched events to known venues
+      resolveVenue(ev);
       return ev;
     });
   }

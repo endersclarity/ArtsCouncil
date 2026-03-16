@@ -435,9 +435,57 @@
       }
     }
 
-    // ─── DATA SANITIZATION ──────────────────────────────────────────────────
+    // ─── DATA SANITIZATION & VENUE RESOLUTION ─────────────────────────────
+    // Shared venue fix table — matches unmatched events to known venues
+    var VENUE_FIXES = [
+      { match: ['Ceramics', 'Pottery', 'Spoon', 'Welding', 'Mosaic', 'Needle Felting', 'Mingle & Make',
+                'Woodshop', 'Glass Flameworking', 'Sewing Basics', 'CosPlay', 'Digital Arts Exploration',
+                'Youth Maker XD', 'Polymer Clay', 'Custom Hat Making', 'Watercolor Exploration',
+                'Make a Tiny Grief', 'Curious Forge'],
+        venue: { asset_name: 'The Curious Forge', city: 'Nevada City' } },
+      { match: ['Odd Fellows Open Mic'],
+        venue: { asset_name: 'Nevada City Odd Fellows Lodge', city: 'Nevada City' } },
+      { match: ['Church Street'],
+        venue: { asset_name: 'Church Street Art Gallery', city: 'Grass Valley' } },
+      { match: ['Empire Mine', 'Poetry in Parks'],
+        venue: { asset_name: 'Empire Mine', city: 'Grass Valley' } },
+      { match: ['Spring Street Swing'],
+        venue: { asset_name: 'Miners Foundry', city: 'Nevada City' } },
+      { match: ['Decendants', 'Descendants', 'Astonishing Theater', 'Sounds from Darkness'],
+        venue: { asset_name: 'Center for the Arts', city: 'Grass Valley' } },
+      { match: ['Seasonal Invocations', 'St. Joseph'],
+        venue: { asset_name: 'St. Joseph Cultural Center', city: 'Grass Valley' } },
+      { match: ['STEAM Exploration', 'Kids Night Out'],
+        venue: { asset_name: 'Truckee Community Arts Center', city: 'Truckee' } },
+      { match: ['Cars and coffee'],
+        venue: { asset_name: 'Downtown Grass Valley', city: 'Grass Valley' } },
+      { match: ['Word Jam', 'Literary Crawl', '#socialsketch', 'First Fridays', 'On North Woods'],
+        venue: { asset_name: 'Word After Word Books', city: 'Truckee' } },
+      { match: ['Seniors Pancake'],
+        venue: { asset_name: 'Truckee Donner Senior Apartments', city: 'Truckee' } },
+      { match: ['Poetry Open Mic', 'Poetry Crawl', 'UNESCO World Poetry'],
+        venue: { asset_name: 'Nevada County Poetry', city: 'Nevada City' } },
+      { match: ['Good Morning Truckee'],
+        venue: { asset_name: 'Truckee Chamber of Commerce', city: 'Truckee' } },
+      { match: ['Dancing the Decades'],
+        venue: { asset_name: 'Veterans Memorial Hall', city: 'Grass Valley' } },
+      { match: ['Motion Theater'],
+        venue: { asset_name: 'Miners Foundry', city: 'Nevada City' } },
+      { match: ['Sound Blessings'],
+        venue: { asset_name: 'The Healing Center', city: 'Nevada City' } },
+      { match: ['Poetry Workshop', 'Imagination and Resistance'],
+        venue: { asset_name: 'Word After Word Books', city: 'Truckee' } },
+      { match: ['Spanish story time'],
+        venue: { asset_name: 'Truckee Library', city: 'Truckee' } },
+      { match: ['Bear Yuba Land Trust'],
+        venue: { asset_name: 'Bear Yuba Land Trust', city: 'Grass Valley' } },
+      { match: ['Dirty Cello'],
+        venue: { asset_name: 'Church Street Art Gallery', city: 'Grass Valley' } },
+    ];
+
     function sanitizeEvents(events) {
       return events.map(function (ev) {
+        // Fix dirty city fields
         if (ev.city) {
           var priceIdx = ev.city.indexOf(' Price : ');
           var detailIdx = ev.city.indexOf(' Event details : ');
@@ -447,6 +495,21 @@
           if (cutIdx !== -1) {
             if (!ev.price) ev.price = ev.city.slice(cutIdx).replace(/^ *(Price|Event details) *: */, '');
             ev.city = ev.city.slice(0, cutIdx);
+          }
+        }
+        // Resolve unmatched events to known venues
+        if (!ev.asset_name) {
+          var text = ((ev.title || '') + ' ' + (ev.description || '')).toLowerCase();
+          for (var i = 0; i < VENUE_FIXES.length; i++) {
+            var fix = VENUE_FIXES[i];
+            for (var j = 0; j < fix.match.length; j++) {
+              if (text.indexOf(fix.match[j].toLowerCase()) !== -1) {
+                ev.asset_name = fix.venue.asset_name;
+                ev.city = fix.venue.city;
+                break;
+              }
+            }
+            if (ev.asset_name) break;
           }
         }
         return ev;
