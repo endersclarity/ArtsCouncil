@@ -504,10 +504,7 @@
       <!-- Populated by JS -->
     </ul>
 
-    <div id="dir-pagination" class="dir-pagination" style="display:none;">
-      <button id="dir-show-more-btn" type="button">Show More</button>
-    </div>
-    <p class="dir-pagination-info" id="dir-pagination-info" style="display:none;"></p>
+    <!-- Pagination removed: A-Z bar requires all entries in DOM -->
   </main>
 
 
@@ -771,7 +768,7 @@
 
       if (loadingEl) loadingEl.style.display = 'none';
 
-      var toShow = filteredEntries.slice(0, shownCount);
+      var toShow = filteredEntries; // render ALL — no pagination, A-Z bar needs every letter group in DOM
       var total = filteredEntries.length;
 
       if (total === 0) {
