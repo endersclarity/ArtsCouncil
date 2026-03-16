@@ -448,8 +448,9 @@
   </div>
 
 
+  <div id="main-content">
   <!-- ===== PAGE HEADER ===== -->
-  <section id="main-content" class="dir-header container">
+  <section class="dir-header container">
     <span class="section-label">DIRECTORY</span>
     <h1>Explore Nevada County</h1>
     <p class="dir-header-meta" id="dir-page-meta">Loading directory&hellip;</p>
@@ -509,6 +510,7 @@
 
     <!-- Pagination removed: A-Z bar requires all entries in DOM -->
   </main>
+  </div><!-- /#main-content -->
 
 
   <!-- ===== NEWSLETTER ===== -->
@@ -607,6 +609,7 @@
     var filteredEntries = [];    // after filter + search
     var activeFilter = 'all';
     var searchQuery = '';
+    var renderPending = false;   // rAF guard — coalesces rapid filter+search calls
 
     // ─── CATEGORY MAPPING ───────────────────────────────────────────────────
     function mapAssetCategory(assetType) {
@@ -779,7 +782,7 @@
       if (total === 0) {
         list.innerHTML = '';
         if (emptyEl) emptyEl.classList.add('visible');
-        updateAZBar([]);
+        updateAZBar(new Set());
         return;
       }
 
@@ -929,8 +932,17 @@
         return true;
       });
 
-      renderList();
       updateMeta();
+
+      // Defer DOM write to next animation frame so the browser can
+      // repaint the input/pill state before the expensive innerHTML flush.
+      if (!renderPending) {
+        renderPending = true;
+        requestAnimationFrame(function () {
+          renderPending = false;
+          renderList();
+        });
+      }
     }
 
     // ─── PILL WIRING ────────────────────────────────────────────────────────

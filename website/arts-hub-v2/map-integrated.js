@@ -434,23 +434,24 @@
   // ─── PULSE ANIMATION ─────────────────────────────────────────────────────
 
   function startPulseAnimation() {
-    var startTime = performance.now();
-
-    function animate() {
+    // Wait until the glow layer is ready before starting the rAF loop.
+    // Polling every 200ms avoids a busy-loop at 60fps during map tile load.
+    function waitForLayer() {
       if (!map || !map.getLayer('venue-events-glow')) {
-        pulseAnimFrame = requestAnimationFrame(animate);
+        setTimeout(waitForLayer, 200);
         return;
       }
-
-      var elapsed = (performance.now() - startTime) / 1000;
-      var pulse = 0.4 + 0.25 * Math.sin(elapsed * 2.5);
-
-      map.setPaintProperty('venue-events-glow', 'circle-opacity', pulse);
-
+      var startTime = performance.now();
+      function animate() {
+        if (!map || !map.getLayer('venue-events-glow')) return; // layer removed — stop loop
+        var elapsed = (performance.now() - startTime) / 1000;
+        var pulse = 0.4 + 0.25 * Math.sin(elapsed * 2.5);
+        map.setPaintProperty('venue-events-glow', 'circle-opacity', pulse);
+        pulseAnimFrame = requestAnimationFrame(animate);
+      }
       pulseAnimFrame = requestAnimationFrame(animate);
     }
-
-    pulseAnimFrame = requestAnimationFrame(animate);
+    waitForLayer();
   }
 
   // ─── INTERACTIONS ─────────────────────────────────────────────────────────
