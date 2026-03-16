@@ -331,6 +331,10 @@
         html += '<span class="v2-event-card-cta">Details &rarr;</span>';
         html += '</div>';
         html += '</a>';
+        // See on Map link for matched events
+        if (venue && ev.asset_lat && ev.asset_lng) {
+          html += '<a href="index.html?venue=' + encodeURIComponent(venue) + '#map-main" class="v2-event-card-maplink" title="See on Map">See on Map &rarr;</a>';
+        }
         if (url && url !== '#') {
           var shareUrl = encodeURIComponent(url);
           var shareText = encodeURIComponent((ev.title || '') + ' in Nevada County!');

@@ -1802,6 +1802,22 @@ body {
   margin-top: auto;
 }
 
+.v2-event-card-maplink {
+  display: block;
+  padding: 8px 12px;
+  border-top: 1px solid rgba(0,0,0,0.06);
+  font-family: var(--font-sans);
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--color-scarlet);
+  text-decoration: none;
+  transition: color 200ms ease;
+}
+
+.v2-event-card-maplink:hover {
+  color: var(--color-scarlet-hover);
+}
+
 /* --- Load More --- */
 .v2-events-loadmore {
   text-align: center;
