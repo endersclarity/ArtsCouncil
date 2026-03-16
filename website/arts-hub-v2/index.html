@@ -7,9 +7,11 @@
   <meta name="description" content="Events, venues, and cultural assets across western Nevada County. One map.">
   <meta property="og:title" content="Nevada County Arts & Culture">
   <meta property="og:description" content="Events, venues, and cultural assets across western Nevada County. One map.">
-  <meta property="og:image" content="img/stories/story-wine-country.png">
+  <meta property="og:image" content="https://arts-hub-v2.vercel.app/img/story-wine-country.jpg">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://arts-hub-v2.vercel.app/">
   <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://arts-hub-v2.vercel.app/">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Playfair+Display:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
@@ -52,21 +54,21 @@
 
 
   <!-- ===== SECTION 2: MAP + SIDEBAR ===== -->
-  <div class="v2-main">
+  <main id="main-content" class="v2-main" aria-label="Map and events">
+    <h1 class="visually-hidden">Nevada County Arts &amp; Culture — Interactive Map</h1>
 
     <!-- Map (65% on desktop) -->
     <div class="v2-map-wrap">
-      <span id="main-content" aria-hidden="true"></span>
     <div id="map-main"></div>
 
       <!-- Floating filter controls on the map -->
       <div class="v2-map-filters">
-        <div class="v2-map-filters-time" id="time-filter-pills">
+        <div class="v2-map-filters-time" id="time-filter-pills" role="group" aria-label="Filter by time">
           <button class="category-pill" data-time="tonight">Tonight</button>
           <button class="category-pill active" data-time="this-weekend">This Weekend</button>
           <button class="category-pill" data-time="this-month">This Month</button>
         </div>
-        <div class="v2-map-filters-cats" id="asset-filter-pills">
+        <div class="v2-map-filters-cats" id="asset-filter-pills" role="group" aria-label="Filter by category">
           <button class="v2-asset-pill active" data-group="Arts & Culture">Arts</button>
           <button class="v2-asset-pill active" data-group="Food & Drink">Food</button>
           <button class="v2-asset-pill active" data-group="Outdoors">Outdoors</button>
@@ -85,14 +87,14 @@
 
     <!-- Event Sidebar (35% on desktop, scrollable) -->
     <div id="event-sidebar">
-      <div class="v2-sidebar-heading">Events</div>
+      <h2 class="v2-sidebar-heading">Events</h2>
       <div class="v2-sidebar-empty">
         <span class="v2-sidebar-empty-icon">&#10022;</span>
-        <h3>Loading events...</h3>
+        <p class="v2-sidebar-empty-heading">Loading events...</p>
       </div>
     </div>
 
-  </div>
+  </main>
 
 
   <!-- ===== SECTION 4: MORE EVENTS (unmatched) ===== -->
@@ -128,8 +130,8 @@
           <h4>About</h4>
           <a href="about.html">Our Mission</a>
           <a href="about.html#team">Our Team</a>
-          <a href="#">Cultural Districts</a>
-          <a href="#">Contact</a>
+          <a href="directory.html">Cultural Districts</a>
+          <a href="mailto:info@nevadacountyarts.org">Contact</a>
         </div>
 
         <!-- Column 2: Events -->
