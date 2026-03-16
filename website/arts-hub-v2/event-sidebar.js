@@ -165,6 +165,10 @@
         if (cat) {
           html += '<span class="v2-event-category">' + escapeHtml(cat) + '</span>';
         }
+        // Share button
+        if (ev.url && ev.url !== '#') {
+          html += '<button class="v2-sidebar-share-btn" data-url="' + escapeAttr(ev.url) + '" data-title="' + escapeAttr(ev.title || '') + '">Share</button>';
+        }
         html += '</div>';
 
         html += '</div>';
@@ -253,11 +257,30 @@
         document.dispatchEvent(new CustomEvent('v2:unhighlight-venue'));
       });
 
-      // Click: open event URL
-      card.addEventListener('click', function () {
+      // Click: open event URL (but not if they clicked the share button)
+      card.addEventListener('click', function (e) {
+        if (e.target.closest('.v2-sidebar-share-btn')) return; // share button handles itself
         var url = card.dataset.url;
         if (url && url !== '#') {
           window.open(url, '_blank', 'noopener');
+        }
+      });
+    });
+
+    // Share buttons in sidebar
+    document.querySelectorAll('.v2-sidebar-share-btn').forEach(function (btn) {
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        var url = btn.dataset.url;
+        var title = btn.dataset.title;
+        if (navigator.share) {
+          navigator.share({ title: title + ' — Nevada County', url: url });
+        } else {
+          navigator.clipboard.writeText(url).then(function () {
+            var orig = btn.textContent;
+            btn.textContent = 'Copied!';
+            setTimeout(function () { btn.textContent = orig; }, 2000);
+          });
         }
       });
     });
