@@ -681,9 +681,31 @@
     }
 
     // ─── NORMALIZE ──────────────────────────────────────────────────────────
+    // Convert Web Mercator (EPSG:3857) to WGS84 (EPSG:4326)
+    function webMercatorToWGS84(x, y) {
+      var lng = (x / 20037508.34) * 180;
+      var lat = (y / 20037508.34) * 180;
+      lat = 180 / Math.PI * (2 * Math.atan(Math.exp(lat * Math.PI / 180)) - Math.PI / 2);
+      return { lat: lat, lng: lng };
+    }
+
+    function normalizeCoords(lat, lng) {
+      if (!lat || !lng) return { lat: '', lng: '' };
+      lat = parseFloat(lat);
+      lng = parseFloat(lng);
+      if (isNaN(lat) || isNaN(lng)) return { lat: '', lng: '' };
+      // Detect Web Mercator (values in millions) and convert
+      if (Math.abs(lat) > 90 || Math.abs(lng) > 180) {
+        var wgs = webMercatorToWGS84(lng, lat);
+        return { lat: wgs.lat, lng: wgs.lng };
+      }
+      return { lat: lat, lng: lng };
+    }
+
     function normalizePlace(asset, imageMap) {
       var category = mapAssetCategory(asset.assetType);
       var imgData = imageMap && imageMap[asset.name];
+      var coords = normalizeCoords(asset.lat, asset.lng);
       return {
         name: asset.name || '',
         category: category,
@@ -692,8 +714,8 @@
         city: asset.city || '',
         website: asset.website || '',
         image_url: imgData ? imgData.img : '',
-        lat: asset.lat || '',
-        lng: asset.lng || '',
+        lat: coords.lat,
+        lng: coords.lng,
         type: 'place',
         _search: ((asset.name || '') + ' ' + (asset.description || '') + ' ' + (asset.city || '') + ' ' + (asset.assetType || '')).toLowerCase()
       };
@@ -819,7 +841,7 @@
 
         groups[letter].forEach(function (e) {
           var isArtist = e.type === 'artist';
-          var hasMap = !isArtist && e.lat && e.lng && e.name;
+          var hasMap = !isArtist && e.lat && e.lng && e.name && Math.abs(e.lat) <= 90 && Math.abs(e.lng) <= 180;
           var hasWeb = !!e.website;
 
           var websiteHref = e.website;
