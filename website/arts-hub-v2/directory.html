@@ -1011,7 +1011,16 @@
           .filter(function (a) { return a.name && a.name.trim(); })
           .map(function (a) { return normalizeArtist(a); });
 
-        allEntries = places.concat(artistEntries);
+        // Deduplicate places by name (source data has same venue in multiple ArcGIS layers)
+        var seen = {};
+        var uniquePlaces = places.filter(function (p) {
+          var key = p.name.toLowerCase().trim();
+          if (seen[key]) return false;
+          seen[key] = true;
+          return true;
+        });
+
+        allEntries = uniquePlaces.concat(artistEntries);
         allEntries.sort(function (a, b) {
           var na = a.name.toLowerCase();
           var nb = b.name.toLowerCase();
