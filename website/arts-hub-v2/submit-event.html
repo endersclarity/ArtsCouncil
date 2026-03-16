@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Submit an Event — Nevada County Arts &amp; Culture</title>
+  <meta name="description" content="Know about an upcoming event in Nevada County? Tell us and we'll add it to the calendar.">
+  <meta property="og:title" content="Submit an Event — Nevada County Arts &amp; Culture">
+  <meta property="og:description" content="Know about an upcoming event in Nevada County? Tell us and we'll add it to the calendar.">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="14ecf234-cd96-4e6c-91c2-cc27babc095d" data-domains="arts-hub-v2.vercel.app"></script>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ===== NAV ===== -->
+  <nav class="nav" aria-label="Main">
+    <div class="nav-left">
+      <a href="index.html" class="nav-logo">
+        <span>Nevada County</span>
+        <span>Arts &amp; Culture</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html#map-main">Map</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="stories.html">Stories</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </div>
+    <button class="nav-hamburger" aria-label="Menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile nav overlay -->
+  <div class="nav-mobile-overlay" role="navigation" aria-label="Mobile menu">
+    <a href="index.html#map-main">Map</a>
+    <a href="events.html">Events</a>
+    <a href="stories.html">Stories</a>
+    <a href="about.html">About</a>
+  </div>
+
+
+  <!-- ===== PAGE HEADER ===== -->
+  <section id="main-content" class="v2-submit-header">
+    <div class="container">
+      <span class="section-label">COMMUNITY</span>
+      <h1 class="v2-submit-heading">Submit an Event</h1>
+      <p class="v2-submit-subtitle">Know about an upcoming event? Tell us and we'll add it to the calendar.</p>
+    </div>
+  </section>
+
+
+  <!-- ===== FORM ===== -->
+  <section class="v2-submit-section">
+    <div class="container">
+      <div class="v2-submit-wrap">
+
+        <form class="v2-submit-form" id="submit-event-form" action="#" method="post" novalidate>
+
+          <div class="v2-submit-field">
+            <label for="event-name">Event Name <span class="v2-submit-required" aria-hidden="true">*</span></label>
+            <input type="text" id="event-name" name="event_name" required autocomplete="off">
+          </div>
+
+          <div class="v2-submit-row">
+            <div class="v2-submit-field">
+              <label for="event-date">Date <span class="v2-submit-required" aria-hidden="true">*</span></label>
+              <input type="date" id="event-date" name="event_date" required>
+            </div>
+            <div class="v2-submit-field">
+              <label for="event-time">Time</label>
+              <input type="text" id="event-time" name="event_time" placeholder="e.g. 7:00 PM" autocomplete="off">
+            </div>
+          </div>
+
+          <div class="v2-submit-field">
+            <label for="event-venue">Venue Name</label>
+            <input type="text" id="event-venue" name="venue_name" autocomplete="off">
+          </div>
+
+          <div class="v2-submit-row">
+            <div class="v2-submit-field">
+              <label for="event-city">City</label>
+              <select id="event-city" name="city">
+                <option value="" disabled selected>Select a city</option>
+                <option value="nevada-city">Nevada City</option>
+                <option value="grass-valley">Grass Valley</option>
+                <option value="truckee">Truckee</option>
+                <option value="penn-valley">Penn Valley</option>
+                <option value="north-san-juan">North San Juan</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="v2-submit-field">
+              <label for="event-category">Category</label>
+              <select id="event-category" name="category">
+                <option value="" disabled selected>Select a category</option>
+                <option value="music">Music &amp; Concert</option>
+                <option value="art">Art &amp; Gallery</option>
+                <option value="workshop">Workshop &amp; Talk</option>
+                <option value="theatre">Theatre &amp; Film</option>
+                <option value="festival">Festival</option>
+                <option value="community">Community</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="v2-submit-field">
+            <label for="event-description">Description</label>
+            <textarea id="event-description" name="description" rows="4" placeholder="Tell us about the event…"></textarea>
+          </div>
+
+          <div class="v2-submit-field">
+            <label for="event-url">Ticket / Event URL</label>
+            <input type="text" id="event-url" name="event_url" placeholder="https://…" autocomplete="off">
+          </div>
+
+          <div class="v2-submit-row">
+            <div class="v2-submit-field">
+              <label for="submitter-name">Your Name</label>
+              <input type="text" id="submitter-name" name="submitter_name" autocomplete="name">
+            </div>
+            <div class="v2-submit-field">
+              <label for="submitter-email">Your Email</label>
+              <input type="email" id="submitter-email" name="submitter_email" autocomplete="email">
+            </div>
+          </div>
+
+          <div class="v2-submit-actions">
+            <button type="submit" class="v2-submit-btn">Submit Event</button>
+          </div>
+
+        </form>
+
+        <!-- Thank-you state (hidden until submit) -->
+        <div class="v2-submit-thanks" id="submit-thanks" hidden>
+          <p>Thanks! We'll review your submission and add it to the calendar.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ===== NEWSLETTER ===== -->
+  <section class="newsletter-section">
+    <div class="container">
+      <h2>Get weekly arts &amp; culture picks</h2>
+      <p class="subtitle">The best of Nevada County arts, delivered to your inbox.</p>
+      <form class="newsletter-form" action="#" method="post">
+        <div class="form-row">
+          <input type="email" placeholder="Your email address" required aria-label="Email address">
+          <button type="submit" class="btn-subscribe">Subscribe</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <span>Nevada County</span>
+        <span>Arts &amp; Culture</span>
+      </div>
+
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>About</h4>
+          <a href="about.html">Our Mission</a>
+          <a href="about.html#team">Our Team</a>
+          <a href="#">Cultural Districts</a>
+          <a href="#">Contact</a>
+        </div>
+
+        <div class="footer-col">
+          <h4>Events</h4>
+          <a href="events.html">Community Calendar</a>
+          <a href="submit-event.html">Submit an Event</a>
+          <a href="#">Venues</a>
+        </div>
+
+        <div class="footer-col footer-newsletter">
+          <h4>Connect</h4>
+          <form action="#" method="post">
+            <div class="form-row">
+              <input type="email" placeholder="Your email" aria-label="Footer email signup">
+              <button type="submit" class="btn-subscribe">Subscribe</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-divider"></div>
+      <div class="footer-copyright">&copy; 2026 Nevada County Arts &amp; Culture</div>
+    </div>
+  </footer>
+
+  <script>
+    // Hamburger toggle
+    (function () {
+      var btn = document.querySelector('.nav-hamburger');
+      var overlay = document.querySelector('.nav-mobile-overlay');
+      if (btn && overlay) {
+        btn.addEventListener('click', function () {
+          var expanded = btn.classList.toggle('active');
+          overlay.classList.toggle('active');
+          btn.setAttribute('aria-expanded', expanded);
+        });
+      }
+    })();
+  </script>
+
+  <script>
+    // Newsletter forms
+    document.querySelectorAll('form.newsletter-form, .footer-newsletter form').forEach(function(form) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var row = form.querySelector('.form-row');
+        if (row) row.innerHTML = '<p style="color:var(--color-scarlet);font-weight:700;">Thanks! We\'ll be in touch.</p>';
+      });
+    });
+
+    // Event submission form
+    (function () {
+      var form = document.getElementById('submit-event-form');
+      var thanks = document.getElementById('submit-thanks');
+      if (form && thanks) {
+        form.addEventListener('submit', function (e) {
+          e.preventDefault();
+          form.hidden = true;
+          thanks.hidden = false;
+        });
+      }
+    })();
+  </script>
+  <script type="module" src="haptics.js"></script>
+</body>
+</html>

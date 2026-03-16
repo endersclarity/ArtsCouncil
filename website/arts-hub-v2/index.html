@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nevada County Arts & Culture</title>
+  <meta name="description" content="Events, venues, and cultural assets across western Nevada County. One map.">
+  <meta property="og:title" content="Nevada County Arts & Culture">
+  <meta property="og:description" content="Events, venues, and cultural assets across western Nevada County. One map.">
+  <meta property="og:image" content="img/stories/story-wine-country.png">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Playfair+Display:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+  <link rel="stylesheet" href="styles.css">
+  <script defer src="https://cloud.umami.is/script.js" data-website-id="14ecf234-cd96-4e6c-91c2-cc27babc095d" data-domains="arts-hub-v2.vercel.app"></script>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- ===== SECTION 1: NAV ===== -->
+  <nav class="nav" aria-label="Main">
+    <div class="nav-left">
+      <a href="index.html" class="nav-logo">
+        <span>Nevada County</span>
+        <span>Arts &amp; Culture</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="#map-main">Map</a></li>
+        <li><a href="events.html">Events</a></li>
+        <li><a href="stories.html">Stories</a></li>
+        <li><a href="about.html">About</a></li>
+      </ul>
+    </div>
+    <button class="nav-hamburger" aria-label="Menu" aria-expanded="false">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </nav>
+
+  <!-- Mobile nav overlay -->
+  <div class="nav-mobile-overlay" role="navigation" aria-label="Mobile menu">
+    <a href="#map-main">Map</a>
+    <a href="events.html">Events</a>
+    <a href="stories.html">Stories</a>
+    <a href="about.html">About</a>
+  </div>
+
+
+  <!-- ===== SECTION 2: MAP + SIDEBAR ===== -->
+  <div class="v2-main">
+
+    <!-- Map (65% on desktop) -->
+    <div class="v2-map-wrap">
+      <span id="main-content" aria-hidden="true"></span>
+    <div id="map-main"></div>
+
+      <!-- Floating filter controls on the map -->
+      <div class="v2-map-filters">
+        <div class="v2-map-filters-time" id="time-filter-pills">
+          <button class="category-pill" data-time="tonight">Tonight</button>
+          <button class="category-pill active" data-time="this-weekend">This Weekend</button>
+          <button class="category-pill" data-time="this-month">This Month</button>
+        </div>
+        <div class="v2-map-filters-cats" id="asset-filter-pills">
+          <button class="v2-asset-pill active" data-group="Arts & Culture">Arts</button>
+          <button class="v2-asset-pill active" data-group="Food & Drink">Food</button>
+          <button class="v2-asset-pill active" data-group="Outdoors">Outdoors</button>
+          <button class="v2-asset-pill active" data-group="Historic">Historic</button>
+          <button class="v2-asset-pill active" data-group="Shopping & Makers">Shops</button>
+        </div>
+        <p id="event-count-label" class="v2-map-filters-count">Loading events...</p>
+      </div>
+
+      <!-- Detail panel (slides up from bottom on venue click) -->
+      <div class="v2-detail-panel" id="detail-panel">
+        <button class="v2-detail-panel-close" id="detail-panel-close" aria-label="Close">&times;</button>
+        <div id="detail-panel-content"></div>
+      </div>
+    </div>
+
+    <!-- Event Sidebar (35% on desktop, scrollable) -->
+    <div id="event-sidebar">
+      <div class="v2-sidebar-heading">Events</div>
+      <div class="v2-sidebar-empty">
+        <span class="v2-sidebar-empty-icon">&#10022;</span>
+        <h3>Loading events...</h3>
+      </div>
+    </div>
+
+  </div>
+
+
+  <!-- ===== SECTION 4: MORE EVENTS (unmatched) ===== -->
+  <div class="v2-more-events" id="more-events" style="display:none;"></div>
+
+
+  <!-- ===== SECTION 5: NEWSLETTER ===== -->
+  <section class="newsletter-section">
+    <div class="container">
+      <h2>Get weekly arts &amp; culture picks</h2>
+      <p class="subtitle">The best of Nevada County arts, delivered to your inbox.</p>
+      <form class="newsletter-form" action="#" method="post">
+        <div class="form-row">
+          <input type="email" placeholder="Your email address" required aria-label="Email address">
+          <button type="submit" class="btn-subscribe">Subscribe</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+
+  <!-- ===== SECTION 6: FOOTER ===== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div class="footer-logo">
+        <span>Nevada County</span>
+        <span>Arts &amp; Culture</span>
+      </div>
+
+      <div class="footer-grid">
+        <!-- Column 1: About -->
+        <div class="footer-col">
+          <h4>About</h4>
+          <a href="about.html">Our Mission</a>
+          <a href="about.html#team">Our Team</a>
+          <a href="#">Cultural Districts</a>
+          <a href="#">Contact</a>
+        </div>
+
+        <!-- Column 2: Events -->
+        <div class="footer-col">
+          <h4>Events</h4>
+          <a href="events.html">Community Calendar</a>
+          <a href="submit-event.html">Submit an Event</a>
+          <a href="#">Venues</a>
+        </div>
+
+        <!-- Column 3: Connect -->
+        <div class="footer-col footer-newsletter">
+          <h4>Connect</h4>
+          <form action="#" method="post">
+            <div class="form-row">
+              <input type="email" placeholder="Your email" aria-label="Footer email signup">
+              <button type="submit" class="btn-subscribe">Subscribe</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-divider"></div>
+      <div class="footer-copyright">&copy; 2026 Nevada County Arts &amp; Culture</div>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+  <script src="map-integrated.js"></script>
+  <script src="event-sidebar.js"></script>
+  <script src="app.js"></script>
+  <script>
+    // Wire up detail panel close button
+    (function () {
+      var closeBtn = document.getElementById('detail-panel-close');
+      if (closeBtn) {
+        closeBtn.addEventListener('click', function () {
+          document.getElementById('detail-panel').classList.remove('open');
+        });
+      }
+    })();
+  </script>
+  <script>
+    // Asset category filter pills
+    document.querySelectorAll('.v2-asset-pill').forEach(function(pill) {
+      pill.addEventListener('click', function() {
+        var group = this.getAttribute('data-group');
+        this.classList.toggle('active');
+        if (window.ArtsHubMapV2) window.ArtsHubMapV2.toggleAssetGroup(group);
+      });
+    });
+  </script>
+  <script>
+    // Newsletter form feedback
+    document.querySelectorAll('form').forEach(function(form) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var row = form.querySelector('.form-row');
+        if (row) row.innerHTML = '<p style="color:var(--color-scarlet);font-weight:700;">Thanks! We\'ll be in touch.</p>';
+      });
+    });
+  </script>
+  <script type="module" src="haptics.js"></script>
+</body>
+</html>
