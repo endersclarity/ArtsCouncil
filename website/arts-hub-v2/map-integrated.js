@@ -402,7 +402,7 @@
       }
     });
 
-    // Letter label on each pin
+    // Letter label on each pin — collision detection ON so overlapping letters hide
     map.addLayer({
       id: 'venue-events-labels',
       type: 'symbol',
@@ -411,8 +411,9 @@
         'text-field': ['get', 'marker_letter'],
         'text-size': ['interpolate', ['linear'], ['zoom'], 8, 10, 12, 12, 15, 14],
         'text-font': ['Open Sans Bold', 'Arial Unicode MS Bold'],
-        'text-allow-overlap': true,
-        'icon-allow-overlap': true,
+        'text-allow-overlap': false,
+        'text-ignore-placement': false,
+        'text-padding': 2,
       },
       paint: {
         'text-color': '#FFFFFF',
@@ -583,7 +584,7 @@
     if (!map) return;
     map.flyTo({
       center: [lng, lat],
-      zoom: 17,
+      zoom: 18,
       duration: 800,
     });
   }
@@ -644,7 +645,7 @@
 
     if (match) {
       var coords = match.geometry.coordinates;
-      map.flyTo({ center: coords, zoom: 17, duration: 1200 });
+      map.flyTo({ center: coords, zoom: 18, duration: 1200 });
 
       // Show a popup at the venue
       if (deepLinkPopup) deepLinkPopup.remove();
