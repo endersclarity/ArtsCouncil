@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-02-17T07:50:30.555286+00:00",
+  "generated_at": "2026-03-15T07:44:09.680148+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 123,
-    "matched_events": 90,
-    "unmatched_events": 33,
+    "total_events": 201,
+    "matched_events": 141,
+    "unmatched_events": 60,
     "matched_by_pid": 0,
-    "matched_by_alias": 2,
-    "matched_by_name_city": 27,
-    "matched_by_name_city_fuzzy": 61,
-    "upcoming_14d": 123
+    "matched_by_alias": 21,
+    "matched_by_name_city": 29,
+    "matched_by_name_city_fuzzy": 91,
+    "upcoming_14d": 172
   },
   "unmatched_venues": [
     {
@@ -19,8 +19,17 @@
       "venue_name": "Eric Rood Center",
       "venue_city": "Nevada City",
       "count": 10,
-      "sample_event_id": "trumba-196757537",
+      "sample_event_id": "trumba-196757556",
       "sample_title": "Mobilize | Art Inspiring Activism with Wild & Scenic Film Festival Exhibition",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "unknownvenue|grassvalley",
+      "venue_name": "Unknown venue",
+      "venue_city": "Grass Valley",
+      "count": 9,
+      "sample_event_id": "gvda-197068116",
+      "sample_title": "Reluctant Reformers: Mary Hallock Foote and Julia Morgan in the Progressive Era by Mary-Jo Wainwright",
       "candidate_assets": []
     },
     {
@@ -28,26 +37,62 @@
       "venue_name": "CTC Classroom",
       "venue_city": "Nevada City",
       "count": 7,
-      "sample_event_id": "libcal-LibCal-20247-16290013-20260217",
-      "sample_title": "Lunchtime Legal Seminar: Understanding Probate in California",
+      "sample_event_id": "libcal-LibCal-20247-16035875-20260316",
+      "sample_title": "Ukulele for the People",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "axisgallery|nevadacounty",
+      "venue_name": "Axis Gallery",
+      "venue_city": "Nevada County",
+      "count": 4,
+      "sample_event_id": "kvmr-348660-1772884800-1772902800-20260307",
+      "sample_title": "\"The Winters Where Catfish Sings\": Exhibition by Sokthea Chan at Axis Gallery",
       "candidate_assets": []
     },
     {
       "venue_key": "studynook|grassvalley",
       "venue_name": "Study Nook",
       "venue_city": "Grass Valley",
-      "count": 6,
-      "sample_event_id": "libcal-LibCal-20247-15952660-20260217",
+      "count": 4,
+      "sample_event_id": "libcal-LibCal-20247-15952664-20260317",
       "sample_title": "English Language Class",
       "candidate_assets": []
     },
     {
-      "venue_key": "11761ridgeroad|grassvalley",
-      "venue_name": "11761 Ridge Road",
+      "venue_key": "firstbaptistchurch|grassvalley",
+      "venue_name": "First Baptist Church",
       "venue_city": "Grass Valley",
+      "count": 4,
+      "sample_event_id": "trumba-198214906",
+      "sample_title": "Decendants: The Musical",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "unknownvenue|nevadacity",
+      "venue_name": "Unknown venue",
+      "venue_city": "Nevada City",
       "count": 3,
-      "sample_event_id": "trumba-196247641",
-      "sample_title": "NU Dance 25th Annual Student Choreography Showcase",
+      "sample_event_id": "gvda-198326438",
+      "sample_title": "Fogelberg Revisited &#8211; A Tribute to Dan Fogelberg",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "unknownvenue|truckee",
+      "venue_name": "Unknown venue",
+      "venue_city": "Truckee",
+      "count": 3,
+      "sample_event_id": "gvda-173596655",
+      "sample_title": "STEAM Exploration Saturdays",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "meetingroom|pennvalley",
+      "venue_name": "Meeting Room",
+      "venue_city": "Penn Valley",
+      "count": 2,
+      "sample_event_id": "libcal-LibCal-20247-16276894-20260316",
+      "sample_title": "Lab Rats: A Science Book Club",
       "candidate_assets": []
     },
     {
@@ -55,7 +100,7 @@
       "venue_name": "Oddfellows Hall",
       "venue_city": "Nevada City",
       "count": 2,
-      "sample_event_id": "trumba-196396177",
+      "sample_event_id": "trumba-196396181",
       "sample_title": "Motion Theater",
       "candidate_assets": []
     },
@@ -64,8 +109,62 @@
       "venue_name": "Mcknight crossing shopping center",
       "venue_city": "Grass Valley",
       "count": 2,
-      "sample_event_id": "trumba-191631905",
+      "sample_event_id": "trumba-191631909",
       "sample_title": "Cars and coffee grass valley",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "suttercreektheatre|nevadacounty",
+      "venue_name": "Sutter Creek Theatre",
+      "venue_city": "Nevada County",
+      "count": 1,
+      "sample_event_id": "kvmr-342916-1772910000-1772917200-20260307",
+      "sample_title": "Traveling Wilburys Revue at Sutter Creek Theatre: a Tribute to the Greatest Band Who Never Played Live",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "thehillmont|nevadacounty",
+      "venue_name": "The Hillmont",
+      "venue_city": "Nevada County",
+      "count": 1,
+      "sample_event_id": "kvmr-349422-1773079200-1773093600-20260309",
+      "sample_title": "Weekly Vinyl Night: Nancie's Records at The Hillmont in Auburn",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "cresttheater|nevadacounty",
+      "venue_name": "Crest Theater",
+      "venue_city": "Nevada County",
+      "count": 1,
+      "sample_event_id": "kvmr-347658-1773082800-1773086400-20260309",
+      "sample_title": "An Evening with Michael Pollan at the Crest",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "placercountyhealthandhumanservicescentercordovaroom|nevadacounty",
+      "venue_name": "Placer County Health and Human Services Center: Cordova Room",
+      "venue_city": "Nevada County",
+      "count": 1,
+      "sample_event_id": "kvmr-349039-1773160200-1773167400-20260310",
+      "sample_title": "Sierra Foothills Audubon Society: \"For the Love of Birds\" Event",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "sdachurch|grassvalley",
+      "venue_name": "SDA Church",
+      "venue_city": "Grass Valley",
+      "count": 1,
+      "sample_event_id": "gvda-189280629",
+      "sample_title": "Frisson presented by InConcert Sierra",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "seventhdayadventistchurch|grassvalley",
+      "venue_name": "Seventh Day Adventist Church",
+      "venue_city": "Grass Valley",
+      "count": 1,
+      "sample_event_id": "trumba-187541529",
+      "sample_title": "Frisson presented by InConcert Sierra",
       "candidate_assets": []
     },
     {
@@ -73,8 +172,17 @@
       "venue_name": "Workspace Meeting Room",
       "venue_city": "Truckee",
       "count": 1,
-      "sample_event_id": "libcal-LibCal-20247-15847472-20260218",
+      "sample_event_id": "libcal-LibCal-20247-15847473-20260318",
       "sample_title": "Lawyer in the Library- Truckee",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "wonderdocent|nevadacity",
+      "venue_name": "Wonder Docent",
+      "venue_city": "Nevada City",
+      "count": 1,
+      "sample_event_id": "trumba-197779849",
+      "sample_title": "UNESCO World Poetry Day",
       "candidate_assets": []
     },
     {
@@ -82,17 +190,17 @@
       "venue_name": "Members homes",
       "venue_city": "Grass Valley",
       "count": 1,
-      "sample_event_id": "trumba-183038849",
+      "sample_event_id": "trumba-183038851",
       "sample_title": "Playwriting Group",
       "candidate_assets": []
     },
     {
-      "venue_key": "seniorservices|truckee",
-      "venue_name": "Senior Services",
-      "venue_city": "Truckee",
+      "venue_key": "artistshome|nevadacity",
+      "venue_name": "Artist's Home",
+      "venue_city": "Nevada City",
       "count": 1,
-      "sample_event_id": "trumba-118676669",
-      "sample_title": "Seniors Pancake Breakfast",
+      "sample_event_id": "trumba-197744052",
+      "sample_title": "Mythos of the Feminine: A Home Exhibition",
       "candidate_assets": []
     }
   ],
@@ -112,7 +220,9 @@
     "categories_seen": [
       "Performance Spaces",
       "Arts Organizations",
+      "Fairs & Festivals",
       "Galleries & Museums",
+      "Preservation & Culture",
       "Cultural Resources",
       "Eat, Drink & Stay",
       "Walks & Trails"
