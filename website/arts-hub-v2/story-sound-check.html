@@ -19,6 +19,16 @@
   <style>
     /* Override hero height for Sound Check hub page */
     .v2-story-hero.v2-soundcheck-hero { height: 50vh; min-height: 400px; }
+    @media (max-width: 768px) {
+      .v2-story-hero.v2-soundcheck-hero { height: 45vh; min-height: 280px; }
+      /* Live feed event rows: wrap on mobile instead of overflowing */
+      #live-music-feed > div {
+        flex-wrap: wrap;
+      }
+    }
+    @media (max-width: 480px) {
+      .v2-story-hero.v2-soundcheck-hero { height: 40vh; min-height: 240px; }
+    }
   </style>
   <script defer src="https://cloud.umami.is/script.js" data-website-id="14ecf234-cd96-4e6c-91c2-cc27babc095d" data-domains="arts-hub-v2.vercel.app"></script>
 </head>
@@ -70,7 +80,7 @@
 
 
   <!-- ===== THIS WEEK'S SHOWS (LIVE SUPABASE FEED) ===== -->
-  <section style="max-width:860px;margin:0 auto;padding:var(--space-2xl) var(--space-md);">
+  <section style="max-width:860px;margin:0 auto;padding:var(--space-2xl) var(--space-md);width:100%;box-sizing:border-box;overflow-x:hidden;">
 
     <p style="font-size:var(--text-body);color:var(--color-muted);line-height:1.6;max-width:640px;margin-bottom:var(--space-lg);">Where to hear live music in Nevada County &mdash; this week and every week.</p>
 

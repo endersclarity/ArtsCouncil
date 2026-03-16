@@ -942,6 +942,18 @@ body {
 
   .nav-hamburger {
     display: flex;
+    /* 44px minimum touch target */
+    min-height: 44px;
+    min-width: 44px;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Mobile overlay links — 44px touch targets */
+  .nav-mobile-overlay a {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
   }
 
   /* Filter bar */
@@ -958,9 +970,50 @@ body {
     overflow: visible;
   }
 
+  /* Map takes 55vh on mobile — enough to be usable without dominating the screen */
   .v2-map-wrap {
-    height: 50vh;
-    min-height: 300px;
+    height: 55vh;
+    min-height: 320px;
+  }
+
+  /* Constrain floating filter panel so pills don't overflow the map edge */
+  .v2-map-filters {
+    max-width: calc(100% - 24px);
+  }
+
+  /* Pill rows scroll horizontally on narrow screens rather than wrapping off-map */
+  .v2-map-filters-time,
+  .v2-map-filters-cats {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    max-width: 100%;
+  }
+
+  .v2-map-filters-time::-webkit-scrollbar,
+  .v2-map-filters-cats::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Time filter pills — 44px touch height */
+  .v2-map-filters-time .category-pill {
+    min-height: 44px;
+    padding: 10px 14px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
+  }
+
+  /* Asset category pills — 44px touch height */
+  .v2-asset-pill {
+    min-height: 44px;
+    padding: 10px 14px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    display: inline-flex;
+    align-items: center;
   }
 
   #event-sidebar {
@@ -968,16 +1021,65 @@ body {
     border-top: 1px solid var(--color-border);
     max-height: none;
     overflow-y: visible;
+    padding: var(--space-md);
   }
 
-  /* Pills */
+  /* Venue group header — wrap city name below venue on narrow screens */
+  .v2-venue-group-header {
+    flex-wrap: wrap;
+    min-height: 44px;
+    gap: 6px;
+    align-items: center;
+  }
+
+  .v2-venue-group-name {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    flex: 1;
+  }
+
+  /* City wraps to its own line, indented past the letter badge */
+  .v2-venue-group-city {
+    margin-left: 0;
+    width: 100%;
+    padding-left: 30px;
+    order: 3;
+    font-size: var(--text-small);
+  }
+
+  .v2-venue-group-fly {
+    order: 2;
+    flex-shrink: 0;
+  }
+
+  /* Event cards — minimum touch target */
+  .v2-event-card {
+    min-height: 44px;
+    padding: var(--space-sm);
+  }
+
+  /* Share button — 44px touch target on mobile */
+  .v2-sidebar-share-btn {
+    min-height: 44px;
+    padding: 12px 0;
+    font-size: 11px;
+    display: flex;
+    align-items: center;
+  }
+
+  /* General category pills (pills-row context) */
   .pills-row {
     gap: 8px;
   }
 
   .category-pill {
-    padding: 6px 14px;
+    padding: 10px 16px;
     font-size: var(--text-small);
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
   }
 
   /* Newsletter */
@@ -987,12 +1089,26 @@ body {
 
   .btn-subscribe {
     width: 100%;
+    min-height: 44px;
   }
 
-  /* Footer */
+  /* Footer — tighter padding, single column */
+  .footer {
+    padding: var(--space-xl) var(--space-md);
+  }
+
   .footer-grid {
     grid-template-columns: 1fr;
     gap: var(--space-lg);
+  }
+
+  /* Footer links — 44px touch targets */
+  .footer-col a {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 0;
+    padding: 2px 0;
   }
 
   /* More events */
@@ -1011,8 +1127,20 @@ body {
     padding: 8px 14px;
   }
 
+  /* Keep 55vh on small phones — same as 768px rule */
   .v2-map-wrap {
-    height: 40vh;
+    height: 55vh;
+    min-height: 300px;
+  }
+
+  /* Tighter sidebar padding on small phones */
+  #event-sidebar {
+    padding: var(--space-sm) var(--space-md);
+  }
+
+  /* Detail panel can take more height on small phones */
+  .v2-detail-panel {
+    max-height: 60%;
   }
 }
 
