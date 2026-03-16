@@ -83,6 +83,10 @@
       <button class="category-pill" data-cat="Theatre & Film">Theatre &amp; Film</button>
       <button class="category-pill" data-cat="Community">Community</button>
     </div>
+    <div class="pills-row" id="tag-pills" role="group" aria-label="Filter by tag">
+      <button class="category-pill" data-tag="family">Family Friendly</button>
+      <button class="category-pill" data-tag="free">Free</button>
+    </div>
   </section>
 
 
@@ -198,6 +202,7 @@
     var filteredEvents = [];
     var activeTimeFilter = 'this-month';
     var activeCategoryFilter = 'all';
+    var activeTags = {}; // { family: true/false, free: true/false }
     var PAGE_SIZE = 12;
     var shownCount = 0;
 
@@ -440,7 +445,8 @@
 
     function applyFilters() {
       var timeFiltered = filterByTime(allEvents, activeTimeFilter);
-      filteredEvents = filterByCategory(timeFiltered, activeCategoryFilter);
+      var catFiltered = filterByCategory(timeFiltered, activeCategoryFilter);
+      filteredEvents = filterByTags(catFiltered);
 
       // Sort by date ascending
       filteredEvents.sort(function (a, b) {
@@ -492,6 +498,16 @@
           document.querySelectorAll('#category-pills .category-pill').forEach(function (p) { p.classList.remove('active'); });
           pill.classList.add('active');
           activeCategoryFilter = pill.dataset.cat;
+          applyFilters();
+        });
+      });
+
+      // Tag pills (toggles — can have multiple active)
+      document.querySelectorAll('#tag-pills .category-pill').forEach(function (pill) {
+        pill.addEventListener('click', function () {
+          var tag = pill.dataset.tag;
+          activeTags[tag] = !activeTags[tag];
+          pill.classList.toggle('active', activeTags[tag]);
           applyFilters();
         });
       });
@@ -588,7 +604,24 @@
             if (ev.asset_name) break;
           }
         }
+        // Tag: family friendly
+        var allText = ((ev.title || '') + ' ' + (ev.description || '') + ' ' + (ev.category || '')).toLowerCase();
+        ev._familyFriendly = /\bkid|\bchild|\bfamil|\byouth|\ball ages|\bteen|\bstory ?time/.test(allText);
+
+        // Tag: free
+        var priceText = ((ev.price || '') + ' ' + (ev.description || '')).toLowerCase();
+        ev._free = /\bfree\b/.test(priceText);
+
         return ev;
+      });
+    }
+
+    // ─── TAG FILTER ─────────────────────────────────────────────────────────
+    function filterByTags(events) {
+      return events.filter(function(ev) {
+        if (activeTags.family && !ev._familyFriendly) return false;
+        if (activeTags.free && !ev._free) return false;
+        return true;
       });
     }
 
