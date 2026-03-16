@@ -8,11 +8,14 @@
   <meta property="og:title" content="Directory — Nevada County Arts &amp; Culture">
   <meta property="og:description" content="Explore venues, galleries, restaurants, artists, shops, and more across Nevada County.">
   <meta property="og:type" content="website">
+  <meta property="og:image" content="https://arts-hub-v2.vercel.app/img/gallerywalkart.png">
+  <meta property="og:url" content="https://arts-hub-v2.vercel.app/directory.html">
   <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://arts-hub-v2.vercel.app/directory.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <script defer src="https://cloud.umami.is/script.js" data-website-id="14ecf234-cd96-4e6c-91c2-cc27babc095d" data-domains="arts-hub-v2.vercel.app"></script>
 
@@ -536,8 +539,8 @@
           <h4>About</h4>
           <a href="about.html">Our Mission</a>
           <a href="about.html#team">Our Team</a>
-          <a href="#">Cultural Districts</a>
-          <a href="#">Contact</a>
+          <a href="directory.html">Cultural Districts</a>
+          <a href="mailto:info@nevadacountyarts.org">Contact</a>
         </div>
 
         <div class="footer-col">
@@ -596,7 +599,7 @@
     'use strict';
 
     // ─── CONSTANTS ──────────────────────────────────────────────────────────
-    var PAGE_SIZE = 50;
+    // Pagination is disabled — all entries render so the A-Z bar works.
     var ALPHABET = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 
     // ─── STATE ──────────────────────────────────────────────────────────────
@@ -604,7 +607,6 @@
     var filteredEntries = [];    // after filter + search
     var activeFilter = 'all';
     var searchQuery = '';
-    var shownCount = PAGE_SIZE;
 
     // ─── CATEGORY MAPPING ───────────────────────────────────────────────────
     function mapAssetCategory(assetType) {
@@ -742,10 +744,15 @@
       bar.innerHTML = '';
       ALPHABET.forEach(function (letter) {
         var btn = document.createElement('button');
-        btn.className = 'dir-az-btn' + (presentLetters.has(letter) ? '' : ' dim');
+        var hasletter = presentLetters.has(letter);
+        btn.className = 'dir-az-btn' + (hasletter ? '' : ' dim');
         btn.textContent = letter;
         btn.setAttribute('aria-label', 'Jump to ' + letter);
-        if (presentLetters.has(letter)) {
+        if (!hasletter) {
+          btn.setAttribute('aria-disabled', 'true');
+          btn.setAttribute('tabindex', '-1');
+        }
+        if (hasletter) {
           btn.addEventListener('click', function () {
             var target = document.getElementById('dir-group-' + letter);
             if (target) {
@@ -762,20 +769,16 @@
       var list = document.getElementById('dir-list');
       var emptyEl = document.getElementById('dir-empty');
       var loadingEl = document.getElementById('dir-loading');
-      var paginationWrap = document.getElementById('dir-pagination');
-      var paginationInfo = document.getElementById('dir-pagination-info');
       if (!list) return;
 
       if (loadingEl) loadingEl.style.display = 'none';
 
-      var toShow = filteredEntries; // render ALL — no pagination, A-Z bar needs every letter group in DOM
+      // Render ALL entries — pagination disabled so A-Z bar has every letter group in DOM
       var total = filteredEntries.length;
 
       if (total === 0) {
         list.innerHTML = '';
         if (emptyEl) emptyEl.classList.add('visible');
-        if (paginationWrap) paginationWrap.style.display = 'none';
-        if (paginationInfo) paginationInfo.style.display = 'none';
         updateAZBar([]);
         return;
       }
@@ -783,9 +786,9 @@
       if (emptyEl) emptyEl.classList.remove('visible');
 
       // Build letter groups
-      var groups = {};   // letter -> [{entry, originalIndex}]
+      var groups = {};
       var presentLetters = new Set();
-      toShow.forEach(function (e) {
+      filteredEntries.forEach(function (e) {
         var ch = (e.name || '').toUpperCase().charAt(0);
         if (!/[A-Z]/.test(ch)) ch = '#';
         if (!groups[ch]) groups[ch] = [];
@@ -877,19 +880,6 @@
       });
 
       list.innerHTML = html;
-
-      // Pagination
-      var shown = Math.min(shownCount, total);
-      if (shown < total) {
-        if (paginationWrap) paginationWrap.style.display = '';
-        if (paginationInfo) {
-          paginationInfo.style.display = '';
-          paginationInfo.textContent = 'Showing ' + shown.toLocaleString() + ' of ' + total.toLocaleString();
-        }
-      } else {
-        if (paginationWrap) paginationWrap.style.display = 'none';
-        if (paginationInfo) paginationInfo.style.display = 'none';
-      }
     }
 
     function updateAZBar(presentLetters) {
@@ -898,20 +888,19 @@
       var btns = bar.querySelectorAll('.dir-az-btn');
       btns.forEach(function (btn) {
         var letter = btn.textContent.trim();
-        if (presentLetters instanceof Set) {
-          if (presentLetters.has(letter)) {
-            btn.classList.remove('dim');
-            // Re-attach click if needed
-            btn.onclick = function () {
-              var target = document.getElementById('dir-group-' + letter);
-              if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-            };
-          } else {
-            btn.classList.add('dim');
-            btn.onclick = null;
-          }
+        var hasletter = presentLetters instanceof Set && presentLetters.has(letter);
+        if (hasletter) {
+          btn.classList.remove('dim');
+          btn.removeAttribute('aria-disabled');
+          btn.removeAttribute('tabindex');
+          btn.onclick = function () {
+            var target = document.getElementById('dir-group-' + letter);
+            if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          };
         } else {
           btn.classList.add('dim');
+          btn.setAttribute('aria-disabled', 'true');
+          btn.setAttribute('tabindex', '-1');
           btn.onclick = null;
         }
       });
@@ -940,7 +929,6 @@
         return true;
       });
 
-      shownCount = PAGE_SIZE;
       renderList();
       updateMeta();
     }
@@ -973,18 +961,6 @@
       });
     }
 
-    // ─── SHOW MORE ──────────────────────────────────────────────────────────
-    function initShowMore() {
-      var btn = document.getElementById('dir-show-more-btn');
-      if (btn) {
-        btn.addEventListener('click', function () {
-          shownCount += PAGE_SIZE;
-          renderList();
-          updateMeta();
-        });
-      }
-    }
-
     // ─── URL PARAM ──────────────────────────────────────────────────────────
     function handleUrlParams() {
       var params = new URLSearchParams(window.location.search);
@@ -1000,7 +976,6 @@
     document.addEventListener('DOMContentLoaded', function () {
       initPills();
       initSearch();
-      initShowMore();
       handleUrlParams();
 
       // Pre-build A-Z bar (all dimmed) immediately

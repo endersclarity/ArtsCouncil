@@ -1698,6 +1698,9 @@ body {
   padding: 0 0 24px;
 }
 
+/* Event card link wrapper (events.html listing page) */
+.v2-event-card-link { display: block; text-decoration: none; color: inherit; }
+
 /* --- Events Card Grid (overrides sidebar .v2-event-card on this page) --- */
 .v2-events-grid {
   display: grid;
@@ -2192,144 +2195,10 @@ body {
 /* ============================================================
    D. Directory Page
    ============================================================ */
-.v2-dir-header {
-  padding: 60px 0 20px;
-}
-
-.v2-dir-header-row {
-  display: flex;
-  align-items: baseline;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: var(--space-sm);
-}
-
-.v2-dir-count {
-  font-size: var(--text-body);
-  color: var(--color-muted);
-}
-
-.v2-dir-search {
-  width: 100%;
-  max-width: 400px;
-  font-family: var(--font-sans);
-  font-size: 1rem;
-  border: var(--frame-width) solid var(--color-charcoal);
-  padding: 10px 14px;
-  margin: var(--space-md) 0;
-  background: var(--color-white);
-  color: var(--color-charcoal);
-}
-
-.v2-dir-search:focus {
-  border-color: var(--color-scarlet);
-  outline: none;
-}
-
-.v2-dir-filters {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-bottom: var(--space-lg);
-}
-
-.v2-dir-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-lg);
-}
-
-.v2-dir-card {
-  border: var(--frame-width) solid var(--color-charcoal);
-  background: var(--color-white);
-  display: flex;
-  flex-direction: column;
-  transition: border-color 200ms ease;
-}
-
-.v2-dir-card:hover {
-  border-color: var(--color-scarlet);
-}
-
-.v2-dir-card-image {
-  height: 140px;
-  object-fit: cover;
-  object-position: center;
-  background: var(--color-subtle-bg);
-  width: 100%;
-  display: block;
-}
-
-.v2-dir-card-body {
-  padding: var(--space-md);
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.v2-dir-card-category {
-  font-size: 0.6875rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--color-scarlet);
-}
-
-.v2-dir-card-name {
-  font-family: var(--font-sans);
-  font-size: 1rem;
-  font-weight: 800;
-  color: var(--color-charcoal);
-  margin-top: 4px;
-}
-
-.v2-dir-card-medium {
-  font-size: var(--text-detail);
-  color: var(--color-muted);
-  line-height: 1.4;
-  flex: 1;
-  margin-top: var(--space-xs);
-}
-
-.v2-dir-card-links {
-  display: flex;
-  gap: var(--space-md);
-  margin-top: auto;
-  padding-top: var(--space-sm);
-  border-top: 1px solid var(--color-subtle-bg);
-}
-
-.v2-dir-card-links a {
-  font-size: var(--text-detail);
-  font-weight: 700;
-  color: var(--color-scarlet);
-}
-
-.v2-dir-card--artist .v2-dir-card-image {
-  display: none;
-}
-
-.v2-dir-card--artist .v2-dir-card-category {
-  background: var(--color-scarlet-tint);
-  display: inline-block;
-  padding: 2px 8px;
-}
-
-@media (max-width: 1024px) {
-  .v2-dir-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (max-width: 768px) {
-  .v2-dir-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .v2-dir-search {
-    max-width: 100%;
-  }
-}
+/* Directory uses its own inline <style> block in directory.html.
+   The .v2-dir-* card-grid classes that were here have been removed —
+   directory.html was rebuilt as a text-list layout (dir-entry, dir-pill,
+   dir-az-bar, etc.) and the old card-grid CSS is no longer referenced. */
 
 
 /* ============================================================
@@ -2376,7 +2245,8 @@ body {
   top: 0;
 }
 
-.visually-hidden {
+.visually-hidden,
+.sr-only {
   position: absolute;
   width: 1px;
   height: 1px;

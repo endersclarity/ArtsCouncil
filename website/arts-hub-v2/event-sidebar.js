@@ -363,6 +363,11 @@
   // Manual venue mapping for events the pipeline missed.
   // Key: substring to match in title OR description (case-insensitive).
   // Value: { asset_name, city, asset_lat, asset_lng }
+  //
+  // NOTE: A trimmed version of this table (no lat/lng) also exists in the
+  // inline <script> block of events.html. If you update entries here, update
+  // that copy too. The two files differ intentionally: this copy carries
+  // lat/lng coordinates needed for map pins; events.html only needs city.
   var VENUE_FIXES = [
     { match: ['Ceramics', 'Pottery', 'Spoon', 'Welding', 'Mosaic', 'Needle Felting', 'Mingle & Make',
               'Woodshop', 'Glass Flameworking', 'Sewing Basics', 'CosPlay', 'Digital Arts Exploration',
