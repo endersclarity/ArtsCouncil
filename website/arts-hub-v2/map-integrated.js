@@ -391,9 +391,9 @@
       paint: {
         'circle-radius': [
           'interpolate', ['linear'], ['zoom'],
-          8, 5,
-          12, 8,
-          15, 11,
+          8, 10,
+          12, 14,
+          15, 16,
         ],
         'circle-color': '#FF2400',
         'circle-stroke-width': 2,
@@ -409,9 +409,10 @@
       source: 'venue-events',
       layout: {
         'text-field': ['get', 'marker_letter'],
-        'text-size': 12,
+        'text-size': ['interpolate', ['linear'], ['zoom'], 8, 10, 12, 12, 15, 14],
         'text-font': ['Open Sans Bold', 'Arial Unicode MS Bold'],
         'text-allow-overlap': true,
+        'icon-allow-overlap': true,
       },
       paint: {
         'text-color': '#FFFFFF',
