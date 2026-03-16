@@ -435,6 +435,24 @@
       }
     }
 
+    // ─── DATA SANITIZATION ──────────────────────────────────────────────────
+    function sanitizeEvents(events) {
+      return events.map(function (ev) {
+        if (ev.city) {
+          var priceIdx = ev.city.indexOf(' Price : ');
+          var detailIdx = ev.city.indexOf(' Event details : ');
+          var cutIdx = -1;
+          if (priceIdx !== -1) cutIdx = priceIdx;
+          if (detailIdx !== -1 && (cutIdx === -1 || detailIdx < cutIdx)) cutIdx = detailIdx;
+          if (cutIdx !== -1) {
+            if (!ev.price) ev.price = ev.city.slice(cutIdx).replace(/^ *(Price|Event details) *: */, '');
+            ev.city = ev.city.slice(0, cutIdx);
+          }
+        }
+        return ev;
+      });
+    }
+
     // ─── BOOT ───────────────────────────────────────────────────────────────
     document.addEventListener('DOMContentLoaded', function () {
       initPills();
@@ -442,8 +460,8 @@
       fetch('data/events-matched.json')
         .then(function (r) { return r.json(); })
         .then(function (data) {
-          var matched = data.matched || [];
-          var unmatched = data.unmatched || [];
+          var matched = sanitizeEvents(data.matched || []);
+          var unmatched = sanitizeEvents(data.unmatched || []);
           allEvents = matched.concat(unmatched);
 
           autoSelectBestFilter();
