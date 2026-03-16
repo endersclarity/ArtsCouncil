@@ -339,9 +339,9 @@
           var shareUrl = encodeURIComponent(url);
           var shareText = encodeURIComponent((ev.title || '') + ' in Nevada County!');
           html += '<div class="v2-event-share-wrap">';
-          html += '<button class="v2-event-share-btn" onclick="toggleEventShare(this)">Share</button>';
+          html += '<button class="v2-event-share-btn" onclick="shareEvent(this, \'' + escapeAttr(url).replace(/'/g, "\\'") + '\', \'' + escapeAttr(ev.title || '').replace(/'/g, "\\'") + '\')">Share</button>';
           html += '<div class="v2-event-share-dropdown">';
-          html += '<a href="https://www.facebook.com/sharer/sharer.php?u=' + shareUrl + '" target="_blank" rel="noopener">Facebook</a>';
+          html += '<a href="https://www.facebook.com/dialog/share?app_id=966242223397117&display=popup&href=' + shareUrl + '" target="_blank" rel="noopener">Facebook</a>';
           html += '<a href="https://twitter.com/intent/tweet?url=' + shareUrl + '&text=' + shareText + '" target="_blank" rel="noopener">X</a>';
           html += '<button onclick="copyEventLink(this, \'' + escapeAttr(url).replace(/'/g, "\\'") + '\')">Copy Link</button>';
           html += '</div></div>';
@@ -558,6 +558,14 @@
 
 
   // ─── SHARE DROPDOWN HELPERS ─────────────────────────────────────────────────
+  function shareEvent(btn, url, title) {
+    if (navigator.share) {
+      navigator.share({ title: title + ' — Nevada County', url: url });
+      return;
+    }
+    toggleEventShare(btn);
+  }
+
   function toggleEventShare(btn) {
     var dropdown = btn.nextElementSibling;
     document.querySelectorAll('.v2-event-share-dropdown.open').forEach(function(d) {
