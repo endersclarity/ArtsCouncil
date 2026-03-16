@@ -2013,6 +2013,42 @@ body {
   color: var(--color-scarlet);
 }
 
+/* --- Date Group Headings --- */
+.v2-events-date-heading {
+  grid-column: 1 / -1;
+  font-family: var(--font-sans);
+  font-size: 1.25rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-charcoal);
+  padding: var(--space-lg) 0 var(--space-sm);
+  border-bottom: 3px solid var(--color-scarlet);
+  margin-bottom: var(--space-sm);
+}
+
+.v2-events-date-heading:first-child {
+  padding-top: 0;
+}
+
+/* --- Multi-date Chips --- */
+.v2-event-card-dates {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 4px 0 8px;
+}
+
+.v2-event-date-chip {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-scarlet);
+  background: var(--color-scarlet-tint);
+  padding: 2px 8px;
+  white-space: nowrap;
+}
+
 .v2-event-card-maplink {
   display: block;
   padding: 8px 12px;

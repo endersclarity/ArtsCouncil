@@ -32,7 +32,9 @@
       <ul class="nav-links">
         <li><a href="index.html#map-main">Map</a></li>
         <li><a href="events.html" class="nav-link-active">Events</a></li>
-        <li><a href="stories.html">Stories</a></li>
+        <li><a href="story-sound-check.html">Sound Check</a></li>
+        <li><a href="story-sound-check.html">Sound Check</a>
+    <a href="stories.html">Stories</a></li>
         <li><a href="about.html">About</a></li>
       </ul>
     </div>
@@ -47,6 +49,7 @@
   <div class="nav-mobile-overlay" role="navigation" aria-label="Mobile menu">
     <a href="index.html#map-main">Map</a>
     <a href="events.html">Events</a>
+    <a href="story-sound-check.html">Sound Check</a>
     <a href="stories.html">Stories</a>
     <a href="about.html">About</a>
   </div>
@@ -296,57 +299,117 @@
       return String(str).replace(/"/g, '&quot;').replace(/'/g, '&#39;');
     }
 
+    // ─── DEDUP + GROUP BY DATE ──────────────────────────────────────────────
+    // Same title+venue = one card with multiple date chips
+    function dedupeAndGroup(events) {
+      var byKey = {};
+      var keyOrder = [];
+      for (var i = 0; i < events.length; i++) {
+        var ev = events[i];
+        var key = (ev.title || '').toLowerCase() + '|' + (ev.asset_name || ev.venue || '').toLowerCase();
+        if (!byKey[key]) {
+          byKey[key] = { ev: ev, dates: [] };
+          keyOrder.push(key);
+        }
+        var d = getEventDate(ev);
+        if (d && byKey[key].dates.indexOf(d) === -1) byKey[key].dates.push(d);
+      }
+      // Group unique events by their earliest date
+      var dateGroups = {};
+      var dateOrder = [];
+      keyOrder.forEach(function(key) {
+        var item = byKey[key];
+        item.dates.sort();
+        var firstDate = item.dates[0] || '9999';
+        if (!dateGroups[firstDate]) { dateGroups[firstDate] = []; dateOrder.push(firstDate); }
+        dateGroups[firstDate].push(item);
+      });
+      dateOrder.sort();
+      return { dateGroups: dateGroups, dateOrder: dateOrder };
+    }
+
+    function formatDateHeading(isoDate) {
+      try {
+        var d = new Date(isoDate + 'T12:00:00');
+        var today = new Date(); today.setHours(12,0,0,0);
+        var tomorrow = new Date(today); tomorrow.setDate(tomorrow.getDate() + 1);
+        if (d.toDateString() === today.toDateString()) return 'Today';
+        if (d.toDateString() === tomorrow.toDateString()) return 'Tomorrow';
+        return d.toLocaleDateString('en-US', { weekday: 'long', month: 'long', day: 'numeric' });
+      } catch(e) { return isoDate; }
+    }
+
     // ─── RENDER CARDS ───────────────────────────────────────────────────────
     function renderGrid() {
       var grid = document.getElementById('events-grid');
       if (!grid) return;
 
       var toShow = filteredEvents.slice(0, shownCount);
+      var grouped = dedupeAndGroup(toShow);
       var html = '';
 
-      for (var i = 0; i < toShow.length; i++) {
-        var ev = toShow[i];
-        var mapped = mapCategory(ev.category);
-        var url = ev.url || '#';
-        var imgStyle = ev.image_url
-          ? "background-image:url('" + escapeAttr(ev.image_url) + "');"
-          : 'background:' + getGradient(ev) + ';';
+      for (var di = 0; di < grouped.dateOrder.length; di++) {
+        var dateKey = grouped.dateOrder[di];
+        var items = grouped.dateGroups[dateKey];
 
-        var venue = ev.asset_name || ev.venue || '';
-        var city = ev.city || '';
-        var venueLine = '';
-        if (venue && city) venueLine = escapeHtml(venue) + ' &middot; ' + escapeHtml(city);
-        else if (venue) venueLine = escapeHtml(venue);
-        else if (city) venueLine = escapeHtml(city);
+        // Date heading
+        html += '<div class="v2-events-date-heading">' + formatDateHeading(dateKey) + '</div>';
 
-        html += '<div class="v2-event-card">';
-        html += '<a href="' + escapeAttr(url) + '" target="_blank" rel="noopener" class="v2-event-card-link">';
-        html += '<div class="v2-event-card-label">' + escapeHtml(mapped) + '</div>';
-        html += '<div class="v2-event-card-image" style="' + imgStyle + '"></div>';
-        html += '<div class="v2-event-card-body">';
-        html += '<h3 class="v2-event-card-title">' + escapeHtml(ev.title) + '</h3>';
-        html += '<p class="v2-event-card-date">' + formatEventDate(ev.date) + '</p>';
-        if (venueLine) html += '<p class="v2-event-card-venue">' + venueLine + '</p>';
-        if (ev.ticket_url) html += '<p class="v2-event-card-price">Tickets Available</p>';
-        html += '<span class="v2-event-card-cta">Details &rarr;</span>';
-        html += '</div>';
-        html += '</a>';
-        // See on Map link for matched events
-        if (venue && ev.asset_lat && ev.asset_lng) {
-          html += '<a href="index.html?venue=' + encodeURIComponent(venue) + '#map-main" class="v2-event-card-maplink" title="See on Map">See on Map &rarr;</a>';
+        for (var j = 0; j < items.length; j++) {
+          var item = items[j];
+          var ev = item.ev;
+          var mapped = mapCategory(ev.category);
+          var url = ev.url || '#';
+          var imgStyle = ev.image_url
+            ? "background-image:url('" + escapeAttr(ev.image_url) + "');"
+            : 'background:' + getGradient(ev) + ';';
+
+          var venue = ev.asset_name || ev.venue || '';
+          var city = ev.city || '';
+          var venueLine = '';
+          if (venue && city) venueLine = escapeHtml(venue) + ' &middot; ' + escapeHtml(city);
+          else if (venue) venueLine = escapeHtml(venue);
+          else if (city) venueLine = escapeHtml(city);
+
+          html += '<div class="v2-event-card">';
+          html += '<a href="' + escapeAttr(url) + '" target="_blank" rel="noopener" class="v2-event-card-link">';
+          html += '<div class="v2-event-card-label">' + escapeHtml(mapped) + '</div>';
+          html += '<div class="v2-event-card-image" style="' + imgStyle + '"></div>';
+          html += '<div class="v2-event-card-body">';
+          html += '<h3 class="v2-event-card-title">' + escapeHtml(ev.title) + '</h3>';
+          // Show all dates as chips if multiple showtimes
+          if (item.dates.length > 1) {
+            html += '<div class="v2-event-card-dates">';
+            item.dates.forEach(function(dt) {
+              html += '<span class="v2-event-date-chip">' + formatEventDate(dt) + '</span>';
+            });
+            html += '</div>';
+          } else {
+            html += '<p class="v2-event-card-date">' + formatEventDate(ev.date) + '</p>';
+          }
+          if (venueLine) html += '<p class="v2-event-card-venue">' + venueLine + '</p>';
+          if (ev.ticket_url) html += '<p class="v2-event-card-price">Tickets Available</p>';
+          html += '<span class="v2-event-card-cta">Details &rarr;</span>';
+          html += '</div>';
+          html += '</a>';
+          // See on Map link
+          if (venue && ev.asset_lat && ev.asset_lng) {
+            html += '<a href="index.html?venue=' + encodeURIComponent(venue) + '#map-main" class="v2-event-card-maplink" title="See on Map">See on Map &rarr;</a>';
+          }
+          // Share button
+          if (url && url !== '#') {
+            var shareUrl = encodeURIComponent(url);
+            var shareText = encodeURIComponent((ev.title || '') + ' in Nevada County!');
+            html += '<div class="v2-event-share-wrap">';
+            html += '<button class="v2-event-share-btn" onclick="shareEvent(this, \'' + escapeAttr(url).replace(/'/g, "\\'") + '\', \'' + escapeAttr(ev.title || '').replace(/'/g, "\\'") + '\')">Share</button>';
+            html += '<div class="v2-event-share-dropdown">';
+            html += '<a href="https://www.facebook.com/dialog/share?app_id=966242223397117&display=popup&href=' + shareUrl + '" target="_blank" rel="noopener">Facebook</a>';
+            html += '<a href="https://twitter.com/intent/tweet?url=' + shareUrl + '&text=' + shareText + '" target="_blank" rel="noopener">X</a>';
+            html += '<button onclick="copyEventLink(this, \'' + escapeAttr(url).replace(/'/g, "\\'") + '\')">Copy Link</button>';
+            html += '</div></div>';
+          }
+          html += '</div>';
         }
-        if (url && url !== '#') {
-          var shareUrl = encodeURIComponent(url);
-          var shareText = encodeURIComponent((ev.title || '') + ' in Nevada County!');
-          html += '<div class="v2-event-share-wrap">';
-          html += '<button class="v2-event-share-btn" onclick="shareEvent(this, \'' + escapeAttr(url).replace(/'/g, "\\'") + '\', \'' + escapeAttr(ev.title || '').replace(/'/g, "\\'") + '\')">Share</button>';
-          html += '<div class="v2-event-share-dropdown">';
-          html += '<a href="https://www.facebook.com/dialog/share?app_id=966242223397117&display=popup&href=' + shareUrl + '" target="_blank" rel="noopener">Facebook</a>';
-          html += '<a href="https://twitter.com/intent/tweet?url=' + shareUrl + '&text=' + shareText + '" target="_blank" rel="noopener">X</a>';
-          html += '<button onclick="copyEventLink(this, \'' + escapeAttr(url).replace(/'/g, "\\'") + '\')">Copy Link</button>';
-          html += '</div></div>';
-        }
-        html += '</div>';
       }
 
       grid.innerHTML = html;
