@@ -1,0 +1,928 @@
+# V1 Discovery Map Data Gaps
+
+Generated: 2026-05-06T21:35:00+00:00
+
+This log preserves records and content gaps that were not displayed in the alpha because V1 only shows data that can appear credibly on the map.
+
+## Visible Data Summary
+
+- Visible places: 1076
+- Mapped live events: 24
+- Curated paths: 3
+
+## Visible Places By Category
+
+- Arts Organizations: 58
+- Cultural Resources: 23
+- Eat, Drink & Stay: 270
+- Fairs & Festivals: 26
+- Galleries & Studios: 45
+- Historic Places: 246
+- MUSE Picks: 197
+- Performing Arts: 52
+- Public Art: 22
+- Shops & Makers: 16
+- Walks & Trails: 121
+
+## Gaps
+
+- Missing website: 112 W. Main St. (Grass Valley).
+- Image placeholder needed: 112 W. Main St..
+- Missing website: 400 Broad Street (Nevada City).
+- Missing website: 545 Main Street (Nevada City).
+- Missing website: Aaron Augustus Sargent Homestead (Nevada City).
+- Missing website: Allen Chapman House (Nevada City).
+- Missing website: Alpha and Omega Hydraulic (city missing).
+- Missing website: Alvin Stevens Trivelpiece (city missing).
+- Missing website: American Hill Diggings (Nevada City).
+- Missing website: Anthony House Site (city missing).
+- Missing website: Baruh House (Nevada City).
+- Missing website: Bell Hill School Bell (Grass Valley).
+- Missing website: Ben Taylor Home (Grass Valley).
+- Image placeholder needed: Ben Taylor Home.
+- Missing website: Binkelmann Brewery (Grass Valley).
+- Missing website: Blue Tent (city missing).
+- Missing website: Boardman House (Nevada City).
+- Missing website: Boca Brewery (city missing).
+- Missing website: Boca Dam - Newlands Reclamation Project (city missing).
+- Missing website: Boca Ice Harvest Site (city missing).
+- Missing website: Bridgeport Covered Bridge (city missing).
+- Missing website: Brimskill Building (Washington).
+- Missing website: Calanan Park (Nevada City).
+- Missing website: Calanan Park Drill Core (Nevada City).
+- Missing website: Calanan Park Monitor (Nevada City).
+- Missing website: Canyon Creek Bridge Site (city missing).
+- Missing website: Caroline Mead Hanson House (Grass Valley).
+- Missing website: Charles Marsh House (Nevada City).
+- Missing website: Cherokee (city missing).
+- Missing website: Chicago Park Historic Agricultural Community (city missing).
+- Missing website: Chief Truckee (city missing).
+- Missing website: China Wall (city missing).
+- Missing website: China Wall at Donner Summit (city missing).
+- Missing website: Chinatown Grass Valley (Site) (Grass Valley).
+- Missing website: Chinese Cemetary (Nevada City).
+- Image placeholder needed: Chinese Cemetary.
+- Missing website: Chris Stevens Court (Grass Valley).
+- Image placeholder needed: Chris Stevens Court.
+- Missing website: Chuck Yeager Monument (Grass Valley).
+- Image placeholder needed: Chuck Yeager Monument.
+- Missing website: Clinton Narrow Gauge Railroad (city missing).
+- Missing website: Colley House (Nevada City).
+- Missing website: Columbia Hill School (city missing).
+- Missing website: Commercial Row / Brickelltown Historic District (Truckee).
+- Missing website: Crabtree House (Grass Valley).
+- Missing coordinates: Davis Mill (city missing) from Historic Landmarks _Table 1.
+- Missing website: Donner Camp at Alder Creek Valley (city missing).
+- Missing website: Donner Emigrant Trail (city missing).
+- Missing website: Donner Memorial State Park (city missing).
+- Missing website: Donner or Pioneer Monument (city missing).
+- Missing website: Donner Party - Graves Cabin Site (city missing).
+- Missing website: Donner Summit Bridge (city missing).
+- Missing coordinates: Donner Summit Tunnel (city missing) from Historic Landmarks _Table 1.
+- Missing website: Doris Foley Library of Historical Research (Nevada City).
+- Missing website: Dow Alexander Park (Grass Valley).
+- Missing website: Dr. W. C. Jones Home Site (city missing).
+- Missing website: Edward Coleman House (Grass Valley).
+- Missing website: Edwards Crossing Bridge (city missing).
+- Missing website: Elk's Lodge (Nevada City).
+- Image placeholder needed: Elk's Lodge.
+- Missing website: Ellen Sargent (Nevada City).
+- Image placeholder needed: Ellen Sargent.
+- Missing website: Emigrant Trail on Coldstream Road (city missing).
+- Missing website: Emigrant Trail to Nevada City (city missing).
+- Missing website: Emmanuel Episcopal Church (Grass Valley).
+- Missing website: Empire House (Grass Valley).
+- Missing website: Empire Mine (Grass Valley).
+- Missing website: Englebright House (Nevada City).
+- Missing website: English and New Salmon Mine Stamp Mill (Nevada City).
+- Missing coordinates: Ernie Bierwagen (city missing) from Historic Landmarks _Table 1.
+- Missing website: Felix Gillet (city missing).
+- Missing website: Fippin's Blacksmith Shop (Rough and Ready).
+- Missing website: First Brick Building in Nevada City (Nevada City).
+- Missing website: First Commercial Winery/305 Broad St. (Nevada City).
+- Image placeholder needed: First Commercial Winery/305 Broad St..
+- Missing website: First Long Distance Telephone (city missing).
+- Missing coordinates: First Motorcycle Across Sierra (city missing) from Historic Landmarks _Table 1.
+- Missing website: First Transcontinental Railroad--Truckee (Truckee).
+- Missing website: First Wagons Across the Sierra (city missing).
+- Missing website: Five-Stamp Mill 1893 (city missing).
+- Missing website: Floriston (Bronco Site) (Truckee).
+- Missing website: Foote's Crossing Road (city missing).
+- Missing website: Gaston (city missing).
+- Missing website: Gateway Cabin (Truckee).
+- Missing website: George Schaffer (Truckee).
+- Missing website: Gilmore Flying Field (city missing).
+- Missing website: Glasson House (city missing).
+- Missing website: Glenbrook Basin (city missing).
+- Missing website: Gold Quartz Discovery (Grass Valley).
+- Missing website: Golden Era Lounge/309 Broad Street (Nevada City).
+- Image placeholder needed: Golden Era Lounge/309 Broad Street.
+- Missing website: Graniteville (city missing).
+- Missing coordinates: Grass Valley AME Church and School Site (city missing) from Historic Landmarks _Table 1.
+- Missing website: Grass Valley Hardware (Grass Valley).
+- Missing website: Grass Valley Historical District (Grass Valley).
+- Missing website: Grass Valley Masonic Lodge (Grass Valley).
+- Missing website: Grass Valley Public Library (Josiah Royce Library) (Grass Valley).
+- Missing website: Grass Valley's Famed Maple (Grass Valley).
+- Missing website: Hard Rock Gold Mining (city missing).
+- Missing website: Hartung House (Penn Valley).
+- Missing website: Hirschman's Pond (Nevada City).
+- Image placeholder needed: Hirschman's Pond.
+- Missing website: Hobart Mills Site (city missing).
+- Missing website: Hobart Mills Site Second Plaque (city missing).
+- Missing website: Hooligan Rock (city missing).
+- Missing coordinates: Humbug/North Blomfield Cemetery (city missing) from Historic Landmarks _Table 1.
+- Missing website: Hunt's Hill (Gouge Eye) (city missing).
+- Missing website: Hydraulic Gate Valve (city missing).
+- Missing website: Hydraulic Mining (Nevada City).
+- Missing website: Idaho Maryland Core Sample (Grass Valley).
+- Missing website: Idaho-Maryland Mine Site (Grass Valley).
+- Missing website: Indian Grinding Rock (Rough and Ready).
+- Missing website: Indian Medicine Stone (Nevada City).
+- Missing website: Isabel Hefelfinger Wagon Shed (Nevada City).
+- Missing website: Jacob van Blaren (Penn Valley).
+- Image placeholder needed: Jacob van Blaren.
+- Missing website: Jax Truckee Diner (Truckee).
+- Image placeholder needed: Jax Truckee Diner.
+- Missing website: Jibboom Street (Truckee).
+- Missing website: Kentucky Flat School (Nevada City).
+- Image placeholder needed: Kentucky Flat School.
+- Missing website: Kentucky Ridge Mine Site (Nevada City).
+- Image placeholder needed: Kentucky Ridge Mine Site.
+- Missing website: Kidd and Knox Building (Nevada City).
+- Missing website: Kohler Building (Washington).
+- Missing website: Kruger-White House (Truckee).
+- Missing website: La Grange Giant (city missing).
+- Missing website: Ladies of the Evening (Nevada City).
+- Missing website: Lake Tahoe Railway & Transportation Company Site (city missing).
+- Missing website: Lindeboom Memorial (Nevada City).
+- Missing website: Lola Montez House Replica (city missing).
+- Missing website: Lone Grave (Nevada City).
+- Missing website: Loutzenheiser Pharmacy Building/Foothill Flowers (Grass Valley).
+- Missing website: Malakoff Diggins --North Bloomfield Historic District (city missing).
+- Weak description: Malakoff Diggins --North Bloomfield Historic District (city missing).
+- Missing website: Malakoff Diggins Clampicnic Area (city missing).
+- Missing website: Marines Memorial (city missing).
+- Missing website: Martin Luther Marsh House (Nevada City).
+- Missing website: McGlashan Point (city missing).
+- Missing website: McGuashen Butterfly Collection * (Truckee).
+- Image placeholder needed: McGuashen Butterfly Collection *.
+- Missing coordinates: Meadow Lake Petroglyphs (city missing) from Historic Landmarks _Table 1.
+- Missing website: Memorial Arch (Truckee).
+- Image placeholder needed: Memorial Arch.
+- Missing website: Memorial Grove Nevada City (Nevada City).
+- Missing website: Memorial Park GV (city missing).
+- Missing website: Miners Foundry (Nevada City).
+- Weak description: Miners Foundry (Nevada City).
+- Missing website: Mooney Flat Hotel (city missing).
+- Missing website: Mt. Elisha Stephens (city missing).
+- Missing website: Mt. Saint Mary's Convent and Academy (city missing).
+- Missing website: Murphy Cabin (city missing).
+- Missing website: Naffziger House (Nevada City).
+- Missing website: Nathaniel P. Brown House (Nevada City).
+- Missing website: Nevada Brewery (Nevada City).
+- Missing website: Nevada City AME Church Site (Nevada City).
+- Image placeholder needed: Nevada City AME Church Site.
+- Missing website: Nevada City Downtown Historic DIstrict (city missing).
+- Missing website: Nevada City Firehouse No. 1 (Nevada City).
+- Missing website: Nevada City Firehouse No. 2 (Nevada City).
+- Missing website: Nevada City Hall (Nevada City).
+- Missing website: Nevada City High School Site (Nevada City).
+- Missing website: Nevada City Jewish Cemetery (Nevada City).
+- Missing website: Nevada City Masonic Lodge (Nevada City).
+- Missing website: Nevada City Methodist Church (Nevada City).
+- Missing website: Nevada County Court House (Nevada City).
+- Missing website: Nevada County Narrow Gauge (III) (Nevada City).
+- Missing website: Nevada County Narrow Gauge Railroad (I) (Grass Valley).
+- Missing website: Nevada County Narrow Gauge RR (II) (Nevada City).
+- Missing website: Nevada County Traction Company (Nevada City).
+- Missing coordinates: Nevada Irrigation District (city missing) from Historic Landmarks _Table 1.
+- Missing website: North Bloomfield Mining & Gravel Co. (city missing).
+- Missing website: North Bloomfield School (city missing).
+- Missing website: North San Juan (city missing).
+- Missing website: North San Juan Fire Department (city missing).
+- Missing website: North San Juan Methodist Episcopal Church (North San Juan).
+- Missing website: North San Juan Protestant Cemetery (North San Juan).
+- Image placeholder needed: North San Juan Protestant Cemetery.
+- Missing website: North Star Mine Powerhouse and Nevada County Traction Company (Grass Valley).
+- Missing website: Old Auburn Road Bridge (Site) (city missing).
+- Missing website: Old Bear River Bridge (city missing).
+- Missing website: Old Brick Gothic Church Building (Nevada City).
+- Missing website: Old Capitol Building (Truckee).
+- Missing website: Old Chinese Herb Shop (Truckee).
+- Missing website: Old North San Juan School (North San Juan).
+- Missing website: Old Pacific Fruit Packing Shed (city missing).
+- Missing website: Old Stone Garage (Truckee).
+- Missing website: Original Ott Assay Office Site (city missing).
+- Missing website: Ormonde Town Site (city missing).
+- Missing website: Overland Emigrant Trail--Highway 49 (city missing).
+- Missing website: Pelton Water Wheel (city missing).
+- Missing website: Pine Street Crossing at Nevada City (Nevada City).
+- Missing website: Pioneer Cemetery (Nevada City).
+- Missing website: Pioneer Emigrant Trail (I) (Nevada City).
+- Missing website: Pioneer Emigrant Trail (II) (Nevada City).
+- Missing website: Pioneers Memorial (Grass Valley).
+- Missing website: Plaza Grocery (Nevada City).
+- Missing website: Pollard's Station (city missing).
+- Missing website: Powell House (Nevada City).
+- Missing website: Preston and Louisa Alexander Homesite (Nevada City).
+- Image placeholder needed: Preston and Louisa Alexander Homesite.
+- Missing website: Purdon Crossing Bridge (city missing).
+- Missing website: Railroad and Transportation Museum (city missing).
+- Missing website: Red Dog Town Site (city missing).
+- Missing website: Red Ledge Stamp Mill (Grass Valley).
+- Missing website: Reliance Hose Company No. 3 (Grass Valley).
+- Missing website: Relief Hill (city missing).
+- Missing website: Robinson Plaza (city missing).
+- Missing website: Rocking Stone (Truckee).
+- Missing website: Rollins Dam and Reservoir (city missing).
+- Missing website: Root Cellar on Mexican War Land Grant (city missing).
+- Missing website: Rough and Ready Cemetery (Rough and Ready).
+- Image placeholder needed: Rough and Ready Cemetery.
+- Missing website: Rough and Ready Schoolhouse Site (city missing).
+- Missing website: Rough and Ready Toll House (Rough and Ready).
+- Missing website: Rough and Ready Town Site (Rough and Ready).
+- Missing website: Rowe Saw Mill (Rough and Ready).
+- Missing website: Saint Canice Catholic Church (Nevada City).
+- Missing website: Saint Columncille's Catholic Church (city missing).
+- Missing website: Saint Paul Lutheran Church Site (city missing).
+- Missing website: Schallenberger Cabin Site (city missing).
+- Missing website: Searls Law Office (Nevada City).
+- Missing website: Shaar Zedek Grass Valley Jewish Cemetery (Grass Valley).
+- Missing website: Sheriff David Fulton Douglass (city missing).
+- Missing website: Shoot (Chute) Hill (city missing).
+- Missing website: Sierra Mountain Cemetery (Truckee).
+- Missing website: Sierra Sun (Truckee Republican) (Truckee).
+- Missing coordinates: Snow Tent Site (city missing) from Historic Landmarks _Table 1.
+- Missing website: South Yuba Canal Office (city missing).
+- Missing website: St Patrick's Cemetery (Grass Valley).
+- Missing website: Stampede Circle of Stones (city missing).
+- Missing website: Summit City/Meadow Lake (city missing).
+- Missing website: Ten Stamp Mill (Nevada City).
+- Missing website: The Auditorium Building (Grass Valley).
+- Missing website: The Flagg Building (Nevada City).
+- Missing website: The Old Post Office (Grass Valley).
+- Missing website: The Red Castle (Nevada City).
+- Missing website: The Tin Can -- Dot's (Truckee).
+- Missing website: The Union Newspaper (Grass Valley).
+- Missing website: Theodore Dehone Judah (Truckee).
+- Missing website: Toll Road Stake (city missing).
+- Missing website: Town of Washington (city missing).
+- Missing website: Trans-Sierra Freeway Project (city missing).
+- Missing website: Trinity Episcopal Church (Nevada City).
+- Missing website: Truckee Flag Pole (Truckee).
+- Missing website: Truckee Jail (Truckee).
+- Missing website: Truckee Round House Site (Truckee).
+- Missing website: Truckee's First Log Cabin (Truckee).
+- Missing website: Truckee's Vigilance ("601") Committee (Truckee).
+- Missing website: Union Hill (city missing).
+- Image placeholder needed: Union Hill.
+- Missing website: Veterans Memorial Flagstaffs, Grass Valley (city missing).
+- Missing website: Victory Highway Monument (city missing).
+- Missing website: Vietnam War Memorials, Grass Valley (Grass Valley).
+- Missing website: W.C Jones Memorial Hospital (Grass Valley).
+- Image placeholder needed: W.C Jones Memorial Hospital.
+- Missing website: Washington Brewery (Grass Valley).
+- Missing website: Washington Elementary School (Washington).
+- Missing website: Washington Hotel and Site (Washington).
+- Missing website: Washoe Tribe Grinding Stone-Lam (Truckee).
+- Image placeholder needed: Washoe Tribe Grinding Stone-Lam.
+- Missing website: Weiss-Hieronimus Brewery Cellar (Nevada City).
+- Missing website: Wells Fargo Building Site Nevada City (city missing).
+- Missing website: Wells Fargo Building, North San Juan (North San Juan).
+- Missing website: Western America Skisport Museum (city missing).
+- Missing website: William Morris Stewart House (Nevada City).
+- Missing website: Wolf Post Office (Grass Valley).
+- Missing website: Woman's Christian Temperance Union (Grass Valley).
+- Missing website: Woolman School (Nevada City).
+- Image placeholder needed: Woolman School.
+- Missing website: World War I Memorial, Grass Valley (city missing).
+- Missing website: World War II & Korean War Memorial (city missing).
+- Missing website: You Bet Town Site (city missing).
+- Missing website: Uncle Rob's Cabin (Grass Valley).
+- Weak description: Uncle Rob's Cabin (Grass Valley).
+- Image placeholder needed: Uncle Rob's Cabin.
+- Missing website: CA Historical Marker- Floriston (Bronco) (Floriston).
+- Image placeholder needed: CA Historical Marker- Floriston (Bronco).
+- Missing coordinates: Uncle Joe's Cabin (city missing) from Historic Landmarks _Table 1.
+- Weak description: Adele’s Attic (Truckee).
+- Image placeholder needed: Adele’s Attic.
+- Weak description: Back in the Day (Grass Valley).
+- Image placeholder needed: Back in the Day.
+- Weak description: Brothers Arts & Antiques (Nevada City).
+- Image placeholder needed: Brothers Arts & Antiques.
+- Weak description: Enid and Edgar Vintage (Nevada City).
+- Image placeholder needed: Enid and Edgar Vintage.
+- Weak description: Grass Valley Antique Emporium (Grass Valley).
+- Image placeholder needed: Grass Valley Antique Emporium.
+- Weak description: Kodo Arts Japanese Antiques (Nevada City).
+- Image placeholder needed: Kodo Arts Japanese Antiques.
+- Weak description: Lost and Found Vintage (Nevada City).
+- Image placeholder needed: Lost and Found Vintage.
+- Weak description: Solstice (Nevada City).
+- Image placeholder needed: Solstice.
+- Weak description: Sunchild's Parlour (Grass Valley).
+- Image placeholder needed: Sunchild's Parlour.
+- Weak description: Unique Boutique (Truckee).
+- Image placeholder needed: Unique Boutique.
+- Weak description: Valhalla Vintage (Truckee).
+- Image placeholder needed: Valhalla Vintage.
+- Weak description: Vintage on Mill (Grass Valley).
+- Image placeholder needed: Vintage on Mill.
+- Weak description: 9848.Gallery Truckee Artist Lofts (Truckee).
+- Image placeholder needed: 9848.Gallery Truckee Artist Lofts.
+- Weak description: Art Space (Grass Valley).
+- Image placeholder needed: Art Space.
+- Weak description: Art Truckee (Truckee).
+- Weak description: Art Works Gallery (Grass Valley).
+- Image placeholder needed: Art Works Gallery.
+- Weak description: ASiF Studios (Grass Valley).
+- Image placeholder needed: ASiF Studios.
+- Weak description: Bear River Glassworks (Grass Valley).
+- Image placeholder needed: Bear River Glassworks.
+- Weak description: C.H.A.M.P. Gallery at City Hall (Nevada City).
+- Image placeholder needed: C.H.A.M.P. Gallery at City Hall.
+- Weak description: Eric Rood Administration Center Lobby (Nevada City).
+- Image placeholder needed: Eric Rood Administration Center Lobby.
+- Weak description: Gallery 5830’ (Truckee).
+- Weak description: Holt Ballet Conservatory (Nevada City).
+- Weak description: Juxtartstudios (Nevada City).
+- Image placeholder needed: Juxtartstudios.
+- Weak description: La Galleria (Truckee).
+- Image placeholder needed: La Galleria.
+- Weak description: Lorien Powers Studio Jewelry (Truckee).
+- Weak description: MIX decor + design (Nevada City).
+- Image placeholder needed: MIX decor + design.
+- Weak description: Mountain Arts Collective (Truckee).
+- Weak description: Neighborhood Center of the Arts (Grass Valley).
+- Weak description: Piper J Gallery (Truckee).
+- Image placeholder needed: Piper J Gallery.
+- Weak description: Ridgeline Gallery (Truckee).
+- Image placeholder needed: Ridgeline Gallery.
+- Weak description: Riverside Studios (Truckee).
+- Weak description: Seven Stars Gallery (Nevada City).
+- Image placeholder needed: Seven Stars Gallery.
+- Weak description: Steve Randall Community Recreation Center (Truckee).
+- Image placeholder needed: Steve Randall Community Recreation Center.
+- Weak description: The Chambers Project (Grass Valley).
+- Image placeholder needed: The Chambers Project.
+- Weak description: The Granucci Gallery (Grass Valley).
+- Image placeholder needed: The Granucci Gallery.
+- Weak description: The Vault @ Crush (Nevada City).
+- Image placeholder needed: The Vault @ Crush.
+- Weak description: Truckee Dance Factory (Truckee).
+- Image placeholder needed: Truckee Dance Factory.
+- Weak description: Truckee Tahoe Airport (Truckee).
+- Image placeholder needed: Truckee Tahoe Airport.
+- Weak description: Truckee Tahoe Arts Alliance (Truckee).
+- Image placeholder needed: Truckee Tahoe Arts Alliance.
+- Weak description: UBA SEO: Nisenan Arts and Culture (Nevada City).
+- Image placeholder needed: UBA SEO: Nisenan Arts and Culture.
+- Weak description: Wolf Craft School (Nevada City).
+- Image placeholder needed: Wolf Craft School.
+- Weak description: Nevada County Arts Council and Truckee Cultural District (Truckee).
+- Image placeholder needed: Nevada County Arts Council and Truckee Cultural District.
+- Weak description: Auric Adornments (Grass Valley).
+- Image placeholder needed: Auric Adornments.
+- Weak description: Grateful Ink (Nevada City).
+- Image placeholder needed: Grateful Ink.
+- Weak description: Punk and Bunny Tattoo (Grass Valley).
+- Image placeholder needed: Punk and Bunny Tattoo.
+- Weak description: Snowy Mountain Tattoo Co. (Truckee).
+- Image placeholder needed: Snowy Mountain Tattoo Co..
+- Weak description: Sweet Spirit Tattoo (Nevada City).
+- Image placeholder needed: Sweet Spirit Tattoo.
+- Weak description: Truth Tattoo (Truckee).
+- Image placeholder needed: Truth Tattoo.
+- Missing website: An Inner Sanctum (Nevada City).
+- Weak description: An Inner Sanctum (Nevada City).
+- Image placeholder needed: An Inner Sanctum.
+- Weak description: Booktown Books (Grass Valley).
+- Weak description: Brown Banana Books (Grass Valley).
+- Image placeholder needed: Brown Banana Books.
+- Weak description: Clock Tower Records (Grass Valley).
+- Image placeholder needed: Clock Tower Records.
+- Weak description: Foggy Mountain Music (Grass Valley).
+- Image placeholder needed: Foggy Mountain Music.
+- Weak description: Gold City Guitar Repair (Nevada City).
+- Image placeholder needed: Gold City Guitar Repair.
+- Weak description: Hardy Books (Nevada City).
+- Weak description: Harmony Books (Nevada City).
+- Weak description: Nevada County Doris Foley Library for Historical Research (Nevada City).
+- Image placeholder needed: Nevada County Doris Foley Library for Historical Research.
+- Weak description: Nevada County Library Bear River Branch (Auburn).
+- Image placeholder needed: Nevada County Library Bear River Branch.
+- Weak description: Nevada County Library Grass Valley Royce Branch (Grass Valley).
+- Image placeholder needed: Nevada County Library Grass Valley Royce Branch.
+- Weak description: Nevada County Library Madelyn Helling Branch (Nevada City).
+- Image placeholder needed: Nevada County Library Madelyn Helling Branch.
+- Weak description: Nevada County Library Penn Valley Branch (Penn Valley).
+- Image placeholder needed: Nevada County Library Penn Valley Branch.
+- Weak description: Rock Cellar Records (Truckee).
+- Image placeholder needed: Rock Cellar Records.
+- Weak description: Ron's Real Records (Grass Valley).
+- Image placeholder needed: Ron's Real Records.
+- Weak description: San Juan Ridge Community Library (Nevada City).
+- Image placeholder needed: San Juan Ridge Community Library.
+- Weak description: Sans Backup Plan Records (Nevada City).
+- Image placeholder needed: Sans Backup Plan Records.
+- Weak description: Searls Historical Library (Nevada City).
+- Weak description: Sound Check Music (Grass Valley).
+- Image placeholder needed: Sound Check Music.
+- Weak description: Split Rock Music Co. (Truckee).
+- Image placeholder needed: Split Rock Music Co..
+- Weak description: The Book Seller (Grass Valley).
+- Weak description: Toad Hall Books (Nevada City).
+- Image placeholder needed: Toad Hall Books.
+- Weak description: Word After Word Books (Truckee).
+- Image placeholder needed: Word After Word Books.
+- Weak description: 1849 Brewing Company (Grass Valley).
+- Weak description: 1882 Bar & Grill (Truckee).
+- Image placeholder needed: 1882 Bar & Grill.
+- Weak description: Alibi Ale Works (Truckee).
+- Weak description: Alloro Ristorante (Grass Valley).
+- Image placeholder needed: Alloro Ristorante.
+- Weak description: Bar of America (Truckee).
+- Image placeholder needed: Bar of America.
+- Weak description: Bicycle Thief (Grass Valley).
+- Image placeholder needed: Bicycle Thief.
+- Weak description: Blue Cow Deli (Penn Valley).
+- Weak description: Blue Coyote Bar & Grill (Truckee).
+- Image placeholder needed: Blue Coyote Bar & Grill.
+- Weak description: BrewHaus (Nevada City).
+- Image placeholder needed: BrewHaus.
+- Weak description: Bubba's Bagels (Grass Valley).
+- Image placeholder needed: Bubba's Bagels.
+- Weak description: Burger Me! (Truckee).
+- Image placeholder needed: Burger Me!.
+- Weak description: Casa Baeza Mexican Restaurant (Truckee).
+- Image placeholder needed: Casa Baeza Mexican Restaurant.
+- Weak description: Cirino’s at Main Street (Grass Valley).
+- Weak description: Clarky's BBQ, Smoke & More (Penn Valley).
+- Image placeholder needed: Clarky's BBQ, Smoke & More.
+- Weak description: Cloud Sushi (Truckee).
+- Image placeholder needed: Cloud Sushi.
+- Weak description: Como (Truckee).
+- Image placeholder needed: Como.
+- Weak description: Cottonwood Restaurant & Bar (Truckee).
+- Weak description: Craft and Logic Taproom (Truckee).
+- Image placeholder needed: Craft and Logic Taproom.
+- Weak description: Crazy Horse Saloon & Grill (Nevada City).
+- Weak description: Daybreak Cafe (Penn Valley).
+- Image placeholder needed: Daybreak Cafe.
+- Weak description: Dew Drop Inn (Grass Valley).
+- Weak description: Diego’s Restaurant (Grass Valley).
+- Weak description: Donner Creek Brewing (Truckee).
+- Image placeholder needed: Donner Creek Brewing.
+- Weak description: Donner Lake Kitchen (Truckee).
+- Image placeholder needed: Donner Lake Kitchen.
+- Weak description: Drunken Monkey Sushi (Truckee).
+- Image placeholder needed: Drunken Monkey Sushi.
+- Weak description: El Milagro Mexican Restaurant (Grass Valley).
+- Image placeholder needed: El Milagro Mexican Restaurant.
+- Weak description: El Toro Bravo (Truckee).
+- Image placeholder needed: El Toro Bravo.
+- Weak description: Elixart (Nevada City).
+- Image placeholder needed: Elixart.
+- Weak description: Enrique's Lounge (Grass Valley).
+- Image placeholder needed: Enrique's Lounge.
+- Weak description: FiftyFifty Brewing Co. (Truckee).
+- Image placeholder needed: FiftyFifty Brewing Co..
+- Weak description: Friar Tuck's Restaurant & Bar (Nevada City).
+- Image placeholder needed: Friar Tuck's Restaurant & Bar.
+- Weak description: Front Street Station Pizza Co. (Truckee).
+- Image placeholder needed: Front Street Station Pizza Co..
+- Weak description: Fudenjüce (Nevada City).
+- Image placeholder needed: Fudenjüce.
+- Weak description: Full Belly Deli (Truckee).
+- Image placeholder needed: Full Belly Deli.
+- Weak description: Gary's Place (Grass Valley).
+- Image placeholder needed: Gary's Place.
+- Weak description: Gold Vibe Kombuchary (Grass Valley).
+- Image placeholder needed: Gold Vibe Kombuchary.
+- Weak description: Golden Era Lounge (Nevada City).
+- Weak description: Golden Gate Saloon (Grass Valley).
+- Weak description: Golden Rotisserie (Truckee).
+- Image placeholder needed: Golden Rotisserie.
+- Weak description: Good Wolf Brewing (Truckee).
+- Image placeholder needed: Good Wolf Brewing.
+- Weak description: Grass Valley Brewing Co. (Grass Valley).
+- Image placeholder needed: Grass Valley Brewing Co..
+- Weak description: Heartwood Eatery & Annex (Nevada City).
+- Image placeholder needed: Heartwood Eatery & Annex.
+- Weak description: Iron Door Speakeasy (Grass Valley).
+- Image placeholder needed: Iron Door Speakeasy.
+- Weak description: Jax At The Tracks (Truckee).
+- Image placeholder needed: Jax At The Tracks.
+- Weak description: Jernigan’s Tap House and Grill (Nevada City).
+- Image placeholder needed: Jernigan’s Tap House and Grill.
+- Weak description: Kaido (Grass Valley).
+- Image placeholder needed: Kaido.
+- Weak description: La Bamba Mexican Restaurant (Truckee).
+- Image placeholder needed: La Bamba Mexican Restaurant.
+- Weak description: Lika’s Quarter Cafe (Nevada City).
+- Image placeholder needed: Lika’s Quarter Cafe.
+- Weak description: Lola at the National Exchange Hotel (Nevada City).
+- Image placeholder needed: Lola at the National Exchange Hotel.
+- Weak description: MAK's BBQ (Grass Valley).
+- Image placeholder needed: MAK's BBQ.
+- Weak description: MakiAli (Truckee).
+- Image placeholder needed: MakiAli.
+- Weak description: Maria's Mexican Restaurant (Grass Valley).
+- Image placeholder needed: Maria's Mexican Restaurant.
+- Weak description: Marshall's Pasties (Grass Valley).
+- Image placeholder needed: Marshall's Pasties.
+- Weak description: Masa Kitchen (Truckee).
+- Image placeholder needed: Masa Kitchen.
+- Weak description: McGees Annex (Nevada City).
+- Image placeholder needed: McGees Annex.
+- Weak description: Mehfil Indian Bistro (Truckee).
+- Image placeholder needed: Mehfil Indian Bistro.
+- Weak description: MeZe Eatery (Grass Valley).
+- Weak description: Moi's Thai Cafe (Penn Valley).
+- Image placeholder needed: Moi's Thai Cafe.
+- Weak description: Moody’s Bistro Bar and Beats (Truckee).
+- Weak description: Mountain Lotus Cafe (Truckee).
+- Image placeholder needed: Mountain Lotus Cafe.
+- Weak description: Nevada City Classic Cafe (Nevada City).
+- Image placeholder needed: Nevada City Classic Cafe.
+- Weak description: Nevada Club (Grass Valley).
+- Image placeholder needed: Nevada Club.
+- Weak description: Old Town Tap (Truckee).
+- Image placeholder needed: Old Town Tap.
+- Weak description: Penn Valley Northridge (Penn Valley).
+- Image placeholder needed: Penn Valley Northridge.
+- Weak description: Pete's Pizza (Grass Valley).
+- Image placeholder needed: Pete's Pizza.
+- Weak description: Pianeta (Truckee).
+- Image placeholder needed: Pianeta.
+- Weak description: PJ’s at Grays Crossing (Truckee).
+- Image placeholder needed: PJ’s at Grays Crossing.
+- Weak description: Players Restaurant and Sports Bar (Penn Valley).
+- Image placeholder needed: Players Restaurant and Sports Bar.
+- Weak description: Restaurant DaKan (Nevada City).
+- Image placeholder needed: Restaurant DaKan.
+- Weak description: RMU (Truckee).
+- Image placeholder needed: RMU.
+- Weak description: Sergio’s Caffe (Grass Valley).
+- Weak description: Siam Cuisine (Truckee).
+- Image placeholder needed: Siam Cuisine.
+- Weak description: Smokey’s Kitchen (Truckee).
+- Image placeholder needed: Smokey’s Kitchen.
+- Weak description: Sopa Thai Cuisine (Nevada City).
+- Weak description: South Pine Cafe (Grass Valley).
+- Missing website: Spring Poke & Sushi (Truckee).
+- Weak description: Spring Poke & Sushi (Truckee).
+- Image placeholder needed: Spring Poke & Sushi.
+- Weak description: Squeeze In (Truckee).
+- Image placeholder needed: Squeeze In.
+- Weak description: Stella (Truckee).
+- Image placeholder needed: Stella.
+- Weak description: Sushi at Nourish (Nevada City).
+- Weak description: Sushi in the Raw at California Organics (Nevada City).
+- Image placeholder needed: Sushi in the Raw at California Organics.
+- Weak description: Sushi Q (Nevada City).
+- Image placeholder needed: Sushi Q.
+- Weak description: Tack Room Restaurant and Bar (Penn Valley).
+- Image placeholder needed: Tack Room Restaurant and Bar.
+- Weak description: Tacos Jalisco (Truckee).
+- Image placeholder needed: Tacos Jalisco.
+- Weak description: Tangerine French Bistro (Truckee).
+- Image placeholder needed: Tangerine French Bistro.
+- Weak description: Taqueria El Taco Loco (Nevada City).
+- Image placeholder needed: Taqueria El Taco Loco.
+- Weak description: Taste of Thai (Grass Valley).
+- Image placeholder needed: Taste of Thai.
+- Weak description: Thai Delicacy (Truckee).
+- Image placeholder needed: Thai Delicacy.
+- Weak description: The Fern (Nevada City).
+- Image placeholder needed: The Fern.
+- Weak description: The Mine Shaft Saloon (Nevada City).
+- Image placeholder needed: The Mine Shaft Saloon.
+- Weak description: The National Bar (Nevada City).
+- Image placeholder needed: The National Bar.
+- Weak description: The Owl Tavern (Grass Valley).
+- Image placeholder needed: The Owl Tavern.
+- Weak description: The Pizza Joint (Nevada City).
+- Image placeholder needed: The Pizza Joint.
+- Weak description: The Place on South Pine (Nevada City).
+- Image placeholder needed: The Place on South Pine.
+- Weak description: The Pub at Donner Lake (Truckee).
+- Image placeholder needed: The Pub at Donner Lake.
+- Weak description: The Stone House (Nevada City).
+- Weak description: The Thirsty Barrel Taphouse & Grille (Grass Valley).
+- Image placeholder needed: The Thirsty Barrel Taphouse & Grille.
+- Duplicate source row skipped: The Willo Steakhouse (Nevada City) from MUSE BD_Table 1.
+- Weak description: Thirsty Barrel Brewing Penn Valley (Penn Valley).
+- Image placeholder needed: Thirsty Barrel Brewing Penn Valley.
+- Weak description: Three Forks Bakery & Brewing Co. (Nevada City).
+- Weak description: Tofanelli’s Gold Country Bistro (Grass Valley).
+- Weak description: Trokay (Truckee).
+- Image placeholder needed: Trokay.
+- Weak description: Truckee Brewing Company Restaurant (Truckee).
+- Image placeholder needed: Truckee Brewing Company Restaurant.
+- Weak description: Truckee Tavern & Grill (Truckee).
+- Image placeholder needed: Truckee Tavern & Grill.
+- Weak description: Tuscany Gardens Pizzeria (Penn Valley).
+- Image placeholder needed: Tuscany Gardens Pizzeria.
+- Weak description: Twelve 28 Kitchen (Penn Valley).
+- Weak description: Village Pizzaria (Truckee).
+- Image placeholder needed: Village Pizzaria.
+- Weak description: Wild Eye Pub (Grass Valley).
+- Weak description: Wong’s Garden (Truckee).
+- Image placeholder needed: Wong’s Garden.
+- Weak description: Zano's Family Italian & Pizzeria (Truckee).
+- Image placeholder needed: Zano's Family Italian & Pizzeria.
+- Weak description: Grass Valley Chamber of Commerce (Grass Valley).
+- Weak description: Grass Valley Downtown Association (Grass Valley).
+- Weak description: Greater Grass Valley Chamber of Commerce (Grass Valley).
+- Image placeholder needed: Greater Grass Valley Chamber of Commerce.
+- Weak description: Hour Nevada County (Nevada City).
+- Weak description: Lift Cowork, Conference & Wellness Center (Truckee).
+- Image placeholder needed: Lift Cowork, Conference & Wellness Center.
+- Weak description: Nevada City Chamber of Commerce (Nevada City).
+- Weak description: Nevada County Arts Council (Nevada City).
+- Missing coordinates: Sierra Commons (city missing) from MUSE BD_Table 1.
+- Weak description: Tahoe Truckee Pride Foundation (Truckee).
+- Image placeholder needed: Tahoe Truckee Pride Foundation.
+- Weak description: Truckee Chamber of Commerce (Truckee).
+- Missing coordinates: Truckee Downtown Merchants Association (city missing) from MUSE BD_Table 1.
+- Weak description: Abstrakt (Nevada City).
+- Image placeholder needed: Abstrakt.
+- Weak description: Bamboo Home Store (Grass Valley).
+- Image placeholder needed: Bamboo Home Store.
+- Weak description: Cabona’s (Truckee).
+- Image placeholder needed: Cabona’s.
+- Weak description: California 89 (Truckee).
+- Image placeholder needed: California 89.
+- Weak description: Cosmic Shark Clothing (Grass Valley).
+- Image placeholder needed: Cosmic Shark Clothing.
+- Weak description: Dressed Boutique (Truckee).
+- Image placeholder needed: Dressed Boutique.
+- Weak description: Earth Central (Nevada City).
+- Image placeholder needed: Earth Central.
+- Weak description: Echo Blue (Truckee).
+- Image placeholder needed: Echo Blue.
+- Missing website: ela chapman (Truckee).
+- Weak description: ela chapman (Truckee).
+- Image placeholder needed: ela chapman.
+- Weak description: Elevate Athleisure (Grass Valley).
+- Image placeholder needed: Elevate Athleisure.
+- Weak description: Empire Shoes (Grass Valley).
+- Image placeholder needed: Empire Shoes.
+- Weak description: Field Day Apparel (Nevada City).
+- Image placeholder needed: Field Day Apparel.
+- Weak description: Fur Traders (Nevada City).
+- Image placeholder needed: Fur Traders.
+- Missing coordinates: Hello Clogs (city missing) from MUSE BD_Table 1.
+- Weak description: J. Breuer Clothing (Grass Valley).
+- Image placeholder needed: J. Breuer Clothing.
+- Weak description: Juniper Boutique (Truckee).
+- Image placeholder needed: Juniper Boutique.
+- Weak description: Kalifornia Jean Bar (Truckee).
+- Image placeholder needed: Kalifornia Jean Bar.
+- Weak description: Kiya’s Naturals (Nevada City).
+- Image placeholder needed: Kiya’s Naturals.
+- Weak description: LaTeDa (Grass Valley).
+- Image placeholder needed: LaTeDa.
+- Weak description: Main Street Kids (Nevada City).
+- Image placeholder needed: Main Street Kids.
+- Weak description: Mama Madrones (Nevada City).
+- Image placeholder needed: Mama Madrones.
+- Weak description: Marilyn’s Catwalk (Truckee).
+- Image placeholder needed: Marilyn’s Catwalk.
+- Weak description: Marley Lane (Grass Valley).
+- Image placeholder needed: Marley Lane.
+- Weak description: Mint (Grass Valley).
+- Image placeholder needed: Mint.
+- Weak description: Mo, Jo & Zoe (Truckee).
+- Image placeholder needed: Mo, Jo & Zoe.
+- Weak description: Moms & Minis (Grass Valley).
+- Image placeholder needed: Moms & Minis.
+- Weak description: Native Wren (Grass Valley).
+- Image placeholder needed: Native Wren.
+- Weak description: Nomad Boutique (Truckee).
+- Image placeholder needed: Nomad Boutique.
+- Weak description: Novak's Menswear (Nevada City).
+- Image placeholder needed: Novak's Menswear.
+- Weak description: Of Earth and Salt (Nevada City).
+- Image placeholder needed: Of Earth and Salt.
+- Weak description: SoulCrafts (Nevada City).
+- Image placeholder needed: SoulCrafts.
+- Weak description: Tahoe Mountain Life (Truckee).
+- Image placeholder needed: Tahoe Mountain Life.
+- Missing website: Tahoe-Truckee T-Shirtery (Truckee).
+- Weak description: Tahoe-Truckee T-Shirtery (Truckee).
+- Image placeholder needed: Tahoe-Truckee T-Shirtery.
+- Weak description: The Hat Store (Nevada City).
+- Image placeholder needed: The Hat Store.
+- Weak description: The Phoenix Rose (Nevada City).
+- Image placeholder needed: The Phoenix Rose.
+- Weak description: The Sock Parlour (Truckee).
+- Image placeholder needed: The Sock Parlour.
+- Weak description: Tribal Weaver (Grass Valley).
+- Image placeholder needed: Tribal Weaver.
+- Weak description: Two Little Birds (Nevada City).
+- Image placeholder needed: Two Little Birds.
+- Weak description: Whim Be Beautiful (Penn Valley).
+- Image placeholder needed: Whim Be Beautiful.
+- Weak description: Wild Side (Grass Valley).
+- Image placeholder needed: Wild Side.
+- Weak description: Café Lupine (Truckee).
+- Image placeholder needed: Café Lupine.
+- Weak description: Cake Bakery & Cafe (Grass Valley).
+- Image placeholder needed: Cake Bakery & Cafe.
+- Weak description: Caroline's Coffee Roasters (Grass Valley).
+- Image placeholder needed: Caroline's Coffee Roasters.
+- Weak description: Coffeebar Bakery (Truckee).
+- Image placeholder needed: Coffeebar Bakery.
+- Weak description: Communal Cafe (Nevada City).
+- Image placeholder needed: Communal Cafe.
+- Weak description: Cornerstone Bakery & Kitchen (Truckee).
+- Image placeholder needed: Cornerstone Bakery & Kitchen.
+- Weak description: Corvus Bakery (Grass Valley).
+- Image placeholder needed: Corvus Bakery.
+- Weak description: Dark Horse Coffee Roasters Truckee (Truckee).
+- Image placeholder needed: Dark Horse Coffee Roasters Truckee.
+- Weak description: Deer Creek Bakehouse (Nevada City).
+- Image placeholder needed: Deer Creek Bakehouse.
+- Weak description: Drink Coffee Do Stuff (Truckee).
+- Image placeholder needed: Drink Coffee Do Stuff.
+- Weak description: Flour Garden Bakery (Grass Valley).
+- Image placeholder needed: Flour Garden Bakery.
+- Weak description: Java Dream Coffee Roasters (Penn Valley).
+- Image placeholder needed: Java Dream Coffee Roasters.
+- Weak description: Java Johns (Nevada City).
+- Image placeholder needed: Java Johns.
+- Weak description: Mountain Brew (Truckee).
+- Image placeholder needed: Mountain Brew.
+- Weak description: Outer Heaven Espresso (Nevada City).
+- Image placeholder needed: Outer Heaven Espresso.
+- Weak description: Pacific Crest Coffee Co. (Truckee).
+- Image placeholder needed: Pacific Crest Coffee Co..
+- Weak description: Panadería Matilija (Nevada City).
+- Image placeholder needed: Panadería Matilija.
+- Weak description: Sierra Bakehouse (Truckee).
+- Weak description: Soulspace Collective (Grass Valley).
+- Image placeholder needed: Soulspace Collective.
+- Weak description: Truckee Cookies (Truckee).
+- Image placeholder needed: Truckee Cookies.
+- Weak description: Whole Treats Bakery & Coffee House (Truckee).
+- Image placeholder needed: Whole Treats Bakery & Coffee House.
+- Weak description: Wild Cherries Coffee House & Bakery (Truckee).
+- Image placeholder needed: Wild Cherries Coffee House & Bakery.
+- Weak description: Wyld Tiger (Grass Valley).
+- Image placeholder needed: Wyld Tiger.
+- Weak description: Zuri Coffee Co. (Truckee).
+- Image placeholder needed: Zuri Coffee Co..
+- Weak description: Behind the Iron Gate (Grass Valley).
+- Image placeholder needed: Behind the Iron Gate.
+- Weak description: Elevation Escape (Truckee).
+- Image placeholder needed: Elevation Escape.
+- Weak description: Liberty Bell Smart Home (Truckee).
+- Image placeholder needed: Liberty Bell Smart Home.
+- Missing website: Mystic Theater (Nevada City).
+- Weak description: Mystic Theater (Nevada City).
+- Image placeholder needed: Mystic Theater.
+- Weak description: Prime Cinemas Grass Valley (Grass Valley).
+- Image placeholder needed: Prime Cinemas Grass Valley.
+- Weak description: 107 Argall Way (Nevada City).
+- Image placeholder needed: 107 Argall Way.
+- Weak description: Asylum Down (Nevada City).
+- Image placeholder needed: Asylum Down.
+- Weak description: Atra Nova (Nevada City).
+- Image placeholder needed: Atra Nova.
+- Weak description: Bespoke & Atelier (Truckee).
+- Image placeholder needed: Bespoke & Atelier.
+- Weak description: Bluestone Jewelry & Wine (Truckee).
+- Image placeholder needed: Bluestone Jewelry & Wine.
+- Weak description: Crush (Nevada City).
+- Image placeholder needed: Crush.
+- Weak description: Crystal Empire Gems (Grass Valley).
+- Image placeholder needed: Crystal Empire Gems.
+- Weak description: Crystal Rainbow Rock Shop (Nevada City).
+- Image placeholder needed: Crystal Rainbow Rock Shop.
+- Weak description: Cultural Threads (Truckee).
+- Image placeholder needed: Cultural Threads.
+- Weak description: Earthdrop (Nevada City).
+- Image placeholder needed: Earthdrop.
+- Weak description: Foothill Mercantile (Grass Valley).
+- Image placeholder needed: Foothill Mercantile.
+- Weak description: Gather & Mill (Grass Valley).
+- Image placeholder needed: Gather & Mill.
+- Weak description: Gold Mountain (Nevada City).
+- Image placeholder needed: Gold Mountain.
+- Weak description: Good Anya Plant Shop (Truckee).
+- Image placeholder needed: Good Anya Plant Shop.
+- Weak description: GoodTimes Boardstore (Grass Valley).
+- Image placeholder needed: GoodTimes Boardstore.
+- Weak description: Grass Valley Games (Grass Valley).
+- Image placeholder needed: Grass Valley Games.
+- Weak description: Heart and Home (Grass Valley).
+- Image placeholder needed: Heart and Home.
+- Weak description: Inner Path (Nevada City).
+- Image placeholder needed: Inner Path.
+- Weak description: J.J. Jackson's (Nevada City).
+- Image placeholder needed: J.J. Jackson's.
+- Weak description: Kitkitdizzi (Nevada City).
+- Weak description: La Cache (Nevada City).
+- Image placeholder needed: La Cache.
+- Weak description: Lola and Jack (Grass Valley).
+- Image placeholder needed: Lola and Jack.
+- Weak description: Make Local Habit (Grass Valley).
+- Image placeholder needed: Make Local Habit.
+- Weak description: Mountain Pastimes (Nevada City).
+- Image placeholder needed: Mountain Pastimes.
+- Weak description: Nevada City Crystal & Glass Shop (Nevada City).
+- Image placeholder needed: Nevada City Crystal & Glass Shop.
+- Weak description: Nightingale Farms (Grass Valley).
+- Image placeholder needed: Nightingale Farms.
+- Weak description: Shiva Moon (Nevada City).
+- Image placeholder needed: Shiva Moon.
+- Weak description: Spirithouse Import Gallery (Nevada City).
+- Weak description: Stucki Jewelers Inc. (Grass Valley).
+- Image placeholder needed: Stucki Jewelers Inc..
+- Weak description: Sugar and Spice (Grass Valley).
+- Image placeholder needed: Sugar and Spice.
+- Weak description: Tess' Kitchen and Culinary (Grass Valley).
+- Image placeholder needed: Tess' Kitchen and Culinary.
+- Weak description: The Cooking Gallery (Truckee).
+- Image placeholder needed: The Cooking Gallery.
+- Weak description: The Earth Store (Nevada City).
+- Image placeholder needed: The Earth Store.
+- Weak description: The Fates Fine Jewelry (Nevada City).
+- Image placeholder needed: The Fates Fine Jewelry.
+- Weak description: The Melo Plant Shop (Nevada City).
+- Image placeholder needed: The Melo Plant Shop.
+- Weak description: The Utopian Stone (Nevada City).
+- Image placeholder needed: The Utopian Stone.
+- Weak description: The West Wind (Grass Valley).
+- Image placeholder needed: The West Wind.
+- Weak description: Tour of Nevada City Bicycle Shop (Nevada City).
+- Image placeholder needed: Tour of Nevada City Bicycle Shop.
+- Weak description: truckee love. (Truckee).
+- Image placeholder needed: truckee love..
+- Weak description: White Buffalo (Truckee).
+- Image placeholder needed: White Buffalo.
+- Weak description: Wildflower Nursery (Penn Valley).
+- Image placeholder needed: Wildflower Nursery.
+- Weak description: Yabobo (Nevada City).
+- Image placeholder needed: Yabobo.
+- Weak description: Yuba Blue (Grass Valley).
+- Image placeholder needed: Yuba Blue.
+- Weak description: Golden Road Radio and Television (Nevada City).
+- Weak description: KNCO Star 94.1 FM (Grass Valley).
+- Image placeholder needed: KNCO Star 94.1 FM.
+- Weak description: KVMR 89.5FM (Nevada City).
+- Image placeholder needed: KVMR 89.5FM.
+- Weak description: KVMRx-105.7FM (Nevada City).
+- Image placeholder needed: KVMRx-105.7FM.
+- Weak description: KYRR 93.3 FM (Nevada City).
+- Weak description: Moonshine Ink (Truckee).
+- Weak description: Mountain Gazette (Truckee).
+- Image placeholder needed: Mountain Gazette.
+- Weak description: Nevada County Media (Grass Valley).
+- Image placeholder needed: Nevada County Media.
+- Weak description: Sierra Sun (Truckee).
+- Image placeholder needed: Sierra Sun.
+- Weak description: Tahoe Guide (Truckee).
+- Image placeholder needed: Tahoe Guide.
+- Weak description: Tahoe Truckee Media (Truckee).
+- Image placeholder needed: Tahoe Truckee Media.
+- Weak description: The Union (Grass Valley).
+- Image placeholder needed: The Union.
+- Weak description: Truckee Tahoe Radio - 101.5 KTKE (Truckee).
+- Image placeholder needed: Truckee Tahoe Radio - 101.5 KTKE.
+- Weak description: YubaNet (Nevada City).
+- Image placeholder needed: YubaNet.
+- Weak description: A Victorian Rose (Grass Valley).
+- Weak description: Alta Sierra Village Inn (Grass Valley).
+- Weak description: Broad Street Inn (Nevada City).
+- Image placeholder needed: Broad Street Inn.
+- Weak description: Clair Tappaan Lodge (Truckee).
+- Image placeholder needed: Clair Tappaan Lodge.
+- Weak description: Donner Lake Inn (Truckee).
+- Image placeholder needed: Donner Lake Inn.
+- Weak description: Flume’s End (Nevada City).
+- Image placeholder needed: Flume’s End.
+- Weak description: Gold Miners Inn (Grass Valley).
+- Image placeholder needed: Gold Miners Inn.
+- Weak description: Grass Valley Courtyard Suites (Grass Valley).
+- Image placeholder needed: Grass Valley Courtyard Suites.
+- Weak description: Grass Valley RV Resort (Grass Valley).
+- Image placeholder needed: Grass Valley RV Resort.
+- Weak description: Gravity Haus Truckee-Tahoe (Truckee).
+- Image placeholder needed: Gravity Haus Truckee-Tahoe.
+- Weak description: Harmony Ridge Lodge (Nevada City).
+- Duplicate source row skipped: Holbrooke Hotel (Grass Valley) from MUSE BD_Table 1.
+- Weak description: InnTown Campground (Nevada City).
+- Image placeholder needed: InnTown Campground.
+- Weak description: Loch Leven Lodge (Truckee).
+- Image placeholder needed: Loch Leven Lodge.
+- Weak description: Martis Valley Lodge (Truckee).
+- Image placeholder needed: Martis Valley Lodge.
+- Duplicate source row skipped: National Exchange Hotel (Nevada City) from MUSE BD_Table 1.
+- Weak description: River Street Inn (Truckee).
+- Image placeholder needed: River Street Inn.
+- Weak description: SpringHill Suites by Marriott Truckee (Truckee).
+- Image placeholder needed: SpringHill Suites by Marriott Truckee.
