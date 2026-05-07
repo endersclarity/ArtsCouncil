@@ -61,6 +61,48 @@ This log preserves choices and rejected alternatives so stakeholder feedback can
 - Why not: stock can feel dishonest; no images weakens place proof; only real images blocks alpha coverage.
 - Easy branch: replace placeholders progressively with approved real images.
 
+## Draft 2 Image System
+
+- Chosen direction: generate and wire six NCAC editorial-abstraction placeholders for weak or missing place imagery.
+- Alternatives considered: photo-like generated concepts; flat category cards; no generated placeholders.
+- Why not: photo-like concepts risk being mistaken for real documentation; flat cards do not demonstrate an image-rich place card; no placeholders leaves the alpha with a visible image hole.
+- Implementation rule: classify image quality during data prep using light source/URL heuristics. `image_data.json` is the main photo reference source; Diana's workbook remains asset authority.
+- Weak imagery: missing images, watercolor/category art, logos/brand marks, non-image-looking URLs, and obvious weak image references.
+- Credible imagery: Google Places image URLs, Wikimedia image files, and normal image-file URLs unless logo-ish.
+- UI rule: show only `Placeholder image` on generated art; keep the reason in JSON/gap docs, not in the card.
+- Easy branch: replace generated placeholders with approved real photos as they become available.
+
+## Draft 2 Place Cards
+
+- Chosen direction: optimize selected-place cards for proof + desire first, utility second.
+- Alternatives considered: practical utility first; data confidence first.
+- Why not: utility-first is less persuasive for stakeholder demo; data-confidence-first makes the alpha feel like QA tooling.
+- Implementation rule: lead with real image or labeled placeholder, then name, category/city, concise MUSE-like description, then `Visit site` and related events when available.
+- Easy branch: add directions or source confidence later if the alpha shifts toward public utility.
+
+## Draft 2 Marker Grammar
+
+- Chosen direction: markers communicate layer and priority, not full category taxonomy.
+- Alternatives considered: category icon pack; category color rainbow; category legend.
+- Why not: 1,076 places make icon/category systems visually noisy; filters and detail cards already carry taxonomy.
+- Implementation rule: use restrained place dots, featured/MUSE emphasis, selected-place ring, event dot plus halo, and cluster count bubbles. Keep category/intent in filters and cards.
+- Easy branch: add category icons only for a smaller curated subset later.
+
+## Draft 2 Paths
+
+- Chosen direction: Paths appear as curated stop sequences, not heavy route geometry.
+- Alternatives considered: strong route line; faint connector; no path emphasis.
+- Why not: a heavy connector looks like algebra and does not help users understand a cultural route.
+- Implementation rule: emphasize numbered markers, selected/active stop states, subtle pulse/attention ring, and readable stop list. Avoid a prominent route line.
+- Easy branch: restore a faint helper connector if user testing shows the sequence is unclear.
+
+## Draft 2 Tooling
+
+- Chosen direction: implement Draft 2 manually in the existing MapLibre alpha using Codex, local generated placeholder assets, browser QA, and impeccable review.
+- Alternatives considered: OpenDesign; Claude Design.
+- Why not: Draft 2 is targeted implementation on a working app, not broad visual exploration. Prior OpenDesign output drifted away from the real MapLibre/NCAC constraints.
+- Easy branch: use OpenDesign or Claude Design later if a fresh visual direction is needed.
+
 ## Basemap
 
 - Chosen direction: quiet clarity with a muted, flat editorial basemap.

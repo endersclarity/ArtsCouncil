@@ -68,6 +68,31 @@ INTENT_GROUPS = {
     "Shops & Makers": {"Shops & Makers", "Creative Services"},
 }
 
+PLACEHOLDER_BY_CATEGORY = {
+    "Galleries & Studios": "gallery-studio",
+    "Performing Arts": "performance-event-venue",
+    "Fairs & Festivals": "performance-event-venue",
+    "Historic Places": "historic-place",
+    "Cultural Resources": "historic-place",
+    "Walks & Trails": "historic-place",
+    "Public Art": "public-art",
+    "Shops & Makers": "maker-shop",
+    "Creative Services": "maker-shop",
+    "Eat, Drink & Stay": "food-stay-gathering",
+}
+
+PLACEHOLDER_ASSETS = {
+    "gallery-studio": "assets/placeholders/gallery-studio.png",
+    "performance-event-venue": "assets/placeholders/performance-event-venue.png",
+    "historic-place": "assets/placeholders/historic-place.png",
+    "public-art": "assets/placeholders/public-art.png",
+    "maker-shop": "assets/placeholders/maker-shop.png",
+    "food-stay-gathering": "assets/placeholders/food-stay-gathering.png",
+}
+
+IMAGE_FILE_RE = re.compile(r"\.(?:jpe?g|png|webp|gif)(?:\?|$)", re.I)
+LOGO_RE = re.compile(r"(?:logo|logomark|brandmark|favicon|siteicon|wordmark)", re.I)
+
 PATH_DEFS = [
     {
         "id": "living-like-a-local",
@@ -251,6 +276,70 @@ def description_for(record: dict[str, str], category: str, city: str) -> str:
     return f"A {category.lower()} entry in {place}, included for alpha review while source descriptions are cleaned."
 
 
+def placeholder_type_for(category: str) -> str:
+    return PLACEHOLDER_BY_CATEGORY.get(category, "gallery-studio")
+
+
+def classify_image(name: str, category: str, image: Any) -> tuple[dict[str, str], str | None]:
+    placeholder_type = placeholder_type_for(category)
+    placeholder_src = PLACEHOLDER_ASSETS[placeholder_type]
+    base = {
+        "placeholderType": placeholder_type,
+        "placeholderSrc": placeholder_src,
+    }
+    if not isinstance(image, dict) or not image.get("img"):
+        return {
+            **base,
+            "kind": "placeholder",
+            "src": placeholder_src,
+            "alt": f"Editorial placeholder image for {name}",
+            "credit": "Generated placeholder",
+            "status": "missing",
+            "reason": "missing image",
+        }, "missing image"
+
+    src = clean_text(image.get("img"))
+    alt = clean_text(image.get("alt") or name)
+    credit = clean_text(image.get("credit") or "")
+    lower = src.lower()
+    weak_reason = ""
+
+    if "img/watercolor/" in lower or "../img/watercolor/" in lower:
+        weak_reason = "watercolor/category art"
+    elif LOGO_RE.search(src):
+        weak_reason = "logo or brand mark"
+    elif not (lower.startswith("img/") or lower.startswith("../img/") or lower.startswith("http://") or lower.startswith("https://")):
+        weak_reason = "non-image-looking source"
+    elif lower.startswith("http") and not ("googleusercontent.com" in lower or "wikimedia.org" in lower or IMAGE_FILE_RE.search(src)):
+        weak_reason = "non-image-looking URL"
+    elif (lower.startswith("img/") or lower.startswith("../img/")) and not IMAGE_FILE_RE.search(src):
+        weak_reason = "non-image-looking local asset"
+
+    if weak_reason:
+        return {
+            **base,
+            "kind": "placeholder",
+            "src": placeholder_src,
+            "alt": f"Editorial placeholder image for {name}",
+            "credit": "Generated placeholder",
+            "status": "weak",
+            "reason": weak_reason,
+            "originalSrc": src,
+            "originalAlt": alt,
+            "originalCredit": credit,
+        }, weak_reason
+
+    return {
+        **base,
+        "kind": "real",
+        "src": src,
+        "alt": alt,
+        "credit": credit,
+        "status": "credible",
+        "reason": "",
+    }, None
+
+
 def build_places(workbook: dict[str, list[dict[str, str]]], coord_exact: dict[str, dict[str, Any]], coord_by_name: dict[str, list[dict[str, Any]]], image_data: dict[str, Any]) -> tuple[list[dict[str, Any]], list[str]]:
     places = []
     gaps = []
@@ -288,18 +377,9 @@ def build_places(workbook: dict[str, list[dict[str, str]]], coord_exact: dict[st
                 gaps.append(f"- Weak description: {name} ({city or clean_text(coord.get('city')) or 'city missing'}).")
 
             image = image_data.get(name) or image_data.get(coord.get("name", ""))
-            image_kind = "real"
-            image_src = ""
-            image_alt = ""
-            image_credit = ""
-            if isinstance(image, dict) and image.get("img"):
-                image_src = image["img"]
-                image_alt = clean_text(image.get("alt") or name)
-                image_credit = clean_text(image.get("credit") or "")
-            else:
-                image_kind = "ai-placeholder"
-                image_alt = f"AI placeholder concept for {name}"
-                gaps.append(f"- Image placeholder needed: {name}.")
+            image_record, image_gap = classify_image(name, category, image)
+            if image_gap:
+                gaps.append(f"- Image placeholder used: {name} ({image_gap}).")
 
             muse_pick = sheet.startswith("MUSE")
             places.append({
@@ -314,12 +394,7 @@ def build_places(workbook: dict[str, list[dict[str, str]]], coord_exact: dict[st
                 "lat": coord["lat"],
                 "lng": coord["lng"],
                 "sourceSheet": sheet,
-                "image": {
-                    "kind": image_kind,
-                    "src": image_src,
-                    "alt": image_alt,
-                    "credit": image_credit,
-                },
+                "image": image_record,
                 "featured": (muse_pick or category in {"Galleries & Studios", "Performing Arts", "Public Art"}) and (city or coord.get("city")) in {"Grass Valley", "Nevada City"},
             })
     places.sort(key=lambda p: (0 if p["city"] in {"Grass Valley", "Nevada City"} else 1, p["category"], p["name"]))
@@ -436,6 +511,8 @@ def build_paths(places: list[dict[str, Any]]) -> tuple[list[dict[str, Any]], lis
 
 def write_gaps(gaps: list[str], places: list[dict[str, Any]], events: list[dict[str, Any]], paths: list[dict[str, Any]]) -> None:
     counts = Counter(p["category"] for p in places)
+    image_status = Counter(p.get("image", {}).get("status", "unknown") for p in places)
+    placeholder_types = Counter(p.get("image", {}).get("placeholderType", "unknown") for p in places if p.get("image", {}).get("kind") == "placeholder")
     lines = [
         "# V1 Discovery Map Data Gaps",
         "",
@@ -449,9 +526,22 @@ def write_gaps(gaps: list[str], places: list[dict[str, Any]], events: list[dict[
         f"- Mapped live events: {len(events)}",
         f"- Curated paths: {len(paths)}",
         "",
-        "## Visible Places By Category",
+        "## Image Quality Summary",
+        "",
+        f"- Credible image refs: {image_status.get('credible', 0)}",
+        f"- Missing image placeholders: {image_status.get('missing', 0)}",
+        f"- Weak image placeholders: {image_status.get('weak', 0)}",
+        "",
+        "## Placeholder Types Used",
         "",
     ]
+    for placeholder_type, count in sorted(placeholder_types.items()):
+        lines.append(f"- {placeholder_type}: {count}")
+    lines.extend([
+        "",
+        "## Visible Places By Category",
+        "",
+    ])
     for category, count in sorted(counts.items()):
         lines.append(f"- {category}: {count}")
     lines.extend(["", "## Gaps", ""])

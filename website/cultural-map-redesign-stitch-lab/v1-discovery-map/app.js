@@ -7,18 +7,12 @@
     paths: "data/paths.json",
   };
 
-  const COLORS = {
-    "Arts Organizations": "#1a1a1a",
-    "Cultural Resources": "#5e5852",
-    "Eat, Drink & Stay": "#7c6758",
-    "Fairs & Festivals": "#ff2e00",
-    "Galleries & Studios": "#ff2e00",
-    "Historic Places": "#3f3a35",
-    "MUSE Picks": "#ff2e00",
-    "Performing Arts": "#9e1f12",
-    "Public Art": "#c64023",
-    "Shops & Makers": "#6e5747",
-    "Walks & Trails": "#53654d",
+  const MARKERS = {
+    place: "#2f2b27",
+    quiet: "#6c6258",
+    red: "#ff2e00",
+    paper: "#faf6ec",
+    ink: "#1a1a1a",
   };
 
   const state = {
@@ -28,6 +22,7 @@
     events: [],
     paths: [],
     selectedPath: null,
+    selectedPlaceId: "",
     map: null,
     pathMarkers: [],
   };
@@ -50,6 +45,7 @@
   function resolveMedia(src) {
     if (!src) return "";
     if (/^https?:\/\//.test(src)) return src;
+    if (src.startsWith("assets/")) return src;
     if (src.startsWith("../")) return src;
     return `../${src}`;
   }
@@ -67,7 +63,7 @@
         intent: place.intent,
         featured: Boolean(place.featured),
         musePick: Boolean(place.musePick),
-        color: COLORS[place.category] || "#1a1a1a",
+        selected: place.id === state.selectedPlaceId,
       },
     };
   }
@@ -139,10 +135,11 @@
       const src = resolveMedia(place.image.src);
       return `<img class="place-image" src="${escapeHtml(src)}" alt="${escapeHtml(place.image.alt || place.name)}">`;
     }
+    const src = resolveMedia(place.image?.src || place.image?.placeholderSrc || "assets/placeholders/gallery-studio.png");
     return `
-      <div class="ai-placeholder" role="img" aria-label="${escapeHtml(place.image?.alt || "AI placeholder visual")}">
-        <strong>${escapeHtml(place.category)}</strong>
-        <span class="ai-watermark">AI placeholder</span>
+      <div class="placeholder-image-wrap">
+        <img class="place-image placeholder-image" src="${escapeHtml(src)}" alt="${escapeHtml(place.image?.alt || `Editorial placeholder image for ${place.name}`)}">
+        <span class="placeholder-label">Placeholder image</span>
       </div>
     `;
   }
@@ -152,6 +149,8 @@
   }
 
   function showPlace(place) {
+    state.selectedPlaceId = place.id;
+    setSourceData();
     const events = relatedEvents(place.id);
     const actions = [];
     if (place.website) {
@@ -171,8 +170,8 @@
       ${renderImage(place)}
       <p class="detail-eyebrow">${escapeHtml(place.category)}${place.musePick ? " / MUSE source" : ""}</p>
       <h2>${escapeHtml(place.name)}</h2>
-      <p>${escapeHtml(place.city || "Nevada County")}</p>
-      <p>${escapeHtml(place.description)}</p>
+      <p class="detail-location">${escapeHtml(place.city || "Nevada County")}</p>
+      <p class="detail-description">${escapeHtml(place.description)}</p>
       ${actions.length ? `<div class="detail-actions">${actions.join("")}</div>` : ""}
       ${eventHtml}
     `;
@@ -215,6 +214,7 @@
 
   function showPath(path) {
     state.selectedPath = path;
+    state.selectedPlaceId = "";
     clearPathMarkers();
     const source = state.map.getSource("paths");
     source.setData({ type: "FeatureCollection", features: [pathFeature(path)] });
@@ -222,7 +222,6 @@
       const el = document.createElement("button");
       el.className = "path-number-marker";
       el.textContent = String(index + 1);
-      el.style.cssText = "width:28px;height:28px;border-radius:50%;border:2px solid #1a1a1a;background:#ff2e00;color:#faf6ec;font-weight:800;cursor:pointer;box-shadow:0 2px 0 rgba(26,26,26,.28);";
       el.addEventListener("click", () => {
         const place = state.places.find((item) => item.id === stop.placeId);
         if (place) showPlace(place);
@@ -245,8 +244,8 @@
       </ol>
     `;
     els.hint.innerHTML = `
-      <p class="hint-title">Mapped route selected</p>
-      <p>${escapeHtml(activePath.stops.length)} fixed stops. This is a curated tour, not a generated itinerary.</p>
+      <p class="hint-title">Stop sequence selected</p>
+      <p>${escapeHtml(activePath.stops.length)} fixed stops. This is a curated path, not turn-by-turn routing.</p>
     `;
   }
 
@@ -273,6 +272,7 @@
 
   function setMode(mode) {
     state.mode = mode;
+    if (mode !== "places") state.selectedPlaceId = "";
     document.querySelectorAll(".mode-tab").forEach((tab) => tab.classList.toggle("active", tab.dataset.mode === mode));
     clearPathMarkers();
     state.map.getSource("paths")?.setData({ type: "FeatureCollection", features: [] });
@@ -330,10 +330,16 @@
       filter: ["!", ["has", "point_count"]],
       paint: {
         "circle-radius": ["case", ["get", "featured"], 7, 5],
-        "circle-color": ["get", "color"],
-        "circle-opacity": 0.9,
+        "circle-color": [
+          "case",
+          ["get", "selected"], MARKERS.paper,
+          ["get", "musePick"], MARKERS.red,
+          ["get", "featured"], MARKERS.red,
+          MARKERS.place
+        ],
+        "circle-opacity": ["case", ["get", "selected"], 1, 0.88],
         "circle-stroke-color": "#faf6ec",
-        "circle-stroke-width": 1.5,
+        "circle-stroke-width": ["case", ["get", "selected"], 4, 1.5],
       },
     });
 
@@ -368,8 +374,9 @@
       source: "paths",
       paint: {
         "line-color": "#ff2e00",
-        "line-width": 4,
-        "line-opacity": 0.88,
+        "line-width": 1.25,
+        "line-opacity": 0.16,
+        "line-dasharray": [1.5, 2.5],
       },
     });
 

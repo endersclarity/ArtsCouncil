@@ -314,27 +314,16 @@ button {
   border: 1px solid var(--line);
 }
 
-.ai-placeholder {
+.placeholder-image-wrap {
   position: relative;
-  display: grid;
-  min-height: 160px;
-  place-items: center;
-  padding: 18px;
-  margin-bottom: 12px;
-  background:
-    linear-gradient(135deg, rgba(255, 37, 0, 0.12), rgba(33, 29, 26, 0.06)),
-    repeating-linear-gradient(45deg, rgba(33, 29, 26, 0.08) 0 1px, transparent 1px 16px);
-  border: 1px solid var(--line);
-  text-align: center;
+  margin-bottom: 10px;
 }
 
-.ai-placeholder strong {
-  font-family: var(--font-brand);
-  font-size: 22px;
-  line-height: 1;
+.placeholder-image {
+  filter: saturate(0.95);
 }
 
-.ai-watermark {
+.placeholder-label {
   position: absolute;
   right: 8px;
   bottom: 8px;
@@ -344,6 +333,7 @@ button {
   font-size: 9px;
   font-weight: 800;
   text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
 .detail-eyebrow {
@@ -366,6 +356,15 @@ button {
 .detail-card p {
   line-height: 1.36;
   margin: 0 0 7px;
+}
+
+.detail-location {
+  color: var(--ink-soft);
+  font-weight: 700;
+}
+
+.detail-description {
+  font-size: 15px;
 }
 
 .detail-actions {
@@ -432,6 +431,39 @@ button {
 .path-stop-list {
   margin: 12px 0 0;
   padding-left: 18px;
+}
+
+.path-number-marker {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  border: 2px solid var(--ink);
+  border-radius: 999px;
+  background: var(--ncac-red);
+  color: var(--paper);
+  font: 800 13px/1 var(--font-brand);
+  cursor: pointer;
+  box-shadow: 0 2px 0 rgba(26, 26, 26, 0.28);
+}
+
+.path-number-marker::after {
+  content: "";
+  position: absolute;
+  inset: -7px;
+  border: 2px solid rgba(255, 46, 0, 0.38);
+  border-radius: inherit;
+  animation: pathPulse 1.8s ease-out infinite;
+}
+
+@keyframes pathPulse {
+  0% {
+    transform: scale(0.82);
+    opacity: 0.7;
+  }
+  100% {
+    transform: scale(1.32);
+    opacity: 0;
+  }
 }
 
 .map-legend {
