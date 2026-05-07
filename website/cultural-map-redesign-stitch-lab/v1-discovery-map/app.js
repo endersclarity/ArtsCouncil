@@ -135,7 +135,7 @@
       const src = resolveMedia(place.image.src);
       return `<img class="place-image" src="${escapeHtml(src)}" alt="${escapeHtml(place.image.alt || place.name)}">`;
     }
-    const src = resolveMedia(place.image?.src || place.image?.placeholderSrc || "assets/placeholders/gallery-studio.png");
+    const src = resolveMedia(place.image?.src || place.image?.placeholderSrc || "assets/placeholders/gallery-studio.webp");
     return `
       <div class="placeholder-image-wrap">
         <img class="place-image placeholder-image" src="${escapeHtml(src)}" alt="${escapeHtml(place.image?.alt || `Editorial placeholder image for ${place.name}`)}">
@@ -152,12 +152,10 @@
     state.selectedPlaceId = place.id;
     setSourceData();
     const events = relatedEvents(place.id);
-    const actions = [];
-    if (place.website) {
-      actions.push(`<a href="${escapeHtml(place.website)}" target="_blank" rel="noopener">Visit site</a>`);
-    }
+    const action = place.website ? `<a href="${escapeHtml(place.website)}" target="_blank" rel="noopener">Visit site</a>` : "";
     const eventHtml = events.length ? `
       <div class="related-events">
+        <p class="section-label">Coming up here</p>
         ${events.map((event) => `
           <div class="event-mini">
             <strong>${escapeHtml(event.title)}</strong>
@@ -168,11 +166,11 @@
     ` : "";
     els.detail.innerHTML = `
       ${renderImage(place)}
-      <p class="detail-eyebrow">${escapeHtml(place.category)}${place.musePick ? " / MUSE source" : ""}</p>
+      <p class="detail-eyebrow">${place.musePick ? "MUSE pick" : "Cultural place"}</p>
       <h2>${escapeHtml(place.name)}</h2>
-      <p class="detail-location">${escapeHtml(place.city || "Nevada County")}</p>
+      <p class="detail-location">${escapeHtml(place.category)} / ${escapeHtml(place.city || "Nevada County")}</p>
       <p class="detail-description">${escapeHtml(place.description)}</p>
-      ${actions.length ? `<div class="detail-actions">${actions.join("")}</div>` : ""}
+      ${action ? `<div class="detail-actions">${action}</div>` : ""}
       ${eventHtml}
     `;
     state.map.flyTo({ center: [place.lng, place.lat], zoom: Math.max(state.map.getZoom(), 13.5), speed: 0.8 });
@@ -182,7 +180,7 @@
     const place = state.places.find((item) => item.id === event.placeId);
     els.detail.innerHTML = `
       ${event.image ? `<img class="place-image" src="${escapeHtml(event.image)}" alt="${escapeHtml(event.title)}">` : ""}
-      <p class="detail-eyebrow">Live event layer</p>
+      <p class="detail-eyebrow">Upcoming event</p>
       <h2>${escapeHtml(event.title)}</h2>
       <p>${escapeHtml(event.date)} at ${escapeHtml(event.placeName)}</p>
       <p>${escapeHtml(event.description)}</p>
@@ -238,14 +236,18 @@
     els.detail.innerHTML = `
       <p class="detail-eyebrow">Curated path</p>
       <h2>${escapeHtml(activePath.title)}</h2>
-      <p>${escapeHtml(activePath.dek)}</p>
+      <p class="detail-description">${escapeHtml(activePath.dek)}</p>
       <ol class="path-stop-list">
-        ${activePath.stops.map((stop) => `<li>${escapeHtml(stop.name)} <span>${escapeHtml(stop.city)}</span></li>`).join("")}
+        ${activePath.stops.map((stop) => `<li><button type="button" data-place="${escapeHtml(stop.placeId)}"><strong>${escapeHtml(stop.name)}</strong><span>${escapeHtml(stop.category)} / ${escapeHtml(stop.city)}</span></button></li>`).join("")}
       </ol>
     `;
+    els.detail.querySelectorAll("[data-place]").forEach((button) => {
+      const place = state.places.find((item) => item.id === button.dataset.place);
+      if (place) button.addEventListener("click", () => showPlace(place));
+    });
     els.hint.innerHTML = `
       <p class="hint-title">Stop sequence selected</p>
-      <p>${escapeHtml(activePath.stops.length)} fixed stops. This is a curated path, not turn-by-turn routing.</p>
+      <p>${escapeHtml(activePath.stops.length)} numbered stops. The markers carry the route; the connector stays quiet.</p>
     `;
   }
 
@@ -279,7 +281,7 @@
     state.map.setLayoutProperty("event-points", "visibility", mode === "events" ? "visible" : "none");
     state.map.setLayoutProperty("event-halo", "visibility", mode === "events" ? "visible" : "none");
     if (mode === "events") {
-      els.hint.innerHTML = `<p class="hint-title">Live event layer</p><p>Mapped from the current NCAC Trumba feed where event venues match visible places.</p>`;
+      els.hint.innerHTML = `<p class="hint-title">Events on the map</p><p>Upcoming NCAC-feed events appear when the venue matches a visible place.</p>`;
       const first = state.events[0];
       if (first) showEvent(first);
     } else if (mode === "paths") {
@@ -306,9 +308,10 @@
       filter: ["has", "point_count"],
       paint: {
         "circle-color": "#faf6ec",
-        "circle-stroke-color": "#ff2e00",
-        "circle-stroke-width": 2,
-        "circle-radius": ["step", ["get", "point_count"], 18, 30, 24, 100, 31],
+        "circle-stroke-color": "#8c8177",
+        "circle-stroke-width": ["step", ["get", "point_count"], 1.25, 100, 1.6],
+        "circle-radius": ["step", ["get", "point_count"], 15, 30, 20, 100, 27],
+        "circle-opacity": 0.94,
       },
     });
     state.map.addLayer({
@@ -329,7 +332,12 @@
       source: "places",
       filter: ["!", ["has", "point_count"]],
       paint: {
-        "circle-radius": ["case", ["get", "featured"], 7, 5],
+        "circle-radius": [
+          "case",
+          ["get", "selected"], 8,
+          ["get", "featured"], 6,
+          4.5
+        ],
         "circle-color": [
           "case",
           ["get", "selected"], MARKERS.paper,
@@ -338,8 +346,12 @@
           MARKERS.place
         ],
         "circle-opacity": ["case", ["get", "selected"], 1, 0.88],
-        "circle-stroke-color": "#faf6ec",
-        "circle-stroke-width": ["case", ["get", "selected"], 4, 1.5],
+        "circle-stroke-color": [
+          "case",
+          ["get", "selected"], MARKERS.red,
+          "#faf6ec"
+        ],
+        "circle-stroke-width": ["case", ["get", "selected"], 3, 1.25],
       },
     });
 
@@ -374,9 +386,9 @@
       source: "paths",
       paint: {
         "line-color": "#ff2e00",
-        "line-width": 1.25,
-        "line-opacity": 0.16,
-        "line-dasharray": [1.5, 2.5],
+        "line-width": 1,
+        "line-opacity": 0.06,
+        "line-dasharray": [1, 4],
       },
     });
 

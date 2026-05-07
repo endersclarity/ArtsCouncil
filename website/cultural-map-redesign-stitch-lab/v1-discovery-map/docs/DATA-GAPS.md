@@ -1,6 +1,6 @@
 # V1 Discovery Map Data Gaps
 
-Generated: 2026-05-07T04:09:47+00:00
+Generated: 2026-05-07T04:38:48+00:00
 
 This log preserves records and content gaps that were not displayed in the alpha because V1 only shows data that can appear credibly on the map.
 
@@ -19,11 +19,26 @@ This log preserves records and content gaps that were not displayed in the alpha
 ## Placeholder Types Used
 
 - food-stay-gathering: 221
-- gallery-studio: 248
+- gallery-studio: 247
 - historic-place: 162
 - maker-shop: 16
-- performance-event-venue: 71
+- performance-event-venue: 72
 - public-art: 21
+
+## Demo-Critical Records
+
+These records are likely to be clicked during stakeholder review because they appear in the curated paths.
+
+- Art Works Gallery (Grass Valley): placeholder image: missing image.
+- ASiF Studios (Grass Valley): placeholder image: missing image.
+- Booktown Books (Grass Valley): demo-ready for alpha.
+- C.H.A.M.P. Gallery at City Hall (Nevada City): placeholder image: missing image.
+- Miners Foundry Cultural Center (Nevada City): placeholder image: logo or brand mark.
+- Nevada City Winery (Nevada City): demo-ready for alpha.
+- Nevada Theatre (Nevada City): demo-ready for alpha.
+- The Center for the Arts (Grass Valley): placeholder image: missing image.
+- The Curious Forge (Nevada City): demo-ready for alpha.
+- The Stone House (Nevada City): demo-ready for alpha.
 
 ## Visible Places By Category
 
@@ -31,12 +46,12 @@ This log preserves records and content gaps that were not displayed in the alpha
 - Cultural Resources: 23
 - Eat, Drink & Stay: 270
 - Fairs & Festivals: 26
-- Galleries & Studios: 45
+- Galleries & Studios: 44
 - Historic Places: 246
 - MUSE Picks: 197
 - Performing Arts: 52
 - Public Art: 22
-- Shops & Makers: 16
+- Shops & Makers: 17
 - Walks & Trails: 121
 
 ## Gaps
@@ -385,13 +400,10 @@ This log preserves records and content gaps that were not displayed in the alpha
 - Weak description: Art Space (Grass Valley).
 - Image placeholder used: Art Space (missing image).
 - Weak description: Art Truckee (Truckee).
-- Weak description: Art Works Gallery (Grass Valley).
 - Image placeholder used: Art Works Gallery (missing image).
-- Weak description: ASiF Studios (Grass Valley).
 - Image placeholder used: ASiF Studios (missing image).
 - Weak description: Bear River Glassworks (Grass Valley).
 - Image placeholder used: Bear River Glassworks (missing image).
-- Weak description: C.H.A.M.P. Gallery at City Hall (Nevada City).
 - Image placeholder used: C.H.A.M.P. Gallery at City Hall (missing image).
 - Weak description: Eric Rood Administration Center Lobby (Nevada City).
 - Image placeholder used: Eric Rood Administration Center Lobby (missing image).
@@ -449,7 +461,6 @@ This log preserves records and content gaps that were not displayed in the alpha
 - Missing website: An Inner Sanctum (Nevada City).
 - Weak description: An Inner Sanctum (Nevada City).
 - Image placeholder used: An Inner Sanctum (missing image).
-- Weak description: Booktown Books (Grass Valley).
 - Weak description: Brown Banana Books (Grass Valley).
 - Image placeholder used: Brown Banana Books (missing image).
 - Weak description: Clock Tower Records (Grass Valley).
@@ -662,7 +673,6 @@ This log preserves records and content gaps that were not displayed in the alpha
 - Image placeholder used: The Place on South Pine (missing image).
 - Weak description: The Pub at Donner Lake (Truckee).
 - Image placeholder used: The Pub at Donner Lake (missing image).
-- Weak description: The Stone House (Nevada City).
 - Weak description: The Thirsty Barrel Taphouse & Grille (Grass Valley).
 - Image placeholder used: The Thirsty Barrel Taphouse & Grille (missing image).
 - Duplicate source row skipped: The Willo Steakhouse (Nevada City) from MUSE BD_Table 1.
@@ -941,3 +951,8 @@ This log preserves records and content gaps that were not displayed in the alpha
 - Weak description: Mountain Gazette (Truckee).
 - Image placeholder used: Mountain Gazette (missing image).
 - Weak description: Nevada County Media (Grass Valley).
+- Image placeholder used: Nevada County Media (missing image).
+- Weak description: Sierra Sun (Truckee).
+- Image placeholder used: Sierra Sun (missing image).
+- Weak description: Tahoe Guide (Truckee).
+- Image placeholder used: Tahoe Guide (missing image).

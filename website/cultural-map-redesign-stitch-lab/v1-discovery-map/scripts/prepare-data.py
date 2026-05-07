@@ -82,12 +82,12 @@ PLACEHOLDER_BY_CATEGORY = {
 }
 
 PLACEHOLDER_ASSETS = {
-    "gallery-studio": "assets/placeholders/gallery-studio.png",
-    "performance-event-venue": "assets/placeholders/performance-event-venue.png",
-    "historic-place": "assets/placeholders/historic-place.png",
-    "public-art": "assets/placeholders/public-art.png",
-    "maker-shop": "assets/placeholders/maker-shop.png",
-    "food-stay-gathering": "assets/placeholders/food-stay-gathering.png",
+    "gallery-studio": "assets/placeholders/gallery-studio.webp",
+    "performance-event-venue": "assets/placeholders/performance-event-venue.webp",
+    "historic-place": "assets/placeholders/historic-place.webp",
+    "public-art": "assets/placeholders/public-art.webp",
+    "maker-shop": "assets/placeholders/maker-shop.webp",
+    "food-stay-gathering": "assets/placeholders/food-stay-gathering.webp",
 }
 
 IMAGE_FILE_RE = re.compile(r"\.(?:jpe?g|png|webp|gif)(?:\?|$)", re.I)
@@ -112,7 +112,7 @@ PATH_DEFS = [
         "stop_names": [
             "Art Works Gallery",
             "C.H.A.M.P. Gallery at City Hall",
-            "ASiF Artists Studio in the Foothills",
+            "ASiF Studios",
             "The Curious Forge",
         ],
     },
@@ -128,6 +128,43 @@ PATH_DEFS = [
         ],
     },
 ]
+
+DEMO_PLACE_OVERRIDES = {
+    "booktown-books-grass-valley": {
+        "category": "Shops & Makers",
+        "intent": "Shops & Makers",
+        "description": "A downtown Grass Valley bookstore and local browsing anchor, useful as a soft start to a culture-forward day out.",
+    },
+    "the-center-for-the-arts-grass-valley": {
+        "description": "Grass Valley's major performing arts anchor, with concerts, theater, community programs, and touring artists close to downtown.",
+    },
+    "nevada-city-winery-nevada-city": {
+        "description": "A Nevada City tasting room and gathering stop that gives an evening route a local, walkable place to land.",
+    },
+    "nevada-theatre-nevada-city": {
+        "description": "A historic Nevada City performance house with a long cultural memory, still useful as a recognizable arts-night anchor.",
+    },
+    "art-works-gallery-grass-valley": {
+        "description": "A cooperative downtown gallery where local artists show ceramics, paintings, jewelry, sculpture, and other studio work.",
+    },
+    "c-h-a-m-p-gallery-at-city-hall-nevada-city": {
+        "description": "A public-facing Nevada City gallery program that turns civic space into a rotating place for local artists.",
+    },
+    "asif-studios-grass-valley": {
+        "description": "A Grass Valley studio community and teaching space that makes the gallery route feel active, local, and maker-led.",
+    },
+    "the-curious-forge-nevada-city": {
+        "description": "A large maker space with studios, tools, classes, and creative production capacity beyond a traditional gallery stop.",
+    },
+    "miners-foundry-cultural-center-nevada-city": {
+        "category": "Performing Arts",
+        "intent": "See a Show",
+        "description": "A Nevada City cultural center for concerts, performances, community gatherings, and the kind of nights visitors remember.",
+    },
+    "the-stone-house-nevada-city": {
+        "description": "A historic Nevada City dining and music venue that works as an after-hours gathering point for an arts night.",
+    },
+}
 
 
 def normalize(value: Any) -> str:
@@ -276,6 +313,13 @@ def description_for(record: dict[str, str], category: str, city: str) -> str:
     return f"A {category.lower()} entry in {place}, included for alpha review while source descriptions are cleaned."
 
 
+def normalize_website(value: str) -> str:
+    website = clean_text(value)
+    if website and not re.match(r"https?://", website, re.I):
+        return f"https://{website}"
+    return website
+
+
 def placeholder_type_for(category: str) -> str:
     return PLACEHOLDER_BY_CATEGORY.get(category, "gallery-studio")
 
@@ -369,8 +413,13 @@ def build_places(workbook: dict[str, list[dict[str, str]]], coord_exact: dict[st
 
             asset_type = clean_text(record.get("AssetType") or coord.get("assetType") or coord.get("sheet"))
             category = map_category(sheet, asset_type)
-            website = clean_text(record.get("Website") or coord.get("website"))
+            website = normalize_website(record.get("Website") or coord.get("website"))
             description = description_for(record, category, city or clean_text(coord.get("city")))
+            place_id = re.sub(r"[^a-z0-9]+", "-", normalize(f"{name} {city}")).strip("-")
+            override = DEMO_PLACE_OVERRIDES.get(place_id)
+            if override:
+                category = override.get("category", category)
+                description = override.get("description", description)
             if not website:
                 gaps.append(f"- Missing website: {name} ({city or clean_text(coord.get('city')) or 'city missing'}).")
             if description.startswith("A ") and "included for alpha review" in description:
@@ -383,11 +432,11 @@ def build_places(workbook: dict[str, list[dict[str, str]]], coord_exact: dict[st
 
             muse_pick = sheet.startswith("MUSE")
             places.append({
-                "id": re.sub(r"[^a-z0-9]+", "-", normalize(f"{name} {city}")).strip("-"),
+                "id": place_id,
                 "name": name,
                 "city": city or clean_text(coord.get("city")),
                 "category": category,
-                "intent": intent_for(category),
+                "intent": override.get("intent", intent_for(category)) if override else intent_for(category),
                 "musePick": muse_pick,
                 "description": description,
                 "website": website,
@@ -537,6 +586,31 @@ def write_gaps(gaps: list[str], places: list[dict[str, Any]], events: list[dict[
     ]
     for placeholder_type, count in sorted(placeholder_types.items()):
         lines.append(f"- {placeholder_type}: {count}")
+    lines.extend([
+        "",
+        "## Demo-Critical Records",
+        "",
+        "These records are likely to be clicked during stakeholder review because they appear in the curated paths.",
+        "",
+    ])
+    path_ids = []
+    for path in paths:
+        path_ids.extend(stop["placeId"] for stop in path["stops"])
+    by_id = {place["id"]: place for place in places}
+    for place_id in sorted(set(path_ids)):
+        place = by_id.get(place_id)
+        if not place:
+            continue
+        image = place.get("image", {})
+        issues = []
+        if image.get("kind") == "placeholder":
+            issues.append(f"placeholder image: {image.get('reason', 'missing')}")
+        if not place.get("website"):
+            issues.append("missing website")
+        if place.get("description", "").startswith("A ") and "included for alpha review" in place.get("description", ""):
+            issues.append("weak description")
+        status = "; ".join(issues) if issues else "demo-ready for alpha"
+        lines.append(f"- {place['name']} ({place['city']}): {status}.")
     lines.extend([
         "",
         "## Visible Places By Category",

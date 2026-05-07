@@ -44,8 +44,8 @@ Do not use serif display fonts for V1. Avoid Playfair, Iowan, Charter, Georgia, 
 
 - Mode tabs: `Places`, `Events`, `Paths`.
 - Filter chips: visitor intent labels backed by source categories.
-- Detail card: image proof, name, category, compact description, practical links, related events where available.
-- Path view: fixed route line, numbered markers, short stop list.
+- Detail card: image proof, name, category/city, compact description, one practical action, related events where available.
+- Path view: numbered markers, clickable stop list, and only a faint helper connector.
 
 ## Imagery
 
@@ -53,7 +53,7 @@ Real place photos are preferred. Category watercolors and logos are not acceptab
 
 Missing images should use intentionally designed generated placeholders that are visibly labeled as placeholders until replaced by real documentation.
 
-Draft 2 uses six generated editorial-abstraction placeholders:
+Draft 2 uses six generated editorial-abstraction placeholders, compressed to WebP for Draft 3:
 
 - Gallery / Studio
 - Performance / Event Venue
@@ -73,13 +73,19 @@ Markers communicate layer and priority, not full category taxonomy.
 - Selected place: ringed active state.
 - Event: red dot with subtle halo, visible in Events mode.
 - Path stop: numbered marker with subtle active/pulse treatment.
-- Cluster: paper fill, red stroke, ink count.
+- Cluster: paper fill, muted neutral stroke, ink count. Clusters should stay legible without competing with red active states.
 
 Do not use category icon soup, category rainbow markers, or a category legend. Keep taxonomy in filters and selected cards.
 
 ## Paths
 
-Paths are curated stop sequences, not turn-by-turn route geometry. Emphasize numbered stops, the stop list, and active marker treatment. Avoid a heavy route line; use only a faint helper connector if visual QA shows the sequence is unclear.
+Paths are curated stop sequences, not turn-by-turn route geometry. Emphasize numbered stops, the clickable stop list, and active marker treatment. Avoid a heavy route line; use only a faint helper connector so the sequence does not read like route math.
+
+## Demo Polish Rules
+
+- Demo-critical records are the path stops and likely first review clicks. Clean their category, description, website, and image state before broad data polish.
+- Cards should read as product moments, not data QA: proof and desire first; image weakness is logged in data docs, not explained in the UI.
+- Red is reserved for ownership, active modes, selected/featured places, events, and path stops. Do not let clusters dominate the map in red.
 
 ## Draft 2 Tooling
 

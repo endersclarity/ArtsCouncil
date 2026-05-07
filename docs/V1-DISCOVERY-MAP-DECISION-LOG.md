@@ -109,3 +109,13 @@ This log preserves choices and rejected alternatives so stakeholder feedback can
 - Alternatives considered: scenic MapTiler terrain; bright tourism map; GIS-like map.
 - Why not: scenic terrain revives older atlas branding; tourism style feels generic; GIS style repeats the current asset map problem.
 - Easy branch: run the existing basemap comparison and swap the MapLibre style if stakeholders want more terrain or color.
+
+## Draft 3 Demo Polish
+
+- Chosen direction: keep the existing MapLibre alpha and polish the first stakeholder-demo clicks.
+- Alternatives considered: restart visual exploration in OpenDesign or Claude Design; broaden into a PRD; run a full data audit first.
+- Why not: the product direction is already stable, and the biggest risk is whether the first five minutes feel culturally credible rather than merely wired.
+- Implementation rule: prioritize selected-card craft, demo-critical path records, quieter clusters, path stop sequence clarity, and optimized placeholder assets.
+- Demo data rule: path stops are explicitly logged in `DATA-GAPS.md` as demo-critical records, including placeholder-image dependencies.
+- Image rule: generated placeholders are served as compressed WebP assets; source PNGs are not needed in the preview app.
+- Easy branch: after review, replace placeholder-dependent path stops with approved real photography or swap the curated path themes without changing the map architecture.
