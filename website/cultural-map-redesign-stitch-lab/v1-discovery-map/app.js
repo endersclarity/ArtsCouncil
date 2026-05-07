@@ -225,6 +225,7 @@
         if (place) showPlace(place);
       });
       const marker = new maplibregl.Marker({ element: el }).setLngLat([stop.lng, stop.lat]).addTo(state.map);
+      marker.getElement().setAttribute("aria-label", `Stop ${index + 1}: ${stop.name}`);
       state.pathMarkers.push(marker);
     });
     const bounds = path.stops.reduce((acc, stop) => acc.extend([stop.lng, stop.lat]), new maplibregl.LngLatBounds([path.stops[0].lng, path.stops[0].lat], [path.stops[0].lng, path.stops[0].lat]));
@@ -234,9 +235,11 @@
 
   function renderPathPanel(activePath) {
     els.detail.innerHTML = `
-      <p class="detail-eyebrow">Curated path</p>
-      <h2>${escapeHtml(activePath.title)}</h2>
-      <p class="detail-description">${escapeHtml(activePath.dek)}</p>
+      <div class="path-card-heading">
+        <p class="detail-eyebrow">Curated path</p>
+        <h2>${escapeHtml(activePath.title)}</h2>
+        <p class="detail-description">${escapeHtml(activePath.dek)}</p>
+      </div>
       <ol class="path-stop-list">
         ${activePath.stops.map((stop) => `<li><button type="button" data-place="${escapeHtml(stop.placeId)}"><strong>${escapeHtml(stop.name)}</strong><span>${escapeHtml(stop.category)} / ${escapeHtml(stop.city)}</span></button></li>`).join("")}
       </ol>
@@ -274,6 +277,7 @@
 
   function setMode(mode) {
     state.mode = mode;
+    document.body.dataset.mapMode = mode;
     if (mode !== "places") state.selectedPlaceId = "";
     document.querySelectorAll(".mode-tab").forEach((tab) => tab.classList.toggle("active", tab.dataset.mode === mode));
     clearPathMarkers();

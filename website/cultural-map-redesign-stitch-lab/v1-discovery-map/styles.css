@@ -287,6 +287,10 @@ button {
   box-shadow: inset 0 -3px 0 var(--ncac-red);
 }
 
+body[data-map-mode="paths"] .filter-wrap {
+  display: none;
+}
+
 .detail-card {
   border-top: 2px solid var(--ink);
   padding-top: 11px;
@@ -443,12 +447,32 @@ button {
   font-size: 17px;
 }
 
+.path-card-heading {
+  display: grid;
+  gap: 4px;
+}
+
+.path-card-heading .detail-eyebrow,
+.path-card-heading h2,
+.path-card-heading .detail-description {
+  margin-bottom: 0;
+}
+
+.path-card-heading h2 {
+  font-size: 26px;
+}
+
+.path-card-heading .detail-description {
+  font-size: 14px;
+  line-height: 1.28;
+}
+
 .path-stop-list {
-  margin: 12px 0 0;
+  margin: 9px 0 0;
   padding: 0;
   list-style: none;
   display: grid;
-  gap: 8px;
+  gap: 6px;
   counter-reset: path-stops;
 }
 
@@ -466,7 +490,7 @@ button {
   border: 1px solid var(--line);
   background: var(--surface);
   color: var(--ink);
-  padding: 8px;
+  padding: 7px;
   cursor: pointer;
 }
 
@@ -485,16 +509,18 @@ button {
 .path-stop-list strong,
 .path-stop-list span {
   grid-column: 2;
+  line-height: 1.15;
 }
 
 .path-stop-list strong {
   font-family: var(--font-brand);
+  font-size: 14px;
 }
 
 .path-stop-list span {
-  margin-top: -3px;
+  margin-top: -2px;
   color: var(--ink-soft);
-  font-size: 12px;
+  font-size: 11px;
 }
 
 .path-number-marker {
