@@ -429,7 +429,15 @@
     return state.events.filter((event) => event.placeId === placeId).slice(0, 3);
   }
 
+  function expandDrawer() {
+    const controlPanel = document.querySelector(".control-panel");
+    if (controlPanel) {
+      controlPanel.classList.remove("collapsed");
+    }
+  }
+
   function showPlace(place) {
+    expandDrawer();
     state.selectedPlaceId = place.id;
     setSourceData();
     const events = relatedEvents(place.id);
@@ -476,6 +484,7 @@
   }
 
   function showEvent(event) {
+    expandDrawer();
     const place = state.places.find((item) => item.id === event.placeId);
     els.detail.innerHTML = `
       ${event.image ? `<img class="place-image" src="${escapeHtml(event.image)}" alt="${escapeHtml(event.title)}">` : ""}
@@ -510,6 +519,7 @@
   }
 
   function showPath(path) {
+    expandDrawer();
     state.selectedPath = path;
     state.selectedPlaceId = "";
     clearPathMarkers();
@@ -840,6 +850,14 @@
     document.querySelectorAll(".mode-tab").forEach((tab) => {
       tab.addEventListener("click", () => setMode(tab.dataset.mode));
     });
+
+    const drawerToggle = document.getElementById("drawer-toggle");
+    const controlPanel = document.querySelector(".control-panel");
+    if (drawerToggle && controlPanel) {
+      drawerToggle.addEventListener("click", () => {
+        controlPanel.classList.toggle("collapsed");
+      });
+    }
   }
 
   init().catch((error) => {

@@ -182,6 +182,10 @@ button {
   inset: 0;
 }
 
+.drawer-toggle {
+  display: none;
+}
+
 .control-panel {
   position: absolute;
   z-index: 4;
@@ -652,15 +656,59 @@ body[data-map-mode="paths"] .filter-wrap {
     min-width: 0;
     max-height: 52%;
     padding: 11px;
+    transition: max-height 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    overflow-y: auto;
+    scrollbar-width: none;
+  }
+  .control-panel::-webkit-scrollbar {
+    display: none;
   }
 
-  .mode-tab {
-    min-width: 0;
-    padding-left: 4px;
-    padding-right: 4px;
+  .drawer-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 14px;
+    background: transparent;
+    border: 0;
+    margin: -6px 0 4px 0;
+    padding: 0;
+    cursor: pointer;
+  }
+  
+  .drawer-handle-bar {
+    width: 36px;
+    height: 4px;
+    background-color: var(--line-strong);
+    border-radius: 2px;
+    transition: background-color 0.2s;
+  }
+
+  .drawer-toggle:hover .drawer-handle-bar {
+    background-color: var(--ink-soft);
+  }
+  
+  .control-panel.collapsed {
+    max-height: 86px !important;
+    overflow: hidden;
+  }
+
+  .filter-wrap {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 4px;
+    margin-bottom: 8px;
+    scrollbar-width: none;
+  }
+
+  .filter-wrap::-webkit-scrollbar {
+    display: none;
   }
 
   .filter-chip {
+    flex-shrink: 0;
     padding: 7px 8px;
   }
 
@@ -695,6 +743,7 @@ body[data-map-mode="paths"] .filter-wrap {
     max-height: 48%;
     border-left: 1px solid var(--line-strong);
     border-right: 1px solid var(--line-strong);
+    transition: max-height 0.3s cubic-bezier(0.25, 1, 0.5, 1);
   }
 
   .mode-tab {
