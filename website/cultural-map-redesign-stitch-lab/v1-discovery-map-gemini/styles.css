@@ -9,8 +9,8 @@
   --line-strong: #1a1a1a;
   --panel: #faf6ec;
   --shadow: 0 16px 44px rgba(26, 26, 26, 0.16);
-  --font-brand: "polymath-variable-2th9nk", "DM Sans", "Inter", system-ui, sans-serif;
-  --font-body: "polymath-variable-2th9nk", "DM Sans", "Inter", system-ui, sans-serif;
+  --font-brand: "Alegreya Sans", "polymath-variable-2th9nk", "DM Sans", "Inter", system-ui, sans-serif;
+  --font-body: "Alegreya Sans", "polymath-variable-2th9nk", "DM Sans", "Inter", system-ui, sans-serif;
 }
 
 * {
@@ -22,8 +22,8 @@ body {
   background: var(--paper);
   color: var(--ink);
   font-family: var(--font-body);
-  font-size: 15px;
-  line-height: 1.42;
+  font-size: 16px;
+  line-height: 1.45;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
 }
