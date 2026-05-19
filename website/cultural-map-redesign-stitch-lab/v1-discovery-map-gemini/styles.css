@@ -13,6 +13,19 @@
   --font-body: "Alegreya Sans", "polymath-variable-2th9nk", "DM Sans", "Inter", system-ui, sans-serif;
 }
 
+body.twilight-mode {
+  --ncac-red: #e23c14;
+  --ink: #2a2015;
+  --ink-soft: #786854;
+  --paper: #ecdcb9;
+  --paper-warm: #dfceaa;
+  --surface: #f6ebcf;
+  --line: #ccbca0;
+  --line-strong: #2a2015;
+  --panel: #ecdcb9;
+  --shadow: 0 16px 44px rgba(42, 32, 21, 0.2);
+}
+
 * {
   box-sizing: border-box;
 }

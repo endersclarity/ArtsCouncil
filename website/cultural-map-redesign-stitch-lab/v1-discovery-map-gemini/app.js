@@ -658,7 +658,29 @@
   function applyCustomBasemapStyling() {
     if (!state.map) return;
 
-    const paintOverrides = [
+    const hour = new Date().getHours();
+    const urlParams = new URLSearchParams(window.location.search);
+    const forceTwilight = urlParams.get("twilight") === "true";
+    const isEvening = forceTwilight || hour >= 18 || hour < 6;
+
+    if (isEvening) {
+      document.body.classList.add("twilight-mode");
+    } else {
+      document.body.classList.remove("twilight-mode");
+    }
+
+    const paintOverrides = isEvening ? [
+      { layerId: "background", property: "background-color", value: "#ecdcb9" },
+      { layerId: "water", property: "fill-color", value: "#ccbca0" },
+      { layerId: "waterway", property: "line-color", value: "#ccbca0" },
+      { layerId: "landcover", property: "fill-color", value: "#dfceaa" },
+      { layerId: "landuse", property: "fill-color", value: "#dfceaa" },
+      { layerId: "landuse_residential", property: "fill-color", value: "#d9c7a2" },
+      { layerId: "park_nature_reserve", property: "fill-color", value: "#d4c193" },
+      { layerId: "park_national_park", property: "fill-color", value: "#d4c193" },
+      { layerId: "building", property: "fill-color", value: "#ccbca0" },
+      { layerId: "building-top", property: "fill-color", value: "#d4c193" }
+    ] : [
       { layerId: "background", property: "background-color", value: "#faf6ec" },
       { layerId: "water", property: "fill-color", value: "#e2ded4" },
       { layerId: "waterway", property: "line-color", value: "#e2ded4" },
@@ -686,9 +708,9 @@
     minorRoadLayers.forEach((layerId) => {
       if (state.map.getLayer(layerId)) {
         if (layerId.includes("case")) {
-          state.map.setPaintProperty(layerId, "line-opacity", 0.08);
+          state.map.setPaintProperty(layerId, "line-opacity", isEvening ? 0.04 : 0.08);
         } else {
-          state.map.setPaintProperty(layerId, "line-opacity", 0.15);
+          state.map.setPaintProperty(layerId, "line-opacity", isEvening ? 0.08 : 0.15);
         }
       }
     });
