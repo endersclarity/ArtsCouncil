@@ -645,6 +645,45 @@
     setSourceData();
   }
 
+  function applyCustomBasemapStyling() {
+    if (!state.map) return;
+
+    const paintOverrides = [
+      { layerId: "background", property: "background-color", value: "#faf6ec" },
+      { layerId: "water", property: "fill-color", value: "#e2ded4" },
+      { layerId: "waterway", property: "line-color", value: "#e2ded4" },
+      { layerId: "landcover", property: "fill-color", value: "#f4f0e2" },
+      { layerId: "landuse", property: "fill-color", value: "#f4f0e2" },
+      { layerId: "landuse_residential", property: "fill-color", value: "#f3ede0" },
+      { layerId: "park_nature_reserve", property: "fill-color", value: "#efeada" },
+      { layerId: "park_national_park", property: "fill-color", value: "#efeada" },
+      { layerId: "building", property: "fill-color", value: "#ebe6d8" },
+      { layerId: "building-top", property: "fill-color", value: "#ede8da" }
+    ];
+
+    paintOverrides.forEach(({ layerId, property, value }) => {
+      if (state.map.getLayer(layerId)) {
+        state.map.setPaintProperty(layerId, property, value);
+      }
+    });
+
+    const minorRoadLayers = [
+      "road_service_case", "road_minor_case", "road_path", "road_service_fill", "road_minor_fill",
+      "tunnel_service_case", "tunnel_minor_case", "tunnel_path", "tunnel_service_fill", "tunnel_minor_fill",
+      "bridge_service_case", "bridge_minor_case", "bridge_path", "bridge_service_fill", "bridge_minor_fill"
+    ];
+
+    minorRoadLayers.forEach((layerId) => {
+      if (state.map.getLayer(layerId)) {
+        if (layerId.includes("case")) {
+          state.map.setPaintProperty(layerId, "line-opacity", 0.08);
+        } else {
+          state.map.setPaintProperty(layerId, "line-opacity", 0.15);
+        }
+      }
+    });
+  }
+
   function addMapLayers() {
     state.map.addSource("places", {
       type: "geojson",
@@ -788,6 +827,7 @@
     });
     state.map.addControl(new maplibregl.NavigationControl({ showCompass: false }), "bottom-right");
     state.map.on("load", () => {
+      applyCustomBasemapStyling();
       addMapLayers();
       setSourceData();
       renderFirstLoadTeaser();
