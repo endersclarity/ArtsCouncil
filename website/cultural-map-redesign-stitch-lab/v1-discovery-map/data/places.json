@@ -933,7 +933,16 @@
       "status": "credible",
       "reason": ""
     },
-    "featured": false
+    "featured": true,
+    "anchor": {
+      "label": "Maker anchor",
+      "hook": "A large creative workshop where classes, tools, and production make the route feel active.",
+      "iconKey": "maker",
+      "priority": 10,
+      "pathIds": [
+        "gallery-studio-day"
+      ]
+    }
   },
   {
     "id": "the-onyx-theater-nevada-city",
@@ -1032,7 +1041,7 @@
       "originalAlt": "Golden Road Radio and Television in Grass Valley",
       "originalCredit": "Nevada County Arts Council"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "golden-road-radio-and-television-grass-valley",
@@ -1083,7 +1092,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "kvmr-89-5fm-nevada-city",
@@ -1107,7 +1116,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "kvmrx-105-7fm-nevada-city",
@@ -1131,7 +1140,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "kyrr-93-3-fm-nevada-city",
@@ -1155,7 +1164,7 @@
       "status": "credible",
       "reason": ""
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "nevada-county-media-grass-valley",
@@ -1179,7 +1188,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "prime-cinemas-del-oro-theatre-grass-valley",
@@ -1227,7 +1236,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "yubanet-nevada-city",
@@ -1251,7 +1260,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "1849-brewing-company-grass-valley",
@@ -1275,7 +1284,7 @@
       "status": "credible",
       "reason": ""
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "1856-speakeasy-suites-nevada-city",
@@ -1323,7 +1332,7 @@
       "status": "credible",
       "reason": ""
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "alloro-cucina-italiana-grass-valley",
@@ -1371,7 +1380,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "alta-sierra-village-inn-grass-valley",
@@ -1395,7 +1404,7 @@
       "status": "credible",
       "reason": ""
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "alta-sierra-wine-shop-grass-valley",
@@ -1419,7 +1428,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "antonio-ayestaran-custom-catering-grass-valley",
@@ -1467,7 +1476,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "arquils-wine-nevada-city",
@@ -1515,7 +1524,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "avanguardia-winery-nevada-city",
@@ -1563,7 +1572,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "bicycle-thief-grass-valley",
@@ -1587,7 +1596,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "brew-bakers-coffee-and-tea-house-grass-valley",
@@ -1659,7 +1668,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "briarpatch-food-co-op-grass-valley",
@@ -1707,7 +1716,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "bubba-s-bagels-grass-valley",
@@ -1731,7 +1740,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "california-organics-restaurant-gallery-nevada-city",
@@ -1782,7 +1791,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "cascade-shores-general-store-and-cafe-nevada-city",
@@ -1857,7 +1866,7 @@
       "originalAlt": "Cirino’s at Main Street in Grass Valley",
       "originalCredit": "Cirino’s at Main Street"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "cork-49-grass-valley",
@@ -1881,7 +1890,7 @@
       "status": "credible",
       "reason": ""
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "courtyard-inn-suites-grass-valley",
@@ -1929,7 +1938,7 @@
       "status": "credible",
       "reason": ""
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "creekside-cottage-nevada-city",
@@ -1977,7 +1986,7 @@
       "status": "credible",
       "reason": ""
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "diego-s-restaurant-grass-valley",
@@ -2001,7 +2010,7 @@
       "status": "credible",
       "reason": ""
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "el-milagro-mexican-restaurant-grass-valley",
@@ -2025,7 +2034,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "elam-biggs-bed-breakfast-grass-valley",
@@ -2073,7 +2082,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "elixart-herbal-lounge-gallery-nevada-city",
@@ -2121,7 +2130,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "farmstead-cheeses-and-wines-grass-valley",
@@ -2145,7 +2154,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "flume-s-end-nevada-city",
@@ -2169,7 +2178,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "frescas-farms-vineyard-grass-valley",
@@ -2217,7 +2226,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "friar-tucks-restaurant-bar-nevada-city",
@@ -2292,7 +2301,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "garnish-nevada-city",
@@ -2340,7 +2349,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "gold-miners-inn-grass-valley",
@@ -2364,7 +2373,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "gold-rush-cookie-company-grass-valley",
@@ -2412,7 +2421,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "golden-era-lounge-nevada-city",
@@ -2436,7 +2445,7 @@
       "status": "credible",
       "reason": ""
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "golden-gate-saloon-grass-valley",
@@ -2460,7 +2469,7 @@
       "status": "credible",
       "reason": ""
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "grass-valley-brewing-co-grass-valley",
@@ -2484,7 +2493,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "grass-valley-brewing-company-grass-valley",
@@ -2532,7 +2541,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "grass-valley-rv-resort-grass-valley",
@@ -2556,7 +2565,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "gratidude-ranch-nevada-city",
@@ -2628,7 +2637,7 @@
       "status": "credible",
       "reason": ""
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "heartwood-eatery-nevada-city",
@@ -2676,7 +2685,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "inn-town-campground-nevada-city",
@@ -2724,7 +2733,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "iron-door-speakeasy-grass-valley",
@@ -2748,7 +2757,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "jernigan-s-tap-house-grill-nevada-city",
@@ -2796,7 +2805,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "jule-vacation-rentals-grass-valley",
@@ -2844,7 +2853,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "lamb-s-victorian-inn-grass-valley",
@@ -2895,7 +2904,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "lola-at-the-national-exchange-hotel-nevada-city",
@@ -2919,7 +2928,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "lucchesi-tasting-room-grass-valley",
@@ -2943,7 +2952,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "lucchesi-vineyards-tasting-room-grass-valley",
@@ -3015,7 +3024,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "mak-s-bbq-grass-valley",
@@ -3039,7 +3048,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "maria-s-mexican-restaurant-grass-valley",
@@ -3063,7 +3072,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "marshall-s-pasties-grass-valley",
@@ -3087,7 +3096,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "mcgees-annex-nevada-city",
@@ -3111,7 +3120,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "mcgee-s-annex-nevada-city",
@@ -3159,7 +3168,7 @@
       "status": "credible",
       "reason": ""
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "mez-eatery-grass-valley",
@@ -3231,7 +3240,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "naggiar-vineyards-grass-valley",
@@ -3279,7 +3288,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "nevada-city-classic-cafe-nevada-city",
@@ -3303,7 +3312,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "nevada-city-classic-caf-nevada-city",
@@ -3375,7 +3384,16 @@
       "status": "credible",
       "reason": ""
     },
-    "featured": true
+    "featured": true,
+    "anchor": {
+      "label": "Gathering stop",
+      "hook": "A walkable tasting room that connects cultural browsing with an easy place to pause.",
+      "iconKey": "food-drink",
+      "priority": 5,
+      "pathIds": [
+        "living-like-a-local"
+      ]
+    }
   },
   {
     "id": "nevada-club-grass-valley",
@@ -3399,7 +3417,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "new-west-wine-co-grass-valley",
@@ -3423,7 +3441,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "northern-queen-inn-nevada-city",
@@ -3543,7 +3561,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "pete-s-pizza-tap-house-grass-valley",
@@ -3639,7 +3657,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "restaurant-dekan-nevada-city",
@@ -3711,7 +3729,7 @@
       "status": "credible",
       "reason": ""
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "sierra-mountain-inn-grass-valley",
@@ -3759,7 +3777,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "sierra-starr-vineyard-winery-store-grass-valley",
@@ -3831,7 +3849,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "sopa-thai-cuisine-nevada-city",
@@ -3855,7 +3873,7 @@
       "status": "credible",
       "reason": ""
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "south-pine-cafe-grass-valley",
@@ -3879,7 +3897,7 @@
       "status": "credible",
       "reason": ""
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "sushi-q-nevada-city",
@@ -3903,7 +3921,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "sushi-at-nourish-nevada-city",
@@ -3927,7 +3945,7 @@
       "status": "credible",
       "reason": ""
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "sushi-in-the-raw-at-california-organics-nevada-city",
@@ -3951,7 +3969,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "szabo-vineyards-tasting-room-nevada-city",
@@ -3975,7 +3993,7 @@
       "status": "credible",
       "reason": ""
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "taqueria-el-taco-loco-nevada-city",
@@ -3999,7 +4017,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "taste-of-thai-grass-valley",
@@ -4023,7 +4041,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "the-fern-nevada-city",
@@ -4047,7 +4065,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "the-holbrooke-hotel-grass-valley",
@@ -4119,7 +4137,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "the-national-bar-nevada-city",
@@ -4143,7 +4161,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "the-national-exchange-hotel-nevada-city",
@@ -4191,7 +4209,7 @@
       "status": "credible",
       "reason": ""
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "the-owl-tavern-grass-valley",
@@ -4215,7 +4233,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "the-parsonage-1865-nevada-city",
@@ -4239,7 +4257,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "the-pines-motel-and-cottages-grass-valley",
@@ -4287,7 +4305,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "the-place-on-south-pine-nevada-city",
@@ -4311,7 +4329,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "the-stone-house-nevada-city",
@@ -4335,7 +4353,16 @@
       "status": "credible",
       "reason": ""
     },
-    "featured": true
+    "featured": true,
+    "anchor": {
+      "label": "After-hours anchor",
+      "hook": "Historic dining and music give an arts night somewhere atmospheric to land after the show.",
+      "iconKey": "food-drink",
+      "priority": 6,
+      "pathIds": [
+        "evening-arts-night"
+      ]
+    }
   },
   {
     "id": "the-thirsty-barrel-taphouse-grass-valley",
@@ -4383,7 +4410,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "three-forks-bakery-brewing-co-nevada-city",
@@ -4410,7 +4437,7 @@
       "originalAlt": "Three Forks Bakery & Brewing Co. in Nevada City",
       "originalCredit": "Three Forks Bakery & Brewing Co."
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "tofanelli-s-gold-country-bistro-grass-valley",
@@ -4434,7 +4461,7 @@
       "status": "credible",
       "reason": ""
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "two-room-inn-nevada-city",
@@ -4482,7 +4509,7 @@
       "status": "credible",
       "reason": ""
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "wyld-tiger-sourdough-bakery-grass-valley",
@@ -4698,7 +4725,16 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": true,
+    "anchor": {
+      "label": "Studio anchor",
+      "hook": "A working studio community that shows the maker layer behind the gallery window.",
+      "iconKey": "maker",
+      "priority": 9,
+      "pathIds": [
+        "gallery-studio-day"
+      ]
+    }
   },
   {
     "id": "art-space-grass-valley",
@@ -4722,7 +4758,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "art-works-gallery-grass-valley",
@@ -4746,7 +4782,16 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": true,
+    "anchor": {
+      "label": "Gallery anchor",
+      "hook": "A local-artist gallery that makes downtown Grass Valley feel hand-made rather than generic.",
+      "iconKey": "gallery",
+      "priority": 7,
+      "pathIds": [
+        "gallery-studio-day"
+      ]
+    }
   },
   {
     "id": "bear-river-glassworks-grass-valley",
@@ -4770,7 +4815,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "c-h-a-m-p-gallery-at-city-hall-nevada-city",
@@ -4794,7 +4839,16 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": true,
+    "anchor": {
+      "label": "Civic gallery",
+      "hook": "City Hall doubles as an arts stop, making public space part of the cultural route.",
+      "iconKey": "gallery",
+      "priority": 8,
+      "pathIds": [
+        "gallery-studio-day"
+      ]
+    }
   },
   {
     "id": "eric-rood-administration-center-lobby-nevada-city",
@@ -4818,7 +4872,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "firehouse-no-1-museum-nevada-city",
@@ -4842,7 +4896,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "grass-valley-museum-formerly-st-joseph-s-grass-valley",
@@ -4866,7 +4920,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "higgins-lions-community-center-grass-valley",
@@ -4890,7 +4944,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "holt-ballet-conservatory-nevada-city",
@@ -4914,7 +4968,7 @@
       "status": "credible",
       "reason": ""
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "juxtartstudios-nevada-city",
@@ -4938,7 +4992,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "mix-decor-design-nevada-city",
@@ -4962,7 +5016,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "neighborhood-center-of-the-arts-grass-valley",
@@ -4986,7 +5040,7 @@
       "status": "credible",
       "reason": ""
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "nevada-county-narrow-gauge-railroad-museum-nevada-city",
@@ -5010,7 +5064,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "north-columbia-schoolhouse-cultural-center-nevada-city",
@@ -5034,7 +5088,7 @@
       "status": "credible",
       "reason": ""
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "north-star-mining-museum-grass-valley",
@@ -5058,7 +5112,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "seven-stars-gallery-nevada-city",
@@ -5082,7 +5136,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "the-chambers-project-grass-valley",
@@ -5106,7 +5160,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "the-granucci-gallery-grass-valley",
@@ -5130,7 +5184,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "the-vault-crush-nevada-city",
@@ -5154,7 +5208,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "uba-seo-nisenan-arts-and-culture-nevada-city",
@@ -5178,7 +5232,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "wolf-craft-school-nevada-city",
@@ -5202,7 +5256,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "112-w-main-st-grass-valley",
@@ -7059,7 +7113,17 @@
       "status": "credible",
       "reason": ""
     },
-    "featured": false
+    "featured": true,
+    "anchor": {
+      "label": "Historic stage",
+      "hook": "A living theater landmark that makes Nevada City's cultural memory visible from the sidewalk.",
+      "iconKey": "historic",
+      "priority": 2,
+      "pathIds": [
+        "living-like-a-local",
+        "evening-arts-night"
+      ]
+    }
   },
   {
     "id": "north-star-house-grass-valley",
@@ -7911,7 +7975,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "abstrakt-nevada-city",
@@ -7935,7 +7999,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "asylum-down-nevada-city",
@@ -7959,7 +8023,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "atra-nova-nevada-city",
@@ -7983,7 +8047,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "auric-adornments-grass-valley",
@@ -8007,7 +8071,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "backporch-market-grass-valley",
@@ -8031,7 +8095,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "bamboo-home-store-grass-valley",
@@ -8055,7 +8119,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "beads-galore-grass-valley",
@@ -8079,7 +8143,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "ben-franklin-grass-valley",
@@ -8103,7 +8167,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "black-bart-ornamental-iron-works-nevada-city",
@@ -8127,7 +8191,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "briarpatch-co-op-grass-valley",
@@ -8151,7 +8215,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "cake-bakery-cafe-grass-valley",
@@ -8175,7 +8239,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "california-organics-nevada-city",
@@ -8199,7 +8263,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "caroline-s-coffee-roasters-grass-valley",
@@ -8223,7 +8287,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "choquiero-cacao-cafe-nevada-city",
@@ -8247,7 +8311,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "coco-s-candy-and-creamery-grass-valley",
@@ -8271,7 +8335,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "communal-cafe-nevada-city",
@@ -8295,7 +8359,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "corvus-bakery-grass-valley",
@@ -8319,7 +8383,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "cosmic-shark-clothing-grass-valley",
@@ -8343,7 +8407,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "country-copy-grass-valley",
@@ -8367,7 +8431,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "crush-nevada-city",
@@ -8391,7 +8455,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "crystal-empire-gems-grass-valley",
@@ -8415,7 +8479,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "crystal-rainbow-rock-shop-nevada-city",
@@ -8439,7 +8503,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "dedrick-s-cheese-nevada-city",
@@ -8463,7 +8527,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "deer-creek-bakehouse-nevada-city",
@@ -8487,7 +8551,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "earth-central-nevada-city",
@@ -8511,7 +8575,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "earthdrop-nevada-city",
@@ -8535,7 +8599,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "el-barrio-mexican-market-grass-valley",
@@ -8559,7 +8623,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "elevate-athleisure-grass-valley",
@@ -8583,7 +8647,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "elevation-2477-nevada-city",
@@ -8607,7 +8671,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "empire-shoes-grass-valley",
@@ -8631,7 +8695,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "field-day-apparel-nevada-city",
@@ -8655,7 +8719,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "fieldmouse-press-grass-valley",
@@ -8679,7 +8743,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "flour-garden-bakery-grass-valley",
@@ -8703,7 +8767,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "foothill-flowers-grass-valley",
@@ -8727,7 +8791,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "foothill-mercantile-grass-valley",
@@ -8751,7 +8815,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "full-circle-press-grass-valley",
@@ -8775,7 +8839,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "fur-traders-nevada-city",
@@ -8799,7 +8863,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "gather-mill-grass-valley",
@@ -8823,7 +8887,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "gold-crush-grass-valley",
@@ -8847,7 +8911,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "gold-mountain-nevada-city",
@@ -8871,7 +8935,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "goodtimes-boardstore-grass-valley",
@@ -8895,7 +8959,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "grass-valley-chamber-of-commerce-grass-valley",
@@ -8919,7 +8983,7 @@
       "status": "credible",
       "reason": ""
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "grass-valley-downtown-association-grass-valley",
@@ -8946,7 +9010,7 @@
       "originalAlt": "Grass Valley Downtown Association in Grass Valley",
       "originalCredit": "Grass Valley Downtown Association"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "grass-valley-games-grass-valley",
@@ -8970,7 +9034,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "grass-valley-provisions-grass-valley",
@@ -8994,7 +9058,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "grass-valley-sign-grass-valley",
@@ -9018,7 +9082,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "grateful-ink-nevada-city",
@@ -9042,7 +9106,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "greater-grass-valley-chamber-of-commerce-grass-valley",
@@ -9066,7 +9130,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "heart-soul-spinnery-grass-valley",
@@ -9090,7 +9154,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "heart-and-home-grass-valley",
@@ -9114,7 +9178,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "heathered-yarn-co-grass-valley",
@@ -9138,7 +9202,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "hola-tortilla-nevada-city",
@@ -9162,7 +9226,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "hour-nevada-county-nevada-city",
@@ -9189,7 +9253,7 @@
       "originalAlt": "Hour Nevada County in Nevada City",
       "originalCredit": "Nevada County Arts Council"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "house-of-print-and-copy-grass-valley",
@@ -9213,7 +9277,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "inner-path-nevada-city",
@@ -9237,7 +9301,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "j-breuer-clothing-grass-valley",
@@ -9261,7 +9325,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "j-j-jackson-s-nevada-city",
@@ -9285,7 +9349,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "java-johns-nevada-city",
@@ -9309,7 +9373,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "kitkitdizzi-nevada-city",
@@ -9333,7 +9397,7 @@
       "status": "credible",
       "reason": ""
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "kiya-s-naturals-nevada-city",
@@ -9357,7 +9421,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "la-cache-nevada-city",
@@ -9381,7 +9445,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "lateda-grass-valley",
@@ -9405,7 +9469,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "lazy-dog-chocolateria-grass-valley",
@@ -9429,7 +9493,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "lola-and-jack-grass-valley",
@@ -9453,7 +9517,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "long-s-bottle-shop-grass-valley",
@@ -9477,7 +9541,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "louvre-gallery-grass-valley",
@@ -9501,7 +9565,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "main-street-kids-nevada-city",
@@ -9525,7 +9589,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "make-local-habit-grass-valley",
@@ -9549,7 +9613,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "mama-madrones-nevada-city",
@@ -9573,7 +9637,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "marley-lane-grass-valley",
@@ -9597,7 +9661,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "mint-grass-valley",
@@ -9621,7 +9685,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "moms-minis-grass-valley",
@@ -9645,7 +9709,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "mountain-event-productions-nevada-city",
@@ -9669,7 +9733,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "mountain-pastimes-nevada-city",
@@ -9693,7 +9757,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "mountain-recreation-grass-valley",
@@ -9717,7 +9781,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "myrtle-tree-arts-nevada-city",
@@ -9741,7 +9805,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "native-wren-grass-valley",
@@ -9765,7 +9829,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "nevada-city-chamber-of-commerce-nevada-city",
@@ -9789,7 +9853,7 @@
       "status": "credible",
       "reason": ""
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "nevada-city-chocolate-shoppe-nevada-city",
@@ -9813,7 +9877,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "nevada-city-crystal-glass-shop-nevada-city",
@@ -9837,7 +9901,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "nevada-city-picture-framing-gallery-nevada-city",
@@ -9861,7 +9925,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "nevada-county-arts-council-nevada-city",
@@ -9885,7 +9949,7 @@
       "status": "credible",
       "reason": ""
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "nightingale-farms-grass-valley",
@@ -9909,7 +9973,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "novak-s-menswear-nevada-city",
@@ -9933,7 +9997,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "of-earth-and-salt-nevada-city",
@@ -9957,7 +10021,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "outer-heaven-espresso-nevada-city",
@@ -9981,7 +10045,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "panader-a-matilija-nevada-city",
@@ -10005,7 +10069,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "punk-and-bunny-tattoo-grass-valley",
@@ -10029,7 +10093,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "real-graphic-source-grass-valley",
@@ -10053,7 +10117,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "remedy-garden-nevada-city",
@@ -10077,7 +10141,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "riparian-studios-nevada-city",
@@ -10101,7 +10165,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "spd-markets-nevada-city",
@@ -10125,7 +10189,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "src-event-rentals-grass-valley",
@@ -10149,7 +10213,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "shiva-moon-nevada-city",
@@ -10173,7 +10237,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "sibylline-press-grass-valley",
@@ -10197,7 +10261,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "sierra-custom-ink-grass-valley",
@@ -10221,7 +10285,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "sierra-rose-alpacas-grass-valley",
@@ -10245,7 +10309,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "someone-said-yes-dj-and-photo-booth-grass-valley",
@@ -10269,7 +10333,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "soulcrafts-nevada-city",
@@ -10293,7 +10357,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "soulspace-collective-grass-valley",
@@ -10317,7 +10381,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "spirithouse-import-gallery-nevada-city",
@@ -10341,7 +10405,7 @@
       "status": "credible",
       "reason": ""
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "stucki-jewelers-inc-grass-valley",
@@ -10365,7 +10429,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "sugar-and-spice-grass-valley",
@@ -10389,7 +10453,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "sweet-spirit-tattoo-nevada-city",
@@ -10413,7 +10477,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "tess-kitchen-and-culinary-grass-valley",
@@ -10437,7 +10501,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "the-earth-store-nevada-city",
@@ -10461,7 +10525,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "the-fates-fine-jewelry-nevada-city",
@@ -10485,7 +10549,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "the-ham-stand-nevada-city",
@@ -10509,7 +10573,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "the-hat-store-nevada-city",
@@ -10533,7 +10597,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "the-melo-plant-shop-nevada-city",
@@ -10557,7 +10621,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "the-olive-groove-grass-valley",
@@ -10581,7 +10645,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "the-outpost-nevada-city",
@@ -10605,7 +10669,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "the-phoenix-rose-nevada-city",
@@ -10629,7 +10693,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "the-truffle-shop-nevada-city",
@@ -10653,7 +10717,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "the-utopian-stone-nevada-city",
@@ -10677,7 +10741,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "the-west-wind-grass-valley",
@@ -10701,7 +10765,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "tour-of-nevada-city-bicycle-shop-nevada-city",
@@ -10725,7 +10789,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "treats-nevada-city",
@@ -10749,7 +10813,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "tribal-weaver-grass-valley",
@@ -10773,7 +10837,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "two-little-birds-nevada-city",
@@ -10797,7 +10861,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "waking-crow-studio-nevada-city",
@@ -10821,7 +10885,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "wild-side-grass-valley",
@@ -10845,7 +10909,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "winnie-superette-nevada-city",
@@ -10869,7 +10933,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "wonder-docent-nevada-city",
@@ -10893,7 +10957,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "wyld-tiger-grass-valley",
@@ -10917,7 +10981,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "yabobo-nevada-city",
@@ -10941,7 +11005,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "yinne-boma-animation-studios-company-nevada-city",
@@ -10965,7 +11029,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "yinnebowma-nevada-city",
@@ -10989,7 +11053,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "you-bet-bicycle-sales-service-nevada-city",
@@ -11013,7 +11077,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "yuba-blue-grass-valley",
@@ -11037,7 +11101,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "107-argall-way-nevada-city",
@@ -11061,7 +11125,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "an-inner-sanctum-nevada-city",
@@ -11085,7 +11149,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "behind-the-iron-gate-grass-valley",
@@ -11109,7 +11173,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "brown-banana-books-grass-valley",
@@ -11133,7 +11197,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "clock-tower-records-grass-valley",
@@ -11157,7 +11221,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "foggy-mountain-music-grass-valley",
@@ -11181,7 +11245,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "gold-city-guitar-repair-nevada-city",
@@ -11205,7 +11269,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "hardy-books-nevada-city",
@@ -11229,7 +11293,7 @@
       "status": "credible",
       "reason": ""
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "harmony-books-nevada-city",
@@ -11253,7 +11317,7 @@
       "status": "credible",
       "reason": ""
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "headquarters-nevada-city",
@@ -11277,7 +11341,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "house-of-fates-nevada-city",
@@ -11301,7 +11365,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "inconcert-sierra-grass-valley",
@@ -11325,7 +11389,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "legacy-presents-nevada-city",
@@ -11349,7 +11413,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "miners-foundry-cultural-center-nevada-city",
@@ -11376,7 +11440,16 @@
       "originalAlt": "Miners Foundry Cultural Center in Nevada City",
       "originalCredit": "Miners Foundry Cultural Center"
     },
-    "featured": true
+    "featured": true,
+    "anchor": {
+      "label": "Performance anchor",
+      "hook": "Start with the old foundry turned cultural center: concerts, civic nights, and Nevada City's most recognizable gathering room.",
+      "iconKey": "stage",
+      "priority": 1,
+      "pathIds": [
+        "evening-arts-night"
+      ]
+    }
   },
   {
     "id": "music-in-the-mountains-grass-valley",
@@ -11400,7 +11473,7 @@
       "status": "credible",
       "reason": ""
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "mystic-theater-nevada-city",
@@ -11424,7 +11497,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "nevada-county-doris-foley-library-for-historical-research-nevada-city",
@@ -11448,7 +11521,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "nevada-county-fairgrounds-grass-valley",
@@ -11475,7 +11548,7 @@
       "originalAlt": "Nevada County Fairgrounds in Grass Valley",
       "originalCredit": "Nevada County Fairgrounds"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "nevada-county-library-grass-valley-royce-branch-grass-valley",
@@ -11499,7 +11572,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "nevada-county-library-madelyn-helling-branch-nevada-city",
@@ -11523,7 +11596,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "nevada-theater-nevada-city",
@@ -11547,7 +11620,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "off-broadstreet-nevada-city",
@@ -11571,7 +11644,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "paul-emery-presents-nevada-city",
@@ -11595,7 +11668,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "prime-cinemas-grass-valley-grass-valley",
@@ -11619,7 +11692,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "ron-s-real-records-grass-valley",
@@ -11643,7 +11716,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "san-juan-ridge-community-library-nevada-city",
@@ -11667,7 +11740,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "sans-backup-plan-records-nevada-city",
@@ -11691,7 +11764,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "searls-historical-library-nevada-city",
@@ -11715,7 +11788,7 @@
       "status": "credible",
       "reason": ""
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "sierra-stages-nevada-city",
@@ -11739,7 +11812,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "sierra-theatre-company-nevada-city",
@@ -11763,7 +11836,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "sound-check-music-grass-valley",
@@ -11787,7 +11860,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "stardust-station-nevada-city",
@@ -11811,7 +11884,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "the-book-seller-grass-valley",
@@ -11835,7 +11908,7 @@
       "status": "credible",
       "reason": ""
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "the-cauldron-loot-and-lore-grass-valley",
@@ -11859,7 +11932,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "the-center-for-the-arts-grass-valley",
@@ -11883,7 +11956,17 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": true,
+    "anchor": {
+      "label": "Show night anchor",
+      "hook": "Grass Valley's major arts venue gives the map an immediate reason to plan around a performance.",
+      "iconKey": "stage",
+      "priority": 3,
+      "pathIds": [
+        "living-like-a-local",
+        "evening-arts-night"
+      ]
+    }
   },
   {
     "id": "the-lyric-rose-rose-theatre-company-nevada-city",
@@ -11907,7 +11990,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "the-parsonage-annex-nevada-city",
@@ -11931,7 +12014,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "toad-hall-books-nevada-city",
@@ -11955,7 +12038,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "cosmic-auditorium-nevada-city",
@@ -11979,7 +12062,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "daspah-seyo-wolf-creek-grass-valley",
@@ -12003,7 +12086,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "diego-s-grass-valley",
@@ -12027,7 +12110,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "drop-by-drop-a-river-is-formed-nevada-city",
@@ -12051,7 +12134,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "el-barrio-mural-grass-valley",
@@ -12075,7 +12158,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "flying-into-the-future-grass-valley",
@@ -12099,7 +12182,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "lola-montez-grass-valley",
@@ -12123,7 +12206,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "military-tribute-grass-valley",
@@ -12147,7 +12230,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "mine-shift-grass-valley",
@@ -12171,7 +12254,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "peonies-grass-valley",
@@ -12195,7 +12278,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "robinson-plaza-metal-sculpture-nevada-city",
@@ -12219,7 +12302,7 @@
       "status": "credible",
       "reason": ""
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "the-history-of-communication-grass-valley",
@@ -12243,7 +12326,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "the-milhouse-eyes-nevada-city",
@@ -12267,7 +12350,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "yuba-river-grass-valley",
@@ -12291,7 +12374,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "back-in-the-day-grass-valley",
@@ -12315,7 +12398,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "booktown-books-grass-valley",
@@ -12339,7 +12422,16 @@
       "status": "credible",
       "reason": ""
     },
-    "featured": true
+    "featured": true,
+    "anchor": {
+      "label": "Browsing anchor",
+      "hook": "A downtown book stop that turns the map from places into a slow, visitor-friendly day out.",
+      "iconKey": "book",
+      "priority": 4,
+      "pathIds": [
+        "living-like-a-local"
+      ]
+    }
   },
   {
     "id": "brothers-arts-antiques-nevada-city",
@@ -12363,7 +12455,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "curious-forge-nevada-city",
@@ -12387,7 +12479,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "enid-and-edgar-vintage-nevada-city",
@@ -12411,7 +12503,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "grass-valley-antique-emporium-grass-valley",
@@ -12435,7 +12527,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "kodo-arts-japanese-antiques-nevada-city",
@@ -12459,7 +12551,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "lost-and-found-vintage-nevada-city",
@@ -12483,7 +12575,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "solstice-nevada-city",
@@ -12507,7 +12599,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "sunchild-s-parlour-grass-valley",
@@ -12531,7 +12623,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "vintage-on-mill-grass-valley",
@@ -12555,7 +12647,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true
+    "featured": false
   },
   {
     "id": "ananda-village-crystal-hermitage-gardens-nevada-city",

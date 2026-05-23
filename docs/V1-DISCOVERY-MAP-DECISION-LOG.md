@@ -26,6 +26,13 @@ This log preserves choices and rejected alternatives so stakeholder feedback can
 - Why not: pure map loses Arts Council ownership cues; story-first weakens map-first proof; event/sidebar-first reopens calendar/platform territory.
 - Easy branch: increase editorial intro or reduce panel chrome if stakeholders identify the opening as too sparse or too busy.
 
+## Draft 4 Visitor Pull
+
+- Chosen direction: 10 authored cultural anchors layered over the full place dataset.
+- Alternatives considered: icons for every category; a separate story page; broader featured-place ranking.
+- Why not: full taxonomy icons become icon soup, a story page weakens map-first proof, and broad ranking reopens data-readiness debates.
+- Easy branch: change the anchor list or hooks in data prep while keeping regular places as quiet dots.
+
 ## Data Source
 
 - Chosen direction: Diana workbook as source authority, Arts Hub V2 JSON as coordinate and mechanics reference.
@@ -71,6 +78,14 @@ This log preserves choices and rejected alternatives so stakeholder feedback can
 - Credible imagery: Google Places image URLs, Wikimedia image files, and normal image-file URLs unless logo-ish.
 - UI rule: show only `Placeholder image` on generated art; keep the reason in JSON/gap docs, not in the card.
 - Easy branch: replace generated placeholders with approved real photos as they become available.
+
+## Draft 4 V1/Gemini Reconciliation
+
+- Chosen direction: keep `v1-discovery-map` as the forward prototype and remove the duplicate `v1-discovery-map-gemini` folder after selectively porting useful mechanics.
+- Alternatives considered: replace V1 with Gemini; keep both folders; remove Gemini without porting.
+- Why not: Gemini added useful interaction mechanics but compressed the rich selected-card treatment and dropped the explicit 10-anchor data model. Keeping both folders made the work harder to reason about.
+- Implementation rule: preserve V1's rich card, 10 authored anchors, and Draft 4 visitor-pull model. Port only mechanics that improve the same direction: mobile drawer, optional Twilight mode, anchor marker overlay, and custom basemap styling.
+- Data rule: do not adopt Gemini's `places.json` as-is because it removes the `anchor` objects. Field comparison found no coordinate, event, image, or description improvements that justified replacing V1 data.
 
 ## Draft 2 Place Cards
 

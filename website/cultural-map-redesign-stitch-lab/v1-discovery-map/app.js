@@ -15,6 +15,15 @@
     ink: "#1a1a1a",
   };
 
+  const ANCHOR_ICON_TEXT = {
+    stage: "ST",
+    book: "BK",
+    gallery: "GA",
+    maker: "MK",
+    historic: "HI",
+    "food-drink": "FD",
+  };
+
   const state = {
     mode: "places",
     activeIntents: new Set(),
@@ -25,6 +34,8 @@
     selectedPlaceId: "",
     map: null,
     pathMarkers: [],
+    anchorMarkers: [],
+    smartLabels: [],
   };
 
   const els = {
@@ -51,6 +62,7 @@
   }
 
   function placeToFeature(place) {
+    const anchor = place.anchor || {};
     return {
       type: "Feature",
       id: place.id,
@@ -63,6 +75,8 @@
         intent: place.intent,
         featured: Boolean(place.featured),
         musePick: Boolean(place.musePick),
+        anchor: Boolean(place.anchor),
+        anchorIcon: ANCHOR_ICON_TEXT[anchor.iconKey] || "",
         selected: place.id === state.selectedPlaceId,
       },
     };
@@ -111,6 +125,167 @@
       eventSource.setData({ type: "FeatureCollection", features: events });
     }
     updateCount();
+    renderAnchorMarkers();
+    updateSmartLabels();
+  }
+
+  function clearAnchorMarkers() {
+    state.anchorMarkers.forEach((marker) => marker.remove());
+    state.anchorMarkers = [];
+  }
+
+  function updateAnchorMarkerVisibility() {
+    if (!state.map) return;
+    const visible = state.mode !== "events" && state.map.getZoom() >= 10.4;
+    state.anchorMarkers.forEach((marker) => {
+      const el = marker.getElement();
+      if (el) el.style.visibility = visible ? "visible" : "hidden";
+    });
+  }
+
+  function clearSmartLabels() {
+    state.smartLabels.forEach((marker) => marker.remove());
+    state.smartLabels = [];
+  }
+
+  function updateSmartLabels() {
+    clearSmartLabels();
+    if (!state.map || state.mode !== "places" || !state.map.getLayer("place-points")) return;
+
+    const bounds = state.map.getBounds();
+    const visiblePlaces = [];
+    const anchorPlaces = filteredPlaces().filter((place) => place.anchor && bounds.contains([place.lng, place.lat]));
+
+    anchorPlaces.forEach((place) => {
+      visiblePlaces.push({
+        id: place.id,
+        name: place.name,
+        lng: place.lng,
+        lat: place.lat,
+        isAnchor: true,
+        musePick: place.musePick,
+      });
+    });
+
+    if (!visiblePlaces.length || visiblePlaces.length > 16) return;
+
+    visiblePlaces.sort((a, b) => {
+      if (a.isAnchor && !b.isAnchor) return -1;
+      if (!a.isAnchor && b.isAnchor) return 1;
+      if (a.musePick && !b.musePick) return -1;
+      if (!a.musePick && b.musePick) return 1;
+      return 0;
+    });
+
+    const occupiedBoxes = visiblePlaces.map((place) => {
+      const screenPos = state.map.project([place.lng, place.lat]);
+      const markerSize = place.isAnchor ? 36 : 16;
+      return {
+        minX: screenPos.x - markerSize / 2 - 4,
+        maxX: screenPos.x + markerSize / 2 + 4,
+        minY: screenPos.y - markerSize / 2 - 4,
+        maxY: screenPos.y + markerSize / 2 + 4,
+      };
+    });
+
+    visiblePlaces.forEach((place) => {
+      const screenPos = state.map.project([place.lng, place.lat]);
+      const labelW = Math.min(220, place.name.length * 6.2 + 16);
+      const labelH = 24;
+      const markerOffset = place.isAnchor ? 20 : 10;
+      const candidates = [
+        {
+          minX: screenPos.x + markerOffset,
+          maxX: screenPos.x + markerOffset + labelW,
+          minY: screenPos.y - labelH / 2,
+          maxY: screenPos.y + labelH / 2,
+          offsetX: markerOffset + labelW / 2,
+          offsetY: 0,
+          posClass: "pos-right",
+        },
+        {
+          minX: screenPos.x - markerOffset - labelW,
+          maxX: screenPos.x - markerOffset,
+          minY: screenPos.y - labelH / 2,
+          maxY: screenPos.y + labelH / 2,
+          offsetX: -markerOffset - labelW / 2,
+          offsetY: 0,
+          posClass: "pos-left",
+        },
+        {
+          minX: screenPos.x - labelW / 2,
+          maxX: screenPos.x + labelW / 2,
+          minY: screenPos.y - markerOffset - labelH,
+          maxY: screenPos.y - markerOffset,
+          offsetX: 0,
+          offsetY: -markerOffset - labelH / 2,
+          posClass: "pos-top",
+        },
+      ];
+
+      const bestCandidate = candidates.find((candidate) => {
+        return !occupiedBoxes.some((box) => (
+          candidate.minX < box.maxX &&
+          candidate.maxX > box.minX &&
+          candidate.minY < box.maxY &&
+          candidate.maxY > box.minY
+        ));
+      });
+      if (!bestCandidate) return;
+
+      occupiedBoxes.push(bestCandidate);
+      const el = document.createElement("button");
+      el.type = "button";
+      el.className = `map-smart-label ${place.isAnchor ? "anchor-label-pin" : ""} ${bestCandidate.posClass}`;
+      el.textContent = place.name;
+      el.addEventListener("click", (event) => {
+        event.stopPropagation();
+        const selected = state.places.find((item) => item.id === place.id);
+        if (selected) showPlace(selected);
+      });
+
+      const marker = new maplibregl.Marker({
+        element: el,
+        offset: [bestCandidate.offsetX, bestCandidate.offsetY],
+      })
+        .setLngLat([place.lng, place.lat])
+        .addTo(state.map);
+      state.smartLabels.push(marker);
+    });
+  }
+
+  function renderAnchorMarkers() {
+    clearAnchorMarkers();
+    if (!state.map || state.mode === "events") return;
+
+    filteredPlaces()
+      .filter((place) => place.anchor)
+      .forEach((place) => {
+        const el = document.createElement("button");
+        el.type = "button";
+        el.className = `anchor-marker${place.id === state.selectedPlaceId ? " selected" : ""}`;
+        el.setAttribute("aria-label", `${place.name} - ${place.anchor.label}`);
+        el.innerHTML = `
+          <span class="anchor-ring">
+            <span class="anchor-dot">${escapeHtml(anchorIconText(place.anchor))}</span>
+          </span>
+        `;
+        el.addEventListener("click", (event) => {
+          event.stopPropagation();
+          showPlace(place);
+        });
+        const marker = new maplibregl.Marker({ element: el })
+          .setLngLat([place.lng, place.lat])
+          .addTo(state.map);
+        state.anchorMarkers.push(marker);
+      });
+
+    updateAnchorMarkerVisibility();
+  }
+
+  function expandDrawer() {
+    const controlPanel = document.querySelector(".control-panel");
+    if (controlPanel) controlPanel.classList.remove("collapsed");
   }
 
   function renderFilters() {
@@ -148,10 +323,52 @@
     return state.events.filter((event) => event.placeId === placeId).slice(0, 3);
   }
 
+  function anchorIconText(anchor) {
+    return ANCHOR_ICON_TEXT[anchor?.iconKey] || "NC";
+  }
+
+  function anchorBadge(place) {
+    if (!place.anchor) return "";
+    return `
+      <p class="anchor-label">
+        <span class="anchor-token">${escapeHtml(anchorIconText(place.anchor))}</span>
+        ${escapeHtml(place.anchor.label)}
+      </p>
+    `;
+  }
+
+  function featuredAnchor() {
+    return state.places
+      .filter((place) => place.anchor)
+      .sort((a, b) => (a.anchor.priority || 99) - (b.anchor.priority || 99))[0];
+  }
+
+  function renderFeaturedAnchor() {
+    const place = featuredAnchor();
+    if (!place) {
+      els.hint.innerHTML = `<p class="hint-title">Start in the cultural district</p><p>Grass Valley and Nevada City are centered first, with the wider county still visible as context.</p>`;
+      els.detail.innerHTML = `<p class="empty-title">Select a place</p><p class="empty-copy">The detail card will show image proof, short context, source category, and related events when available.</p>`;
+      return;
+    }
+    els.hint.innerHTML = `<p class="hint-title">Featured cultural anchor</p><p>${escapeHtml(place.anchor.hook)}</p>`;
+    els.detail.innerHTML = `
+      ${renderImage(place)}
+      <p class="detail-eyebrow">Start here</p>
+      ${anchorBadge(place)}
+      <h2>${escapeHtml(place.name)}</h2>
+      <p class="detail-location">${escapeHtml(place.category)} / ${escapeHtml(place.city || "Nevada County")}</p>
+      <p class="detail-description">${escapeHtml(place.description)}</p>
+      <div class="detail-actions"><button type="button" class="anchor-map-action">View on map</button></div>
+    `;
+    els.detail.querySelector(".anchor-map-action")?.addEventListener("click", () => showPlace(place));
+  }
+
   function showPlace(place) {
+    expandDrawer();
     state.selectedPlaceId = place.id;
     setSourceData();
     const events = relatedEvents(place.id);
+    const anchor = place.anchor || null;
     const action = place.website ? `<a href="${escapeHtml(place.website)}" target="_blank" rel="noopener">Visit site</a>` : "";
     const eventHtml = events.length ? `
       <div class="related-events">
@@ -166,9 +383,11 @@
     ` : "";
     els.detail.innerHTML = `
       ${renderImage(place)}
-      <p class="detail-eyebrow">${place.musePick ? "MUSE pick" : "Cultural place"}</p>
+      <p class="detail-eyebrow">${anchor ? "Featured cultural anchor" : place.musePick ? "MUSE pick" : "Cultural place"}</p>
+      ${anchorBadge(place)}
       <h2>${escapeHtml(place.name)}</h2>
       <p class="detail-location">${escapeHtml(place.category)} / ${escapeHtml(place.city || "Nevada County")}</p>
+      ${anchor ? `<p class="anchor-hook">${escapeHtml(anchor.hook)}</p>` : ""}
       <p class="detail-description">${escapeHtml(place.description)}</p>
       ${action ? `<div class="detail-actions">${action}</div>` : ""}
       ${eventHtml}
@@ -177,6 +396,7 @@
   }
 
   function showEvent(event) {
+    expandDrawer();
     const place = state.places.find((item) => item.id === event.placeId);
     els.detail.innerHTML = `
       ${event.image ? `<img class="place-image" src="${escapeHtml(event.image)}" alt="${escapeHtml(event.title)}">` : ""}
@@ -211,6 +431,7 @@
   }
 
   function showPath(path) {
+    expandDrawer();
     state.selectedPath = path;
     state.selectedPlaceId = "";
     clearPathMarkers();
@@ -234,6 +455,7 @@
   }
 
   function renderPathPanel(activePath) {
+    expandDrawer();
     els.detail.innerHTML = `
       <div class="path-card-heading">
         <p class="detail-eyebrow">Curated path</p>
@@ -241,7 +463,13 @@
         <p class="detail-description">${escapeHtml(activePath.dek)}</p>
       </div>
       <ol class="path-stop-list">
-        ${activePath.stops.map((stop) => `<li><button type="button" data-place="${escapeHtml(stop.placeId)}"><strong>${escapeHtml(stop.name)}</strong><span>${escapeHtml(stop.category)} / ${escapeHtml(stop.city)}</span></button></li>`).join("")}
+        ${activePath.stops.map((stop) => {
+          const place = state.places.find((item) => item.id === stop.placeId);
+          const anchor = place?.anchor || null;
+          const icon = anchor ? anchorIconText(anchor) : "";
+          const hook = anchor?.hook || stop.note;
+          return `<li><button type="button" data-place="${escapeHtml(stop.placeId)}"><span class="path-stop-icon">${escapeHtml(icon)}</span><span class="path-stop-copy"><strong>${escapeHtml(stop.name)}</strong><em>${escapeHtml(stop.category)} / ${escapeHtml(stop.city)}</em><small>${escapeHtml(hook)}</small></span></button></li>`;
+        }).join("")}
       </ol>
     `;
     els.detail.querySelectorAll("[data-place]").forEach((button) => {
@@ -291,10 +519,56 @@
     } else if (mode === "paths") {
       renderPathChooser();
     } else {
-      els.hint.innerHTML = `<p class="hint-title">Start in the cultural district</p><p>Grass Valley and Nevada City are centered first, with the wider county still visible as context.</p>`;
-      els.detail.innerHTML = `<p class="empty-title">Select a place</p><p class="empty-copy">The detail card will show image proof, short context, source category, and related events when available.</p>`;
+      renderFeaturedAnchor();
     }
     setSourceData();
+  }
+
+  function applyCustomBasemapStyling() {
+    if (!state.map) return;
+
+    const urlParams = new URLSearchParams(window.location.search);
+    const twilightParam = urlParams.get("twilight");
+    const isTwilight = twilightParam === "true";
+    document.body.classList.toggle("twilight-mode", isTwilight);
+
+    const paintOverrides = isTwilight ? [
+      { layerId: "background", property: "background-color", value: "#ecdcb9" },
+      { layerId: "water", property: "fill-color", value: "#ccbca0" },
+      { layerId: "waterway", property: "line-color", value: "#ccbca0" },
+      { layerId: "landcover", property: "fill-color", value: "#dfceaa" },
+      { layerId: "landuse", property: "fill-color", value: "#dfceaa" },
+      { layerId: "landuse_residential", property: "fill-color", value: "#d9c7a2" },
+      { layerId: "park_nature_reserve", property: "fill-color", value: "#d4c193" },
+      { layerId: "park_national_park", property: "fill-color", value: "#d4c193" },
+      { layerId: "building", property: "fill-color", value: "#ccbca0" },
+      { layerId: "building-top", property: "fill-color", value: "#d4c193" },
+    ] : [
+      { layerId: "background", property: "background-color", value: "#f4efe4" },
+      { layerId: "water", property: "fill-color", value: "#cbd4d1" },
+      { layerId: "waterway", property: "line-color", value: "#bfcac7" },
+      { layerId: "landcover", property: "fill-color", value: "#e0d6bd" },
+      { layerId: "landuse", property: "fill-color", value: "#e8ddc6" },
+      { layerId: "landuse_residential", property: "fill-color", value: "#ece2d1" },
+      { layerId: "park_nature_reserve", property: "fill-color", value: "#d9cfaa" },
+      { layerId: "park_national_park", property: "fill-color", value: "#d9cfaa" },
+      { layerId: "building", property: "fill-color", value: "#d9cdb8" },
+      { layerId: "building-top", property: "fill-color", value: "#e1d5bf" },
+    ];
+
+    paintOverrides.forEach(({ layerId, property, value }) => {
+      if (state.map.getLayer(layerId)) state.map.setPaintProperty(layerId, property, value);
+    });
+
+    [
+      "road_service_case", "road_minor_case", "road_path", "road_service_fill", "road_minor_fill",
+      "tunnel_service_case", "tunnel_minor_case", "tunnel_path", "tunnel_service_fill", "tunnel_minor_fill",
+      "bridge_service_case", "bridge_minor_case", "bridge_path", "bridge_service_fill", "bridge_minor_fill",
+    ].forEach((layerId) => {
+      if (!state.map.getLayer(layerId)) return;
+      const isCase = layerId.includes("case");
+      state.map.setPaintProperty(layerId, "line-opacity", isTwilight ? (isCase ? 0.05 : 0.1) : (isCase ? 0.18 : 0.34));
+    });
   }
 
   function addMapLayers() {
@@ -339,14 +613,14 @@
         "circle-radius": [
           "case",
           ["get", "selected"], 8,
-          ["get", "featured"], 6,
+          ["get", "anchor"], 5.5,
           4.5
         ],
         "circle-color": [
           "case",
           ["get", "selected"], MARKERS.paper,
+          ["get", "anchor"], MARKERS.paper,
           ["get", "musePick"], MARKERS.red,
-          ["get", "featured"], MARKERS.red,
           MARKERS.place
         ],
         "circle-opacity": ["case", ["get", "selected"], 1, 0.88],
@@ -356,6 +630,37 @@
           "#faf6ec"
         ],
         "circle-stroke-width": ["case", ["get", "selected"], 3, 1.25],
+      },
+    });
+    state.map.addLayer({
+      id: "anchor-rings",
+      type: "circle",
+      source: "places",
+      filter: ["all", ["!", ["has", "point_count"]], ["get", "anchor"]],
+      paint: {
+        "circle-radius": ["case", ["get", "selected"], 13, 11],
+        "circle-color": "rgba(250,246,236,0)",
+        "circle-stroke-color": MARKERS.red,
+        "circle-stroke-width": ["case", ["get", "selected"], 2.6, 1.7],
+        "circle-opacity": 0.96,
+      },
+    });
+    state.map.addLayer({
+      id: "anchor-icons",
+      type: "symbol",
+      source: "places",
+      filter: ["all", ["!", ["has", "point_count"]], ["get", "anchor"]],
+      layout: {
+        "text-field": ["get", "anchorIcon"],
+        "text-font": ["Open Sans Bold"],
+        "text-size": 9,
+        "text-allow-overlap": true,
+        "text-ignore-placement": true,
+      },
+      paint: {
+        "text-color": MARKERS.ink,
+        "text-halo-color": MARKERS.paper,
+        "text-halo-width": 1,
       },
     });
 
@@ -404,17 +709,20 @@
         state.map.easeTo({ center: features[0].geometry.coordinates, zoom });
       });
     });
-    state.map.on("click", "place-points", (event) => {
+    const showPlaceFromFeature = (event) => {
       const id = event.features[0].properties.id;
       const place = state.places.find((item) => item.id === id);
       if (place) showPlace(place);
-    });
+    };
+    state.map.on("click", "place-points", showPlaceFromFeature);
+    state.map.on("click", "anchor-rings", showPlaceFromFeature);
+    state.map.on("click", "anchor-icons", showPlaceFromFeature);
     state.map.on("click", "event-points", (event) => {
       const id = event.features[0].properties.id;
       const eventItem = state.events.find((item) => item.id === id);
       if (eventItem) showEvent(eventItem);
     });
-    ["place-points", "place-clusters", "event-points"].forEach((layer) => {
+    ["place-points", "place-clusters", "anchor-rings", "anchor-icons", "event-points"].forEach((layer) => {
       state.map.on("mouseenter", layer, () => { state.map.getCanvas().style.cursor = "pointer"; });
       state.map.on("mouseleave", layer, () => { state.map.getCanvas().style.cursor = ""; });
     });
@@ -440,13 +748,27 @@
     });
     state.map.addControl(new maplibregl.NavigationControl({ showCompass: false }), "bottom-right");
     state.map.on("load", () => {
+      applyCustomBasemapStyling();
       addMapLayers();
       setSourceData();
+      renderFeaturedAnchor();
     });
+
+    state.map.on("zoom", updateAnchorMarkerVisibility);
+    state.map.on("moveend", updateSmartLabels);
+    state.map.on("zoomend", updateSmartLabels);
 
     document.querySelectorAll(".mode-tab").forEach((tab) => {
       tab.addEventListener("click", () => setMode(tab.dataset.mode));
     });
+
+    const drawerToggle = document.getElementById("drawer-toggle");
+    const controlPanel = document.querySelector(".control-panel");
+    if (drawerToggle && controlPanel) {
+      drawerToggle.addEventListener("click", () => {
+        controlPanel.classList.toggle("collapsed");
+      });
+    }
   }
 
   init().catch((error) => {

@@ -129,6 +129,79 @@ PATH_DEFS = [
     },
 ]
 
+ANCHOR_DEFS = {
+    "miners-foundry-cultural-center-nevada-city": {
+        "label": "Performance anchor",
+        "hook": "Start with the old foundry turned cultural center: concerts, civic nights, and Nevada City's most recognizable gathering room.",
+        "iconKey": "stage",
+        "priority": 1,
+        "pathIds": ["evening-arts-night"],
+    },
+    "nevada-theatre-nevada-city": {
+        "label": "Historic stage",
+        "hook": "A living theater landmark that makes Nevada City's cultural memory visible from the sidewalk.",
+        "iconKey": "historic",
+        "priority": 2,
+        "pathIds": ["living-like-a-local", "evening-arts-night"],
+    },
+    "the-center-for-the-arts-grass-valley": {
+        "label": "Show night anchor",
+        "hook": "Grass Valley's major arts venue gives the map an immediate reason to plan around a performance.",
+        "iconKey": "stage",
+        "priority": 3,
+        "pathIds": ["living-like-a-local", "evening-arts-night"],
+    },
+    "booktown-books-grass-valley": {
+        "label": "Browsing anchor",
+        "hook": "A downtown book stop that turns the map from places into a slow, visitor-friendly day out.",
+        "iconKey": "book",
+        "priority": 4,
+        "pathIds": ["living-like-a-local"],
+    },
+    "nevada-city-winery-nevada-city": {
+        "label": "Gathering stop",
+        "hook": "A walkable tasting room that connects cultural browsing with an easy place to pause.",
+        "iconKey": "food-drink",
+        "priority": 5,
+        "pathIds": ["living-like-a-local"],
+    },
+    "the-stone-house-nevada-city": {
+        "label": "After-hours anchor",
+        "hook": "Historic dining and music give an arts night somewhere atmospheric to land after the show.",
+        "iconKey": "food-drink",
+        "priority": 6,
+        "pathIds": ["evening-arts-night"],
+    },
+    "art-works-gallery-grass-valley": {
+        "label": "Gallery anchor",
+        "hook": "A local-artist gallery that makes downtown Grass Valley feel hand-made rather than generic.",
+        "iconKey": "gallery",
+        "priority": 7,
+        "pathIds": ["gallery-studio-day"],
+    },
+    "c-h-a-m-p-gallery-at-city-hall-nevada-city": {
+        "label": "Civic gallery",
+        "hook": "City Hall doubles as an arts stop, making public space part of the cultural route.",
+        "iconKey": "gallery",
+        "priority": 8,
+        "pathIds": ["gallery-studio-day"],
+    },
+    "asif-studios-grass-valley": {
+        "label": "Studio anchor",
+        "hook": "A working studio community that shows the maker layer behind the gallery window.",
+        "iconKey": "maker",
+        "priority": 9,
+        "pathIds": ["gallery-studio-day"],
+    },
+    "the-curious-forge-nevada-city": {
+        "label": "Maker anchor",
+        "hook": "A large creative workshop where classes, tools, and production make the route feel active.",
+        "iconKey": "maker",
+        "priority": 10,
+        "pathIds": ["gallery-studio-day"],
+    },
+}
+
 DEMO_PLACE_OVERRIDES = {
     "booktown-books-grass-valley": {
         "category": "Shops & Makers",
@@ -431,7 +504,8 @@ def build_places(workbook: dict[str, list[dict[str, str]]], coord_exact: dict[st
                 gaps.append(f"- Image placeholder used: {name} ({image_gap}).")
 
             muse_pick = sheet.startswith("MUSE")
-            places.append({
+            anchor = ANCHOR_DEFS.get(place_id)
+            place_record = {
                 "id": place_id,
                 "name": name,
                 "city": city or clean_text(coord.get("city")),
@@ -444,8 +518,11 @@ def build_places(workbook: dict[str, list[dict[str, str]]], coord_exact: dict[st
                 "lng": coord["lng"],
                 "sourceSheet": sheet,
                 "image": image_record,
-                "featured": (muse_pick or category in {"Galleries & Studios", "Performing Arts", "Public Art"}) and (city or coord.get("city")) in {"Grass Valley", "Nevada City"},
-            })
+                "featured": bool(anchor),
+            }
+            if anchor:
+                place_record["anchor"] = anchor
+            places.append(place_record)
     places.sort(key=lambda p: (0 if p["city"] in {"Grass Valley", "Nevada City"} else 1, p["category"], p["name"]))
     return places, gaps
 

@@ -44,8 +44,9 @@ Do not use serif display fonts for V1. Avoid Playfair, Iowan, Charter, Georgia, 
 
 - Mode tabs: `Places`, `Events`, `Paths`.
 - Filter chips: visitor intent labels backed by source categories.
-- Detail card: image proof, name, category/city, compact description, one practical action, related events where available.
-- Path view: numbered markers, clickable stop list, and only a faint helper connector.
+- Detail card: image proof, name, category/city, compact description, one practical action, related events where available. Featured anchors may add one short editorial hook.
+- First-load card: highest-priority featured anchor with image, hook, and `View on map` action. Do not return to a generic instructional empty state while anchor data exists.
+- Path view: numbered markers, clickable stop list, anchor icons/hooks for anchor stops, and only a faint helper connector.
 
 ## Imagery
 
@@ -69,13 +70,14 @@ Use placeholders when imagery is missing or weak. Weak imagery includes watercol
 Markers communicate layer and priority, not full category taxonomy.
 
 - Place: restrained ink/neutral dot.
-- Featured or MUSE: NCAC red emphasis.
+- Featured anchor: restrained red ring plus compact icon label.
+- MUSE/non-anchor place: no marker upgrade unless separately selected by an approved V1 rule.
 - Selected place: ringed active state.
 - Event: red dot with subtle halo, visible in Events mode.
 - Path stop: numbered marker with subtle active/pulse treatment.
 - Cluster: paper fill, muted neutral stroke, ink count. Clusters should stay legible without competing with red active states.
 
-Do not use category icon soup, category rainbow markers, or a category legend. Keep taxonomy in filters and selected cards.
+Do not use category icon soup, category rainbow markers, or a category legend. Icons are only for featured anchors and path stops. Keep taxonomy in filters and selected cards.
 
 ## Paths
 
