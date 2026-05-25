@@ -1,0 +1,777 @@
+{
+  "issue_year": "2026",
+  "issue": "MUSE Issue 03 / 2026",
+  "source_url": "https://heyzine.com/flip-book/MUSE26",
+  "pdf_url": "https://cdnc.heyzine.com/files/uploaded/v3/5e4ca7b610dcf5736b0bca9efb46698ae0ae1253.pdf",
+  "page_count": 108,
+  "extracted_at": "2026-05-25T14:55:44+00:00",
+  "tools": {
+    "pdfinfo": "pdfinfo version 26.04.0",
+    "pdftotext": "pdftotext version 26.04.0",
+    "pdftoppm": "pdftoppm version 26.04.0",
+    "tesseract": "tesseract 5.5.2"
+  },
+  "notes": [
+    "Each page has a same-basename PNG image and TXT text file.",
+    "Text is extracted with pdftotext first; tesseract is used for pages with very short extracted text."
+  ],
+  "pages": [
+    {
+      "page": 1,
+      "image": "pages/muse-2026-page-001.jpg",
+      "text": "pages/muse-2026-page-001.txt",
+      "text_chars": 291,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 2,
+      "image": "pages/muse-2026-page-002.jpg",
+      "text": "pages/muse-2026-page-002.txt",
+      "text_chars": 58,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 3,
+      "image": "pages/muse-2026-page-003.jpg",
+      "text": "pages/muse-2026-page-003.txt",
+      "text_chars": 1610,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 4,
+      "image": "pages/muse-2026-page-004.jpg",
+      "text": "pages/muse-2026-page-004.txt",
+      "text_chars": 3813,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 5,
+      "image": "pages/muse-2026-page-005.jpg",
+      "text": "pages/muse-2026-page-005.txt",
+      "text_chars": 3001,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 6,
+      "image": "pages/muse-2026-page-006.jpg",
+      "text": "pages/muse-2026-page-006.txt",
+      "text_chars": 1773,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 7,
+      "image": "pages/muse-2026-page-007.jpg",
+      "text": "pages/muse-2026-page-007.txt",
+      "text_chars": 5120,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 8,
+      "image": "pages/muse-2026-page-008.jpg",
+      "text": "pages/muse-2026-page-008.txt",
+      "text_chars": 2495,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 9,
+      "image": "pages/muse-2026-page-009.jpg",
+      "text": "pages/muse-2026-page-009.txt",
+      "text_chars": 1076,
+      "text_extraction": "tesseract"
+    },
+    {
+      "page": 10,
+      "image": "pages/muse-2026-page-010.jpg",
+      "text": "pages/muse-2026-page-010.txt",
+      "text_chars": 4978,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 11,
+      "image": "pages/muse-2026-page-011.jpg",
+      "text": "pages/muse-2026-page-011.txt",
+      "text_chars": 5013,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 12,
+      "image": "pages/muse-2026-page-012.jpg",
+      "text": "pages/muse-2026-page-012.txt",
+      "text_chars": 71,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 13,
+      "image": "pages/muse-2026-page-013.jpg",
+      "text": "pages/muse-2026-page-013.txt",
+      "text_chars": 1514,
+      "text_extraction": "tesseract"
+    },
+    {
+      "page": 14,
+      "image": "pages/muse-2026-page-014.jpg",
+      "text": "pages/muse-2026-page-014.txt",
+      "text_chars": 7591,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 15,
+      "image": "pages/muse-2026-page-015.jpg",
+      "text": "pages/muse-2026-page-015.txt",
+      "text_chars": 10128,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 16,
+      "image": "pages/muse-2026-page-016.jpg",
+      "text": "pages/muse-2026-page-016.txt",
+      "text_chars": 6644,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 17,
+      "image": "pages/muse-2026-page-017.jpg",
+      "text": "pages/muse-2026-page-017.txt",
+      "text_chars": 6796,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 18,
+      "image": "pages/muse-2026-page-018.jpg",
+      "text": "pages/muse-2026-page-018.txt",
+      "text_chars": 8217,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 19,
+      "image": "pages/muse-2026-page-019.jpg",
+      "text": "pages/muse-2026-page-019.txt",
+      "text_chars": 8490,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 20,
+      "image": "pages/muse-2026-page-020.jpg",
+      "text": "pages/muse-2026-page-020.txt",
+      "text_chars": 9249,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 21,
+      "image": "pages/muse-2026-page-021.jpg",
+      "text": "pages/muse-2026-page-021.txt",
+      "text_chars": 8514,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 22,
+      "image": "pages/muse-2026-page-022.jpg",
+      "text": "pages/muse-2026-page-022.txt",
+      "text_chars": 10020,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 23,
+      "image": "pages/muse-2026-page-023.jpg",
+      "text": "pages/muse-2026-page-023.txt",
+      "text_chars": 9134,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 24,
+      "image": "pages/muse-2026-page-024.jpg",
+      "text": "pages/muse-2026-page-024.txt",
+      "text_chars": 9509,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 25,
+      "image": "pages/muse-2026-page-025.jpg",
+      "text": "pages/muse-2026-page-025.txt",
+      "text_chars": 501,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 26,
+      "image": "pages/muse-2026-page-026.jpg",
+      "text": "pages/muse-2026-page-026.txt",
+      "text_chars": 280,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 27,
+      "image": "pages/muse-2026-page-027.jpg",
+      "text": "pages/muse-2026-page-027.txt",
+      "text_chars": 279,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 28,
+      "image": "pages/muse-2026-page-028.jpg",
+      "text": "pages/muse-2026-page-028.txt",
+      "text_chars": 2999,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 29,
+      "image": "pages/muse-2026-page-029.jpg",
+      "text": "pages/muse-2026-page-029.txt",
+      "text_chars": 2767,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 30,
+      "image": "pages/muse-2026-page-030.jpg",
+      "text": "pages/muse-2026-page-030.txt",
+      "text_chars": 3548,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 31,
+      "image": "pages/muse-2026-page-031.jpg",
+      "text": "pages/muse-2026-page-031.txt",
+      "text_chars": 3612,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 32,
+      "image": "pages/muse-2026-page-032.jpg",
+      "text": "pages/muse-2026-page-032.txt",
+      "text_chars": 3257,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 33,
+      "image": "pages/muse-2026-page-033.jpg",
+      "text": "pages/muse-2026-page-033.txt",
+      "text_chars": 4683,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 34,
+      "image": "pages/muse-2026-page-034.jpg",
+      "text": "pages/muse-2026-page-034.txt",
+      "text_chars": 2153,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 35,
+      "image": "pages/muse-2026-page-035.jpg",
+      "text": "pages/muse-2026-page-035.txt",
+      "text_chars": 3741,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 36,
+      "image": "pages/muse-2026-page-036.jpg",
+      "text": "pages/muse-2026-page-036.txt",
+      "text_chars": 2710,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 37,
+      "image": "pages/muse-2026-page-037.jpg",
+      "text": "pages/muse-2026-page-037.txt",
+      "text_chars": 2874,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 38,
+      "image": "pages/muse-2026-page-038.jpg",
+      "text": "pages/muse-2026-page-038.txt",
+      "text_chars": 5034,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 39,
+      "image": "pages/muse-2026-page-039.jpg",
+      "text": "pages/muse-2026-page-039.txt",
+      "text_chars": 240,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 40,
+      "image": "pages/muse-2026-page-040.jpg",
+      "text": "pages/muse-2026-page-040.txt",
+      "text_chars": 401,
+      "text_extraction": "tesseract"
+    },
+    {
+      "page": 41,
+      "image": "pages/muse-2026-page-041.jpg",
+      "text": "pages/muse-2026-page-041.txt",
+      "text_chars": 130,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 42,
+      "image": "pages/muse-2026-page-042.jpg",
+      "text": "pages/muse-2026-page-042.txt",
+      "text_chars": 2756,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 43,
+      "image": "pages/muse-2026-page-043.jpg",
+      "text": "pages/muse-2026-page-043.txt",
+      "text_chars": 4288,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 44,
+      "image": "pages/muse-2026-page-044.jpg",
+      "text": "pages/muse-2026-page-044.txt",
+      "text_chars": 2567,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 45,
+      "image": "pages/muse-2026-page-045.jpg",
+      "text": "pages/muse-2026-page-045.txt",
+      "text_chars": 3768,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 46,
+      "image": "pages/muse-2026-page-046.jpg",
+      "text": "pages/muse-2026-page-046.txt",
+      "text_chars": 1372,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 47,
+      "image": "pages/muse-2026-page-047.jpg",
+      "text": "pages/muse-2026-page-047.txt",
+      "text_chars": 5261,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 48,
+      "image": "pages/muse-2026-page-048.jpg",
+      "text": "pages/muse-2026-page-048.txt",
+      "text_chars": 1976,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 49,
+      "image": "pages/muse-2026-page-049.jpg",
+      "text": "pages/muse-2026-page-049.txt",
+      "text_chars": 3815,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 50,
+      "image": "pages/muse-2026-page-050.jpg",
+      "text": "pages/muse-2026-page-050.txt",
+      "text_chars": 3848,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 51,
+      "image": "pages/muse-2026-page-051.jpg",
+      "text": "pages/muse-2026-page-051.txt",
+      "text_chars": 5023,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 52,
+      "image": "pages/muse-2026-page-052.jpg",
+      "text": "pages/muse-2026-page-052.txt",
+      "text_chars": 1588,
+      "text_extraction": "tesseract"
+    },
+    {
+      "page": 53,
+      "image": "pages/muse-2026-page-053.jpg",
+      "text": "pages/muse-2026-page-053.txt",
+      "text_chars": 372,
+      "text_extraction": "tesseract"
+    },
+    {
+      "page": 54,
+      "image": "pages/muse-2026-page-054.jpg",
+      "text": "pages/muse-2026-page-054.txt",
+      "text_chars": 2703,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 55,
+      "image": "pages/muse-2026-page-055.jpg",
+      "text": "pages/muse-2026-page-055.txt",
+      "text_chars": 5109,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 56,
+      "image": "pages/muse-2026-page-056.jpg",
+      "text": "pages/muse-2026-page-056.txt",
+      "text_chars": 3091,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 57,
+      "image": "pages/muse-2026-page-057.jpg",
+      "text": "pages/muse-2026-page-057.txt",
+      "text_chars": 3728,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 58,
+      "image": "pages/muse-2026-page-058.jpg",
+      "text": "pages/muse-2026-page-058.txt",
+      "text_chars": 978,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 59,
+      "image": "pages/muse-2026-page-059.jpg",
+      "text": "pages/muse-2026-page-059.txt",
+      "text_chars": 4842,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 60,
+      "image": "pages/muse-2026-page-060.jpg",
+      "text": "pages/muse-2026-page-060.txt",
+      "text_chars": 3345,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 61,
+      "image": "pages/muse-2026-page-061.jpg",
+      "text": "pages/muse-2026-page-061.txt",
+      "text_chars": 829,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 62,
+      "image": "pages/muse-2026-page-062.jpg",
+      "text": "pages/muse-2026-page-062.txt",
+      "text_chars": 4874,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 63,
+      "image": "pages/muse-2026-page-063.jpg",
+      "text": "pages/muse-2026-page-063.txt",
+      "text_chars": 836,
+      "text_extraction": "tesseract"
+    },
+    {
+      "page": 64,
+      "image": "pages/muse-2026-page-064.jpg",
+      "text": "pages/muse-2026-page-064.txt",
+      "text_chars": 3828,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 65,
+      "image": "pages/muse-2026-page-065.jpg",
+      "text": "pages/muse-2026-page-065.txt",
+      "text_chars": 4884,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 66,
+      "image": "pages/muse-2026-page-066.jpg",
+      "text": "pages/muse-2026-page-066.txt",
+      "text_chars": 5429,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 67,
+      "image": "pages/muse-2026-page-067.jpg",
+      "text": "pages/muse-2026-page-067.txt",
+      "text_chars": 6378,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 68,
+      "image": "pages/muse-2026-page-068.jpg",
+      "text": "pages/muse-2026-page-068.txt",
+      "text_chars": 2353,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 69,
+      "image": "pages/muse-2026-page-069.jpg",
+      "text": "pages/muse-2026-page-069.txt",
+      "text_chars": 2055,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 70,
+      "image": "pages/muse-2026-page-070.jpg",
+      "text": "pages/muse-2026-page-070.txt",
+      "text_chars": 2011,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 71,
+      "image": "pages/muse-2026-page-071.jpg",
+      "text": "pages/muse-2026-page-071.txt",
+      "text_chars": 2404,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 72,
+      "image": "pages/muse-2026-page-072.jpg",
+      "text": "pages/muse-2026-page-072.txt",
+      "text_chars": 1668,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 73,
+      "image": "pages/muse-2026-page-073.jpg",
+      "text": "pages/muse-2026-page-073.txt",
+      "text_chars": 2091,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 74,
+      "image": "pages/muse-2026-page-074.jpg",
+      "text": "pages/muse-2026-page-074.txt",
+      "text_chars": 1974,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 75,
+      "image": "pages/muse-2026-page-075.jpg",
+      "text": "pages/muse-2026-page-075.txt",
+      "text_chars": 2124,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 76,
+      "image": "pages/muse-2026-page-076.jpg",
+      "text": "pages/muse-2026-page-076.txt",
+      "text_chars": 2114,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 77,
+      "image": "pages/muse-2026-page-077.jpg",
+      "text": "pages/muse-2026-page-077.txt",
+      "text_chars": 1901,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 78,
+      "image": "pages/muse-2026-page-078.jpg",
+      "text": "pages/muse-2026-page-078.txt",
+      "text_chars": 2092,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 79,
+      "image": "pages/muse-2026-page-079.jpg",
+      "text": "pages/muse-2026-page-079.txt",
+      "text_chars": 1822,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 80,
+      "image": "pages/muse-2026-page-080.jpg",
+      "text": "pages/muse-2026-page-080.txt",
+      "text_chars": 1897,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 81,
+      "image": "pages/muse-2026-page-081.jpg",
+      "text": "pages/muse-2026-page-081.txt",
+      "text_chars": 1902,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 82,
+      "image": "pages/muse-2026-page-082.jpg",
+      "text": "pages/muse-2026-page-082.txt",
+      "text_chars": 1900,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 83,
+      "image": "pages/muse-2026-page-083.jpg",
+      "text": "pages/muse-2026-page-083.txt",
+      "text_chars": 2019,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 84,
+      "image": "pages/muse-2026-page-084.jpg",
+      "text": "pages/muse-2026-page-084.txt",
+      "text_chars": 1894,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 85,
+      "image": "pages/muse-2026-page-085.jpg",
+      "text": "pages/muse-2026-page-085.txt",
+      "text_chars": 2174,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 86,
+      "image": "pages/muse-2026-page-086.jpg",
+      "text": "pages/muse-2026-page-086.txt",
+      "text_chars": 1794,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 87,
+      "image": "pages/muse-2026-page-087.jpg",
+      "text": "pages/muse-2026-page-087.txt",
+      "text_chars": 2285,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 88,
+      "image": "pages/muse-2026-page-088.jpg",
+      "text": "pages/muse-2026-page-088.txt",
+      "text_chars": 2015,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 89,
+      "image": "pages/muse-2026-page-089.jpg",
+      "text": "pages/muse-2026-page-089.txt",
+      "text_chars": 1745,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 90,
+      "image": "pages/muse-2026-page-090.jpg",
+      "text": "pages/muse-2026-page-090.txt",
+      "text_chars": 1418,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 91,
+      "image": "pages/muse-2026-page-091.jpg",
+      "text": "pages/muse-2026-page-091.txt",
+      "text_chars": 1967,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 92,
+      "image": "pages/muse-2026-page-092.jpg",
+      "text": "pages/muse-2026-page-092.txt",
+      "text_chars": 2133,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 93,
+      "image": "pages/muse-2026-page-093.jpg",
+      "text": "pages/muse-2026-page-093.txt",
+      "text_chars": 2410,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 94,
+      "image": "pages/muse-2026-page-094.jpg",
+      "text": "pages/muse-2026-page-094.txt",
+      "text_chars": 8598,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 95,
+      "image": "pages/muse-2026-page-095.jpg",
+      "text": "pages/muse-2026-page-095.txt",
+      "text_chars": 9322,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 96,
+      "image": "pages/muse-2026-page-096.jpg",
+      "text": "pages/muse-2026-page-096.txt",
+      "text_chars": 8068,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 97,
+      "image": "pages/muse-2026-page-097.jpg",
+      "text": "pages/muse-2026-page-097.txt",
+      "text_chars": 10887,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 98,
+      "image": "pages/muse-2026-page-098.jpg",
+      "text": "pages/muse-2026-page-098.txt",
+      "text_chars": 10165,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 99,
+      "image": "pages/muse-2026-page-099.jpg",
+      "text": "pages/muse-2026-page-099.txt",
+      "text_chars": 10106,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 100,
+      "image": "pages/muse-2026-page-100.jpg",
+      "text": "pages/muse-2026-page-100.txt",
+      "text_chars": 9380,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 101,
+      "image": "pages/muse-2026-page-101.jpg",
+      "text": "pages/muse-2026-page-101.txt",
+      "text_chars": 9608,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 102,
+      "image": "pages/muse-2026-page-102.jpg",
+      "text": "pages/muse-2026-page-102.txt",
+      "text_chars": 9442,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 103,
+      "image": "pages/muse-2026-page-103.jpg",
+      "text": "pages/muse-2026-page-103.txt",
+      "text_chars": 10674,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 104,
+      "image": "pages/muse-2026-page-104.jpg",
+      "text": "pages/muse-2026-page-104.txt",
+      "text_chars": 10658,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 105,
+      "image": "pages/muse-2026-page-105.jpg",
+      "text": "pages/muse-2026-page-105.txt",
+      "text_chars": 4059,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 106,
+      "image": "pages/muse-2026-page-106.jpg",
+      "text": "pages/muse-2026-page-106.txt",
+      "text_chars": 745,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 107,
+      "image": "pages/muse-2026-page-107.jpg",
+      "text": "pages/muse-2026-page-107.txt",
+      "text_chars": 593,
+      "text_extraction": "pdftotext"
+    },
+    {
+      "page": 108,
+      "image": "pages/muse-2026-page-108.jpg",
+      "text": "pages/muse-2026-page-108.txt",
+      "text_chars": 254,
+      "text_extraction": "tesseract"
+    }
+  ],
+  "source_pdf_retained": false
+}
