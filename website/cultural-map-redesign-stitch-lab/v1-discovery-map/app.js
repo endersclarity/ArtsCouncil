@@ -166,6 +166,17 @@
     updateSmartLabels();
   }
 
+  function setMapSourceData(sourceId, features) {
+    const source = state.map.getSource(sourceId);
+    if (source) source.setData({ type: "FeatureCollection", features });
+  }
+
+  function setMapLayerVisibility(layerId, visibility) {
+    if (state.map.getLayer(layerId)) {
+      state.map.setLayoutProperty(layerId, "visibility", visibility);
+    }
+  }
+
   function clearAnchorMarkers() {
     state.anchorMarkers.forEach((marker) => marker.remove());
     state.anchorMarkers = [];
@@ -497,8 +508,7 @@
     state.selectedPath = path;
     state.selectedPlaceId = "";
     clearPathMarkers();
-    const source = state.map.getSource("paths");
-    source.setData({ type: "FeatureCollection", features: [pathFeature(path)] });
+    setMapSourceData("paths", [pathFeature(path)]);
     path.stops.forEach((stop, index) => {
       const el = document.createElement("button");
       el.className = "path-number-marker";
@@ -518,11 +528,14 @@
 
   function renderPathPanel(activePath) {
     expandDrawer();
+    const thesis = activePath.thesis || activePath.dek;
+    const copy = activePath.copy || "";
     els.detail.innerHTML = `
       <div class="path-card-heading">
         <p class="detail-eyebrow">Curated path</p>
         <h2>${escapeHtml(activePath.title)}</h2>
-        <p class="detail-description">${escapeHtml(activePath.dek)}</p>
+        <p class="path-thesis">${escapeHtml(thesis)}</p>
+        ${copy ? `<p class="path-copy">${escapeHtml(copy)}</p>` : ""}
       </div>
       <ol class="path-stop-list">
         ${activePath.stops.map((stop) => {
@@ -572,9 +585,9 @@
     if (mode !== "places") state.selectedPlaceId = "";
     document.querySelectorAll(".mode-tab").forEach((tab) => tab.classList.toggle("active", tab.dataset.mode === mode));
     clearPathMarkers();
-    state.map.getSource("paths")?.setData({ type: "FeatureCollection", features: [] });
-    state.map.setLayoutProperty("event-points", "visibility", mode === "events" ? "visible" : "none");
-    state.map.setLayoutProperty("event-halo", "visibility", mode === "events" ? "visible" : "none");
+    setMapSourceData("paths", []);
+    setMapLayerVisibility("event-points", mode === "events" ? "visible" : "none");
+    setMapLayerVisibility("event-halo", mode === "events" ? "visible" : "none");
     if (mode === "events") {
       els.hint.innerHTML = `<p class="hint-title">Events on the map</p><p>Upcoming NCAC-feed events appear when the venue matches a visible place.</p>`;
       const first = state.events[0];
