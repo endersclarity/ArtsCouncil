@@ -355,11 +355,18 @@
     });
   }
 
-  function renderImage(place) {
+  function setDetailCardMode(mode) {
+    els.detail.classList.toggle("primary-anchor-card", mode === "primary-anchor");
+    els.detail.classList.toggle("path-detail-card", mode === "path");
+  }
+
+  function renderImage(place, options = {}) {
+    const proofLabel = options.proofLabel ? `<span class="image-proof-label">${escapeHtml(options.proofLabel)}</span>` : "";
     if (place.image && place.image.kind === "real" && place.image.src) {
       const src = resolveMedia(place.image.src);
       return `
         <figure class="place-image-frame">
+          ${proofLabel}
           <img class="place-image" src="${escapeHtml(src)}" alt="${escapeHtml(place.image.alt || place.name)}">
           ${place.image.credit ? `<figcaption>${escapeHtml(place.image.credit)}</figcaption>` : ""}
         </figure>
@@ -368,6 +375,7 @@
     const src = resolveMedia(place.image?.src || place.image?.placeholderSrc || "assets/placeholders/gallery-studio.webp");
     return `
       <div class="placeholder-image-wrap">
+        ${proofLabel}
         <img class="place-image placeholder-image" src="${escapeHtml(src)}" alt="${escapeHtml(place.image?.alt || `Editorial placeholder image for ${place.name}`)}">
         <span class="placeholder-label">Placeholder image</span>
       </div>
@@ -429,17 +437,21 @@
   function renderFeaturedAnchor() {
     const place = featuredAnchor();
     if (!place) {
+      setDetailCardMode("");
       els.hint.innerHTML = `<p class="hint-title">Start in the cultural district</p><p>Grass Valley and Nevada City are centered first, with the wider county still visible as context.</p>`;
       els.detail.innerHTML = `<p class="empty-title">Select a place</p><p class="empty-copy">The detail card will show image proof, short context, source category, and related events when available.</p>`;
       return;
     }
+    setDetailCardMode("primary-anchor");
     els.hint.innerHTML = `<p class="hint-title">Featured cultural anchor</p><p>${escapeHtml(place.anchor.hook)}</p>`;
     els.detail.innerHTML = `
-      ${renderImage(place)}
-      <p class="detail-eyebrow">Start here</p>
-      ${anchorBadge(place)}
-      <h2>${escapeHtml(place.name)}</h2>
-      <p class="detail-location">${escapeHtml(place.category)} / ${escapeHtml(place.city || "Nevada County")}</p>
+      ${renderImage(place, { proofLabel: "Image proof" })}
+      <div class="anchor-card-heading">
+        <p class="detail-eyebrow">Start here</p>
+        ${anchorBadge(place)}
+        <h2>${escapeHtml(place.name)}</h2>
+        <p class="detail-location">${escapeHtml(place.category)} / ${escapeHtml(place.city || "Nevada County")}</p>
+      </div>
       ${place.anchorCard ? `<p class="anchor-hook">${escapeHtml(place.anchorCard.hook)}</p>` : ""}
       ${anchorCardMeta(place)}
       <div class="detail-actions"><button type="button" class="anchor-map-action">View on map</button></div>
@@ -455,6 +467,8 @@
     const anchor = place.anchor || null;
     const actionLabel = place.anchorCard?.primaryAction || "Visit site";
     const action = place.website ? `<a href="${escapeHtml(place.website)}" target="_blank" rel="noopener">${escapeHtml(actionLabel)}</a>` : "";
+    const isPrimaryAnchor = Boolean(anchor && place.anchorCard);
+    setDetailCardMode(isPrimaryAnchor ? "primary-anchor" : "");
     const eventHtml = events.length ? `
       <div class="related-events">
         <p class="section-label">Coming up here</p>
@@ -467,14 +481,16 @@
       </div>
     ` : "";
     els.detail.innerHTML = `
-      ${renderImage(place)}
-      <p class="detail-eyebrow">${anchor ? "Cultural anchor" : place.anchorCard ? "Cultural route stop" : place.musePick ? "MUSE pick" : "Cultural place"}</p>
-      ${anchorBadge(place)}
-      <h2>${escapeHtml(place.name)}</h2>
-      <p class="detail-location">${escapeHtml(place.category)} / ${escapeHtml(place.city || "Nevada County")}</p>
+      ${renderImage(place, isPrimaryAnchor ? { proofLabel: "Image proof" } : {})}
+      <div class="${isPrimaryAnchor ? "anchor-card-heading" : "detail-heading"}">
+        <p class="detail-eyebrow">${anchor ? "Cultural anchor" : place.anchorCard ? "Cultural route stop" : place.musePick ? "MUSE pick" : "Cultural place"}</p>
+        ${anchorBadge(place)}
+        <h2>${escapeHtml(place.name)}</h2>
+        <p class="detail-location">${escapeHtml(place.category)} / ${escapeHtml(place.city || "Nevada County")}</p>
+      </div>
       ${place.anchorCard ? `<p class="anchor-hook">${escapeHtml(place.anchorCard.hook)}</p>` : anchor ? `<p class="anchor-hook">${escapeHtml(anchor.hook)}</p>` : ""}
-      <p class="detail-description">${escapeHtml(place.description)}</p>
       ${anchorCardMeta(place)}
+      <p class="detail-description">${escapeHtml(place.description)}</p>
       ${action ? `<div class="detail-actions">${action}</div>` : ""}
       ${eventHtml}
     `;
@@ -483,6 +499,7 @@
 
   function showEvent(event) {
     expandDrawer();
+    setDetailCardMode("");
     const place = state.places.find((item) => item.id === event.placeId);
     els.detail.innerHTML = `
       ${event.image ? `<img class="place-image" src="${escapeHtml(event.image)}" alt="${escapeHtml(event.title)}">` : ""}
@@ -541,6 +558,7 @@
 
   function renderPathPanel(activePath) {
     expandDrawer();
+    setDetailCardMode("path");
     const thesis = activePath.thesis || activePath.dek;
     const copy = activePath.copy || "";
     els.detail.innerHTML = `
@@ -572,6 +590,7 @@
   }
 
   function renderPathChooser() {
+    setDetailCardMode("path");
     els.hint.innerHTML = `
       <p class="hint-title">MUSE-current paths</p>
       <p>Three fixed routes demonstrate how cultural discovery can be curated on the map.</p>
@@ -863,6 +882,7 @@
   }
 
   init().catch((error) => {
+    setDetailCardMode("");
     els.detail.innerHTML = `<p class="empty-title">Unable to load alpha data</p><p class="empty-copy">${escapeHtml(error.message)}</p>`;
   });
 })();
