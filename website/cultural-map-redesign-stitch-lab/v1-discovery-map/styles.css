@@ -596,7 +596,9 @@ body[data-map-mode="paths"] .filter-wrap {
 
 .path-card-heading .detail-eyebrow,
 .path-card-heading h2,
-.path-card-heading .detail-description {
+.path-card-heading .detail-description,
+.path-card-heading .path-thesis,
+.path-card-heading .path-copy {
   margin-bottom: 0;
 }
 
@@ -604,9 +606,18 @@ body[data-map-mode="paths"] .filter-wrap {
   font-size: 26px;
 }
 
-.path-card-heading .detail-description {
+.path-card-heading .path-thesis {
+  max-width: 34rem;
   font-size: 14px;
-  line-height: 1.28;
+  line-height: 1.32;
+  font-weight: 750;
+}
+
+.path-card-heading .path-copy {
+  max-width: 38rem;
+  color: var(--ink-soft);
+  font-size: 12px;
+  line-height: 1.38;
 }
 
 .path-stop-list {

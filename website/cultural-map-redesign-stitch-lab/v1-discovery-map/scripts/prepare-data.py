@@ -106,15 +106,21 @@ PATH_DEFS = [
         ],
     },
     {
-        "id": "gallery-studio-day",
-        "title": "Gallery & Studio Day",
-        "dek": "A daylight route through galleries, studios, and public-facing creative spaces in the GVNC Cultural District.",
+        "id": "makers-working-artists",
+        "title": "Makers / Working Artists",
+        "thesis": "Culture in western Nevada County is something people make, teach, share, and practice together.",
+        "dek": "A working-arts path that follows art from a public gallery into studios, classes, tools, and hands-on creative practice.",
+        "copy": "This path shows that the Discovery Map can point to culture being made, taught, shared, and practiced, not only culture on a calendar. Art Works Gallery, ASiF Studios, and The Curious Forge each make the creative process visible: artists showing current work, studio communities teaching and practicing skills, and maker spaces opening tools and craft to more people.",
         "stop_names": [
             "Art Works Gallery",
-            "C.H.A.M.P. Gallery at City Hall",
             "ASiF Studios",
             "The Curious Forge",
         ],
+        "stop_notes": {
+            "Art Works Gallery": "Start with working artists presenting finished pieces in a cooperative downtown gallery.",
+            "ASiF Studios": "Continue into a studio community where classes and shared workspace keep art practice visible.",
+            "The Curious Forge": "End at a maker space where tools, workshops, and hands-on learning broaden what creative production can mean.",
+        },
     },
     {
         "id": "evening-arts-night",
@@ -628,10 +634,14 @@ def build_paths(places: list[dict[str, Any]]) -> tuple[list[dict[str, Any]], lis
                 "city": place["city"],
                 "lat": place["lat"],
                 "lng": place["lng"],
-                "note": f"{place['category']} stop for {path['title'].lower()}.",
+                "note": path.get("stop_notes", {}).get(
+                    name,
+                    f"{place['category']} stop for {path['title'].lower()}.",
+                ),
             })
         paths.append({**path, "stops": stops, "stop_names": None})
         del paths[-1]["stop_names"]
+        paths[-1].pop("stop_notes", None)
     return paths, gaps
 
 

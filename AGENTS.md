@@ -8,6 +8,25 @@ This is the **Nevada County Arts Council** project — a cultural asset mapping 
 
 The project is associated with Kaelen's volunteer work at North Star Historic Conservancy. The Arts Council is a separate organization, but North Star House appears in 4 of the 10 data layers.
 
+## Goal Writing and Approval Gates
+
+When writing `/goal` prompts or handoff instructions, do not create unnecessary approval gates for low-risk bookkeeping. The user should be able to walk away while routine, reversible work continues.
+
+Use explicit approval gates only for actions that are meaningfully risky, hard to reverse, externally visible in a sensitive way, or likely to surprise the user, such as:
+
+- pushing commits
+- deploying
+- deleting or overwriting non-scratch files
+- changing production/canonical targets
+- spending money or using paid external services
+- sending messages to external people
+
+Do not require separate approval for routine planning or tracker hygiene unless the user specifically asks for it. Creating draft GitHub issues, publishing clearly scoped implementation issues, updating issue bodies, writing local handoff notes, or committing an already-reviewed documentation-only change can be treated as safe follow-through when the user has approved the surrounding plan.
+
+If a goal says both "use `to-issues`" and "get approval before publishing," interpret later conversational approval broadly. Phrases like "yes," "do it," "sounds good," or obvious frustration at being blocked are enough approval to proceed with issue creation. Do not repeatedly block on exact magic words.
+
+When approval is genuinely needed, ask once in plain language and explain the risk. If the action is low-risk and reversible, prefer proceeding and reporting what was done.
+
 ## Repository Structure
 
 - `data/cultural-asset-map/` — Raw data extracted from ArcGIS web map `604050d4965c4b93b984781f72941d5b`. Individual GeoJSON files per layer, combined CSV/GeoJSON, and ArcGIS metadata. Source of truth for all cultural asset data.
