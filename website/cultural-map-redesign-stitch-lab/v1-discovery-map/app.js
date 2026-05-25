@@ -5,6 +5,7 @@
     places: "data/places.json",
     events: "data/events.json",
     paths: "data/paths.json",
+    anchorCards: "data/anchor_cards.json",
   };
 
   const MARKERS = {
@@ -30,6 +31,7 @@
     places: [],
     events: [],
     paths: [],
+    anchorCards: [],
     selectedPath: null,
     selectedPlaceId: "",
     map: null,
@@ -95,6 +97,41 @@
         placeName: event.placeName,
       },
     };
+  }
+
+  function applyAnchorCards(places, anchorCards) {
+    const cardsById = new Map((anchorCards || []).map((card) => [card.placeId, card]));
+    return (places || []).map((place) => {
+      const card = cardsById.get(place.id);
+      if (!card) {
+        const { anchor, anchorCard, ...rest } = place;
+        return rest;
+      }
+      const nextPlace = {
+        ...place,
+        anchorCard: card,
+      };
+      if (card.image && card.image.src) {
+        nextPlace.image = card.image;
+      }
+      if (card.website) {
+        nextPlace.website = card.website;
+      }
+      if (card.promoteAsAnchor) {
+        nextPlace.anchor = {
+          label: card.anchorLabel,
+          hook: card.hook,
+          iconKey: card.iconKey,
+          priority: card.priority,
+          pathIds: place.anchor?.pathIds || [],
+          tier: card.recommendedTier,
+          badge: card.demoBadge,
+        };
+      } else {
+        delete nextPlace.anchor;
+      }
+      return nextPlace;
+    });
   }
 
   function filteredPlaces() {
@@ -308,7 +345,12 @@
   function renderImage(place) {
     if (place.image && place.image.kind === "real" && place.image.src) {
       const src = resolveMedia(place.image.src);
-      return `<img class="place-image" src="${escapeHtml(src)}" alt="${escapeHtml(place.image.alt || place.name)}">`;
+      return `
+        <figure class="place-image-frame">
+          <img class="place-image" src="${escapeHtml(src)}" alt="${escapeHtml(place.image.alt || place.name)}">
+          ${place.image.credit ? `<figcaption>${escapeHtml(place.image.credit)}</figcaption>` : ""}
+        </figure>
+      `;
     }
     const src = resolveMedia(place.image?.src || place.image?.placeholderSrc || "assets/placeholders/gallery-studio.webp");
     return `
@@ -328,12 +370,30 @@
   }
 
   function anchorBadge(place) {
-    if (!place.anchor) return "";
+    const card = place.anchorCard || null;
+    if (!place.anchor && !card) return "";
+    const label = card?.anchorLabel || place.anchor.label;
+    const icon = card ? ANCHOR_ICON_TEXT[card.iconKey] || anchorIconText(place.anchor) : anchorIconText(place.anchor);
+    const badge = place.anchor?.badge || card?.demoBadge || "";
     return `
-      <p class="anchor-label">
-        <span class="anchor-token">${escapeHtml(anchorIconText(place.anchor))}</span>
-        ${escapeHtml(place.anchor.label)}
+      <p class="anchor-label${place.anchor ? "" : " route-stop-label"}">
+        <span class="anchor-token">${escapeHtml(icon)}</span>
+        <span class="anchor-label-copy">${escapeHtml(label)}</span>
+        ${badge ? `<span class="anchor-demo-badge">${escapeHtml(badge)}</span>` : ""}
       </p>
+    `;
+  }
+
+  function anchorCardMeta(place) {
+    const card = place.anchorCard;
+    if (!card) return "";
+    const pathLabel = card.pathMembership ? card.pathMembership.split(";")[0].trim() : "";
+    const chips = [pathLabel, ...(card.themeTags || [])].filter(Boolean).slice(0, 4);
+    return `
+      <div class="anchor-card-meta" aria-label="Cultural context">
+        ${card.whyItMatters ? `<p><strong>Why this place matters</strong><span>${escapeHtml(card.whyItMatters)}</span></p>` : ""}
+        ${chips.length ? `<div class="anchor-context-chips" aria-label="Anchor relationships">${chips.map((chip) => `<span>${escapeHtml(chip)}</span>`).join("")}</div>` : ""}
+      </div>
     `;
   }
 
@@ -357,7 +417,8 @@
       ${anchorBadge(place)}
       <h2>${escapeHtml(place.name)}</h2>
       <p class="detail-location">${escapeHtml(place.category)} / ${escapeHtml(place.city || "Nevada County")}</p>
-      <p class="detail-description">${escapeHtml(place.description)}</p>
+      ${place.anchorCard ? `<p class="anchor-hook">${escapeHtml(place.anchorCard.hook)}</p>` : ""}
+      ${anchorCardMeta(place)}
       <div class="detail-actions"><button type="button" class="anchor-map-action">View on map</button></div>
     `;
     els.detail.querySelector(".anchor-map-action")?.addEventListener("click", () => showPlace(place));
@@ -383,12 +444,13 @@
     ` : "";
     els.detail.innerHTML = `
       ${renderImage(place)}
-      <p class="detail-eyebrow">${anchor ? "Featured cultural anchor" : place.musePick ? "MUSE pick" : "Cultural place"}</p>
+      <p class="detail-eyebrow">${anchor ? "Cultural anchor" : place.anchorCard ? "Cultural route stop" : place.musePick ? "MUSE pick" : "Cultural place"}</p>
       ${anchorBadge(place)}
       <h2>${escapeHtml(place.name)}</h2>
       <p class="detail-location">${escapeHtml(place.category)} / ${escapeHtml(place.city || "Nevada County")}</p>
-      ${anchor ? `<p class="anchor-hook">${escapeHtml(anchor.hook)}</p>` : ""}
+      ${place.anchorCard ? `<p class="anchor-hook">${escapeHtml(place.anchorCard.hook)}</p>` : anchor ? `<p class="anchor-hook">${escapeHtml(anchor.hook)}</p>` : ""}
       <p class="detail-description">${escapeHtml(place.description)}</p>
+      ${anchorCardMeta(place)}
       ${action ? `<div class="detail-actions">${action}</div>` : ""}
       ${eventHtml}
     `;
@@ -466,9 +528,10 @@
         ${activePath.stops.map((stop) => {
           const place = state.places.find((item) => item.id === stop.placeId);
           const anchor = place?.anchor || null;
-          const icon = anchor ? anchorIconText(anchor) : "";
-          const hook = anchor?.hook || stop.note;
-          return `<li><button type="button" data-place="${escapeHtml(stop.placeId)}"><span class="path-stop-icon">${escapeHtml(icon)}</span><span class="path-stop-copy"><strong>${escapeHtml(stop.name)}</strong><em>${escapeHtml(stop.category)} / ${escapeHtml(stop.city)}</em><small>${escapeHtml(hook)}</small></span></button></li>`;
+          const card = place?.anchorCard || null;
+          const icon = anchor ? anchorIconText(anchor) : card ? ANCHOR_ICON_TEXT[card.iconKey] || "" : "";
+          const hook = anchor?.hook || card?.hook || stop.note;
+          return `<li><button class="${icon ? "has-path-icon" : "no-path-icon"}" type="button" data-place="${escapeHtml(stop.placeId)}">${icon ? `<span class="path-stop-icon">${escapeHtml(icon)}</span>` : ""}<span class="path-stop-copy"><strong>${escapeHtml(stop.name)}</strong><em>${escapeHtml(stop.category)} / ${escapeHtml(stop.city)}</em><small>${escapeHtml(hook)}</small></span></button></li>`;
         }).join("")}
       </ol>
     `;
@@ -729,12 +792,14 @@
   }
 
   async function init() {
-    const [places, events, paths] = await Promise.all([
+    const [places, events, paths, anchorCards] = await Promise.all([
       fetch(DATA.places).then((r) => r.json()),
       fetch(DATA.events).then((r) => r.json()),
       fetch(DATA.paths).then((r) => r.json()),
+      fetch(DATA.anchorCards).then((r) => r.json()).catch(() => []),
     ]);
-    state.places = places;
+    state.anchorCards = Array.isArray(anchorCards) ? anchorCards : [];
+    state.places = applyAnchorCards(places, state.anchorCards);
     state.events = events;
     state.paths = paths;
 
