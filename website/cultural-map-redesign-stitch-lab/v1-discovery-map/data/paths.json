@@ -43,9 +43,11 @@
     ]
   },
   {
-    "id": "gallery-studio-day",
-    "title": "Gallery & Studio Day",
-    "dek": "A daylight route through galleries, studios, and public-facing creative spaces in the GVNC Cultural District.",
+    "id": "makers-working-artists",
+    "title": "Makers / Working Artists",
+    "thesis": "Culture in western Nevada County is something people make, teach, share, and practice together.",
+    "dek": "A working-arts path that follows art from a public gallery into studios, classes, tools, and hands-on creative practice.",
+    "copy": "This path shows that the Discovery Map can point to culture being made, taught, shared, and practiced, not only culture on a calendar. Art Works Gallery, ASiF Studios, and The Curious Forge each make the creative process visible: artists showing current work, studio communities teaching and practicing skills, and maker spaces opening tools and craft to more people.",
     "stops": [
       {
         "placeId": "art-works-gallery-grass-valley",
@@ -54,16 +56,7 @@
         "city": "Grass Valley",
         "lat": 39.219049510822,
         "lng": -121.063026505856,
-        "note": "Galleries & Studios stop for gallery & studio day."
-      },
-      {
-        "placeId": "c-h-a-m-p-gallery-at-city-hall-nevada-city",
-        "name": "C.H.A.M.P. Gallery at City Hall",
-        "category": "Galleries & Studios",
-        "city": "Nevada City",
-        "lat": 39.262757231496,
-        "lng": -121.019506446573,
-        "note": "Galleries & Studios stop for gallery & studio day."
+        "note": "Start with working artists presenting finished pieces in a cooperative downtown gallery."
       },
       {
         "placeId": "asif-studios-grass-valley",
@@ -72,7 +65,7 @@
         "city": "Grass Valley",
         "lat": 39.222542531384,
         "lng": -121.051461055927,
-        "note": "Galleries & Studios stop for gallery & studio day."
+        "note": "Continue into a studio community where classes and shared workspace keep art practice visible."
       },
       {
         "placeId": "the-curious-forge-nevada-city",
@@ -81,7 +74,7 @@
         "city": "Nevada City",
         "lat": 39.254933782504,
         "lng": -121.134189389754,
-        "note": "Arts Organizations stop for gallery & studio day."
+        "note": "End at a maker space where tools, workshops, and hands-on learning broaden what creative production can mean."
       }
     ]
   },
