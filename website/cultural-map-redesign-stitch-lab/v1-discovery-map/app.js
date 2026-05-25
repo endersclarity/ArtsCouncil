@@ -441,7 +441,8 @@
     setSourceData();
     const events = relatedEvents(place.id);
     const anchor = place.anchor || null;
-    const action = place.website ? `<a href="${escapeHtml(place.website)}" target="_blank" rel="noopener">Visit site</a>` : "";
+    const actionLabel = place.anchorCard?.primaryAction || "Visit site";
+    const action = place.website ? `<a href="${escapeHtml(place.website)}" target="_blank" rel="noopener">${escapeHtml(actionLabel)}</a>` : "";
     const eventHtml = events.length ? `
       <div class="related-events">
         <p class="section-label">Coming up here</p>

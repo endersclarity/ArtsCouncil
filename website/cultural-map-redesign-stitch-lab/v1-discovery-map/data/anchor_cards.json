@@ -3,11 +3,26 @@
     "placeId": "the-center-for-the-arts-grass-valley",
     "name": "The Center for the Arts",
     "anchorLabel": "Grass Valley performance anchor",
-    "hook": "Grass Valley's major arts venue gives the map an immediate reason to plan around performances, exhibitions, classes, and community events.",
-    "whyItMatters": "It is the clearest institutional arts anchor in Grass Valley and gives the prototype a strong public-discovery and stakeholder-proof spine.",
+    "hook": "Grass Valley's major arts venue gives visitors an immediate way to plan around performances, exhibitions, classes, and community events.",
+    "whyItMatters": "MUSE repeatedly places The Center inside local arts news, culture itineraries, education, and event coverage, making it the clearest public gateway into Grass Valley's year-round arts life.",
     "website": "https://thecenterforthearts.org/",
     "pathMembership": "Living Like a Local; Evening Arts Night; performance-first path",
     "themeTags": ["Performance", "Grass Valley", "Events"],
+    "primaryAction": "See what is on stage",
+    "museEvidence": [
+      {
+        "claim": "The Center is a recurring MUSE-linked anchor for Grass Valley performances, classes, culture itineraries, and local arts news.",
+        "linkIds": [
+          "place:the-center-for-the-arts-grass-valley:muse-2026-culture-connection-local-arts-news-for-2026:exact:center-for-the-arts",
+          "place:the-center-for-the-arts-grass-valley:muse-2024-48-hours-in-gvnc-exploring-culture-and-art:exact:center-for-the-arts"
+        ],
+        "sourceRefs": [
+          { "issueYear": 2026, "pages": [10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27] },
+          { "issueYear": 2024, "pages": [28, 29, 30, 31] }
+        ],
+        "direct": true
+      }
+    ],
     "iconKey": "stage",
     "priority": 1,
     "promoteAsAnchor": true,
@@ -23,11 +38,26 @@
     "placeId": "nevada-theatre-nevada-city",
     "name": "Nevada Theatre",
     "anchorLabel": "Historic performance anchor",
-    "hook": "A historic Nevada City theatre that connects live performance, local history, and downtown cultural identity.",
-    "whyItMatters": "It adds a strong Nevada City performing-arts counterweight to The Center and gives the prototype a clear night-out and history anchor.",
+    "hook": "A historic Nevada City theatre where live performance, local memory, and a downtown night out meet.",
+    "whyItMatters": "MUSE connects Nevada Theatre to arts-essential storytelling, annual event listings, and culture itineraries, so the card can frame it as both a performance stop and a piece of Nevada City's civic memory.",
     "website": "http://nevadatheatre.com/",
     "pathMembership": "Nevada City night-out path; historic theatre path",
     "themeTags": ["Performance", "Nevada City", "Heritage"],
+    "primaryAction": "Plan a night out",
+    "museEvidence": [
+      {
+        "claim": "Nevada Theatre has direct 2024-2025 MUSE support as a performance and events anchor.",
+        "linkIds": [
+          "place:nevada-theatre-nevada-city:muse-2024-in-nevada-county-the-arts-are-essential:exact:nevada-theatre",
+          "place:nevada-theatre-nevada-city:muse-2025-calendar-of-events-2025:exact:nevada-theatre"
+        ],
+        "sourceRefs": [
+          { "issueYear": 2024, "pages": [10, 11, 12, 13, 14, 15] },
+          { "issueYear": 2025, "pages": [20, 21, 22, 23, 24, 25] }
+        ],
+        "direct": true
+      }
+    ],
     "iconKey": "historic",
     "priority": 2,
     "promoteAsAnchor": true,
@@ -43,11 +73,24 @@
     "placeId": "north-star-house-grass-valley",
     "name": "North Star House",
     "anchorLabel": "Heritage design anchor",
-    "hook": "A Julia Morgan-designed historic house that connects Grass Valley's mining history, architecture, restoration, and civic imagination.",
-    "whyItMatters": "It gives the map a heritage and design anchor that is visually memorable and different from a venue listing, connecting arts, history, architecture, and place stewardship.",
+    "hook": "A Julia Morgan-designed landmark where architecture, mining history, restoration, and civic imagination come into view.",
+    "whyItMatters": "MUSE's 2026 Julia Morgan coverage gives North Star House a direct heritage-design thread, helping the map treat it as a living cultural landmark rather than a generic historic stop.",
     "website": "https://www.northstarhouse.org/",
     "pathMembership": "Historic Grass Valley; architecture/design path; civic heritage path",
     "themeTags": ["Design legacy", "Grass Valley", "Heritage"],
+    "primaryAction": "Explore the house story",
+    "museEvidence": [
+      {
+        "claim": "North Star House has direct 2026 MUSE support through Julia Morgan heritage-design coverage.",
+        "linkIds": [
+          "place:north-star-house-grass-valley:muse-2026-architect-julia-morgan-s-legacy-in-nevada-county:exact:north-star-house"
+        ],
+        "sourceRefs": [
+          { "issueYear": 2026, "pages": [42, 43] }
+        ],
+        "direct": true
+      }
+    ],
     "iconKey": "historic",
     "priority": 3,
     "promoteAsAnchor": true,
@@ -63,11 +106,35 @@
     "placeId": "empire-mine-grass-valley",
     "name": "Empire Mine",
     "anchorLabel": "Cultural landscape anchor",
-    "hook": "A major historic landscape that gives visitors a concrete way to understand the region's mining history, grounds, architecture, and public memory.",
-    "whyItMatters": "It should be framed carefully: not as an arts venue, but as a major orientation point for the cultural landscape that shaped Grass Valley and Nevada County identity.",
+    "hook": "A historic landscape that grounds Grass Valley arts discovery in mining history, public memory, and place.",
+    "whyItMatters": "MUSE directly includes Empire Mine in a GVNC culture itinerary, while 2026 heritage links help frame the broader landscape carefully: not as an arts venue, but as context for the region's identity.",
     "website": "https://www.parks.ca.gov/?page_id=499",
     "pathMembership": "Historic landscape path; Grass Valley orientation path",
     "themeTags": ["Landscape", "Grass Valley", "Public memory"],
+    "primaryAction": "Walk the heritage landscape",
+    "museEvidence": [
+      {
+        "claim": "Empire Mine has direct MUSE itinerary support as part of GVNC cultural exploration.",
+        "linkIds": [
+          "place:empire-mine-grass-valley:muse-2024-48-hours-in-gvnc-exploring-culture-and-art:exact:empire-mine"
+        ],
+        "sourceRefs": [
+          { "issueYear": 2024, "pages": [28, 29, 30, 31] }
+        ],
+        "direct": true
+      },
+      {
+        "claim": "The 2026 MUSE evidence is thematic heritage support, not a direct Empire Mine article claim.",
+        "linkIds": [
+          "place:empire-mine-grass-valley:muse-2026-architect-julia-morgan-s-legacy-in-nevada-county:fuzzy-theme:heritage-history"
+        ],
+        "sourceRefs": [
+          { "issueYear": 2026, "pages": [42, 43] }
+        ],
+        "direct": false,
+        "notes": "Use only as landscape/heritage context."
+      }
+    ],
     "iconKey": "historic",
     "priority": 4,
     "promoteAsAnchor": true,
@@ -83,11 +150,26 @@
     "placeId": "art-works-gallery-grass-valley",
     "name": "Art Works Gallery",
     "anchorLabel": "Artist cooperative anchor",
-    "hook": "A downtown Grass Valley artist cooperative that makes local makers and gallery browsing visible in the discovery map.",
-    "whyItMatters": "It represents individual working artists and a walkable gallery experience, not just large institutions or historic landmarks.",
+    "hook": "A downtown Grass Valley artist cooperative where visitors can browse local work and meet the maker side of the arts scene.",
+    "whyItMatters": "MUSE's 2026 Art Works Gallery links support a card focused on local artists, gallery browsing, and community leadership rather than only large institutions or landmarks.",
     "website": "https://www.artworksgalleryco-op.com/",
     "pathMembership": "Grass Valley gallery walk; local makers path",
     "themeTags": ["Gallery", "Grass Valley", "Local artists"],
+    "primaryAction": "Browse local artists",
+    "museEvidence": [
+      {
+        "claim": "Art Works Gallery has direct 2026 MUSE support for local artist and community-leadership framing.",
+        "linkIds": [
+          "place:art-works-gallery-grass-valley:muse-2026-where-art-meets-leadership:exact:art-works-gallery",
+          "place:art-works-gallery-grass-valley:muse-2026-rural-is-the-new-cool:exact:art-works-gallery"
+        ],
+        "sourceRefs": [
+          { "issueYear": 2026, "pages": [46, 47] },
+          { "issueYear": 2026, "pages": [28, 29, 30] }
+        ],
+        "direct": true
+      }
+    ],
     "iconKey": "gallery",
     "priority": 5,
     "promoteAsAnchor": true,
@@ -103,11 +185,27 @@
     "placeId": "the-curious-forge-nevada-city",
     "name": "The Curious Forge",
     "anchorLabel": "Creative maker anchor",
-    "hook": "A community makerspace where classes, tools, studios, and production make the creative ecosystem feel active.",
-    "whyItMatters": "It adds hands-on making, learning, and creative production to a demo that could otherwise skew toward heritage and performance.",
+    "hook": "A community makerspace where classes, tools, studios, and shared projects make the creative ecosystem hands-on.",
+    "whyItMatters": "The corpus does not provide a direct Curious Forge article link yet, so the card stays honest: MUSE supports the maker and arts-education themes around this anchor, while the place claim comes from the V1 record and official site.",
     "website": "https://thecuriousforge.org/",
     "pathMembership": "Maker path; workshops/classes path; creative technology path",
     "themeTags": ["Making", "Nevada City", "Classes"],
+    "primaryAction": "Find a workshop",
+    "museEvidence": [
+      {
+        "claim": "Curious Forge has fuzzy MUSE support for maker and arts-education themes, not direct place evidence.",
+        "linkIds": [
+          "place:the-curious-forge-nevada-city:muse-2024-a-filmmaking-tradition:fuzzy-theme:arts-education",
+          "place:the-curious-forge-nevada-city:muse-2024-48-hours-in-gvnc-exploring-culture-and-art:fuzzy-theme:makers-artists"
+        ],
+        "sourceRefs": [
+          { "issueYear": 2024, "pages": [36, 37] },
+          { "issueYear": 2024, "pages": [28, 29, 30, 31] }
+        ],
+        "direct": false,
+        "notes": "Do not treat these clips as direct Curious Forge evidence."
+      }
+    ],
     "iconKey": "maker",
     "priority": 6,
     "promoteAsAnchor": true,
