@@ -312,7 +312,7 @@
         const el = document.createElement("button");
         el.type = "button";
         el.className = `anchor-marker${place.id === state.selectedPlaceId ? " selected" : ""}`;
-        el.setAttribute("aria-label", `${place.name} - ${place.anchor.label}`);
+        el.dataset.place = place.id;
         el.innerHTML = `
           <span class="anchor-ring">
             <span class="anchor-dot">${escapeHtml(anchorIconText(place.anchor))}</span>
@@ -322,9 +322,11 @@
           event.stopPropagation();
           showPlace(place);
         });
-        const marker = new maplibregl.Marker({ element: el })
+        const marker = new maplibregl.Marker({ element: el, offset: anchorMarkerOffset(place) })
           .setLngLat([place.lng, place.lat])
           .addTo(state.map);
+        marker.getElement().setAttribute("aria-label", `${place.name} - ${place.anchor.label}`);
+        marker.getElement().dataset.place = place.id;
         state.anchorMarkers.push(marker);
       });
 
@@ -378,6 +380,16 @@
 
   function anchorIconText(anchor) {
     return ANCHOR_ICON_TEXT[anchor?.iconKey] || "NC";
+  }
+
+  function anchorMarkerOffset(place) {
+    const offsets = {
+      "the-center-for-the-arts-grass-valley": [-18, -18],
+      "art-works-gallery-grass-valley": [18, 18],
+      "empire-mine-grass-valley": [18, -14],
+      "north-star-house-grass-valley": [-18, 18],
+    };
+    return offsets[place.id] || [0, 0];
   }
 
   function anchorBadge(place) {
@@ -821,8 +833,8 @@
     state.map = new maplibregl.Map({
       container: "map",
       style: "https://basemaps.cartocdn.com/gl/positron-gl-style/style.json",
-      center: [-121.04, 39.24],
-      zoom: 10.7,
+      center: window.innerWidth < 700 ? [-121.04, 39.18] : [-121.04, 39.24],
+      zoom: window.innerWidth < 700 ? 8.8 : 10.7,
       attributionControl: true,
     });
     state.map.addControl(new maplibregl.NavigationControl({ showCompass: false }), "bottom-right");
