@@ -907,6 +907,7 @@ body[data-map-mode="paths"] .filter-wrap {
   cursor: pointer;
   pointer-events: auto;
   transition: transform 0.2s ease;
+  visibility: visible !important;
 }
 
 .anchor-marker:hover,
@@ -925,6 +926,7 @@ body[data-map-mode="paths"] .filter-wrap {
   border: 2px solid var(--ncac-red);
   background: var(--paper);
   box-shadow: 0 4px 10px rgba(26, 26, 26, 0.22);
+  pointer-events: none;
 }
 
 .anchor-marker.selected .anchor-ring {
@@ -938,6 +940,7 @@ body[data-map-mode="paths"] .filter-wrap {
   font-size: 10px;
   font-weight: 900;
   line-height: 1;
+  pointer-events: none;
 }
 
 .anchor-marker.selected .anchor-dot {
