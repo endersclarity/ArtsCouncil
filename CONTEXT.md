@@ -32,6 +32,26 @@ _Avoid_: Unlabeled generated place photos, pretending placeholders are real docu
 The editorial influence and optional story evidence from NCAC's MUSE context. MUSE voice may inform all Anchor Card copy; explicit MUSE claims or badges should appear only where local MUSE data supports a match.
 _Avoid_: Claiming every anchor appears in MUSE, using MUSE as generic decoration
 
+**MUSE Evidence Corpus**:
+The local, source-linked collection of MUSE issues, articles, pages, text, and images used to ground demo copy, card framing, and future visual references. Once a MUSE page image and OCR text are stored locally, agents may quote and remix that material for this Arts Council prototype; the main risk is confusing or irrelevant sourcing, not permission.
+_Avoid_: Treating unsourced MUSE vibes as evidence, using a quote/image without issue-year and page traceability, or connecting an article clip to an unrelated place
+
+**MUSE Page Pair**:
+A single MUSE issue page stored as a same-basename image file and OCR text file, labeled by issue year and page number. Page Pairs let agents inspect visuals or text without repeatedly ingesting full PDFs.
+_Avoid_: Re-processing whole PDFs for routine evidence lookup, separating page images from their OCR text, unlabeled page captures
+
+**MUSE Issue Manifest**:
+The metadata record for one locally ingested MUSE issue, including source URL, PDF URL when available, page count, extraction timestamp, and tool notes. A manifest confirms that all Page Pairs for an issue came from the same source artifact.
+_Avoid_: Orphaned page files, undocumented source URLs, mixing pages from different issue versions
+
+**MUSE Article Index**:
+The article-level map built from MUSE Page Pairs, connecting article titles, authors, page ranges, mentioned places, themes, and source confidence. It may be drafted by scripts but should carry enough confidence signals for agents to know when evidence is usable without user review.
+_Avoid_: Treating guessed article boundaries, fuzzy place matches, or low-quality OCR as confirmed evidence
+
+**MUSE Evidence Confidence**:
+The confidence level for using a MUSE source in demo copy or visual framing. High-confidence evidence has a confirmed issue, page number, readable OCR, and a relevant place or theme match; low-confidence evidence is mainly a relevance/accuracy risk.
+_Avoid_: Asking for user review when page traceability and relevance are clear, or using weak/fuzzy evidence as if it were a direct match
+
 **Concept Mockup**:
 A labeled generated image or visual sketch used to show an unbuilt gap, possible future treatment, or optional direction without committing implementation work.
 _Avoid_: Presenting generated concepts as existing prototype features, real place photography, or final design
