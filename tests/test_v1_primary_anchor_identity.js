@@ -52,13 +52,19 @@ for (const [index, name] of primaryAnchorNames.entries()) {
   assert.match(card.iconKey || "", /\S/, `${name} should have an icon key`);
   assert.ok(card.image, `${name} should have image proof`);
   assert.equal(card.image.kind, "real", `${name} should use real image proof`);
-  assert.notEqual(card.image.status, "placeholder", `${name} should not use placeholder image proof`);
+  assert.equal(card.image.status, "credible", `${name} should use credible image proof`);
   assert.match(card.image.src || "", /^assets\/anchors\//, `${name} should use anchor image assets`);
+  assert.doesNotMatch(card.image.src || "", /placeholders|watercolor|logo|logomark|brandmark/i, `${name} should not use placeholder, category, or logo imagery`);
 
   assert.equal(place.anchor.priority, index + 1, `${name} place anchor should match primary priority`);
   assert.equal(place.anchor.label, card.anchorLabel, `${name} place anchor label should match card label`);
   assert.equal(place.anchor.hook, card.hook, `${name} place anchor hook should match card hook`);
   assert.equal(place.anchor.iconKey, card.iconKey, `${name} place anchor icon should match card icon`);
+  assert.ok(place.image, `${name} place should have embedded image proof`);
+  assert.equal(place.image.kind, "real", `${name} place should use real image proof`);
+  assert.equal(place.image.status, "credible", `${name} place should use credible image proof`);
+  assert.match(place.image.src || "", /^assets\/anchors\//, `${name} place should use anchor image assets`);
+  assert.doesNotMatch(place.image.src || "", /placeholders|watercolor|logo|logomark|brandmark/i, `${name} place should not use placeholder, category, or logo imagery`);
 }
 
 console.log("Primary Anchor identity contract ok");

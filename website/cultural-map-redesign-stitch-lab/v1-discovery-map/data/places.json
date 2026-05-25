@@ -924,10 +924,8 @@
     "lng": -121.134189389754,
     "sourceSheet": "Arts Organization _Table 1",
     "image": {
-      "placeholderType": "gallery-studio",
-      "placeholderSrc": "assets/placeholders/gallery-studio.webp",
       "kind": "real",
-      "src": "https://thecuriousforge.org/wp-content/uploads/2024/08/juliette-morris-williams_TEMP-edited.webp",
+      "src": "assets/anchors/the-curious-forge.webp",
       "alt": "The Curious Forge in Nevada City",
       "credit": "The Curious Forge",
       "status": "credible",
@@ -4746,14 +4744,12 @@
     "lng": -121.063026505856,
     "sourceSheet": "MUSE BD_Table 1",
     "image": {
-      "placeholderType": "gallery-studio",
-      "placeholderSrc": "assets/placeholders/gallery-studio.webp",
-      "kind": "placeholder",
-      "src": "assets/placeholders/gallery-studio.webp",
-      "alt": "Editorial placeholder image for Art Works Gallery",
-      "credit": "Generated placeholder",
-      "status": "missing",
-      "reason": "missing image"
+      "kind": "real",
+      "src": "assets/anchors/art-works-gallery.jpg",
+      "alt": "Art Works Gallery interior with local artwork",
+      "credit": "Art Works Gallery",
+      "status": "credible",
+      "reason": ""
     },
     "featured": true,
     "anchor": {
@@ -5946,12 +5942,10 @@
     "lng": -121.0468,
     "sourceSheet": "Historic Landmarks _Table 1",
     "image": {
-      "placeholderType": "historic-place",
-      "placeholderSrc": "assets/placeholders/historic-place.webp",
       "kind": "real",
-      "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/EMPIRE_ST._HIST._PARK%2C_NEVADA_COUNTY%2C_CA.jpg/960px-EMPIRE_ST._HIST._PARK%2C_NEVADA_COUNTY%2C_CA.jpg",
-      "alt": "Empire Mine, historic landmark in Nevada County",
-      "credit": "JERRYE AND ROY KLOTZ MD, via Wikimedia Commons (CC BY-SA 3.0)",
+      "src": "assets/anchors/empire-mine.jpg",
+      "alt": "Empire Mine State Historic Park in Grass Valley",
+      "credit": "Jerrye and Roy Klotz MD, via Wikimedia Commons (CC BY-SA 3.0)",
       "status": "credible",
       "reason": ""
     },
@@ -7077,10 +7071,8 @@
     "lng": -121.019941282163,
     "sourceSheet": "Historic Landmarks _Table 1",
     "image": {
-      "placeholderType": "historic-place",
-      "placeholderSrc": "assets/placeholders/historic-place.webp",
       "kind": "real",
-      "src": "https://nevadatheatre.com/wp-content/uploads/2019/12/nevada-theatre-side-steve-hillis-01.jpg",
+      "src": "assets/anchors/nevada-theatre.jpg",
       "alt": "Nevada Theatre in Nevada City",
       "credit": "Nevada Theatre",
       "status": "credible",
@@ -7110,11 +7102,9 @@
     "lng": -121.07816815716,
     "sourceSheet": "Historic Landmarks _Table 1",
     "image": {
-      "placeholderType": "historic-place",
-      "placeholderSrc": "assets/placeholders/historic-place.webp",
       "kind": "real",
-      "src": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/02/North_Star_House_-1_2025.jpg/960px-North_Star_House_-1_2025.jpg",
-      "alt": "North Star House, historic landmark in Nevada County",
+      "src": "assets/anchors/north-star-house.jpg",
+      "alt": "North Star House in Grass Valley",
       "credit": "Cullen328, via Wikimedia Commons (CC BY-SA 4.0)",
       "status": "credible",
       "reason": ""
@@ -11919,14 +11909,12 @@
     "lng": -121.063916416125,
     "sourceSheet": "MUSE BD_Table 1",
     "image": {
-      "placeholderType": "performance-event-venue",
-      "placeholderSrc": "assets/placeholders/performance-event-venue.webp",
-      "kind": "placeholder",
-      "src": "assets/placeholders/performance-event-venue.webp",
-      "alt": "Editorial placeholder image for The Center for the Arts",
-      "credit": "Generated placeholder",
-      "status": "missing",
-      "reason": "missing image"
+      "kind": "real",
+      "src": "assets/anchors/the-center-for-the-arts.jpg",
+      "alt": "The Center for the Arts exterior in Grass Valley",
+      "credit": "The Center for the Arts",
+      "status": "credible",
+      "reason": ""
     },
     "featured": true,
     "anchor": {
