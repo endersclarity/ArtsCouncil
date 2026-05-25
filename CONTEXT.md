@@ -84,6 +84,14 @@ _Avoid_: Final countywide ranking, exhaustive best-of list
 The four researched places that remain important to paths/layers but do not need equal primary-anchor weight in the next demo: Nevada City Winery, ASiF Studios, Hirschman Trail / Hirschman's Pond, and North Columbia Schoolhouse Cultural Center.
 _Avoid_: Rejected places, invalid assets
 
+**Supporting Stop Treatment**:
+The subordinate path-first treatment for Supporting Stop Set places. It may include authored copy, path membership, relationship chips, honest placeholder/candidate imagery, and source cleanup notes when useful, but its main job is to enrich Path Treatment or layer context. A selected-place card may explain why the stop appears when clicked, but it must not use the Primary Anchor visual mode, map-anchor marker treatment, startup featured-anchor slot, or copy that implies the stop is part of the Primary Anchor Set.
+_Avoid_: Quietly promoting supporting stops to primary anchors, hiding incomplete source/image state, treating hierarchy as a value judgment
+
+**Visible Incompleteness Label**:
+A plain public-facing label or note used only when a prototype user can see an incomplete Supporting Stop state, such as a missing source image, placeholder/candidate imagery, or unresolved source-description cleanup. It should explain the visible limitation without exposing internal audit language.
+_Avoid_: Confidence scores, P0/P1 priority labels, implementation notes, caveats on complete-enough supporting stops
+
 **GVNC Prototype Scope**:
 The current prototype review scope centered on Grass Valley, Nevada City, and immediately relevant Ridge/nearby cultural context rather than the full county. Truckee is outside this scope for the next review slice.
 _Avoid_: Countywide launch scope, Truckee/High Sierra proof, Truckee anchors
@@ -103,6 +111,8 @@ _Avoid_: Countywide launch scope, Truckee/High Sierra proof, Truckee anchors
 - **Path Treatment** is the next structure after Anchor Cards and can later carry events, MUSE context, and nearby places.
 - The **Makers / Working Artists Path** is the first proof Path Treatment for the next review slice.
 - The next demo uses the **Primary Anchor Set** for top-weight Anchor Cards and the **Supporting Stop Set** for path/layer context.
+- **Supporting Stop Treatment** should make supporting stops context-rich but visually subordinate to Primary Anchor Cards, with path/layer context carrying the main meaning.
+- Use a **Visible Incompleteness Label** only where the supporting-stop UI exposes a visible gap.
 - The **GVNC Prototype Scope** excludes Truckee/High Sierra anchors from the first anchor-card slice unless explicitly revived.
 - Nearby cultural landscape anchors may be included when they strengthen the Grass Valley/Nevada City story, but Truckee anchors stay out of the next review slice.
 

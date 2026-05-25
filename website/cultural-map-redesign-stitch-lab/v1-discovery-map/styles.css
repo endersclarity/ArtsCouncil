@@ -319,6 +319,11 @@ body[data-map-mode="paths"] .filter-wrap {
   padding: 0 0 2px;
 }
 
+.detail-card.supporting-stop-card {
+  border-top: 2px solid var(--line-strong);
+  background: linear-gradient(180deg, rgba(216, 208, 198, 0.36), rgba(255, 253, 247, 0) 118px);
+}
+
 .detail-card:has(.empty-title) {
   display: none;
 }
@@ -341,6 +346,12 @@ body[data-map-mode="paths"] .filter-wrap {
   border-bottom: 3px solid var(--ink);
 }
 
+.supporting-stop-card .place-image-frame,
+.supporting-stop-card .placeholder-image-wrap {
+  margin-bottom: 10px;
+  border-bottom: 1px solid var(--line-strong);
+}
+
 .place-image {
   position: relative;
   width: 100%;
@@ -354,6 +365,10 @@ body[data-map-mode="paths"] .filter-wrap {
 .primary-anchor-card .place-image {
   aspect-ratio: 16 / 10;
   border: 0;
+}
+
+.supporting-stop-card .place-image {
+  aspect-ratio: 16 / 9;
 }
 
 .place-image-frame figcaption {
@@ -530,6 +545,13 @@ body[data-map-mode="paths"] .filter-wrap {
   line-height: 1.28;
 }
 
+.supporting-stop-card .anchor-hook {
+  border-top-color: var(--line);
+  border-bottom-color: var(--line);
+  color: var(--ink-soft);
+  font-weight: 750;
+}
+
 .anchor-card-meta {
   display: grid;
   gap: 8px;
@@ -554,6 +576,15 @@ body[data-map-mode="paths"] .filter-wrap {
   font-size: 13px;
 }
 
+.supporting-stop-card .anchor-card-meta p {
+  border-left: 3px solid var(--line-strong);
+  padding-left: 9px;
+}
+
+.supporting-stop-card .anchor-card-meta .visible-incomplete-note {
+  border-left-color: var(--ncac-red);
+}
+
 .anchor-card-meta p span {
   display: block;
 }
@@ -573,6 +604,10 @@ body[data-map-mode="paths"] .filter-wrap {
 
 .primary-anchor-card .anchor-card-meta strong {
   color: var(--ncac-red);
+}
+
+.supporting-stop-card .anchor-card-meta strong {
+  color: var(--ink-soft);
 }
 
 .anchor-context-chips {
@@ -601,6 +636,11 @@ body[data-map-mode="paths"] .filter-wrap {
 .primary-anchor-card .anchor-context-chips span {
   background: var(--paper);
   border-color: var(--ncac-red);
+}
+
+.supporting-stop-card .anchor-context-chips span {
+  border-color: var(--line);
+  background: var(--paper-warm);
 }
 
 .detail-actions {
@@ -749,6 +789,16 @@ body[data-map-mode="paths"] .filter-wrap {
 
 .path-stop-list button.no-path-icon {
   grid-template-columns: 26px 1fr;
+}
+
+.path-stop-list button.supporting-path-stop {
+  background: var(--paper-warm);
+  border-color: var(--line-strong);
+}
+
+.path-stop-list button.supporting-path-stop .path-stop-icon {
+  border-color: var(--line-strong);
+  color: var(--ink-soft);
 }
 
 .path-stop-list button::before {
