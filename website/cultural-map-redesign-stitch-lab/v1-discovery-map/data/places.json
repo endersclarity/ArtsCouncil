@@ -935,12 +935,12 @@
     },
     "featured": true,
     "anchor": {
-      "label": "Maker anchor",
-      "hook": "A large creative workshop where classes, tools, and production make the route feel active.",
+      "label": "Creative maker anchor",
+      "hook": "A community makerspace where classes, tools, studios, and production make the creative ecosystem feel active.",
       "iconKey": "maker",
-      "priority": 10,
+      "priority": 6,
       "pathIds": [
-        "gallery-studio-day"
+        "makers-working-artists"
       ]
     }
   },
@@ -3384,16 +3384,7 @@
       "status": "credible",
       "reason": ""
     },
-    "featured": true,
-    "anchor": {
-      "label": "Gathering stop",
-      "hook": "A walkable tasting room that connects cultural browsing with an easy place to pause.",
-      "iconKey": "food-drink",
-      "priority": 5,
-      "pathIds": [
-        "living-like-a-local"
-      ]
-    }
+    "featured": false
   },
   {
     "id": "nevada-club-grass-valley",
@@ -4353,16 +4344,7 @@
       "status": "credible",
       "reason": ""
     },
-    "featured": true,
-    "anchor": {
-      "label": "After-hours anchor",
-      "hook": "Historic dining and music give an arts night somewhere atmospheric to land after the show.",
-      "iconKey": "food-drink",
-      "priority": 6,
-      "pathIds": [
-        "evening-arts-night"
-      ]
-    }
+    "featured": false
   },
   {
     "id": "the-thirsty-barrel-taphouse-grass-valley",
@@ -4725,16 +4707,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true,
-    "anchor": {
-      "label": "Studio anchor",
-      "hook": "A working studio community that shows the maker layer behind the gallery window.",
-      "iconKey": "maker",
-      "priority": 9,
-      "pathIds": [
-        "gallery-studio-day"
-      ]
-    }
+    "featured": false
   },
   {
     "id": "art-space-grass-valley",
@@ -4784,12 +4757,12 @@
     },
     "featured": true,
     "anchor": {
-      "label": "Gallery anchor",
-      "hook": "A local-artist gallery that makes downtown Grass Valley feel hand-made rather than generic.",
+      "label": "Artist cooperative anchor",
+      "hook": "A downtown Grass Valley artist cooperative that makes local makers and gallery browsing visible in the discovery map.",
       "iconKey": "gallery",
-      "priority": 7,
+      "priority": 5,
       "pathIds": [
-        "gallery-studio-day"
+        "makers-working-artists"
       ]
     }
   },
@@ -4839,16 +4812,7 @@
       "status": "missing",
       "reason": "missing image"
     },
-    "featured": true,
-    "anchor": {
-      "label": "Civic gallery",
-      "hook": "City Hall doubles as an arts stop, making public space part of the cultural route.",
-      "iconKey": "gallery",
-      "priority": 8,
-      "pathIds": [
-        "gallery-studio-day"
-      ]
-    }
+    "featured": false
   },
   {
     "id": "eric-rood-administration-center-lobby-nevada-city",
@@ -5991,7 +5955,16 @@
       "status": "credible",
       "reason": ""
     },
-    "featured": false
+    "featured": true,
+    "anchor": {
+      "label": "Cultural landscape anchor",
+      "hook": "A major historic landscape that gives visitors a concrete way to understand the region's mining history, grounds, architecture, and public memory.",
+      "iconKey": "historic",
+      "priority": 4,
+      "pathIds": [
+        "living-like-a-local"
+      ]
+    }
   },
   {
     "id": "englebright-house-nevada-city",
@@ -7115,12 +7088,11 @@
     },
     "featured": true,
     "anchor": {
-      "label": "Historic stage",
-      "hook": "A living theater landmark that makes Nevada City's cultural memory visible from the sidewalk.",
+      "label": "Historic performance anchor",
+      "hook": "A historic Nevada City theatre that connects live performance, local history, and downtown cultural identity.",
       "iconKey": "historic",
       "priority": 2,
       "pathIds": [
-        "living-like-a-local",
         "evening-arts-night"
       ]
     }
@@ -7147,7 +7119,16 @@
       "status": "credible",
       "reason": ""
     },
-    "featured": false
+    "featured": true,
+    "anchor": {
+      "label": "Heritage design anchor",
+      "hook": "A Julia Morgan-designed historic house that connects Grass Valley's mining history, architecture, restoration, and civic imagination.",
+      "iconKey": "historic",
+      "priority": 3,
+      "pathIds": [
+        "living-like-a-local"
+      ]
+    }
   },
   {
     "id": "north-star-mine-powerhouse-and-nevada-county-traction-company-grass-valley",
@@ -11440,16 +11421,7 @@
       "originalAlt": "Miners Foundry Cultural Center in Nevada City",
       "originalCredit": "Miners Foundry Cultural Center"
     },
-    "featured": true,
-    "anchor": {
-      "label": "Performance anchor",
-      "hook": "Start with the old foundry turned cultural center: concerts, civic nights, and Nevada City's most recognizable gathering room.",
-      "iconKey": "stage",
-      "priority": 1,
-      "pathIds": [
-        "evening-arts-night"
-      ]
-    }
+    "featured": false
   },
   {
     "id": "music-in-the-mountains-grass-valley",
@@ -11958,10 +11930,10 @@
     },
     "featured": true,
     "anchor": {
-      "label": "Show night anchor",
-      "hook": "Grass Valley's major arts venue gives the map an immediate reason to plan around a performance.",
+      "label": "Grass Valley performance anchor",
+      "hook": "Grass Valley's major arts venue gives the map an immediate reason to plan around performances, exhibitions, classes, and community events.",
       "iconKey": "stage",
-      "priority": 3,
+      "priority": 1,
       "pathIds": [
         "living-like-a-local",
         "evening-arts-night"
@@ -12422,16 +12394,7 @@
       "status": "credible",
       "reason": ""
     },
-    "featured": true,
-    "anchor": {
-      "label": "Browsing anchor",
-      "hook": "A downtown book stop that turns the map from places into a slow, visitor-friendly day out.",
-      "iconKey": "book",
-      "priority": 4,
-      "pathIds": [
-        "living-like-a-local"
-      ]
-    }
+    "featured": false
   },
   {
     "id": "brothers-arts-antiques-nevada-city",
