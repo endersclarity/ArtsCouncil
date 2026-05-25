@@ -180,6 +180,57 @@ ANCHOR_DEFS = {
     },
 }
 
+ANCHOR_IMAGE_PROOFS = {
+    "the-center-for-the-arts-grass-valley": {
+        "kind": "real",
+        "src": "assets/anchors/the-center-for-the-arts.jpg",
+        "alt": "The Center for the Arts exterior in Grass Valley",
+        "credit": "The Center for the Arts",
+        "status": "credible",
+        "reason": "",
+    },
+    "nevada-theatre-nevada-city": {
+        "kind": "real",
+        "src": "assets/anchors/nevada-theatre.jpg",
+        "alt": "Nevada Theatre in Nevada City",
+        "credit": "Nevada Theatre",
+        "status": "credible",
+        "reason": "",
+    },
+    "north-star-house-grass-valley": {
+        "kind": "real",
+        "src": "assets/anchors/north-star-house.jpg",
+        "alt": "North Star House in Grass Valley",
+        "credit": "Cullen328, via Wikimedia Commons (CC BY-SA 4.0)",
+        "status": "credible",
+        "reason": "",
+    },
+    "empire-mine-grass-valley": {
+        "kind": "real",
+        "src": "assets/anchors/empire-mine.jpg",
+        "alt": "Empire Mine State Historic Park in Grass Valley",
+        "credit": "Jerrye and Roy Klotz MD, via Wikimedia Commons (CC BY-SA 3.0)",
+        "status": "credible",
+        "reason": "",
+    },
+    "art-works-gallery-grass-valley": {
+        "kind": "real",
+        "src": "assets/anchors/art-works-gallery.jpg",
+        "alt": "Art Works Gallery interior with local artwork",
+        "credit": "Art Works Gallery",
+        "status": "credible",
+        "reason": "",
+    },
+    "the-curious-forge-nevada-city": {
+        "kind": "real",
+        "src": "assets/anchors/the-curious-forge.webp",
+        "alt": "The Curious Forge in Nevada City",
+        "credit": "The Curious Forge",
+        "status": "credible",
+        "reason": "",
+    },
+}
+
 DEMO_PLACE_OVERRIDES = {
     "booktown-books-grass-valley": {
         "category": "Shops & Makers",
@@ -187,6 +238,7 @@ DEMO_PLACE_OVERRIDES = {
         "description": "A downtown Grass Valley bookstore and local browsing anchor, useful as a soft start to a culture-forward day out.",
     },
     "the-center-for-the-arts-grass-valley": {
+        "name": "The Center for the Arts",
         "description": "Grass Valley's major performing arts anchor, with concerts, theater, community programs, and touring artists close to downtown.",
     },
     "nevada-city-winery-nevada-city": {
@@ -478,6 +530,9 @@ def build_places(workbook: dict[str, list[dict[str, str]]], coord_exact: dict[st
 
             image = image_data.get(name) or image_data.get(coord.get("name", ""))
             image_record, image_gap = classify_image(name, category, image)
+            if place_id in ANCHOR_IMAGE_PROOFS:
+                image_record = ANCHOR_IMAGE_PROOFS[place_id]
+                image_gap = None
             if image_gap:
                 gaps.append(f"- Image placeholder used: {name} ({image_gap}).")
 
@@ -485,7 +540,7 @@ def build_places(workbook: dict[str, list[dict[str, str]]], coord_exact: dict[st
             anchor = ANCHOR_DEFS.get(place_id)
             place_record = {
                 "id": place_id,
-                "name": name,
+                "name": override.get("name", name) if override else name,
                 "city": city or clean_text(coord.get("city")),
                 "category": category,
                 "intent": override.get("intent", intent_for(category)) if override else intent_for(category),

@@ -12,8 +12,8 @@ This log preserves records and content gaps that were not displayed in the alpha
 
 ## Image Quality Summary
 
-- Credible image refs: 337
-- Missing image placeholders: 671
+- Credible image refs: 339
+- Missing image placeholders: 669
 - Weak image placeholders: 68
 
 ## Placeholder Types Used
@@ -29,14 +29,14 @@ This log preserves records and content gaps that were not displayed in the alpha
 
 These records are likely to be clicked during stakeholder review because they appear in the curated paths.
 
-- Art Works Gallery (Grass Valley): placeholder image: missing image.
+- Art Works Gallery (Grass Valley): demo-ready for alpha.
 - ASiF Studios (Grass Valley): placeholder image: missing image.
 - Booktown Books (Grass Valley): demo-ready for alpha.
 - C.H.A.M.P. Gallery at City Hall (Nevada City): placeholder image: missing image.
 - Miners Foundry Cultural Center (Nevada City): placeholder image: logo or brand mark.
 - Nevada City Winery (Nevada City): demo-ready for alpha.
 - Nevada Theatre (Nevada City): demo-ready for alpha.
-- The Center for the Arts (Grass Valley): placeholder image: missing image.
+- The Center for the Arts (Grass Valley): demo-ready for alpha.
 - The Curious Forge (Nevada City): demo-ready for alpha.
 - The Stone House (Nevada City): demo-ready for alpha.
 
