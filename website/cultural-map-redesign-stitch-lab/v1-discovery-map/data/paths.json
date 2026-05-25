@@ -120,5 +120,32 @@
         "note": "Eat, Drink & Stay stop for evening arts night."
       }
     ]
+  },
+  {
+    "id": "landscape-ridge-context",
+    "title": "Landscape / Ridge Context",
+    "thesis": "The GVNC prototype can acknowledge outdoor pause and Ridge culture without making every supporting place a primary anchor.",
+    "dek": "A supporting-context path that keeps Hirschman's Pond and North Columbia Schoolhouse visible as layer and route context.",
+    "copy": "This path is intentionally quieter than the Primary Anchor cards. It shows how supporting stops can enrich the map's sense of landscape, rural gathering, and Nevada County cultural geography while staying subordinate to the six-place review spine.",
+    "stops": [
+      {
+        "placeId": "hirschman-s-pond-nevada-city",
+        "name": "Hirschman Trail / Hirschman's Pond",
+        "category": "Historic Places",
+        "city": "Nevada City",
+        "lat": 39.26017277050303,
+        "lng": -121.01361440937157,
+        "note": "Use as an outdoor pause and landscape-context stop, not as a primary cultural anchor."
+      },
+      {
+        "placeId": "north-columbia-schoolhouse-cultural-center-nevada-city",
+        "name": "North Columbia Schoolhouse Cultural Center",
+        "category": "Galleries & Studios",
+        "city": "Nevada City",
+        "lat": 39.37154953491,
+        "lng": -120.991370222943,
+        "note": "Use as Ridge and rural-culture context while keeping the GVNC Primary Anchor Set intact."
+      }
+    ]
   }
 ]
