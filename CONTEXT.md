@@ -36,6 +36,10 @@ _Avoid_: Claiming every anchor appears in MUSE, using MUSE as generic decoration
 A labeled generated image or visual sketch used to show an unbuilt gap, possible future treatment, or optional direction without committing implementation work.
 _Avoid_: Presenting generated concepts as existing prototype features, real place photography, or final design
 
+**Review Gap**:
+A visible missing piece or future direction that should be acknowledged during stakeholder review without building a second prototype. Review Gaps may be shown with clearly labeled Concept Mockups when the live prototype cannot yet demonstrate the idea.
+_Avoid_: Hiding gaps, overbuilding before review, presenting concept imagery as implemented behavior
+
 **Tonight's Work Phase**:
 The current implementation phase for the next review package. Polish the Primary Anchor Set's Anchor Cards first; improve path treatment around the Primary Anchor Set and Supporting Stop Set only if time remains. Anchor Card polish includes both data/copy cleanup and selected-card UI/layout improvements, scoped to the Primary Anchor Set. The stretch goal is screenshot-grade completeness for all six primary Anchor Cards: real image, no placeholder copy, no missing obvious field, clean hierarchy, polished meaning copy, one clear action, and visual consistency.
 _Avoid_: Full dataset cleanup, countywide expansion, building every future direction before reviewing the prototype
@@ -43,6 +47,14 @@ _Avoid_: Full dataset cleanup, countywide expansion, building every future direc
 **Path Stop**:
 A cultural place used as a stop inside an authored route.
 _Avoid_: Itinerary item, AI trip step
+
+**Path Treatment**:
+The authored route context that shows how a Cultural Anchor fits into a cultural day, story, or local pattern. Path Treatment is lightly authored from existing NCAC context for the current prototype, with room for later partner or community authorship where the subject matter calls for it. The first live Path Treatment should prove a cultural thesis, anchor stops, and a reason those stops belong together; it does not need to prove public-launch completeness. It is the next container after Anchor Cards: it can later carry events, MUSE context, and nearby places, but it should first prove that a route is culturally intentional rather than algorithmic.
+_Avoid_: Generic trip planning, replacing events/MUSE/nearby places, pretending prototype paths are fully community-authored, claiming the first path is complete for public use
+
+**Makers / Working Artists Path**:
+The first proof Path Treatment for the next review slice. It should connect Art Works Gallery, ASiF Studios, and The Curious Forge around the thesis that the Discovery Map can show culture being made, taught, shared, and practiced rather than only attended.
+_Avoid_: Treating the path as a complete public itinerary, optimizing for directions before meaning
 
 **Primary Anchor Set**:
 The six Cultural Anchors that carry the next GVNC demo: The Center for the Arts, Nevada Theatre, North Star House, Empire Mine, Art Works Gallery, and The Curious Forge.
@@ -65,8 +77,11 @@ _Avoid_: Countywide launch scope, Truckee/High Sierra proof, Truckee anchors
 - **Image Proof** for the Primary Anchor Set must be real/resolved for the next review slice. Supporting or future-direction imagery may be placeholder/generated if labeled honestly.
 - The **MUSE Layer** is voice everywhere and evidence only where supported.
 - A **Concept Mockup** can accompany the live prototype and short brief to make gaps or possible future directions visible without building a second prototype.
+- A **Review Gap** should be named honestly and can be illustrated with a labeled Concept Mockup when it helps stakeholders react to direction.
 - **Tonight's Work Phase** prioritizes Primary Anchor Set Anchor Card polish before path treatment.
 - A **Path Stop** may be a **Cultural Anchor** when the route is built from the curated demo spine.
+- **Path Treatment** is the next structure after Anchor Cards and can later carry events, MUSE context, and nearby places.
+- The **Makers / Working Artists Path** is the first proof Path Treatment for the next review slice.
 - The next demo uses the **Primary Anchor Set** for top-weight Anchor Cards and the **Supporting Stop Set** for path/layer context.
 - The **GVNC Prototype Scope** excludes Truckee/High Sierra anchors from the first anchor-card slice unless explicitly revived.
 - Nearby cultural landscape anchors may be included when they strengthen the Grass Valley/Nevada City story, but Truckee anchors stay out of the next review slice.
