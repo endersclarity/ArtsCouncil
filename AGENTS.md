@@ -27,6 +27,10 @@ If a goal says both "use `to-issues`" and "get approval before publishing," inte
 
 When approval is genuinely needed, ask once in plain language and explain the risk. If the action is low-risk and reversible, prefer proceeding and reporting what was done.
 
+## CodeRabbit
+
+CodeRabbit is deprecated for this repository. Do not wait for it, treat it as a gate, or assume its `SUCCESS` status means a review happened. If it comments, inspect only for concrete actionable feedback; otherwise rely on local review, focused tests, and human-directed PR review.
+
 ## Repository Structure
 
 - `data/cultural-asset-map/` — Raw data extracted from ArcGIS web map `604050d4965c4b93b984781f72941d5b`. Individual GeoJSON files per layer, combined CSV/GeoJSON, and ArcGIS metadata. Source of truth for all cultural asset data.
