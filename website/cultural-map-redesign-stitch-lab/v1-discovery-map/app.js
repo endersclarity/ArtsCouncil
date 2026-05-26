@@ -3,7 +3,7 @@
 
   const DATA = {
     places: "data/places.json",
-    events: "data/events.json",
+    events: "data/events.json?v=event-copy-fix",
     paths: "data/paths.json",
     anchorCards: "data/anchor_cards.json",
   };
@@ -349,7 +349,10 @@
         const intent = button.dataset.intent;
         if (state.activeIntents.has(intent)) state.activeIntents.delete(intent);
         else state.activeIntents.add(intent);
+        const visibleIds = new Set(filteredPlaces().map((place) => place.id));
+        if (state.selectedPlaceId && !visibleIds.has(state.selectedPlaceId)) state.selectedPlaceId = "";
         renderFilters();
+        if (!state.selectedPlaceId) renderFeaturedAnchor();
         setSourceData();
       });
     });
@@ -433,14 +436,43 @@
   }
 
   function featuredAnchor() {
-    return state.places
+    const places = state.activeIntents.size ? filteredPlaces() : state.places;
+    return places
       .filter((place) => place.anchor)
       .sort((a, b) => (a.anchor.priority || 99) - (b.anchor.priority || 99))[0];
+  }
+
+  function renderFilteredPlaceSummary() {
+    const places = filteredPlaces();
+    const place = places[0];
+    const filterLabel = [...state.activeIntents].sort().join(", ");
+    setDetailCardMode("");
+    if (!place) {
+      els.hint.innerHTML = `<p class="hint-title">No places match this filter</p><p>Try another cultural interest to bring places back onto the map.</p>`;
+      els.detail.innerHTML = `<p class="empty-title">No matching places</p><p class="empty-copy">The active filter does not currently match any mapped places.</p>`;
+      return;
+    }
+    els.hint.innerHTML = `<p class="hint-title">Filtered map</p><p>${escapeHtml(places.length)} visible places match ${escapeHtml(filterLabel)}.</p>`;
+    els.detail.innerHTML = `
+      ${renderImage(place, { proofLabel: "Image proof" })}
+      <div class="anchor-card-heading">
+        <p class="detail-eyebrow">First matching place</p>
+        <h2>${escapeHtml(place.name)}</h2>
+        <p class="detail-location">${escapeHtml(place.category)} / ${escapeHtml(place.city || "Nevada County")}</p>
+      </div>
+      <p class="empty-copy">Select a point or choose another filter to refine the visible places.</p>
+      <div class="detail-actions"><button type="button" class="anchor-map-action">View on map</button></div>
+    `;
+    els.detail.querySelector(".anchor-map-action")?.addEventListener("click", () => showPlace(place));
   }
 
   function renderFeaturedAnchor() {
     const place = featuredAnchor();
     if (!place) {
+      if (state.activeIntents.size) {
+        renderFilteredPlaceSummary();
+        return;
+      }
       setDetailCardMode("");
       els.hint.innerHTML = `<p class="hint-title">Start in the cultural district</p><p>Grass Valley and Nevada City are centered first, with the wider county still visible as context.</p>`;
       els.detail.innerHTML = `<p class="empty-title">Select a place</p><p class="empty-copy">The detail card will show image proof, short context, source category, and related events when available.</p>`;
