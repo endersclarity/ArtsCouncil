@@ -616,6 +616,44 @@ body:not([data-map-mode="places"]) .review-tools {
   color: var(--ink);
 }
 
+.directory-record-meta {
+  display: grid;
+  gap: 7px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  margin: 11px 0 10px;
+  padding: 9px 0;
+}
+
+.directory-record-meta div {
+  display: grid;
+  grid-template-columns: minmax(64px, 0.35fr) 1fr;
+  gap: 10px;
+  align-items: baseline;
+}
+
+.directory-record-meta dt {
+  color: var(--ink-soft);
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.directory-record-meta dd {
+  margin: 0;
+  color: var(--ink);
+  font-size: 13px;
+  line-height: 1.25;
+}
+
+.directory-record-meta a {
+  color: var(--ink);
+  font-weight: 800;
+  text-decoration-color: var(--ncac-red);
+  text-underline-offset: 3px;
+}
+
 .anchor-hook {
   border-top: 1px solid var(--line-strong);
   border-bottom: 1px solid var(--line);

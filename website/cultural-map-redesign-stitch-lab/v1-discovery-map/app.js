@@ -525,6 +525,25 @@
     `;
   }
 
+  function directoryRecordMeta(place) {
+    const rows = [
+      place.address ? ["Address", escapeHtml(place.address)] : null,
+      place.phone ? ["Phone", `<a href="tel:${escapeHtml(place.phone.replace(/[^0-9+]/g, ""))}">${escapeHtml(place.phone)}</a>`] : null,
+      place.website ? ["Website", `<a href="${escapeHtml(place.website)}" target="_blank" rel="noopener">Open website</a>`] : null,
+    ].filter(Boolean);
+    if (!rows.length) return "";
+    return `
+      <dl class="directory-record-meta" aria-label="Directory record details">
+        ${rows.map(([label, value]) => `
+          <div>
+            <dt>${escapeHtml(label)}</dt>
+            <dd>${value}</dd>
+          </div>
+        `).join("")}
+      </dl>
+    `;
+  }
+
   function featuredAnchor() {
     const places = state.activeIntents.size ? filteredPlaces() : state.places;
     return places
@@ -626,6 +645,7 @@
       ${place.anchorCard ? `<p class="anchor-hook">${escapeHtml(place.anchorCard.hook)}</p>` : anchor ? `<p class="anchor-hook">${escapeHtml(anchor.hook)}</p>` : ""}
       ${anchorCardMeta(place)}
       <p class="detail-description">${escapeHtml(place.anchorCard?.supportingDescription || place.description)}</p>
+      ${directoryRecordMeta(place)}
       ${action ? `<div class="detail-actions">${action}</div>` : ""}
       ${eventHtml}
     `;
