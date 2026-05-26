@@ -31,7 +31,7 @@ assert.doesNotMatch(rootBlock, /#00aeef|#00a9e0|cyan|blue/i, "visible blue const
 assert.doesNotMatch(twilightBlock, /#00aeef|#00a9e0|cyan|blue/i, "visible blue construction-grid color should not be an alternate token");
 
 const tokenConsumers = [
-  [".site-header", /background:\s*var\(--paper\)/],
+  [".site-header", /background:\s*var\(--field\)/],
   [".map-stage", /background:\s*var\(--map-quiet-field\)/],
   [".control-panel", /background:\s*var\(--panel\)/],
   [".mode-tab.active", /background:\s*var\(--ncac-red\)/],

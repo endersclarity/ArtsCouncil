@@ -18,6 +18,7 @@
   --shadow-float: 0 18px 42px rgba(20, 20, 20, 0.14);
   --shadow-low: 0 4px 10px rgba(20, 20, 20, 0.18);
   --caption-scrim: rgba(20, 20, 20, 0.78);
+  --focus-ring: 0 0 0 3px var(--ncac-red-ring);
   --font-brand: "polymath-variable-2th9nk", "DM Sans", "Inter", system-ui, sans-serif;
   --font-body: "polymath-variable-2th9nk", "DM Sans", "Inter", system-ui, sans-serif;
   --font-ui: var(--font-brand);
@@ -43,6 +44,7 @@ body.twilight-mode {
   --shadow-float: 0 18px 42px rgba(16, 16, 16, 0.16);
   --shadow-low: 0 4px 10px rgba(16, 16, 16, 0.2);
   --caption-scrim: rgba(16, 16, 16, 0.8);
+  --focus-ring: 0 0 0 3px var(--ncac-red-ring);
 }
 
 * {
@@ -90,8 +92,9 @@ button {
   gap: clamp(18px, 3vw, 34px);
   align-items: center;
   padding: 11px clamp(18px, 4vw, 54px) 10px;
-  border-bottom: 5px solid var(--ncac-red);
-  background: var(--paper);
+  border-bottom: 6px solid var(--ncac-red);
+  background: var(--field);
+  box-shadow: 0 1px 0 var(--line-strong);
 }
 
 .brand {
@@ -136,8 +139,9 @@ button {
   font-size: 11px;
   text-transform: uppercase;
   font-weight: 700;
-  background: transparent;
+  background: var(--field);
   letter-spacing: 0.04em;
+  box-shadow: inset 0 -3px 0 var(--ncac-red);
 }
 
 .app-shell {
@@ -157,8 +161,8 @@ button {
   align-items: baseline;
   gap: 10px 14px;
   padding: 10px 12px 11px;
-  border: 1px solid var(--line-strong);
-  background: var(--paper);
+  border: 2px solid var(--line-strong);
+  background: var(--field);
   box-shadow: var(--shadow);
   display: none;
 }
@@ -227,9 +231,17 @@ button {
   max-height: calc(100% - 36px);
   overflow: auto;
   background: var(--panel);
-  border: 1px solid var(--line-strong);
+  border: 2px solid var(--line-strong);
   box-shadow: var(--shadow-float);
   padding: 13px;
+}
+
+.control-panel::before {
+  content: "";
+  display: block;
+  height: 6px;
+  margin: -13px -13px 12px;
+  background: var(--ncac-red);
 }
 
 .panel-topline {
@@ -239,7 +251,7 @@ button {
   gap: 16px;
   padding-bottom: 10px;
   margin-bottom: 12px;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 2px solid var(--line-strong);
 }
 
 #visible-count {
@@ -253,7 +265,7 @@ button {
 .mode-tabs {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  border: 1px solid var(--ink);
+  border: 2px solid var(--ink);
   margin-bottom: 12px;
   background: var(--surface);
 }
@@ -269,6 +281,18 @@ button {
   font-size: 13px;
 }
 
+.mode-tab:focus-visible,
+.filter-chip:focus-visible,
+.place-list-item:focus-visible,
+.path-button:focus-visible,
+.path-stop-list button:focus-visible,
+.detail-actions a:focus-visible,
+.detail-actions button:focus-visible,
+.small-link:focus-visible {
+  outline: 0;
+  box-shadow: var(--focus-ring), inset 0 -3px 0 var(--ncac-red);
+}
+
 .mode-tab:last-child {
   border-right: 0;
 }
@@ -279,10 +303,11 @@ button {
 }
 
 .featured-hint {
-  border: 1px solid var(--line);
+  border: 1px solid var(--line-strong);
   background: var(--surface);
   padding: 10px;
   margin-bottom: 12px;
+  box-shadow: inset 4px 0 0 var(--ncac-red);
 }
 
 .hint-title {
@@ -307,7 +332,7 @@ button {
 }
 
 .filter-chip {
-  border: 1px solid var(--line);
+  border: 1px solid var(--line-strong);
   background: var(--surface);
   color: var(--ink);
   padding: 7px 9px;
@@ -318,9 +343,9 @@ button {
 
 .filter-chip.active {
   border-color: var(--ink);
-  background: var(--ink);
-  color: var(--paper);
-  box-shadow: inset 0 -3px 0 var(--ncac-red);
+  background: var(--ncac-red);
+  color: var(--field);
+  box-shadow: inset 0 -3px 0 var(--ink);
 }
 
 body[data-map-mode="paths"] .filter-wrap {
@@ -332,10 +357,11 @@ body:not([data-map-mode="places"]) .review-tools {
 }
 
 .review-tools {
-  border: 1px solid var(--line);
+  border: 1px solid var(--line-strong);
   background: rgba(255, 255, 255, 0.82);
   margin-bottom: 12px;
   padding: 9px;
+  box-shadow: inset 4px 0 0 var(--ncac-red);
 }
 
 .review-search-label {
@@ -357,6 +383,11 @@ body:not([data-map-mode="places"]) .review-tools {
   font: inherit;
   font-size: 13px;
   padding: 8px 9px;
+}
+
+.review-search-input:focus {
+  outline: 0;
+  box-shadow: var(--focus-ring);
 }
 
 .places-list-summary,
@@ -396,7 +427,7 @@ body:not([data-map-mode="places"]) .review-tools {
 .place-list-item.active,
 .place-list-item:hover {
   border-color: var(--ink);
-  box-shadow: inset 3px 0 0 var(--ncac-red);
+  box-shadow: inset 5px 0 0 var(--ncac-red);
 }
 
 .place-list-title {
@@ -418,7 +449,7 @@ body:not([data-map-mode="places"]) .review-tools {
 }
 
 .marker-preview-popup .maplibregl-popup-content {
-  border: 1px solid var(--ink);
+  border: 2px solid var(--ink);
   border-radius: 0;
   background: var(--paper);
   box-shadow: var(--shadow);
@@ -467,18 +498,22 @@ body:not([data-map-mode="places"]) .review-tools {
 }
 
 .detail-card {
-  border-top: 2px solid var(--ink);
-  padding-top: 11px;
+  border: 1px solid var(--line-strong);
+  border-top: 5px solid var(--ink);
+  background: var(--surface);
+  padding: 12px;
 }
 
 .detail-card.primary-anchor-card {
-  border-top: 4px solid var(--ncac-red);
+  border-color: var(--line-strong);
+  border-top: 6px solid var(--ncac-red);
   background: linear-gradient(180deg, var(--ncac-red-soft), rgba(255, 255, 255, 0) 132px);
-  padding: 0 0 2px;
+  padding: 12px;
 }
 
 .detail-card.supporting-stop-card {
-  border-top: 2px solid var(--line-strong);
+  border-color: var(--line-strong);
+  border-top: 5px solid var(--line-strong);
   background: linear-gradient(180deg, rgba(20, 20, 20, 0.05), rgba(255, 255, 255, 0) 118px);
 }
 
@@ -687,7 +722,7 @@ body:not([data-map-mode="places"]) .review-tools {
 .directory-record-meta {
   display: grid;
   gap: 7px;
-  border-top: 1px solid var(--line);
+  border-top: 2px solid var(--line-strong);
   border-bottom: 1px solid var(--line);
   margin: 11px 0 10px;
   padding: 9px 0;
@@ -723,10 +758,11 @@ body:not([data-map-mode="places"]) .review-tools {
 }
 
 .seen-in-muse {
-  border: 1px solid var(--line);
+  border: 1px solid var(--line-strong);
   background: var(--surface);
   margin: 10px 0 12px;
   padding: 10px;
+  box-shadow: inset 5px 0 0 var(--ncac-red);
 }
 
 .seen-in-muse-list {
@@ -915,6 +951,13 @@ body:not([data-map-mode="places"]) .review-tools {
   cursor: pointer;
 }
 
+.detail-actions a:hover,
+.detail-actions button:hover,
+.small-link:hover {
+  background: var(--ncac-red);
+  color: var(--field);
+}
+
 .related-events {
   margin-top: 14px;
   display: grid;
@@ -932,9 +975,10 @@ body:not([data-map-mode="places"]) .review-tools {
 }
 
 .event-mini {
-  border: 1px solid var(--line);
+  border: 1px solid var(--line-strong);
   background: var(--surface);
   padding: 9px;
+  box-shadow: inset 4px 0 0 var(--ncac-red);
 }
 
 .event-mini strong {
@@ -948,7 +992,7 @@ body:not([data-map-mode="places"]) .review-tools {
 
 .path-button {
   text-align: left;
-  border: 1px solid var(--line);
+  border: 1px solid var(--line-strong);
   background: var(--surface);
   padding: 11px;
   cursor: pointer;
@@ -1018,7 +1062,7 @@ body:not([data-map-mode="places"]) .review-tools {
   gap: 9px;
   text-align: left;
   align-items: start;
-  border: 1px solid var(--line);
+  border: 1px solid var(--line-strong);
   background: var(--surface);
   color: var(--ink);
   padding: 7px;
@@ -1127,7 +1171,7 @@ body:not([data-map-mode="places"]) .review-tools {
   align-items: center;
   gap: 12px;
   background: var(--panel);
-  border: 1px solid var(--line-strong);
+  border: 2px solid var(--line-strong);
   padding: 9px 10px;
   font-size: 12px;
   color: var(--ink-soft);
