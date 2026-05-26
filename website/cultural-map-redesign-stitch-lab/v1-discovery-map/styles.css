@@ -308,6 +308,96 @@ body[data-map-mode="paths"] .filter-wrap {
   display: none;
 }
 
+body:not([data-map-mode="places"]) .review-tools {
+  display: none;
+}
+
+.review-tools {
+  border: 1px solid var(--line);
+  background: rgba(255, 253, 247, 0.72);
+  margin-bottom: 12px;
+  padding: 9px;
+}
+
+.review-search-label {
+  display: grid;
+  gap: 5px;
+  margin-bottom: 8px;
+  color: var(--ink-soft);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.review-search-input {
+  width: 100%;
+  border: 1px solid var(--line-strong);
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+  font-size: 13px;
+  padding: 8px 9px;
+}
+
+.places-list-summary,
+.places-list-more,
+.places-list-empty {
+  color: var(--ink-soft);
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.places-list-summary {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.places-list-items {
+  display: grid;
+  gap: 6px;
+  max-height: 220px;
+  overflow: auto;
+  padding-right: 2px;
+}
+
+.place-list-item {
+  display: grid;
+  gap: 3px;
+  width: 100%;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+  cursor: pointer;
+  padding: 8px;
+  text-align: left;
+}
+
+.place-list-item.active,
+.place-list-item:hover {
+  border-color: var(--ink);
+  box-shadow: inset 3px 0 0 var(--ncac-red);
+}
+
+.place-list-title {
+  font-family: var(--font-brand);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.place-list-meta,
+.place-list-badge {
+  color: var(--ink-soft);
+  font-size: 11px;
+}
+
+.place-list-badge {
+  color: var(--ncac-red);
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
 .detail-card {
   border-top: 2px solid var(--ink);
   padding-top: 11px;
