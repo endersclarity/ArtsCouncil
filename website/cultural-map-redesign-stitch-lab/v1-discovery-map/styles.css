@@ -703,6 +703,48 @@ body:not([data-map-mode="places"]) .review-tools {
   text-underline-offset: 3px;
 }
 
+.seen-in-muse {
+  border: 1px solid var(--line);
+  background: var(--surface);
+  margin: 10px 0 12px;
+  padding: 10px;
+}
+
+.seen-in-muse-list {
+  display: grid;
+  gap: 7px;
+  margin-top: 7px;
+}
+
+.seen-in-muse-item {
+  display: grid;
+  gap: 2px;
+}
+
+.seen-in-muse-item strong {
+  color: var(--ink);
+  font-size: 13px;
+  line-height: 1.22;
+}
+
+.seen-in-muse-item span,
+.seen-in-muse-item small,
+.seen-in-muse-more {
+  color: var(--ink-soft);
+  font-size: 11px;
+  line-height: 1.25;
+}
+
+.seen-in-muse-item small {
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  font-weight: 800;
+}
+
+.seen-in-muse-more {
+  margin: 7px 0 0;
+}
+
 .anchor-hook {
   border-top: 1px solid var(--line-strong);
   border-bottom: 1px solid var(--line);
