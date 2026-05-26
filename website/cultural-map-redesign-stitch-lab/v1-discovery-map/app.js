@@ -34,6 +34,9 @@
     anchorCards: [],
     selectedPath: null,
     selectedPlaceId: "",
+    selectedEventId: "",
+    searchQuery: "",
+    isApplyingReviewState: false,
     map: null,
     pathMarkers: [],
     anchorMarkers: [],
@@ -45,6 +48,8 @@
     filters: document.getElementById("filters"),
     detail: document.getElementById("detail-card"),
     hint: document.getElementById("featured-hint"),
+    search: document.getElementById("place-search"),
+    placesList: document.getElementById("places-list"),
   };
 
   function escapeHtml(value) {
@@ -139,6 +144,17 @@
     return state.places.filter((place) => state.activeIntents.has(place.intent));
   }
 
+  function searchableText(place) {
+    return [place.name, place.category, place.city, place.intent].filter(Boolean).join(" ").toLowerCase();
+  }
+
+  function listedPlaces() {
+    const query = state.searchQuery.trim().toLowerCase();
+    const places = filteredPlaces();
+    if (!query) return places;
+    return places.filter((place) => searchableText(place).includes(query));
+  }
+
   function updateCount() {
     if (state.mode === "events") {
       els.count.textContent = `${state.events.length} mapped events`;
@@ -147,6 +163,78 @@
     } else {
       els.count.textContent = `${filteredPlaces().length} visible places`;
     }
+  }
+
+  function currentReviewState() {
+    return {
+      mode: state.mode,
+      intents: [...state.activeIntents],
+      place: state.mode === "places" ? state.selectedPlaceId : "",
+      path: state.mode === "paths" && state.selectedPath ? state.selectedPath.id : "",
+      event: state.mode === "events" ? state.selectedEventId : "",
+    };
+  }
+
+  function updateReviewUrl() {
+    if (state.isApplyingReviewState || !window.V1ReviewState || !window.history?.replaceState) return;
+    const nextSearch = window.V1ReviewState.apply(window.location.search, currentReviewState());
+    const nextUrl = `${window.location.pathname}${nextSearch}${window.location.hash}`;
+    window.history.replaceState(null, "", nextUrl);
+  }
+
+  function placeReviewLabel(place) {
+    if (place.anchor && place.anchorCard) return "Primary anchor";
+    if (!place.anchor && place.anchorCard) return "Supporting stop";
+    if (place.musePick) return "MUSE pick";
+    return "Place";
+  }
+
+  function renderPlacesList() {
+    if (!els.placesList) return;
+    const query = state.searchQuery.trim();
+    const places = listedPlaces();
+    const visibleCount = filteredPlaces().length;
+    const limit = 60;
+    if (state.mode !== "places") {
+      els.placesList.innerHTML = "";
+      return;
+    }
+    if (!places.length) {
+      els.placesList.innerHTML = `
+        <div class="places-list-empty">
+          <p>No places match ${query ? `"${escapeHtml(query)}"` : "this filter"}.</p>
+          ${state.activeIntents.size ? `<button class="filter-chip" type="button" id="clear-place-filters">Clear filters</button>` : ""}
+        </div>
+      `;
+      els.placesList.querySelector("#clear-place-filters")?.addEventListener("click", () => {
+        state.activeIntents.clear();
+        renderFilters();
+        setSourceData();
+        renderFeaturedAnchor();
+        updateReviewUrl();
+      });
+      return;
+    }
+    const shown = places.slice(0, limit);
+    els.placesList.innerHTML = `
+      <div class="places-list-summary">
+        <span>${escapeHtml(places.length)} ${query ? "matching" : "listed"} of ${escapeHtml(visibleCount)} visible places</span>
+      </div>
+      <div class="places-list-items">
+        ${shown.map((place) => `
+          <button class="place-list-item${place.id === state.selectedPlaceId ? " active" : ""}" type="button" data-place="${escapeHtml(place.id)}">
+            <span class="place-list-title">${escapeHtml(place.name)}</span>
+            <span class="place-list-meta">${escapeHtml(place.category)} / ${escapeHtml(place.city || "Nevada County")}</span>
+            <span class="place-list-badge">${escapeHtml(placeReviewLabel(place))}</span>
+          </button>
+        `).join("")}
+      </div>
+      ${places.length > limit ? `<p class="places-list-more">Showing first ${escapeHtml(limit)}. Use search to narrow the review list.</p>` : ""}
+    `;
+    els.placesList.querySelectorAll("[data-place]").forEach((button) => {
+      const place = state.places.find((item) => item.id === button.dataset.place);
+      if (place) button.addEventListener("click", () => showPlace(place));
+    });
   }
 
   function setSourceData() {
@@ -162,6 +250,7 @@
       eventSource.setData({ type: "FeatureCollection", features: events });
     }
     updateCount();
+    renderPlacesList();
     renderAnchorMarkers();
     updateSmartLabels();
   }
@@ -354,6 +443,7 @@
         renderFilters();
         if (!state.selectedPlaceId) renderFeaturedAnchor();
         setSourceData();
+        updateReviewUrl();
       });
     });
   }
@@ -498,6 +588,7 @@
   function showPlace(place) {
     expandDrawer();
     state.selectedPlaceId = place.id;
+    state.selectedEventId = "";
     setSourceData();
     const events = relatedEvents(place.id);
     const anchor = place.anchor || null;
@@ -539,11 +630,15 @@
       ${eventHtml}
     `;
     state.map.flyTo({ center: [place.lng, place.lat], zoom: Math.max(state.map.getZoom(), 13.5), speed: 0.8 });
+    updateReviewUrl();
   }
 
   function showEvent(event) {
     expandDrawer();
     setDetailCardMode("");
+    state.selectedEventId = event.id;
+    state.selectedPlaceId = "";
+    state.selectedPath = null;
     const place = state.places.find((item) => item.id === event.placeId);
     els.detail.innerHTML = `
       ${event.image ? `<img class="place-image" src="${escapeHtml(event.image)}" alt="${escapeHtml(event.title)}">` : ""}
@@ -558,6 +653,7 @@
     `;
     const jump = document.getElementById("event-place-jump");
     if (jump && place) jump.addEventListener("click", () => showPlace(place));
+    updateReviewUrl();
   }
 
   function pathFeature(path) {
@@ -581,6 +677,7 @@
     expandDrawer();
     state.selectedPath = path;
     state.selectedPlaceId = "";
+    state.selectedEventId = "";
     clearPathMarkers();
     setMapSourceData("paths", [pathFeature(path)]);
     path.stops.forEach((stop, index) => {
@@ -598,6 +695,7 @@
     const bounds = path.stops.reduce((acc, stop) => acc.extend([stop.lng, stop.lat]), new maplibregl.LngLatBounds([path.stops[0].lng, path.stops[0].lat], [path.stops[0].lng, path.stops[0].lat]));
     state.map.fitBounds(bounds, { padding: 90, duration: 800 });
     renderPathPanel(path);
+    updateReviewUrl();
   }
 
   function renderPathPanel(activePath) {
@@ -660,6 +758,10 @@
     state.mode = mode;
     document.body.dataset.mapMode = mode;
     if (mode !== "places") state.selectedPlaceId = "";
+    if (mode !== "places") state.searchQuery = "";
+    if (mode !== "paths") state.selectedPath = null;
+    if (mode !== "events") state.selectedEventId = "";
+    if (els.search) els.search.value = state.searchQuery;
     document.querySelectorAll(".mode-tab").forEach((tab) => tab.classList.toggle("active", tab.dataset.mode === mode));
     clearPathMarkers();
     setMapSourceData("paths", []);
@@ -675,6 +777,32 @@
       renderFeaturedAnchor();
     }
     setSourceData();
+    updateReviewUrl();
+  }
+
+  function applyInitialReviewState() {
+    if (!window.V1ReviewState) {
+      renderFeaturedAnchor();
+      return;
+    }
+    const reviewState = window.V1ReviewState.parse(window.location.search);
+    const validIntents = new Set(state.places.map((place) => place.intent));
+    state.activeIntents = new Set(reviewState.intents.filter((intent) => validIntents.has(intent)));
+    state.isApplyingReviewState = true;
+    setMode(reviewState.mode || "places");
+    if (state.mode === "paths" && reviewState.path) {
+      const path = state.paths.find((item) => item.id === reviewState.path);
+      if (path) showPath(path);
+    } else if (state.mode === "events" && reviewState.event) {
+      const event = state.events.find((item) => item.id === reviewState.event);
+      if (event) showEvent(event);
+    } else if (state.mode === "places" && reviewState.place) {
+      const visibleIds = new Set(filteredPlaces().map((place) => place.id));
+      const place = state.places.find((item) => item.id === reviewState.place && visibleIds.has(item.id));
+      if (place) showPlace(place);
+    }
+    state.isApplyingReviewState = false;
+    updateReviewUrl();
   }
 
   function applyCustomBasemapStyling() {
@@ -906,7 +1034,7 @@
       applyCustomBasemapStyling();
       addMapLayers();
       setSourceData();
-      renderFeaturedAnchor();
+      applyInitialReviewState();
     });
 
     state.map.on("zoom", updateAnchorMarkerVisibility);
@@ -915,6 +1043,11 @@
 
     document.querySelectorAll(".mode-tab").forEach((tab) => {
       tab.addEventListener("click", () => setMode(tab.dataset.mode));
+    });
+
+    els.search?.addEventListener("input", () => {
+      state.searchQuery = els.search.value;
+      renderPlacesList();
     });
 
     const drawerToggle = document.getElementById("drawer-toggle");

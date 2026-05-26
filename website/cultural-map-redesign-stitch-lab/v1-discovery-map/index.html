@@ -63,6 +63,14 @@
 
         <div class="filter-wrap" id="filters" aria-label="Visitor-intent filters"></div>
 
+        <div class="review-tools" id="review-tools" aria-label="Review navigation">
+          <label class="review-search-label" for="place-search">
+            <span>Search visible places</span>
+            <input id="place-search" class="review-search-input" type="search" placeholder="Name, city, category">
+          </label>
+          <div class="places-list" id="places-list"></div>
+        </div>
+
         <div class="detail-card" id="detail-card">
           <p class="empty-title">Select a place or path stop</p>
           <p class="empty-copy">The detail card will show image proof, short context, source category, and related events when available.</p>
@@ -78,6 +86,7 @@
   </main>
 
   <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
-  <script src="app.js?v=filter-detail-fix"></script>
+  <script src="review-state.js"></script>
+  <script src="app.js?v=review-navigation"></script>
 </body>
 </html>
