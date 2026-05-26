@@ -26,6 +26,20 @@
     "food-drink": "FD",
   };
 
+  const CATEGORY_PLACEHOLDER_IMAGES = {
+    "Arts Organizations": "assets/category-placeholders-ncac/arts-organizations.png",
+    "Cultural Resources": "assets/category-placeholders-ncac/cultural-resources.png",
+    "Eat, Drink & Stay": "assets/category-placeholders-ncac/eat-drink-stay.png",
+    "Fairs & Festivals": "assets/category-placeholders-ncac/fairs-festivals.png",
+    "Galleries & Studios": "assets/category-placeholders-ncac/galleries-studios.png",
+    "Historic Places": "assets/category-placeholders-ncac/historic-places.png",
+    "MUSE Picks": "assets/category-placeholders-ncac/muse-picks.png",
+    "Performing Arts": "assets/category-placeholders-ncac/performing-arts.png",
+    "Public Art": "assets/category-placeholders-ncac/public-art.png",
+    "Shops & Makers": "assets/category-placeholders-ncac/shops-makers.png",
+    "Walks & Trails": "assets/category-placeholders-ncac/walks-trails.png",
+  };
+
   const state = {
     mode: "places",
     activeIntents: new Set(),
@@ -69,6 +83,10 @@
     if (src.startsWith("assets/")) return src;
     if (src.startsWith("../")) return src;
     return `../${src}`;
+  }
+
+  function categoryPlaceholderFor(category) {
+    return CATEGORY_PLACEHOLDER_IMAGES[category] || "";
   }
 
   function placeToFeature(place) {
@@ -512,12 +530,17 @@
         </figure>
       `;
     }
-    const src = resolveMedia(place.image?.src || place.image?.placeholderSrc || "assets/placeholders/gallery-studio.webp");
+    const explicitPlaceholder = place.image?.kind === "placeholder" ? "" : place.image?.src || place.image?.placeholderSrc;
+    const categoryPlaceholder = categoryPlaceholderFor(place.category);
+    const src = resolveMedia(explicitPlaceholder || categoryPlaceholder || "assets/placeholders/gallery-studio.webp");
+    const alt = explicitPlaceholder
+      ? place.image?.alt || `Non-documentary placeholder image for ${place.name}`
+      : `NCAC category placeholder for ${place.category || place.name}`;
     return `
       <div class="placeholder-image-wrap">
         ${proofLabel}
-        <img class="place-image placeholder-image" src="${escapeHtml(src)}" alt="${escapeHtml(place.image?.alt || `Editorial placeholder image for ${place.name}`)}">
-        <span class="placeholder-label">Placeholder image</span>
+        <img class="place-image placeholder-image" src="${escapeHtml(src)}" alt="${escapeHtml(alt)}">
+        <span class="placeholder-label">Photo not yet sourced</span>
       </div>
     `;
   }
@@ -722,7 +745,7 @@
       ? "Image proof"
       : isSupportingStop && place.image?.status === "candidate"
         ? "Candidate image"
-        : isSupportingStop && !place.image?.src
+        : isSupportingStop && (!place.image?.src || place.image?.status === "missing")
           ? "Source image pending"
           : "";
     const eventHtml = events.length ? `
