@@ -92,6 +92,7 @@ PLACEHOLDER_ASSETS = {
 
 IMAGE_FILE_RE = re.compile(r"\.(?:jpe?g|png|webp|gif)(?:\?|$)", re.I)
 LOGO_RE = re.compile(r"(?:logo|logomark|brandmark|favicon|siteicon|wordmark)", re.I)
+CELL_REF_RE = re.compile(r"([A-Z]+)")
 
 PATH_DEFS = [
     {
@@ -294,6 +295,16 @@ def clean_text(value: Any) -> str:
     return re.sub(r"\s+", " ", text).strip()
 
 
+def column_index(cell_ref: str) -> int:
+    letters = CELL_REF_RE.match(cell_ref or "")
+    if not letters:
+        return 0
+    index = 0
+    for char in letters.group(1):
+        index = index * 26 + (ord(char) - ord("A") + 1)
+    return index - 1
+
+
 def read_xlsx(path: Path) -> dict[str, list[dict[str, str]]]:
     ns = {
         "a": "http://schemas.openxmlformats.org/spreadsheetml/2006/main",
@@ -320,7 +331,7 @@ def read_xlsx(path: Path) -> dict[str, list[dict[str, str]]]:
             ws = ET.fromstring(z.read(xml_path))
             rows = []
             for row in ws.findall(".//a:sheetData/a:row", ns):
-                values = []
+                values_by_column = {}
                 for c in row.findall("a:c", ns):
                     v = c.find("a:v", ns)
                     cell = ""
@@ -331,7 +342,9 @@ def read_xlsx(path: Path) -> dict[str, list[dict[str, str]]]:
                                 cell = shared[int(cell)]
                             except (ValueError, IndexError):
                                 pass
-                    values.append(clean_text(cell))
+                    values_by_column[column_index(c.attrib.get("r", ""))] = clean_text(cell)
+                max_column = max(values_by_column.keys(), default=-1)
+                values = [values_by_column.get(i, "") for i in range(max_column + 1)]
                 if any(values):
                     rows.append(values)
             if not rows:
@@ -516,6 +529,8 @@ def build_places(workbook: dict[str, list[dict[str, str]]], coord_exact: dict[st
 
             asset_type = clean_text(record.get("AssetType") or coord.get("assetType") or coord.get("sheet"))
             category = map_category(sheet, asset_type)
+            address = clean_text(record.get("Address") or coord.get("address"))
+            phone = clean_text(record.get("Phone") or coord.get("phone"))
             website = normalize_website(record.get("Website") or coord.get("website"))
             description = description_for(record, category, city or clean_text(coord.get("city")))
             place_id = re.sub(r"[^a-z0-9]+", "-", normalize(f"{name} {city}")).strip("-")
@@ -547,9 +562,10 @@ def build_places(workbook: dict[str, list[dict[str, str]]], coord_exact: dict[st
                 "musePick": muse_pick,
                 "description": description,
                 "website": website,
+                "address": address,
+                "phone": phone,
                 "lat": coord["lat"],
                 "lng": coord["lng"],
-                "sourceSheet": sheet,
                 "image": image_record,
                 "featured": bool(anchor),
             }
