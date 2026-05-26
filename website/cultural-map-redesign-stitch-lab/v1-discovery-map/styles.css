@@ -398,6 +398,55 @@ body:not([data-map-mode="places"]) .review-tools {
   text-transform: uppercase;
 }
 
+.marker-preview-popup .maplibregl-popup-content {
+  border: 1px solid var(--ink);
+  border-radius: 0;
+  background: var(--paper);
+  box-shadow: 4px 4px 0 rgba(26, 26, 26, 0.16);
+  color: var(--ink);
+  padding: 8px 9px;
+}
+
+.marker-preview-popup .maplibregl-popup-tip {
+  border-top-color: var(--ink);
+  border-bottom-color: var(--ink);
+}
+
+.marker-preview {
+  display: grid;
+  gap: 3px;
+  max-width: 210px;
+}
+
+.marker-preview p,
+.marker-preview strong,
+.marker-preview span,
+.marker-preview small {
+  margin: 0;
+}
+
+.marker-preview-kicker {
+  color: var(--ncac-red);
+  font-size: 9px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  text-transform: uppercase;
+}
+
+.marker-preview strong {
+  font-family: var(--font-brand);
+  font-size: 14px;
+  line-height: 1.05;
+}
+
+.marker-preview span,
+.marker-preview small {
+  color: var(--ink-soft);
+  font-size: 11px;
+  line-height: 1.2;
+}
+
 .detail-card {
   border-top: 2px solid var(--ink);
   padding-top: 11px;
