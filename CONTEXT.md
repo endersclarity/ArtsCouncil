@@ -16,6 +16,26 @@ _Avoid_: Stakeholders, tourists as the only audience
 A visible map-ready cultural place record with basic descriptive and location data.
 _Avoid_: Pin, generic listing
 
+**Directory Record**:
+The practical inventory treatment for an Ordinary Place, exposing source-backed public details such as description, place type, city, address, phone, website, and image state where available. A Directory Record is not lesser cultural content; it is the baseline treatment every mapped place deserves before any authored MUSE or anchor layer is added.
+_Avoid_: Thin leftover listing, placeholder-only card, uncurated dump
+
+**Email Data**:
+Contact email information from the source inventory. It is intentionally excluded from first-pass Directory Record Restoration because coverage is sparse and the public/private contact boundary needs a separate decision.
+_Avoid_: Public-by-default email, personal contact leak, low-coverage contact field
+
+**Hours Data**:
+Opening-hours information from prior Google Places enrichment, not from Diana's source inventory. It should stay out of Directory Record Restoration until its freshness and place-matching coverage are audited.
+_Avoid_: Diana-source hours, casual Open Now data, unaudited hours display
+
+**Marker Preview**:
+The lightweight hover treatment for every visible Ordinary Place marker, showing enough source-backed identity to help someone decide whether to click. A Marker Preview should never be reserved only for anchors or featured places.
+_Avoid_: Decorative marker, silent dot, anchor-only hover
+
+**Selected Directory Card**:
+The clicked-place card for an Ordinary Place, showing all public source-backed inventory fields currently available for that place before any optional anchor, path, or MUSE treatment is layered on top. Every marker on the map should be able to open a Selected Directory Card.
+_Avoid_: Empty click state, teaser-only card, anchor-or-nothing card
+
 **Cultural Anchor**:
 A hand-picked place from the already-vetted NCAC cultural asset universe with extra editorial meaning for the current demo/review slice. It does not need to be an active arts venue; the distinction is extra authored treatment, not whether the place is culturally valid.
 _Avoid_: Featured pin, top place, ranked place, only arts venues
@@ -31,6 +51,10 @@ _Avoid_: Unlabeled generated place photos, pretending placeholders are real docu
 **MUSE Layer**:
 The editorial influence and optional story evidence from NCAC's MUSE context. MUSE voice may inform all Anchor Card copy; explicit MUSE claims or badges should appear only where local MUSE data supports a match.
 _Avoid_: Claiming every anchor appears in MUSE, using MUSE as generic decoration
+
+**Seen in MUSE**:
+A compact evidence section for a Directory Record when the MUSE Article Index has a direct place_id match for that place. It should cite the matched article/page context without turning thematic or fuzzy matches into place-specific claims.
+_Avoid_: Fuzzy MUSE badge, theme-only place claim, unsourced MUSE flourish
 
 **MUSE Evidence Corpus**:
 The local, source-linked collection of MUSE issues, articles, pages, text, and images used to ground demo copy, card framing, and future visual references. Once a MUSE page image and OCR text are stored locally, agents may quote and remix that material for this Arts Council prototype; the main risk is confusing or irrelevant sourcing, not permission.
@@ -100,10 +124,16 @@ _Avoid_: Countywide launch scope, Truckee/High Sierra proof, Truckee anchors
 
 - The **Stakeholder Review Audience** is the first audience for the next selected-place-card and path-treatment slice.
 - The **Public Discovery Audience** remains important, but does not override stakeholder confidence in the next slice.
+- Every **Ordinary Place** should have a **Directory Record** treatment before any place-specific editorial layer is considered.
+- Every visible Ordinary Place marker should have a **Marker Preview** on hover and open a **Selected Directory Card** on click.
+- **Email Data** is excluded from first-pass **Directory Record** restoration until the public contact boundary is separately decided.
+- **Hours Data** is excluded from first-pass **Directory Record** restoration until a separate readiness audit approves it.
 - A **Cultural Anchor** is an **Ordinary Place** with added editorial meaning. Ordinary Places are still vetted NCAC cultural assets; anchors are not "more real," just more authored for the slice.
+- A **Cultural Anchor** adds authored meaning to a **Directory Record**; it does not replace the practical inventory facts.
 - An **Anchor Card** leads with cultural meaning, image proof, and story/path/event relationships before utility links.
 - **Image Proof** for the Primary Anchor Set must be real/resolved for the next review slice. Supporting or future-direction imagery may be placeholder/generated if labeled honestly.
 - The **MUSE Layer** is voice everywhere and evidence only where supported.
+- A **Seen in MUSE** section belongs on a **Directory Record** only when the MUSE Article Index has a direct place_id match.
 - A **Concept Mockup** can accompany the live prototype and short brief to make gaps or possible future directions visible without building a second prototype.
 - A **Review Gap** should be named honestly and can be illustrated with a labeled Concept Mockup when it helps stakeholders react to direction.
 - **Tonight's Work Phase** prioritizes Primary Anchor Set Anchor Card polish before path treatment.
