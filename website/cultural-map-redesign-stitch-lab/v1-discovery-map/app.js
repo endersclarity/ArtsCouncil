@@ -38,6 +38,7 @@
     searchQuery: "",
     isApplyingReviewState: false,
     map: null,
+    markerPreviewPopup: null,
     pathMarkers: [],
     anchorMarkers: [],
     smartLabels: [],
@@ -87,6 +88,48 @@
         selected: place.id === state.selectedPlaceId,
       },
     };
+  }
+
+  function placeKindLabel(place) {
+    if (place.anchor) return "Cultural anchor";
+    if (place.anchorCard) return "Supporting stop";
+    if (place.musePick) return "MUSE pick";
+    return "Directory record";
+  }
+
+  function markerPreviewHtml(place) {
+    const location = [place.category, place.city || "Nevada County"].filter(Boolean).join(" / ");
+    return `
+      <div class="marker-preview" role="status">
+        <p class="marker-preview-kicker">${escapeHtml(placeKindLabel(place))}</p>
+        <strong>${escapeHtml(place.name)}</strong>
+        <span>${escapeHtml(location)}</span>
+        ${place.address ? `<small>${escapeHtml(place.address)}</small>` : ""}
+      </div>
+    `;
+  }
+
+  function showMarkerPreview(event) {
+    if (!event.features?.length) return;
+    const id = event.features[0].properties.id;
+    const place = state.places.find((item) => item.id === id);
+    if (!place) return;
+    if (!state.markerPreviewPopup) {
+      state.markerPreviewPopup = new maplibregl.Popup({
+        closeButton: false,
+        closeOnClick: false,
+        className: "marker-preview-popup",
+        offset: 12,
+      });
+    }
+    state.markerPreviewPopup
+      .setLngLat(event.features[0].geometry.coordinates)
+      .setHTML(markerPreviewHtml(place))
+      .addTo(state.map);
+  }
+
+  function hideMarkerPreview() {
+    state.markerPreviewPopup?.remove();
   }
 
   function eventToFeature(event) {
@@ -1011,6 +1054,7 @@
       });
     });
     const showPlaceFromFeature = (event) => {
+      hideMarkerPreview();
       const id = event.features[0].properties.id;
       const place = state.places.find((item) => item.id === id);
       if (place) showPlace(place);
@@ -1023,7 +1067,18 @@
       const eventItem = state.events.find((item) => item.id === id);
       if (eventItem) showEvent(eventItem);
     });
-    ["place-points", "place-clusters", "anchor-rings", "anchor-icons", "event-points"].forEach((layer) => {
+    ["place-points", "anchor-rings", "anchor-icons"].forEach((layer) => {
+      state.map.on("mouseenter", layer, (event) => {
+        state.map.getCanvas().style.cursor = "pointer";
+        showMarkerPreview(event);
+      });
+      state.map.on("mousemove", layer, showMarkerPreview);
+      state.map.on("mouseleave", layer, () => {
+        state.map.getCanvas().style.cursor = "";
+        hideMarkerPreview();
+      });
+    });
+    ["place-clusters", "event-points"].forEach((layer) => {
       state.map.on("mouseenter", layer, () => { state.map.getCanvas().style.cursor = "pointer"; });
       state.map.on("mouseleave", layer, () => { state.map.getCanvas().style.cursor = ""; });
     });
