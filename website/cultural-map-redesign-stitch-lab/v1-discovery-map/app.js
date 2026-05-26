@@ -6,6 +6,7 @@
     events: "data/events.json?v=event-copy-fix",
     paths: "data/paths.json",
     anchorCards: "data/anchor_cards.json",
+    museEvidence: "data/muse_evidence_links.json",
   };
 
   const MARKERS = {
@@ -32,6 +33,7 @@
     events: [],
     paths: [],
     anchorCards: [],
+    museEvidenceByPlace: new Map(),
     selectedPath: null,
     selectedPlaceId: "",
     selectedEventId: "",
@@ -587,6 +589,63 @@
     `;
   }
 
+  function buildDirectMuseEvidenceByPlace(evidence) {
+    const links = Array.isArray(evidence?.links) ? evidence.links : [];
+    return links.reduce((byPlace, link) => {
+      if (
+        link.target_type !== "place" ||
+        link.match_type !== "exact" ||
+        link.is_direct_evidence !== true ||
+        !link.target_id ||
+        !link.article
+      ) {
+        return byPlace;
+      }
+      const placeLinks = byPlace.get(link.target_id) || [];
+      placeLinks.push(link);
+      byPlace.set(link.target_id, placeLinks);
+      return byPlace;
+    }, new Map());
+  }
+
+  function museArticleContext(article) {
+    const issue = article.issue || (article.issue_year ? `MUSE ${article.issue_year}` : "");
+    const pageStart = article.page_start;
+    const pageEnd = article.page_end;
+    const pages = pageStart && pageEnd && pageStart !== pageEnd
+      ? `pp. ${pageStart}-${pageEnd}`
+      : pageStart
+        ? `p. ${pageStart}`
+        : "";
+    return [issue, pages].filter(Boolean).join(", ");
+  }
+
+  function renderSeenInMuse(place) {
+    const links = state.museEvidenceByPlace.get(place.id) || [];
+    if (!links.length) return "";
+    const visibleLinks = links.slice(0, 3);
+    return `
+      <div class="seen-in-muse" aria-label="Seen in MUSE">
+        <p class="section-label">Seen in MUSE</p>
+        <div class="seen-in-muse-list">
+          ${visibleLinks.map((link) => {
+            const article = link.article || {};
+            const confidence = link.source_confidence?.level ? `${link.source_confidence.level} confidence` : "Direct place match";
+            const context = museArticleContext(article);
+            return `
+              <article class="seen-in-muse-item">
+                <strong>${escapeHtml(article.title || "MUSE article")}</strong>
+                ${context ? `<span>${escapeHtml(context)}</span>` : ""}
+                <small>${escapeHtml(confidence)} / direct place evidence</small>
+              </article>
+            `;
+          }).join("")}
+        </div>
+        ${links.length > visibleLinks.length ? `<p class="seen-in-muse-more">${escapeHtml(links.length - visibleLinks.length)} more direct MUSE mentions</p>` : ""}
+      </div>
+    `;
+  }
+
   function featuredAnchor() {
     const places = state.activeIntents.size ? filteredPlaces() : state.places;
     return places
@@ -689,6 +748,7 @@
       ${anchorCardMeta(place)}
       <p class="detail-description">${escapeHtml(place.anchorCard?.supportingDescription || place.description)}</p>
       ${directoryRecordMeta(place)}
+      ${renderSeenInMuse(place)}
       ${action ? `<div class="detail-actions">${action}</div>` : ""}
       ${eventHtml}
     `;
@@ -1085,13 +1145,15 @@
   }
 
   async function init() {
-    const [places, events, paths, anchorCards] = await Promise.all([
+    const [places, events, paths, anchorCards, museEvidence] = await Promise.all([
       fetch(DATA.places).then((r) => r.json()),
       fetch(DATA.events).then((r) => r.json()),
       fetch(DATA.paths).then((r) => r.json()),
       fetch(DATA.anchorCards).then((r) => r.json()).catch(() => []),
+      fetch(DATA.museEvidence).then((r) => r.json()).catch(() => ({ links: [] })),
     ]);
     state.anchorCards = Array.isArray(anchorCards) ? anchorCards : [];
+    state.museEvidenceByPlace = buildDirectMuseEvidenceByPlace(museEvidence);
     state.places = applyAnchorCards(places, state.anchorCards);
     state.events = events;
     state.paths = paths;
