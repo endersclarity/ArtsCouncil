@@ -10,11 +10,40 @@
   };
 
   const MARKERS = {
-    place: "#2f2b27",
-    quiet: "#6c6258",
+    place: "#141414",
+    quiet: "#5d625b",
     red: "#ff2e00",
-    paper: "#faf6ec",
-    ink: "#1a1a1a",
+    paper: "#ffffff",
+    ink: "#141414",
+  };
+
+  const QUIET_BASEMAP = {
+    standard: {
+      background: "#f4f5f1",
+      water: "#e1e7e3",
+      waterLine: "#d4ddd8",
+      landcover: "#eef1ec",
+      landuse: "#f0f2ee",
+      residential: "#f5f6f3",
+      park: "#e7eee5",
+      building: "#e7e8e2",
+      buildingTop: "#eff0eb",
+      roadCaseOpacity: 0.1,
+      roadFillOpacity: 0.26,
+    },
+    twilight: {
+      background: "#eff1ed",
+      water: "#dbe3de",
+      waterLine: "#cfd9d3",
+      landcover: "#e8ede7",
+      landuse: "#ecefeb",
+      residential: "#f1f3f0",
+      park: "#dde8dd",
+      building: "#dedfd8",
+      buildingTop: "#e8e9e4",
+      roadCaseOpacity: 0.08,
+      roadFillOpacity: 0.22,
+    },
   };
 
   const ANCHOR_ICON_TEXT = {
@@ -959,28 +988,18 @@
     const isTwilight = twilightParam === "true";
     document.body.classList.toggle("twilight-mode", isTwilight);
 
-    const paintOverrides = isTwilight ? [
-      { layerId: "background", property: "background-color", value: "#ecdcb9" },
-      { layerId: "water", property: "fill-color", value: "#ccbca0" },
-      { layerId: "waterway", property: "line-color", value: "#ccbca0" },
-      { layerId: "landcover", property: "fill-color", value: "#dfceaa" },
-      { layerId: "landuse", property: "fill-color", value: "#dfceaa" },
-      { layerId: "landuse_residential", property: "fill-color", value: "#d9c7a2" },
-      { layerId: "park_nature_reserve", property: "fill-color", value: "#d4c193" },
-      { layerId: "park_national_park", property: "fill-color", value: "#d4c193" },
-      { layerId: "building", property: "fill-color", value: "#ccbca0" },
-      { layerId: "building-top", property: "fill-color", value: "#d4c193" },
-    ] : [
-      { layerId: "background", property: "background-color", value: "#f4efe4" },
-      { layerId: "water", property: "fill-color", value: "#cbd4d1" },
-      { layerId: "waterway", property: "line-color", value: "#bfcac7" },
-      { layerId: "landcover", property: "fill-color", value: "#e0d6bd" },
-      { layerId: "landuse", property: "fill-color", value: "#e8ddc6" },
-      { layerId: "landuse_residential", property: "fill-color", value: "#ece2d1" },
-      { layerId: "park_nature_reserve", property: "fill-color", value: "#d9cfaa" },
-      { layerId: "park_national_park", property: "fill-color", value: "#d9cfaa" },
-      { layerId: "building", property: "fill-color", value: "#d9cdb8" },
-      { layerId: "building-top", property: "fill-color", value: "#e1d5bf" },
+    const palette = isTwilight ? QUIET_BASEMAP.twilight : QUIET_BASEMAP.standard;
+    const paintOverrides = [
+      { layerId: "background", property: "background-color", value: palette.background },
+      { layerId: "water", property: "fill-color", value: palette.water },
+      { layerId: "waterway", property: "line-color", value: palette.waterLine },
+      { layerId: "landcover", property: "fill-color", value: palette.landcover },
+      { layerId: "landuse", property: "fill-color", value: palette.landuse },
+      { layerId: "landuse_residential", property: "fill-color", value: palette.residential },
+      { layerId: "park_nature_reserve", property: "fill-color", value: palette.park },
+      { layerId: "park_national_park", property: "fill-color", value: palette.park },
+      { layerId: "building", property: "fill-color", value: palette.building },
+      { layerId: "building-top", property: "fill-color", value: palette.buildingTop },
     ];
 
     paintOverrides.forEach(({ layerId, property, value }) => {
@@ -994,7 +1013,7 @@
     ].forEach((layerId) => {
       if (!state.map.getLayer(layerId)) return;
       const isCase = layerId.includes("case");
-      state.map.setPaintProperty(layerId, "line-opacity", isTwilight ? (isCase ? 0.05 : 0.1) : (isCase ? 0.18 : 0.34));
+      state.map.setPaintProperty(layerId, "line-opacity", isCase ? palette.roadCaseOpacity : palette.roadFillOpacity);
     });
   }
 
@@ -1012,9 +1031,9 @@
       source: "places",
       filter: ["has", "point_count"],
       paint: {
-        "circle-color": "#faf6ec",
-        "circle-stroke-color": "#8c8177",
-        "circle-stroke-width": ["step", ["get", "point_count"], 1.25, 100, 1.6],
+        "circle-color": MARKERS.paper,
+        "circle-stroke-color": MARKERS.ink,
+        "circle-stroke-width": ["step", ["get", "point_count"], 1.4, 100, 1.8],
         "circle-radius": ["step", ["get", "point_count"], 15, 30, 20, 100, 27],
         "circle-opacity": 0.94,
       },
@@ -1029,7 +1048,7 @@
         "text-font": ["Open Sans Bold"],
         "text-size": 12,
       },
-      paint: { "text-color": "#1a1a1a" },
+      paint: { "text-color": MARKERS.ink },
     });
     state.map.addLayer({
       id: "place-points",
@@ -1054,7 +1073,7 @@
         "circle-stroke-color": [
           "case",
           ["get", "selected"], MARKERS.red,
-          "#faf6ec"
+          MARKERS.paper
         ],
         "circle-stroke-width": ["case", ["get", "selected"], 3, 1.25],
       },
@@ -1066,7 +1085,7 @@
       filter: ["all", ["!", ["has", "point_count"]], ["get", "anchor"]],
       paint: {
         "circle-radius": ["case", ["get", "selected"], 13, 11],
-        "circle-color": "rgba(250,246,236,0)",
+        "circle-color": "rgba(255,255,255,0)",
         "circle-stroke-color": MARKERS.red,
         "circle-stroke-width": ["case", ["get", "selected"], 2.6, 1.7],
         "circle-opacity": 0.96,
@@ -1099,7 +1118,7 @@
       layout: { visibility: "none" },
       paint: {
         "circle-radius": 15,
-        "circle-color": "rgba(255,46,0,0.16)",
+        "circle-color": "rgba(255,46,0,0.18)",
       },
     });
     state.map.addLayer({
@@ -1109,8 +1128,8 @@
       layout: { visibility: "none" },
       paint: {
         "circle-radius": 7,
-        "circle-color": "#ff2e00",
-        "circle-stroke-color": "#1a1a1a",
+        "circle-color": MARKERS.red,
+        "circle-stroke-color": MARKERS.ink,
         "circle-stroke-width": 1.5,
       },
     });
@@ -1121,9 +1140,9 @@
       type: "line",
       source: "paths",
       paint: {
-        "line-color": "#ff2e00",
-        "line-width": 1,
-        "line-opacity": 0.06,
+        "line-color": MARKERS.red,
+        "line-width": 1.8,
+        "line-opacity": 0.2,
         "line-dasharray": [1, 4],
       },
     });
