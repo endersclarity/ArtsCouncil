@@ -1,29 +1,48 @@
 :root {
   --ncac-red: #ff2e00;
-  --ink: #1a1a1a;
-  --ink-soft: #5e5852;
-  --paper: #faf6ec;
-  --paper-warm: #f5f0e8;
-  --surface: #fffdf7;
-  --line: #d8d0c6;
-  --line-strong: #1a1a1a;
-  --panel: #faf6ec;
-  --shadow: 0 16px 44px rgba(26, 26, 26, 0.16);
+  --ncac-red-soft: rgba(255, 46, 0, 0.08);
+  --ncac-red-ring: rgba(255, 46, 0, 0.28);
+  --ink: #141414;
+  --ink-soft: #4f4f4a;
+  --paper: #f7f7f4;
+  --paper-warm: #ecece6;
+  --field: #ffffff;
+  --surface: #ffffff;
+  --line: #d7d7d0;
+  --line-strong: #141414;
+  --panel: #ffffff;
+  --map-quiet-field: #f4f5f1;
+  --map-quiet-line: #d8ddd5;
+  --map-quiet-label: #73766f;
+  --shadow: 8px 8px 0 rgba(20, 20, 20, 0.12);
+  --shadow-float: 0 18px 42px rgba(20, 20, 20, 0.14);
+  --shadow-low: 0 4px 10px rgba(20, 20, 20, 0.18);
+  --caption-scrim: rgba(20, 20, 20, 0.78);
   --font-brand: "polymath-variable-2th9nk", "DM Sans", "Inter", system-ui, sans-serif;
   --font-body: "polymath-variable-2th9nk", "DM Sans", "Inter", system-ui, sans-serif;
+  --font-ui: var(--font-brand);
 }
 
 body.twilight-mode {
-  --ncac-red: #e23c14;
-  --ink: #2a2015;
-  --ink-soft: #786854;
-  --paper: #ecdcb9;
-  --paper-warm: #dfceaa;
-  --surface: #f6ebcf;
-  --line: #ccbca0;
-  --line-strong: #2a2015;
-  --panel: #ecdcb9;
-  --shadow: 0 16px 44px rgba(42, 32, 21, 0.2);
+  --ncac-red: #ff2e00;
+  --ncac-red-soft: rgba(255, 46, 0, 0.1);
+  --ncac-red-ring: rgba(255, 46, 0, 0.34);
+  --ink: #101010;
+  --ink-soft: #454541;
+  --paper: #f2f2ee;
+  --paper-warm: #e5e5df;
+  --field: #ffffff;
+  --surface: #ffffff;
+  --line: #cecec7;
+  --line-strong: #101010;
+  --panel: #ffffff;
+  --map-quiet-field: #eff1ed;
+  --map-quiet-line: #d0d6cf;
+  --map-quiet-label: #686c66;
+  --shadow: 8px 8px 0 rgba(16, 16, 16, 0.14);
+  --shadow-float: 0 18px 42px rgba(16, 16, 16, 0.16);
+  --shadow-low: 0 4px 10px rgba(16, 16, 16, 0.2);
+  --caption-scrim: rgba(16, 16, 16, 0.8);
 }
 
 * {
@@ -140,7 +159,7 @@ button {
   padding: 10px 12px 11px;
   border: 1px solid var(--line-strong);
   background: var(--paper);
-  box-shadow: 6px 6px 0 rgba(26, 26, 26, 0.08);
+  box-shadow: var(--shadow);
   display: none;
 }
 
@@ -177,7 +196,7 @@ button {
   min-height: calc(100vh - 68px);
   border: 0;
   overflow: hidden;
-  background: var(--paper-warm);
+  background: var(--map-quiet-field);
 }
 
 .map-stage::before {
@@ -186,8 +205,8 @@ button {
   inset: 0;
   z-index: 2;
   pointer-events: none;
-  border: 1px solid rgba(26, 26, 26, 0.18);
-  box-shadow: inset 0 0 0 7px rgba(250, 246, 236, 0.72);
+  border: 1px solid var(--line-strong);
+  box-shadow: inset 0 0 0 7px rgba(255, 255, 255, 0.74);
 }
 
 .map-canvas {
@@ -209,7 +228,7 @@ button {
   overflow: auto;
   background: var(--panel);
   border: 1px solid var(--line-strong);
-  box-shadow: var(--shadow);
+  box-shadow: var(--shadow-float);
   padding: 13px;
 }
 
@@ -314,7 +333,7 @@ body:not([data-map-mode="places"]) .review-tools {
 
 .review-tools {
   border: 1px solid var(--line);
-  background: rgba(255, 253, 247, 0.72);
+  background: rgba(255, 255, 255, 0.82);
   margin-bottom: 12px;
   padding: 9px;
 }
@@ -402,7 +421,7 @@ body:not([data-map-mode="places"]) .review-tools {
   border: 1px solid var(--ink);
   border-radius: 0;
   background: var(--paper);
-  box-shadow: 4px 4px 0 rgba(26, 26, 26, 0.16);
+  box-shadow: var(--shadow);
   color: var(--ink);
   padding: 8px 9px;
 }
@@ -454,13 +473,13 @@ body:not([data-map-mode="places"]) .review-tools {
 
 .detail-card.primary-anchor-card {
   border-top: 4px solid var(--ncac-red);
-  background: linear-gradient(180deg, rgba(255, 46, 0, 0.08), rgba(255, 253, 247, 0) 132px);
+  background: linear-gradient(180deg, var(--ncac-red-soft), rgba(255, 255, 255, 0) 132px);
   padding: 0 0 2px;
 }
 
 .detail-card.supporting-stop-card {
   border-top: 2px solid var(--line-strong);
-  background: linear-gradient(180deg, rgba(216, 208, 198, 0.36), rgba(255, 253, 247, 0) 118px);
+  background: linear-gradient(180deg, rgba(20, 20, 20, 0.05), rgba(255, 255, 255, 0) 118px);
 }
 
 .detail-card:has(.empty-title) {
@@ -516,7 +535,7 @@ body:not([data-map-mode="places"]) .review-tools {
   bottom: 7px;
   max-width: calc(100% - 14px);
   padding: 4px 6px;
-  background: rgba(38, 34, 31, 0.78);
+  background: var(--caption-scrim);
   color: var(--paper);
   font-size: 9px;
   font-weight: 700;
@@ -1076,14 +1095,14 @@ body:not([data-map-mode="places"]) .review-tools {
   color: var(--paper);
   font: 800 13px/1 var(--font-brand);
   cursor: pointer;
-  box-shadow: 0 2px 0 rgba(26, 26, 26, 0.28);
+  box-shadow: 0 2px 0 rgba(20, 20, 20, 0.24);
 }
 
 .path-number-marker::after {
   content: "";
   position: absolute;
   inset: -6px;
-  border: 1px solid rgba(255, 46, 0, 0.3);
+  border: 1px solid var(--ncac-red-ring);
   border-radius: inherit;
   animation: pathPulse 2.4s ease-out infinite;
 }
@@ -1298,14 +1317,14 @@ body:not([data-map-mode="places"]) .review-tools {
   border-radius: 999px;
   border: 2px solid var(--ncac-red);
   background: var(--paper);
-  box-shadow: 0 4px 10px rgba(26, 26, 26, 0.22);
+  box-shadow: var(--shadow-low);
   pointer-events: none;
 }
 
 .anchor-marker.selected .anchor-ring {
   border-color: var(--ink);
   background: var(--ncac-red);
-  box-shadow: 0 0 0 4px rgba(255, 46, 0, 0.22), 0 4px 12px rgba(26, 26, 26, 0.3);
+  box-shadow: 0 0 0 4px var(--ncac-red-ring), var(--shadow-low);
 }
 
 .anchor-marker .anchor-dot {
@@ -1329,7 +1348,7 @@ body:not([data-map-mode="places"]) .review-tools {
   border-radius: 2px;
   background: var(--paper);
   color: var(--ink);
-  box-shadow: 2px 2px 0 rgba(26, 26, 26, 0.08);
+  box-shadow: var(--shadow);
   padding: 4px 8px;
   font-family: inherit;
   font-size: 11px;
