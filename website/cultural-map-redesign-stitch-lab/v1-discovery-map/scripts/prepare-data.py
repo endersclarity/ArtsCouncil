@@ -29,6 +29,7 @@ V1 = ROOT / "website/cultural-map-redesign-stitch-lab/v1-discovery-map"
 WORKBOOK = ROOT / "docs/source-artifacts/Cultural Assets - data engineering.xlsx"
 ARTS_HUB_ASSETS = ROOT / "website/arts-hub-v2/data/cultural-assets.json"
 IMAGE_DATA = ROOT / "website/cultural-map-redesign-stitch-lab/image_data.json"
+COORDINATE_SANITY_PASS = V1 / "data/coordinate_sanity_pass.json"
 RSS_URL = "https://www.trumba.com/calendars/nevada-county-arts-council.rss"
 
 OUT_PLACES = V1 / "data/places.json"
@@ -133,6 +134,21 @@ PATH_DEFS = [
             "The Center for the Arts",
             "The Stone House",
         ],
+    },
+    {
+        "id": "landscape-ridge-context",
+        "title": "Landscape / Ridge Context",
+        "thesis": "The GVNC prototype can acknowledge outdoor pause and Ridge culture without making every supporting place a primary anchor.",
+        "dek": "A supporting-context path that keeps Hirschman's Pond and North Columbia Schoolhouse visible as layer and route context.",
+        "copy": "This path is intentionally quieter than the Primary Anchor cards. It shows how supporting stops can enrich the map's sense of landscape, rural gathering, and Nevada County cultural geography while staying subordinate to the six-place review spine.",
+        "stop_names": [
+            "Hirschman Trail / Hirschman's Pond",
+            "North Columbia Schoolhouse Cultural Center",
+        ],
+        "stop_notes": {
+            "Hirschman Trail / Hirschman's Pond": "Use as an outdoor pause and landscape-context stop, not as a primary cultural anchor.",
+            "North Columbia Schoolhouse Cultural Center": "Use as Ridge and rural-culture context while keeping the GVNC Primary Anchor Set intact.",
+        },
     },
 ]
 
@@ -500,78 +516,86 @@ def classify_image(name: str, category: str, image: Any) -> tuple[dict[str, str]
     }, None
 
 
-def build_places(workbook: dict[str, list[dict[str, str]]], coord_exact: dict[str, dict[str, Any]], coord_by_name: dict[str, list[dict[str, Any]]], image_data: dict[str, Any]) -> tuple[list[dict[str, Any]], list[str]]:
+def location_caveat_for(decision: dict[str, Any]) -> str:
+    if not decision.get("publicMarker"):
+        return "Map location coming soon"
+    if decision.get("coordinateSource") == "us-census-geocoder":
+        return "Map location not confirmed - estimated"
+    return ""
+
+
+def build_places(coordinate_decisions: list[dict[str, Any]], image_data: dict[str, Any]) -> tuple[list[dict[str, Any]], list[str]]:
     places = []
     gaps = []
     seen = set()
-    for sheet, records in workbook.items():
+    for decision in coordinate_decisions:
+        sheet = clean_text(decision.get("sheet"))
         if sheet in EXCLUDED_SHEETS:
             continue
-        for record in records:
-            name = clean_text(record.get("Name"))
-            city = clean_text(record.get("City"))
-            if not name:
-                continue
-            key = f"{normalize(name)}|{normalize(city)}"
-            if key in seen:
-                gaps.append(f"- Duplicate source row skipped: {name} ({city or 'city missing'}) from {sheet}.")
-                continue
-            seen.add(key)
+        name = clean_text(decision.get("name"))
+        city = clean_text(decision.get("city"))
+        if not name:
+            continue
+        decision_id = clean_text(decision.get("decisionId"))
+        key = decision_id or f"{normalize(name)}|{normalize(city)}|{sheet}|{decision.get('sourceRow', '')}"
+        if key in seen:
+            gaps.append(f"- Duplicate source row skipped: {name} ({city or 'city missing'}) from {sheet}.")
+            continue
+        seen.add(key)
 
-            coord = coord_exact.get(key)
-            if coord is None:
-                candidates = coord_by_name.get(normalize(name), [])
-                if len(candidates) == 1:
-                    coord = candidates[0]
-            if coord is None:
-                gaps.append(f"- Missing coordinates: {name} ({city or 'city missing'}) from {sheet}.")
-                continue
+        asset_type = clean_text(decision.get("category") or sheet)
+        category = map_category(sheet, asset_type)
+        address = clean_text(decision.get("address"))
+        phone = clean_text(decision.get("phone"))
+        website = normalize_website(decision.get("website"))
+        description = clean_text(decision.get("description")) or description_for({}, category, city)
+        place_id = clean_text(decision.get("id")) or re.sub(r"[^a-z0-9]+", "-", normalize(f"{name} {city}")).strip("-")
+        override = DEMO_PLACE_OVERRIDES.get(place_id)
+        if override:
+            category = override.get("category", category)
+            description = override.get("description", description)
+        if not decision.get("publicMarker"):
+            gaps.append(f"- Directory-only location pending: {name} ({city or 'city missing'}) from {sheet}.")
+        if not website:
+            gaps.append(f"- Missing website: {name} ({city or 'city missing'}).")
+        if description.startswith("A ") and "included for alpha review" in description:
+            gaps.append(f"- Weak description: {name} ({city or 'city missing'}).")
 
-            asset_type = clean_text(record.get("AssetType") or coord.get("assetType") or coord.get("sheet"))
-            category = map_category(sheet, asset_type)
-            address = clean_text(record.get("Address") or coord.get("address"))
-            phone = clean_text(record.get("Phone") or coord.get("phone"))
-            website = normalize_website(record.get("Website") or coord.get("website"))
-            description = description_for(record, category, city or clean_text(coord.get("city")))
-            place_id = re.sub(r"[^a-z0-9]+", "-", normalize(f"{name} {city}")).strip("-")
-            override = DEMO_PLACE_OVERRIDES.get(place_id)
-            if override:
-                category = override.get("category", category)
-                description = override.get("description", description)
-            if not website:
-                gaps.append(f"- Missing website: {name} ({city or clean_text(coord.get('city')) or 'city missing'}).")
-            if description.startswith("A ") and "included for alpha review" in description:
-                gaps.append(f"- Weak description: {name} ({city or clean_text(coord.get('city')) or 'city missing'}).")
+        image = image_data.get(name)
+        image_record, image_gap = classify_image(name, category, image)
+        if place_id in ANCHOR_IMAGE_PROOFS:
+            image_record = ANCHOR_IMAGE_PROOFS[place_id]
+            image_gap = None
+        if image_gap:
+            gaps.append(f"- Image placeholder used: {name} ({image_gap}).")
 
-            image = image_data.get(name) or image_data.get(coord.get("name", ""))
-            image_record, image_gap = classify_image(name, category, image)
-            if place_id in ANCHOR_IMAGE_PROOFS:
-                image_record = ANCHOR_IMAGE_PROOFS[place_id]
-                image_gap = None
-            if image_gap:
-                gaps.append(f"- Image placeholder used: {name} ({image_gap}).")
-
-            muse_pick = sheet.startswith("MUSE")
-            anchor = ANCHOR_DEFS.get(place_id)
-            place_record = {
-                "id": place_id,
-                "name": override.get("name", name) if override else name,
-                "city": city or clean_text(coord.get("city")),
-                "category": category,
-                "intent": override.get("intent", intent_for(category)) if override else intent_for(category),
-                "musePick": muse_pick,
-                "description": description,
-                "website": website,
-                "address": address,
-                "phone": phone,
-                "lat": coord["lat"],
-                "lng": coord["lng"],
-                "image": image_record,
-                "featured": bool(anchor),
-            }
-            if anchor:
-                place_record["anchor"] = anchor
-            places.append(place_record)
+        muse_pick = sheet.startswith("MUSE")
+        anchor = ANCHOR_DEFS.get(place_id)
+        place_record = {
+            "id": place_id,
+            "coordinateDecisionId": decision_id,
+            "name": override.get("name", name) if override else name,
+            "city": city,
+            "category": category,
+            "intent": override.get("intent", intent_for(category)) if override else intent_for(category),
+            "musePick": muse_pick,
+            "description": description,
+            "website": website,
+            "address": address,
+            "phone": phone,
+            "lat": decision.get("lat") if decision.get("publicMarker") else None,
+            "lng": decision.get("lng") if decision.get("publicMarker") else None,
+            "publicMarker": bool(decision.get("publicMarker")),
+            "locationReviewStatus": clean_text(decision.get("locationReviewStatus")),
+            "coordinateSource": clean_text(decision.get("coordinateSource")),
+            "coordinateConfidence": clean_text(decision.get("coordinateConfidence")),
+            "locationCaveat": location_caveat_for(decision),
+            "image": image_record,
+            "featured": bool(anchor),
+        }
+        if anchor:
+            place_record["anchor"] = anchor
+        places.append(place_record)
     places.sort(key=lambda p: (0 if p["city"] in {"Grass Valley", "Nevada City"} else 1, p["category"], p["name"]))
     return places, gaps
 
@@ -635,6 +659,9 @@ def fetch_events(places: list[dict[str, Any]]) -> tuple[list[dict[str, Any]], li
         if place is None:
             gaps.append(f"- Event not mapped: {title} at {venue or city or 'location missing'} on {date or 'date missing'}.")
             continue
+        if not place.get("publicMarker"):
+            gaps.append(f"- Event place missing map-ready coordinates: {title} at {venue or city or 'location missing'} on {date or 'date missing'}.")
+            continue
 
         events.append({
             "id": re.sub(r"[^a-z0-9]+", "-", normalize(f"{title} {date}")).strip("-"),
@@ -669,6 +696,9 @@ def build_paths(places: list[dict[str, Any]]) -> tuple[list[dict[str, Any]], lis
                         break
             if place is None:
                 gaps.append(f"- Path stop missing from visible data: {path['title']} needs {name}.")
+                continue
+            if not place.get("publicMarker"):
+                gaps.append(f"- Path stop missing map-ready coordinates: {path['title']} needs {name}.")
                 continue
             stops.append({
                 "placeId": place["id"],
@@ -754,13 +784,12 @@ def write_gaps(gaps: list[str], places: list[dict[str, Any]], events: list[dict[
 
 
 def main() -> int:
-    if not WORKBOOK.exists():
-        print(f"Missing workbook: {WORKBOOK}", file=sys.stderr)
+    if not COORDINATE_SANITY_PASS.exists():
+        print(f"Missing coordinate sanity pass: {COORDINATE_SANITY_PASS}", file=sys.stderr)
         return 1
-    workbook = read_xlsx(WORKBOOK)
-    coord_exact, coord_by_name = build_coordinate_index(load_json(ARTS_HUB_ASSETS))
+    coordinate_pass = load_json(COORDINATE_SANITY_PASS)
     image_data = load_json(IMAGE_DATA)
-    places, place_gaps = build_places(workbook, coord_exact, coord_by_name, image_data)
+    places, place_gaps = build_places(coordinate_pass.get("decisions", []), image_data)
     events, event_gaps = fetch_events(places)
     paths, path_gaps = build_paths(places)
 

@@ -1,29 +1,29 @@
 # V1 Discovery Map Data Gaps
 
-Generated: 2026-05-08T04:15:52+00:00
+Generated: 2026-05-28T02:39:59+00:00
 
 This log preserves records and content gaps that were not displayed in the alpha because V1 only shows data that can appear credibly on the map.
 
 ## Visible Data Summary
 
-- Visible places: 1076
+- Visible places: 1959
 - Mapped live events: 24
-- Curated paths: 3
+- Curated paths: 4
 
 ## Image Quality Summary
 
-- Credible image refs: 339
-- Missing image placeholders: 669
-- Weak image placeholders: 68
+- Credible image refs: 548
+- Missing image placeholders: 1293
+- Weak image placeholders: 118
 
 ## Placeholder Types Used
 
-- food-stay-gathering: 221
-- gallery-studio: 247
-- historic-place: 162
-- maker-shop: 16
-- performance-event-venue: 72
-- public-art: 21
+- food-stay-gathering: 401
+- gallery-studio: 316
+- historic-place: 384
+- maker-shop: 178
+- performance-event-venue: 91
+- public-art: 41
 
 ## Demo-Critical Records
 
@@ -32,27 +32,29 @@ These records are likely to be clicked during stakeholder review because they ap
 - Art Works Gallery (Grass Valley): demo-ready for alpha.
 - ASiF Studios (Grass Valley): placeholder image: missing image.
 - Booktown Books (Grass Valley): demo-ready for alpha.
-- C.H.A.M.P. Gallery at City Hall (Nevada City): placeholder image: missing image.
+- Hirschman's Pond (Nevada City): placeholder image: missing image; missing website.
 - Miners Foundry Cultural Center (Nevada City): placeholder image: logo or brand mark.
 - Nevada City Winery (Nevada City): demo-ready for alpha.
 - Nevada Theatre (Nevada City): demo-ready for alpha.
+- North Columbia Schoolhouse Cultural Center (Nevada City): demo-ready for alpha.
 - The Center for the Arts (Grass Valley): demo-ready for alpha.
 - The Curious Forge (Nevada City): demo-ready for alpha.
 - The Stone House (Nevada City): demo-ready for alpha.
 
 ## Visible Places By Category
 
-- Arts Organizations: 58
-- Cultural Resources: 23
-- Eat, Drink & Stay: 270
-- Fairs & Festivals: 26
-- Galleries & Studios: 44
-- Historic Places: 246
-- MUSE Picks: 197
-- Performing Arts: 52
-- Public Art: 22
-- Shops & Makers: 17
-- Walks & Trails: 121
+- Arts Organizations: 86
+- Creative Services: 51
+- Cultural Resources: 136
+- Eat, Drink & Stay: 486
+- Fairs & Festivals: 68
+- Galleries & Studios: 123
+- Historic Places: 256
+- MUSE Picks: 202
+- Performing Arts: 83
+- Public Art: 63
+- Shops & Makers: 130
+- Walks & Trails: 275
 
 ## Gaps
 
@@ -96,8 +98,10 @@ These records are likely to be clicked during stakeholder review because they ap
 - Missing website: Chinatown Grass Valley (Site) (Grass Valley).
 - Missing website: Chinese Cemetary (Nevada City).
 - Image placeholder used: Chinese Cemetary (missing image).
+- Directory-only location pending: Chris Stevens Court (Grass Valley) from Historic Landmarks _Table 1.
 - Missing website: Chris Stevens Court (Grass Valley).
 - Image placeholder used: Chris Stevens Court (missing image).
+- Directory-only location pending: Chuck Yeager Monument (Grass Valley) from Historic Landmarks _Table 1.
 - Missing website: Chuck Yeager Monument (Grass Valley).
 - Image placeholder used: Chuck Yeager Monument (missing image).
 - Missing website: Clinton Narrow Gauge Railroad (city missing).
@@ -107,14 +111,18 @@ These records are likely to be clicked during stakeholder review because they ap
 - Missing website: Commercial Row / Brickelltown Historic District (Truckee).
 - Missing website: Crabtree House (Grass Valley).
 - Image placeholder used: Crabtree House (watercolor/category art).
-- Missing coordinates: Davis Mill (city missing) from Historic Landmarks _Table 1.
+- Directory-only location pending: Davis Mill (city missing) from Historic Landmarks _Table 1.
+- Missing website: Davis Mill (city missing).
+- Image placeholder used: Davis Mill (missing image).
 - Missing website: Donner Camp at Alder Creek Valley (city missing).
 - Missing website: Donner Emigrant Trail (city missing).
 - Missing website: Donner Memorial State Park (city missing).
 - Missing website: Donner or Pioneer Monument (city missing).
 - Missing website: Donner Party - Graves Cabin Site (city missing).
 - Missing website: Donner Summit Bridge (city missing).
-- Missing coordinates: Donner Summit Tunnel (city missing) from Historic Landmarks _Table 1.
+- Directory-only location pending: Donner Summit Tunnel (city missing) from Historic Landmarks _Table 1.
+- Missing website: Donner Summit Tunnel (city missing).
+- Image placeholder used: Donner Summit Tunnel (missing image).
 - Missing website: Doris Foley Library of Historical Research (Nevada City).
 - Missing website: Dow Alexander Park (Grass Valley).
 - Missing website: Dr. W. C. Jones Home Site (city missing).
@@ -124,6 +132,7 @@ These records are likely to be clicked during stakeholder review because they ap
 - Missing website: Edwards Crossing Bridge (city missing).
 - Missing website: Elk's Lodge (Nevada City).
 - Image placeholder used: Elk's Lodge (missing image).
+- Directory-only location pending: Ellen Sargent (Nevada City) from Historic Landmarks _Table 1.
 - Missing website: Ellen Sargent (Nevada City).
 - Image placeholder used: Ellen Sargent (missing image).
 - Missing website: Emigrant Trail on Coldstream Road (city missing).
@@ -133,14 +142,18 @@ These records are likely to be clicked during stakeholder review because they ap
 - Missing website: Empire Mine (Grass Valley).
 - Missing website: Englebright House (Nevada City).
 - Missing website: English and New Salmon Mine Stamp Mill (Nevada City).
-- Missing coordinates: Ernie Bierwagen (city missing) from Historic Landmarks _Table 1.
+- Directory-only location pending: Ernie Bierwagen (city missing) from Historic Landmarks _Table 1.
+- Missing website: Ernie Bierwagen (city missing).
+- Image placeholder used: Ernie Bierwagen (missing image).
 - Missing website: Felix Gillet (city missing).
 - Missing website: Fippin's Blacksmith Shop (Rough and Ready).
 - Missing website: First Brick Building in Nevada City (Nevada City).
 - Missing website: First Commercial Winery/305 Broad St. (Nevada City).
 - Image placeholder used: First Commercial Winery/305 Broad St. (missing image).
 - Missing website: First Long Distance Telephone (city missing).
-- Missing coordinates: First Motorcycle Across Sierra (city missing) from Historic Landmarks _Table 1.
+- Directory-only location pending: First Motorcycle Across Sierra (city missing) from Historic Landmarks _Table 1.
+- Missing website: First Motorcycle Across Sierra (city missing).
+- Image placeholder used: First Motorcycle Across Sierra (missing image).
 - Missing website: First Transcontinental Railroad--Truckee (Truckee).
 - Missing website: First Wagons Across the Sierra (city missing).
 - Missing website: Five-Stamp Mill 1893 (city missing).
@@ -161,7 +174,9 @@ These records are likely to be clicked during stakeholder review because they ap
 - Missing website: Golden Era Lounge/309 Broad Street (Nevada City).
 - Image placeholder used: Golden Era Lounge/309 Broad Street (missing image).
 - Missing website: Graniteville (city missing).
-- Missing coordinates: Grass Valley AME Church and School Site (city missing) from Historic Landmarks _Table 1.
+- Directory-only location pending: Grass Valley AME Church and School Site (city missing) from Historic Landmarks _Table 1.
+- Missing website: Grass Valley AME Church and School Site (city missing).
+- Image placeholder used: Grass Valley AME Church and School Site (missing image).
 - Missing website: Grass Valley Hardware (Grass Valley).
 - Missing website: Grass Valley Historical District (Grass Valley).
 - Missing website: Grass Valley Masonic Lodge (Grass Valley).
@@ -169,14 +184,18 @@ These records are likely to be clicked during stakeholder review because they ap
 - Missing website: Grass Valley's Famed Maple (Grass Valley).
 - Missing website: Hard Rock Gold Mining (city missing).
 - Missing website: Hartung House (Penn Valley).
+- Directory-only location pending: Hirschman's Pond (Nevada City) from Historic Landmarks _Table 1.
 - Missing website: Hirschman's Pond (Nevada City).
 - Image placeholder used: Hirschman's Pond (missing image).
 - Missing website: Hobart Mills Site (city missing).
 - Image placeholder used: Hobart Mills Site (watercolor/category art).
 - Missing website: Hobart Mills Site Second Plaque (city missing).
 - Image placeholder used: Hobart Mills Site Second Plaque (watercolor/category art).
+- Missing website: Holbrooke Hotel (Grass Valley).
 - Missing website: Hooligan Rock (city missing).
-- Missing coordinates: Humbug/North Blomfield Cemetery (city missing) from Historic Landmarks _Table 1.
+- Directory-only location pending: Humbug/North Blomfield Cemetery (city missing) from Historic Landmarks _Table 1.
+- Missing website: Humbug/North Blomfield Cemetery (city missing).
+- Image placeholder used: Humbug/North Blomfield Cemetery (missing image).
 - Missing website: Hunt's Hill (Gouge Eye) (city missing).
 - Missing website: Hydraulic Gate Valve (city missing).
 - Missing website: Hydraulic Mining (Nevada City).
@@ -188,6 +207,7 @@ These records are likely to be clicked during stakeholder review because they ap
 - Missing website: Isabel Hefelfinger Wagon Shed (Nevada City).
 - Missing website: Jacob van Blaren (Penn Valley).
 - Image placeholder used: Jacob van Blaren (missing image).
+- Directory-only location pending: Jax Truckee Diner (Truckee) from Historic Landmarks _Table 1.
 - Missing website: Jax Truckee Diner (Truckee).
 - Image placeholder used: Jax Truckee Diner (missing image).
 - Missing website: Jibboom Street (Truckee).
@@ -209,21 +229,23 @@ These records are likely to be clicked during stakeholder review because they ap
 - Image placeholder used: Lone Grave (watercolor/category art).
 - Missing website: Loutzenheiser Pharmacy Building/Foothill Flowers (Grass Valley).
 - Missing website: Malakoff Diggins --North Bloomfield Historic District (city missing).
-- Weak description: Malakoff Diggins --North Bloomfield Historic District (city missing).
 - Missing website: Malakoff Diggins Clampicnic Area (city missing).
 - Missing website: Marines Memorial (city missing).
 - Missing website: Martin Luther Marsh House (Nevada City).
 - Image placeholder used: Martin Luther Marsh House (watercolor/category art).
 - Missing website: McGlashan Point (city missing).
+- Directory-only location pending: McGuashen Butterfly Collection * (Truckee) from Historic Landmarks _Table 1.
 - Missing website: McGuashen Butterfly Collection * (Truckee).
 - Image placeholder used: McGuashen Butterfly Collection * (missing image).
-- Missing coordinates: Meadow Lake Petroglyphs (city missing) from Historic Landmarks _Table 1.
+- Directory-only location pending: Meadow Lake Petroglyphs (city missing) from Historic Landmarks _Table 1.
+- Missing website: Meadow Lake Petroglyphs (city missing).
+- Image placeholder used: Meadow Lake Petroglyphs (missing image).
+- Directory-only location pending: Memorial Arch (Truckee) from Historic Landmarks _Table 1.
 - Missing website: Memorial Arch (Truckee).
 - Image placeholder used: Memorial Arch (missing image).
 - Missing website: Memorial Grove Nevada City (Nevada City).
 - Missing website: Memorial Park GV (city missing).
 - Missing website: Miners Foundry (Nevada City).
-- Weak description: Miners Foundry (Nevada City).
 - Missing website: Mooney Flat Hotel (city missing).
 - Missing website: Mt. Elisha Stephens (city missing).
 - Image placeholder used: Mt. Elisha Stephens (watercolor/category art).
@@ -231,6 +253,7 @@ These records are likely to be clicked during stakeholder review because they ap
 - Missing website: Murphy Cabin (city missing).
 - Missing website: Naffziger House (Nevada City).
 - Missing website: Nathaniel P. Brown House (Nevada City).
+- Missing website: National Exchange Hotel (Nevada City).
 - Missing website: Nevada Brewery (Nevada City).
 - Missing website: Nevada City AME Church Site (Nevada City).
 - Image placeholder used: Nevada City AME Church Site (missing image).
@@ -248,15 +271,21 @@ These records are likely to be clicked during stakeholder review because they ap
 - Missing website: Nevada County Narrow Gauge RR (II) (Nevada City).
 - Missing website: Nevada County Traction Company (Nevada City).
 - Image placeholder used: Nevada County Traction Company (watercolor/category art).
-- Missing coordinates: Nevada Irrigation District (city missing) from Historic Landmarks _Table 1.
+- Directory-only location pending: Nevada Irrigation District (city missing) from Historic Landmarks _Table 1.
+- Missing website: Nevada Irrigation District (city missing).
+- Image placeholder used: Nevada Irrigation District (missing image).
+- Missing website: Nevada Theatre (Nevada City).
 - Missing website: North Bloomfield Mining & Gravel Co. (city missing).
+- Image placeholder used: North Bloomfield Mining & Gravel Co. (missing image).
 - Missing website: North Bloomfield School (city missing).
 - Missing website: North San Juan (city missing).
 - Missing website: North San Juan Fire Department (city missing).
 - Image placeholder used: North San Juan Fire Department (watercolor/category art).
 - Missing website: North San Juan Methodist Episcopal Church (North San Juan).
+- Directory-only location pending: North San Juan Protestant Cemetery (North San Juan) from Historic Landmarks _Table 1.
 - Missing website: North San Juan Protestant Cemetery (North San Juan).
 - Image placeholder used: North San Juan Protestant Cemetery (missing image).
+- Missing website: North Star House (Grass Valley).
 - Missing website: North Star Mine Powerhouse and Nevada County Traction Company (Grass Valley).
 - Image placeholder used: North Star Mine Powerhouse and Nevada County Traction Company (watercolor/category art).
 - Missing website: Old Auburn Road Bridge (Site) (city missing).
@@ -312,7 +341,9 @@ These records are likely to be clicked during stakeholder review because they ap
 - Missing website: Shoot (Chute) Hill (city missing).
 - Missing website: Sierra Mountain Cemetery (Truckee).
 - Missing website: Sierra Sun (Truckee Republican) (Truckee).
-- Missing coordinates: Snow Tent Site (city missing) from Historic Landmarks _Table 1.
+- Directory-only location pending: Snow Tent Site (city missing) from Historic Landmarks _Table 1.
+- Missing website: Snow Tent Site (city missing).
+- Image placeholder used: Snow Tent Site (missing image).
 - Missing website: South Yuba Canal Office (city missing).
 - Missing website: St Patrick's Cemetery (Grass Valley).
 - Missing website: Stampede Circle of Stones (city missing).
@@ -326,6 +357,7 @@ These records are likely to be clicked during stakeholder review because they ap
 - Image placeholder used: The Red Castle (watercolor/category art).
 - Missing website: The Tin Can -- Dot's (Truckee).
 - Missing website: The Union Newspaper (Grass Valley).
+- Missing website: The Willo Steakhouse (Nevada City).
 - Missing website: Theodore Dehone Judah (Truckee).
 - Missing website: Toll Road Stake (city missing).
 - Image placeholder used: Toll Road Stake (watercolor/category art).
@@ -339,6 +371,7 @@ These records are likely to be clicked during stakeholder review because they ap
 - Image placeholder used: Truckee's First Log Cabin (watercolor/category art).
 - Missing website: Truckee's Vigilance ("601") Committee (Truckee).
 - Image placeholder used: Truckee's Vigilance ("601") Committee (watercolor/category art).
+- Directory-only location pending: Union Hill (city missing) from Historic Landmarks _Table 1.
 - Missing website: Union Hill (city missing).
 - Image placeholder used: Union Hill (missing image).
 - Missing website: Veterans Memorial Flagstaffs, Grass Valley (city missing).
@@ -360,6 +393,7 @@ These records are likely to be clicked during stakeholder review because they ap
 - Image placeholder used: William Morris Stewart House (watercolor/category art).
 - Missing website: Wolf Post Office (Grass Valley).
 - Missing website: Woman's Christian Temperance Union (Grass Valley).
+- Directory-only location pending: Woolman School (Nevada City) from Historic Landmarks _Table 1.
 - Missing website: Woolman School (Nevada City).
 - Image placeholder used: Woolman School (missing image).
 - Missing website: World War I Memorial, Grass Valley (city missing).
@@ -370,7 +404,10 @@ These records are likely to be clicked during stakeholder review because they ap
 - Image placeholder used: Uncle Rob's Cabin (missing image).
 - Missing website: CA Historical Marker- Floriston (Bronco) (Floriston).
 - Image placeholder used: CA Historical Marker- Floriston (Bronco) (missing image).
-- Missing coordinates: Uncle Joe's Cabin (city missing) from Historic Landmarks _Table 1.
+- Directory-only location pending: Uncle Joe's Cabin (city missing) from Historic Landmarks _Table 1.
+- Missing website: Uncle Joe's Cabin (city missing).
+- Image placeholder used: Uncle Joe's Cabin (missing image).
+- Missing website: The Truckee Hotel (Truckee).
 - Weak description: Adele’s Attic (Truckee).
 - Image placeholder used: Adele’s Attic (missing image).
 - Weak description: Back in the Day (Grass Valley).
@@ -395,12 +432,12 @@ These records are likely to be clicked during stakeholder review because they ap
 - Image placeholder used: Valhalla Vintage (missing image).
 - Weak description: Vintage on Mill (Grass Valley).
 - Image placeholder used: Vintage on Mill (missing image).
+- Directory-only location pending: 9848.Gallery Truckee Artist Lofts (Truckee) from MUSE BD_Table 1.
 - Weak description: 9848.Gallery Truckee Artist Lofts (Truckee).
 - Image placeholder used: 9848.Gallery Truckee Artist Lofts (missing image).
 - Weak description: Art Space (Grass Valley).
 - Image placeholder used: Art Space (missing image).
 - Weak description: Art Truckee (Truckee).
-- Image placeholder used: Art Works Gallery (missing image).
 - Image placeholder used: ASiF Studios (missing image).
 - Weak description: Bear River Glassworks (Grass Valley).
 - Image placeholder used: Bear River Glassworks (missing image).
@@ -426,6 +463,7 @@ These records are likely to be clicked during stakeholder review because they ap
 - Image placeholder used: Riverside Studios (logo or brand mark).
 - Weak description: Seven Stars Gallery (Nevada City).
 - Image placeholder used: Seven Stars Gallery (missing image).
+- Directory-only location pending: Steve Randall Community Recreation Center (Truckee) from MUSE BD_Table 1.
 - Weak description: Steve Randall Community Recreation Center (Truckee).
 - Image placeholder used: Steve Randall Community Recreation Center (missing image).
 - Weak description: The Chambers Project (Grass Valley).
@@ -434,6 +472,7 @@ These records are likely to be clicked during stakeholder review because they ap
 - Image placeholder used: The Granucci Gallery (missing image).
 - Weak description: The Vault @ Crush (Nevada City).
 - Image placeholder used: The Vault @ Crush (missing image).
+- Directory-only location pending: Truckee Dance Factory (Truckee) from MUSE BD_Table 1.
 - Weak description: Truckee Dance Factory (Truckee).
 - Image placeholder used: Truckee Dance Factory (missing image).
 - Weak description: Truckee Tahoe Airport (Truckee).
@@ -477,6 +516,7 @@ These records are likely to be clicked during stakeholder review because they ap
 - Image placeholder used: Nevada County Library Bear River Branch (missing image).
 - Weak description: Nevada County Library Grass Valley Royce Branch (Grass Valley).
 - Image placeholder used: Nevada County Library Grass Valley Royce Branch (missing image).
+- Directory-only location pending: Nevada County Library Madelyn Helling Branch (Nevada City) from MUSE BD_Table 1.
 - Weak description: Nevada County Library Madelyn Helling Branch (Nevada City).
 - Image placeholder used: Nevada County Library Madelyn Helling Branch (missing image).
 - Weak description: Nevada County Library Penn Valley Branch (Penn Valley).
@@ -518,6 +558,7 @@ These records are likely to be clicked during stakeholder review because they ap
 - Image placeholder used: Bubba's Bagels (missing image).
 - Weak description: Burger Me! (Truckee).
 - Image placeholder used: Burger Me! (missing image).
+- Directory-only location pending: Casa Baeza Mexican Restaurant (Truckee) from MUSE BD_Table 1.
 - Weak description: Casa Baeza Mexican Restaurant (Truckee).
 - Image placeholder used: Casa Baeza Mexican Restaurant (missing image).
 - Weak description: Cirino’s at Main Street (Grass Valley).
@@ -558,6 +599,7 @@ These records are likely to be clicked during stakeholder review because they ap
 - Image placeholder used: Front Street Station Pizza Co. (missing image).
 - Weak description: Fudenjüce (Nevada City).
 - Image placeholder used: Fudenjüce (missing image).
+- Directory-only location pending: Full Belly Deli (Truckee) from MUSE BD_Table 1.
 - Weak description: Full Belly Deli (Truckee).
 - Image placeholder used: Full Belly Deli (missing image).
 - Weak description: Gary's Place (Grass Valley).
@@ -675,7 +717,7 @@ These records are likely to be clicked during stakeholder review because they ap
 - Image placeholder used: The Pub at Donner Lake (missing image).
 - Weak description: The Thirsty Barrel Taphouse & Grille (Grass Valley).
 - Image placeholder used: The Thirsty Barrel Taphouse & Grille (missing image).
-- Duplicate source row skipped: The Willo Steakhouse (Nevada City) from MUSE BD_Table 1.
+- Weak description: The Willo Steakhouse (Nevada City).
 - Weak description: Thirsty Barrel Brewing Penn Valley (Penn Valley).
 - Image placeholder used: Thirsty Barrel Brewing Penn Valley (missing image).
 - Weak description: Three Forks Bakery & Brewing Co. (Nevada City).
@@ -709,11 +751,15 @@ These records are likely to be clicked during stakeholder review because they ap
 - Image placeholder used: Lift Cowork, Conference & Wellness Center (missing image).
 - Weak description: Nevada City Chamber of Commerce (Nevada City).
 - Weak description: Nevada County Arts Council (Nevada City).
-- Missing coordinates: Sierra Commons (city missing) from MUSE BD_Table 1.
+- Directory-only location pending: Sierra Commons (city missing) from MUSE BD_Table 1.
+- Weak description: Sierra Commons (city missing).
+- Image placeholder used: Sierra Commons (missing image).
+- Directory-only location pending: Tahoe Truckee Pride Foundation (Truckee) from MUSE BD_Table 1.
 - Weak description: Tahoe Truckee Pride Foundation (Truckee).
 - Image placeholder used: Tahoe Truckee Pride Foundation (missing image).
 - Weak description: Truckee Chamber of Commerce (Truckee).
-- Missing coordinates: Truckee Downtown Merchants Association (city missing) from MUSE BD_Table 1.
+- Directory-only location pending: Truckee Downtown Merchants Association (city missing) from MUSE BD_Table 1.
+- Weak description: Truckee Downtown Merchants Association (city missing).
 - Weak description: Abstrakt (Nevada City).
 - Image placeholder used: Abstrakt (missing image).
 - Weak description: Bamboo Home Store (Grass Valley).
@@ -722,6 +768,7 @@ These records are likely to be clicked during stakeholder review because they ap
 - Image placeholder used: Cabona’s (missing image).
 - Weak description: California 89 (Truckee).
 - Image placeholder used: California 89 (missing image).
+- Directory-only location pending: Cosmic Shark Clothing (Grass Valley) from MUSE BD_Table 1.
 - Weak description: Cosmic Shark Clothing (Grass Valley).
 - Image placeholder used: Cosmic Shark Clothing (missing image).
 - Weak description: Dressed Boutique (Truckee).
@@ -741,7 +788,9 @@ These records are likely to be clicked during stakeholder review because they ap
 - Image placeholder used: Field Day Apparel (missing image).
 - Weak description: Fur Traders (Nevada City).
 - Image placeholder used: Fur Traders (missing image).
-- Missing coordinates: Hello Clogs (city missing) from MUSE BD_Table 1.
+- Directory-only location pending: Hello Clogs (city missing) from MUSE BD_Table 1.
+- Weak description: Hello Clogs (city missing).
+- Image placeholder used: Hello Clogs (missing image).
 - Weak description: J. Breuer Clothing (Grass Valley).
 - Image placeholder used: J. Breuer Clothing (missing image).
 - Weak description: Juniper Boutique (Truckee).
@@ -909,50 +958,3 @@ These records are likely to be clicked during stakeholder review because they ap
 - Image placeholder used: Shiva Moon (missing image).
 - Weak description: Spirithouse Import Gallery (Nevada City).
 - Weak description: Stucki Jewelers Inc. (Grass Valley).
-- Image placeholder used: Stucki Jewelers Inc. (missing image).
-- Weak description: Sugar and Spice (Grass Valley).
-- Image placeholder used: Sugar and Spice (missing image).
-- Weak description: Tess' Kitchen and Culinary (Grass Valley).
-- Image placeholder used: Tess' Kitchen and Culinary (missing image).
-- Weak description: The Cooking Gallery (Truckee).
-- Image placeholder used: The Cooking Gallery (missing image).
-- Weak description: The Earth Store (Nevada City).
-- Image placeholder used: The Earth Store (missing image).
-- Weak description: The Fates Fine Jewelry (Nevada City).
-- Image placeholder used: The Fates Fine Jewelry (missing image).
-- Weak description: The Melo Plant Shop (Nevada City).
-- Image placeholder used: The Melo Plant Shop (missing image).
-- Weak description: The Utopian Stone (Nevada City).
-- Image placeholder used: The Utopian Stone (missing image).
-- Weak description: The West Wind (Grass Valley).
-- Image placeholder used: The West Wind (missing image).
-- Weak description: Tour of Nevada City Bicycle Shop (Nevada City).
-- Image placeholder used: Tour of Nevada City Bicycle Shop (missing image).
-- Weak description: truckee love. (Truckee).
-- Image placeholder used: truckee love. (missing image).
-- Weak description: White Buffalo (Truckee).
-- Image placeholder used: White Buffalo (missing image).
-- Weak description: Wildflower Nursery (Penn Valley).
-- Image placeholder used: Wildflower Nursery (missing image).
-- Weak description: Yabobo (Nevada City).
-- Image placeholder used: Yabobo (missing image).
-- Weak description: Yuba Blue (Grass Valley).
-- Image placeholder used: Yuba Blue (missing image).
-- Weak description: Golden Road Radio and Television (Nevada City).
-- Image placeholder used: Golden Road Radio and Television (watercolor/category art).
-- Weak description: KNCO Star 94.1 FM (Grass Valley).
-- Image placeholder used: KNCO Star 94.1 FM (missing image).
-- Weak description: KVMR 89.5FM (Nevada City).
-- Image placeholder used: KVMR 89.5FM (missing image).
-- Weak description: KVMRx-105.7FM (Nevada City).
-- Image placeholder used: KVMRx-105.7FM (missing image).
-- Weak description: KYRR 93.3 FM (Nevada City).
-- Weak description: Moonshine Ink (Truckee).
-- Weak description: Mountain Gazette (Truckee).
-- Image placeholder used: Mountain Gazette (missing image).
-- Weak description: Nevada County Media (Grass Valley).
-- Image placeholder used: Nevada County Media (missing image).
-- Weak description: Sierra Sun (Truckee).
-- Image placeholder used: Sierra Sun (missing image).
-- Weak description: Tahoe Guide (Truckee).
-- Image placeholder used: Tahoe Guide (missing image).

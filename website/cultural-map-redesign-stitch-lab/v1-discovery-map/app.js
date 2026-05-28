@@ -133,6 +133,10 @@
     return CATEGORY_PLACEHOLDER_IMAGES[category] || "";
   }
 
+  function isPlaceMapReady(place) {
+    return place?.publicMarker !== false && Number.isFinite(place?.lng) && Number.isFinite(place?.lat);
+  }
+
   function placeToFeature(place) {
     const anchor = place.anchor || {};
     return {
@@ -425,7 +429,7 @@
   }
 
   function setSourceData() {
-    const places = filteredPlaces().map(placeToFeature);
+    const places = filteredPlaces().filter(isPlaceMapReady).map(placeToFeature);
     const placeSource = state.map.getSource("places");
     if (placeSource) {
       placeSource.setData({ type: "FeatureCollection", features: places });
@@ -528,7 +532,7 @@
 
     const bounds = state.map.getBounds();
     const visiblePlaces = [];
-    const anchorPlaces = filteredPlaces().filter((place) => place.anchor && bounds.contains([place.lng, place.lat]));
+    const anchorPlaces = filteredPlaces().filter((place) => place.anchor && isPlaceMapReady(place) && bounds.contains([place.lng, place.lat]));
 
     anchorPlaces.forEach((place) => {
       visiblePlaces.push({
@@ -633,6 +637,7 @@
     if (!state.map || state.mode === "events") return;
 
     filteredPlaces()
+      .filter(isPlaceMapReady)
       .filter((place) => place.anchor)
       .forEach((place) => {
         const el = document.createElement("button");
@@ -806,6 +811,11 @@
     `;
   }
 
+  function renderLocationCaveat(place) {
+    if (!place.locationCaveat) return "";
+    return `<p class="location-caveat">${escapeHtml(place.locationCaveat)}</p>`;
+  }
+
   function buildDirectMuseEvidenceByPlace(evidence) {
     const links = Array.isArray(evidence?.links) ? evidence.links : [];
     return links.reduce((byPlace, link) => {
@@ -963,6 +973,7 @@
         <p class="detail-location">${escapeHtml(place.category)} / ${escapeHtml(place.city || "Nevada County")}</p>
       </div>
       ${place.anchorCard ? `<p class="anchor-hook">${escapeHtml(place.anchorCard.hook)}</p>` : anchor ? `<p class="anchor-hook">${escapeHtml(anchor.hook)}</p>` : ""}
+      ${renderLocationCaveat(place)}
       ${anchorCardMeta(place)}
       <p class="detail-description">${escapeHtml(place.anchorCard?.supportingDescription || place.description)}</p>
       ${directoryRecordMeta(place)}
@@ -971,7 +982,9 @@
       ${eventHtml}
     `;
     els.detail.querySelector(".selected-place-close")?.addEventListener("click", closeSelectionDrawer);
-    state.map.flyTo({ center: [place.lng, place.lat], zoom: Math.max(state.map.getZoom(), 13.5), speed: 0.8 });
+    if (isPlaceMapReady(place)) {
+      state.map.flyTo({ center: [place.lng, place.lat], zoom: Math.max(state.map.getZoom(), 13.5), speed: 0.8 });
+    }
     revealDetailCard();
     updateReviewUrl();
   }
