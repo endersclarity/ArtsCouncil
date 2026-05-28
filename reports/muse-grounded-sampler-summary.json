@@ -1,0 +1,478 @@
+{
+  "generatedAt": "2026-05-26T23:00:04.078Z",
+  "recommendation": "Ready to inform the Browse Starting View prototype/UI pass, pending product review of editorial mix and implicit MUSE copy.",
+  "counts": {
+    "articleIndexArticles": 50,
+    "evidenceLinksTotal": 1126,
+    "directPlaceEvidenceLinks": 348,
+    "directMusePlaceCandidatesConsidered": 166,
+    "directEvidenceCategoryCounts": {
+      "editorial": 294,
+      "calendar": 33,
+      "administrative": 9,
+      "get-involved": 6,
+      "editor-letter": 4,
+      "acknowledgement": 2
+    },
+    "editorialDirectPlaceEvidenceLinks": 294,
+    "nonEditorialDirectPlaceEvidenceLinks": 54,
+    "fuzzyPlaceLinksExcludedAsQualifiers": 414,
+    "themeLinksExcludedAsQualifiers": 364,
+    "beforeRefinement": {
+      "qualifiedMapReadyDirectCandidates": 139,
+      "finalRecommendedSamplerSize": 12
+    },
+    "showcaseScopeDirectCandidates": 99,
+    "showcaseEditorialDirectCandidates": 95,
+    "qualifiedShowcaseCandidates": 85,
+    "excludedDirectCandidates": 81,
+    "finalRecommendedSamplerSize": 12,
+    "coordinateStatusSplit": {
+      "Map-Ready": 139,
+      "Needs Location Review": 23,
+      "No coordinate decision": 4
+    },
+    "showcaseExclusionReasonSplit": {
+      "Needs Location Review": 9,
+      "Needs Location Review; Outside Showcase Sampler Scope": 14,
+      "Outside Showcase Sampler Scope": 50,
+      "No coordinate decision; Outside Showcase Sampler Scope": 3,
+      "No coordinate decision": 1,
+      "No Editorial Direct MUSE Evidence": 4
+    },
+    "recommendedCitySplit": {
+      "Nevada City": 6,
+      "Grass Valley": 6
+    },
+    "recommendedCategorySplit": {
+      "MUSE Picks": 2,
+      "Historic Places": 2,
+      "Performing Arts": 3,
+      "Galleries & Studios": 2,
+      "Eat, Drink & Stay": 1,
+      "Arts Organizations": 2
+    }
+  },
+  "recommendedSampler": [
+    {
+      "id": "nevada-county-arts-council-nevada-city",
+      "name": "Nevada County Arts Council",
+      "city": "Nevada City",
+      "category": "MUSE Picks",
+      "coordinateStatus": "Map-Ready",
+      "coordinateSource": "us-census-geocoder",
+      "directArticleCount": 22,
+      "directEvidenceLinkCount": 22,
+      "editorialDirectArticleCount": 17,
+      "editorialDirectEvidenceLinkCount": 17,
+      "evidence": [
+        {
+          "title": "In Nevada County, the Arts Are Essential",
+          "issueYear": 2024,
+          "pages": "10-15",
+          "matchedOn": "Nevada County Arts Council",
+          "evidenceCategory": "editorial"
+        },
+        {
+          "title": "Culture Connection: Local Arts News for 2024",
+          "issueYear": 2024,
+          "pages": "16-19",
+          "matchedOn": "Nevada County Arts Council",
+          "evidenceCategory": "editorial"
+        },
+        {
+          "title": "Laid Down by the Underground",
+          "issueYear": 2024,
+          "pages": "32-35",
+          "matchedOn": "Nevada County Arts Council",
+          "evidenceCategory": "editorial"
+        }
+      ]
+    },
+    {
+      "id": "nevada-theatre-nevada-city",
+      "name": "Nevada Theatre",
+      "city": "Nevada City",
+      "category": "Historic Places",
+      "coordinateStatus": "Map-Ready",
+      "coordinateSource": "diana-workbook-lonlat",
+      "directArticleCount": 12,
+      "directEvidenceLinkCount": 12,
+      "editorialDirectArticleCount": 10,
+      "editorialDirectEvidenceLinkCount": 10,
+      "evidence": [
+        {
+          "title": "In Nevada County, the Arts Are Essential",
+          "issueYear": 2024,
+          "pages": "10-15",
+          "matchedOn": "Nevada Theatre",
+          "evidenceCategory": "editorial"
+        },
+        {
+          "title": "Culture Connection: Local Arts News for 2024",
+          "issueYear": 2024,
+          "pages": "16-19",
+          "matchedOn": "Nevada Theatre",
+          "evidenceCategory": "editorial"
+        },
+        {
+          "title": "48 Hours in GVNC: Exploring Culture & Art",
+          "issueYear": 2024,
+          "pages": "28-31",
+          "matchedOn": "Nevada Theatre",
+          "evidenceCategory": "editorial"
+        }
+      ]
+    },
+    {
+      "id": "the-center-for-the-arts-grass-valley",
+      "name": "The Center for the Arts",
+      "city": "Grass Valley",
+      "category": "Performing Arts",
+      "coordinateStatus": "Map-Ready",
+      "coordinateSource": "us-census-geocoder",
+      "directArticleCount": 11,
+      "directEvidenceLinkCount": 11,
+      "editorialDirectArticleCount": 8,
+      "editorialDirectEvidenceLinkCount": 8,
+      "evidence": [
+        {
+          "title": "In Nevada County, the Arts Are Essential",
+          "issueYear": 2024,
+          "pages": "10-15",
+          "matchedOn": "Center for the Arts",
+          "evidenceCategory": "editorial"
+        },
+        {
+          "title": "48 Hours in GVNC: Exploring Culture & Art",
+          "issueYear": 2024,
+          "pages": "28-31",
+          "matchedOn": "Center for the Arts",
+          "evidenceCategory": "editorial"
+        },
+        {
+          "title": "Arts in Education",
+          "issueYear": 2024,
+          "pages": "44-45",
+          "matchedOn": "Center for the Arts",
+          "evidenceCategory": "editorial"
+        }
+      ]
+    },
+    {
+      "id": "miners-foundry-nevada-city",
+      "name": "Miners Foundry",
+      "city": "Nevada City",
+      "category": "Historic Places",
+      "coordinateStatus": "Map-Ready",
+      "coordinateSource": "diana-workbook-lonlat",
+      "directArticleCount": 8,
+      "directEvidenceLinkCount": 8,
+      "editorialDirectArticleCount": 6,
+      "editorialDirectEvidenceLinkCount": 6,
+      "evidence": [
+        {
+          "title": "48 Hours in GVNC: Exploring Culture & Art",
+          "issueYear": 2024,
+          "pages": "28-31",
+          "matchedOn": "Miners Foundry",
+          "evidenceCategory": "editorial"
+        },
+        {
+          "title": "Improv... More than Just Fun & Games",
+          "issueYear": 2025,
+          "pages": "14-19",
+          "matchedOn": "Miners Foundry",
+          "evidenceCategory": "editorial"
+        },
+        {
+          "title": "Seasons in the GVNC Cultural District",
+          "issueYear": 2025,
+          "pages": "26-28",
+          "matchedOn": "Miners Foundry",
+          "evidenceCategory": "editorial"
+        }
+      ]
+    },
+    {
+      "id": "seven-stars-gallery-nevada-city",
+      "name": "Seven Stars Gallery",
+      "city": "Nevada City",
+      "category": "Galleries & Studios",
+      "coordinateStatus": "Map-Ready",
+      "coordinateSource": "us-census-geocoder",
+      "directArticleCount": 7,
+      "directEvidenceLinkCount": 7,
+      "editorialDirectArticleCount": 6,
+      "editorialDirectEvidenceLinkCount": 6,
+      "evidence": [
+        {
+          "title": "48 Hours in GVNC: Exploring Culture & Art",
+          "issueYear": 2024,
+          "pages": "28-31",
+          "matchedOn": "Seven Stars Gallery",
+          "evidenceCategory": "editorial"
+        },
+        {
+          "title": "Improv... More than Just Fun & Games",
+          "issueYear": 2025,
+          "pages": "14-19",
+          "matchedOn": "Seven Stars Gallery",
+          "evidenceCategory": "editorial"
+        },
+        {
+          "title": "Shining Light on Dark Skies Above Nevada County",
+          "issueYear": 2025,
+          "pages": "32-35",
+          "matchedOn": "Seven Stars Gallery",
+          "evidenceCategory": "editorial"
+        }
+      ]
+    },
+    {
+      "id": "nevada-city-winery-nevada-city",
+      "name": "Nevada City Winery",
+      "city": "Nevada City",
+      "category": "Eat, Drink & Stay",
+      "coordinateStatus": "Map-Ready",
+      "coordinateSource": "arcgis-cultural-assets-confident-match",
+      "directArticleCount": 6,
+      "directEvidenceLinkCount": 6,
+      "editorialDirectArticleCount": 6,
+      "editorialDirectEvidenceLinkCount": 6,
+      "evidence": [
+        {
+          "title": "48 Hours in GVNC: Exploring Culture & Art",
+          "issueYear": 2024,
+          "pages": "28-31",
+          "matchedOn": "Nevada City Winery",
+          "evidenceCategory": "editorial"
+        },
+        {
+          "title": "From Visibility through Art to Homeland Return",
+          "issueYear": 2025,
+          "pages": "54-62",
+          "matchedOn": "Nevada City Winery",
+          "evidenceCategory": "editorial"
+        },
+        {
+          "title": "Culture Connection: Local Arts News for 2026",
+          "issueYear": 2026,
+          "pages": "10-27",
+          "matchedOn": "Nevada City Winery",
+          "evidenceCategory": "editorial"
+        }
+      ]
+    },
+    {
+      "id": "the-granucci-gallery-grass-valley",
+      "name": "The Granucci Gallery",
+      "city": "Grass Valley",
+      "category": "Galleries & Studios",
+      "coordinateStatus": "Map-Ready",
+      "coordinateSource": "us-census-geocoder",
+      "directArticleCount": 7,
+      "directEvidenceLinkCount": 7,
+      "editorialDirectArticleCount": 5,
+      "editorialDirectEvidenceLinkCount": 5,
+      "evidence": [
+        {
+          "title": "48 Hours in GVNC: Exploring Culture & Art",
+          "issueYear": 2024,
+          "pages": "28-31",
+          "matchedOn": "The Granucci Gallery",
+          "evidenceCategory": "editorial"
+        },
+        {
+          "title": "Improv... More than Just Fun & Games",
+          "issueYear": 2025,
+          "pages": "14-19",
+          "matchedOn": "The Granucci Gallery",
+          "evidenceCategory": "editorial"
+        },
+        {
+          "title": "Culture Connection: Local Arts News for 2026",
+          "issueYear": 2026,
+          "pages": "10-27",
+          "matchedOn": "The Granucci Gallery",
+          "evidenceCategory": "editorial"
+        }
+      ]
+    },
+    {
+      "id": "nevada-city-film-festival-nevada-city",
+      "name": "Nevada City Film Festival",
+      "city": "Nevada City",
+      "category": "Arts Organizations",
+      "coordinateStatus": "Map-Ready",
+      "coordinateSource": "us-census-geocoder",
+      "directArticleCount": 7,
+      "directEvidenceLinkCount": 7,
+      "editorialDirectArticleCount": 4,
+      "editorialDirectEvidenceLinkCount": 4,
+      "evidence": [
+        {
+          "title": "A Filmmaking Tradition",
+          "issueYear": 2024,
+          "pages": "36-37",
+          "matchedOn": "Nevada City Film Festival",
+          "evidenceCategory": "editorial"
+        },
+        {
+          "title": "No Place to Show: Fostering Film in Truckee",
+          "issueYear": 2025,
+          "pages": "45-48",
+          "matchedOn": "Nevada City Film Festival",
+          "evidenceCategory": "editorial"
+        },
+        {
+          "title": "Culture Connection: Local Arts News for 2026",
+          "issueYear": 2026,
+          "pages": "10-27",
+          "matchedOn": "Nevada City Film Festival",
+          "evidenceCategory": "editorial"
+        }
+      ]
+    },
+    {
+      "id": "inconcert-sierra-grass-valley",
+      "name": "InConcert Sierra",
+      "city": "Grass Valley",
+      "category": "Performing Arts",
+      "coordinateStatus": "Map-Ready",
+      "coordinateSource": "us-census-geocoder",
+      "directArticleCount": 6,
+      "directEvidenceLinkCount": 6,
+      "editorialDirectArticleCount": 4,
+      "editorialDirectEvidenceLinkCount": 4,
+      "evidence": [
+        {
+          "title": "Culture Connection: Local Arts News for 2024",
+          "issueYear": 2024,
+          "pages": "16-19",
+          "matchedOn": "InConcert Sierra",
+          "evidenceCategory": "editorial"
+        },
+        {
+          "title": "Improv... More than Just Fun & Games",
+          "issueYear": 2025,
+          "pages": "14-19",
+          "matchedOn": "InConcert Sierra",
+          "evidenceCategory": "editorial"
+        },
+        {
+          "title": "From Visibility through Art to Homeland Return",
+          "issueYear": 2025,
+          "pages": "54-62",
+          "matchedOn": "InConcert Sierra",
+          "evidenceCategory": "editorial"
+        }
+      ]
+    },
+    {
+      "id": "nevada-county-fair-grass-valley",
+      "name": "Nevada County Fair",
+      "city": "Grass Valley",
+      "category": "Arts Organizations",
+      "coordinateStatus": "Map-Ready",
+      "coordinateSource": "us-census-geocoder",
+      "directArticleCount": 6,
+      "directEvidenceLinkCount": 6,
+      "editorialDirectArticleCount": 4,
+      "editorialDirectEvidenceLinkCount": 4,
+      "evidence": [
+        {
+          "title": "Arts in Education",
+          "issueYear": 2024,
+          "pages": "44-45",
+          "matchedOn": "Nevada County Fair",
+          "evidenceCategory": "editorial"
+        },
+        {
+          "title": "Seasons in the GVNC Cultural District",
+          "issueYear": 2025,
+          "pages": "26-28",
+          "matchedOn": "Nevada County Fair",
+          "evidenceCategory": "editorial"
+        },
+        {
+          "title": "Culture Connection: Local Arts News for 2026",
+          "issueYear": 2026,
+          "pages": "10-27",
+          "matchedOn": "Nevada County Fair",
+          "evidenceCategory": "editorial"
+        }
+      ]
+    },
+    {
+      "id": "make-local-habit-grass-valley",
+      "name": "Make Local Habit",
+      "city": "Grass Valley",
+      "category": "MUSE Picks",
+      "coordinateStatus": "Map-Ready",
+      "coordinateSource": "us-census-geocoder",
+      "directArticleCount": 3,
+      "directEvidenceLinkCount": 3,
+      "editorialDirectArticleCount": 3,
+      "editorialDirectEvidenceLinkCount": 3,
+      "evidence": [
+        {
+          "title": "48 Hours in GVNC: Exploring Culture & Art",
+          "issueYear": 2024,
+          "pages": "28-31",
+          "matchedOn": "Make Local Habit",
+          "evidenceCategory": "editorial"
+        },
+        {
+          "title": "Rural is the New Cool",
+          "issueYear": 2026,
+          "pages": "28-30",
+          "matchedOn": "Make Local Habit",
+          "evidenceCategory": "editorial"
+        },
+        {
+          "title": "Where Art Meets Leadership",
+          "issueYear": 2026,
+          "pages": "46-47",
+          "matchedOn": "Make Local Habit",
+          "evidenceCategory": "editorial"
+        }
+      ]
+    },
+    {
+      "id": "nevada-county-fairgrounds-grass-valley",
+      "name": "Nevada County Fairgrounds",
+      "city": "Grass Valley",
+      "category": "Performing Arts",
+      "coordinateStatus": "Map-Ready",
+      "coordinateSource": "diana-workbook-webmercator",
+      "directArticleCount": 4,
+      "directEvidenceLinkCount": 4,
+      "editorialDirectArticleCount": 2,
+      "editorialDirectEvidenceLinkCount": 2,
+      "evidence": [
+        {
+          "title": "Culture Connection: Local Arts News for 2026",
+          "issueYear": 2026,
+          "pages": "10-27",
+          "matchedOn": "Nevada County Fairgrounds",
+          "evidenceCategory": "editorial"
+        },
+        {
+          "title": "Where Art Meets Leadership",
+          "issueYear": 2026,
+          "pages": "46-47",
+          "matchedOn": "Nevada County Fairgrounds",
+          "evidenceCategory": "editorial"
+        }
+      ]
+    }
+  ],
+  "caveats": [
+    "The MUSE Article Index is seeded and semiautomatic, not exhaustive.",
+    "Fuzzy place links and theme-only links were not used as qualifying evidence.",
+    "Administrative, acknowledgement, get-involved, editor-letter, and calendar direct mentions were preserved but not used for first-load showcase qualification.",
+    "Truckee, Penn Valley, and other outside-scope direct candidates remain available for future MUSE-backed card enrichment.",
+    "Coordinate status was joined from the existing coordinate sanity pass; no new geocoding was performed."
+  ]
+}

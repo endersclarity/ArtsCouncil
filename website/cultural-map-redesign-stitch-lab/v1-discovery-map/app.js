@@ -7,6 +7,7 @@
     paths: "data/paths.json",
     anchorCards: "data/anchor_cards.json",
     museEvidence: "data/muse_evidence_links.json",
+    museSampler: "data/muse_grounded_sampler.json",
   };
 
   const MARKERS = {
@@ -15,6 +16,16 @@
     red: "#ff2e00",
     paper: "#ffffff",
     ink: "#141414",
+  };
+
+  const MOBILE_INITIAL_MAP_VIEW = {
+    center: [-121.04, 39.16],
+    zoom: 11.0,
+  };
+
+  const DESKTOP_INITIAL_MAP_VIEW = {
+    center: [-121.04, 39.24],
+    zoom: 10.7,
   };
 
   const QUIET_BASEMAP = {
@@ -29,7 +40,7 @@
       building: "#e7e8e2",
       buildingTop: "#eff0eb",
       roadCaseOpacity: 0.1,
-      roadFillOpacity: 0.26,
+      roadFillOpacity: 0.34,
     },
     twilight: {
       background: "#eff1ed",
@@ -77,10 +88,13 @@
     paths: [],
     anchorCards: [],
     museEvidenceByPlace: new Map(),
+    browseSamplerPlaceIds: [],
     selectedPath: null,
     selectedPlaceId: "",
     selectedEventId: "",
     searchQuery: "",
+    localReveal: null,
+    localRevealPreviousContext: null,
     isApplyingReviewState: false,
     map: null,
     markerPreviewPopup: null,
@@ -93,6 +107,7 @@
     count: document.getElementById("visible-count"),
     filters: document.getElementById("filters"),
     detail: document.getElementById("detail-card"),
+    selectionDrawer: document.getElementById("selection-drawer"),
     hint: document.getElementById("featured-hint"),
     search: document.getElementById("place-search"),
     placesList: document.getElementById("places-list"),
@@ -134,6 +149,9 @@
         musePick: Boolean(place.musePick),
         anchor: Boolean(place.anchor),
         anchorIcon: ANCHOR_ICON_TEXT[anchor.iconKey] || "",
+        sampler: state.browseSamplerPlaceIds.includes(place.id),
+        currentContext: isCurrentContextPlace(place),
+        localReveal: Boolean(state.localReveal?.placeIds?.includes(place.id)),
         selected: place.id === state.selectedPlaceId,
       },
     };
@@ -236,14 +254,80 @@
     return state.places.filter((place) => state.activeIntents.has(place.intent));
   }
 
+  function distanceMiles(a, b) {
+    const toRad = (value) => value * Math.PI / 180;
+    const earthRadiusMiles = 3958.8;
+    const dLat = toRad(b.lat - a.lat);
+    const dLng = toRad(b.lng - a.lng);
+    const lat1 = toRad(a.lat);
+    const lat2 = toRad(b.lat);
+    const h = Math.sin(dLat / 2) ** 2 +
+      Math.cos(lat1) * Math.cos(lat2) * Math.sin(dLng / 2) ** 2;
+    return 2 * earthRadiusMiles * Math.asin(Math.sqrt(h));
+  }
+
+  function localRevealPlaces() {
+    if (!state.localReveal) return [];
+    const placesById = new Map(state.places.map((place) => [place.id, place]));
+    return state.localReveal.placeIds.map((id) => placesById.get(id)).filter(Boolean);
+  }
+
+  function localRevealAreaFeature() {
+    if (!state.localReveal) return null;
+    return {
+      type: "Feature",
+      geometry: {
+        type: "Point",
+        coordinates: [state.localReveal.lng, state.localReveal.lat],
+      },
+      properties: {
+        count: state.localReveal.placeIds.length,
+      },
+    };
+  }
+
+  function setLocalRevealSourceData() {
+    const source = state.map?.getSource("local-reveal-area");
+    if (!source) return;
+    const feature = localRevealAreaFeature();
+    source.setData({
+      type: "FeatureCollection",
+      features: feature ? [feature] : [],
+    });
+  }
+
   function searchableText(place) {
     return [place.name, place.category, place.city, place.intent].filter(Boolean).join(" ").toLowerCase();
   }
 
+  function isBrowseStartingView() {
+    return state.mode === "places" && !state.searchQuery.trim() && !state.activeIntents.size;
+  }
+
+  function isMobileViewport() {
+    return window.innerWidth < 700;
+  }
+
+  function browseStartingPlaces() {
+    if (!isBrowseStartingView() || !state.browseSamplerPlaceIds.length) return filteredPlaces();
+    const placesById = new Map(state.places.map((place) => [place.id, place]));
+    return state.browseSamplerPlaceIds.map((id) => placesById.get(id)).filter(Boolean);
+  }
+
+  function isCurrentContextPlace(place) {
+    if (place.id === state.selectedPlaceId) return true;
+    if (state.localReveal?.placeIds?.includes(place.id)) return true;
+    if (isBrowseStartingView()) return state.browseSamplerPlaceIds.includes(place.id);
+    const query = state.searchQuery.trim().toLowerCase();
+    if (query) return searchableText(place).includes(query);
+    return state.activeIntents.has(place.intent);
+  }
+
   function listedPlaces() {
+    if (state.localReveal) return localRevealPlaces();
     const query = state.searchQuery.trim().toLowerCase();
     const places = filteredPlaces();
-    if (!query) return places;
+    if (!query) return browseStartingPlaces();
     return places.filter((place) => searchableText(place).includes(query));
   }
 
@@ -308,21 +392,32 @@
       return;
     }
     const shown = places.slice(0, limit);
+    const isStartingView = isBrowseStartingView();
+    const isLocalReveal = Boolean(state.localReveal);
     els.placesList.innerHTML = `
-      <div class="places-list-summary">
-        <span>${escapeHtml(places.length)} ${query ? "matching" : "listed"} of ${escapeHtml(visibleCount)} visible places</span>
-      </div>
+      ${isLocalReveal ? `
+        <div class="local-reveal-summary">
+          <span>${escapeHtml(places.length)} places near this spot</span>
+          <button class="local-reveal-back" type="button" id="local-reveal-back">Back to browse</button>
+        </div>
+      ` : `
+        <div class="places-list-summary">
+          <span>${isStartingView ? "Places to explore" : `${escapeHtml(places.length)} ${query ? "matching" : "listed"} of ${escapeHtml(visibleCount)} visible places`}</span>
+        </div>
+      `}
       <div class="places-list-items">
         ${shown.map((place) => `
-          <button class="place-list-item${place.id === state.selectedPlaceId ? " active" : ""}" type="button" data-place="${escapeHtml(place.id)}">
+          <button class="place-list-item${place.id === state.selectedPlaceId ? " active" : ""}${isLocalReveal ? " local-reveal-item" : ""}" type="button" data-place="${escapeHtml(place.id)}" aria-current="${place.id === state.selectedPlaceId ? "true" : "false"}">
             <span class="place-list-title">${escapeHtml(place.name)}</span>
             <span class="place-list-meta">${escapeHtml(place.category)} / ${escapeHtml(place.city || "Nevada County")}</span>
             <span class="place-list-badge">${escapeHtml(placeReviewLabel(place))}</span>
           </button>
         `).join("")}
       </div>
-      ${places.length > limit ? `<p class="places-list-more">Showing first ${escapeHtml(limit)}. Use search to narrow the review list.</p>` : ""}
+      ${isStartingView && !isLocalReveal ? `<p class="places-list-more">Search places to browse the full directory.</p>` : ""}
+      ${!isStartingView && !isLocalReveal && places.length > limit ? `<p class="places-list-more">Showing first ${escapeHtml(limit)}. Use search to narrow the list.</p>` : ""}
     `;
+    els.placesList.querySelector("#local-reveal-back")?.addEventListener("click", clearLocalReveal);
     els.placesList.querySelectorAll("[data-place]").forEach((button) => {
       const place = state.places.find((item) => item.id === button.dataset.place);
       if (place) button.addEventListener("click", () => showPlace(place));
@@ -335,6 +430,7 @@
     if (placeSource) {
       placeSource.setData({ type: "FeatureCollection", features: places });
     }
+    setLocalRevealSourceData();
 
     const events = state.mode === "events" ? state.events.map(eventToFeature) : [];
     const eventSource = state.map.getSource("events");
@@ -350,6 +446,55 @@
   function setMapSourceData(sourceId, features) {
     const source = state.map.getSource(sourceId);
     if (source) source.setData({ type: "FeatureCollection", features });
+  }
+
+  function startLocalReveal(lngLat) {
+    if (!lngLat) return;
+    const origin = { lng: Number(lngLat.lng), lat: Number(lngLat.lat) };
+    if (!Number.isFinite(origin.lng) || !Number.isFinite(origin.lat)) return;
+    if (!state.localRevealPreviousContext) {
+      state.localRevealPreviousContext = {
+        searchQuery: state.searchQuery,
+        activeIntents: [...state.activeIntents],
+        selectedPlaceId: state.selectedPlaceId,
+      };
+    }
+    const places = filteredPlaces()
+      .filter((place) => Number.isFinite(place.lng) && Number.isFinite(place.lat))
+      .map((place) => ({
+        place,
+        distance: distanceMiles(origin, { lng: place.lng, lat: place.lat }),
+      }))
+      .sort((a, b) => a.distance - b.distance)
+      .slice(0, 12)
+      .map(({ place }) => place);
+    state.mode = "places";
+    state.localReveal = {
+      lng: origin.lng,
+      lat: origin.lat,
+      placeIds: places.map((place) => place.id),
+    };
+    state.selectedPlaceId = "";
+    state.selectedEventId = "";
+    hideMarkerPreview();
+    setSourceData();
+    updateReviewUrl();
+  }
+
+  function clearLocalReveal() {
+    const previous = state.localRevealPreviousContext;
+    state.localReveal = null;
+    state.localRevealPreviousContext = null;
+    if (previous) {
+      state.searchQuery = previous.searchQuery;
+      state.activeIntents = new Set(previous.activeIntents);
+      state.selectedPlaceId = previous.selectedPlaceId;
+      if (els.search) els.search.value = previous.searchQuery;
+      renderFilters();
+    }
+    setSourceData();
+    if (!state.selectedPlaceId) renderFeaturedAnchor();
+    updateReviewUrl();
   }
 
   function setMapLayerVisibility(layerId, visibility) {
@@ -519,6 +664,24 @@
     if (controlPanel) controlPanel.classList.remove("collapsed");
   }
 
+  function openSelectionDrawer() {
+    els.selectionDrawer?.classList.add("open");
+  }
+
+  function closeSelectionDrawer() {
+    els.selectionDrawer?.classList.remove("open");
+    state.selectedPlaceId = "";
+    state.selectedEventId = "";
+    setDetailCardMode("");
+    els.detail.innerHTML = `<p class="empty-title">Select a place</p><p class="empty-copy">Choose another place from the Directory Browser to reopen details.</p>`;
+    if (state.map) setSourceData();
+    updateReviewUrl();
+  }
+
+  function revealDetailCard() {
+    openSelectionDrawer();
+  }
+
   function renderFilters() {
     const intents = [...new Set(state.places.map((place) => place.intent))].sort();
     els.filters.innerHTML = intents.map((intent) => {
@@ -527,6 +690,8 @@
     }).join("");
     els.filters.querySelectorAll(".filter-chip").forEach((button) => {
       button.addEventListener("click", () => {
+        state.localReveal = null;
+        state.localRevealPreviousContext = null;
         const intent = button.dataset.intent;
         if (state.activeIntents.has(intent)) state.activeIntents.delete(intent);
         else state.activeIntents.add(intent);
@@ -789,6 +954,7 @@
       </div>
     ` : "";
     els.detail.innerHTML = `
+      <button class="selected-place-close" type="button" aria-label="Close selected place">Close</button>
       ${renderImage(place, imageLabel ? { imageLabel } : {})}
       <div class="${isPrimaryAnchor ? "anchor-card-heading" : "detail-heading"}">
         <p class="detail-eyebrow">${anchor ? "Cultural anchor" : place.anchorCard ? "Supporting stop" : place.musePick ? "MUSE pick" : "Cultural place"}</p>
@@ -804,7 +970,9 @@
       ${action ? `<div class="detail-actions">${action}</div>` : ""}
       ${eventHtml}
     `;
+    els.detail.querySelector(".selected-place-close")?.addEventListener("click", closeSelectionDrawer);
     state.map.flyTo({ center: [place.lng, place.lat], zoom: Math.max(state.map.getZoom(), 13.5), speed: 0.8 });
+    revealDetailCard();
     updateReviewUrl();
   }
 
@@ -828,6 +996,7 @@
     `;
     const jump = document.getElementById("event-place-jump");
     if (jump && place) jump.addEventListener("click", () => showPlace(place));
+    revealDetailCard();
     updateReviewUrl();
   }
 
@@ -1018,64 +1187,75 @@
   }
 
   function addMapLayers() {
+    state.map.addSource("local-reveal-area", {
+      type: "geojson",
+      data: { type: "FeatureCollection", features: [] },
+    });
+    state.map.addLayer({
+      id: "local-reveal-area",
+      type: "circle",
+      source: "local-reveal-area",
+      paint: {
+        "circle-radius": ["interpolate", ["linear"], ["zoom"], 7, 26, 12, 48, 15, 72],
+        "circle-color": "rgba(255,46,0,0.12)",
+        "circle-stroke-color": MARKERS.red,
+        "circle-stroke-width": 2,
+        "circle-stroke-opacity": 0.78,
+      },
+    });
+
     state.map.addSource("places", {
       type: "geojson",
       data: { type: "FeatureCollection", features: [] },
-      cluster: true,
-      clusterMaxZoom: 13,
-      clusterRadius: 42,
     });
     state.map.addLayer({
-      id: "place-clusters",
+      id: "place-density",
       type: "circle",
       source: "places",
-      filter: ["has", "point_count"],
       paint: {
-        "circle-color": MARKERS.paper,
-        "circle-stroke-color": MARKERS.ink,
-        "circle-stroke-width": ["step", ["get", "point_count"], 1.4, 100, 1.8],
-        "circle-radius": ["step", ["get", "point_count"], 15, 30, 20, 100, 27],
-        "circle-opacity": 0.94,
+        "circle-radius": ["interpolate", ["linear"], ["zoom"], 7, 2.8, 11, 3.6, 14, 3.8],
+        "circle-color": MARKERS.ink,
+        "circle-opacity": [
+          "case",
+          ["get", "currentContext"], 0.68,
+          ["get", "sampler"], 0.64,
+          0.5
+        ],
+        "circle-stroke-color": MARKERS.paper,
+        "circle-stroke-width": ["interpolate", ["linear"], ["zoom"], 7, 0, 12, 0.55],
       },
-    });
-    state.map.addLayer({
-      id: "cluster-count",
-      type: "symbol",
-      source: "places",
-      filter: ["has", "point_count"],
-      layout: {
-        "text-field": ["get", "point_count_abbreviated"],
-        "text-font": ["Open Sans Bold"],
-        "text-size": 12,
-      },
-      paint: { "text-color": MARKERS.ink },
     });
     state.map.addLayer({
       id: "place-points",
       type: "circle",
       source: "places",
-      filter: ["!", ["has", "point_count"]],
+      filter: ["any", ["get", "selected"], ["get", "anchor"], ["get", "musePick"], ["get", "sampler"], ["get", "currentContext"]],
       paint: {
         "circle-radius": [
           "case",
           ["get", "selected"], 8,
           ["get", "anchor"], 5.5,
-          4.5
+          ["get", "sampler"], 4.8,
+          4.2
         ],
         "circle-color": [
           "case",
           ["get", "selected"], MARKERS.paper,
           ["get", "anchor"], MARKERS.paper,
-          ["get", "musePick"], MARKERS.red,
+          ["get", "musePick"], MARKERS.paper,
+          ["get", "sampler"], MARKERS.paper,
           MARKERS.place
         ],
-        "circle-opacity": ["case", ["get", "selected"], 1, 0.88],
+        "circle-opacity": ["case", ["get", "selected"], 1, 0.72],
         "circle-stroke-color": [
           "case",
           ["get", "selected"], MARKERS.red,
+          ["get", "localReveal"], MARKERS.red,
+          ["get", "musePick"], MARKERS.paper,
+          ["get", "sampler"], MARKERS.red,
           MARKERS.paper
         ],
-        "circle-stroke-width": ["case", ["get", "selected"], 3, 1.25],
+        "circle-stroke-width": ["case", ["get", "selected"], 3, ["get", "localReveal"], 1.8, ["get", "sampler"], 1.4, 0.9],
       },
     });
     state.map.addLayer({
@@ -1147,20 +1327,34 @@
       },
     });
 
-    state.map.on("click", "place-clusters", (event) => {
-      const features = state.map.queryRenderedFeatures(event.point, { layers: ["place-clusters"] });
-      const clusterId = features[0].properties.cluster_id;
-      state.map.getSource("places").getClusterExpansionZoom(clusterId, (err, zoom) => {
-        if (err) return;
-        state.map.easeTo({ center: features[0].geometry.coordinates, zoom });
-      });
-    });
     const showPlaceFromFeature = (event) => {
       hideMarkerPreview();
       const id = event.features[0].properties.id;
       const place = state.places.find((item) => item.id === id);
       if (place) showPlace(place);
     };
+    const startLocalRevealFromFeature = (event) => {
+      startLocalReveal(event.lngLat);
+    };
+    const localRevealDensityFeatures = (point, radius = 16) => {
+      const hitBox = [
+        [point.x - radius, point.y - radius],
+        [point.x + radius, point.y + radius],
+      ];
+      return state.map.queryRenderedFeatures(hitBox, { layers: ["place-density"] });
+    };
+    const mapClickHasDirectSelection = (point) => {
+      return state.map.queryRenderedFeatures(point, {
+        layers: ["place-points", "anchor-rings", "anchor-icons", "event-points"],
+      }).length > 0;
+    };
+    const startLocalRevealFromMapClick = (event) => {
+      if (state.mode !== "places") return;
+      if (mapClickHasDirectSelection(event.point)) return;
+      if (!localRevealDensityFeatures(event.point).length) return;
+      startLocalReveal(event.lngLat);
+    };
+    state.map.on("click", "place-density", startLocalRevealFromFeature);
     state.map.on("click", "place-points", showPlaceFromFeature);
     state.map.on("click", "anchor-rings", showPlaceFromFeature);
     state.map.on("click", "anchor-icons", showPlaceFromFeature);
@@ -1168,6 +1362,9 @@
       const id = event.features[0].properties.id;
       const eventItem = state.events.find((item) => item.id === id);
       if (eventItem) showEvent(eventItem);
+    });
+    state.map.on("click", (event) => {
+      startLocalRevealFromMapClick(event);
     });
     ["place-points", "anchor-rings", "anchor-icons"].forEach((layer) => {
       state.map.on("mouseenter", layer, (event) => {
@@ -1180,22 +1377,35 @@
         hideMarkerPreview();
       });
     });
-    ["place-clusters", "event-points"].forEach((layer) => {
+    state.map.on("mouseenter", "place-density", (event) => {
+      state.map.getCanvas().style.cursor = "pointer";
+      showMarkerPreview(event);
+    });
+    state.map.on("mousemove", "place-density", showMarkerPreview);
+    state.map.on("mouseleave", "place-density", () => {
+      state.map.getCanvas().style.cursor = "";
+      hideMarkerPreview();
+    });
+    ["event-points"].forEach((layer) => {
       state.map.on("mouseenter", layer, () => { state.map.getCanvas().style.cursor = "pointer"; });
       state.map.on("mouseleave", layer, () => { state.map.getCanvas().style.cursor = ""; });
     });
   }
 
   async function init() {
-    const [places, events, paths, anchorCards, museEvidence] = await Promise.all([
+    const [places, events, paths, anchorCards, museEvidence, museSampler] = await Promise.all([
       fetch(DATA.places).then((r) => r.json()),
       fetch(DATA.events).then((r) => r.json()),
       fetch(DATA.paths).then((r) => r.json()),
       fetch(DATA.anchorCards).then((r) => r.json()).catch(() => []),
       fetch(DATA.museEvidence).then((r) => r.json()).catch(() => ({ links: [] })),
+      fetch(DATA.museSampler).then((r) => r.json()).catch(() => ({ showcaseSampler: [] })),
     ]);
     state.anchorCards = Array.isArray(anchorCards) ? anchorCards : [];
     state.museEvidenceByPlace = buildDirectMuseEvidenceByPlace(museEvidence);
+    state.browseSamplerPlaceIds = (museSampler.showcaseSampler || museSampler.recommendedSampler || [])
+      .map((place) => place.id)
+      .filter(Boolean);
     state.places = applyAnchorCards(places, state.anchorCards);
     state.events = events;
     state.paths = paths;
@@ -1204,8 +1414,8 @@
     state.map = new maplibregl.Map({
       container: "map",
       style: "https://basemaps.cartocdn.com/gl/positron-gl-style/style.json",
-      center: window.innerWidth < 700 ? [-121.04, 39.18] : [-121.04, 39.24],
-      zoom: window.innerWidth < 700 ? 8.8 : 10.7,
+      center: isMobileViewport() ? MOBILE_INITIAL_MAP_VIEW.center : DESKTOP_INITIAL_MAP_VIEW.center,
+      zoom: isMobileViewport() ? MOBILE_INITIAL_MAP_VIEW.zoom : DESKTOP_INITIAL_MAP_VIEW.zoom,
       attributionControl: true,
     });
     state.map.addControl(new maplibregl.NavigationControl({ showCompass: false }), "bottom-right");
@@ -1225,7 +1435,10 @@
     });
 
     els.search?.addEventListener("input", () => {
+      state.localReveal = null;
+      state.localRevealPreviousContext = null;
       state.searchQuery = els.search.value;
+      setLocalRevealSourceData();
       renderPlacesList();
     });
 

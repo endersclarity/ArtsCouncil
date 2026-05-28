@@ -1,0 +1,59 @@
+{
+  "sourceArtifacts": {
+    "dianaWorkbook": "data/v1-canonical-sources/diana-workbook.xlsx",
+    "arcgisCulturalAssets": "data/v1-canonical-sources/arcgis-cultural-assets.geojson",
+    "quarantinedBridge": "data/v1-canonical-sources/DO-NOT-TRUST-arts-hub-coordinate-bridge.json"
+  },
+  "rules": [
+    "Diana Workbook identity is authoritative.",
+    "Diana Workbook coordinates win when present and valid.",
+    "ArcGIS is only a fallback for unique normalized name + city matches with no address-number contradiction.",
+    "US Census Geocoder is optional, free, and treated as medium-confidence street interpolation.",
+    "Rows without trusted coordinates remain Needs Location Review and are not ordinary public markers.",
+    "The Arts Hub Coordinate Bridge is not read by this script."
+  ],
+  "censusTermsNote": "Official Census docs describe a public geocoder/API for single or batch address geocoding. Returned latitude/longitude values are MAF/TIGER address-range interpolations, so accepted Census rows are medium confidence rather than building certainty.",
+  "runCensus": true,
+  "counts": {
+    "dianaRows": 1959,
+    "arcgisRows": 682,
+    "mapReadyMarkers": 1603,
+    "needsLocationReview": 356,
+    "dianaCoordinates": 444,
+    "arcgisConfidentFallbacks": 197,
+    "freeGeocodedCandidates": 962,
+    "censusCandidatesWritten": 1039,
+    "rejectedOrLowConfidence": 356
+  },
+  "coordinateSourceCounts": {
+    "diana-workbook-lonlat": 219,
+    "us-census-geocoder": 962,
+    "none": 356,
+    "arcgis-cultural-assets-confident-match": 197,
+    "diana-workbook-webmercator": 225
+  },
+  "coordinateConfidenceCounts": {
+    "authoritative": 444,
+    "medium": 962,
+    "needs-review": 356,
+    "high": 197
+  },
+  "locationReviewStatusCounts": {
+    "Map-Ready": 1603,
+    "Needs Location Review": 356
+  },
+  "matchQualityCounts": {
+    "direct-diana-coordinate": 444,
+    "census-exact": 870,
+    "no-trusted-coordinate": 351,
+    "census-non exact": 92,
+    "normalized-name-city-unique": 197,
+    "arcgis-address-contradiction": 5
+  },
+  "outputs": {
+    "decisions": "website/cultural-map-redesign-stitch-lab/v1-discovery-map/data/coordinate_sanity_pass.json",
+    "mapReadyGeojson": "website/cultural-map-redesign-stitch-lab/v1-discovery-map/data/coordinate_sanity_markers.geojson",
+    "summary": "reports/v1-coordinate-sanity-pass-summary.json",
+    "censusCandidates": "reports/v1-census-geocoder-candidates.csv"
+  }
+}

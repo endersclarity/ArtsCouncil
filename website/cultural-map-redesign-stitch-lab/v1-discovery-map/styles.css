@@ -218,6 +218,10 @@ button {
   inset: 0;
 }
 
+.mobile-map-context-label {
+  display: none;
+}
+
 .drawer-toggle {
   display: none;
 }
@@ -242,6 +246,26 @@ button {
   height: 6px;
   margin: -13px -13px 12px;
   background: var(--ncac-red);
+}
+
+.selection-drawer {
+  position: absolute;
+  z-index: 5;
+  top: 18px;
+  right: clamp(18px, 4vw, 54px);
+  width: min(380px, calc(100vw - 420px));
+  max-height: calc(100% - 36px);
+  overflow: auto;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(18px);
+  transition: opacity 0.18s ease, transform 0.18s ease;
+}
+
+.selection-drawer.open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(0);
 }
 
 .panel-topline {
@@ -364,6 +388,12 @@ body:not([data-map-mode="places"]) .review-tools {
   box-shadow: inset 4px 0 0 var(--ncac-red);
 }
 
+.browse-heading {
+  margin: 0 0 8px;
+  font-size: 15px;
+  line-height: 1.2;
+}
+
 .review-search-label {
   display: grid;
   gap: 5px;
@@ -404,6 +434,40 @@ body:not([data-map-mode="places"]) .review-tools {
   margin-bottom: 6px;
 }
 
+.local-reveal-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 7px;
+  border: 1px solid var(--line-strong);
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.25;
+  padding: 7px 8px;
+}
+
+.local-reveal-back {
+  border: 1px solid var(--ink);
+  background: var(--surface);
+  color: var(--ink);
+  cursor: pointer;
+  font: inherit;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 5px 7px;
+  white-space: nowrap;
+}
+
+.local-reveal-back:hover,
+.local-reveal-back:focus-visible {
+  background: var(--ncac-red);
+  color: var(--paper);
+  outline: 0;
+}
+
 .places-list-items {
   display: grid;
   gap: 6px;
@@ -428,6 +492,10 @@ body:not([data-map-mode="places"]) .review-tools {
 .place-list-item:hover {
   border-color: var(--ink);
   box-shadow: inset 5px 0 0 var(--ncac-red);
+}
+
+.place-list-item.local-reveal-item {
+  border-color: var(--line-strong);
 }
 
 .place-list-title {
@@ -502,6 +570,34 @@ body:not([data-map-mode="places"]) .review-tools {
   border-top: 5px solid var(--ink);
   background: var(--surface);
   padding: 12px;
+}
+
+.selection-drawer .detail-card {
+  position: relative;
+  box-shadow: var(--shadow-float);
+}
+
+.selected-place-close {
+  position: absolute;
+  z-index: 2;
+  top: 20px;
+  right: 20px;
+  border: 1px solid var(--line-strong);
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1;
+  text-transform: uppercase;
+  cursor: pointer;
+  padding: 8px 9px 7px;
+}
+
+.selected-place-close:hover,
+.selected-place-close:focus-visible {
+  background: var(--ink);
+  color: var(--surface);
 }
 
 .detail-card.primary-anchor-card {
@@ -1283,6 +1379,25 @@ body:not([data-map-mode="places"]) .review-tools {
     max-height: 76%;
   }
 
+  .selection-drawer {
+    top: auto;
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    width: auto;
+    max-height: 52%;
+    transform: translateY(18px);
+  }
+
+  .selection-drawer.open {
+    transform: translateY(0);
+  }
+
+  .selection-drawer .detail-card {
+    border-width: 1px;
+    border-top-width: 5px;
+  }
+
   .control-panel::-webkit-scrollbar {
     display: none;
   }
@@ -1437,6 +1552,36 @@ body:not([data-map-mode="places"]) .review-tools {
     min-height: 64px;
   }
 
+  .map-stage {
+    min-height: calc(100svh - 64px);
+  }
+
+  .mobile-map-context-label {
+    display: block;
+    position: absolute;
+    z-index: 3;
+    padding: 3px 6px 2px;
+    border: 1px solid rgba(20, 20, 20, 0.28);
+    background: rgba(255, 255, 255, 0.82);
+    color: var(--ink);
+    font-size: 11px;
+    font-weight: 800;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: 0;
+    pointer-events: none;
+  }
+
+  .mobile-map-context-label.grass-valley {
+    top: 29%;
+    left: 31%;
+  }
+
+  .mobile-map-context-label.nevada-city {
+    top: 16%;
+    left: 52%;
+  }
+
   .alpha-pill {
     display: none;
   }
@@ -1447,13 +1592,27 @@ body:not([data-map-mode="places"]) .review-tools {
     bottom: 0;
     width: 100vw;
     max-width: 100vw;
-    max-height: 48%;
+    max-height: 44%;
     border-left: 1px solid var(--line-strong);
     border-right: 1px solid var(--line-strong);
   }
 
   .control-panel:has(.primary-anchor-card) {
-    max-height: 82%;
+    max-height: 58%;
+  }
+
+  .selection-drawer {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    max-width: 100vw;
+    max-height: 48%;
+  }
+
+  .selection-drawer .detail-card {
+    border-left: 1px solid var(--line-strong);
+    border-right: 1px solid var(--line-strong);
   }
 
   .primary-anchor-card h2 {
