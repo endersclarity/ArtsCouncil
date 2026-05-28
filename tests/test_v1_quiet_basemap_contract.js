@@ -20,8 +20,8 @@ for (const staleColor of ["#ecdcb9", "#ccbca0", "#dfceaa", "#d9c7a2", "#d4c193",
   assert.doesNotMatch(basemapBody, new RegExp(staleColor, "i"), `${staleColor} should not remain in basemap styling`);
 }
 
-const addMapLayersBody = appSource.match(/function addMapLayers\(\) \{([\s\S]*?)\n  \}/)?.[1] || "";
-assert.match(addMapLayersBody, /"circle-color": MARKERS\.paper/, "clusters should use bright marker paper");
+const addMapLayersBody = appSource.match(/function addMapLayers\(\) \{([\s\S]*?)\n  async function init/)?.[1] || "";
+assert.match(addMapLayersBody, /"circle-color": \[[\s\S]*MARKERS\.paper/, "selected and contextual place markers should use bright marker paper");
 assert.match(addMapLayersBody, /"circle-stroke-color": MARKERS\.ink/, "clusters and events should keep black contrast");
 assert.match(addMapLayersBody, /"circle-stroke-color": \[[\s\S]*MARKERS\.red[\s\S]*MARKERS\.paper/, "selected place markers should stay red-on-white");
 assert.match(addMapLayersBody, /"circle-color": "rgba\(255,255,255,0\)"/, "anchor rings should be transparent over the quiet map");

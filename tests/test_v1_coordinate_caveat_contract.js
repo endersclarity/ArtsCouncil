@@ -49,7 +49,7 @@ assert.equal(arcgisPlace.locationCaveat, "");
 assert.match(appSource, /function renderLocationCaveat\(place\)/, "selected cards should render location caveats through one public card path");
 assert.match(appSource, /\$\{renderLocationCaveat\(place\)\}/, "selected place drawer should include the caveat slot");
 assert.match(appSource, /if \(isPlaceMapReady\(place\)\) \{\n\s*state\.map\.flyTo/, "map movement should be guarded by map-ready state");
-assert.match(appSource, /filteredPlaces\(\)\.filter\(isPlaceMapReady\)\.map\(placeToFeature\)/, "marker source should exclude Directory-Only Places");
+assert.match(appSource, /const mapReadyPlaces = filteredPlaces\(\)\.filter\(isPlaceMapReady\)/, "marker source should exclude Directory-Only Places");
 assert.doesNotMatch(appSource, /place-list-badge[^`]+locationCaveat/s, "directory rows should not expose estimated/missing caveats before selection");
 assert.match(stylesSource, /\.location-caveat/, "selected-card caveat should have dedicated styling");
 

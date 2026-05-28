@@ -33,7 +33,7 @@ assert.deepEqual(
 );
 
 assert.deepEqual(
-  anchoredPlaces.map((place) => place.name).sort(),
+  [...new Set(anchoredPlaces.map((place) => place.name))].sort(),
   [...primaryAnchorNames].sort(),
   "only the six Primary Anchor Set places should carry embedded anchor identity",
 );

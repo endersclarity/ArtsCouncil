@@ -1,12 +1,25 @@
 (function() {
   'use strict';
 
+  function getAssetCategories(asset) {
+    const categories = [];
+    const push = (value) => {
+      const category = String(value || '').trim();
+      if (category && !categories.includes(category)) categories.push(category);
+    };
+    if (Array.isArray(asset && asset.categories)) asset.categories.forEach(push);
+    push(asset && asset.l);
+    return categories;
+  }
+
   function buildExploreCats({ gridEl, data, cats, onCategorySelect }) {
     if (!gridEl) return;
     gridEl.innerHTML = '';
     const counts = {};
     (data || []).forEach((item) => {
-      counts[item.l] = (counts[item.l] || 0) + 1;
+      getAssetCategories(item).forEach((category) => {
+        counts[category] = (counts[category] || 0) + 1;
+      });
     });
 
     Object.entries(cats || {}).forEach(([name, cfg]) => {
@@ -66,6 +79,10 @@
       item.classList.add('hours-mode', `hours-${hoursState}`);
     }
     const desc = asset.d ? asset.d.replace(/<[^>]*>/g, '').slice(0, 120) : '';
+    const categories = getAssetCategories(asset);
+    const categoryText = categories.length > 1
+      ? `${cfg.short || asset.l} +${categories.length - 1}`
+      : (cfg.short || asset.l);
     item.innerHTML = `
       <div class="explore-item-bar" style="background:${cfg.color}"></div>
       <img class="explore-item-thumb" src="${thumbSrc}" alt="" loading="lazy" onerror="this.src='img/watercolor/${wcSlug}.png'">
@@ -76,7 +93,7 @@
           <span class="explore-item-city">${asset.c || asset.a || ''}</span>
           <span class="explore-item-cat" style="color:${cfg.color}">
             <span class="explore-item-cat-dot" style="background:${cfg.color}"></span>
-            ${cfg.short || asset.l}
+            ${categoryText}
           </span>
           ${openNowMode ? `<span class="hours-pill hours-${hoursState} explore-item-hours">${getHoursLabel(hoursState)}</span>` : ''}
           ${events14dMode && eventCount14d > 0 ? `<span class="hours-pill explore-item-hours" style="color:#934512;background:rgba(180,88,29,0.12);border-color:rgba(180,88,29,0.48)">${eventCount14d} event${eventCount14d === 1 ? '' : 's'}</span>` : ''}

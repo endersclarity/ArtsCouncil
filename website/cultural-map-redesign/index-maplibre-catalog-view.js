@@ -1,6 +1,17 @@
 (function() {
   'use strict';
 
+  function getAssetCategories(asset) {
+    const categories = [];
+    const push = (value) => {
+      const category = String(value || '').trim();
+      if (category && !categories.includes(category)) categories.push(category);
+    };
+    if (Array.isArray(asset && asset.categories)) asset.categories.forEach(push);
+    push(asset && asset.l);
+    return categories;
+  }
+
   function buildExperienceSelector({
     corridorContainer,
     experienceContainer,
@@ -77,7 +88,9 @@
 
     const counts = {};
     (data || []).forEach((item) => {
-      counts[item.l] = (counts[item.l] || 0) + 1;
+      getAssetCategories(item).forEach((category) => {
+        counts[category] = (counts[category] || 0) + 1;
+      });
     });
 
     const cardElements = [];

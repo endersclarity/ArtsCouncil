@@ -33,6 +33,7 @@ const expectedCopy = [
   "Browse cultural places, stories, and events across Grass Valley and Nevada City.",
   "Places to explore",
   "Search places",
+  "Outing Type browse list",
 ];
 
 for (const text of expectedCopy) {
@@ -42,10 +43,74 @@ assert.doesNotMatch(htmlSource, /Internal alpha|stakeholder review|review list/i
 
 assert.ok(appSource.includes('museSampler: "data/muse_grounded_sampler.json"'));
 assert.match(appSource, /browseSamplerPlaceIds/);
+assert.match(appSource, /const OUTING_TYPES = \[/);
 assert.match(appSource, /function isBrowseStartingView\(\)/);
 assert.match(appSource, /function browseStartingPlaces\(\)/);
+assert.match(appSource, /function placeMatchesOutingType\(place, outingType\)/);
+assert.match(appSource, /data-outing-type/);
+assert.doesNotMatch(appSource, /state\.places\.map\(\(place\) => place\.intent\)\)\.sort\(\)/);
 assert.match(appSource, /return browseStartingPlaces\(\);/);
 assert.match(stylesSource, /\.browse-heading/);
+
+const expectedOutingTypes = [
+  "Art",
+  "Music & Performance",
+  "History",
+  "Local Shops",
+  "Outdoors",
+  "Events",
+  "Family-Friendly",
+];
+
+for (const outingType of expectedOutingTypes) {
+  assert.ok(appSource.includes(`label: "${outingType}"`), `Outing Type set should include ${outingType}`);
+}
+
+const events = JSON.parse(
+  fs.readFileSync(
+    path.join(repoRoot, "website/cultural-map-redesign-stitch-lab/v1-discovery-map/data/events.json"),
+    "utf8",
+  ),
+);
+const eventVenuePlaceIds = new Set(events.map((event) => event.placeId).filter(Boolean));
+const categoryOutingMap = {
+  Art: {
+    categories: ["Arts Organizations", "Creative Services", "Galleries & Studios", "MUSE Picks", "Public Art"],
+    intents: ["Galleries & Studios"],
+  },
+  "Music & Performance": {
+    categories: ["Performing Arts"],
+    intents: ["See a Show"],
+  },
+  History: {
+    categories: ["Cultural Resources", "Historic Places"],
+    intents: ["Historic Places"],
+  },
+  "Local Shops": {
+    categories: ["Eat, Drink & Stay", "Shops & Makers"],
+    intents: ["Eat, Drink & Stay", "Shops & Makers"],
+  },
+  Outdoors: {
+    categories: ["Walks & Trails"],
+    intents: ["Outdoors"],
+  },
+  Events: {
+    categories: ["Fairs & Festivals"],
+    eventVenues: true,
+  },
+  "Family-Friendly": {
+    categories: ["Cultural Resources", "Fairs & Festivals", "Public Art", "Walks & Trails"],
+  },
+};
+
+for (const [outingType, rule] of Object.entries(categoryOutingMap)) {
+  const matchingPlaces = places.filter((place) => (
+    rule.categories?.includes(place.category) ||
+    rule.intents?.includes(place.intent) ||
+    (rule.eventVenues && eventVenuePlaceIds.has(place.id))
+  ));
+  assert.ok(matchingPlaces.length > 0, `${outingType} should map to current Directory Browser places`);
+}
 
 const samplerIds = sampler.showcaseSampler.map((place) => place.id);
 const firstRawIds = places.slice(0, samplerIds.length).map((place) => place.id);

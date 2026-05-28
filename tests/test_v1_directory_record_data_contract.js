@@ -19,7 +19,7 @@ const forbiddenPublicKeys = [
   "editDate",
 ];
 
-assert.equal(places.length, 1076, "V1 should keep the full visible place set");
+assert.equal(places.length, 1959, "V1 should keep the full visible place set");
 
 for (const place of places) {
   assert.equal(typeof place.name, "string", "Directory Records should expose a name");

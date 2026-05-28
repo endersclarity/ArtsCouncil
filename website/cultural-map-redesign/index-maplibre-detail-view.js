@@ -10,8 +10,22 @@
     return `<div class="detail-hero-placeholder" style="background:linear-gradient(135deg, ${cfg.color}40, ${cfg.color}20)"><img src="img/watercolor/${wcSlug}.png" class="detail-hero-watercolor" alt="" onerror="this.style.display='none'"></div>`;
   }
 
+  function getAssetCategories(asset) {
+    const categories = [];
+    const push = (value) => {
+      const category = String(value || '').trim();
+      if (category && !categories.includes(category)) categories.push(category);
+    };
+    if (Array.isArray(asset && asset.categories)) asset.categories.forEach(push);
+    push(asset && asset.l);
+    return categories;
+  }
+
   function buildDetailTagHTML({ asset, icons }) {
-    return `<span style="display:inline-flex;align-items:center;gap:0.4rem;">${icons[asset.l] ? '<span style="width:14px;height:14px;display:inline-block;vertical-align:middle;">' + icons[asset.l] + '</span>' : ''} ${asset.l}</span>`;
+    const categories = getAssetCategories(asset);
+    return categories.map((category) => (
+      `<span style="display:inline-flex;align-items:center;gap:0.4rem;">${icons[category] ? '<span style="width:14px;height:14px;display:inline-block;vertical-align:middle;">' + icons[category] + '</span>' : ''} ${category}</span>`
+    )).join(' ');
   }
 
   function buildDetailExperienceBadgesHTML({ matchingExps }) {
