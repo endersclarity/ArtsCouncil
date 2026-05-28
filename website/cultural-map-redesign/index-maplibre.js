@@ -105,7 +105,7 @@
   assertModuleMethods(mapInteractionModel, ['getVisibleAssetFeatureCount', 'getSmartLabelRenderPlan', 'pickIdlePreviewFeature'], 'Missing CulturalMapMapInteractionModel. Ensure index-maplibre-map-interaction-model.js loads before index-maplibre.js');
   assertModuleMethods(mapInitModel, ['getMapStyle', 'getMapInitOptions', 'getHoverPopupOptions'], 'Missing CulturalMapMapInitModel. Ensure index-maplibre-map-init-model.js loads before index-maplibre.js');
   // Geolocation module is optional; if it is missing, distance + location UI will be disabled/no-op.
-  assertModuleMethods(mapDataModel, ['addCountyOutlineLayer', 'storeOriginalPaints', 'getCategoryIconKey', 'buildAssetsGeoJSON', 'refreshAssetSourceHoursStates', 'buildFeatureTooltipHTML'], 'Missing CulturalMapMapDataModel. Ensure index-maplibre-map-data-model.js loads before index-maplibre.js');
+  assertModuleMethods(mapDataModel, ['addCountyOutlineLayer', 'storeOriginalPaints', 'getCategoryIconKey', 'getAssetCategories', 'normalizeAssetData', 'buildAssetsGeoJSON', 'refreshAssetSourceHoursStates', 'buildFeatureTooltipHTML'], 'Missing CulturalMapMapDataModel. Ensure index-maplibre-map-data-model.js loads before index-maplibre.js');
   assertModuleMethods(mapRenderController, ['applyAssetFilters', 'applyAssetPaintStyles', 'recenterAfterFilter'], 'Missing CulturalMapMapRenderController. Ensure index-maplibre-map-render-controller.js loads before index-maplibre.js');
   assertModuleMethods(mapLabelControllerModule, ['createMapLabelController'], 'Missing CulturalMapMapLabelController. Ensure index-maplibre-map-label-controller.js loads before index-maplibre.js');
   assertModuleMethods(assetLayerDefs, ['getAssetsCircleLayerDef', 'getAssetsSymbolLayerDef', 'getAssetsHitLayerDef', 'getAssetsMobileLabelsLayerDef'], 'Missing CulturalMapAssetLayerDefs. Ensure index-maplibre-asset-layer-defs.js loads before index-maplibre.js');
@@ -227,7 +227,7 @@
       .catch(() => null),
     fetch('itineraries.json').then(r => r.json()).catch(() => [])
   ]).then(([data, images, experiences, museEditorials, musePlaces, events, eventIndex, countyOutline, itinerariesData]) => {
-    DATA = data;
+    DATA = mapDataModel.normalizeAssetData(data);
     IMAGE_DATA = images;
     EXPERIENCES = experiences;
     ITINERARIES = Array.isArray(itinerariesData) ? itinerariesData : [];

@@ -1,10 +1,21 @@
 (function() {
   'use strict';
 
+  function getAssetCategories(asset) {
+    const categories = [];
+    const push = (value) => {
+      const category = String(value || '').trim();
+      if (category && !categories.includes(category)) categories.push(category);
+    };
+    if (Array.isArray(asset && asset.categories)) asset.categories.forEach(push);
+    push(asset && asset.l);
+    return categories;
+  }
+
   function getEventsCategoryOptionsHTML({ data, cats, escapeHTML }) {
     const seen = new Set();
-    const categories = data
-      .map((d) => d && d.l)
+    const categories = (data || [])
+      .flatMap((d) => getAssetCategories(d))
       .filter((name) => typeof name === 'string' && name && !seen.has(name) && seen.add(name));
 
     return '<option value="all">All categories</option>' +
