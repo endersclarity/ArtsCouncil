@@ -1,5 +1,7 @@
 # Exclude design variants from deployment
 index.html
+!v1-discovery-map/
+!v1-discovery-map/**
 index-brutalism.html
 index-dark.html
 index-glassmorphism.html
