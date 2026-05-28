@@ -341,7 +341,7 @@
     } else if (state.mode === "paths") {
       els.count.textContent = `${state.paths.length} curated paths`;
     } else {
-      els.count.textContent = `${filteredPlaces().length} visible places`;
+      els.count.textContent = `${filteredPlaces().length} places to explore`;
     }
   }
 
@@ -401,12 +401,13 @@
     els.placesList.innerHTML = `
       ${isLocalReveal ? `
         <div class="local-reveal-summary">
-          <span>${escapeHtml(places.length)} places near this spot</span>
+          <span>Show places in this area</span>
+          <small>${escapeHtml(places.length)} places near this spot</small>
           <button class="local-reveal-back" type="button" id="local-reveal-back">Back to browse</button>
         </div>
       ` : `
         <div class="places-list-summary">
-          <span>${isStartingView ? "Places to explore" : `${escapeHtml(places.length)} ${query ? "matching" : "listed"} of ${escapeHtml(visibleCount)} visible places`}</span>
+          <span>${isStartingView ? "Places to explore" : `${escapeHtml(places.length)} ${query ? "matching" : "listed"} of ${escapeHtml(visibleCount)} places on the map`}</span>
         </div>
       `}
       <div class="places-list-items">
@@ -890,7 +891,7 @@
       els.detail.innerHTML = `<p class="empty-title">No matching places</p><p class="empty-copy">The active filter does not currently match any mapped places.</p>`;
       return;
     }
-    els.hint.innerHTML = `<p class="hint-title">Filtered map</p><p>${escapeHtml(places.length)} visible places match ${escapeHtml(filterLabel)}.</p>`;
+    els.hint.innerHTML = `<p class="hint-title">Filtered map</p><p>${escapeHtml(places.length)} places match ${escapeHtml(filterLabel)}.</p>`;
     els.detail.innerHTML = `
       ${renderImage(place, { proofLabel: "Image proof" })}
       <div class="anchor-card-heading">
@@ -898,7 +899,7 @@
         <h2>${escapeHtml(place.name)}</h2>
         <p class="detail-location">${escapeHtml(place.category)} / ${escapeHtml(place.city || "Nevada County")}</p>
       </div>
-      <p class="empty-copy">Select a point or choose another filter to refine the visible places.</p>
+      <p class="empty-copy">Select a point or choose another filter to refine the map.</p>
       <div class="detail-actions"><button type="button" class="anchor-map-action">View on map</button></div>
     `;
     els.detail.querySelector(".anchor-map-action")?.addEventListener("click", () => showPlace(place));
@@ -966,6 +967,7 @@
     els.detail.innerHTML = `
       <button class="selected-place-close" type="button" aria-label="Close selected place">Close</button>
       ${renderImage(place, imageLabel ? { imageLabel } : {})}
+      <p class="section-label">Place details</p>
       <div class="${isPrimaryAnchor ? "anchor-card-heading" : "detail-heading"}">
         <p class="detail-eyebrow">${anchor ? "Cultural anchor" : place.anchorCard ? "Supporting stop" : place.musePick ? "MUSE pick" : "Cultural place"}</p>
         ${anchorBadge(place)}

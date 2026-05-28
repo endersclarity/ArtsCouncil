@@ -271,11 +271,31 @@ button {
 .panel-topline {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   gap: 16px;
   padding-bottom: 10px;
   margin-bottom: 12px;
   border-bottom: 2px solid var(--line-strong);
+}
+
+.panel-map-copy {
+  min-width: 0;
+}
+
+.panel-map-copy h1 {
+  margin: 3px 0 4px;
+  font-family: var(--font-brand);
+  font-size: 20px;
+  line-height: 1;
+  letter-spacing: 0;
+}
+
+.panel-map-copy p:last-child {
+  margin: 0;
+  max-width: 30ch;
+  font-size: 12px;
+  line-height: 1.25;
+  color: var(--ink-soft);
 }
 
 #visible-count {
@@ -284,6 +304,9 @@ button {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.03em;
+  flex: 0 0 auto;
+  margin-top: 2px;
+  text-align: right;
 }
 
 .mode-tabs {
