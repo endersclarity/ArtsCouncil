@@ -1,0 +1,786 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PROTOTYPE - Diana Workbook Map</title>
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+  <style>
+    :root {
+      --red: #ff2e00;
+      --ink: #151412;
+      --muted: #67615b;
+      --paper: #faf7ef;
+      --soft: #efebe2;
+      --field: #ffffff;
+      --line: #24211f;
+      --green: #2f5d4a;
+      --blue: #315e7c;
+      --gold: #9c7624;
+      --shadow: 0 18px 45px rgba(21, 20, 18, 0.14);
+      font-family: "DM Sans", "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      overflow: hidden;
+    }
+
+    a { color: inherit; }
+    button, input, select { font: inherit; }
+
+    .app {
+      min-height: 100vh;
+      display: grid;
+      grid-template-rows: 72px minmax(0, 1fr);
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 34px;
+      background: var(--field);
+      border-bottom: 3px solid var(--red);
+      z-index: 5;
+    }
+
+    .brand {
+      display: grid;
+      line-height: 0.9;
+      font-weight: 900;
+      font-size: 24px;
+      letter-spacing: 0;
+    }
+
+    .brand span:last-child { color: var(--red); }
+
+    nav {
+      display: flex;
+      gap: 26px;
+      align-items: center;
+      font-size: 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .data-note {
+      border: 1px solid var(--line);
+      padding: 9px 12px;
+      background: var(--paper);
+      box-shadow: inset 0 -4px 0 var(--red);
+    }
+
+    .stage {
+      min-height: 0;
+      display: grid;
+      grid-template-columns: minmax(360px, 430px) minmax(0, 1fr);
+      position: relative;
+    }
+
+    .panel {
+      position: relative;
+      z-index: 2;
+      min-height: 0;
+      overflow: auto;
+      background: rgba(255, 255, 255, 0.96);
+      border-right: 2px solid var(--line);
+      padding: 22px;
+    }
+
+    .kicker {
+      margin: 0 0 10px;
+      color: var(--red);
+      font-weight: 900;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      margin: 0 0 12px;
+      font-size: 38px;
+      line-height: 0.98;
+      letter-spacing: 0;
+    }
+
+    .lede {
+      margin: 0 0 18px;
+      color: var(--muted);
+      font-size: 16px;
+      line-height: 1.45;
+    }
+
+    .actions {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 18px 0;
+    }
+
+    .primary, .secondary {
+      min-height: 44px;
+      border: 2px solid var(--line);
+      background: var(--field);
+      color: var(--ink);
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .primary { background: var(--red); color: white; }
+
+    .layer-box {
+      border: 2px solid var(--line);
+      background: var(--field);
+      padding: 12px;
+      margin: 14px 0;
+    }
+
+    .layer-box p {
+      margin: 0 0 9px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    .basemap-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+
+    .basemap-button {
+      border: 1px solid var(--line);
+      background: var(--paper);
+      min-height: 40px;
+      padding: 8px;
+      color: var(--ink);
+      font-size: 13px;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .basemap-button.active {
+      background: var(--ink);
+      color: white;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      margin: 18px 0;
+    }
+
+    .stat {
+      border: 1px solid var(--line);
+      background: var(--paper);
+      padding: 12px;
+      min-height: 82px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 28px;
+      line-height: 1;
+      margin-bottom: 6px;
+    }
+
+    .stat span {
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.2;
+      text-transform: uppercase;
+      font-weight: 900;
+    }
+
+    .search {
+      display: grid;
+      gap: 7px;
+      margin: 18px 0 12px;
+    }
+
+    .search label, .filter-title {
+      color: var(--muted);
+      font-weight: 900;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    .search input {
+      width: 100%;
+      border: 2px solid var(--line);
+      padding: 12px;
+      background: var(--field);
+      font-weight: 700;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 8px 0 16px;
+    }
+
+    .chip {
+      border: 1px solid var(--line);
+      background: var(--field);
+      padding: 8px 10px;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .chip.active { background: var(--ink); color: white; }
+
+    .feature-card, .place-card {
+      border: 2px solid var(--line);
+      background: var(--field);
+      padding: 14px;
+      margin: 14px 0;
+      box-shadow: inset 0 -5px 0 var(--red);
+    }
+
+    .feature-card h2, .place-card h2 {
+      margin: 0 0 8px;
+      font-size: 21px;
+      line-height: 1.05;
+    }
+
+    .meta {
+      color: var(--muted);
+      font-size: 12px;
+      text-transform: uppercase;
+      font-weight: 900;
+      margin: 0 0 8px;
+    }
+
+    .copy {
+      color: var(--muted);
+      line-height: 1.4;
+      margin: 0;
+    }
+
+    .list {
+      display: grid;
+      gap: 8px;
+      margin-top: 12px;
+      padding-bottom: 86px;
+    }
+
+    .list button {
+      text-align: left;
+      border: 1px solid #d7d0c6;
+      background: var(--field);
+      padding: 10px;
+      cursor: pointer;
+    }
+
+    .list strong { display: block; margin-bottom: 3px; }
+    .list span {
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    #map { position: relative; min-height: 0; }
+
+    .map-overlay {
+      position: absolute;
+      right: 24px;
+      bottom: 24px;
+      z-index: 2;
+      background: rgba(255,255,255,0.94);
+      border: 2px solid var(--line);
+      padding: 10px 12px;
+      display: flex;
+      gap: 14px;
+      align-items: center;
+      font-size: 13px;
+      color: var(--muted);
+      box-shadow: var(--shadow);
+    }
+
+    .dot {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 999px;
+      margin-right: 5px;
+      background: var(--red);
+    }
+
+    .dot.green { background: var(--green); }
+    .dot.blue { background: var(--blue); }
+    .dot.gold { background: var(--gold); }
+
+    .marker {
+      width: 22px;
+      height: 22px;
+      border-radius: 999px;
+      border: 3px solid var(--field);
+      background: var(--red);
+      box-shadow: 0 0 0 1px var(--ink), 0 3px 12px rgba(0,0,0,.32);
+      cursor: pointer;
+    }
+
+    .marker.selected {
+      width: 34px;
+      height: 34px;
+      border-color: var(--ink);
+      background: var(--field);
+      box-shadow: inset 0 0 0 8px var(--red), 0 5px 18px rgba(0,0,0,.28);
+    }
+
+    .switcher {
+      position: fixed;
+      left: 50%;
+      bottom: 18px;
+      transform: translateX(-50%);
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--ink);
+      color: white;
+      border: 2px solid white;
+      box-shadow: var(--shadow);
+      padding: 8px;
+    }
+
+    .switcher button {
+      width: 38px;
+      height: 34px;
+      border: 1px solid rgba(255,255,255,.6);
+      background: transparent;
+      color: white;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    .switcher span {
+      min-width: 220px;
+      text-align: center;
+      font-size: 13px;
+      font-weight: 900;
+      text-transform: uppercase;
+    }
+
+    body.variant-civic .stage {
+      grid-template-columns: minmax(0, 1fr);
+    }
+
+    body.variant-civic .panel {
+      position: absolute;
+      left: 24px;
+      top: 24px;
+      width: min(420px, calc(100vw - 48px));
+      max-height: calc(100vh - 146px);
+      border: 2px solid var(--line);
+      box-shadow: var(--shadow);
+    }
+
+    body.variant-civic h1 { font-size: 30px; }
+    body.variant-civic .feature-card { display: none; }
+
+    body.variant-route .stage {
+      grid-template-columns: minmax(410px, 500px) minmax(0, 1fr);
+    }
+
+    body.variant-route .feature-card {
+      box-shadow: inset 0 -6px 0 var(--green);
+    }
+
+    body.variant-route .primary {
+      background: var(--green);
+    }
+
+    @media (max-width: 860px) {
+      body { overflow: auto; }
+      .app { min-height: 100vh; }
+      header { padding: 0 16px; }
+      nav a { display: none; }
+      .stage { grid-template-columns: 1fr; grid-template-rows: 48vh auto; }
+      .panel { grid-row: 2; border-right: 0; border-top: 2px solid var(--line); }
+      #map { grid-row: 1; }
+      body.variant-civic .panel { position: relative; inset: auto; width: auto; max-height: none; }
+      .switcher { bottom: 10px; }
+      .switcher span { min-width: 170px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <header>
+      <div class="brand"><span>Nevada County</span><span>Arts &amp; Culture</span></div>
+      <nav aria-label="Prototype navigation">
+        <a href="#">Places</a>
+        <a href="#">Events</a>
+        <a href="#">Routes</a>
+        <span class="data-note">Diana coordinates only</span>
+      </nav>
+    </header>
+
+    <main class="stage">
+      <aside class="panel">
+        <p class="kicker" id="kicker">Cultural Map</p>
+        <h1 id="title">Explore cultural places, events, and routes across Nevada County.</h1>
+        <p class="lede" id="lede">This prototype only shows places with coordinates from the Diana Workbook. The full dataset stays out of view until locations are trustworthy.</p>
+
+        <div class="actions">
+          <button class="primary" id="primaryAction" type="button">Show Grass Valley</button>
+          <button class="secondary" id="secondaryAction" type="button">Show all places</button>
+        </div>
+
+        <section class="layer-box" aria-label="Basemap choices">
+          <p>Map background</p>
+          <div class="basemap-grid" id="basemapGrid"></div>
+        </section>
+
+        <section class="stats" id="stats" aria-label="Map stats"></section>
+
+        <section class="feature-card" id="feature"></section>
+
+        <section class="search">
+          <label for="search">Search places</label>
+          <input id="search" type="search" placeholder="Name, town, or category">
+        </section>
+
+        <p class="filter-title">Explore by kind of place</p>
+        <div class="chips" id="chips"></div>
+
+        <section class="place-card" id="selected"></section>
+        <div class="list" id="list"></div>
+      </aside>
+
+      <section id="map" aria-label="Diana Workbook coordinate map">
+        <div class="map-overlay">
+          <span><i class="dot"></i>Diana coordinate</span>
+          <span><i class="dot green"></i>Selected</span>
+          <span><i class="dot blue"></i>Route idea</span>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <div class="switcher" aria-label="Prototype variants">
+    <button type="button" id="prevVariant" aria-label="Previous variant">&larr;</button>
+    <span id="variantLabel"></span>
+    <button type="button" id="nextVariant" aria-label="Next variant">&rarr;</button>
+  </div>
+
+  <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+  <script>
+    const variants = [
+      { key: "proof", name: "Public beta proof" },
+      { key: "civic", name: "Map-first civic" },
+      { key: "route", name: "Route-led opening" }
+    ];
+
+    const MAPTILER_KEY = "LrWxywMynJX4Y3SvVJby";
+    const basemaps = [
+      {
+        key: "streets",
+        name: "MapTiler Streets",
+        url: `https://api.maptiler.com/maps/streets-v2/style.json?key=${MAPTILER_KEY}`
+      },
+      {
+        key: "outdoor",
+        name: "MapTiler Outdoor",
+        url: `https://api.maptiler.com/maps/outdoor-v2/style.json?key=${MAPTILER_KEY}`
+      },
+      {
+        key: "satellite",
+        name: "Satellite Hybrid",
+        url: `https://api.maptiler.com/maps/hybrid/style.json?key=${MAPTILER_KEY}`
+      },
+      {
+        key: "voyager",
+        name: "CARTO Voyager",
+        url: "https://basemaps.cartocdn.com/gl/voyager-gl-style/style.json"
+      }
+    ];
+
+    const copy = {
+      proof: {
+        kicker: "Cultural Map",
+        title: "Explore cultural places, events, and routes across Nevada County.",
+        lede: "Only places with Diana Workbook coordinates are shown here. Fewer markers, more trust.",
+        primary: "Show Grass Valley",
+        featureTitle: "Featured place",
+        featureName: "Nevada Theatre",
+        featureCopy: "One of the clearest downtown cultural anchors in the coordinate set, useful for checking whether the map feels real at street level."
+      },
+      civic: {
+        kicker: "Countywide Guide",
+        title: "A calmer map with only trusted coordinates.",
+        lede: "This view lets the map breathe. The list supports exploration without turning the first screen into a data audit.",
+        primary: "Center the map",
+        featureTitle: "Map note",
+        featureName: "Diana Workbook coordinate layer",
+        featureCopy: "The visible layer is smaller than V1, but every marker shown has an explainable coordinate source."
+      },
+      route: {
+        kicker: "Suggested Route",
+        title: "Start with a route, then widen the map.",
+        lede: "This direction makes a first move obvious before asking someone to browse hundreds of records.",
+        primary: "Open route area",
+        featureTitle: "Route idea",
+        featureName: "Nevada City cultural core",
+        featureCopy: "Use the verified coordinate layer to build a small route around downtown cultural places before opening the full county."
+      }
+    };
+
+    const state = {
+      data: null,
+      map: null,
+      markers: [],
+      selectedId: null,
+      query: "",
+      category: "All",
+      basemap: "streets"
+    };
+
+    function variantKey() {
+      const params = new URLSearchParams(location.search);
+      const key = params.get("variant") || "proof";
+      return variants.some((v) => v.key === key) ? key : "proof";
+    }
+
+    function setVariant(key) {
+      const params = new URLSearchParams(location.search);
+      params.set("variant", key);
+      history.replaceState(null, "", `${location.pathname}?${params.toString()}`);
+      renderVariant();
+    }
+
+    function cycleVariant(delta) {
+      const current = variants.findIndex((v) => v.key === variantKey());
+      const next = variants[(current + delta + variants.length) % variants.length];
+      setVariant(next.key);
+    }
+
+    function placeProps(feature) {
+      return feature.properties || {};
+    }
+
+    function categories() {
+      const values = state.data.geojson.features.map((feature) => placeProps(feature).category || "Uncategorized");
+      return ["All", ...Array.from(new Set(values)).sort()];
+    }
+
+    function filteredFeatures() {
+      const query = state.query.trim().toLowerCase();
+      return state.data.geojson.features.filter((feature) => {
+        const p = placeProps(feature);
+        const cat = p.category || "Uncategorized";
+        const inCategory = state.category === "All" || cat === state.category;
+        const haystack = [p.name, p.city, p.category, p.address].filter(Boolean).join(" ").toLowerCase();
+        return inCategory && (!query || haystack.includes(query));
+      });
+    }
+
+    function basemapKey() {
+      const params = new URLSearchParams(location.search);
+      const key = params.get("basemap") || "streets";
+      return basemaps.some((item) => item.key === key) ? key : "streets";
+    }
+
+    function currentBasemap() {
+      return basemaps.find((item) => item.key === state.basemap) || basemaps[0];
+    }
+
+    function setBasemap(key) {
+      const selected = basemaps.find((item) => item.key === key);
+      if (!selected) return;
+      state.basemap = selected.key;
+      const params = new URLSearchParams(location.search);
+      params.set("basemap", selected.key);
+      params.set("variant", variantKey());
+      history.replaceState(null, "", `${location.pathname}?${params.toString()}`);
+      if (state.map) state.map.setStyle(selected.url);
+      renderBasemapButtons();
+    }
+
+    function renderBasemapButtons() {
+      document.getElementById("basemapGrid").innerHTML = basemaps.map((item) => `
+        <button class="basemap-button ${item.key === state.basemap ? "active" : ""}" type="button" data-basemap="${item.key}">
+          ${item.name}
+        </button>
+      `).join("");
+      document.querySelectorAll("[data-basemap]").forEach((button) => {
+        button.addEventListener("click", () => setBasemap(button.dataset.basemap));
+      });
+    }
+
+    function renderVariant() {
+      const key = variantKey();
+      const c = copy[key];
+      document.body.className = `variant-${key}`;
+      document.getElementById("variantLabel").textContent = `${key.toUpperCase()} - ${variants.find((v) => v.key === key).name}`;
+      document.getElementById("kicker").textContent = c.kicker;
+      document.getElementById("title").textContent = c.title;
+      document.getElementById("lede").textContent = c.lede;
+      document.getElementById("primaryAction").textContent = c.primary;
+      document.getElementById("feature").innerHTML = `
+        <p class="meta">${c.featureTitle}</p>
+        <h2>${c.featureName}</h2>
+        <p class="copy">${c.featureCopy}</p>
+      `;
+    }
+
+    function renderStats() {
+      const stats = state.data.stats;
+      document.getElementById("stats").innerHTML = `
+        <div class="stat"><strong>${stats.visibleDianaMarkers}</strong><span>Diana-coordinate places</span></div>
+        <div class="stat"><strong>${stats.currentV1RowsWithoutDianaCoordinates}</strong><span>V1 places withheld here</span></div>
+        <div class="stat"><strong>${stats.currentV1VisiblePlaces}</strong><span>Current V1 places</span></div>
+        <div class="stat"><strong>${stats.currentV1RowsAlsoInDianaCoordinateSet}</strong><span>V1 rows with Diana coords</span></div>
+      `;
+    }
+
+    function renderChips() {
+      document.getElementById("chips").innerHTML = categories().map((category) => `
+        <button class="chip ${category === state.category ? "active" : ""}" type="button" data-category="${category}">
+          ${category}
+        </button>
+      `).join("");
+      document.querySelectorAll("[data-category]").forEach((button) => {
+        button.addEventListener("click", () => {
+          state.category = button.dataset.category;
+          renderAll();
+        });
+      });
+    }
+
+    function renderList() {
+      const features = filteredFeatures().slice(0, 36);
+      document.getElementById("list").innerHTML = features.map((feature) => {
+        const p = placeProps(feature);
+        return `
+          <button type="button" data-place="${p.id}">
+            <strong>${p.name}</strong>
+            <span>${[p.category, p.city || "Nevada County"].filter(Boolean).join(" / ")}</span>
+          </button>
+        `;
+      }).join("");
+      document.querySelectorAll("[data-place]").forEach((button) => {
+        button.addEventListener("click", () => selectPlace(button.dataset.place));
+      });
+    }
+
+    function renderSelected() {
+      const feature = state.data.geojson.features.find((item) => placeProps(item).id === state.selectedId) || state.data.geojson.features[0];
+      const p = placeProps(feature);
+      state.selectedId = p.id;
+      document.getElementById("selected").innerHTML = `
+        <p class="meta">Place details</p>
+        <h2>${p.name}</h2>
+        <p class="copy">${[p.category, p.city, p.address].filter(Boolean).join(" / ")}</p>
+        <p class="copy">${p.description || "Listed in the Diana Workbook with a usable coordinate."}</p>
+      `;
+    }
+
+    function markerColor(category) {
+      if ((category || "").includes("Historic")) return "#9c7624";
+      if ((category || "").includes("Public")) return "#315e7c";
+      if ((category || "").includes("Cultural")) return "#2f5d4a";
+      return "#ff2e00";
+    }
+
+    function renderMarkers() {
+      state.markers.forEach((marker) => marker.remove());
+      state.markers = [];
+      filteredFeatures().forEach((feature) => {
+        const p = placeProps(feature);
+        const el = document.createElement("button");
+        el.className = `marker ${p.id === state.selectedId ? "selected" : ""}`;
+        el.type = "button";
+        el.title = p.name;
+        el.style.background = markerColor(p.category);
+        el.addEventListener("click", () => selectPlace(p.id));
+        const marker = new maplibregl.Marker({ element: el }).setLngLat(feature.geometry.coordinates).addTo(state.map);
+        state.markers.push(marker);
+      });
+    }
+
+    function selectPlace(id) {
+      const feature = state.data.geojson.features.find((item) => placeProps(item).id === id);
+      if (!feature) return;
+      state.selectedId = id;
+      renderSelected();
+      renderMarkers();
+      state.map.flyTo({ center: feature.geometry.coordinates, zoom: Math.max(state.map.getZoom(), 14), speed: 0.8 });
+    }
+
+    function renderAll() {
+      renderVariant();
+      renderBasemapButtons();
+      renderStats();
+      renderChips();
+      renderSelected();
+      renderList();
+      renderMarkers();
+    }
+
+    function fitAll() {
+      const features = filteredFeatures();
+      if (!features.length) return;
+      const bounds = features.reduce((acc, feature) => acc.extend(feature.geometry.coordinates), new maplibregl.LngLatBounds(features[0].geometry.coordinates, features[0].geometry.coordinates));
+      state.map.fitBounds(bounds, { padding: 70, maxZoom: 12.8, duration: 700 });
+    }
+
+    async function init() {
+      state.data = await fetch("diana-data.json").then((response) => response.json());
+      state.basemap = basemapKey();
+      state.map = new maplibregl.Map({
+        container: "map",
+        style: currentBasemap().url,
+        center: [-121.04, 39.24],
+        zoom: 10.5
+      });
+      state.map.addControl(new maplibregl.NavigationControl({ showCompass: false }), "bottom-right");
+      state.selectedId = state.data.geojson.features.find((feature) => placeProps(feature).name === "Nevada Theatre")?.properties.id || state.data.geojson.features[0]?.properties.id;
+      state.map.on("load", () => {
+        renderAll();
+        fitAll();
+      });
+
+      document.getElementById("search").addEventListener("input", (event) => {
+        state.query = event.target.value;
+        renderAll();
+      });
+      document.getElementById("primaryAction").addEventListener("click", () => {
+        state.query = "";
+        document.getElementById("search").value = "";
+        const key = variantKey();
+        if (key === "route") state.query = "Nevada City";
+        else state.query = "Grass Valley";
+        document.getElementById("search").value = state.query;
+        renderAll();
+        fitAll();
+      });
+      document.getElementById("secondaryAction").addEventListener("click", () => {
+        state.query = "";
+        state.category = "All";
+        document.getElementById("search").value = "";
+        renderAll();
+        fitAll();
+      });
+      document.getElementById("prevVariant").addEventListener("click", () => cycleVariant(-1));
+      document.getElementById("nextVariant").addEventListener("click", () => cycleVariant(1));
+      document.addEventListener("keydown", (event) => {
+        const target = event.target;
+        if (target && ["INPUT", "TEXTAREA"].includes(target.tagName)) return;
+        if (event.key === "ArrowLeft") cycleVariant(-1);
+        if (event.key === "ArrowRight") cycleVariant(1);
+      });
+    }
+
+    init();
+  </script>
+</body>
+</html>
