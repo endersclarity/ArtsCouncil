@@ -131,9 +131,13 @@ The selected-place experience should use a Unified Place Card rather than separa
 Accepted navigation direction:
 
 - Desktop: stable Directory Browser + live map + Unified Place Card in a Selection Drawer.
-- Desktop drawer includes a compact Context Rail showing the immediate browse origin.
-- Context Rail is visible memory, not a second navigation system or long breadcrumb trail.
-- Mobile: selected place appears in a bottom sheet with a Mobile Context Strip and explicit return to browsing.
+- Desktop does not need a separate Context Rail when the Directory Browser remains visible; the visible Directory Browser is the return path.
+- Desktop drawer should stay focused on selected-place content, with normal close/dismiss behavior rather than a breadcrumb dashboard, numbered explanation panel, or second navigation system.
+- Mobile: selected place appears in a bottom sheet with clear close/back behavior. A compact context strip is only needed if the browsing surface is hidden enough that the return path is unclear.
+
+Supersession note for #68:
+
+The original prep phrase "compact Context Rail / Mobile Context Strip" was narrowed during issue shaping. For #68, the accepted implementation scope is the lean drawer/sheet: desktop omits Context Rail entirely, while mobile uses the bottom sheet's close/back affordance as the compact return cue unless a later usability pass proves more context is needed.
 
 ### Coordinate Disclosure
 
