@@ -1,8 +1,8 @@
 # V1 Discovery Map Alpha Artifact
 
-Status: disposable reference build / internal alpha
+Status: current stitch-lab target of truth for V1 Discovery Map review
 
-This folder is a clean static prototype created under the stitch-lab preview area. It is not the final visual design and should not be treated as the replacement for an OpenDesign / Claude Design pass.
+This folder is the current working artifact for V1 Discovery Map review. Agents should open, test, and modify this target unless the user explicitly asks for an older stitch-lab variant or the protected canonical project.
 
 ## Purpose
 
@@ -12,18 +12,35 @@ This folder is a clean static prototype created under the stitch-lab preview are
 
 ## What This Is Not
 
-- Not the canonical redesign.
+- Not the protected canonical deployment.
 - Not a deployed/public launch.
 - Not an Arts Hub continuation.
-- Not the final brand/visual design.
-- Not a substitute for OpenDesign / Claude Design.
+- Not a reason to edit the older `index-maplibre-*` stitch-lab variants by default.
 
 ## Useful Outputs
 
 - `data/places.json`: visible map-ready places.
+- `data/coordinate_sanity_pass.json`: auditable coordinate decisions generated
+  from Diana Workbook first, ArcGIS confident fallbacks second, and optional
+  free US Census Geocoder matches.
+- `data/coordinate_sanity_markers.geojson`: map-ready rows only; rows marked
+  `Needs Location Review` are intentionally held out of this marker layer.
 - `data/events.json`: current mapped event layer from live Trumba RSS.
 - `data/paths.json`: three curated mapped path concepts.
 - `docs/DATA-GAPS.md`: records and issues held out of the visible alpha.
+
+## Coordinate Regeneration
+
+```bash
+python3 scripts/build-v1-coordinate-sanity-pass.py --run-census
+```
+
+The pass preserves Diana Workbook coordinates as authoritative, accepts ArcGIS
+coordinates only through unique normalized name + city matches with no
+address-number contradiction, and records Census matches as medium-confidence
+street interpolation. `reports/v1-coordinate-sanity-pass-summary.json` reports
+counts for Diana, ArcGIS, Census, rejected/low-confidence, and Needs Location
+Review rows.
 
 ## Recommended Next Use
 

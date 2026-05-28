@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>V1 Discovery Map | Nevada County Arts Council</title>
-  <meta name="description" content="Internal alpha for a culture-forward Nevada County Arts Council Discovery Map.">
+  <title>Nevada County Cultural Map</title>
+  <meta name="description" content="Browse cultural places, stories, and events across Grass Valley and Nevada City.">
   <link rel="preconnect" href="https://use.typekit.net">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -28,18 +28,20 @@
       <a href="https://www.nevadacountyarts.org/culture-forward">Culture Forward</a>
       <a href="https://www.nevadacountyarts.org/cultural-asset-map">Current Map</a>
     </nav>
-    <span class="alpha-pill">Internal alpha</span>
+    <span class="alpha-pill">Public beta</span>
   </header>
 
   <main class="app-shell">
-    <section class="intro-strip" aria-label="Prototype framing">
-      <p class="kicker">V1 Discovery Map</p>
-      <h1>Culture-forward map alpha</h1>
-      <p>Places first, events lightly layered in, and MUSE-inspired paths for stakeholder review.</p>
+    <section class="intro-strip" aria-label="Nevada County Cultural Map">
+      <p class="kicker">Nevada County Arts Council</p>
+      <h1>Nevada County Cultural Map</h1>
+      <p>Browse cultural places, stories, and events across Grass Valley and Nevada City.</p>
     </section>
 
     <section class="map-stage" aria-label="Discovery Map">
       <div id="map" class="map-canvas"></div>
+      <div class="mobile-map-context-label grass-valley" aria-hidden="true">Grass Valley</div>
+      <div class="mobile-map-context-label nevada-city" aria-hidden="true">Nevada City</div>
 
       <aside class="control-panel" aria-label="Discovery controls">
         <button type="button" class="drawer-toggle" id="drawer-toggle" aria-label="Toggle panel height">
@@ -64,18 +66,22 @@
         <div class="filter-wrap" id="filters" aria-label="Visitor-intent filters"></div>
 
         <div class="review-tools" id="review-tools" aria-label="Review navigation">
+          <h2 class="browse-heading">Places to explore</h2>
           <label class="review-search-label" for="place-search">
-            <span>Search visible places</span>
-            <input id="place-search" class="review-search-input" type="search" placeholder="Name, city, category">
+            <span>Search places</span>
+            <input id="place-search" class="review-search-input" type="search" placeholder="Search places">
           </label>
           <div class="places-list" id="places-list"></div>
         </div>
 
+      </aside>
+
+      <div class="selection-drawer" id="selection-drawer" aria-live="polite">
         <div class="detail-card" id="detail-card">
           <p class="empty-title">Select a place or path stop</p>
           <p class="empty-copy">The detail card will show image proof, short context, source category, and related events when available.</p>
         </div>
-      </aside>
+      </div>
 
       <div class="map-legend" aria-label="Map legend">
         <span><i class="legend-dot place"></i>Places</span>
