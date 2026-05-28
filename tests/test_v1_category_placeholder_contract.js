@@ -16,6 +16,7 @@ const places = JSON.parse(
 
 const expectedCategoryAssets = {
   "Arts Organizations": "assets/category-placeholders-ncac/arts-organizations.png",
+  "Creative Services": "assets/category-placeholders-ncac/arts-organizations.png",
   "Cultural Resources": "assets/category-placeholders-ncac/cultural-resources.png",
   "Eat, Drink & Stay": "assets/category-placeholders-ncac/eat-drink-stay.png",
   "Fairs & Festivals": "assets/category-placeholders-ncac/fairs-festivals.png",

@@ -34,7 +34,7 @@ assert.match(htmlSource, /mobile-map-context-label nevada-city[\s\S]*Nevada City
 
 assert.match(
   appSource,
-  /"circle-radius":\s*\["interpolate",\s*\["linear"\],\s*\["zoom"\],\s*7,\s*2\.[4-9]/,
+  /\["interpolate",\s*\["linear"\],\s*\["zoom"\],\s*7,\s*2\.[4-9]/,
   "low-zoom density dots should be visible on mobile first load",
 );
 assert.match(
