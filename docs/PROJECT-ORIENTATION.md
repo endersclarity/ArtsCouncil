@@ -42,6 +42,12 @@ The most grounded current direction is:
   - Best source for why the current prototype went in its direction.
   - Records rejected alternatives and branchable decisions.
 
+- `docs/shitshow-brief.md`
+  - Current triage brief for the confidence-breaking V1 UX/data/map critique and validated prototype directions.
+
+- `data/v1-canonical-sources/README.md`
+  - Named canonical source copies for Diana Workbook, ArcGIS Cultural Asset Export, and the quarantined Arts Hub Coordinate Bridge.
+
 - `Transcripts/2026-04-24_arts-council-session_GPT-SUMMARY.md`
   - Meeting-summary synthesis across three April 24 sessions.
   - Useful, but it is already summarized material, not raw transcript.

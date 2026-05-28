@@ -226,9 +226,9 @@ Two Vercel projects exist. **All iteration and testing goes to stitch-lab. The c
 - **Project:** `cultural-map-redesign-stitch-lab`
 - **URL:** [cultural-map-redesign-stitch-lab.vercel.app](https://cultural-map-redesign-stitch-lab.vercel.app/)
 - **Deploy root:** `website/cultural-map-redesign-stitch-lab/`
-- **Entry point:** `index-maplibre-hero-intent-stitch-frontend-design-pass.html`
+- **Entry point:** `v1-discovery-map/index.html`
 - **Deploy:** `cd website/cultural-map-redesign-stitch-lab && vercel --prod`
-- **Purpose:** Active development, design iteration, feature testing
+- **Purpose:** Active V1 Discovery Map review artifact, design iteration, feature testing
 
 ### Canonical (protected — do NOT deploy without explicit request)
 
@@ -240,11 +240,13 @@ Two Vercel projects exist. **All iteration and testing goes to stitch-lab. The c
 
 ### Deployment Rules
 
-1. **Default deploy target is stitch-lab.** When asked to "deploy", "push to Vercel", or "open the deployment" — use stitch-lab.
+1. **Default deploy target is stitch-lab V1 Discovery Map.** When asked to "deploy", "push to Vercel", or "open the deployment" — use stitch-lab and verify `v1-discovery-map/index.html`.
 2. **Do NOT modify or deploy the canonical project** unless the user explicitly says "deploy to canonical" or "deploy to cultural-map-redesign".
 3. **Do NOT edit `website/cultural-map-redesign/index-maplibre-hero-intent.html`** — it is the protected canonical entry point.
-4. **Stitch-lab is a clone** of `website/cultural-map-redesign/`. Files are shared via copy. Edit in the stitch-lab directory for iteration work.
-5. **"Open Vercel deployment"** = open `https://cultural-map-redesign-stitch-lab.vercel.app/` unless told otherwise.
+4. **V1 Discovery Map is the target of truth** for current review work: `website/cultural-map-redesign-stitch-lab/v1-discovery-map/`.
+5. **Current triage brief:** `docs/shitshow-brief.md` captures the confidence-breaking UX/data/map critique and validated prototype directions.
+6. **Canonical source copies:** `data/v1-canonical-sources/` contains the named Diana Workbook, ArcGIS Cultural Asset Export, and quarantined Arts Hub Coordinate Bridge artifacts.
+7. **"Open Vercel deployment"** = open `https://cultural-map-redesign-stitch-lab.vercel.app/` unless told otherwise.
 
 No build step required — both projects are static files (HTML, CSS, JS, JSON, images). The `/api/chat` endpoint is a Vercel Serverless Function (Node.js).
 
