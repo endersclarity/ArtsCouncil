@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Selected Place Navigation | Nevada County Arts Council</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="brand" href="../../index.html" aria-label="Nevada County Arts Council map home">
+      <span>Nevada County</span>
+      <span>Arts &amp; Culture</span>
+    </a>
+    <nav class="site-nav" aria-label="Reference navigation">
+      <a href="../../index.html">Discovery Map</a>
+      <a href="https://www.nevadacountyarts.org/muse-magazine">MUSE Magazine</a>
+      <a href="https://www.nevadacountyarts.org/culture-forward">Culture Forward</a>
+    </nav>
+  </header>
+
+  <main class="prototype-shell" id="app">
+    <section class="map-stage" aria-label="Directory Map Coordination study">
+      <aside class="directory-panel" aria-label="Directory Browser">
+        <div class="panel-heading">
+          <p class="eyebrow">Directory Browser</p>
+          <h1>Browse Starting View</h1>
+          <p>MUSE-Grounded Sampler for Grass Valley and Nevada City.</p>
+        </div>
+
+        <label class="search-label" for="place-search">
+          <span>Search</span>
+          <input id="place-search" type="search" value="gallery, theatre, maker" aria-label="Search directory">
+        </label>
+
+        <div class="category-row" aria-label="Categories">
+          <button class="chip active" type="button">MUSE picks</button>
+          <button class="chip" type="button">Galleries</button>
+          <button class="chip" type="button">Performance</button>
+          <button class="chip" type="button">Historic</button>
+        </div>
+
+        <div class="browse-context" id="browse-context"></div>
+        <div class="directory-list" id="directory-list"></div>
+      </aside>
+
+      <section class="map-pane" aria-label="Map area">
+        <div class="map-grid"></div>
+        <div class="map-town town-gv">Grass Valley</div>
+        <div class="map-town town-nc">Nevada City</div>
+        <div class="route-line"></div>
+        <div class="marker-layer" id="marker-layer"></div>
+        <div class="map-status" id="map-status"></div>
+      </section>
+
+      <section class="detail-region" id="detail-region" aria-label="Unified Place Card area"></section>
+    </section>
+
+    <nav class="variant-bar" aria-label="Navigation pattern choices">
+      <a data-variant="replace" href="?variant=replace">Replace With Back Trail</a>
+      <a data-variant="split" href="?variant=split">Split Stack</a>
+      <a data-variant="drawer" href="?variant=drawer">Card Drawer With Context Rail</a>
+      <a data-variant="tabs" href="?variant=tabs">Breadcrumb Tabs</a>
+    </nav>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
