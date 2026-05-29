@@ -32,6 +32,10 @@ _Avoid_: Old data dump, 686 file, source of truth, full V1 dataset
 The derived coordinate reference from the Arts Hub V2 asset data, preserved only as quarantined reference in V1 canonical source work. It is a bridge, not a source authority for place identity or public marker coordinates.
 _Avoid_: Diana coordinates, source of truth, canonical location data
 
+**Canonical Place**:
+The single record that represents one real-world place, after all of its duplicate listings are collapsed. The Diana Workbook cross-lists the same place across category sheets, and slug variants of one name (e.g. "The Center for the Arts" vs "Center for the Arts", "McGee's" vs "McGees") can produce several listings for one place. Place identity is therefore resolved on (1) exact id and (2) normalized name + city when the listings are co-located — not on id alone. Anchor/path-referenced ids are preserved as the surviving id so references never orphan.
+_Avoid_: Listing, row, id (as a synonym for place), duplicate pin, one-row-one-place
+
 **Ordinary Place**:
 A visible map-ready cultural place record with basic descriptive and location data.
 _Avoid_: Pin, generic listing
@@ -45,8 +49,12 @@ A marker that can be drawn in an internal review map because it has a coordinate
 _Avoid_: Map-ready marker, trusted public marker, final marker
 
 **Constellation Disclosure**:
-The preferred density treatment for broad or medium map views: restrained place dots remain visible as a spatial pattern instead of collapsing into default numbered cluster bubbles.
+The preferred density treatment for broad or medium map views: restrained place dots remain visible as a spatial pattern, with denser constellations allowed to appear as larger soft aggregate marks instead of default numbered cluster bubbles.
 _Avoid_: Number-only cluster, category-mix cluster, area taxonomy bubble
+
+**Marker Hierarchy**:
+The meaning carried by marker visual differences. Marker Hierarchy should communicate density, interaction state, authored importance, and route sequence; it should not turn visitor categories or Outing Types into tiny marker icons. Authored importance may use a restrained Soft Ring treatment when a place has anchor, MUSE, or path significance.
+_Avoid_: Category icon soup, initials-as-category, filter legend as marker system
 
 **Local Reveal**:
 The on-demand interaction for a dense group of constellation dots, showing a small nearby-place summary or list only after user intent such as click or tap.
@@ -143,6 +151,10 @@ _Avoid_: Editorial landing panel, audit table, undifferentiated list
 **Public Browse Label**:
 A user-facing category or filter label written for scanning and curiosity rather than mirroring source workbook taxonomy. It may be mapped from internal source categories without exposing those source terms directly.
 _Avoid_: Workbook category, data label, institutional taxonomy
+
+**Outing Type**:
+A broad public browse lane that helps someone choose what kind of cultural outing they want, such as art, music and performance, history, local shops, outdoors, events, or family-friendly options. Outing Types are not source categories; they are visitor-facing entry points that may map to several internal place types.
+_Avoid_: Workbook taxonomy, rigid ontology, one-to-one source category
 
 **Browse Label Set**:
 The small first-pass group of Public Browse Labels used to make the directory scannable. It should be broad enough to avoid clutter while still helping users understand the kinds of places in the map.

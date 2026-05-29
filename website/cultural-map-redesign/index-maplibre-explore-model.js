@@ -1,6 +1,34 @@
 (function() {
   'use strict';
 
+  function getAssetCategories(asset) {
+    const categories = [];
+    const push = (value) => {
+      const category = String(value || '').trim();
+      if (category && !categories.includes(category)) categories.push(category);
+    };
+    if (Array.isArray(asset && asset.categories)) asset.categories.forEach(push);
+    push(asset && asset.l);
+    return categories;
+  }
+
+  function assetMatchesCategories(asset, activeCategories) {
+    if (!activeCategories || activeCategories.size === 0) return true;
+    return getAssetCategories(asset).some((category) => activeCategories.has(category));
+  }
+
+  function getAssetSearchText(asset) {
+    return [
+      asset && asset.search_text,
+      asset && asset.n,
+      asset && asset.c,
+      asset && asset.d,
+      asset && asset.l,
+      ...(Array.isArray(asset && asset.categories) ? asset.categories : []),
+      ...(Array.isArray(asset && asset.aliases) ? asset.aliases : [])
+    ].filter(Boolean).join(' ').toLowerCase();
+  }
+
   function getFilteredData({
     data,
     activeCategories,
@@ -12,17 +40,12 @@
     getEventCountForAsset14d
   }) {
     let filtered = activeCategories.size > 0
-      ? data.filter((d) => activeCategories.has(d.l))
+      ? data.filter((d) => assetMatchesCategories(d, activeCategories))
       : [...data];
 
     const normalizedQuery = String(query || '').toLowerCase().trim();
     if (normalizedQuery) {
-      filtered = filtered.filter((d) =>
-        (d.n && d.n.toLowerCase().includes(normalizedQuery)) ||
-        (d.c && d.c.toLowerCase().includes(normalizedQuery)) ||
-        (d.d && d.d.toLowerCase().includes(normalizedQuery)) ||
-        (d.l && d.l.toLowerCase().includes(normalizedQuery))
-      );
+      filtered = filtered.filter((d) => getAssetSearchText(d).includes(normalizedQuery));
     }
 
     if (openNowMode) {

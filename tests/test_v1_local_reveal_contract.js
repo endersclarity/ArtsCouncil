@@ -29,6 +29,21 @@ assert.match(
   /state\.map\.on\("click",\s*\(event\) =>/,
   "Local Reveal should listen to ordinary map clicks so dense-area intent is not lost between tiny dots",
 );
+assert.match(
+  appSource,
+  /LOCAL_REVEAL_DENSITY_INTENT_RADIUS_MILES/,
+  "Local Reveal should have a density-intent radius for broad-map clicks near dense constellations",
+);
+assert.match(
+  appSource,
+  /function mapClickHasDenseNearbyPlaces\(lngLat\)/,
+  "Local Reveal should fall back to nearby-place density when rendered dot hit testing misses",
+);
+assert.match(
+  appSource,
+  /!densityFeatureCount && !hasDenseNearbyPlaces/,
+  "dense-area clicks should not depend only on exact rendered density-dot hits",
+);
 
 const startBody = appSource.match(/function startLocalReveal\(lngLat\) \{([\s\S]*?)\n  \}/)?.[1] || "";
 assert.match(startBody, /distanceMiles\(origin/, "Local Reveal should rank nearby places by distance from the clicked spot");

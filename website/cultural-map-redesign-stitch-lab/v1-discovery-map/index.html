@@ -48,7 +48,11 @@
           <span class="drawer-handle-bar"></span>
         </button>
         <div class="panel-topline">
-          <p class="panel-label">Explore</p>
+          <div class="panel-map-copy">
+            <p class="panel-label">Explore</p>
+            <h1>Nevada County Cultural Map</h1>
+            <p>Browse cultural places, stories, and events across Grass Valley and Nevada City.</p>
+          </div>
           <span id="visible-count">Loading</span>
         </div>
 
@@ -63,7 +67,7 @@
           <p>Grass Valley and Nevada City are centered first, with the wider county still visible as context.</p>
         </div>
 
-        <div class="filter-wrap" id="filters" aria-label="Visitor-intent filters"></div>
+        <div class="filter-wrap" id="filters" aria-label="Outing Type browse list"></div>
 
         <div class="review-tools" id="review-tools" aria-label="Review navigation">
           <h2 class="browse-heading">Places to explore</h2>
@@ -93,6 +97,6 @@
 
   <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
   <script src="review-state.js"></script>
-  <script src="app.js?v=review-navigation"></script>
+  <script src="app.js?v=issue-76-marker-hierarchy"></script>
 </body>
 </html>

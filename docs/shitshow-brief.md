@@ -102,6 +102,10 @@ These are working product decisions from the 2026-05-26 grill, not final impleme
 
 The first screen should not open with a raw alphabetical all-places list. The left column should behave as a Directory Browser, beginning with a Browse Starting View.
 
+Implementation issue:
+
+- [#65](https://github.com/endersclarity/ArtsCouncil/issues/65) — MUSE-Grounded Browse Starting View. Closed.
+
 The accepted first input for that Browse Starting View is the refined MUSE-Grounded Sampler:
 
 - GV/NC showcase scope only for first-load visibility.
@@ -114,19 +118,52 @@ The refined sampler artifact currently lives at:
 
 `website/cultural-map-redesign-stitch-lab/v1-discovery-map/data/muse_grounded_sampler.json`
 
+### Filter Model
+
+The first public browse surface should lead with an Outing Type list rather than raw workbook categories or a permanent stack of filter chips.
+
+Implementation issue:
+
+- [#74](https://github.com/endersclarity/ArtsCouncil/issues/74) — replace first filter impression with Outing Type browse list. Open.
+
+- Outing Type means broad visitor-facing lanes such as art, music and performance, history, local shops, outdoors, events, and family-friendly options.
+- Exact categories should remain available as card metadata or secondary filtering, but they should not define the first browse impression.
+- The UI should avoid showing Outing Type and category filters as two always-visible stacked control rows; that risks recreating the same clutter under friendlier labels.
+
+Future issue shape:
+
+- Replace the first filter impression with an Outing Type browse list.
+- Reveal precise category controls only after the user has chosen a lane, searched, or opened deeper filtering.
+
 ### Map Density Disclosure
 
 Default numbered cluster bubbles are no longer the preferred broad/medium zoom treatment.
 
 Preferred direction: Constellation Disclosure with Local Reveal.
 
+Implementation issues:
+
+- [#66](https://github.com/endersclarity/ArtsCouncil/issues/66) — Constellation Disclosure. Closed.
+- [#67](https://github.com/endersclarity/ArtsCouncil/issues/67) — Local Reveal / dense-map clicks update the Directory Browser. Closed.
+- [#75](https://github.com/endersclarity/ArtsCouncil/issues/75) — density-scaled constellation markers. Implemented in the V1 Discovery Map slice.
+- [#76](https://github.com/endersclarity/ArtsCouncil/issues/76) — marker hierarchy beyond density. Open.
+
 - Broad/medium zooms should show restrained place dots as a spatial pattern rather than collapsing everything into generic number bubbles.
+- Constellation marks scale with nearby-place density in V1: a single Ordinary Place stays small, while a dense constellation becomes a larger soft aggregate mark without turning into a default numbered cluster bubble.
+- Density-scaled constellation marks remain on the Local Reveal path. Clicking or tapping dense map intent updates the Directory Browser with nearby places instead of opening a popover or encoding category mix on the map.
+- Marker shape and icon language should not encode visitor category or Outing Type. Category belongs in filters, list rows, cards, and supporting labels; the map marker hierarchy should carry density, interaction state, authored importance, and route sequence instead.
+- The selected place should become the strongest individual marker on the map, visually tied to the Selected Directory Card through a matching accent, stroke, or halo. Selection should outrank ordinary dots and density marks without becoming a giant branded pin.
+- Authored-importance markers, such as anchor, MUSE, or path places, can be a little special before selection using a restrained Soft Ring treatment. The ring should read as curated importance, not as category type, and should remain quieter than the selected-marker state.
 - Dense areas should reveal nearby places on user intent, not through always-visible category-mix bubbles or fake neighborhood buckets.
 - Local Reveal should update the Directory Browser with nearby places instead of opening a cramped map popover list.
 
 ### Selected Place Navigation
 
 The selected-place experience should use a Unified Place Card rather than separate MUSE/non-MUSE or anchor/non-anchor card models.
+
+Implementation issue:
+
+- [#68](https://github.com/endersclarity/ArtsCouncil/issues/68) — Unified Place Card Selection Drawer. Closed.
 
 Accepted navigation direction:
 
@@ -143,6 +180,10 @@ The original prep phrase "compact Context Rail / Mobile Context Strip" was narro
 
 The coordinate pass created Review Markers, not fully trusted public truth.
 
+Implementation issue:
+
+- [#69](https://github.com/endersclarity/ArtsCouncil/issues/69) — estimated and missing location caveats in place cards. Closed.
+
 - Diana Workbook and ArcGIS confident fallback coordinates do not need routine provenance text in normal selected cards.
 - Census/free-geocoded candidate locations can appear in the review map, but selected cards should say `Map location not confirmed - estimated`.
 - Directory-only places remain in the directory without a marker and should say `Map location coming soon`.
@@ -151,6 +192,10 @@ The coordinate pass created Review Markers, not fully trusted public truth.
 ### First Copy Direction
 
 The public surface should use plain, specific public-beta copy. Current accepted first-pass language:
+
+Implementation issue:
+
+- [#70](https://github.com/endersclarity/ArtsCouncil/issues/70) — first viewport and first selected-place public beta copy cleanup. Closed.
 
 - Title: `Nevada County Cultural Map`
 - Support line: `Browse cultural places, stories, and events across Grass Valley and Nevada City.`
@@ -167,7 +212,7 @@ The public surface should use plain, specific public-beta copy. Current accepted
 - Start the left column with the refined MUSE-Grounded Sampler instead of a raw all-places list.
 - Replace the low-context CARTO Positron basemap with a more legible map background, starting with the MapTiler Streets direction validated in the Diana Workbook prototype.
 - Replace default number-only clusters with Constellation Disclosure and Local Reveal.
-- Use real marker symbols, restrained place dots, and numbered route stops instead of initials or category icon soup.
+- Use real marker symbols, density-scaled restrained place dots, and numbered route stops instead of initials or category icon soup.
 - Give the first screen one obvious satisfying move.
 - Let the left panel orient and invite before it becomes a full inventory browser.
 - Keep the Directory Browser, map, selected marker, and selected card coordinated.
@@ -175,16 +220,45 @@ The public surface should use plain, specific public-beta copy. Current accepted
 - Treat filters as user questions, not database categories.
 - Keep the full dataset available, but stop letting it dominate first load.
 
-## Not Yet Official Issues
+## Issue Status
+
+This brief is the source narrative. GitHub issues are the implementation slices. Readers should use both: the brief explains why the work exists; the issues show what has been built or queued.
+
+Completed implementation slices:
+
+- [#65](https://github.com/endersclarity/ArtsCouncil/issues/65) — MUSE-Grounded Browse Starting View. Closed.
+- [#66](https://github.com/endersclarity/ArtsCouncil/issues/66) — Constellation Disclosure. Closed.
+- [#67](https://github.com/endersclarity/ArtsCouncil/issues/67) — Local Reveal / dense-map clicks update the Directory Browser. Closed.
+- [#68](https://github.com/endersclarity/ArtsCouncil/issues/68) — Unified Place Card Selection Drawer. Closed.
+- [#69](https://github.com/endersclarity/ArtsCouncil/issues/69) — estimated and missing location caveats in place cards. Closed.
+- [#70](https://github.com/endersclarity/ArtsCouncil/issues/70) — first viewport and first selected-place public beta copy cleanup. Closed.
+
+Queued implementation slice:
+
+- [#74](https://github.com/endersclarity/ArtsCouncil/issues/74) — replace first filter impression with Outing Type browse list. Open.
+- [#75](https://github.com/endersclarity/ArtsCouncil/issues/75) — density-scaled constellation markers. Open.
+- [#76](https://github.com/endersclarity/ArtsCouncil/issues/76) — marker hierarchy beyond density. Open.
+
+Still unresolved from this brief:
+
+- Coordinate trust and validation beyond visible caveats.
+- Marker visual language inside the Constellation Disclosure system beyond density-scaled constellation markers.
+- Basemap integration or comparison for the MapTiler Streets direction.
+- Global public copy beyond the first viewport / first click.
+- Opening experience depth beyond the MUSE-Grounded Sampler and Outing Type direction.
+- Authored routes and featured anchors as a stronger first-screen experience.
+- Broader data-source sanity and governance.
+
+## Remaining Issue Areas
 
 This brief is intentionally not an issue list. It captures the first triage read so the project does not lose sight of the core failure.
 
-Likely future issue areas:
+Likely future issue areas not yet fully shaped:
 
 - Coordinate trust and validation.
 - Marker and cluster disclosure.
-- Public beta copy rewrite.
-- Left panel first-use redesign.
-- Filter model redesign.
+- Public beta copy rewrite beyond first viewport and first click.
+- Left panel first-use redesign beyond the current sampler and Outing Type slice.
+- Filter model follow-through after [#74](https://github.com/endersclarity/ArtsCouncil/issues/74).
 - First-screen stakeholder/public hybrid composition.
 - Authored routes and featured anchors as opening experience.

@@ -10,3 +10,8 @@ screenshots/
 .env
 .env.*
 !.env.example
+
+# Local machine/tooling cache
+.DS_Store
+.superpowers/
+__pycache__/

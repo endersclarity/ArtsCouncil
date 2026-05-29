@@ -9,6 +9,17 @@
     'center', 'centre', 'hall', 'plaza', 'park', 'building'
   ]);
 
+  function getAssetCategories(asset) {
+    const categories = [];
+    const push = (value) => {
+      const category = String(value || '').trim();
+      if (category && !categories.includes(category)) categories.push(category);
+    };
+    if (Array.isArray(asset && asset.categories)) asset.categories.forEach(push);
+    push(asset && asset.l);
+    return categories;
+  }
+
   function getInferredEventCategories(event) {
     const categories = new Set();
     const tagsText = Array.isArray(event && event.tags)
@@ -37,7 +48,7 @@
 
     if (Number.isInteger(event && event.matched_asset_idx)) {
       const asset = data[event.matched_asset_idx];
-      if (asset && typeof asset.l === 'string' && asset.l) categories.add(asset.l);
+      getAssetCategories(asset).forEach((category) => categories.add(category));
     }
 
     const primary = event && event.event_category;
@@ -176,9 +187,17 @@
     const byPid = new Map();
     const byKey = new Map();
     const byCity = new Map();
+    const bySourceIndex = new Map();
     const assetNameTokensByIdx = data.map((asset) => tokenizeVenueName(asset && asset.n));
 
     data.forEach((asset, idx) => {
+      const sourceIndices = Array.isArray(asset && asset.source_indices) ? asset.source_indices : [idx];
+      sourceIndices.forEach((sourceIndex) => {
+        if (Number.isInteger(sourceIndex) && !bySourceIndex.has(sourceIndex)) {
+          bySourceIndex.set(sourceIndex, idx);
+        }
+      });
+
       if (asset && typeof asset.pid === 'string' && asset.pid.trim()) {
         if (!byPid.has(asset.pid)) byPid.set(asset.pid, []);
         byPid.get(asset.pid).push(idx);
@@ -229,11 +248,19 @@
       sourceEvents = indexedEvents;
     }
 
+    function resolveMatchedAssetIndex(idx) {
+      if (!Number.isInteger(idx)) return null;
+      if (bySourceIndex.has(idx)) return bySourceIndex.get(idx);
+      return idx >= 0 && idx < data.length ? idx : null;
+    }
+
     const normalized = [];
     sourceEvents.forEach((raw) => {
       if (!raw || typeof raw !== 'object') return;
       const event = { ...raw };
-      let matchedIdx = Number.isInteger(event.matched_asset_idx) ? event.matched_asset_idx : null;
+      let matchedIdx = Number.isInteger(event.matched_asset_idx)
+        ? resolveMatchedAssetIndex(event.matched_asset_idx)
+        : null;
       let matchMethod = event.match_method || 'none';
 
       if (matchedIdx === null) {

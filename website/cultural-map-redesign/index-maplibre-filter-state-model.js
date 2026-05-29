@@ -1,6 +1,22 @@
 (function() {
   'use strict';
 
+  function getAssetCategories(asset) {
+    const categories = [];
+    const push = (value) => {
+      const category = String(value || '').trim();
+      if (category && !categories.includes(category)) categories.push(category);
+    };
+    if (Array.isArray(asset && asset.categories)) asset.categories.forEach(push);
+    push(asset && asset.l);
+    return categories;
+  }
+
+  function assetMatchesCategories(asset, activeCategories) {
+    if (!activeCategories || activeCategories.size === 0) return true;
+    return getAssetCategories(asset).some((category) => activeCategories.has(category));
+  }
+
   function computeNextCategories({ activeCategories, cat, exclusive = false }) {
     const next = new Set(activeCategories || []);
     if (cat === null) {
@@ -32,7 +48,7 @@
     if (!hasActive) return null;
 
     const count = (data || []).filter((venue, idx) => {
-      const categoryOk = selected.length === 0 || activeCategories.has(venue.l);
+      const categoryOk = selected.length === 0 || assetMatchesCategories(venue, activeCategories);
       const openOk = !openNowMode || getHoursState(venue) !== 'closed';
       const eventsOk = !events14dMode || getEventCountForAsset14d(idx) > 0;
       return categoryOk && openOk && eventsOk;
