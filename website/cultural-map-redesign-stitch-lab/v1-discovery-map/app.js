@@ -1380,6 +1380,7 @@
       startLocalReveal(event.lngLat);
     };
     const localRevealDensityFeatures = (point, radius = 16) => {
+      if (!state.map.getLayer("place-density")) return [];
       const hitBox = [
         [point.x - radius, point.y - radius],
         [point.x + radius, point.y + radius],
@@ -1497,6 +1498,7 @@
 
   init().catch((error) => {
     setDetailCardMode("");
-    els.detail.innerHTML = `<p class="empty-title">Unable to load alpha data</p><p class="empty-copy">${escapeHtml(error.message)}</p>`;
+    console.error("V1 Discovery Map failed to load data:", error);
+    els.detail.innerHTML = `<p class="empty-title">We couldn't load the map data</p><p class="empty-copy">Please refresh the page to try again.</p>`;
   });
 })();
