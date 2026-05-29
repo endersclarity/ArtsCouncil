@@ -32,6 +32,10 @@ _Avoid_: Old data dump, 686 file, source of truth, full V1 dataset
 The derived coordinate reference from the Arts Hub V2 asset data, preserved only as quarantined reference in V1 canonical source work. It is a bridge, not a source authority for place identity or public marker coordinates.
 _Avoid_: Diana coordinates, source of truth, canonical location data
 
+**Canonical Place**:
+The single record that represents one real-world place, after all of its duplicate listings are collapsed. The Diana Workbook cross-lists the same place across category sheets, and slug variants of one name (e.g. "The Center for the Arts" vs "Center for the Arts", "McGee's" vs "McGees") can produce several listings for one place. Place identity is therefore resolved on (1) exact id and (2) normalized name + city when the listings are co-located — not on id alone. Anchor/path-referenced ids are preserved as the surviving id so references never orphan.
+_Avoid_: Listing, row, id (as a synonym for place), duplicate pin, one-row-one-place
+
 **Ordinary Place**:
 A visible map-ready cultural place record with basic descriptive and location data.
 _Avoid_: Pin, generic listing
