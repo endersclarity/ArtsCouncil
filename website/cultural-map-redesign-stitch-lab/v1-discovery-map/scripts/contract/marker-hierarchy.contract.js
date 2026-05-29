@@ -55,14 +55,38 @@ async function runMarkerHierarchyContract(map) {
   const anchIdx = radStr.indexOf('"anchor"');
   assert("C4 selected marker outranks anchor (priority order)", selIdx > -1 && anchIdx > -1 && selIdx < anchIdx);
 
-  // C5 — Candidate vs Map-Ready tier reads distinctly (candidate drives fill + stroke).
+  // C5 — CLA-32: coordinate trust/provenance must not be encoded in marker styling.
+  // "candidate" can remain data for cards/details, but marker paint must not branch on it.
   const fill = JSON.stringify(map.getPaintProperty("place-density", "circle-color"));
   const strokeColor = JSON.stringify(map.getPaintProperty("place-density", "circle-stroke-color"));
-  assert("C5 Candidate tier styled distinctly from Map-Ready", fill.includes("candidate") && strokeColor.includes("candidate"));
+  const placePaint = [
+    fill,
+    strokeColor,
+    JSON.stringify(map.getPaintProperty("place-density", "circle-radius")),
+    JSON.stringify(map.getPaintProperty("place-points", "circle-color")),
+    JSON.stringify(map.getPaintProperty("place-points", "circle-stroke-color")),
+  ].join(" ");
+  assert("C5 no coordinate-trust marker styling", !placePaint.includes("candidate") && !placePaint.includes("markerTier"), placePaint);
 
   // C6 — #66/#75 regression repair: place-density actually renders the constellation base.
   // (It was silently dropped at load by an invalid zoom-in-case expression introduced in PR #71.)
   assert("C6 place-density renders (constellation base restored)", map.queryRenderedFeatures({ layers: ["place-density"] }).length > 0);
+
+  // C7 — CLA-32: events use a distinct diamond symbol, not another circular dot language.
+  const eventLayer = map.getLayer("event-points");
+  const eventIcon = JSON.stringify(map.getLayoutProperty("event-points", "icon-image"));
+  assert("C7 events render as a diamond symbol layer", eventLayer?.type === "symbol" && eventIcon.includes("event-diamond"), { type: eventLayer?.type, eventIcon });
+
+  // C8 — CLA-32: event hit area remains generous after switching visible events to symbols.
+  assert("C8 invisible event hit target exists", !!map.getLayer("event-hit-target"));
+
+  // C9 — CLA-32: white may be halo/stroke only, not selected/anchor fill.
+  const placePointFill = JSON.stringify(map.getPaintProperty("place-points", "circle-color"));
+  assert("C9 no white-filled semantic place markers", !placePointFill.includes("#ffffff") && !placePointFill.includes("paper"), placePointFill);
+
+  // C10 — CLA-32: red rings are reserved for anchor/featured emphasis, not broad content tags.
+  const anchorRingFilter = JSON.stringify(map.getFilter("anchor-rings"));
+  assert("C10 rings are not applied to broad muse/sampler/current-context sets", !anchorRingFilter.includes("musePick") && !anchorRingFilter.includes("sampler") && !anchorRingFilter.includes("currentContext"), anchorRingFilter);
 
   return {
     allPass: checks.every((c) => c.pass),

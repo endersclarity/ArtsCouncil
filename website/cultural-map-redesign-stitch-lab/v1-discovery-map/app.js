@@ -11,11 +11,11 @@
   };
 
   const MARKERS = {
-    place: "#141414",
+    place: "#1a1a2e",
     quiet: "#5d625b",
     red: "#ff2e00",
     paper: "#ffffff",
-    ink: "#141414",
+    ink: "#1a1a2e",
   };
   const CONSTELLATION_DENSITY_RADIUS_MILES = 0.01;
   const DENSE_CONSTELLATION_MIN_PLACES = 8;
@@ -262,6 +262,7 @@
         date: event.date,
         placeId: event.placeId,
         placeName: event.placeName,
+        selected: event.id === state.selectedEventId,
       },
     };
   }
@@ -1081,6 +1082,7 @@
     state.selectedEventId = event.id;
     state.selectedPlaceId = "";
     state.selectedPath = null;
+    setSourceData();
     const place = state.places.find((item) => item.id === event.placeId);
     els.detail.innerHTML = `
       ${event.image ? `<img class="place-image" src="${escapeHtml(event.image)}" alt="${escapeHtml(event.title)}">` : ""}
@@ -1208,8 +1210,9 @@
     document.querySelectorAll(".mode-tab").forEach((tab) => tab.classList.toggle("active", tab.dataset.mode === mode));
     clearPathMarkers();
     setMapSourceData("paths", []);
-    setMapLayerVisibility("event-points", mode === "events" ? "visible" : "none");
-    setMapLayerVisibility("event-halo", mode === "events" ? "visible" : "none");
+    ["event-hit-target", "event-halo", "event-points"].forEach((layerId) => {
+      setMapLayerVisibility(layerId, mode === "events" ? "visible" : "none");
+    });
     if (mode === "events") {
       els.hint.innerHTML = `<p class="hint-title">Events on the map</p><p>Upcoming NCAC-feed events appear when the venue matches a visible place.</p>`;
       const first = state.events[0];
@@ -1297,7 +1300,40 @@
     });
   }
 
+  function addEventDiamondImage() {
+    if (!state.map || state.map.hasImage("event-diamond")) return;
+    const size = 48;
+    const center = size / 2;
+    const canvas = document.createElement("canvas");
+    canvas.width = size;
+    canvas.height = size;
+    const context = canvas.getContext("2d");
+    if (!context) return;
+
+    context.save();
+    context.translate(center, center + 1);
+    context.rotate(Math.PI / 4);
+    context.shadowColor = "rgba(26,26,46,0.24)";
+    context.shadowBlur = 5;
+    context.shadowOffsetY = 2;
+    context.fillStyle = MARKERS.red;
+    context.strokeStyle = MARKERS.paper;
+    context.lineWidth = 5;
+    context.beginPath();
+    context.rect(-10, -10, 20, 20);
+    context.fill();
+    context.stroke();
+    context.shadowColor = "rgba(0,0,0,0)";
+    context.strokeStyle = MARKERS.ink;
+    context.lineWidth = 1.4;
+    context.stroke();
+    context.restore();
+
+    state.map.addImage("event-diamond", context.getImageData(0, 0, size, size), { pixelRatio: 2 });
+  }
+
   function addMapLayers() {
+    addEventDiamondImage();
     state.map.addSource("local-reveal-area", {
       type: "geojson",
       data: { type: "FeatureCollection", features: [] },
@@ -1326,71 +1362,81 @@
       paint: {
         "circle-radius": [
           "interpolate", ["linear"], ["zoom"],
-          7, ["case", ["get", "denseConstellation"], ["interpolate", ["linear"], ["get", "nearbyDensity"], 8, 5.2, 18, 7.6, 36, 10.8], 2.8],
-          11, ["case", ["get", "denseConstellation"], ["interpolate", ["linear"], ["get", "nearbyDensity"], 8, 5.2, 18, 7.6, 36, 10.8], 3.6],
-          14, ["case", ["get", "denseConstellation"], ["interpolate", ["linear"], ["get", "nearbyDensity"], 8, 5.2, 18, 7.6, 36, 10.8], 3.8]
+          7, ["case", ["get", "denseConstellation"], ["interpolate", ["linear"], ["get", "nearbyDensity"], 8, 5.5, 18, 7.8, 36, 10.8], 3.8],
+          11, ["case", ["get", "denseConstellation"], ["interpolate", ["linear"], ["get", "nearbyDensity"], 8, 5.5, 18, 7.8, 36, 10.8], 5],
+          14, ["case", ["get", "denseConstellation"], ["interpolate", ["linear"], ["get", "nearbyDensity"], 8, 5.5, 18, 7.8, 36, 10.8], 6]
         ],
-        "circle-color": MARKERS.ink,
+        "circle-color": MARKERS.place,
         "circle-opacity": [
           "case",
-          ["get", "denseConstellation"], 0.24,
-          ["get", "currentContext"], 0.68,
-          ["get", "sampler"], 0.64,
-          0.5
+          ["get", "denseConstellation"], 0.32,
+          ["get", "currentContext"], 0.82,
+          ["get", "sampler"], 0.78,
+          0.72
         ],
-        "circle-blur": ["case", ["get", "denseConstellation"], 0.42, 0],
+        "circle-blur": ["case", ["get", "denseConstellation"], 0.18, 0],
         "circle-stroke-color": MARKERS.paper,
         "circle-stroke-width": [
           "interpolate", ["linear"], ["zoom"],
-          7, ["case", ["get", "denseConstellation"], 0, 0.55],
-          12, ["case", ["get", "denseConstellation"], 0, 0.55]
+          7, ["case", ["get", "denseConstellation"], 0, 1],
+          12, ["case", ["get", "denseConstellation"], 0, 1.4]
         ],
+      },
+    });
+    state.map.addLayer({
+      id: "place-selection-halo",
+      type: "circle",
+      source: "places",
+      filter: ["all", ["!", ["has", "point_count"]], ["get", "selected"]],
+      paint: {
+        "circle-radius": 15,
+        "circle-color": "rgba(255,46,0,0.14)",
+        "circle-blur": 0.35,
       },
     });
     state.map.addLayer({
       id: "place-points",
       type: "circle",
       source: "places",
-      filter: ["any", ["get", "selected"], ["get", "anchor"], ["get", "musePick"], ["get", "sampler"], ["get", "currentContext"]],
+      filter: ["any", ["get", "selected"], ["get", "anchor"], ["get", "featured"]],
       paint: {
         "circle-radius": [
           "case",
-          ["get", "selected"], 8,
-          ["get", "anchor"], 5.5,
-          ["get", "sampler"], 4.8,
-          4.2
+          ["get", "selected"], 9.5,
+          ["get", "anchor"], 8,
+          ["get", "featured"], 7.5,
+          5.5
         ],
-        "circle-color": [
-          "case",
-          ["get", "selected"], MARKERS.paper,
-          ["get", "anchor"], MARKERS.paper,
-          ["get", "musePick"], MARKERS.paper,
-          ["get", "sampler"], MARKERS.paper,
-          MARKERS.place
-        ],
-        "circle-opacity": ["case", ["get", "selected"], 1, 0.72],
-        "circle-stroke-color": [
-          "case",
-          ["get", "selected"], MARKERS.red,
-          ["get", "localReveal"], MARKERS.red,
-          ["get", "musePick"], MARKERS.paper,
-          ["get", "sampler"], MARKERS.red,
-          MARKERS.paper
-        ],
-        "circle-stroke-width": ["case", ["get", "selected"], 3, ["get", "localReveal"], 1.8, ["get", "sampler"], 1.4, 0.9],
+        "circle-color": MARKERS.place,
+        "circle-opacity": 1,
+        "circle-stroke-color": MARKERS.paper,
+        "circle-stroke-width": ["case", ["get", "selected"], 2, 1.4],
       },
     });
     state.map.addLayer({
       id: "anchor-rings",
       type: "circle",
       source: "places",
-      filter: ["all", ["!", ["has", "point_count"]], ["get", "anchor"]],
+      filter: ["all", ["!", ["has", "point_count"]], ["any", ["get", "anchor"], ["get", "featured"]]],
       paint: {
-        "circle-radius": ["case", ["get", "selected"], 13, 11],
+        "circle-radius": ["case", ["get", "selected"], 14, ["get", "anchor"], 12, 10],
         "circle-color": "rgba(255,255,255,0)",
         "circle-stroke-color": MARKERS.red,
-        "circle-stroke-width": ["case", ["get", "selected"], 2.6, 1.7],
-        "circle-opacity": 0.96,
+        "circle-stroke-width": ["case", ["get", "selected"], 3, 2],
+        "circle-opacity": ["case", ["get", "selected"], 1, 0.88],
+      },
+    });
+    state.map.addLayer({
+      id: "place-selection-ring",
+      type: "circle",
+      source: "places",
+      filter: ["all", ["!", ["has", "point_count"]], ["get", "selected"]],
+      paint: {
+        "circle-radius": 14,
+        "circle-color": "rgba(255,255,255,0)",
+        "circle-stroke-color": MARKERS.red,
+        "circle-stroke-width": 3.2,
+        "circle-opacity": 1,
       },
     });
     state.map.addSource("events", { type: "geojson", data: { type: "FeatureCollection", features: [] } });
@@ -1399,21 +1445,34 @@
       type: "circle",
       source: "events",
       layout: { visibility: "none" },
+      filter: ["get", "selected"],
       paint: {
-        "circle-radius": 15,
-        "circle-color": "rgba(255,46,0,0.18)",
+        "circle-radius": 16,
+        "circle-color": "rgba(26,26,46,0.16)",
+        "circle-blur": 0.25,
       },
     });
     state.map.addLayer({
-      id: "event-points",
+      id: "event-hit-target",
       type: "circle",
       source: "events",
       layout: { visibility: "none" },
       paint: {
-        "circle-radius": 7,
+        "circle-radius": 22,
         "circle-color": MARKERS.red,
-        "circle-stroke-color": MARKERS.ink,
-        "circle-stroke-width": 1.5,
+        "circle-opacity": 0,
+      },
+    });
+    state.map.addLayer({
+      id: "event-points",
+      type: "symbol",
+      source: "events",
+      layout: {
+        visibility: "none",
+        "icon-image": "event-diamond",
+        "icon-size": ["case", ["get", "selected"], 1.18, 0.92],
+        "icon-allow-overlap": true,
+        "icon-ignore-placement": true,
       },
     });
 
@@ -1425,8 +1484,8 @@
       paint: {
         "line-color": MARKERS.red,
         "line-width": 1.8,
-        "line-opacity": 0.2,
-        "line-dasharray": [1, 4],
+        "line-opacity": 0.45,
+        "line-dasharray": [1, 2.5],
       },
     });
 
@@ -1449,7 +1508,7 @@
     };
     const mapClickHasDirectSelection = (point) => {
       return state.map.queryRenderedFeatures(point, {
-        layers: ["place-points", "anchor-rings", "event-points"],
+        layers: ["place-points", "anchor-rings", "place-selection-ring", "event-hit-target", "event-points"],
       }).length > 0;
     };
     const startLocalRevealFromMapClick = (event) => {
@@ -1464,11 +1523,13 @@
     state.map.on("click", "place-density", startLocalRevealFromFeature);
     state.map.on("click", "place-points", showPlaceFromFeature);
     state.map.on("click", "anchor-rings", showPlaceFromFeature);
-    state.map.on("click", "event-points", (event) => {
-      const id = event.features[0].properties.id;
+    const showEventFromFeature = (event) => {
+      const id = event.features?.[0]?.properties?.id;
       const eventItem = state.events.find((item) => item.id === id);
       if (eventItem) showEvent(eventItem);
-    });
+    };
+    state.map.on("click", "event-hit-target", showEventFromFeature);
+    state.map.on("click", "event-points", showEventFromFeature);
     state.map.on("click", (event) => {
       startLocalRevealFromMapClick(event);
     });
@@ -1492,7 +1553,7 @@
       state.map.getCanvas().style.cursor = "";
       hideMarkerPreview();
     });
-    ["event-points"].forEach((layer) => {
+    ["event-hit-target", "event-points"].forEach((layer) => {
       state.map.on("mouseenter", layer, () => { state.map.getCanvas().style.cursor = "pointer"; });
       state.map.on("mouseleave", layer, () => { state.map.getCanvas().style.cursor = ""; });
     });
