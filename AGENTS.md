@@ -49,6 +49,13 @@ Shaped work (PRDs, vertical-slice issues) lives in **Linear** — project
 The 49 legacy issues on GitHub (`endersclarity/ArtsCouncil`) are kept as
 **read-only history/reference**, not the working tracker. See `docs/agents/issue-tracker.md`.
 
+Linear rules (full detail in the `/linear` skill):
+- Tools are `save_issue` (create+update) and `save_comment` — NOT the generic
+  `create_issue`/`update_issue` names from public docs.
+- **Status timing:** move an issue to In Progress when you START, Done when finished —
+  never flip straight to Done at the end (owner rule, see CLA-27).
+- Read first (`get_issue`) before creating, to avoid duplicates.
+
 ### Triage labels
 
 Five canonical triage roles, default strings, applied as Linear issue **labels**
