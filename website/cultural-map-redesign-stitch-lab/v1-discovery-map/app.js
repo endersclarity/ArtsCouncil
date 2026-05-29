@@ -1330,7 +1330,7 @@
           11, ["case", ["get", "denseConstellation"], ["interpolate", ["linear"], ["get", "nearbyDensity"], 8, 5.2, 18, 7.6, 36, 10.8], 3.6],
           14, ["case", ["get", "denseConstellation"], ["interpolate", ["linear"], ["get", "nearbyDensity"], 8, 5.2, 18, 7.6, 36, 10.8], 3.8]
         ],
-        "circle-color": ["case", ["get", "candidate"], MARKERS.paper, MARKERS.ink],
+        "circle-color": MARKERS.ink,
         "circle-opacity": [
           "case",
           ["get", "denseConstellation"], 0.24,
@@ -1339,11 +1339,11 @@
           0.5
         ],
         "circle-blur": ["case", ["get", "denseConstellation"], 0.42, 0],
-        "circle-stroke-color": ["case", ["get", "candidate"], MARKERS.ink, MARKERS.paper],
+        "circle-stroke-color": MARKERS.paper,
         "circle-stroke-width": [
           "interpolate", ["linear"], ["zoom"],
-          7, ["case", ["get", "candidate"], 1.1, 0],
-          12, ["case", ["get", "candidate"], 1.1, ["get", "denseConstellation"], 0, 0.55]
+          7, ["case", ["get", "denseConstellation"], 0, 0.55],
+          12, ["case", ["get", "denseConstellation"], 0, 0.55]
         ],
       },
     });
