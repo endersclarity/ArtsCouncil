@@ -1,0 +1,68 @@
+total places: 1415
+--- CENSUS (target) ---
+  id: 'air-aligned-aerial-arts-academy-grass-valley'
+  name: 'Air Aligned Aerial Arts Academy'
+  address: '900 Golden Gate Ter, Ste E'
+  city: 'Grass Valley'
+  lat: 39.225229126779
+  lng: -121.037978857224
+  locationReviewStatus: 'Coordinate Candidate'
+  coordinateSource: 'us-census-geocoder'
+  coordinateConfidence: 'medium'
+  coordinateProvenance: 'candidate'
+  coordinateDecisionId: 'air-aligned-aerial-arts-academy-grass-valley--arts organization table 1--row-12'
+  markerTier: 'candidate'
+  locationCaveat: 'Map location not confirmed - estimated'
+--- ARCGIS high ---
+  id: 'ananda-crystal-hermitage-gardens-nevada-city'
+  name: 'Ananda Crystal Hermitage Gardens'
+  address: '14618 Tyler Foote Rd'
+  city: 'Nevada City'
+  lat: 39.3692327490976
+  lng: -121.044776876703
+  locationReviewStatus: 'Map-Ready'
+  coordinateSource: 'arcgis-cultural-assets-confident-match'
+  coordinateConfidence: 'high'
+  coordinateProvenance: 'arcgis-confident'
+  coordinateDecisionId: 'ananda-crystal-hermitage-gardens-nevada-city--arts organization table 1--row-33'
+  markerTier: 'map-ready'
+  locationCaveat: ''
+--- HUMAN-VERIFIED ---
+  id: 'asif-studios-grass-valley'
+  name: 'ASiF Studios'
+  address: '940 Idaho Maryland Rd'
+  city: 'Grass Valley'
+  lat: 39.222542531384
+  lng: -121.051461055927
+  locationReviewStatus: 'Map-Ready'
+  coordinateSource: 'us-census-geocoder'
+  coordinateConfidence: 'medium'
+  coordinateProvenance: 'human-verified'
+  coordinateDecisionId: 'asif-studios-grass-valley--muse bd table 1--row-18'
+  markerTier: 'map-ready'
+  locationCaveat: ''
+== coordinateSource values ==
+     524  us-census-geocoder
+     319  none
+     220  diana-workbook-webmercator
+     219  diana-workbook-lonlat
+     133  arcgis-cultural-assets-confident-match
+== coordinateConfidence values ==
+     524  medium
+     439  authoritative
+     319  needs-review
+     133  high
+== coordinateProvenance values ==
+     523  candidate
+     438  diana
+     318  none
+     133  arcgis-confident
+       3  human-verified
+== locationReviewStatus values ==
+     574  Map-Ready
+     523  Coordinate Candidate
+     318  Needs Location Review
+== markerTier values ==
+     574  map-ready
+     523  candidate
+     318  directory-only

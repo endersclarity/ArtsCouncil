@@ -5,6 +5,23 @@ config; it deliberately does **not** narrate the codebase — read the code for 
 (The prior CLAUDE.md/AGENTS.md narrative was quarantined under
 `.narrative-quarantine/` because it described a dead version of the app.)
 
+## Branch policy — ONE branch, no exceptions (owner rule, 2026-05-29)
+
+**Do all work on the single current branch. Do NOT create a per-issue branch unless
+the owner explicitly asks for one.** Per-issue branches caused finished work (e.g. the
+CLA-30 map cursor) to silently not exist on the branch the owner was using — work
+appeared to "disappear." It did not; it was stranded on an unmerged sibling branch.
+
+Rules:
+- A change the owner approves lands on the current branch immediately. No side branches.
+- Never leave approved work on a branch the owner's workspace isn't on.
+- If you ever DO branch (only on explicit request), merge it back the same session.
+- When the owner asks "where did X go?", suspect an unmerged branch first
+  (`git branch -a`, `git log --oneline <branch>..HEAD`), not a regression.
+
+To see/run the live app: **`pwsh -File run.ps1`** (serves the v1 map on port 4178).
+"Done" should always be verifiable by the owner in the browser — not just in a commit.
+
 ## Intent Layer — start here
 
 **The live app is `website/cultural-map-redesign-stitch-lab/v1-discovery-map/`** — a single

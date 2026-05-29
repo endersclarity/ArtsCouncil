@@ -1,0 +1,111 @@
+<!doctype html>
+<!-- PROTOTYPE — throwaway. Answers CLA-28: "how accurate could rooftop geocoding get?"
+     Red = current census coords (on the street). Green = OSM rooftop coords (on the building).
+     Gray line = the correction. Delete once the verdict is in NOTES.md. -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PROTOTYPE — Rooftop geocode vs census (Mill St)</title>
+<link href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css" rel="stylesheet">
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<style>
+  html,body{margin:0;height:100%;font-family:-apple-system,Segoe UI,Roboto,sans-serif}
+  #map{position:absolute;inset:0}
+  #banner{position:absolute;top:0;left:0;right:0;z-index:5;background:#ff2e00;color:#fff;
+    font-weight:700;font-size:13px;padding:6px 12px;letter-spacing:.04em}
+  #panel{position:absolute;top:38px;left:12px;z-index:5;background:#fff;border:1px solid #ddd;
+    border-radius:10px;padding:12px 14px;max-width:320px;box-shadow:0 6px 24px rgba(0,0,0,.12);font-size:13px;line-height:1.45}
+  #panel h2{margin:0 0 6px;font-size:15px}
+  .legend{display:flex;align-items:center;gap:8px;margin:4px 0}
+  .dot{width:14px;height:14px;border-radius:50%;border:2px solid #fff;box-shadow:0 0 0 1px #333}
+  .red{background:#ff2e00}.green{background:#13a36b}
+  .stat{font-variant-numeric:tabular-nums}
+  .muted{color:#666}
+  #toggle{margin-top:8px}
+  button{font:inherit;padding:5px 10px;border:1px solid #bbb;background:#f6f6f6;border-radius:6px;cursor:pointer}
+  button.on{background:#141414;color:#fff;border-color:#141414}
+  .maplibregl-popup-content{font-size:12px;line-height:1.4}
+</style>
+</head>
+<body>
+<div id="banner">⚠ PROTOTYPE — Mill St rooftop-geocode accuracy check (CLA-28). Throwaway.</div>
+<div id="panel">
+  <h2>Census → Rooftop</h2>
+  <div class="legend"><span class="dot red"></span> Current (census, on street)</div>
+  <div class="legend"><span class="dot green"></span> OSM rooftop (on building)</div>
+  <div class="legend"><span class="muted">— gray line = the correction</span></div>
+  <div id="stats" class="muted">loading…</div>
+  <div id="toggle">
+    <button id="b-cur" class="on">current</button>
+    <button id="b-osm" class="on">rooftop</button>
+    <button id="b-lines" class="on">lines</button>
+  </div>
+</div>
+<div id="map"></div>
+<script>
+const POSITRON = "https://basemaps.cartocdn.com/gl/positron-gl-style/style.json";
+const map = new maplibregl.Map({
+  container:"map", style:POSITRON, center:[-121.0635,39.2168], zoom:16.3
+});
+map.addControl(new maplibregl.NavigationControl());
+
+async function load(){
+  const rows = await fetch("_mill_geocoded.json").then(r=>r.json());
+  const cur = {type:"FeatureCollection",features:[]};
+  const osm = {type:"FeatureCollection",features:[]};
+  const lines = {type:"FeatureCollection",features:[]};
+  let shifts=[], named=0, resolved=0;
+  for(const r of rows){
+    cur.features.push({type:"Feature",geometry:{type:"Point",coordinates:[r.cur_lng,r.cur_lat]},
+      properties:{name:r.name,address:r.address,src:r.src}});
+    if(r.osm_lat){
+      resolved++;
+      osm.features.push({type:"Feature",geometry:{type:"Point",coordinates:[r.osm_lng,r.osm_lat]},
+        properties:{name:r.name,kind:r.osm_kind,label:r.osm_label,shift:r.shift_m}});
+      lines.features.push({type:"Feature",geometry:{type:"LineString",
+        coordinates:[[r.cur_lng,r.cur_lat],[r.osm_lng,r.osm_lat]]},properties:{}});
+      shifts.push(r.shift_m);
+      if(/shop|amenity|tourism|leisure/.test(r.osm_kind||"")) named++;
+    }
+  }
+  shifts.sort((a,b)=>a-b);
+  const med = shifts.length?shifts[Math.floor(shifts.length/2)]:0;
+  document.getElementById("stats").innerHTML =
+    `<b>${rows.length}</b> Mill St places · OSM resolved <b>${resolved}</b><br>`+
+    `median correction <b class="stat">${med} m</b> · max <b class="stat">${shifts[shifts.length-1]||0} m</b><br>`+
+    `matched to a named business/POI: <b>${named}</b>`;
+
+  map.addSource("lines",{type:"geojson",data:lines});
+  map.addLayer({id:"lines",type:"line",source:"lines",
+    paint:{"line-color":"#888","line-width":1.2,"line-dasharray":[2,1.5]}});
+  map.addSource("cur",{type:"geojson",data:cur});
+  map.addLayer({id:"cur",type:"circle",source:"cur",
+    paint:{"circle-radius":6,"circle-color":"#ff2e00","circle-stroke-color":"#fff","circle-stroke-width":2,"circle-opacity":.9}});
+  map.addSource("osm",{type:"geojson",data:osm});
+  map.addLayer({id:"osm",type:"circle",source:"osm",
+    paint:{"circle-radius":6,"circle-color":"#13a36b","circle-stroke-color":"#fff","circle-stroke-width":2}});
+
+  const pop = new maplibregl.Popup({closeButton:false});
+  map.on("mouseenter","cur",e=>{const p=e.features[0].properties;
+    pop.setLngLat(e.lngLat).setHTML(`<b>${p.name}</b><br>${p.address}<br><span style="color:#ff2e00">census: ${p.src}</span>`).addTo(map);});
+  map.on("mouseenter","osm",e=>{const p=e.features[0].properties;
+    pop.setLngLat(e.lngLat).setHTML(`<b>${p.name}</b><br><span style="color:#13a36b">OSM ${p.kind} · moved ${p.shift} m</span><br><span style="color:#888">${p.label}</span>`).addTo(map);});
+  map.on("mouseleave","cur",()=>pop.remove());
+  map.on("mouseleave","osm",()=>pop.remove());
+
+  const tog=(id,layer)=>{const b=document.getElementById(id);b.onclick=()=>{
+    b.classList.toggle("on");
+    map.setLayoutProperty(layer,"visibility",b.classList.contains("on")?"visible":"none");};};
+  tog("b-cur","cur"); tog("b-osm","osm"); tog("b-lines","lines");
+
+  // fit to data
+  const b=new maplibregl.LngLatBounds();
+  cur.features.forEach(f=>b.extend(f.geometry.coordinates));
+  osm.features.forEach(f=>b.extend(f.geometry.coordinates));
+  if(!b.isEmpty()) map.fitBounds(b,{padding:80});
+}
+map.on("load",load);
+</script>
+</body>
+</html>
