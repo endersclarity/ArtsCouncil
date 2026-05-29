@@ -31,6 +31,11 @@
     zoom: 10.7,
   };
 
+  // CLA-27: active basemap is the OpenFreeMap "Liberty" street style (free, no API key).
+  // The QUIET_BASEMAP palette + applyCustomBasemapStyling() below are retained for the
+  // legacy Positron quiet base but are NOT applied to the street basemap.
+  const STREET_BASEMAP_STYLE = "https://tiles.openfreemap.org/styles/liberty";
+
   const QUIET_BASEMAP = {
     standard: {
       background: "#f4f5f1",
@@ -1280,6 +1285,18 @@
     });
   }
 
+  // CLA-27: the Liberty street basemap ships its own OSM business POIs (source-layer
+  // "poi"), which are stale/incomplete. Suppress them so our place dots are the single
+  // source of truth. Town/place labels, street names, and highway shields stay visible.
+  function hideBasemapPoiLayers() {
+    if (!state.map) return;
+    (state.map.getStyle().layers || []).forEach((layer) => {
+      if (layer.type === "symbol" && layer["source-layer"] === "poi") {
+        state.map.setLayoutProperty(layer.id, "visibility", "none");
+      }
+    });
+  }
+
   function addMapLayers() {
     state.map.addSource("local-reveal-area", {
       type: "geojson",
@@ -1502,14 +1519,14 @@
     renderFilters();
     state.map = new maplibregl.Map({
       container: "map",
-      style: "https://basemaps.cartocdn.com/gl/positron-gl-style/style.json",
+      style: STREET_BASEMAP_STYLE,
       center: isMobileViewport() ? MOBILE_INITIAL_MAP_VIEW.center : DESKTOP_INITIAL_MAP_VIEW.center,
       zoom: isMobileViewport() ? MOBILE_INITIAL_MAP_VIEW.zoom : DESKTOP_INITIAL_MAP_VIEW.zoom,
       attributionControl: true,
     });
     state.map.addControl(new maplibregl.NavigationControl({ showCompass: false }), "bottom-right");
     state.map.on("load", () => {
-      applyCustomBasemapStyling();
+      hideBasemapPoiLayers();
       addMapLayers();
       setSourceData();
       applyInitialReviewState();

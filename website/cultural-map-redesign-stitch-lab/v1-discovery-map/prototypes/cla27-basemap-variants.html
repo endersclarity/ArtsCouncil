@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CLA-27 — basemap variants</title>
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+<style>
+  html,body{margin:0;height:100%;font-family:'Inter',system-ui,sans-serif;background:#111}
+  #map{position:absolute;inset:0}
+  .panel{position:absolute;top:14px;left:14px;z-index:5;background:#fff;border-radius:12px;
+    padding:12px;box-shadow:0 6px 24px rgba(0,0,0,.18);width:248px}
+  .panel h1{font-size:13px;letter-spacing:.04em;text-transform:uppercase;margin:0 0 2px;color:#ff2500}
+  .panel p{font-size:11px;line-height:1.35;color:#555;margin:0 0 10px}
+  .seg{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:8px}
+  .seg button{border:1px solid #d9d9d4;background:#f6f6f3;border-radius:8px;padding:9px 4px;
+    font-size:12px;font-weight:600;color:#222;cursor:pointer;transition:.12s}
+  .seg button.active{background:#ff2500;border-color:#ff2500;color:#fff}
+  .opt{display:flex;align-items:center;gap:7px;font-size:11px;color:#444;margin:6px 0}
+  .opt input{accent-color:#ff2500}
+  .cur{font-size:11px;color:#888;margin-top:8px}.cur b{color:#222}
+  .note{font-size:10px;color:#aaa;margin-top:6px;line-height:1.3}
+</style>
+</head>
+<body>
+<div id="map"></div>
+<div class="panel">
+  <h1>CLA-27 Basemap</h1>
+  <p>Flip variants live. All are MapLibre — just different skins. Markers stay on top.</p>
+  <div class="seg" id="seg">
+    <button data-v="voyager" class="active">Voyager</button>
+    <button data-v="positron">Positron (recolor)</button>
+    <button data-v="streets">Streets (Liberty)</button>
+    <button data-v="hillshade">Hillshade</button>
+  </div>
+  <label class="opt"><input type="checkbox" id="glow" checked> Density glow</label>
+  <label class="opt"><input type="checkbox" id="dots" checked> Category-colored dots</label>
+  <div class="cur">Variant: <b id="curv">Voyager</b></div>
+  <div class="note" id="note"></div>
+</div>
+
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<script>
+const RED="#ff2500", INK="#1a1a1a", PAPER="#ffffff";
+const CENTER=[-121.04,39.24], ZOOM=10.7;
+
+const STYLES = {
+  voyager:  {url:"https://basemaps.cartocdn.com/gl/voyager-gl-style/style.json", note:"Carto Voyager — warm light streets style, free, no key."},
+  positron: {url:"https://basemaps.cartocdn.com/gl/positron-gl-style/style.json", note:"Carto Positron, recolored (current app base, warmed up)."},
+  streets:  {url:"https://tiles.openfreemap.org/styles/liberty", note:"OpenFreeMap Liberty — full free streets map, no key."},
+  hillshade:{url:"https://basemaps.cartocdn.com/gl/positron-gl-style/style.json", note:"Positron + free terrain hillshade raster for relief."}
+};
+
+// recolor palette applied only to the 'positron' variant
+const POS = {
+  background:"#f3f4f0", water:"#cdddE0", waterLine:"#bcd0d4", landcover:"#eaf0e6",
+  landuse:"#eef1ea", residential:"#f3f4f0", park:"#dde9d6", building:"#e4e6dd",
+  buildingTop:"#edefe7", roadCase:0.18, roadFill:0.52, roadColor:"#d8d6cc"
+};
+function setP(id,prop,val){ if(map.getLayer(id)) try{map.setPaintProperty(id,prop,val);}catch(e){} }
+
+const CAT_COLOR = {
+  "Arts Organizations":"#e0573a","Galleries & Studios":"#d4a017","Performing Arts":"#8e44ad",
+  "Historic Places":"#7d5a3c","Public Art":"#c0392b","Shops & Makers":"#2e86c1",
+  "Eat, Drink & Stay":"#16a085","Walks & Trails":"#27ae60","Fairs & Festivals":"#e67e22",
+  "Cultural Resources":"#34495e","Creative Services":"#5d6d7e","MUSE Picks":"#ff2500"
+};
+function colorExpr(){ const e=["match",["get","cat"]];
+  Object.entries(CAT_COLOR).forEach(([k,v])=>e.push(k,v)); e.push(INK); return e; }
+function dotColor(){ return document.getElementById("dots").checked ? colorExpr() : INK; }
+
+let PLACES_FC=null;
+async function placesFC(){
+  if(PLACES_FC) return PLACES_FC;
+  let raw=[]; try{ raw=await (await fetch("../data/places.json")).json(); }catch(e){ console.warn(e); }
+  PLACES_FC={type:"FeatureCollection",features:raw.filter(p=>p&&p.lat&&p.lng).map(p=>({
+    type:"Feature",geometry:{type:"Point",coordinates:[+p.lng,+p.lat]},
+    properties:{cat:p.category||p.primaryCategory||""}}))};
+  return PLACES_FC;
+}
+
+let map, current="voyager";
+function buildMap(){
+  if(map) map.remove();
+  map=new maplibregl.Map({container:"map",style:STYLES[current].url,center:CENTER,zoom:ZOOM,attributionControl:true});
+  window.map=map;
+  map.addControl(new maplibregl.NavigationControl({showCompass:false}),"bottom-right");
+  map.on("load",onLoad);
+  document.getElementById("curv").textContent=document.querySelector("#seg button.active").textContent;
+  document.getElementById("note").textContent=STYLES[current].note;
+}
+async function onLoad(){
+  if(current==="positron") recolorPositron();
+  if(current==="hillshade") addHillshade();
+  await addOverlay();
+}
+function recolorPositron(){
+  const p=POS;
+  [["background","background-color",p.background],["water","fill-color",p.water],
+   ["waterway","line-color",p.waterLine],["landcover","fill-color",p.landcover],
+   ["landuse","fill-color",p.landuse],["landuse_residential","fill-color",p.residential],
+   ["park_nature_reserve","fill-color",p.park],["park_national_park","fill-color",p.park],
+   ["building","fill-color",p.building],["building-top","fill-color",p.buildingTop]
+  ].forEach(([id,prop,v])=>setP(id,prop,v));
+  ["road_service_case","road_minor_case","road_path","road_service_fill","road_minor_fill"].forEach(id=>{
+    const isCase=id.includes("case");
+    setP(id,"line-opacity",isCase?p.roadCase:p.roadFill); if(!isCase)setP(id,"line-color",p.roadColor);
+  });
+}
+function addHillshade(){
+  if(!map.getSource("dem")){
+    map.addSource("dem",{type:"raster-dem",
+      tiles:["https://s3.amazonaws.com/elevation-tiles-prod/terrarium/{z}/{x}/{y}.png"],
+      encoding:"terrarium",tileSize:256,maxzoom:14});
+  }
+  if(!map.getLayer("hill")){
+    const first=map.getStyle().layers.find(l=>l.type!=="background")?.id;
+    map.addLayer({id:"hill",type:"hillshade",source:"dem",
+      paint:{"hillshade-exaggeration":0.45,"hillshade-shadow-color":"#7a7466"}},first);
+  }
+}
+async function addOverlay(){
+  const fc=await placesFC();
+  if(map.getSource("proto")){ map.getSource("proto").setData(fc); }
+  else{
+    map.addSource("proto",{type:"geojson",data:fc});
+    map.addLayer({id:"glow",type:"circle",source:"proto",paint:{
+      "circle-radius":["interpolate",["linear"],["zoom"],9,7,13,16,16,28],
+      "circle-color":dotColor(),"circle-blur":1,"circle-opacity":0.18}});
+    map.addLayer({id:"dots",type:"circle",source:"proto",paint:{
+      "circle-radius":["interpolate",["linear"],["zoom"],9,2.6,13,4.2,16,6],
+      "circle-color":dotColor(),"circle-stroke-color":PAPER,"circle-stroke-width":1,"circle-opacity":0.92}});
+  }
+  applyToggles();
+}
+function applyToggles(){
+  if(map.getLayer("glow")){ setP("glow","circle-opacity",document.getElementById("glow").checked?0.18:0); setP("glow","circle-color",dotColor()); }
+  if(map.getLayer("dots")) setP("dots","circle-color",dotColor());
+}
+
+document.getElementById("seg").addEventListener("click",e=>{
+  const b=e.target.closest("button[data-v]"); if(!b)return;
+  document.querySelectorAll("#seg button").forEach(x=>x.classList.remove("active"));
+  b.classList.add("active"); current=b.dataset.v; buildMap();
+});
+["glow","dots"].forEach(id=>document.getElementById(id).addEventListener("change",applyToggles));
+buildMap();
+</script>
+</body>
+</html>
