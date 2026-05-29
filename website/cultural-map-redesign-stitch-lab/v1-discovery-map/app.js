@@ -732,29 +732,72 @@
   }
 
   function renderFilters() {
-    els.filters.innerHTML = OUTING_TYPES.map((outingType) => {
-      const active = state.activeIntents.has(outingType.label) ? " active" : "";
-      const count = state.places.filter((place) => placeMatchesOutingType(place, outingType)).length;
-      return `<button class="filter-chip${active}" type="button" data-outing-type="${escapeHtml(outingType.label)}" aria-pressed="${active ? "true" : "false"}">
-        <span>${escapeHtml(outingType.label)}</span>
-        <small>${escapeHtml(count)} places</small>
-      </button>`;
-    }).join("");
-    els.filters.querySelectorAll(".filter-chip").forEach((button) => {
-      button.addEventListener("click", () => {
-        state.localReveal = null;
-        state.localRevealPreviousContext = null;
-        const intent = button.dataset.outingType;
-        if (state.activeIntents.has(intent)) state.activeIntents.delete(intent);
-        else state.activeIntents.add(intent);
-        const visibleIds = new Set(filteredPlaces().map((place) => place.id));
-        if (state.selectedPlaceId && !visibleIds.has(state.selectedPlaceId)) state.selectedPlaceId = "";
-        renderFilters();
-        if (!state.selectedPlaceId) renderFeaturedAnchor();
-        setSourceData();
-        updateReviewUrl();
-      });
+    // CLA-20: lead with an Outing Type browse list (a way in); once a lane is
+    // chosen, collapse to a compact active-filter bar. The full list re-opens
+    // via "Change". The list is always shown when nothing is selected.
+    const activeIntents = OUTING_TYPES.filter((outingType) => state.activeIntents.has(outingType.label));
+    const hasActive = activeIntents.length > 0;
+    const listOpen = state.filterListOpen || !hasActive;
+    const countFor = (outingType) => state.places.filter((place) => placeMatchesOutingType(place, outingType)).length;
+
+    if (listOpen) {
+      const rows = OUTING_TYPES.map((outingType) => {
+        const active = state.activeIntents.has(outingType.label);
+        return `<button class="outing-row${active ? " active" : ""}" type="button" data-outing-type="${escapeHtml(outingType.label)}" aria-pressed="${active ? "true" : "false"}">
+          <span class="outing-row-label">${escapeHtml(outingType.label)}</span>
+          <span class="outing-row-count">${escapeHtml(countFor(outingType))}</span>
+          <span class="outing-row-cue" aria-hidden="true">${active ? "✓" : "›"}</span>
+        </button>`;
+      }).join("");
+      els.filters.innerHTML = `
+        <div class="outing-browse">
+          <div class="outing-browse-head">
+            <span class="outing-browse-title">Browse by outing type</span>
+            ${hasActive ? `<button class="outing-done" type="button" data-outing-done>Done</button>` : ""}
+          </div>
+          <div class="outing-list" role="group" aria-label="Outing types">${rows}</div>
+        </div>`;
+    } else {
+      const pills = activeIntents.map((outingType) => `
+        <button class="outing-pill" type="button" data-outing-remove="${escapeHtml(outingType.label)}" aria-label="Remove ${escapeHtml(outingType.label)} filter">
+          <span>${escapeHtml(outingType.label)}</span><span class="outing-pill-x" aria-hidden="true">✕</span>
+        </button>`).join("");
+      els.filters.innerHTML = `
+        <div class="outing-active-bar">
+          ${pills}
+          <button class="outing-change" type="button" data-outing-change aria-expanded="false">Change ▾</button>
+        </div>`;
+    }
+
+    const refreshAfterChange = () => {
+      const visibleIds = new Set(filteredPlaces().map((place) => place.id));
+      if (state.selectedPlaceId && !visibleIds.has(state.selectedPlaceId)) state.selectedPlaceId = "";
+      renderFilters();
+      if (!state.selectedPlaceId) renderFeaturedAnchor();
+      setSourceData();
+      updateReviewUrl();
+    };
+    const toggleIntent = (intent) => {
+      if (!intent) return;
+      state.localReveal = null;
+      state.localRevealPreviousContext = null;
+      if (state.activeIntents.has(intent)) state.activeIntents.delete(intent);
+      else state.activeIntents.add(intent);
+      // Collapse to the compact bar once a lane is chosen; reopen the list when empty.
+      state.filterListOpen = state.activeIntents.size === 0;
+      refreshAfterChange();
+    };
+
+    els.filters.querySelectorAll(".outing-row").forEach((button) => {
+      button.addEventListener("click", () => toggleIntent(button.dataset.outingType));
     });
+    els.filters.querySelectorAll("[data-outing-remove]").forEach((button) => {
+      button.addEventListener("click", () => toggleIntent(button.dataset.outingRemove));
+    });
+    const changeButton = els.filters.querySelector("[data-outing-change]");
+    if (changeButton) changeButton.addEventListener("click", () => { state.filterListOpen = true; renderFilters(); });
+    const doneButton = els.filters.querySelector("[data-outing-done]");
+    if (doneButton) doneButton.addEventListener("click", () => { state.filterListOpen = false; renderFilters(); });
   }
 
   function setDetailCardMode(mode) {

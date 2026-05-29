@@ -372,10 +372,141 @@ button {
 }
 
 .filter-wrap {
+  display: block;
+  margin-bottom: 12px;
+}
+
+/* CLA-20: Outing Type browse list (the way in) + compact active-filter bar */
+.outing-browse {
+  border: 1px solid var(--line-strong);
+  background: var(--surface);
+}
+
+.outing-browse-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--line-strong);
+}
+
+.outing-browse-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.outing-done {
+  border: 0;
+  background: transparent;
+  color: var(--ncac-red);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+}
+
+.outing-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.outing-row {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  border: 0;
+  border-top: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+  padding: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+}
+
+.outing-row:first-child {
+  border-top: 0;
+}
+
+.outing-row:hover {
+  background: rgba(20, 20, 20, 0.05);
+}
+
+.outing-row-count {
+  color: var(--ink-soft);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.outing-row-cue {
+  color: var(--ink-soft);
+  font-size: 13px;
+  width: 14px;
+  text-align: center;
+}
+
+.outing-row.active {
+  background: var(--ncac-red);
+  color: var(--field);
+  box-shadow: inset 3px 0 0 var(--ink);
+}
+
+.outing-row.active:hover {
+  background: var(--ncac-red);
+}
+
+.outing-row.active .outing-row-count,
+.outing-row.active .outing-row-cue {
+  color: var(--field);
+}
+
+.outing-active-bar {
   display: flex;
   flex-wrap: wrap;
+  align-items: center;
   gap: 7px;
-  margin-bottom: 12px;
+}
+
+.outing-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--ink);
+  background: var(--ncac-red);
+  color: var(--field);
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.outing-pill-x {
+  font-size: 11px;
+  line-height: 1;
+}
+
+.outing-change {
+  border: 1px solid var(--line-strong);
+  background: var(--surface);
+  color: var(--ink);
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.outing-row:focus-visible,
+.outing-pill:focus-visible,
+.outing-change:focus-visible,
+.outing-done:focus-visible {
+  outline: 0;
+  box-shadow: var(--focus-ring), inset 0 -3px 0 var(--ncac-red);
 }
 
 .filter-chip {
