@@ -140,7 +140,6 @@
     map: null,
     markerPreviewPopup: null,
     pathMarkers: [],
-    anchorMarkers: [],
     smartLabels: [],
   };
 
@@ -179,7 +178,6 @@
   }
 
   function placeToFeature(place, nearbyDensity = 1) {
-    const anchor = place.anchor || {};
     const denseConstellation = nearbyDensity >= DENSE_CONSTELLATION_MIN_PLACES;
     return {
       type: "Feature",
@@ -194,7 +192,8 @@
         featured: Boolean(place.featured),
         musePick: Boolean(place.musePick),
         anchor: Boolean(place.anchor),
-        anchorIcon: ANCHOR_ICON_TEXT[anchor.iconKey] || "",
+        markerTier: place.markerTier || "map-ready",
+        candidate: place.markerTier === "candidate",
         sampler: state.browseSamplerPlaceIds.includes(place.id),
         currentContext: isCurrentContextPlace(place),
         localReveal: Boolean(state.localReveal?.placeIds?.includes(place.id)),
@@ -535,7 +534,6 @@
     }
     updateCount();
     renderPlacesList();
-    renderAnchorMarkers();
     updateSmartLabels();
   }
 
@@ -597,20 +595,6 @@
     if (state.map.getLayer(layerId)) {
       state.map.setLayoutProperty(layerId, "visibility", visibility);
     }
-  }
-
-  function clearAnchorMarkers() {
-    state.anchorMarkers.forEach((marker) => marker.remove());
-    state.anchorMarkers = [];
-  }
-
-  function updateAnchorMarkerVisibility() {
-    if (!state.map) return;
-    const visible = state.mode !== "events" && state.map.getZoom() >= 10.4;
-    state.anchorMarkers.forEach((marker) => {
-      const el = marker.getElement();
-      if (el) el.style.visibility = visible ? "visible" : "hidden";
-    });
   }
 
   function clearSmartLabels() {
@@ -724,38 +708,6 @@
     });
   }
 
-  function renderAnchorMarkers() {
-    clearAnchorMarkers();
-    if (!state.map || state.mode === "events") return;
-
-    filteredPlaces()
-      .filter(isPlaceMapReady)
-      .filter((place) => place.anchor)
-      .forEach((place) => {
-        const el = document.createElement("button");
-        el.type = "button";
-        el.className = `anchor-marker${place.id === state.selectedPlaceId ? " selected" : ""}`;
-        el.dataset.place = place.id;
-        el.innerHTML = `
-          <span class="anchor-ring">
-            <span class="anchor-dot">${escapeHtml(anchorIconText(place.anchor))}</span>
-          </span>
-        `;
-        el.addEventListener("click", (event) => {
-          event.stopPropagation();
-          showPlace(place);
-        });
-        const marker = new maplibregl.Marker({ element: el, offset: anchorMarkerOffset(place) })
-          .setLngLat([place.lng, place.lat])
-          .addTo(state.map);
-        marker.getElement().setAttribute("aria-label", `${place.name} - ${place.anchor.label}`);
-        marker.getElement().dataset.place = place.id;
-        state.anchorMarkers.push(marker);
-      });
-
-    updateAnchorMarkerVisibility();
-  }
-
   function expandDrawer() {
     const controlPanel = document.querySelector(".control-panel");
     if (controlPanel) controlPanel.classList.remove("collapsed");
@@ -845,16 +797,6 @@
 
   function anchorIconText(anchor) {
     return ANCHOR_ICON_TEXT[anchor?.iconKey] || "NC";
-  }
-
-  function anchorMarkerOffset(place) {
-    const offsets = {
-      "the-center-for-the-arts-grass-valley": [-18, -18],
-      "art-works-gallery-grass-valley": [18, 18],
-      "empire-mine-grass-valley": [18, -14],
-      "north-star-house-grass-valley": [-18, 18],
-    };
-    return offsets[place.id] || [0, 0];
   }
 
   function anchorBadge(place) {
@@ -1323,12 +1265,12 @@
       source: "places",
       paint: {
         "circle-radius": [
-          "case",
-          ["get", "denseConstellation"],
-          ["interpolate", ["linear"], ["get", "nearbyDensity"], 8, 5.2, 18, 7.6, 36, 10.8],
-          ["interpolate", ["linear"], ["zoom"], 7, 2.8, 11, 3.6, 14, 3.8]
+          "interpolate", ["linear"], ["zoom"],
+          7, ["case", ["get", "denseConstellation"], ["interpolate", ["linear"], ["get", "nearbyDensity"], 8, 5.2, 18, 7.6, 36, 10.8], 2.8],
+          11, ["case", ["get", "denseConstellation"], ["interpolate", ["linear"], ["get", "nearbyDensity"], 8, 5.2, 18, 7.6, 36, 10.8], 3.6],
+          14, ["case", ["get", "denseConstellation"], ["interpolate", ["linear"], ["get", "nearbyDensity"], 8, 5.2, 18, 7.6, 36, 10.8], 3.8]
         ],
-        "circle-color": MARKERS.ink,
+        "circle-color": ["case", ["get", "candidate"], MARKERS.paper, MARKERS.ink],
         "circle-opacity": [
           "case",
           ["get", "denseConstellation"], 0.24,
@@ -1337,11 +1279,11 @@
           0.5
         ],
         "circle-blur": ["case", ["get", "denseConstellation"], 0.42, 0],
-        "circle-stroke-color": MARKERS.paper,
+        "circle-stroke-color": ["case", ["get", "candidate"], MARKERS.ink, MARKERS.paper],
         "circle-stroke-width": [
-          "case",
-          ["get", "denseConstellation"], 0,
-          ["interpolate", ["linear"], ["zoom"], 7, 0, 12, 0.55]
+          "interpolate", ["linear"], ["zoom"],
+          7, ["case", ["get", "candidate"], 1.1, 0],
+          12, ["case", ["get", "candidate"], 1.1, ["get", "denseConstellation"], 0, 0.55]
         ],
       },
     });
@@ -1391,25 +1333,6 @@
         "circle-opacity": 0.96,
       },
     });
-    state.map.addLayer({
-      id: "anchor-icons",
-      type: "symbol",
-      source: "places",
-      filter: ["all", ["!", ["has", "point_count"]], ["get", "anchor"]],
-      layout: {
-        "text-field": ["get", "anchorIcon"],
-        "text-font": ["Open Sans Bold"],
-        "text-size": 9,
-        "text-allow-overlap": true,
-        "text-ignore-placement": true,
-      },
-      paint: {
-        "text-color": MARKERS.ink,
-        "text-halo-color": MARKERS.paper,
-        "text-halo-width": 1,
-      },
-    });
-
     state.map.addSource("events", { type: "geojson", data: { type: "FeatureCollection", features: [] } });
     state.map.addLayer({
       id: "event-halo",
@@ -1465,7 +1388,7 @@
     };
     const mapClickHasDirectSelection = (point) => {
       return state.map.queryRenderedFeatures(point, {
-        layers: ["place-points", "anchor-rings", "anchor-icons", "event-points"],
+        layers: ["place-points", "anchor-rings", "event-points"],
       }).length > 0;
     };
     const startLocalRevealFromMapClick = (event) => {
@@ -1480,7 +1403,6 @@
     state.map.on("click", "place-density", startLocalRevealFromFeature);
     state.map.on("click", "place-points", showPlaceFromFeature);
     state.map.on("click", "anchor-rings", showPlaceFromFeature);
-    state.map.on("click", "anchor-icons", showPlaceFromFeature);
     state.map.on("click", "event-points", (event) => {
       const id = event.features[0].properties.id;
       const eventItem = state.events.find((item) => item.id === id);
@@ -1489,7 +1411,7 @@
     state.map.on("click", (event) => {
       startLocalRevealFromMapClick(event);
     });
-    ["place-points", "anchor-rings", "anchor-icons"].forEach((layer) => {
+    ["place-points", "anchor-rings"].forEach((layer) => {
       state.map.on("mouseenter", layer, (event) => {
         state.map.getCanvas().style.cursor = "pointer";
         showMarkerPreview(event);
@@ -1549,7 +1471,6 @@
       applyInitialReviewState();
     });
 
-    state.map.on("zoom", updateAnchorMarkerVisibility);
     state.map.on("moveend", updateSmartLabels);
     state.map.on("zoomend", updateSmartLabels);
 

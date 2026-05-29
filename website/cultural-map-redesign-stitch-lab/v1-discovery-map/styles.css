@@ -1509,58 +1509,6 @@ body:not([data-map-mode="places"]) .review-tools {
   }
 }
 
-.anchor-marker {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  padding: 0;
-  border: 0;
-  background: transparent;
-  cursor: pointer;
-  pointer-events: auto;
-  transition: transform 0.2s ease;
-  visibility: visible !important;
-}
-
-.anchor-marker:hover,
-.anchor-marker.selected {
-  transform: scale(1.12);
-  z-index: 10;
-}
-
-.anchor-marker .anchor-ring {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 999px;
-  border: 2px solid var(--ncac-red);
-  background: var(--paper);
-  box-shadow: var(--shadow-low);
-  pointer-events: none;
-}
-
-.anchor-marker.selected .anchor-ring {
-  border-color: var(--ink);
-  background: var(--ncac-red);
-  box-shadow: 0 0 0 4px var(--ncac-red-ring), var(--shadow-low);
-}
-
-.anchor-marker .anchor-dot {
-  color: var(--ncac-red);
-  font-size: 10px;
-  font-weight: 900;
-  line-height: 1;
-  pointer-events: none;
-}
-
-.anchor-marker.selected .anchor-dot {
-  color: var(--paper);
-}
-
 .map-smart-label {
   max-width: 220px;
   overflow: hidden;
