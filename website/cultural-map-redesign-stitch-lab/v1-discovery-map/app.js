@@ -609,19 +609,33 @@
     if (state.map.getZoom() < 11.75) return;
 
     const bounds = state.map.getBounds();
-    const visiblePlaces = filteredPlaces()
+    const mapCanvas = state.map.getCanvas();
+    const viewportCenter = {
+      x: mapCanvas.clientWidth / 2,
+      y: mapCanvas.clientHeight / 2,
+    };
+    const mapReadyPlaces = filteredPlaces().filter(isPlaceMapReady);
+    const visiblePlaces = mapReadyPlaces
       .filter((place) => isPlaceMapReady(place) && bounds.contains([place.lng, place.lat]))
-      .map((place) => ({
-        id: place.id,
-        name: place.name,
-        lng: place.lng,
-        lat: place.lat,
-        isAnchor: Boolean(place.anchor),
-        featured: Boolean(place.featured),
-        musePick: Boolean(place.musePick),
-        selected: place.id === state.selectedPlaceId,
-        previewed: place.id === state.previewPlaceId,
-      }))
+      .map((place) => {
+        const screenPos = state.map.project([place.lng, place.lat]);
+        const centerDistance = Math.hypot(screenPos.x - viewportCenter.x, screenPos.y - viewportCenter.y);
+        const nearbyDensity = nearbyPlaceDensity(place, mapReadyPlaces);
+        return {
+          id: place.id,
+          name: place.name,
+          lng: place.lng,
+          lat: place.lat,
+          isAnchor: Boolean(place.anchor),
+          featured: Boolean(place.featured),
+          musePick: Boolean(place.musePick),
+          selected: place.id === state.selectedPlaceId,
+          previewed: place.id === state.previewPlaceId,
+          centerDistance,
+          nearbyDensity,
+          screenPos,
+        };
+      })
       .sort((a, b) => {
         if (a.selected && !b.selected) return -1;
         if (!a.selected && b.selected) return 1;
@@ -633,9 +647,11 @@
         if (!a.featured && b.featured) return 1;
         if (a.musePick && !b.musePick) return -1;
         if (!a.musePick && b.musePick) return 1;
+        if (a.nearbyDensity !== b.nearbyDensity) return a.nearbyDensity - b.nearbyDensity;
+        if (a.centerDistance !== b.centerDistance) return a.centerDistance - b.centerDistance;
         return a.name.localeCompare(b.name);
       })
-      .slice(0, 48);
+      .slice(0, 72);
 
     if (!visiblePlaces.length) return;
 
@@ -646,52 +662,52 @@
       if (!a.featured && b.featured) return 1;
       if (a.musePick && !b.musePick) return -1;
       if (!a.musePick && b.musePick) return 1;
+      if (a.nearbyDensity !== b.nearbyDensity) return a.nearbyDensity - b.nearbyDensity;
+      if (a.centerDistance !== b.centerDistance) return a.centerDistance - b.centerDistance;
       return a.name.localeCompare(b.name);
     });
 
     const occupiedBoxes = visiblePlaces.map((place) => {
-      const screenPos = state.map.project([place.lng, place.lat]);
       const markerSize = place.isAnchor ? 36 : 16;
       return {
         id: place.id,
-        minX: screenPos.x - markerSize / 2 - 4,
-        maxX: screenPos.x + markerSize / 2 + 4,
-        minY: screenPos.y - markerSize / 2 - 4,
-        maxY: screenPos.y + markerSize / 2 + 4,
+        minX: place.screenPos.x - markerSize / 2 - 4,
+        maxX: place.screenPos.x + markerSize / 2 + 4,
+        minY: place.screenPos.y - markerSize / 2 - 4,
+        maxY: place.screenPos.y + markerSize / 2 + 4,
       };
     });
 
     let labelCount = 0;
     visiblePlaces.forEach((place) => {
       if (labelCount >= 18 && !place.selected && !place.previewed) return;
-      const screenPos = state.map.project([place.lng, place.lat]);
       const labelW = Math.min(220, place.name.length * 6.2 + 16);
       const labelH = 24;
       const markerOffset = place.isAnchor ? 20 : 10;
       const candidates = [
         {
-          minX: screenPos.x + markerOffset,
-          maxX: screenPos.x + markerOffset + labelW,
-          minY: screenPos.y - labelH / 2,
-          maxY: screenPos.y + labelH / 2,
+          minX: place.screenPos.x + markerOffset,
+          maxX: place.screenPos.x + markerOffset + labelW,
+          minY: place.screenPos.y - labelH / 2,
+          maxY: place.screenPos.y + labelH / 2,
           offsetX: markerOffset + labelW / 2,
           offsetY: 0,
           posClass: "pos-right",
         },
         {
-          minX: screenPos.x - markerOffset - labelW,
-          maxX: screenPos.x - markerOffset,
-          minY: screenPos.y - labelH / 2,
-          maxY: screenPos.y + labelH / 2,
+          minX: place.screenPos.x - markerOffset - labelW,
+          maxX: place.screenPos.x - markerOffset,
+          minY: place.screenPos.y - labelH / 2,
+          maxY: place.screenPos.y + labelH / 2,
           offsetX: -markerOffset - labelW / 2,
           offsetY: 0,
           posClass: "pos-left",
         },
         {
-          minX: screenPos.x - labelW / 2,
-          maxX: screenPos.x + labelW / 2,
-          minY: screenPos.y - markerOffset - labelH,
-          maxY: screenPos.y - markerOffset,
+          minX: place.screenPos.x - labelW / 2,
+          maxX: place.screenPos.x + labelW / 2,
+          minY: place.screenPos.y - markerOffset - labelH,
+          maxY: place.screenPos.y - markerOffset,
           offsetX: 0,
           offsetY: -markerOffset - labelH / 2,
           posClass: "pos-top",
