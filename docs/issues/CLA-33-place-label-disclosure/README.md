@@ -25,6 +25,12 @@ The current behavior can enter Local Reveal from a map click: the red reveal cir
 - [Target close zoom](./target/target-close-zoom.png)
 - Hosted concept page: https://solar-memoir-e37e.here.now/
 
+## Final Evidence
+
+- [Final default map without reveal](./evidence/final-default-no-reveal.png)
+- [Final close zoom labels](./evidence/final-close-zoom-labels.png)
+- [Final label click selection](./evidence/final-label-click-selection.png)
+
 ## Decisions
 
 - Use **Place Label Disclosure** as the canonical term.

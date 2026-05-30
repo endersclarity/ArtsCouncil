@@ -19,21 +19,21 @@
 
 ## Task 1: Stop Accidental Local Reveal
 
-- [ ] **Step 1: Write failing browser check**
+- [x] **Step 1: Write failing browser check**
 
 Create `scripts/contract/cla-33-place-label-disclosure.contract.mjs` with a check that opens the map, clicks an ordinary map area, and asserts `.local-reveal-summary` is absent.
 
-- [ ] **Step 2: Run check and confirm current failure**
+- [x] **Step 2: Run check and confirm current failure**
 
 Run: `node scripts/contract/cla-33-place-label-disclosure.contract.mjs`
 
 Expected before implementation: FAIL because `.local-reveal-summary` appears after a map click.
 
-- [ ] **Step 3: Remove map-click Local Reveal**
+- [x] **Step 3: Remove map-click Local Reveal**
 
 In `app.js`, remove the `startLocalRevealFromMapClick` registration and do not register `click` on `place-density` for Local Reveal. Keep marker click handlers for `place-points` and `anchor-rings`.
 
-- [ ] **Step 4: Re-run check**
+- [x] **Step 4: Re-run check**
 
 Run: `node scripts/contract/cla-33-place-label-disclosure.contract.mjs`
 
@@ -41,25 +41,25 @@ Expected: PASS for blank/density-area map click not changing the Directory Brows
 
 ## Task 2: Show Close-Zoom Place Names
 
-- [ ] **Step 1: Extend browser check**
+- [x] **Step 1: Extend browser check**
 
 Add a check that zooms into Nevada City/Grass Valley and asserts at least one `.map-smart-label` appears.
 
-- [ ] **Step 2: Run check and confirm current failure**
+- [x] **Step 2: Run check and confirm current failure**
 
 Run: `node scripts/contract/cla-33-place-label-disclosure.contract.mjs`
 
 Expected before implementation: FAIL or weak coverage because smart labels only use anchors and disappear when there are too many.
 
-- [ ] **Step 3: Expand `updateSmartLabels()` source places**
+- [x] **Step 3: Expand `updateSmartLabels()` source places**
 
 In `app.js`, make `updateSmartLabels()` return early below close zoom, then collect visible map-ready filtered places inside the viewport. Include selected and hovered/previewed place ids first when available, then anchors/MUSE/featured, then ordinary places in stable name order.
 
-- [ ] **Step 4: Keep collision hiding**
+- [x] **Step 4: Keep collision hiding**
 
 Use the existing occupied-box placement logic. Add labels only where a candidate position does not collide with markers or previous labels. Cap total candidate labels to a small close-zoom number so dense screens do not become text soup.
 
-- [ ] **Step 5: Re-run check**
+- [x] **Step 5: Re-run check**
 
 Run: `node scripts/contract/cla-33-place-label-disclosure.contract.mjs`
 
@@ -67,15 +67,15 @@ Expected: PASS with readable close-zoom labels.
 
 ## Task 3: Polish Label Styling and Cache Bust
 
-- [ ] **Step 1: Style close-zoom labels**
+- [x] **Step 1: Style close-zoom labels**
 
 Adjust `.map-smart-label` in `styles.css` toward the target: small white/paper pill, readable text, subtle shadow, hover/focus red state.
 
-- [ ] **Step 2: Bump cache-bust query**
+- [x] **Step 2: Bump cache-bust query**
 
 In `index.html`, bump `app.js` and `styles.css` query strings to `cla-33-place-label-disclosure`.
 
-- [ ] **Step 3: Visual verification**
+- [x] **Step 3: Visual verification**
 
 Capture screenshots for:
 
@@ -87,7 +87,7 @@ Expected: no Local Reveal circle; Directory stays stable; close zoom has readabl
 
 ## Task 4: Linear and Done State
 
-- [ ] **Step 1: Attach final evidence**
+- [x] **Step 1: Attach final evidence**
 
 Update Linear CLA-33 with local evidence paths, target URL, and final behavior summary.
 

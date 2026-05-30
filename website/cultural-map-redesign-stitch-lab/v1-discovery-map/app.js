@@ -19,7 +19,6 @@
   };
   const CONSTELLATION_DENSITY_RADIUS_MILES = 0.01;
   const DENSE_CONSTELLATION_MIN_PLACES = 8;
-  const LOCAL_REVEAL_DENSITY_INTENT_RADIUS_MILES = 0.3;
 
   const MOBILE_INITIAL_MAP_VIEW = {
     center: [-121.04, 39.16],
@@ -144,6 +143,7 @@
     isApplyingReviewState: false,
     map: null,
     markerPreviewPopup: null,
+    previewPlaceId: "",
     pathMarkers: [],
     smartLabels: [],
   };
@@ -233,6 +233,7 @@
     const id = event.features[0].properties.id;
     const place = state.places.find((item) => item.id === id);
     if (!place) return;
+    state.previewPlaceId = place.id;
     if (!state.markerPreviewPopup) {
       state.markerPreviewPopup = new maplibregl.Popup({
         closeButton: false,
@@ -248,6 +249,7 @@
   }
 
   function hideMarkerPreview() {
+    state.previewPlaceId = "";
     state.markerPreviewPopup?.remove();
   }
 
@@ -354,13 +356,6 @@
       places,
       CONSTELLATION_DENSITY_RADIUS_MILES
     );
-  }
-
-  function mapClickHasDenseNearbyPlaces(lngLat) {
-    const origin = { lng: Number(lngLat?.lng), lat: Number(lngLat?.lat) };
-    if (!Number.isFinite(origin.lng) || !Number.isFinite(origin.lat)) return false;
-    const mapReadyPlaces = filteredPlaces().filter(isPlaceMapReady);
-    return nearbyPlaceCount(origin, mapReadyPlaces, LOCAL_REVEAL_DENSITY_INTENT_RADIUS_MILES) >= DENSE_CONSTELLATION_MIN_PLACES;
   }
 
   function localRevealPlaces() {
@@ -611,36 +606,54 @@
   function updateSmartLabels() {
     clearSmartLabels();
     if (!state.map || state.mode !== "places" || !state.map.getLayer("place-points")) return;
+    if (state.map.getZoom() < 11.75) return;
 
     const bounds = state.map.getBounds();
-    const visiblePlaces = [];
-    const anchorPlaces = filteredPlaces().filter((place) => place.anchor && isPlaceMapReady(place) && bounds.contains([place.lng, place.lat]));
-
-    anchorPlaces.forEach((place) => {
-      visiblePlaces.push({
+    const visiblePlaces = filteredPlaces()
+      .filter((place) => isPlaceMapReady(place) && bounds.contains([place.lng, place.lat]))
+      .map((place) => ({
         id: place.id,
         name: place.name,
         lng: place.lng,
         lat: place.lat,
-        isAnchor: true,
-        musePick: place.musePick,
-      });
-    });
+        isAnchor: Boolean(place.anchor),
+        featured: Boolean(place.featured),
+        musePick: Boolean(place.musePick),
+        selected: place.id === state.selectedPlaceId,
+        previewed: place.id === state.previewPlaceId,
+      }))
+      .sort((a, b) => {
+        if (a.selected && !b.selected) return -1;
+        if (!a.selected && b.selected) return 1;
+        if (a.previewed && !b.previewed) return -1;
+        if (!a.previewed && b.previewed) return 1;
+        if (a.isAnchor && !b.isAnchor) return -1;
+        if (!a.isAnchor && b.isAnchor) return 1;
+        if (a.featured && !b.featured) return -1;
+        if (!a.featured && b.featured) return 1;
+        if (a.musePick && !b.musePick) return -1;
+        if (!a.musePick && b.musePick) return 1;
+        return a.name.localeCompare(b.name);
+      })
+      .slice(0, 48);
 
-    if (!visiblePlaces.length || visiblePlaces.length > 16) return;
+    if (!visiblePlaces.length) return;
 
     visiblePlaces.sort((a, b) => {
       if (a.isAnchor && !b.isAnchor) return -1;
       if (!a.isAnchor && b.isAnchor) return 1;
+      if (a.featured && !b.featured) return -1;
+      if (!a.featured && b.featured) return 1;
       if (a.musePick && !b.musePick) return -1;
       if (!a.musePick && b.musePick) return 1;
-      return 0;
+      return a.name.localeCompare(b.name);
     });
 
     const occupiedBoxes = visiblePlaces.map((place) => {
       const screenPos = state.map.project([place.lng, place.lat]);
       const markerSize = place.isAnchor ? 36 : 16;
       return {
+        id: place.id,
         minX: screenPos.x - markerSize / 2 - 4,
         maxX: screenPos.x + markerSize / 2 + 4,
         minY: screenPos.y - markerSize / 2 - 4,
@@ -648,7 +661,9 @@
       };
     });
 
+    let labelCount = 0;
     visiblePlaces.forEach((place) => {
+      if (labelCount >= 18 && !place.selected && !place.previewed) return;
       const screenPos = state.map.project([place.lng, place.lat]);
       const labelW = Math.min(220, place.name.length * 6.2 + 16);
       const labelH = 24;
@@ -685,6 +700,7 @@
 
       const bestCandidate = candidates.find((candidate) => {
         return !occupiedBoxes.some((box) => (
+          box.id !== place.id &&
           candidate.minX < box.maxX &&
           candidate.maxX > box.minX &&
           candidate.minY < box.maxY &&
@@ -693,7 +709,8 @@
       });
       if (!bestCandidate) return;
 
-      occupiedBoxes.push(bestCandidate);
+      occupiedBoxes.push({ ...bestCandidate, id: `label:${place.id}` });
+      labelCount += 1;
       const el = document.createElement("button");
       el.type = "button";
       el.className = `map-smart-label ${place.isAnchor ? "anchor-label-pin" : ""} ${bestCandidate.posClass}`;
@@ -1495,32 +1512,7 @@
       const place = state.places.find((item) => item.id === id);
       if (place) showPlace(place);
     };
-    const startLocalRevealFromFeature = (event) => {
-      startLocalReveal(event.lngLat);
-    };
-    const localRevealDensityFeatures = (point, radius = 16) => {
-      if (!state.map.getLayer("place-density")) return [];
-      const hitBox = [
-        [point.x - radius, point.y - radius],
-        [point.x + radius, point.y + radius],
-      ];
-      return state.map.queryRenderedFeatures(hitBox, { layers: ["place-density"] });
-    };
-    const mapClickHasDirectSelection = (point) => {
-      return state.map.queryRenderedFeatures(point, {
-        layers: ["place-points", "anchor-rings", "place-selection-ring", "event-hit-target", "event-points"],
-      }).length > 0;
-    };
-    const startLocalRevealFromMapClick = (event) => {
-      if (state.mode !== "places") return;
-      const hasDirectSelection = mapClickHasDirectSelection(event.point);
-      const densityFeatureCount = localRevealDensityFeatures(event.point).length;
-      const hasDenseNearbyPlaces = mapClickHasDenseNearbyPlaces(event.lngLat);
-      if (hasDirectSelection) return;
-      if (!densityFeatureCount && !hasDenseNearbyPlaces) return;
-      startLocalReveal(event.lngLat);
-    };
-    state.map.on("click", "place-density", startLocalRevealFromFeature);
+    state.map.on("click", "place-density", showPlaceFromFeature);
     state.map.on("click", "place-points", showPlaceFromFeature);
     state.map.on("click", "anchor-rings", showPlaceFromFeature);
     const showEventFromFeature = (event) => {
@@ -1530,9 +1522,6 @@
     };
     state.map.on("click", "event-hit-target", showEventFromFeature);
     state.map.on("click", "event-points", showEventFromFeature);
-    state.map.on("click", (event) => {
-      startLocalRevealFromMapClick(event);
-    });
     ["place-points", "anchor-rings"].forEach((layer) => {
       state.map.on("mouseenter", layer, (event) => {
         state.map.getCanvas().style.cursor = "pointer";
