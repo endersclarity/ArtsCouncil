@@ -10,6 +10,18 @@
 
 ---
 
+## Rejection Note
+
+The first implementation attempt was rejected by the owner. Do not treat the current committed behavior as the design target. The replacement target is `docs/issues/CLA-33-place-label-disclosure/target/target-replacement-clear-anchored-flow.png`.
+
+Required correction for any future plan:
+
+- labels must appear because they belong to an obvious focused area, not because they survived a hidden global sort;
+- every visible label must be visually tied to its own dot;
+- every hover card must clearly point to the highlighted marker;
+- selected detail must keep the selected dot, selected label, and detail panel relationship unmistakable;
+- do not implement again until the target flow has been converted into a concrete interaction spec.
+
 ## Files
 
 - Modify: `website/cultural-map-redesign-stitch-lab/v1-discovery-map/app.js`

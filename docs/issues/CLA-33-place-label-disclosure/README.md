@@ -23,7 +23,14 @@ The current behavior can enter Local Reveal from a map click: the red reveal cir
 
 - [Target flow](./target/target-flow.png)
 - [Target close zoom](./target/target-close-zoom.png)
+- [Replacement target: clear anchored disclosure flow](./target/target-replacement-clear-anchored-flow.png)
 - Hosted concept page: https://solar-memoir-e37e.here.now/
+
+## Rejection Note
+
+The implemented CLA-33 label behavior through `80fa371` was rejected by the owner on 2026-05-29. Owner read: labels appeared random at a distance, popup/detail treatments were not clearly connected to a specific dot, and the resulting behavior did not match expected map-design conventions. Do not continue from the current implementation as the accepted design direction.
+
+The new target is `target/target-replacement-clear-anchored-flow.png`: labels must appear for an obvious focused area, labels must be visibly tied to their own dots, hover popups must have a clear pointer/anchor to the highlighted marker, and selected detail must preserve that marker-to-card relationship.
 
 ## Final Evidence
 
