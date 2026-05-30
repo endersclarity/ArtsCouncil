@@ -56,13 +56,17 @@ _Avoid_: Number-only cluster, category-mix cluster, area taxonomy bubble
 The meaning carried by marker visual differences. Marker Hierarchy should communicate density, interaction state, authored importance, and route sequence; it should not turn visitor categories or Outing Types into tiny marker icons. Authored importance may use a restrained Soft Ring treatment when a place has anchor, MUSE, or path significance.
 _Avoid_: Category icon soup, initials-as-category, filter legend as marker system
 
+**Place Label Disclosure**:
+The zoom-sensitive map treatment that reveals enough place identity to understand nearby dots without requiring a separate reveal mode or changing the Directory Browser.
+_Avoid_: Blank-click reveal, marker-click directory rewrite, all-label clutter, category icon soup
+
 **Local Reveal**:
-The on-demand interaction for a dense group of constellation dots, showing a small nearby-place summary or list only after user intent such as click or tap.
-_Avoid_: Always-visible cluster bubble, fake neighborhood bucket, auto-expanded pin soup
+The on-demand interaction for a dense group of constellation dots, showing nearby places only after explicit user intent. A blank map click is not enough intent; it should not change the Directory Browser or enter a reveal mode. Clicking a place marker should select that place, not silently replace the Directory Browser with nearby places.
+_Avoid_: Always-visible cluster bubble, fake neighborhood bucket, auto-expanded pin soup, blank-click directory change, marker-click directory rewrite
 
 **Local Reveal Directory Update**:
-The preferred Local Reveal behavior where clicking or tapping a dense constellation area updates the Directory Browser to nearby places instead of opening a cramped map popover list.
-_Avoid_: Popover-first dense list, hidden map-only reveal, contextless cluster expansion
+The Local Reveal behavior where an explicit nearby/search-this-area action updates the Directory Browser to nearby places instead of opening a cramped map popover list.
+_Avoid_: Popover-first dense list, hidden map-only reveal, contextless cluster expansion, surprise directory replacement
 
 **Confident Coordinate Match**:
 A coordinate fallback match where the Diana Workbook row and ArcGIS Cultural Asset Export row have the same normalized name, same normalized city, no contradicting address signal, valid Nevada County coordinates, no excluded category, and no duplicate candidate for that normalized name. Name-only matches are not confident enough for public markers.

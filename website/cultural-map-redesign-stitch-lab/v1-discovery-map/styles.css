@@ -770,14 +770,14 @@ body:not([data-map-mode="places"]) .review-tools {
 .detail-card.primary-anchor-card {
   border-color: var(--line-strong);
   border-top: 6px solid var(--ncac-red);
-  background: linear-gradient(180deg, var(--ncac-red-soft), rgba(255, 255, 255, 0) 132px);
+  background: linear-gradient(180deg, var(--ncac-red-soft), rgba(255, 255, 255, 0) 132px), var(--surface);
   padding: 12px;
 }
 
 .detail-card.supporting-stop-card {
   border-color: var(--line-strong);
   border-top: 5px solid var(--line-strong);
-  background: linear-gradient(180deg, rgba(20, 20, 20, 0.05), rgba(255, 255, 255, 0) 118px);
+  background: linear-gradient(180deg, rgba(20, 20, 20, 0.05), rgba(255, 255, 255, 0) 118px), var(--surface);
 }
 
 .detail-card:has(.empty-title) {
