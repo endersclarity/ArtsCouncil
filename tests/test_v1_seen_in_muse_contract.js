@@ -77,10 +77,12 @@ assert.ok(
 );
 
 const renderBody = appSource.match(/function renderSeenInMuse\(place\) \{([\s\S]*?)\n  \}/)?.[1] || "";
-assert.match(renderBody, /article\.title/, "Seen in MUSE should cite article title");
-assert.match(renderBody, /museArticleContext\(article\)/, "Seen in MUSE should include issue and page context");
-assert.match(renderBody, /source_confidence/, "Seen in MUSE should expose available confidence context");
-assert.doesNotMatch(renderBody, /thematic_matches|fuzzy|theme/, "Seen in MUSE rendering should not promote non-direct matches");
+assert.match(renderBody, /article\.title/, "MUSE credit should cite the article title");
+assert.match(renderBody, /article\.issue/, "MUSE credit should name the issue");
+// CLA-39: the citizen-facing MUSE credit must NOT surface provenance/vetting internals.
+assert.doesNotMatch(renderBody, /source_confidence/, "MUSE credit must not expose confidence/provenance to citizens");
+assert.doesNotMatch(renderBody, /museArticleContext|page_start|page_end/, "MUSE credit must not show page-citation footnotes");
+assert.doesNotMatch(renderBody, /thematic_matches|fuzzy|theme/, "MUSE rendering should not promote non-direct matches");
 
 assert.match(stylesSource, /\.seen-in-muse/, "Seen in MUSE should have compact dedicated styling");
 

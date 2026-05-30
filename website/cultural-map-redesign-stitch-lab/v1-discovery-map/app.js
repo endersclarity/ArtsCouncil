@@ -9,7 +9,7 @@
 
   const DATA = {
     places: "data/places.json",
-    events: "data/events.json?v=event-copy-fix",
+    events: "data/events.json?v=cla-43-events",
     paths: "data/paths.json",
     anchorCards: "data/anchor_cards.json",
     museEvidence: "data/muse_evidence_links.json",
@@ -174,6 +174,14 @@
     placesList: document.getElementById("places-list"),
   };
 
+  // CLA-42: when the OS requests reduced motion, swap MapLibre's animated camera
+  // moves (flyTo/fitBounds) for instant ones. CSS handles the rest (see styles.css).
+  function prefersReducedMotion() {
+    return typeof window !== "undefined" && window.matchMedia
+      ? window.matchMedia("(prefers-reduced-motion: reduce)").matches
+      : false;
+  }
+
   function escapeHtml(value) {
     return String(value || "")
       .replace(/&/g, "&amp;")
@@ -232,8 +240,6 @@
   }
 
   function placeKindLabel(place) {
-    if (place.anchor) return "Cultural anchor";
-    if (place.anchorCard) return "Supporting stop";
     return place.category || "Cultural place";
   }
 
@@ -290,6 +296,24 @@
       ]);
     }
     if (previousPreviewId !== state.previewPlaceId) updateSmartLabels();
+  }
+
+  // Local-time YYYY-MM-DD. Used to enforce the Event Freshness Guarantee:
+  // events with date < today are never shown, so "Upcoming event" is true by
+  // construction. See V1-DISCOVERY-MAP-DECISION-LOG.md Events ruling 2026-05-30.
+  function todayISO() {
+    const now = new Date();
+    const y = now.getFullYear();
+    const m = String(now.getMonth() + 1).padStart(2, "0");
+    const d = String(now.getDate()).padStart(2, "0");
+    return `${y}-${m}-${d}`;
+  }
+
+  function upcomingEvents(events) {
+    const today = todayISO();
+    return (Array.isArray(events) ? events : []).filter(
+      (event) => typeof event.date === "string" && event.date >= today,
+    );
   }
 
   function eventToFeature(event) {
@@ -466,7 +490,8 @@
 
   function updateCount() {
     if (state.mode === "events") {
-      els.count.textContent = `${state.events.length} mapped events`;
+      const n = state.events.length;
+      els.count.textContent = n === 1 ? "1 upcoming event" : `${n} upcoming events`;
     } else if (state.mode === "paths") {
       els.count.textContent = `${state.paths.length} curated paths`;
     } else {
@@ -492,8 +517,6 @@
   }
 
   function placeReviewLabel(place) {
-    if (place.anchor && place.anchorCard) return "Primary anchor";
-    if (!place.anchor && place.anchorCard) return "Supporting stop";
     return place.category || "Place";
   }
 
@@ -974,7 +997,7 @@
       return `
         <figure class="place-image-frame">
           ${proofLabel}
-          <img class="place-image" src="${escapeHtml(resolved.src)}" alt="${escapeHtml(resolved.alt || place.name)}">
+          <img class="place-image" src="${escapeHtml(resolved.src)}" alt="${escapeHtml(resolved.alt || place.name)}" width="640" height="360" loading="lazy" decoding="async">
           ${resolved.credit ? `<figcaption>${escapeHtml(resolved.credit)}</figcaption>` : ""}
         </figure>
       `;
@@ -986,7 +1009,7 @@
     return `
       <div class="placeholder-image-wrap">
         ${proofLabel}
-        <img class="place-image placeholder-image" src="${escapeHtml(resolved.src)}" alt="${escapeHtml(alt)}">
+        <img class="place-image placeholder-image" src="${escapeHtml(resolved.src)}" alt="${escapeHtml(alt)}" width="640" height="360" loading="lazy" decoding="async">
         <span class="placeholder-label">Photo not yet sourced</span>
       </div>
     `;
@@ -1020,11 +1043,10 @@
     if (!card) return "";
     const pathLabel = card.pathMembership ? card.pathMembership.split(";")[0].trim() : "";
     const chips = [pathLabel, ...(card.themeTags || [])].filter(Boolean).slice(0, 4);
-    const isSupportingStop = !place.anchor && Boolean(card);
     return `
-      <div class="anchor-card-meta" aria-label="Cultural context">
-        ${card.whyItMatters ? `<p><strong>${isSupportingStop ? "How this stop supports the path" : "Why this place matters"}</strong><span>${escapeHtml(card.whyItMatters)}</span></p>` : ""}
-        ${card.visibleIncompleteLabel ? `<p class="visible-incomplete-note"><strong>Visible gap</strong><span>${escapeHtml(card.visibleIncompleteLabel)}</span></p>` : ""}
+      <div class="anchor-card-meta" aria-label="About this place">
+        ${card.whyItMatters ? `<p><strong>What you'll find here</strong><span>${escapeHtml(card.whyItMatters)}</span></p>` : ""}
+        ${card.visibleIncompleteLabel ? `<p class="visible-incomplete-note"><strong>Good to know</strong><span>${escapeHtml(card.visibleIncompleteLabel)}</span></p>` : ""}
         ${chips.length ? `<div class="anchor-context-chips" aria-label="Anchor relationships">${chips.map((chip) => `<span>${escapeHtml(chip)}</span>`).join("")}</div>` : ""}
       </div>
     `;
@@ -1116,9 +1138,9 @@
     }
     els.hint.innerHTML = `<p class="hint-title">Outing Type selected</p><p>${escapeHtml(places.length)} places match ${escapeHtml(filterLabel)}.</p>`;
     els.detail.innerHTML = `
-      ${renderImage(place, { proofLabel: "Image proof" })}
+      ${renderImage(place)}
       <div class="anchor-card-heading">
-        <p class="detail-eyebrow">First matching place</p>
+        <p class="detail-eyebrow">First match</p>
         <h2>${escapeHtml(place.name)}</h2>
         <p class="detail-location">${escapeHtml(place.category)} / ${escapeHtml(place.city || "Nevada County")}</p>
       </div>
@@ -1141,9 +1163,9 @@
       return;
     }
     setDetailCardMode("primary-anchor");
-    els.hint.innerHTML = `<p class="hint-title">Featured cultural anchor</p><p>${escapeHtml(place.anchor.hook)}</p>`;
+    els.hint.innerHTML = `<p class="hint-title">Start here</p><p>${escapeHtml(place.anchor.hook)}</p>`;
     els.detail.innerHTML = `
-      ${renderImage(place, { proofLabel: "Image proof" })}
+      ${renderImage(place)}
       <div class="anchor-card-heading">
         <p class="detail-eyebrow">Start here</p>
         ${anchorBadge(place)}
@@ -1170,13 +1192,11 @@
     const isPrimaryAnchor = Boolean(anchor && place.anchorCard);
     const isSupportingStop = Boolean(!anchor && place.anchorCard);
     setDetailCardMode(isPrimaryAnchor ? "primary-anchor" : isSupportingStop ? "supporting-stop" : "");
-    const imageLabel = isPrimaryAnchor
-      ? "Image proof"
-      : isSupportingStop && place.image?.status === "candidate"
-        ? "Candidate image"
-        : isSupportingStop && (!place.image?.src || place.image?.status === "missing")
-          ? "Source image pending"
-          : "";
+    const imageLabel = isSupportingStop && place.image?.status === "candidate"
+      ? "Candidate image"
+      : isSupportingStop && (!place.image?.src || place.image?.status === "missing")
+        ? "Source image pending"
+        : "";
     const eventHtml = events.length ? `
       <div class="related-events">
         <p class="section-label">Coming up here</p>
@@ -1193,7 +1213,7 @@
       ${renderImage(place, imageLabel ? { imageLabel } : {})}
       <p class="section-label">Place details</p>
       <div class="${isPrimaryAnchor ? "anchor-card-heading" : "detail-heading"}">
-        <p class="detail-eyebrow">${anchor ? "Cultural anchor" : place.anchorCard ? "Supporting stop" : escapeHtml(place.category || "Cultural place")}</p>
+        <p class="detail-eyebrow">${escapeHtml(place.category || "Cultural place")}</p>
         ${anchorBadge(place)}
         <h2>${escapeHtml(place.name)}</h2>
         <p class="detail-location">${escapeHtml(place.category)} / ${escapeHtml(place.city || "Nevada County")}</p>
@@ -1209,7 +1229,12 @@
     `;
     els.detail.querySelector(".selected-place-close")?.addEventListener("click", closeSelectionDrawer);
     if (isPlaceMapReady(place)) {
-      state.map.flyTo({ center: [place.lng, place.lat], zoom: Math.max(state.map.getZoom(), 13.5), speed: 0.8 });
+      const targetZoom = Math.max(state.map.getZoom(), 13.5);
+      if (prefersReducedMotion()) {
+        state.map.jumpTo({ center: [place.lng, place.lat], zoom: targetZoom });
+      } else {
+        state.map.flyTo({ center: [place.lng, place.lat], zoom: targetZoom, speed: 0.8 });
+      }
     }
     revealDetailCard();
     updateReviewUrl();
@@ -1224,7 +1249,7 @@
     setSourceData();
     const place = placeById(event.placeId);
     els.detail.innerHTML = `
-      ${event.image ? `<img class="place-image" src="${escapeHtml(event.image)}" alt="${escapeHtml(event.title)}">` : ""}
+      ${event.image ? `<img class="place-image" src="${escapeHtml(event.image)}" alt="${escapeHtml(event.title)}" width="640" height="360" loading="lazy" decoding="async">` : ""}
       <p class="detail-eyebrow">Upcoming event</p>
       <h2>${escapeHtml(event.title)}</h2>
       <p>${escapeHtml(event.date)} at ${escapeHtml(event.placeName)}</p>
@@ -1236,6 +1261,23 @@
     `;
     const jump = document.getElementById("event-place-jump");
     if (jump && place) jump.addEventListener("click", () => showPlace(place));
+    revealDetailCard();
+    updateReviewUrl();
+  }
+
+  // Empty Events State (citizen-voiced, never a stale list or process caveat).
+  // NOTE: uses .events-empty, NOT .empty-title — styles.css hides any card with
+  // .empty-title via `.detail-card:has(.empty-title){display:none}`.
+  function showEventsEmpty() {
+    setDetailCardMode("");
+    state.selectedEventId = "";
+    state.selectedPlaceId = "";
+    state.selectedPath = null;
+    setSourceData();
+    els.detail.innerHTML = `
+      <p class="events-empty-title">No events listed here this week</p>
+      <p class="empty-copy events-empty">Check back soon — new happenings appear here as venues add them.</p>
+    `;
     revealDetailCard();
     updateReviewUrl();
   }
@@ -1277,7 +1319,7 @@
       state.pathMarkers.push(marker);
     });
     const bounds = path.stops.reduce((acc, stop) => acc.extend([stop.lng, stop.lat]), new maplibregl.LngLatBounds([path.stops[0].lng, path.stops[0].lat], [path.stops[0].lng, path.stops[0].lat]));
-    state.map.fitBounds(bounds, { padding: 90, duration: 800 });
+    state.map.fitBounds(bounds, { padding: 90, duration: prefersReducedMotion() ? 0 : 800 });
     renderPathPanel(path);
     updateReviewUrl();
   }
@@ -1289,7 +1331,7 @@
     const copy = activePath.copy || "";
     els.detail.innerHTML = `
       <div class="path-card-heading">
-        <p class="detail-eyebrow">Curated path</p>
+        <p class="detail-eyebrow">Walk this route</p>
         <h2>${escapeHtml(activePath.title)}</h2>
         <p class="path-thesis">${escapeHtml(thesis)}</p>
         ${copy ? `<p class="path-copy">${escapeHtml(copy)}</p>` : ""}
@@ -1355,7 +1397,11 @@
     if (mode === "events") {
       els.hint.innerHTML = `<p class="hint-title">Events on the map</p><p>Upcoming NCAC-feed events appear when the venue matches a visible place.</p>`;
       const first = state.events[0];
-      if (first) showEvent(first);
+      if (first) {
+        showEvent(first);
+      } else {
+        showEventsEmpty();
+      }
     } else if (mode === "paths") {
       renderPathChooser();
     } else {
@@ -1702,7 +1748,11 @@
       .map((place) => place.id)
       .filter(Boolean);
     state.places = applyAnchorCards(places, state.anchorCards);
-    state.events = events;
+    // Belt-and-suspenders Event Freshness Guarantee: the transform pre-filters
+    // to date>=today, but a same-day boundary or a hand-edited file could still
+    // carry a past event. Filtering here makes "Upcoming event" true by
+    // construction everywhere state.events is read (markers, count, related).
+    state.events = upcomingEvents(events);
     state.paths = paths;
     state.placeIndex = V1PlaceData.buildPlaceIndex(state.places);
 

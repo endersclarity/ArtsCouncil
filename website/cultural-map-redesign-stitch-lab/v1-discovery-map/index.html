@@ -5,7 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Nevada County Cultural Map</title>
   <meta name="description" content="Browse cultural places, stories, and events across Grass Valley and Nevada City.">
+  <meta name="theme-color" content="#f7f7f4">
   <link rel="preconnect" href="https://use.typekit.net">
+  <link rel="preconnect" href="https://unpkg.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -13,7 +15,7 @@
   <script>try{Typekit.load({async:true});}catch(e){}</script>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23ff2500'/%3E%3Cpath d='M7 24V8h4l10 9V8h4v16h-4L11 15v9z' fill='%23faf8f4'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
-  <link rel="stylesheet" href="styles.css?v=cla-37-v2">
+  <link rel="stylesheet" href="styles.css?v=cla-42-v1">
 </head>
 <body>
   <a class="skip-link" href="#map">Skip to map</a>
@@ -34,7 +36,7 @@
   <main class="app-shell">
     <section class="intro-strip" aria-label="Nevada County Cultural Map">
       <p class="kicker">Nevada County Arts Council</p>
-      <h1>Nevada County Cultural Map</h1>
+      <p class="intro-strip-title">Nevada County Cultural Map</p>
       <p>Browse cultural places, stories, and events across Grass Valley and Nevada City.</p>
     </section>
 
@@ -53,7 +55,7 @@
             <h1>Nevada County Cultural Map</h1>
             <p>Browse cultural places, stories, and events across Grass Valley and Nevada City.</p>
           </div>
-          <span id="visible-count">Loading</span>
+          <span id="visible-count">Loading…</span>
         </div>
 
         <div class="mode-tabs" role="tablist" aria-label="Map mode">
@@ -73,7 +75,7 @@
           <h2 class="browse-heading">Places to explore</h2>
           <label class="review-search-label" for="place-search">
             <span>Search places</span>
-            <input id="place-search" class="review-search-input" type="search" placeholder="Search places">
+            <input id="place-search" class="review-search-input" type="search" name="place-search" autocomplete="off" placeholder="Search places, e.g. theatre…">
           </label>
           <div class="places-list" id="places-list"></div>
         </div>
@@ -99,6 +101,6 @@
   <script src="review-state.js"></script>
   <script src="place-data.js"></script>
   <script src="marker-category-color.js"></script>
-  <script src="app.js?v=cla-37-v1"></script>
+  <script src="app.js?v=cla-42-v1"></script>
 </body>
 </html>

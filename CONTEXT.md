@@ -117,8 +117,9 @@ The practical inventory treatment for an Ordinary Place, exposing source-backed 
 _Avoid_: "Directory record" as a visible eyebrow/label, thin leftover listing, placeholder-only card, uncurated dump
 
 **Place-Kind Eyebrow**:
-The short label at the top of a Selected Directory Card. By default it states the place's category so a citizen learns what kind of place it is. Path-role labels (**Cultural Anchor** / **Supporting Stop**) appear only when the citizen is inside a Path context; off-path, the eyebrow is the category, never the path role and never an internal bucket. (Owner ruling, 2026-05-29.)
-_Avoid_: "Directory record" / "MUSE pick" as the eyebrow, anchor/supporting-stop labels shown off-path, internal taxonomy as a visible label
+The short label at the top of a Selected Directory Card, marker popup, and list badge. It **always** states the place's category (e.g. "Performing Arts") so a citizen learns what kind of place it is — the anchor/supporting-stop/MUSE-pick/directory-record buckets were removed from every eyebrow, popup, and badge (owner ruling, 2026-05-30, implemented CLA-39). The **only** place a path role (Primary anchor / Supporting stop) still shows is the numbered stop list *inside an active Path*, where it describes the stop's role in that route. The anchor card's "what you'll find here" prose (`whyItMatters`) and `supportingDescription` must be citizen-voiced — about the place and the visit, never about MUSE, the map, routes, vetting, or evidence. Verified by `tests/test_v1_citizen_voice_contract.js`.
+_Avoid_: anchor/stop/MUSE-pick/directory-record as an eyebrow or badge, justification prose in card data, internal taxonomy as a visible label
+_Open_: `anchorLabel` badges (e.g. "Grass Valley performance anchor") still render via `anchorBadge()` and contain the word "anchor" — flagged for a future citizen-voice pass.
 
 **Email Data**:
 Contact email information from the source inventory. It is intentionally excluded from first-pass Directory Record Restoration because coverage is sparse and the public/private contact boundary needs a separate decision.
@@ -304,6 +305,18 @@ _Avoid_: Confidence scores, P0/P1 priority labels, implementation notes, caveats
 The current prototype review scope centered on Grass Valley, Nevada City, and immediately relevant Ridge/nearby cultural context rather than the full county. Truckee is outside this scope for the next review slice.
 _Avoid_: Countywide launch scope, Truckee/High Sierra proof, Truckee anchors
 
+**Living Event Layer**:
+The V1 event treatment: a light layer of current events drawn from the live NCAC event pipeline, shown only at visible places. It is fed by the real ingestion pipeline (re-wired into V1), not a hand-maintained snapshot. Its promise is *currency at anchor places*, not exhaustive county calendar coverage.
+_Avoid_: Hand-picked frozen demo set, full events calendar/sidebar, raw firehose dump, stale snapshot presented as current
+
+**Event Freshness Guarantee**:
+The structural rule that V1 never shows a past event as upcoming. Events are filtered to today-or-later before render, so the "Upcoming event" label is always true by construction. Freshness is enforced by filtering, never by a visible "as of <date>" caveat (which would be banned process voice below the nav chrome).
+_Avoid_: "as of <date>" caveat on the surface, trusting a label without filtering, showing past events with a freshness disclaimer
+
+**Empty Events State**:
+The citizen-voiced state shown when no current events match visible places. It invites the citizen to return ("No events listed here this week — check back soon") rather than exposing a stale list, a broken-feed message, or a process/QA caveat.
+_Avoid_: Stale list as fallback, "feed unavailable" error, process-label caveat, silent empty Events mode
+
 ## Relationships
 
 - The **Stakeholder Review Audience** is the first audience for the next selected-place-card and path-treatment slice.
@@ -372,6 +385,10 @@ _Avoid_: Countywide launch scope, Truckee/High Sierra proof, Truckee anchors
 - Use a **Visible Incompleteness Label** only where the supporting-stop UI exposes a visible gap.
 - The **GVNC Prototype Scope** excludes Truckee/High Sierra anchors from the first anchor-card slice unless explicitly revived.
 - Nearby cultural landscape anchors may be included when they strengthen the Grass Valley/Nevada City story, but Truckee anchors stay out of the next review slice.
+
+- The **Living Event Layer** is fed by the live event pipeline re-wired into V1, not a hand-picked frozen set; it shows events only at visible places.
+- The **Living Event Layer** must honor the **Event Freshness Guarantee**; when nothing current matches, it shows the **Empty Events State** rather than a stale list.
+- An **Orientation Failure** includes showing a past event as "Upcoming"; the **Event Freshness Guarantee** exists to prevent it.
 
 ## Example dialogue
 

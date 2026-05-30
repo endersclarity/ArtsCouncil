@@ -47,7 +47,7 @@ assert.match(
 
 assert.match(appSource, /Show places in this area/, "dense-map action should use public beta copy");
 assert.match(appSource, /Place details/, "selected place drawer should use public beta details label");
-assert.match(appSource, /Seen in MUSE/, "selected place drawer should keep the accepted MUSE section label");
+assert.match(appSource, /In the pages of MUSE Magazine/, "selected place drawer should carry the citizen-voiced MUSE credit");
 
 const countRuntimeCopy = appSource.match(/function updateCount\(\) \{([\s\S]*?)\n  \}/)?.[1] || "";
 assert.doesNotMatch(countRuntimeCopy, /visible places/i, "first viewport count should avoid internal inventory copy");
