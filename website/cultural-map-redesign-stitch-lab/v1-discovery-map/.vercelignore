@@ -1,0 +1,18 @@
+# Vercel deploy excludes for the v1 Discovery Map static site.
+# Everything not listed here ships. Keep: index.html, *.js, styles.css,
+# assets/, and the data/*.json the app fetches at runtime.
+
+# Dev/agent tooling — not part of the public site
+scripts/
+dogfood-output/
+prototypes/
+docs/
+AGENTS.md
+README.md
+
+# Unreferenced large data artifacts (not fetched by app.js)
+data/coordinate_sanity_markers.geojson
+data/coordinate_sanity_pass.json
+
+# Local backups (defensive — also gitignored)
+data/*.bak-before-*
