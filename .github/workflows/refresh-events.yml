@@ -87,7 +87,7 @@ jobs:
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore(data): refresh events from 9 sources (Trumba + LibCal + CivicEngage + KVMR + GVDA + Crazy Horse + Golden Era + Bodhi Hive + Community)"
-          file_pattern: "website/cultural-map-redesign/events*.json website/cultural-map-redesign-stitch-lab/events*.json website/cultural-map-redesign-stitch-lab/v1-discovery-map/data/events.json scripts/events/reports/*.json website/arts-hub/data/events.json website/arts-hub-v2/data/events-matched.json"
+          file_pattern: "website/cultural-map-redesign/events*.json website/cultural-map-redesign-stitch-lab/events*.json website/cultural-map-redesign-stitch-lab/v1-discovery-map/data/events.json scripts/events/reports/*.json website/arts-hub-v2/data/events-matched.json"
           commit_user_name: "github-actions[bot]"
           commit_user_email: "github-actions[bot]@users.noreply.github.com"
 
