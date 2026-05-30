@@ -44,17 +44,19 @@ Active worktrees under `.claude/worktrees/` may hold in-flight work on other bra
 
 ### Issue tracker
 
-Shaped work (PRDs, vertical-slice issues) lives in **Linear** — project
-**"Cultural Asset Map"** in the `ClaudeCode` team — via the Linear MCP tools.
-The 49 legacy issues on GitHub (`endersclarity/ArtsCouncil`) are kept as
-**read-only history/reference**, not the working tracker. See `docs/agents/issue-tracker.md`.
+**Linear is THE tracker — not GitHub, never GitHub.** Shaped work (PRDs, vertical-slice
+issues) lives in **Linear** — project **"Cultural Asset Map"** in the `ClaudeCode` team —
+via the **`linear` CLI** (the `linear-cli` skill), NOT the MCP tools. The 49 legacy issues
+on GitHub (`endersclarity/ArtsCouncil`) are **read-only history only** — never create or
+triage new work there. See `docs/agents/issue-tracker.md`.
 
-Linear rules (full detail in the `/linear` skill):
-- Tools are `save_issue` (create+update) and `save_comment` — NOT the generic
-  `create_issue`/`update_issue` names from public docs.
+Linear rules (full detail in the `linear-cli` skill):
+- Use the `linear` CLI: `linear issue create --team CLA --project "Cultural Asset Map"`,
+  `linear issue update CLA-42 --state …`, `linear issue comment add CLA-42 --body-file …`.
+  Prefer `--description-file`/`--body-file` for multi-line Markdown.
 - **Status timing:** move an issue to In Progress when you START, Done when finished —
   never flip straight to Done at the end (owner rule, see CLA-27).
-- Read first (`get_issue`) before creating, to avoid duplicates.
+- Read first (`linear issue view <id>`) before creating, to avoid duplicates.
 
 ### Triage labels
 

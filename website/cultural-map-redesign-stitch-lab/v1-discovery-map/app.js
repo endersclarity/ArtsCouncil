@@ -1,6 +1,12 @@
 (function () {
   "use strict";
 
+  // Contract/debug seam: when ?contract=cla-33 is set, updateSmartLabels()
+  // publishes its in-view candidate ranking to window.__smartLabelDebug so the
+  // CLA-33 contract can assert map-convention invariants (importance ranking,
+  // stability) that are not otherwise observable from the DOM.
+  const CONTRACT_MODE = new URLSearchParams(window.location.search).get("contract") === "cla-33";
+
   const DATA = {
     places: "data/places.json",
     events: "data/events.json?v=event-copy-fix",
@@ -17,6 +23,14 @@
     paper: "#ffffff",
     ink: "#1a1a2e",
   };
+  // CLA-34: color place dots by outing group (derived from category). The mapping
+  // and the MapLibre match expression live in marker-category-color.js (unit-tested,
+  // loaded before this script). Fall back to the flat dark fill if it's unavailable.
+  const CATEGORY_COLOR =
+    (typeof window !== "undefined" &&
+      window.MarkerCategoryColor &&
+      window.MarkerCategoryColor.CATEGORY_COLOR_EXPRESSION) ||
+    MARKERS.place;
   const CONSTELLATION_DENSITY_RADIUS_MILES = 0.01;
   const DENSE_CONSTELLATION_MIN_PLACES = 8;
 
@@ -146,6 +160,8 @@
     previewPlaceId: "",
     pathMarkers: [],
     smartLabels: [],
+    labelsActive: false,
+    lastLabelAnchor: {},
   };
 
   const els = {
@@ -176,6 +192,12 @@
 
   function categoryPlaceholderFor(category) {
     return CATEGORY_PLACEHOLDER_IMAGES[category] || "";
+  }
+
+  // Indexed place lookup; falls back to a linear scan before the index is built.
+  function placeById(id) {
+    if (state.placeIndex) return V1PlaceData.placeById(state.placeIndex, id);
+    return state.places.find((item) => item.id === id);
   }
 
   function isPlaceMapReady(place) {
@@ -212,8 +234,7 @@
   function placeKindLabel(place) {
     if (place.anchor) return "Cultural anchor";
     if (place.anchorCard) return "Supporting stop";
-    if (place.musePick) return "MUSE pick";
-    return "Directory record";
+    return place.category || "Cultural place";
   }
 
   function markerPreviewHtml(place) {
@@ -231,8 +252,9 @@
   function showMarkerPreview(event) {
     if (!event.features?.length) return;
     const id = event.features[0].properties.id;
-    const place = state.places.find((item) => item.id === id);
+    const place = placeById(id);
     if (!place) return;
+    const previousPreviewId = state.previewPlaceId;
     state.previewPlaceId = place.id;
     if (!state.markerPreviewPopup) {
       state.markerPreviewPopup = new maplibregl.Popup({
@@ -246,11 +268,28 @@
       .setLngLat(event.features[0].geometry.coordinates)
       .setHTML(markerPreviewHtml(place))
       .addTo(state.map);
+    // Refresh labels so the hovered place is always labeled (it's cap-exempt as
+    // `previewed`) and its dot takes the hover/red state. The popup tail already
+    // anchors the card at the marker.
+    refreshHoverState(previousPreviewId);
   }
 
   function hideMarkerPreview() {
+    const previousPreviewId = state.previewPlaceId;
     state.previewPlaceId = "";
     state.markerPreviewPopup?.remove();
+    refreshHoverState(previousPreviewId);
+  }
+
+  // Repaint the hovered dot red (lightweight setFilter, no source rebuild) and
+  // refresh smart labels so the previewed place gets a label.
+  function refreshHoverState(previousPreviewId) {
+    if (state.map && state.map.getLayer("place-hover-ring")) {
+      state.map.setFilter("place-hover-ring", [
+        "all", ["!", ["has", "point_count"]], ["==", ["get", "id"], state.previewPlaceId || " "],
+      ]);
+    }
+    if (previousPreviewId !== state.previewPlaceId) updateSmartLabels();
   }
 
   function eventToFeature(event) {
@@ -455,8 +494,7 @@
   function placeReviewLabel(place) {
     if (place.anchor && place.anchorCard) return "Primary anchor";
     if (!place.anchor && place.anchorCard) return "Supporting stop";
-    if (place.musePick) return "MUSE pick";
-    return "Place";
+    return place.category || "Place";
   }
 
   function renderPlacesList() {
@@ -514,7 +552,7 @@
     `;
     els.placesList.querySelector("#local-reveal-back")?.addEventListener("click", clearLocalReveal);
     els.placesList.querySelectorAll("[data-place]").forEach((button) => {
-      const place = state.places.find((item) => item.id === button.dataset.place);
+      const place = placeById(button.dataset.place);
       if (place) button.addEventListener("click", () => showPlace(place));
     });
   }
@@ -603,10 +641,50 @@
     state.smartLabels = [];
   }
 
+  // Importance tier (lower = more important) — pure authored/interaction
+  // signals, no density. Density is a collision/spacing input only, never a
+  // promotion signal (removing density-as-ranking is the CLA-33 core fix).
+  function importanceTier(f) {
+    if (f.selected) return 0;
+    if (f.previewed) return 1;
+    if (f.isAnchor) return 2;
+    if (f.featured) return 3;
+    if (f.musePick) return 4;
+    if (f.sampler || f.currentContext) return 5;
+    return 6;
+  }
+
+  // Rank purely by authored/interaction importance — no density, no
+  // center-distance (the zoom regime already scopes to the local neighborhood).
+  // Anchors break ties by their authored priority; everything else is stable by
+  // name then id so the labeled set doesn't churn between rebuilds.
+  function compareImportance(a, b) {
+    if (a.importanceTier !== b.importanceTier) return a.importanceTier - b.importanceTier;
+    if (a.isAnchor && b.isAnchor && a.anchorPriority !== b.anchorPriority) {
+      return a.anchorPriority - b.anchorPriority;
+    }
+    const byName = a.name.localeCompare(b.name);
+    if (byName !== 0) return byName;
+    return String(a.id).localeCompare(String(b.id));
+  }
+
   function updateSmartLabels() {
     clearSmartLabels();
     if (!state.map || state.mode !== "places" || !state.map.getLayer("place-points")) return;
-    if (state.map.getZoom() < 11.75) return;
+
+    // Zoom regime with hysteresis: labels turn ON at the on-threshold and turn
+    // OFF only once we drop below the off-threshold, so small zoom nudges around
+    // the boundary don't thrash labels on and off. Below the band the map is
+    // dots-only — conventional maps don't label until a neighborhood is small.
+    const LABEL_ZOOM_ON = 13.3;
+    const LABEL_ZOOM_OFF = 12.7;
+    const zoom = state.map.getZoom();
+    if (state.labelsActive) {
+      if (zoom < LABEL_ZOOM_OFF) state.labelsActive = false;
+    } else if (zoom >= LABEL_ZOOM_ON) {
+      state.labelsActive = true;
+    }
+    if (!state.labelsActive) return;
 
     const bounds = state.map.getBounds();
     const mapCanvas = state.map.getCanvas();
@@ -621,56 +699,43 @@
         const screenPos = state.map.project([place.lng, place.lat]);
         const centerDistance = Math.hypot(screenPos.x - viewportCenter.x, screenPos.y - viewportCenter.y);
         const nearbyDensity = nearbyPlaceDensity(place, mapReadyPlaces);
+        const isAnchor = Boolean(place.anchor);
+        const featured = Boolean(place.featured);
+        const musePick = Boolean(place.musePick);
+        const selected = place.id === state.selectedPlaceId;
+        const previewed = place.id === state.previewPlaceId;
+        const sampler = state.browseSamplerPlaceIds.includes(place.id);
+        const currentContext = isCurrentContextPlace(place);
         return {
           id: place.id,
           name: place.name,
           lng: place.lng,
           lat: place.lat,
-          isAnchor: Boolean(place.anchor),
-          featured: Boolean(place.featured),
-          musePick: Boolean(place.musePick),
-          selected: place.id === state.selectedPlaceId,
-          previewed: place.id === state.previewPlaceId,
+          isAnchor,
+          anchorPriority: (isAnchor && Number.isFinite(place.anchor.priority)) ? place.anchor.priority : 99,
+          featured,
+          musePick,
+          sampler,
+          currentContext,
+          selected,
+          previewed,
+          importanceTier: importanceTier({ selected, previewed, isAnchor, featured, musePick, sampler, currentContext }),
           centerDistance,
           nearbyDensity,
           screenPos,
         };
       })
-      .sort((a, b) => {
-        if (a.selected && !b.selected) return -1;
-        if (!a.selected && b.selected) return 1;
-        if (a.previewed && !b.previewed) return -1;
-        if (!a.previewed && b.previewed) return 1;
-        if (a.isAnchor && !b.isAnchor) return -1;
-        if (!a.isAnchor && b.isAnchor) return 1;
-        if (a.featured && !b.featured) return -1;
-        if (!a.featured && b.featured) return 1;
-        if (a.musePick && !b.musePick) return -1;
-        if (!a.musePick && b.musePick) return 1;
-        if (a.nearbyDensity !== b.nearbyDensity) return a.nearbyDensity - b.nearbyDensity;
-        if (a.centerDistance !== b.centerDistance) return a.centerDistance - b.centerDistance;
-        return a.name.localeCompare(b.name);
-      })
+      .sort(compareImportance)
       .slice(0, 72);
 
     if (!visiblePlaces.length) return;
-
-    visiblePlaces.sort((a, b) => {
-      if (a.isAnchor && !b.isAnchor) return -1;
-      if (!a.isAnchor && b.isAnchor) return 1;
-      if (a.featured && !b.featured) return -1;
-      if (!a.featured && b.featured) return 1;
-      if (a.musePick && !b.musePick) return -1;
-      if (!a.musePick && b.musePick) return 1;
-      if (a.nearbyDensity !== b.nearbyDensity) return a.nearbyDensity - b.nearbyDensity;
-      if (a.centerDistance !== b.centerDistance) return a.centerDistance - b.centerDistance;
-      return a.name.localeCompare(b.name);
-    });
 
     const occupiedBoxes = visiblePlaces.map((place) => {
       const markerSize = place.isAnchor ? 36 : 16;
       return {
         id: place.id,
+        kind: "marker",
+        tier: place.importanceTier,
         minX: place.screenPos.x - markerSize / 2 - 4,
         maxX: place.screenPos.x + markerSize / 2 + 4,
         minY: place.screenPos.y - markerSize / 2 - 4,
@@ -678,6 +743,7 @@
       };
     });
 
+    const labeledIds = new Set();
     let labelCount = 0;
     visiblePlaces.forEach((place) => {
       if (labelCount >= 18 && !place.selected && !place.previewed) return;
@@ -714,26 +780,51 @@
         },
       ];
 
-      const bestCandidate = candidates.find((candidate) => {
-        return !occupiedBoxes.some((box) => (
-          box.id !== place.id &&
-          candidate.minX < box.maxX &&
-          candidate.maxX > box.minX &&
-          candidate.minY < box.maxY &&
-          candidate.maxY > box.minY
-        ));
+      // Stability (Mapbox text-variable-anchor pattern): try the anchor side
+      // this place used last rebuild before the fixed candidate order, so a
+      // label only switches sides when its previous side now genuinely collides
+      // — no flip-flopping as you pan/zoom across boundaries.
+      const cachedPos = state.lastLabelAnchor[place.id];
+      const orderedCandidates = cachedPos
+        ? [...candidates].sort((a, b) => (b.posClass === cachedPos) - (a.posClass === cachedPos))
+        : candidates;
+
+      const important = place.importanceTier <= 2;
+      const bestCandidate = orderedCandidates.find((candidate) => {
+        return !occupiedBoxes.some((box) => {
+          if (box.id === place.id) return false;
+          // A high-importance label (selected/previewed/anchor) may sit over an
+          // ordinary dot marker so a dense cluster can't starve it of a slot; it
+          // still avoids other labels and other important markers.
+          if (important && box.kind === "marker" && box.tier > 2) return false;
+          return (
+            candidate.minX < box.maxX &&
+            candidate.maxX > box.minX &&
+            candidate.minY < box.maxY &&
+            candidate.maxY > box.minY
+          );
+        });
       });
       if (!bestCandidate) return;
 
-      occupiedBoxes.push({ ...bestCandidate, id: `label:${place.id}` });
+      occupiedBoxes.push({ ...bestCandidate, id: `label:${place.id}`, kind: "label", tier: place.importanceTier });
+      place.posClass = bestCandidate.posClass;
+      state.lastLabelAnchor[place.id] = bestCandidate.posClass;
       labelCount += 1;
       const el = document.createElement("button");
       el.type = "button";
-      el.className = `map-smart-label ${place.isAnchor ? "anchor-label-pin" : ""} ${bestCandidate.posClass}`;
+      const stateClass = [
+        place.selected ? "selected" : "",
+        place.previewed && !place.selected ? "previewed" : "",
+        // Dim non-selected labels when a selection exists so the selection reads
+        // (alpha only — no layout change).
+        state.selectedPlaceId && !place.selected ? "dimmed" : "",
+      ].filter(Boolean).join(" ");
+      el.className = `map-smart-label ${place.isAnchor ? "anchor-label-pin" : ""} ${bestCandidate.posClass} ${stateClass}`.trim();
       el.textContent = place.name;
       el.addEventListener("click", (event) => {
         event.stopPropagation();
-        const selected = state.places.find((item) => item.id === place.id);
+        const selected = placeById(place.id);
         if (selected) showPlace(selected);
       });
 
@@ -744,7 +835,29 @@
         .setLngLat([place.lng, place.lat])
         .addTo(state.map);
       state.smartLabels.push(marker);
+      labeledIds.add(place.id);
     });
+
+    if (CONTRACT_MODE) {
+      window.__smartLabelDebug = {
+        zoom,
+        labelsActive: state.labelsActive,
+        previewPlaceId: state.previewPlaceId,
+        selectedPlaceId: state.selectedPlaceId,
+        candidates: visiblePlaces.map((p, index) => ({
+          id: p.id,
+          name: p.name,
+          lng: p.lng,
+          lat: p.lat,
+          rank: index,
+          importanceTier: p.importanceTier,
+          anchorPriority: p.anchorPriority,
+          nearbyDensity: p.nearbyDensity,
+          labeled: labeledIds.has(p.id),
+          posClass: p.posClass || null,
+        })),
+      };
+    }
   }
 
   function expandDrawer() {
@@ -845,29 +958,35 @@
     els.detail.classList.toggle("path-detail-card", mode === "path");
   }
 
+  function resolvePlaceImage(place) {
+    return V1PlaceData.resolvePlaceImage(place, {
+      resolveMedia,
+      categoryPlaceholderFor,
+      defaultPlaceholder: "assets/placeholders/gallery-studio.webp",
+    });
+  }
+
   function renderImage(place, options = {}) {
     const imageLabel = options.imageLabel || options.proofLabel || "";
     const proofLabel = imageLabel ? `<span class="image-proof-label">${escapeHtml(imageLabel)}</span>` : "";
-    if (place.image && place.image.kind === "real" && place.image.src) {
-      const src = resolveMedia(place.image.src);
+    const resolved = resolvePlaceImage(place);
+    if (resolved.isRealImage) {
       return `
         <figure class="place-image-frame">
           ${proofLabel}
-          <img class="place-image" src="${escapeHtml(src)}" alt="${escapeHtml(place.image.alt || place.name)}">
-          ${place.image.credit ? `<figcaption>${escapeHtml(place.image.credit)}</figcaption>` : ""}
+          <img class="place-image" src="${escapeHtml(resolved.src)}" alt="${escapeHtml(resolved.alt || place.name)}">
+          ${resolved.credit ? `<figcaption>${escapeHtml(resolved.credit)}</figcaption>` : ""}
         </figure>
       `;
     }
     const explicitPlaceholder = place.image?.kind === "placeholder" ? "" : place.image?.src || place.image?.placeholderSrc;
-    const categoryPlaceholder = categoryPlaceholderFor(place.category);
-    const src = resolveMedia(explicitPlaceholder || categoryPlaceholder || "assets/placeholders/gallery-studio.webp");
     const alt = explicitPlaceholder
       ? place.image?.alt || `Non-documentary placeholder image for ${place.name}`
       : `NCAC category placeholder for ${place.category || place.name}`;
     return `
       <div class="placeholder-image-wrap">
         ${proofLabel}
-        <img class="place-image placeholder-image" src="${escapeHtml(src)}" alt="${escapeHtml(alt)}">
+        <img class="place-image placeholder-image" src="${escapeHtml(resolved.src)}" alt="${escapeHtml(alt)}">
         <span class="placeholder-label">Photo not yet sourced</span>
       </div>
     `;
@@ -919,7 +1038,7 @@
     ].filter(Boolean);
     if (!rows.length) return "";
     return `
-      <dl class="directory-record-meta" aria-label="Directory record details">
+      <dl class="directory-record-meta" aria-label="Place details">
         ${rows.map(([label, value]) => `
           <div>
             <dt>${escapeHtml(label)}</dt>
@@ -954,40 +1073,26 @@
     }, new Map());
   }
 
-  function museArticleContext(article) {
-    const issue = article.issue || (article.issue_year ? `MUSE ${article.issue_year}` : "");
-    const pageStart = article.page_start;
-    const pageEnd = article.page_end;
-    const pages = pageStart && pageEnd && pageStart !== pageEnd
-      ? `pp. ${pageStart}-${pageEnd}`
-      : pageStart
-        ? `p. ${pageStart}`
-        : "";
-    return [issue, pages].filter(Boolean).join(", ");
-  }
-
   function renderSeenInMuse(place) {
     const links = state.museEvidenceByPlace.get(place.id) || [];
     if (!links.length) return "";
     const visibleLinks = links.slice(0, 3);
     return `
-      <div class="seen-in-muse" aria-label="Seen in MUSE">
-        <p class="section-label">Seen in MUSE</p>
+      <div class="seen-in-muse" aria-label="In the pages of MUSE Magazine">
+        <p class="section-label">In the pages of MUSE Magazine</p>
         <div class="seen-in-muse-list">
           ${visibleLinks.map((link) => {
             const article = link.article || {};
-            const confidence = link.source_confidence?.level ? `${link.source_confidence.level} confidence` : "Direct place match";
-            const context = museArticleContext(article);
+            const issue = article.issue || (article.issue_year ? `MUSE ${article.issue_year}` : "");
             return `
               <article class="seen-in-muse-item">
-                <strong>${escapeHtml(article.title || "MUSE article")}</strong>
-                ${context ? `<span>${escapeHtml(context)}</span>` : ""}
-                <small>${escapeHtml(confidence)} / direct place evidence</small>
+                <strong>${escapeHtml(article.title || "MUSE Magazine")}</strong>
+                ${issue ? `<span>${escapeHtml(issue)}</span>` : ""}
               </article>
             `;
           }).join("")}
         </div>
-        ${links.length > visibleLinks.length ? `<p class="seen-in-muse-more">${escapeHtml(links.length - visibleLinks.length)} more direct MUSE mentions</p>` : ""}
+        ${links.length > visibleLinks.length ? `<p class="seen-in-muse-more">${escapeHtml(links.length - visibleLinks.length)} more in MUSE</p>` : ""}
       </div>
     `;
   }
@@ -1032,7 +1137,7 @@
       }
       setDetailCardMode("");
       els.hint.innerHTML = `<p class="hint-title">Start in the cultural district</p><p>Grass Valley and Nevada City are centered first, with the wider county still visible as context.</p>`;
-      els.detail.innerHTML = `<p class="empty-title">Select a place</p><p class="empty-copy">The detail card will show image proof, short context, source category, and related events when available.</p>`;
+      els.detail.innerHTML = `<p class="empty-title">Select a place</p><p class="empty-copy">Pick a place to see what makes it worth a visit.</p>`;
       return;
     }
     setDetailCardMode("primary-anchor");
@@ -1057,6 +1162,7 @@
     state.selectedPlaceId = place.id;
     state.selectedEventId = "";
     setSourceData();
+    updateSmartLabels();
     const events = relatedEvents(place.id);
     const anchor = place.anchor || null;
     const actionLabel = place.anchorCard?.primaryAction || "Visit site";
@@ -1087,7 +1193,7 @@
       ${renderImage(place, imageLabel ? { imageLabel } : {})}
       <p class="section-label">Place details</p>
       <div class="${isPrimaryAnchor ? "anchor-card-heading" : "detail-heading"}">
-        <p class="detail-eyebrow">${anchor ? "Cultural anchor" : place.anchorCard ? "Supporting stop" : place.musePick ? "MUSE pick" : "Cultural place"}</p>
+        <p class="detail-eyebrow">${anchor ? "Cultural anchor" : place.anchorCard ? "Supporting stop" : escapeHtml(place.category || "Cultural place")}</p>
         ${anchorBadge(place)}
         <h2>${escapeHtml(place.name)}</h2>
         <p class="detail-location">${escapeHtml(place.category)} / ${escapeHtml(place.city || "Nevada County")}</p>
@@ -1116,7 +1222,7 @@
     state.selectedPlaceId = "";
     state.selectedPath = null;
     setSourceData();
-    const place = state.places.find((item) => item.id === event.placeId);
+    const place = placeById(event.placeId);
     els.detail.innerHTML = `
       ${event.image ? `<img class="place-image" src="${escapeHtml(event.image)}" alt="${escapeHtml(event.title)}">` : ""}
       <p class="detail-eyebrow">Upcoming event</p>
@@ -1163,7 +1269,7 @@
       el.className = "path-number-marker";
       el.textContent = String(index + 1);
       el.addEventListener("click", () => {
-        const place = state.places.find((item) => item.id === stop.placeId);
+        const place = placeById(stop.placeId);
         if (place) showPlace(place);
       });
       const marker = new maplibregl.Marker({ element: el }).setLngLat([stop.lng, stop.lat]).addTo(state.map);
@@ -1190,7 +1296,7 @@
       </div>
       <ol class="path-stop-list">
         ${activePath.stops.map((stop) => {
-          const place = state.places.find((item) => item.id === stop.placeId);
+          const place = placeById(stop.placeId);
           const anchor = place?.anchor || null;
           const card = place?.anchorCard || null;
           const icon = anchor ? anchorIconText(anchor) : card ? ANCHOR_ICON_TEXT[card.iconKey] || "" : "";
@@ -1201,7 +1307,7 @@
       </ol>
     `;
     els.detail.querySelectorAll("[data-place]").forEach((button) => {
-      const place = state.places.find((item) => item.id === button.dataset.place);
+      const place = placeById(button.dataset.place);
       if (place) button.addEventListener("click", () => showPlace(place));
     });
     els.hint.innerHTML = `
@@ -1213,8 +1319,8 @@
   function renderPathChooser() {
     setDetailCardMode("path");
     els.hint.innerHTML = `
-      <p class="hint-title">MUSE-current paths</p>
-      <p>Three fixed routes demonstrate how cultural discovery can be curated on the map.</p>
+      <p class="hint-title">Cultural routes</p>
+      <p>Three routes through the county's cultural life. Pick one to start walking.</p>
     `;
     els.detail.innerHTML = `
       <div class="path-list">
@@ -1399,7 +1505,7 @@
           11, ["case", ["get", "denseConstellation"], ["interpolate", ["linear"], ["get", "nearbyDensity"], 8, 5.5, 18, 7.8, 36, 10.8], 5],
           14, ["case", ["get", "denseConstellation"], ["interpolate", ["linear"], ["get", "nearbyDensity"], 8, 5.5, 18, 7.8, 36, 10.8], 6]
         ],
-        "circle-color": MARKERS.place,
+        "circle-color": CATEGORY_COLOR,
         "circle-opacity": [
           "case",
           ["get", "denseConstellation"], 0.32,
@@ -1440,10 +1546,27 @@
           ["get", "featured"], 7.5,
           5.5
         ],
-        "circle-color": MARKERS.place,
+        // CLA-34: fill encodes outing group (category color), for anchors/featured
+        // and the selected place alike. Selection is signaled by the surrounding red
+        // rings (anchor-rings / place-selection-ring / halo) plus a thicker white
+        // stroke below — red is reserved for that, not used as a category color.
+        "circle-color": CATEGORY_COLOR,
         "circle-opacity": 1,
         "circle-stroke-color": MARKERS.paper,
-        "circle-stroke-width": ["case", ["get", "selected"], 2, 1.4],
+        "circle-stroke-width": ["case", ["get", "selected"], 3, 1.4],
+      },
+    });
+    state.map.addLayer({
+      id: "place-hover-ring",
+      type: "circle",
+      source: "places",
+      filter: ["all", ["!", ["has", "point_count"]], ["==", ["get", "id"], " "]],
+      paint: {
+        "circle-radius": 11,
+        "circle-color": "rgba(255,46,0,0.14)",
+        "circle-stroke-color": MARKERS.red,
+        "circle-stroke-width": 2,
+        "circle-opacity": 1,
       },
     });
     state.map.addLayer({
@@ -1525,7 +1648,7 @@
     const showPlaceFromFeature = (event) => {
       hideMarkerPreview();
       const id = event.features[0].properties.id;
-      const place = state.places.find((item) => item.id === id);
+      const place = placeById(id);
       if (place) showPlace(place);
     };
     state.map.on("click", "place-density", showPlaceFromFeature);
@@ -1581,6 +1704,19 @@
     state.places = applyAnchorCards(places, state.anchorCards);
     state.events = events;
     state.paths = paths;
+    state.placeIndex = V1PlaceData.buildPlaceIndex(state.places);
+
+    // Dev-mode data integrity check (Canonical Place collisions, duplicate ids,
+    // invalid image kinds, map-ready places missing coordinates). Surfaced as a
+    // single grouped warning; never throws, never affects render.
+    if (/[?&]debug=data/.test(location.search)) {
+      const problems = V1PlaceData.findPlaceDataProblems(state.places);
+      if (problems.length) {
+        console.warn(`[place-data] ${problems.length} data problems found:`, problems);
+      } else {
+        console.info("[place-data] no data problems found");
+      }
+    }
 
     renderFilters();
     state.map = new maplibregl.Map({

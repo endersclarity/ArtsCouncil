@@ -1,3 +1,5 @@
+> ⛔ **SUPERSEDED — do not use.** This is the deprecated "Gold Country" direction (cream/gold/serif/watercolor). The canonical V1 brand is **[`brand/NCAC-V1-BRAND.md`](brand/NCAC-V1-BRAND.md)** (NCAC red `#FF2E00` + ink + paper, Polymath, red framing device).
+
 # Brand Strategy: The Culture of Gold Country
 
 **Product:** Interactive cultural asset map for Nevada County, California

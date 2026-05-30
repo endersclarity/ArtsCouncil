@@ -13,7 +13,7 @@
   <script>try{Typekit.load({async:true});}catch(e){}</script>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23ff2500'/%3E%3Cpath d='M7 24V8h4l10 9V8h4v16h-4L11 15v9z' fill='%23faf8f4'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
-  <link rel="stylesheet" href="styles.css?v=cla-33-place-label-disclosure">
+  <link rel="stylesheet" href="styles.css?v=cla-37-v2">
 </head>
 <body>
   <a class="skip-link" href="#map">Skip to map</a>
@@ -28,7 +28,7 @@
       <a href="https://www.nevadacountyarts.org/culture-forward">Culture Forward</a>
       <a href="https://www.nevadacountyarts.org/cultural-asset-map">Current Map</a>
     </nav>
-    <span class="alpha-pill">Public beta</span>
+    <span class="alpha-pill">Internal preview build</span>
   </header>
 
   <main class="app-shell">
@@ -64,7 +64,7 @@
 
         <div class="featured-hint" id="featured-hint">
           <p class="hint-title">Start in the cultural district</p>
-          <p>Grass Valley and Nevada City are centered first, with the wider county still visible as context.</p>
+          <p>Grass Valley and Nevada City are where the map is densest — the wider county stays in view.</p>
         </div>
 
         <div class="filter-wrap" id="filters" aria-label="Outing Type browse list"></div>
@@ -83,7 +83,7 @@
       <div class="selection-drawer" id="selection-drawer" aria-live="polite">
         <div class="detail-card" id="detail-card">
           <p class="empty-title">Select a place or path stop</p>
-          <p class="empty-copy">The detail card will show image proof, short context, source category, and related events when available.</p>
+          <p class="empty-copy">Pick a place to see what makes it worth a visit.</p>
         </div>
       </div>
 
@@ -97,6 +97,8 @@
 
   <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
   <script src="review-state.js"></script>
-  <script src="app.js?v=cla-33-place-label-disclosure"></script>
+  <script src="place-data.js"></script>
+  <script src="marker-category-color.js"></script>
+  <script src="app.js?v=cla-37-v1"></script>
 </body>
 </html>

@@ -1,0 +1,654 @@
+/* ============================================================================
+   THE DIRECTORY — portable control-panel slice (NCAC V1)
+   ----------------------------------------------------------------------------
+   Drop-in stylesheet for the redesigned "The Directory" control panel only.
+   This is a CONSOLIDATION of the final winning rules across the r2/r3/r4 rounds
+   — stale/overridden duplicates from the source styles.css have been removed.
+
+   It styles ONLY the <aside class="control-panel"> surface. It does NOT touch
+   the hero band, site header, detail card, map, or markers.
+
+   DEPENDENCIES (see directory-slice.md for the full checklist):
+     1. The markup wrapper in directory-slice.md must be in your panel.
+     2. The :root tokens below (delete this block if your app already defines
+        the NCAC tokens — they are identical to the source).
+     3. Polymath via Typekit for --font-brand (falls back to system-ui cleanly).
+     4. Your app.js must write into the same ids/classes (it already does — this
+        slice binds to existing hooks, it does not rename any).
+   ============================================================================ */
+
+/* --- 1. TOKENS — delete if your app already defines the NCAC palette --------- */
+:root {
+  --ncac-red: #ff2e00;
+  --ncac-red-soft: rgba(255, 46, 0, 0.08);
+  --ncac-red-ring: rgba(255, 46, 0, 0.28);
+  --ink: #1a1a1a;
+  --ink-soft: #5e5852;
+  --paper: #faf6ec;
+  --field: #ffffff;
+  --surface: #ffffff;
+  --line: #d8d0c6;
+  --line-strong: #1a1a1a;
+  --panel: #ffffff;
+  --shadow-float: 0 18px 42px rgba(26, 26, 26, 0.16);
+  --focus-ring: 0 0 0 3px var(--ncac-red-ring);
+  --font-brand: "polymath-variable-2th9nk", system-ui, sans-serif;
+  --font-body: "polymath-variable-2th9nk", system-ui, sans-serif;
+}
+
+/* --- 2. PANEL CONTAINER ----------------------------------------------------- */
+.control-panel {
+  position: absolute;
+  z-index: 4;
+  top: 18px;
+  left: clamp(18px, 4vw, 54px);
+  width: min(356px, calc(100vw - 36px));
+  max-height: calc(100% - 36px);
+  overflow: auto;
+  background: var(--panel);
+  border: 3px solid var(--ncac-red);
+  box-shadow: var(--shadow-float);
+  padding: 14px;
+}
+
+/* --- 3. POSTER NAMEPLATE MASTHEAD ------------------------------------------- */
+.panel-topline {
+  display: block;
+  position: relative;
+  margin: -14px -14px 18px;
+  padding: 17px 16px 0;
+  background: var(--ncac-red);
+  color: var(--paper);
+}
+
+/* The Framing Device, echoed from the hero: a knockout keyline inset into red. */
+.panel-topline::before {
+  content: "";
+  position: absolute;
+  inset: 7px;
+  border: 1.5px solid rgba(250, 246, 236, 0.5);
+  pointer-events: none;
+}
+
+.panel-masthead {
+  position: relative;
+  min-width: 0;
+}
+
+.panel-kicker {
+  margin: 0;
+  font-family: var(--font-brand);
+  font-size: 9.5px;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(250, 246, 236, 0.9);
+}
+
+.panel-typemark {
+  margin: 5px 0 0;
+  font-family: var(--font-brand);
+  font-size: clamp(32px, 5.6vw, 42px);
+  line-height: 0.82;
+  letter-spacing: -0.025em;
+  font-weight: 800;
+  text-transform: none;
+  color: var(--paper);
+}
+
+.panel-count {
+  position: relative;
+  margin: 12px 0 0;
+  padding: 0 0 13px;
+}
+
+#visible-count {
+  display: block;
+  color: var(--paper);
+  font-family: var(--font-brand);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-align: left;
+  white-space: normal;
+}
+
+/* --- 4. NUMBERED EDITORIAL INDEX (01 / 02 / 03 + contents rule) ------------- */
+.dir-section {
+  margin-bottom: 18px;
+}
+
+.dir-section--browse {
+  margin-bottom: 16px;
+}
+
+.dir-index {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  margin: 0 0 10px;
+  font-family: var(--font-brand);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+
+.dir-num {
+  flex: 0 0 auto;
+  background: var(--ink);
+  color: var(--paper);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.03em;
+  line-height: 1;
+  padding: 3px 6px 2px;
+}
+
+.dir-index::after {
+  content: "";
+  flex: 1 1 auto;
+  height: 1.5px;
+  background: var(--line-strong);
+  align-self: center;
+}
+
+/* Keep the Outing-type section's visibility identical to the bare filter list:
+   shown in places/events (where #filters renders), hidden in paths mode. */
+body[data-map-mode="paths"] .dir-section--filters {
+  display: none;
+}
+
+/* --- 5. MODE TABS (01 Browse) ----------------------------------------------- */
+.mode-tabs {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border: 2.5px solid var(--ink);
+  margin-bottom: 14px;
+  background: var(--surface);
+}
+
+.mode-tab {
+  border: 0;
+  border-right: 1px solid var(--ink);
+  background: transparent;
+  padding: 10px 7px 9px;
+  cursor: pointer;
+  font-family: var(--font-brand);
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: -0.01em;
+}
+
+.mode-tab:last-child {
+  border-right: 0;
+}
+
+.mode-tab.active {
+  background: var(--ncac-red);
+  color: var(--paper);
+}
+
+/* --- 6. FEATURED-HINT (ink poster beat with red top inset) ------------------ */
+.featured-hint {
+  position: relative;
+  border: 0;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 14px;
+  margin-bottom: 12px;
+  box-shadow: inset 0 5px 0 var(--ncac-red);
+}
+
+.hint-title {
+  margin: 0 0 5px;
+  font-family: var(--font-brand);
+  font-size: 19px;
+  line-height: 1.04;
+  font-weight: 800;
+  color: var(--paper);
+}
+
+.featured-hint p:last-child {
+  margin: 0;
+  color: rgba(250, 246, 236, 0.86);
+  line-height: 1.35;
+}
+
+/* --- 7. OUTING TYPE (02) — browse list, active bar, filter chips ------------ */
+.filter-wrap {
+  display: block;
+  margin-bottom: 12px;
+}
+
+.outing-browse {
+  border: 1px solid var(--line-strong);
+  background: var(--surface);
+}
+
+.outing-browse-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--line-strong);
+}
+
+.outing-browse-title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.outing-done {
+  border: 0;
+  background: transparent;
+  color: var(--ncac-red);
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 0;
+}
+
+.outing-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.outing-row {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  border: 0;
+  border-top: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+  padding: 10px;
+  font-size: 13px;
+  font-weight: 700;
+  text-align: left;
+  cursor: pointer;
+}
+
+.outing-row:first-child {
+  border-top: 0;
+}
+
+.outing-row:hover {
+  background: rgba(20, 20, 20, 0.05);
+}
+
+.outing-row-count {
+  color: var(--ink-soft);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.outing-row-cue {
+  color: var(--ink-soft);
+  font-size: 13px;
+  width: 14px;
+  text-align: center;
+}
+
+.outing-row.active {
+  background: var(--ncac-red);
+  color: var(--field);
+  box-shadow: inset 3px 0 0 var(--ink);
+}
+
+.outing-row.active:hover {
+  background: var(--ncac-red);
+}
+
+.outing-row.active .outing-row-count,
+.outing-row.active .outing-row-cue {
+  color: var(--field);
+}
+
+.outing-active-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px;
+}
+
+.outing-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid var(--ink);
+  background: var(--ncac-red);
+  color: var(--field);
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.outing-pill-x {
+  font-size: 11px;
+  line-height: 1;
+}
+
+.outing-change {
+  border: 1px solid var(--line-strong);
+  background: var(--surface);
+  color: var(--ink);
+  padding: 6px 10px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.filter-chip {
+  border: 1px solid var(--line-strong);
+  background: var(--surface);
+  color: var(--ink);
+  display: grid;
+  gap: 2px;
+  padding: 7px 9px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: left;
+}
+
+.filter-chip small {
+  color: var(--ink-soft);
+  font-size: 10px;
+  font-weight: 700;
+}
+
+.filter-chip.active {
+  border-color: var(--ink);
+  background: var(--ncac-red);
+  color: var(--field);
+  box-shadow: inset 0 -3px 0 var(--ink);
+}
+
+.filter-chip.active small {
+  color: var(--field);
+}
+
+/* --- 8. THE INDEX (03) — places list reads as a clean editorial column ------ */
+body:not([data-map-mode="places"]) .review-tools {
+  display: none;
+}
+
+.review-tools {
+  border: 0;
+  background: transparent;
+  padding: 0;
+  margin-bottom: 6px;
+}
+
+.browse-heading {
+  margin: 0 0 11px;
+  font-family: var(--font-brand);
+  font-size: 22px;
+  line-height: 0.95;
+  letter-spacing: -0.01em;
+  font-weight: 800;
+}
+
+.review-search-label {
+  display: grid;
+  gap: 5px;
+  margin-bottom: 8px;
+  color: var(--ink-soft);
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.review-search-input {
+  width: 100%;
+  border: 1px solid var(--line-strong);
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+  font-size: 13px;
+  padding: 8px 9px;
+}
+
+.review-search-input:focus {
+  outline: 0;
+  box-shadow: var(--focus-ring);
+}
+
+.places-list-summary,
+.places-list-more,
+.places-list-empty {
+  color: var(--ink-soft);
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+.places-list-summary {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.local-reveal-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 7px;
+  border: 1px solid var(--line-strong);
+  background: var(--paper);
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.25;
+  padding: 7px 8px;
+}
+
+.local-reveal-back {
+  border: 1px solid var(--ink);
+  background: var(--surface);
+  color: var(--ink);
+  cursor: pointer;
+  font: inherit;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 5px 7px;
+  white-space: nowrap;
+}
+
+.local-reveal-back:hover,
+.local-reveal-back:focus-visible {
+  background: var(--ncac-red);
+  color: var(--paper);
+  outline: 0;
+}
+
+.places-list-items {
+  display: grid;
+  gap: 6px;
+  max-height: 220px;
+  overflow: auto;
+  padding-right: 2px;
+}
+
+.place-list-item {
+  display: grid;
+  gap: 3px;
+  width: 100%;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+  cursor: pointer;
+  padding: 8px;
+  text-align: left;
+}
+
+.place-list-item.active,
+.place-list-item:hover {
+  border-color: var(--ink);
+  box-shadow: inset 5px 0 0 var(--ncac-red);
+}
+
+.place-list-item.local-reveal-item {
+  border-color: var(--line-strong);
+}
+
+.place-list-title {
+  font-family: var(--font-brand);
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.place-list-meta,
+.place-list-badge {
+  color: var(--ink-soft);
+  font-size: 11px;
+}
+
+.place-list-badge {
+  color: var(--ncac-red);
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+/* --- 9. SHARED FOCUS RING (panel-scoped) ------------------------------------ */
+.mode-tab:focus-visible,
+.filter-chip:focus-visible,
+.place-list-item:focus-visible,
+.outing-row:focus-visible,
+.outing-pill:focus-visible,
+.outing-change:focus-visible,
+.outing-done:focus-visible {
+  outline: 0;
+  box-shadow: var(--focus-ring), inset 0 -3px 0 var(--ncac-red);
+}
+
+/* --- 10. DRAWER TOGGLE (mobile handle) — hidden on desktop ------------------ */
+.drawer-toggle {
+  display: none;
+}
+
+/* --- 11. RESPONSIVE — bottom sheet (match your app's existing breakpoints) -- */
+@media (max-width: 880px) {
+  .control-panel {
+    left: 12px;
+    right: 12px;
+    top: auto;
+    bottom: 12px;
+    width: auto;
+    min-width: 0;
+    max-height: 52%;
+    padding: 11px;
+    overflow-y: auto;
+    scrollbar-width: none;
+    transition: max-height 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+  }
+
+  .control-panel:has(.primary-anchor-card) {
+    max-height: 76%;
+  }
+
+  .control-panel::-webkit-scrollbar {
+    display: none;
+  }
+
+  .drawer-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 14px;
+    background: transparent;
+    border: 0;
+    margin: -6px 0 4px;
+    padding: 0;
+    cursor: pointer;
+  }
+
+  .drawer-handle-bar {
+    width: 36px;
+    height: 4px;
+    background: var(--line-strong);
+    border-radius: 2px;
+  }
+
+  .control-panel.collapsed {
+    max-height: 86px;
+    overflow: hidden;
+  }
+
+  .filter-wrap {
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 4px;
+    margin-bottom: 8px;
+    scrollbar-width: none;
+  }
+
+  .filter-wrap::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filter-chip {
+    flex-shrink: 0;
+    padding: 7px 8px;
+  }
+
+  .mode-tab {
+    min-width: 0;
+    padding-left: 4px;
+    padding-right: 4px;
+    font-size: 12px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* nameplate bleed flush with the 11px panel padding */
+  .panel-topline {
+    margin: -11px -11px 16px;
+    padding: 14px 13px 0;
+  }
+
+  .panel-typemark {
+    font-size: clamp(28px, 8vw, 36px);
+  }
+
+  .panel-count {
+    padding-bottom: 12px;
+  }
+
+  .dir-section {
+    margin-bottom: 15px;
+  }
+
+  .browse-heading {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 520px) {
+  .control-panel {
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    max-width: 100vw;
+    max-height: 44%;
+    border-left: 1px solid var(--line-strong);
+    border-right: 1px solid var(--line-strong);
+  }
+
+  .control-panel:has(.primary-anchor-card) {
+    max-height: 58%;
+  }
+}

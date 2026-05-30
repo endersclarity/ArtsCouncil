@@ -17,8 +17,12 @@ The prototype posture for Eliza and Diane review: still a limited review build b
 _Avoid_: Internal alpha, visible prototype caveats, process labels, QA-facing framing
 
 **Public Beta Surface**:
-The visible Discovery Map experience should speak and behave like a real public beta even when the link is privately shared for stakeholder review. The review purpose belongs in docs, notes, or conversation; the page itself should use plain public map language.
-_Avoid_: Stakeholder proof copy, homework-rubric language, apologetic prototype framing
+The visible Discovery Map experience should speak and behave like a real public beta even when the link is privately shared for stakeholder review. The review purpose belongs in docs, notes, or conversation. **Scope correction (owner ruling, 2026-05-30): the public will never see this surface — the link only ever goes to Eliza and Diane.** So the doctrine is now about *voice*, not a distribution claim: card, hint, empty-state, and all body copy stay citizen-voiced (judged as a citizen would), but the **nav badge carries one honest lifecycle label, "Internal preview build,"** rather than the prior "Public beta" (which claimed a public that does not exist). This single nav label is the sanctioned exception; the process-label ban still holds everywhere below the nav chrome. (Supersedes the 2026-05-29 "Public beta badge is intended" ruling.)
+_Avoid_: Stakeholder proof copy, homework-rubric language, apologetic prototype framing, process labels anywhere except the single "Internal preview build" nav badge (no alpha/review/demo/audit, and no process language in card/hint/body copy)
+
+**Invitation Copy**:
+The rule for all placeholder, empty-state, and hint copy: invite the citizen to act, never narrate the machinery. A placeholder says what the citizen can do or discover ("Pick a place to see its story, photos, and what's happening there"), never what the UI will render ("The detail card will show image proof, source category…") and never the rationale for a design decision ("…centered first, with the wider county still visible as context"). The test: does the sentence make a visitor want to tap something, or is the site explaining itself? If it explains, cut it or flip it to an invitation. Use citizen words (story, photos, what's happening) not internal terms (image proof, source category, directory record). (Owner ruling, 2026-05-29.)
+_Avoid_: Narrating UI behavior, justifying framing decisions, slide-caption feature pitches ("demonstrates how X can be curated"), internal terms in citizen copy
 
 **Diana Workbook**:
 The Arts Council source workbook supplied by Diana Arbex for V1 data engineering, represented in canonical source work as `diana-workbook.xlsx` and `diana-workbook.numbers`. It is the canonical name for this artifact in conversation and documentation.
@@ -109,8 +113,12 @@ A place record with enough street-address information to attempt a location look
 _Avoid_: Name-only place, city-only place, loosely geocodable place
 
 **Directory Record**:
-The practical inventory treatment for an Ordinary Place, exposing source-backed public details such as description, place type, city, address, phone, website, and image state where available. A Directory Record is not lesser cultural content; it is the baseline treatment every mapped place deserves before any authored MUSE or anchor layer is added.
-_Avoid_: Thin leftover listing, placeholder-only card, uncurated dump
+The practical inventory treatment for an Ordinary Place, exposing source-backed public details such as description, place type, city, address, phone, website, and image state where available. A Directory Record is not lesser cultural content; it is the baseline treatment every mapped place deserves before any authored MUSE or anchor layer is added. "Directory record" is an internal term and must never appear as a citizen-facing label: the card eyebrow names **what the place is** (its category, e.g. "Gallery & Studio"), never "Directory record." (Owner ruling, 2026-05-29.)
+_Avoid_: "Directory record" as a visible eyebrow/label, thin leftover listing, placeholder-only card, uncurated dump
+
+**Place-Kind Eyebrow**:
+The short label at the top of a Selected Directory Card. By default it states the place's category so a citizen learns what kind of place it is. Path-role labels (**Cultural Anchor** / **Supporting Stop**) appear only when the citizen is inside a Path context; off-path, the eyebrow is the category, never the path role and never an internal bucket. (Owner ruling, 2026-05-29.)
+_Avoid_: "Directory record" / "MUSE pick" as the eyebrow, anchor/supporting-stop labels shown off-path, internal taxonomy as a visible label
 
 **Email Data**:
 Contact email information from the source inventory. It is intentionally excluded from first-pass Directory Record Restoration because coverage is sparse and the public/private contact boundary needs a separate decision.
@@ -205,8 +213,8 @@ A hand-picked place from the already-vetted NCAC cultural asset universe with ex
 _Avoid_: Featured pin, top place, ranked place, only arts venues
 
 **Anchor Card**:
-The selected-place card treatment for a Cultural Anchor. Its first job is to prove NCAC cultural authority for the Stakeholder Review Audience; its second job is public utility. Data-audit status should not be visible in the public card UI.
-_Avoid_: Listing card, data audit card, generic place detail
+The selected-place card treatment for a Cultural Anchor. Its job is to make the place compelling to a **citizen** — richer hook, image, and context than an ordinary card. The reviewer judges that citizen-facing card as a citizen would; the card does not carry copy whose purpose is to "prove authority" to a reviewer. Data-audit status and any vetting/provenance language must not be visible in the card UI. (Owner ruling, 2026-05-29: superseded the prior "first job is to prove NCAC cultural authority for the Stakeholder Review Audience" framing — that was justification-voice, see the Audience entry under Flagged ambiguities.)
+_Avoid_: Proof-of-authority copy, listing card, data audit card, generic place detail
 
 **Image Proof**:
 The visual evidence used in an Anchor Card. Prefer real official or existing V1 images. The Primary Anchor Set should use fully resolved real images for the next review slice; no placeholders in primary Anchor Cards. Labeled placeholders and generated concept images are allowed for supporting stops, gaps, or future-direction mockups, but they must be clearly identified and never presented as documentary place photography.
@@ -217,8 +225,8 @@ The editorial influence and optional story evidence from NCAC's MUSE context. MU
 _Avoid_: Claiming every anchor appears in MUSE, using MUSE as generic decoration
 
 **Seen in MUSE**:
-A compact evidence section for a Directory Record when the MUSE Article Index has a direct place_id match for that place. It should cite the matched article/page context without turning thematic or fuzzy matches into place-specific claims.
-_Avoid_: Fuzzy MUSE badge, theme-only place claim, unsourced MUSE flourish
+A citizen-facing **credential** on a place's card when the MUSE Article Index has a direct place_id match: it flatters the place ("In the pages of MUSE Magazine," with article title and issue), it does not prove the place to a reviewer. The verb is deliberately **"In the pages of," not "Featured in"** — the match data is an exact name/address hit on a page, which may be a listing or mention, not a feature; "featured" would overclaim to the two reviewers who know what MUSE actually published (the-fool catch, 2026-05-30). It must NOT render provenance or vetting internals — no confidence levels ("high confidence"), no "direct place evidence," no match-type, no page-citation footnotes. Those are **MUSE Evidence Confidence** signals, which are author-facing only (they gate whether an agent may use a source) and never appear on the surface. The aspirational form is a short pull-quote linked to the article; that needs editorial quote text + a link target that the shipped data does not yet contain, so until that data exists the surface shows the plain badge only. (Owner ruling, 2026-05-29: the current "Seen in MUSE" confidence ledger is the canonical example of justification-voice leaking to the citizen — strip it to a badge.)
+_Avoid_: Confidence scores on the surface, "direct place evidence" / match-type language, page-citation footnotes, fuzzy MUSE badge, theme-only place claim, unsourced MUSE flourish
 
 **MUSE-Backed Card Enrichment**:
 Visible selected-card content drawn from direct MUSE place evidence. It should appear only when the base Directory Record is clean enough to carry the enrichment without making the card feel broken or thin.
@@ -375,6 +383,6 @@ _Avoid_: Countywide launch scope, Truckee/High Sierra proof, Truckee anchors
 
 ## Flagged ambiguities
 
-- "Audience" can mean either **Stakeholder Review Audience** or **Public Discovery Audience**. For the next feature slice, it means **Stakeholder Review Audience** unless explicitly stated otherwise.
+- "Audience" splits by purpose. The **reviewer** (Stakeholder Review Audience) is who *judges* the build; the **citizen** (Public Discovery Audience) is who the **visible copy speaks to**. These are never the same voice. The reviewer evaluates the surface *as a citizen would* — they do not get their own on-surface sentences. So for any decision about visible copy, "Audience" means **Public Discovery Audience**, full stop. "Audience = Stakeholder Review Audience" applies only to what gets reviewed and how it is judged, never to the words on the page. (Owner ruling, 2026-05-29.)
 - "Anchor" means **Cultural Anchor**, not a generic map marker or automatically ranked popular place.
 - "Prototype scope" currently means **GVNC Prototype Scope**. Truckee Tahoe Airport and Clair Tappaan Lodge are out of the first anchor set for this reason.

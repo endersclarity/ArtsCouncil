@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Marker Style Lab</title>
+<style>
+  :root{
+    --ncac-red:#ff2e00;
+    --ink:#141414;
+    --ink-soft:#4f4f4a;
+    --paper:#f7f7f4;
+    --paper-warm:#ecece6;
+    --field:#ffffff;
+    --line:#d7d7d0;
+    --line-strong:#141414;
+    --blue:#365c76;
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0;font-family:"Inter",system-ui,sans-serif;
+    background:var(--paper);color:var(--ink);
+    padding:40px;
+  }
+  h1{font-size:22px;margin:0 0 4px}
+  p.sub{margin:0 0 32px;color:var(--ink-soft);max-width:620px}
+  .grid{
+    display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+    gap:18px;
+  }
+  .cell{
+    border:2px solid var(--line-strong);background:var(--field);
+    box-shadow:6px 6px 0 rgba(20,20,20,.14);
+    padding:0;display:flex;flex-direction:column;
+  }
+  /* fake map surface so markers read in context */
+  .stage{
+    height:150px;position:relative;
+    background:
+      repeating-linear-gradient(0deg,transparent 0 23px,rgba(54,92,118,.12) 23px 24px),
+      repeating-linear-gradient(90deg,transparent 0 23px,rgba(54,92,118,.12) 23px 24px),
+      var(--paper-warm);
+    display:flex;align-items:center;justify-content:center;gap:26px;
+    border-bottom:2px solid var(--line-strong);
+  }
+  .label{padding:10px 12px;font-size:13px;line-height:1.35}
+  .label b{display:block;font-size:14px;margin-bottom:2px}
+  .tag{color:var(--ink-soft)}
+
+  /* ---------- 0. CURRENT (baseline) ---------- */
+  .m-current{
+    width:28px;height:28px;border:3px solid var(--line-strong);
+    background:var(--field);box-shadow:5px 5px 0 rgba(20,20,20,.14);
+  }
+  .m-current.sel{background:var(--ncac-red)}
+
+  /* ---------- 1. PIN with stem ---------- */
+  .m-pin{
+    width:30px;height:30px;border:3px solid var(--line-strong);
+    background:var(--field);position:relative;
+    border-radius:50% 50% 50% 0;transform:rotate(-45deg);
+    box-shadow:4px 4px 0 rgba(20,20,20,.18);
+  }
+  .m-pin::after{
+    content:"";position:absolute;inset:0;margin:auto;
+    width:9px;height:9px;background:var(--ncac-red);border-radius:50%;
+  }
+
+  /* ---------- 2. Numbered / categorized chip ---------- */
+  .m-chip{
+    min-width:30px;height:30px;padding:0 9px;border:3px solid var(--line-strong);
+    background:var(--field);display:flex;align-items:center;justify-content:center;
+    font-weight:900;font-size:14px;box-shadow:4px 4px 0 rgba(20,20,20,.18);
+  }
+  .m-chip.red{background:var(--ncac-red);color:#fff}
+
+  /* ---------- 3. Emoji / glyph tile ---------- */
+  .m-glyph{
+    width:34px;height:34px;border:3px solid var(--line-strong);
+    background:var(--field);display:flex;align-items:center;justify-content:center;
+    font-size:18px;box-shadow:4px 4px 0 rgba(20,20,20,.18);
+  }
+
+  /* ---------- 4. Dot + always-on label ---------- */
+  .m-tagged{display:flex;align-items:center;gap:0}
+  .m-tagged .dot{
+    width:16px;height:16px;border:3px solid var(--line-strong);
+    background:var(--ncac-red);
+  }
+  .m-tagged .txt{
+    border:3px solid var(--line-strong);border-left:0;
+    background:var(--field);font-weight:800;font-size:12px;
+    padding:2px 8px;white-space:nowrap;
+  }
+
+  /* ---------- 5. Pulsing selected ---------- */
+  .m-pulse{
+    width:26px;height:26px;border:3px solid var(--line-strong);
+    background:var(--ncac-red);position:relative;
+  }
+  .m-pulse::before{
+    content:"";position:absolute;inset:-3px;border:3px solid var(--ncac-red);
+    animation:pulse 1.4s ease-out infinite;
+  }
+  @keyframes pulse{
+    0%{transform:scale(1);opacity:.8}
+    100%{transform:scale(2.1);opacity:0}
+  }
+
+  /* ---------- 6. Circle / soft vector dot ---------- */
+  .m-circle{
+    width:22px;height:22px;border-radius:50%;
+    border:3px solid var(--line-strong);background:var(--blue);
+    box-shadow:0 0 0 6px rgba(54,92,118,.18);
+  }
+
+  /* ---------- 7. Estimated (dashed, low-confidence) ---------- */
+  .m-est{
+    width:28px;height:28px;border:3px dashed var(--ink-soft);
+    background:repeating-linear-gradient(45deg,var(--field) 0 5px,var(--paper-warm) 5px 10px);
+  }
+</style>
+</head>
+<body>
+  <h1>Marker Style Lab</h1>
+  <p class="sub">All HTML/CSS markers (MapLibre <code>maplibregl.Marker</code> with a custom element) — same neo-brutalist language as your current map: hard borders, offset shadows, NCAC red. No SVG required. Hover a tile to feel the interaction.</p>
+
+  <div class="grid">
+    <div class="cell">
+      <div class="stage"><div class="m-current"></div><div class="m-current sel"></div></div>
+      <div class="label"><b>0 · Current</b><span class="tag">Square + hard shadow. Red = selected. (baseline)</span></div>
+    </div>
+
+    <div class="cell">
+      <div class="stage"><div class="m-pin"></div></div>
+      <div class="label"><b>1 · Teardrop pin</b><span class="tag">Classic map pin, points at the spot. Red center dot.</span></div>
+    </div>
+
+    <div class="cell">
+      <div class="stage"><div class="m-chip">3</div><div class="m-chip red">12</div></div>
+      <div class="label"><b>2 · Numbered chip</b><span class="tag">Order or cluster counts. Swap number for a letter/category.</span></div>
+    </div>
+
+    <div class="cell">
+      <div class="stage"><div class="m-glyph">🎭</div><div class="m-glyph">🏛️</div></div>
+      <div class="label"><b>3 · Glyph tile</b><span class="tag">Emoji or icon-font per category. Most info at a glance.</span></div>
+    </div>
+
+    <div class="cell">
+      <div class="stage"><div class="m-tagged"><div class="dot"></div><div class="txt">Miners Foundry</div></div></div>
+      <div class="label"><b>4 · Dot + label</b><span class="tag">Name always visible. Great for a curated, small set.</span></div>
+    </div>
+
+    <div class="cell">
+      <div class="stage"><div class="m-pulse"></div></div>
+      <div class="label"><b>5 · Pulsing selected</b><span class="tag">Animated ring draws the eye to the active place.</span></div>
+    </div>
+
+    <div class="cell">
+      <div class="stage"><div class="m-circle"></div></div>
+      <div class="label"><b>6 · Soft dot</b><span class="tag">Rounder, calmer. Halo = blue. Could be a vector circle layer.</span></div>
+    </div>
+
+    <div class="cell">
+      <div class="stage"><div class="m-est"></div></div>
+      <div class="label"><b>7 · Estimated</b><span class="tag">Dashed + hatched = low-confidence/approx location.</span></div>
+    </div>
+  </div>
+</body>
+</html>

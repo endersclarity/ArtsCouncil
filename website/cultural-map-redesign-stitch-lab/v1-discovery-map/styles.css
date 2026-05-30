@@ -134,14 +134,14 @@ button {
 
 .alpha-pill {
   justify-self: end;
-  border: 1px solid var(--ink);
-  padding: 7px 10px 6px;
-  font-size: 11px;
+  border: 1px solid color-mix(in srgb, var(--ink) 25%, transparent);
+  padding: 6px 9px 5px;
+  font-size: 10px;
   text-transform: uppercase;
-  font-weight: 700;
-  background: var(--field);
+  font-weight: 500;
+  color: color-mix(in srgb, var(--ink) 55%, transparent);
+  background: transparent;
   letter-spacing: 0.04em;
-  box-shadow: inset 0 -3px 0 var(--ncac-red);
 }
 
 .app-shell {
@@ -1660,6 +1660,20 @@ body:not([data-map-mode="places"]) .review-tools {
 
 .map-smart-label.anchor-label-pin {
   border-color: var(--ncac-red);
+}
+
+/* Selected label matches the selected pin: solid red fill, topmost. */
+.map-smart-label.selected {
+  background: var(--ncac-red);
+  border-color: var(--ncac-red);
+  color: var(--paper);
+  box-shadow: 0 4px 16px rgba(255, 46, 0, 0.42);
+  z-index: 6;
+}
+
+/* Dim non-selected labels so the selection reads (alpha only). */
+.map-smart-label.dimmed {
+  opacity: 0.45;
 }
 
 .map-smart-label:hover,

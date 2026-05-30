@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NCAC Cultural Map — Brand Redesign Mock</title>
+<meta name="description" content="Brand-grounded visual redesign mockup of the V1 Discovery Map. Not the live app.">
+<link rel="preconnect" href="https://use.typekit.net">
+<!-- Same Polymath Typekit kit as the live app -->
+<script src="https://use.typekit.net/QpZL-jTAx8VcE7iBVv7r5tSVTAEaLdPXUwSgW14405GfelJgfFHN4UJLFRbh52j.js"></script>
+<script>try{Typekit.load({async:true});}catch(e){}</script>
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23FF2E00'/%3E%3Cpath d='M7 24V8h4l10 9V8h4v16h-4L11 15v9z' fill='%23fff'/%3E%3C/svg%3E">
+<style>
+/* ============================================================
+   NCAC V1 BRAND TOKENS — canonical (docs/brand/NCAC-V1-BRAND.md)
+   ============================================================ */
+:root{
+  --red:#FF2E00;
+  --ink:#1A1A1A;
+  --muted:#5E5852;
+  --paper:#FAF6EC;
+  --paper-soft:#F5F0E8;
+  --line:#D8D0C6;
+  --white:#FFFFFF;
+  --font:"polymath-variable-2th9nk","DM Sans","Inter",system-ui,sans-serif;
+  --frame:3px solid var(--red);
+  --shadow:0 14px 38px rgba(26,26,26,.16);
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;background:var(--paper);color:var(--ink);
+  font-family:var(--font);font-size:15px;line-height:1.45;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,p{margin:0}
+a{color:inherit}
+
+/* ---------- HEADER: red framing device + knockout typemark ---------- */
+.site-header{
+  display:flex;align-items:stretch;justify-content:space-between;
+  background:var(--paper);border-bottom:6px solid var(--red);
+}
+.typemark{
+  display:flex;flex-direction:column;justify-content:center;
+  background:var(--red);color:var(--white);
+  padding:14px 26px;min-width:230px;
+}
+.typemark .eyebrow{font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;opacity:.92}
+.typemark .name{font-size:23px;font-weight:800;line-height:1.02;letter-spacing:-.01em;margin-top:3px}
+.header-meta{display:flex;align-items:center;gap:30px;padding:0 28px}
+.site-nav{display:flex;gap:26px;font-size:13.5px;font-weight:600}
+.site-nav a{text-decoration:none;color:var(--ink);opacity:.78}
+.site-nav a:hover{opacity:1;color:var(--red)}
+.beta-pill{
+  font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+  border:2px solid var(--ink);padding:5px 11px;color:var(--ink);
+}
+
+/* ---------- APP SHELL ---------- */
+.app-shell{display:flex;flex-direction:column;height:calc(100vh - 71px)}
+.intro-strip{
+  padding:20px 28px 18px;border-bottom:1px solid var(--line);
+  display:flex;align-items:flex-end;gap:26px;flex-wrap:wrap;background:var(--paper);
+}
+.intro-strip .kicker{font-size:11px;letter-spacing:.18em;text-transform:uppercase;font-weight:800;color:var(--red)}
+.intro-strip h1{font-size:30px;font-weight:800;letter-spacing:-.02em;margin-top:4px;max-width:14ch;line-height:1.04}
+.intro-strip .lede{color:var(--muted);max-width:46ch;font-size:14.5px}
+
+/* ---------- MAP STAGE ---------- */
+.map-stage{position:relative;flex:1;min-height:0}
+#map{position:absolute;inset:0}
+.maplibregl-ctrl-attrib{font-family:var(--font);font-size:10px}
+
+/* ---------- CONTROL PANEL (red-framed) ---------- */
+.control-panel{
+  position:absolute;top:18px;left:18px;width:340px;max-height:calc(100% - 36px);
+  display:flex;flex-direction:column;background:var(--white);
+  border:var(--frame);box-shadow:var(--shadow);z-index:5;overflow:hidden;
+}
+.panel-head{padding:16px 18px 12px}
+.panel-head .label{font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:800;color:var(--red)}
+.panel-head h2{font-size:18px;font-weight:800;letter-spacing:-.01em;margin-top:4px}
+.panel-head .count{display:block;margin-top:8px;font-size:12.5px;color:var(--muted)}
+.panel-head .count b{color:var(--ink)}
+
+.mode-tabs{display:flex;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.mode-tab{
+  flex:1;appearance:none;border:0;background:transparent;cursor:pointer;
+  font-family:var(--font);font-size:13.5px;font-weight:700;color:var(--muted);
+  padding:11px 0;position:relative;
+}
+.mode-tab.active{color:var(--ink)}
+.mode-tab.active::after{content:"";position:absolute;left:0;right:0;bottom:-1px;height:3px;background:var(--red)}
+.mode-tab:not(:last-child){border-right:1px solid var(--line)}
+
+.panel-scroll{overflow-y:auto;padding:14px 18px 18px}
+.section-label{font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:800;color:var(--muted);margin-bottom:9px}
+
+/* filter chips — red is the active signal, ink for the rest */
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:18px}
+.chip{
+  font-family:var(--font);font-size:12.5px;font-weight:700;cursor:pointer;
+  border:1.5px solid var(--line);background:var(--white);color:var(--ink);
+  padding:6px 11px;border-radius:999px;display:inline-flex;align-items:center;gap:6px;
+}
+.chip .n{color:var(--muted);font-weight:600}
+.chip:hover{border-color:var(--ink)}
+.chip.on{background:var(--red);border-color:var(--red);color:var(--white)}
+.chip.on .n{color:rgba(255,255,255,.8)}
+
+.search{position:relative;margin-bottom:14px}
+.search input{
+  width:100%;font-family:var(--font);font-size:14px;padding:10px 12px;
+  border:1.5px solid var(--line);background:var(--paper-soft);color:var(--ink);
+}
+.search input:focus{outline:none;border-color:var(--red);box-shadow:0 0 0 3px rgba(255,46,0,.22)}
+
+.places-list{display:flex;flex-direction:column}
+.place-row{
+  display:flex;gap:11px;align-items:flex-start;padding:11px 2px;
+  border-top:1px solid var(--line);cursor:pointer;
+}
+.place-row:hover{background:var(--paper-soft)}
+.place-row.sel{background:rgba(255,46,0,.06)}
+.dot{width:9px;height:9px;border-radius:50%;background:var(--ink);margin-top:5px;flex:none}
+.dot.muse{background:var(--red);box-shadow:0 0 0 3px rgba(255,46,0,.22)}
+.place-row .nm{font-size:14px;font-weight:700;line-height:1.2}
+.place-row .meta{font-size:12px;color:var(--muted);margin-top:2px}
+.place-row .muse-tag{display:inline-block;font-size:9.5px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--red);margin-left:6px;vertical-align:1px}
+
+/* ---------- DETAIL CARD (red-framed) ---------- */
+.detail{
+  position:absolute;bottom:18px;right:18px;width:320px;
+  background:var(--white);border:var(--frame);box-shadow:var(--shadow);z-index:5;overflow:hidden;
+}
+.detail .cover{height:120px;background:var(--red);position:relative;display:flex;align-items:flex-end}
+.detail .cover .kind{
+  margin:0 0 10px 14px;color:var(--white);font-size:11px;font-weight:800;
+  letter-spacing:.12em;text-transform:uppercase;
+}
+.detail .cover .frame{position:absolute;inset:10px;border:1.5px solid rgba(255,255,255,.55);pointer-events:none}
+.detail .body{padding:14px 16px 16px}
+.detail .body h3{font-size:19px;font-weight:800;letter-spacing:-.01em;line-height:1.08}
+.detail .body .where{font-size:12.5px;color:var(--muted);margin-top:3px}
+.detail .body p{font-size:13.5px;color:var(--ink);margin-top:10px}
+.detail .body .row{display:flex;gap:8px;margin-top:14px}
+.detail .btn{
+  font-family:var(--font);font-size:13px;font-weight:800;cursor:pointer;padding:9px 14px;border:0;
+}
+.detail .btn.primary{background:var(--red);color:#fff}
+.detail .btn.ghost{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+
+/* ---------- LEGEND ---------- */
+.legend{
+  position:absolute;bottom:18px;left:18px;z-index:5;background:var(--white);
+  border:1.5px solid var(--line);padding:9px 13px;display:flex;gap:16px;font-size:12px;font-weight:600;
+}
+.legend i{display:inline-block;vertical-align:middle;margin-right:6px}
+.legend .d{width:9px;height:9px;border-radius:50%}
+.legend .d.muse{background:var(--red)}
+.legend .d.place{background:var(--ink)}
+
+/* ---------- custom markers ---------- */
+.mk{cursor:pointer;transform:translate(-50%,-50%)}
+.mk .d{width:11px;height:11px;border-radius:50%;background:var(--ink);border:2px solid var(--paper)}
+.mk.muse .d{width:16px;height:16px;background:var(--red);border:3px solid var(--white);box-shadow:0 0 0 2px var(--red),0 3px 8px rgba(26,26,26,.3)}
+.mk.sel .d{background:var(--red);box-shadow:0 0 0 4px rgba(255,46,0,.3)}
+
+.mock-flag{
+  position:fixed;bottom:0;left:50%;transform:translateX(-50%);z-index:50;
+  background:var(--ink);color:#fff;font-size:10.5px;font-weight:700;letter-spacing:.1em;
+  text-transform:uppercase;padding:4px 14px;
+}
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <a class="typemark" href="#" aria-label="Nevada County Arts &amp; Culture">
+    <span class="eyebrow">Nevada County</span>
+    <span class="name">Arts &amp; Culture</span>
+  </a>
+  <div class="header-meta">
+    <nav class="site-nav">
+      <a href="#">MUSE Magazine</a>
+      <a href="#">Culture Forward</a>
+      <a href="#">Cultural Asset Map</a>
+    </nav>
+    <span class="beta-pill">Public beta</span>
+  </div>
+</header>
+
+<main class="app-shell">
+  <section class="intro-strip">
+    <div>
+      <p class="kicker">Cultural Asset Map</p>
+      <h1>Find the culture of Nevada County</h1>
+    </div>
+    <p class="lede">Browse places, stories, and events across Grass Valley and Nevada City — and the wider county beyond.</p>
+  </section>
+
+  <section class="map-stage">
+    <div id="map"></div>
+
+    <aside class="control-panel">
+      <div class="panel-head">
+        <p class="label">Explore</p>
+        <h2>Places to discover</h2>
+        <span class="count"><b id="vcount">—</b> places in view</span>
+      </div>
+      <div class="mode-tabs" role="tablist">
+        <button class="mode-tab active">Places</button>
+        <button class="mode-tab">Events</button>
+        <button class="mode-tab">Paths</button>
+      </div>
+      <div class="panel-scroll">
+        <p class="section-label">Outing type</p>
+        <div class="chips" id="chips"></div>
+        <div class="search"><input type="search" placeholder="Search places"></div>
+        <div class="places-list" id="plist"></div>
+      </div>
+    </aside>
+
+    <article class="detail" id="detail"></article>
+
+    <div class="legend">
+      <span><i class="d muse"></i>MUSE pick</span>
+      <span><i class="d place"></i>Place</span>
+    </div>
+  </section>
+</main>
+
+<div class="mock-flag">Visual mock · not the live app</div>
+
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<script>
+/* Representative REAL data sampled from the live places.json (6 real "intent" categories). */
+const INTENTS=[
+  ["Historic Places",541],["Outdoors",273],["Eat, Drink & Stay",263],
+  ["Galleries & Studios",192],["See a Show",130],["Shops & Makers",16]
+];
+const PLACES=[
+  {name:"Center for the Arts",city:"Grass Valley",intent:"See a Show",muse:true,lat:39.2188,lng:-121.0608,desc:"Nonprofit performing & visual arts venue anchoring the Grass Valley cultural district."},
+  {name:"Nevada County Arts Council",city:"Nevada City",intent:"Historic Places",muse:true,lat:39.2616,lng:-121.0161,desc:"The county arts agency — home base for MUSE, Culture Forward, and this map."},
+  {name:"Area 13",city:"Grass Valley",intent:"Eat, Drink & Stay",muse:true,lat:39.2201,lng:-121.0585,desc:"Local kitchen and gathering spot in downtown Grass Valley."},
+  {name:"Back in the Day",city:"Grass Valley",intent:"Shops & Makers",muse:true,lat:39.2179,lng:-121.0596,desc:"Maker-driven shop in the historic downtown core."},
+  {name:"Crystal Hermitage Gardens",city:"Nevada City",intent:"Outdoors",muse:false,lat:39.2747,lng:-121.0339,desc:"Gardens at Ananda Village, open seasonally for visitors."},
+  {name:"Air Aligned Aerial Arts Academy",city:"Grass Valley",intent:"Galleries & Studios",muse:false,lat:39.2253,lng:-121.0379,desc:"Aerial arts studio offering classes from toddlers through adults."},
+  {name:"Nevada Theatre",city:"Nevada City",intent:"See a Show",muse:true,lat:39.2629,lng:-121.0156,desc:"California's oldest original-use theatre, operating since 1865."},
+  {name:"Miners Foundry",city:"Nevada City",intent:"Historic Places",muse:true,lat:39.2606,lng:-121.0148,desc:"Historic event and cultural hall in downtown Nevada City."},
+  {name:"Empire Mine State Park",city:"Grass Valley",intent:"Historic Places",muse:false,lat:39.2069,lng:-121.0489,desc:"One of California's oldest and richest gold mines, now a state historic park."},
+  {name:"Stonehouse",city:"Nevada City",intent:"Eat, Drink & Stay",muse:false,lat:39.2598,lng:-121.0182,desc:"Restaurant and bar in a historic Nevada City building."},
+  {name:"Asylum Down Studio",city:"Nevada City",intent:"Galleries & Studios",muse:false,lat:39.2641,lng:-121.0174,desc:"Working artist studio open during Open Studios tours."},
+  {name:"Pioneer Park",city:"Nevada City",intent:"Outdoors",muse:false,lat:39.2685,lng:-121.0098,desc:"Community park with trails, pool, and summer concert series."}
+];
+
+const map=new maplibregl.Map({
+  container:"map",
+  style:{
+    version:8,
+    glyphs:"https://demotiles.maplibre.org/font/{fontstack}/{range}.pbf",
+    sources:{carto:{type:"raster",tiles:["https://a.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png"],tileSize:256,attribution:"© OpenStreetMap, © CARTO"}},
+    layers:[
+      {id:"bg",type:"background",paint:{"background-color":"#FAF6EC"}},
+      {id:"carto",type:"raster",source:"carto",paint:{"raster-opacity":0.62,"raster-saturation":-0.45,"raster-contrast":-0.05}}
+    ]
+  },
+  center:[-121.038,39.242],zoom:12.2,attributionControl:{compact:true}
+});
+map.addControl(new maplibregl.NavigationControl({showCompass:false}),"top-right");
+
+let selected=null;
+const markers=[];
+
+function selectPlace(i){
+  selected=i;
+  markers.forEach((m,j)=>m.el.classList.toggle("sel",j===i));
+  renderList();renderDetail();
+}
+
+PLACES.forEach((p,i)=>{
+  const el=document.createElement("div");
+  el.className="mk"+(p.muse?" muse":"");
+  el.innerHTML="<div class='d'></div>";
+  el.addEventListener("click",()=>selectPlace(i));
+  new maplibregl.Marker({element:el}).setLngLat([p.lng,p.lat]).addTo(map);
+  markers.push({el});
+});
+
+function renderChips(){
+  const c=document.getElementById("chips");
+  c.innerHTML=INTENTS.map((x,i)=>`<button class="chip${i===0?' on':''}">${x[0]}<span class="n">${x[1]}</span></button>`).join("");
+  c.querySelectorAll(".chip").forEach(ch=>ch.addEventListener("click",()=>ch.classList.toggle("on")));
+}
+function renderList(){
+  document.getElementById("plist").innerHTML=PLACES.map((p,i)=>`
+    <div class="place-row${i===selected?' sel':''}" data-i="${i}">
+      <span class="dot${p.muse?' muse':''}"></span>
+      <div><div class="nm">${p.name}${p.muse?'<span class="muse-tag">MUSE</span>':''}</div>
+      <div class="meta">${p.intent} · ${p.city}</div></div>
+    </div>`).join("");
+  document.querySelectorAll(".place-row").forEach(r=>r.addEventListener("click",()=>selectPlace(+r.dataset.i)));
+}
+function renderDetail(){
+  const p=PLACES[selected==null?0:selected];
+  document.getElementById("detail").innerHTML=`
+    <div class="cover"><div class="frame"></div><p class="kind">${p.intent}</p></div>
+    <div class="body">
+      <h3>${p.name}</h3>
+      <p class="where">${p.city}, Nevada County${p.muse?' · MUSE pick':''}</p>
+      <p>${p.desc}</p>
+      <div class="row">
+        <button class="btn primary">View details</button>
+        <button class="btn ghost">Directions</button>
+      </div>
+    </div>`;
+}
+document.getElementById("vcount").textContent=PLACES.length;
+renderChips();renderList();renderDetail();
+</script>
+</body>
+</html>

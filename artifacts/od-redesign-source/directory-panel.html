@@ -1,0 +1,454 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NCAC — The Directory (standalone panel)</title>
+
+  <!-- Polymath via Typekit, so the panel renders identically to the live app.
+       Remove these two lines and the system-ui fallback takes over. -->
+  <link rel="preconnect" href="https://use.typekit.net">
+  <script src="https://use.typekit.net/ik/QpZL-jTAx8VcE7iBVv7r5tSVTAEaLdPXUwSgW14405GfelJgfFHN4UJLFRbh52jhWD9tZcjow2MaFQSoZcJD5Q48w2yKwR4cZsGMJ6Nyjaml-AtlSY4zOWiTZe9KIA4kjAoqdhtlZa4ziemDSWm8Jysyjaml-AtlSY4zOAFzdcs8d1F8ZfGHf5dOMsMMeMb6MKG4fOZbIMIjgfMfH6qJz8MbMs6BJMJ7f6Kbk3IbMy6IJMJ7f6KAk3IbMy6BJMJ7f6Kjk3IbMy6eJMJ7f6K5k3IbMy6YJMJ7f6Ksk3IbMy65JMJ7f6KVk3IbMy6sJMHbM-K0oCte.js"></script>
+  <script>try{Typekit.load({async:true});}catch(e){}</script>
+
+  <style>
+    /* ===================================================================
+       NCAC V1 — "The Directory" control panel, self-contained.
+       All tokens inlined; no dependency on the app's styles.css / app.js.
+       Markup mirrors the live panel; the filter list and place index
+       (normally rendered by app.js) are baked in as a static snapshot.
+       =================================================================== */
+
+    :root {
+      --ncac-red: #ff2e00;
+      --ncac-red-soft: rgba(255, 46, 0, 0.08);
+      --ncac-red-ring: rgba(255, 46, 0, 0.28);
+      --ink: #1a1a1a;
+      --ink-soft: #5e5852;
+      --paper: #faf6ec;
+      --paper-warm: #f5f0e8;
+      --field: #ffffff;
+      --surface: #ffffff;
+      --line: #d8d0c6;
+      --line-strong: #1a1a1a;
+      --panel: #ffffff;
+      --shadow-float: 0 18px 42px rgba(26, 26, 26, 0.16);
+      --focus-ring: 0 0 0 3px var(--ncac-red-ring);
+      --font-brand: "polymath-variable-2th9nk", system-ui, sans-serif;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      /* A quiet paper field stands in for the map the panel normally floats over. */
+      background:
+        repeating-linear-gradient(0deg, transparent 0 39px, rgba(26,26,26,0.04) 39px 40px),
+        repeating-linear-gradient(90deg, transparent 0 39px, rgba(26,26,26,0.04) 39px 40px),
+        var(--paper-warm);
+      font-family: var(--font-brand);
+      color: var(--ink);
+      display: flex;
+      justify-content: flex-start;
+      padding: 36px clamp(18px, 4vw, 54px);
+    }
+
+    /* --- The panel object --------------------------------------------- */
+    .control-panel {
+      width: min(356px, calc(100vw - 36px));
+      background: var(--panel);
+      border: 3px solid var(--ncac-red);
+      box-shadow: var(--shadow-float);
+      padding: 14px;
+    }
+
+    /* --- Poster nameplate masthead ------------------------------------ */
+    .panel-topline {
+      position: relative;
+      margin: -14px -14px 18px;
+      padding: 17px 16px 0;
+      background: var(--ncac-red);
+      color: var(--paper);
+    }
+
+    /* The Framing Device — knockout keyline inset into red. */
+    .panel-topline::before {
+      content: "";
+      position: absolute;
+      inset: 7px;
+      border: 1.5px solid rgba(250, 246, 236, 0.5);
+      pointer-events: none;
+    }
+
+    .panel-masthead { position: relative; min-width: 0; }
+
+    .panel-kicker {
+      margin: 0;
+      font-size: 9.5px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: rgba(250, 246, 236, 0.9);
+    }
+
+    .panel-typemark {
+      margin: 5px 0 0;
+      font-size: clamp(32px, 5.6vw, 42px);
+      line-height: 0.82;
+      letter-spacing: -0.025em;
+      font-weight: 800;
+      color: var(--paper);
+    }
+
+    .panel-count {
+      position: relative;
+      margin: 12px 0 0;
+      padding: 0 0 13px;
+    }
+
+    .panel-count span {
+      display: block;
+      color: var(--paper);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+
+    /* --- Numbered editorial index system ------------------------------ */
+    .dir-section { margin-bottom: 18px; }
+    .dir-section--browse { margin-bottom: 16px; }
+
+    .dir-index {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin: 0 0 10px;
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink);
+    }
+
+    .dir-num {
+      flex: 0 0 auto;
+      background: var(--ink);
+      color: var(--paper);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.03em;
+      line-height: 1;
+      padding: 3px 6px 2px;
+    }
+
+    /* Classic contents rule trailing each label. */
+    .dir-index::after {
+      content: "";
+      flex: 1 1 auto;
+      height: 1.5px;
+      background: var(--line-strong);
+      align-self: center;
+    }
+
+    /* --- 01 Browse: mode tabs ----------------------------------------- */
+    .mode-tabs {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      border: 2.5px solid var(--ink);
+      margin-bottom: 14px;
+      background: var(--surface);
+    }
+
+    .mode-tab {
+      border: 0;
+      border-right: 1px solid var(--ink);
+      background: transparent;
+      padding: 10px 7px 9px;
+      cursor: pointer;
+      font-family: var(--font-brand);
+      font-weight: 800;
+      font-size: 14px;
+      letter-spacing: -0.01em;
+      color: var(--ink);
+    }
+
+    .mode-tab:last-child { border-right: 0; }
+
+    .mode-tab.active {
+      background: var(--ncac-red);
+      color: var(--paper);
+    }
+
+    .mode-tab:focus-visible {
+      outline: 0;
+      box-shadow: var(--focus-ring), inset 0 -3px 0 var(--ncac-red);
+    }
+
+    /* --- Featured poster (ink field, red top keyline) ----------------- */
+    .featured-hint {
+      position: relative;
+      border: 0;
+      background: var(--ink);
+      color: var(--paper);
+      padding: 14px;
+      margin-bottom: 12px;
+      box-shadow: inset 0 5px 0 var(--ncac-red);
+    }
+
+    .hint-title {
+      margin: 0 0 5px;
+      font-size: 19px;
+      line-height: 1.04;
+      font-weight: 800;
+      color: var(--paper);
+    }
+
+    .featured-hint p:last-child {
+      margin: 0;
+      line-height: 1.35;
+      color: rgba(250, 246, 236, 0.86);
+    }
+
+    /* --- 02 Outing type: browse list ---------------------------------- */
+    .outing-browse {
+      border: 1px solid var(--line-strong);
+      background: var(--surface);
+    }
+
+    .outing-browse-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 8px 10px;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    .outing-browse-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-soft);
+    }
+
+    .outing-list { display: flex; flex-direction: column; }
+
+    .outing-row {
+      display: grid;
+      grid-template-columns: 1fr auto auto;
+      align-items: center;
+      gap: 10px;
+      width: 100%;
+      border: 0;
+      border-top: 1px solid var(--line);
+      background: transparent;
+      color: var(--ink);
+      padding: 10px;
+      font-family: var(--font-brand);
+      font-size: 13px;
+      font-weight: 700;
+      text-align: left;
+      cursor: pointer;
+    }
+
+    .outing-row:first-child { border-top: 0; }
+    .outing-row:hover { background: rgba(20, 20, 20, 0.05); }
+
+    .outing-row-count { color: var(--ink-soft); font-size: 11px; font-weight: 700; }
+    .outing-row-cue { color: var(--ink-soft); font-size: 13px; width: 14px; text-align: center; }
+
+    .outing-row.active {
+      background: var(--ncac-red);
+      color: var(--field);
+      box-shadow: inset 3px 0 0 var(--ink);
+    }
+    .outing-row.active .outing-row-count,
+    .outing-row.active .outing-row-cue { color: var(--field); }
+
+    /* --- 03 The index: search + place rows ---------------------------- */
+    .review-tools { border: 0; background: transparent; padding: 0; margin-bottom: 6px; }
+
+    .browse-heading {
+      margin: 0 0 11px;
+      font-size: 22px;
+      line-height: 0.95;
+      letter-spacing: -0.01em;
+      font-weight: 800;
+    }
+
+    .review-search-label {
+      display: grid;
+      gap: 5px;
+      margin-bottom: 8px;
+      color: var(--ink-soft);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      text-transform: uppercase;
+    }
+
+    .review-search-input {
+      width: 100%;
+      border: 1px solid var(--line-strong);
+      background: var(--surface);
+      color: var(--ink);
+      font: inherit;
+      font-size: 13px;
+      padding: 8px 9px;
+    }
+    .review-search-input:focus { outline: 0; box-shadow: var(--focus-ring); }
+
+    .places-list-summary {
+      display: flex;
+      justify-content: space-between;
+      margin: 4px 0 8px;
+      color: var(--ink-soft);
+      font-size: 12px;
+    }
+
+    .places-list-items {
+      display: grid;
+      gap: 6px;
+    }
+
+    .place-list-item {
+      display: grid;
+      gap: 3px;
+      width: 100%;
+      border: 1px solid var(--line);
+      background: var(--surface);
+      color: var(--ink);
+      cursor: pointer;
+      padding: 8px;
+      text-align: left;
+      font-family: var(--font-brand);
+    }
+
+    .place-list-item.active,
+    .place-list-item:hover {
+      border-color: var(--ink);
+      box-shadow: inset 5px 0 0 var(--ncac-red);
+    }
+
+    .place-list-title { font-size: 14px; font-weight: 800; }
+    .place-list-meta { color: var(--ink-soft); font-size: 11px; }
+    .place-list-badge {
+      color: var(--ncac-red);
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+  </style>
+</head>
+<body>
+  <aside class="control-panel" aria-label="Discovery controls">
+
+    <div class="panel-topline">
+      <div class="panel-masthead">
+        <p class="panel-kicker">Nevada County · Arts &amp; Culture</p>
+        <p class="panel-typemark">The Directory</p>
+      </div>
+      <p class="panel-count"><span>1,415 places to explore</span></p>
+    </div>
+
+    <!-- 01 Browse -->
+    <div class="dir-section dir-section--browse">
+      <p class="dir-index"><span class="dir-num">01</span>Browse</p>
+      <div class="mode-tabs" role="tablist" aria-label="Map mode">
+        <button class="mode-tab active" type="button">Places</button>
+        <button class="mode-tab" type="button">Events</button>
+        <button class="mode-tab" type="button">Paths</button>
+      </div>
+    </div>
+
+    <!-- Featured poster -->
+    <div class="featured-hint">
+      <p class="hint-title">Start in the cultural district</p>
+      <p>Grass Valley and Nevada City are centered first, with the wider county still visible as context.</p>
+    </div>
+
+    <!-- 02 Outing type -->
+    <div class="dir-section dir-section--filters">
+      <p class="dir-index"><span class="dir-num">02</span>Outing type</p>
+      <div class="outing-browse">
+        <div class="outing-browse-head">
+          <span class="outing-browse-title">Pick a way in</span>
+        </div>
+        <div class="outing-list">
+          <button class="outing-row active" type="button">
+            <span>Galleries &amp; Studios</span>
+            <span class="outing-row-count">128</span>
+            <span class="outing-row-cue">›</span>
+          </button>
+          <button class="outing-row" type="button">
+            <span>Historic Places</span>
+            <span class="outing-row-count">214</span>
+            <span class="outing-row-cue">›</span>
+          </button>
+          <button class="outing-row" type="button">
+            <span>Public Art</span>
+            <span class="outing-row-count">86</span>
+            <span class="outing-row-cue">›</span>
+          </button>
+          <button class="outing-row" type="button">
+            <span>Performing Arts</span>
+            <span class="outing-row-count">73</span>
+            <span class="outing-row-cue">›</span>
+          </button>
+          <button class="outing-row" type="button">
+            <span>Shops &amp; Makers</span>
+            <span class="outing-row-count">191</span>
+            <span class="outing-row-cue">›</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 03 The index -->
+    <div class="review-tools" aria-label="Review navigation">
+      <p class="dir-index"><span class="dir-num">03</span>The index</p>
+      <h2 class="browse-heading">Places to explore</h2>
+      <label class="review-search-label" for="place-search">
+        <span>Search places</span>
+        <input id="place-search" class="review-search-input" type="search" placeholder="Search places">
+      </label>
+
+      <div class="places-list-summary">
+        <span>Showing 6 of 1,415</span>
+        <span>A–Z</span>
+      </div>
+
+      <div class="places-list-items">
+        <button class="place-list-item active" type="button">
+          <span class="place-list-title">The Center for the Arts</span>
+          <span class="place-list-meta">Grass Valley · Performing Arts</span>
+          <span class="place-list-badge">Seen in MUSE</span>
+        </button>
+        <button class="place-list-item" type="button">
+          <span class="place-list-title">Nevada Theatre</span>
+          <span class="place-list-meta">Nevada City · Historic Place</span>
+        </button>
+        <button class="place-list-item" type="button">
+          <span class="place-list-title">North Star House</span>
+          <span class="place-list-meta">Grass Valley · Historic Place</span>
+        </button>
+        <button class="place-list-item" type="button">
+          <span class="place-list-title">The Curious Forge</span>
+          <span class="place-list-meta">Grass Valley · Makerspace</span>
+        </button>
+        <button class="place-list-item" type="button">
+          <span class="place-list-title">Empire Mine State Historic Park</span>
+          <span class="place-list-meta">Grass Valley · Historic Place</span>
+        </button>
+        <button class="place-list-item" type="button">
+          <span class="place-list-title">Art Works Gallery</span>
+          <span class="place-list-meta">Grass Valley · Gallery</span>
+        </button>
+      </div>
+    </div>
+
+  </aside>
+</body>
+</html>

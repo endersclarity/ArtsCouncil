@@ -11,6 +11,12 @@ const appSource = fs.readFileSync(
   path.join(repoRoot, "website/cultural-map-redesign-stitch-lab/v1-discovery-map/app.js"),
   "utf8",
 );
+// Image resolution (real-vs-placeholder precedence) was extracted into the
+// testable place-data module (CLA-37). The precedence rule is asserted there.
+const placeDataSource = fs.readFileSync(
+  path.join(repoRoot, "website/cultural-map-redesign-stitch-lab/v1-discovery-map/place-data.js"),
+  "utf8",
+);
 
 function blockFor(selector) {
   const index = stylesSource.search(new RegExp(`(^|\\n)${selector.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")}\\s*\\{`));
@@ -37,7 +43,8 @@ assert.match(proofLabel, /background:\s*var\(--ink\)/, "ordinary real/candidate 
 assert.match(blockFor(".primary-anchor-card .image-proof-label"), /background:\s*var\(--ncac-red\)/, "primary anchor Image Proof should keep a stronger red proof label");
 
 assert.match(appSource, /Photo not yet sourced/, "placeholder label copy should remain honest");
-assert.match(appSource, /place\.image && place\.image\.kind === "real" && place\.image\.src/, "real Image Proof should still take precedence in rendering");
+assert.match(placeDataSource, /image\.kind === "real" && image\.src/, "real Image Proof should still take precedence in rendering");
+assert.match(appSource, /if \(resolved\.isRealImage\)/, "renderImage should branch on the resolved real-image decision");
 assert.match(appSource, /place\.image\?\.kind === "placeholder" \? "" : place\.image\?\.src/, "old generated placeholder metadata should not outrank category panels");
 assert.doesNotMatch(appSource, /Category image/, "rejected in-asset/category-image label should not be used");
 

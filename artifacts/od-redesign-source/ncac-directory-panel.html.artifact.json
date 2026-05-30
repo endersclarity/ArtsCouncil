@@ -1,0 +1,21 @@
+{
+  "version": 1,
+  "kind": "html",
+  "title": "NCAC — The Directory (standalone panel)",
+  "entry": "ncac-directory-panel.html",
+  "renderer": "html",
+  "status": "complete",
+  "exports": [
+    "html",
+    "pdf",
+    "zip"
+  ],
+  "primary": true,
+  "createdAt": "2026-05-30T05:22:59.081Z",
+  "updatedAt": "2026-05-30T05:22:59.092Z",
+  "metadata": {
+    "identifier": "ncac-directory-panel",
+    "artifactType": "text/html",
+    "inferred": false
+  }
+}

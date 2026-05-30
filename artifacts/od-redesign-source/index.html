@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Nevada County Cultural Map</title>
+  <meta name="description" content="Browse cultural places, stories, and events across Grass Valley and Nevada City.">
+  <link rel="preconnect" href="https://use.typekit.net">
+  <script src="https://use.typekit.net/ik/QpZL-jTAx8VcE7iBVv7r5tSVTAEaLdPXUwSgW14405GfelJgfFHN4UJLFRbh52jhWD9tZcjow2MaFQSoZcJD5Q48w2yKwR4cZsGMJ6Nyjaml-AtlSY4zOWiTZe9KIA4kjAoqdhtlZa4ziemDSWm8Jysyjaml-AtlSY4zOAFzdcs8d1F8ZfGHf5dOMsMMeMb6MKG4fOZbIMIjgfMfH6qJz8MbMs6BJMJ7f6Kbk3IbMy6IJMJ7f6KAk3IbMy6BJMJ7f6Kjk3IbMy6eJMJ7f6K5k3IbMy6YJMJ7f6Ksk3IbMy65JMJ7f6KVk3IbMy6sJMHbM-K0oCte.js"></script>
+  <script>try{Typekit.load({async:true});}catch(e){}</script>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23ff2e00'/%3E%3Cpath d='M7 24V8h4l10 9V8h4v16h-4L11 15v9z' fill='%23faf6ec'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+  <link rel="stylesheet" href="styles.css?v=ncac-r4-directory">
+</head>
+<body>
+  <a class="skip-link" href="#map">Skip to map</a>
+
+  <header class="site-header" aria-label="Nevada County Arts Council shell">
+    <a class="brand" href="https://www.nevadacountyarts.org/" aria-label="Nevada County Arts &amp; Culture home">
+      <span>Nevada County</span>
+      <span>Arts &amp; Culture</span>
+    </a>
+    <nav class="site-nav" aria-label="Reference navigation">
+      <a href="https://www.nevadacountyarts.org/muse-magazine">MUSE Magazine</a>
+      <a href="https://www.nevadacountyarts.org/culture-forward">Culture Forward</a>
+      <a href="https://www.nevadacountyarts.org/cultural-asset-map">Current Map</a>
+    </nav>
+    <span class="alpha-pill">Public beta</span>
+  </header>
+
+  <main class="app-shell">
+    <section class="hero-band" aria-label="Nevada County Cultural Map">
+      <div class="hero-inner">
+        <p class="hero-kicker">The Cultural Asset Map</p>
+        <h1 class="hero-title">Find the culture<br>of Nevada County</h1>
+        <p class="hero-lede">A living map of the places, makers, stories, and events that make Grass Valley and Nevada City a creative capital.</p>
+        <p class="hero-cue" aria-hidden="true">Browse the map below</p>
+      </div>
+    </section>
+
+    <section class="map-stage" aria-label="Discovery Map">
+      <div id="map" class="map-canvas"></div>
+      <div class="mobile-map-context-label grass-valley" aria-hidden="true">Grass Valley</div>
+      <div class="mobile-map-context-label nevada-city" aria-hidden="true">Nevada City</div>
+
+      <aside class="control-panel" aria-label="Discovery controls">
+        <button type="button" class="drawer-toggle" id="drawer-toggle" aria-label="Toggle panel height">
+          <span class="drawer-handle-bar"></span>
+        </button>
+        <div class="panel-topline">
+          <div class="panel-masthead">
+            <p class="panel-kicker">Nevada County · Arts &amp; Culture</p>
+            <p class="panel-typemark">The Directory</p>
+          </div>
+          <p class="panel-count"><span id="visible-count">Loading</span></p>
+        </div>
+
+        <div class="dir-section dir-section--browse">
+          <p class="dir-index"><span class="dir-num">01</span>Browse</p>
+          <div class="mode-tabs" role="tablist" aria-label="Map mode">
+            <button class="mode-tab active" type="button" data-mode="places">Places</button>
+            <button class="mode-tab" type="button" data-mode="events">Events</button>
+            <button class="mode-tab" type="button" data-mode="paths">Paths</button>
+          </div>
+        </div>
+
+        <div class="featured-hint" id="featured-hint">
+          <p class="hint-title">Start in the cultural district</p>
+          <p>Grass Valley and Nevada City are centered first, with the wider county still visible as context.</p>
+        </div>
+
+        <div class="dir-section dir-section--filters">
+          <p class="dir-index"><span class="dir-num">02</span>Outing type</p>
+          <div class="filter-wrap" id="filters" aria-label="Outing Type browse list"></div>
+        </div>
+
+        <div class="review-tools" id="review-tools" aria-label="Review navigation">
+          <p class="dir-index"><span class="dir-num">03</span>The index</p>
+          <h2 class="browse-heading">Places to explore</h2>
+          <label class="review-search-label" for="place-search">
+            <span>Search places</span>
+            <input id="place-search" class="review-search-input" type="search" placeholder="Search places">
+          </label>
+          <div class="places-list" id="places-list"></div>
+        </div>
+
+      </aside>
+
+      <div class="selection-drawer" id="selection-drawer" aria-live="polite">
+        <div class="detail-card" id="detail-card">
+          <p class="empty-title">Select a place or path stop</p>
+          <p class="empty-copy">The detail card will show image proof, short context, source category, and related events when available.</p>
+        </div>
+      </div>
+
+      <div class="map-legend" aria-label="Map legend">
+        <span><i class="legend-dot place"></i>Places</span>
+        <span><i class="legend-dot event"></i>Events</span>
+        <span><i class="legend-line"></i>Sequence</span>
+      </div>
+    </section>
+  </main>
+
+  <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+  <script src="review-state.js"></script>
+  <script src="app.js?v=cla-33-v3-bold"></script>
+</body>
+</html>
