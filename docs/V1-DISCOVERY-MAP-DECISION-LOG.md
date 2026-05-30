@@ -54,6 +54,31 @@ This log preserves choices and rejected alternatives so stakeholder feedback can
 - Why not: full event product distracts from V1; no events feels static; stale March events cannot be presented as current.
 - Easy branch: add richer event browsing later if the map proves the direction.
 
+### Events freshness / wiring ruling (owner ruling, 2026-05-30)
+
+- **Root cause found:** `v1-discovery-map/data/events.json` is an **orphan file**. The 9-source
+  event pipeline (`scripts/events/*` + `.github/workflows/refresh-events.yml`) regenerates events
+  into sibling folders, but its commit `file_pattern` never includes the V1 app's `data/events.json`,
+  and the V1 app uses a different (flat) schema than the merged firehose output. So the live app
+  froze at the Apr 29–May 16 snapshot while the pipeline kept running elsewhere. The app also has
+  **no staleness guard** — `app.js` labels every event "Upcoming event" with no date comparison, so
+  past events render as upcoming. This violates the "stale events cannot be presented as current" rule.
+- **Source-of-truth decision (rejected "small hand-picked curated set"):** Do it right — **re-wire
+  the firehose into V1** rather than freeze a manual demo set. Add a transform that maps merged-flat
+  → V1 schema, filtered to events at visible places, and extend the cron `file_pattern` so V1
+  auto-refreshes. The curated-only path was rejected: the owner wants the real pipeline feeding V1,
+  not a hand-maintained snapshot.
+- **Freshness contract (owner ruling, 2026-05-30):** structural, not a label. Events are filtered to
+  `date >= today` before render, so the "Upcoming event" eyebrow is always truthful and the count
+  reflects future events only. No "as of <date>" caveat (that is banned process voice below the nav).
+  When zero current events match visible places, Events mode shows a citizen-voiced empty state
+  ("No events listed here this week — check back soon"), never a stale list. The guarantee is
+  enforced by filtering, so it is impossible to display a past event as upcoming.
+- **Carries into a separate implementation session** (handoff): schema transform, place-id matching
+  against visible places, `file_pattern` fix, staleness guard + empty/stale-state UI, and the
+  permission gate on disabled sources (most ingest steps are commented out pending meeting approval).
+- Easy branch: add richer event browsing later if the map proves the direction.
+
 ## Paths
 
 - Chosen direction: three MUSE-current mapped paths: Living Like a Local, Gallery & Studio Day, Evening Arts Night.

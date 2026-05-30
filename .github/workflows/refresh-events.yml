@@ -66,17 +66,28 @@ jobs:
       - name: Rebuild venue index from merged events
         run: python scripts/events/build_event_index.py --events-file website/cultural-map-redesign/events-merged-flat.json
 
+      - name: Build V1 Discovery Map events (matched + future-only)
+        run: python scripts/events/build_v1_events.py
+
+      # NOTE: these two Arts Hub steps reference scripts that no longer exist in
+      # the repo (scripts/geocode-assets.py, fetch-trumba-events.py,
+      # match-events-to-venues.py). Their hard failure (exit 2) was aborting the
+      # whole job BEFORE "Commit updated event data" ran — that is why the daily
+      # refresh stopped committing on 2026-03-15. continue-on-error lets the
+      # event-data commit proceed without reviving the obsolete Arts Hub scripts.
       - name: Refresh Arts Hub events (Trumba only)
         run: python scripts/geocode-assets.py || true && python scripts/fetch-trumba-events.py
+        continue-on-error: true
 
       - name: Match events to venues for Arts Hub V2
         run: python scripts/match-events-to-venues.py
+        continue-on-error: true
 
       - name: Commit updated event data
         uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: "chore(data): refresh events from 9 sources (Trumba + LibCal + CivicEngage + KVMR + GVDA + Crazy Horse + Golden Era + Bodhi Hive + Community)"
-          file_pattern: "website/cultural-map-redesign/events*.json website/cultural-map-redesign-stitch-lab/events*.json scripts/events/reports/*.json website/arts-hub/data/events.json website/arts-hub-v2/data/events-matched.json"
+          file_pattern: "website/cultural-map-redesign/events*.json website/cultural-map-redesign-stitch-lab/events*.json website/cultural-map-redesign-stitch-lab/v1-discovery-map/data/events.json scripts/events/reports/*.json website/arts-hub/data/events.json website/arts-hub-v2/data/events-matched.json"
           commit_user_name: "github-actions[bot]"
           commit_user_email: "github-actions[bot]@users.noreply.github.com"
 
