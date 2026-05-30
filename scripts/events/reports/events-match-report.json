@@ -1,26 +1,35 @@
 {
-  "generated_at": "2026-03-15T07:44:09.680148+00:00",
+  "generated_at": "2026-05-30T16:09:48.202151+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 201,
-    "matched_events": 141,
-    "unmatched_events": 60,
+    "total_events": 244,
+    "matched_events": 170,
+    "unmatched_events": 74,
     "matched_by_pid": 0,
-    "matched_by_alias": 21,
-    "matched_by_name_city": 29,
-    "matched_by_name_city_fuzzy": 91,
-    "upcoming_14d": 172
+    "matched_by_alias": 17,
+    "matched_by_name_city": 49,
+    "matched_by_name_city_fuzzy": 104,
+    "upcoming_14d": 90
   },
   "unmatched_venues": [
+    {
+      "venue_key": "unknownvenue|nevadacity",
+      "venue_name": "Unknown venue",
+      "venue_city": "Nevada City",
+      "count": 16,
+      "sample_event_id": "gvda-198326438",
+      "sample_title": "Fogelberg Revisited &#8211; A Tribute to Dan Fogelberg",
+      "candidate_assets": []
+    },
     {
       "venue_key": "ericroodcenter|nevadacity",
       "venue_name": "Eric Rood Center",
       "venue_city": "Nevada City",
-      "count": 10,
-      "sample_event_id": "trumba-196757556",
-      "sample_title": "Mobilize | Art Inspiring Activism with Wild & Scenic Film Festival Exhibition",
+      "count": 11,
+      "sample_event_id": "trumba-202909225",
+      "sample_title": "Lavender Glow | Queer Art & Our Shared History",
       "candidate_assets": []
     },
     {
@@ -60,21 +69,12 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "firstbaptistchurch|grassvalley",
-      "venue_name": "First Baptist Church",
+      "venue_key": "mcknightcrossingshoppingcenter|grassvalley",
+      "venue_name": "Mcknight crossing shopping center",
       "venue_city": "Grass Valley",
       "count": 4,
-      "sample_event_id": "trumba-198214906",
-      "sample_title": "Decendants: The Musical",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "unknownvenue|nevadacity",
-      "venue_name": "Unknown venue",
-      "venue_city": "Nevada City",
-      "count": 3,
-      "sample_event_id": "gvda-198326438",
-      "sample_title": "Fogelberg Revisited &#8211; A Tribute to Dan Fogelberg",
+      "sample_event_id": "gvda-191631909",
+      "sample_title": "Cars and coffee grass valley",
       "candidate_assets": []
     },
     {
@@ -100,17 +100,17 @@
       "venue_name": "Oddfellows Hall",
       "venue_city": "Nevada City",
       "count": 2,
-      "sample_event_id": "trumba-196396181",
+      "sample_event_id": "gvda-196396181",
       "sample_title": "Motion Theater",
       "candidate_assets": []
     },
     {
-      "venue_key": "mcknightcrossingshoppingcenter|grassvalley",
-      "venue_name": "Mcknight crossing shopping center",
+      "venue_key": "membershomes|grassvalley",
+      "venue_name": "Members homes",
       "venue_city": "Grass Valley",
       "count": 2,
-      "sample_event_id": "trumba-191631909",
-      "sample_title": "Cars and coffee grass valley",
+      "sample_event_id": "gvda-183038851",
+      "sample_title": "Playwriting Group",
       "candidate_assets": []
     },
     {
@@ -159,15 +159,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "seventhdayadventistchurch|grassvalley",
-      "venue_name": "Seventh Day Adventist Church",
-      "venue_city": "Grass Valley",
-      "count": 1,
-      "sample_event_id": "trumba-187541529",
-      "sample_title": "Frisson presented by InConcert Sierra",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "workspacemeetingroom|truckee",
       "venue_name": "Workspace Meeting Room",
       "venue_city": "Truckee",
@@ -177,30 +168,39 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "wonderdocent|nevadacity",
-      "venue_name": "Wonder Docent",
-      "venue_city": "Nevada City",
-      "count": 1,
-      "sample_event_id": "trumba-197779849",
-      "sample_title": "UNESCO World Poetry Day",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "membershomes|grassvalley",
-      "venue_name": "Members homes",
+      "venue_key": "firstbaptistchurch|grassvalley",
+      "venue_name": "First Baptist Church",
       "venue_city": "Grass Valley",
       "count": 1,
-      "sample_event_id": "trumba-183038851",
-      "sample_title": "Playwriting Group",
+      "sample_event_id": "gvda-198214906",
+      "sample_title": "Decendants: The Musical",
       "candidate_assets": []
     },
     {
-      "venue_key": "artistshome|nevadacity",
-      "venue_name": "Artist's Home",
-      "venue_city": "Nevada City",
+      "venue_key": "olympicvalleychapel|palisadestahoe",
+      "venue_name": "Olympic Valley Chapel",
+      "venue_city": "Palisades Tahoe",
       "count": 1,
-      "sample_event_id": "trumba-197744052",
-      "sample_title": "Mythos of the Feminine: A Home Exhibition",
+      "sample_event_id": "trumba-203364529",
+      "sample_title": "Dan Tepfer, in Concert",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "northwoodsclubhouse|truckee",
+      "venue_name": "Northwoods Clubhouse",
+      "venue_city": "Truckee",
+      "count": 1,
+      "sample_event_id": "trumba-113922958",
+      "sample_title": "Kids Night Out",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "camptonvillecommunitycenter|southernsierracounty",
+      "venue_name": "Camptonville Community Center",
+      "venue_city": "Southern Sierra County",
+      "count": 1,
+      "sample_event_id": "trumba-204111392",
+      "sample_title": "From the Hip | Casual Photos of Contradictions & Conundrums",
       "candidate_assets": []
     }
   ],
