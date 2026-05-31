@@ -1,24 +1,24 @@
 {
-  "generated_at": "2026-05-30T16:09:48.202151+00:00",
+  "generated_at": "2026-05-31T09:46:24.482691+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 244,
-    "matched_events": 170,
+    "total_events": 240,
+    "matched_events": 166,
     "unmatched_events": 74,
     "matched_by_pid": 0,
-    "matched_by_alias": 17,
-    "matched_by_name_city": 49,
-    "matched_by_name_city_fuzzy": 104,
-    "upcoming_14d": 90
+    "matched_by_alias": 15,
+    "matched_by_name_city": 48,
+    "matched_by_name_city_fuzzy": 103,
+    "upcoming_14d": 87
   },
   "unmatched_venues": [
     {
       "venue_key": "unknownvenue|nevadacity",
       "venue_name": "Unknown venue",
       "venue_city": "Nevada City",
-      "count": 16,
+      "count": 17,
       "sample_event_id": "gvda-198326438",
       "sample_title": "Fogelberg Revisited &#8211; A Tribute to Dan Fogelberg",
       "candidate_assets": []
@@ -174,15 +174,6 @@
       "count": 1,
       "sample_event_id": "gvda-198214906",
       "sample_title": "Decendants: The Musical",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "olympicvalleychapel|palisadestahoe",
-      "venue_name": "Olympic Valley Chapel",
-      "venue_city": "Palisades Tahoe",
-      "count": 1,
-      "sample_event_id": "trumba-203364529",
-      "sample_title": "Dan Tepfer, in Concert",
       "candidate_assets": []
     },
     {

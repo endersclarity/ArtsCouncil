@@ -1,19 +1,19 @@
 {
-  "generated_at": "2026-05-30T09:09:48-07:00",
+  "generated_at": "2026-05-31T02:46:24-07:00",
   "source_counts": {
-    "trumba": 79,
+    "trumba": 77,
     "gvda": 54,
     "libcal": 70,
     "kvmr": 29,
     "civicengage": 0,
     "crazyhorse": 10,
-    "goldenera": 2,
+    "goldenera": 0,
     "bodhihive": 0,
     "community": 0
   },
   "dedup_removed": 0,
-  "event_tagged": 116,
-  "family_tagged": 44,
+  "event_tagged": 114,
+  "family_tagged": 43,
   "events": [
     {
       "event_id": "kvmr-348860-1772877600-1772892000-20260307",
@@ -2887,195 +2887,6 @@
       ]
     },
     {
-      "event_id": "goldenera-kurrency-king-b-day-bash",
-      "title": "KURRENCY KING B-DAY BASH",
-      "start_iso": "2026-05-29T21:00:00-07:00",
-      "timezone": "America/Los_Angeles",
-      "venue_name": "Golden Era Lounge",
-      "venue_city": "Nevada City",
-      "source_type": "squarespace",
-      "source_ref": "https://www.goldeneralounge.com",
-      "source_label": "Golden Era Lounge",
-      "is_family": false,
-      "last_verified_at": "2026-05-30T09:09:46-07:00",
-      "end_iso": "2026-05-29T23:59:00-07:00",
-      "venue_address": "309 Broad Street, Nevada City, CA, 95959",
-      "ticket_url": "https://www.goldeneralounge.com/events/kurrency-king-b-day-bash",
-      "event_tags": [
-        "live-music"
-      ]
-    },
-    {
-      "event_id": "trumba-116790099",
-      "title": "Spanish story time",
-      "start_iso": "2026-05-30T10:30:00-07:00",
-      "end_iso": "2026-05-30T11:00:00-07:00",
-      "timezone": "America/Los_Angeles",
-      "venue_name": "Truckee Library",
-      "source_type": "feed",
-      "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
-      "venue_city": "Truckee",
-      "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D116790099",
-      "tags": [
-        "Children / Family",
-        "Health / Wellbeing"
-      ],
-      "description": "Monthly bilingual story time with Reyna Sanchez-Lopez. Enjoy lively books and activities to introduce children to the wonders of reading and books.",
-      "source_label": "Nevada County Arts Council",
-      "event_tags": [
-        "family-kids"
-      ],
-      "is_family": true
-    },
-    {
-      "event_id": "trumba-201251988",
-      "title": "Saturday Get Behind the Wheel Ceramics",
-      "start_iso": "2026-05-30T10:30:00-07:00",
-      "end_iso": "2026-05-30T12:30:00-07:00",
-      "timezone": "America/Los_Angeles",
-      "venue_name": "The Curious Forge",
-      "source_type": "feed",
-      "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
-      "venue_city": "Nevada City",
-      "ticket_url": "https://thecuriousforge.org/",
-      "tags": [
-        "Art & Gallery"
-      ],
-      "image_url": "https://www.trumba.com/i/DgDjb-qKo6Fbuc2W5fpbnrYc.jpg?w=900",
-      "description": "Saturday Get Behind the Wheel Ceramics",
-      "source_label": "Nevada County Arts Council",
-      "event_tags": [],
-      "is_family": false
-    },
-    {
-      "event_id": "trumba-202349883",
-      "title": "Floralia",
-      "start_iso": "2026-05-30T11:00:00-07:00",
-      "end_iso": "2026-05-30T17:00:00-07:00",
-      "timezone": "America/Los_Angeles",
-      "venue_name": "Seven Stars Gallery",
-      "source_type": "feed",
-      "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
-      "venue_city": "Nevada City",
-      "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D202349883",
-      "tags": [
-        "Art & Gallery"
-      ],
-      "image_url": "https://www.trumba.com/i/DgDt5W54MppN8NgyKTVw3ma7.jpg?w=900",
-      "description": "Beautiful floral-themed artwork by a bevy of talented, local artists adorns the walls of the Seven Stars Gallery for the month of May. Artist reception takes place on Friday, May 8th from 6-8 pm and includes a “fancy hat” contest.",
-      "source_label": "Nevada County Arts Council",
-      "event_tags": [
-        "arts-gallery"
-      ],
-      "is_family": false
-    },
-    {
-      "event_id": "trumba-202919612",
-      "title": "Glassblowing for Beginners – Make a Paperweight",
-      "start_iso": "2026-05-30T13:00:00-07:00",
-      "end_iso": "2026-05-30T16:00:00-07:00",
-      "timezone": "America/Los_Angeles",
-      "venue_name": "The Curious Forge",
-      "source_type": "feed",
-      "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
-      "venue_city": "Nevada City",
-      "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D202919612",
-      "tags": [
-        "Art & Gallery"
-      ],
-      "image_url": "https://www.trumba.com/i/DgDqcOM6MnvuradKC3BqOxtH.jpg?w=900",
-      "description": "Experience the enchanting art of glassblowing and transform molten glass into a stunning physical creation in just 3 hours! This beginner-friendly class is designed to introduce you to the fundamentals of glassblowing and let you unleash your creativity.",
-      "source_label": "Nevada County Arts Council",
-      "event_tags": [],
-      "is_family": false
-    },
-    {
-      "event_id": "trumba-202919614",
-      "title": "“Glassblowing Taster Experience – Make a Garden Gazing Ball, Bud Vase, or a Drinking Glass”",
-      "start_iso": "2026-05-30T14:00:00-07:00",
-      "end_iso": "2026-05-30T16:30:00-07:00",
-      "timezone": "America/Los_Angeles",
-      "venue_name": "The Curious Forge",
-      "source_type": "feed",
-      "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
-      "venue_city": "Nevada City",
-      "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D202919614",
-      "tags": [
-        "Art & Gallery"
-      ],
-      "image_url": "https://www.trumba.com/i/DgByxolijy-j-MA6CvkYL3xk.jpg?w=900",
-      "description": "Come experience the magic of Glassblowing at The Curious Forge!, 30-minute taster sessions—Your opportunity to experience glassblowing hands-on. You will make a colorful garden gazing ball, a drinking glass or bud vase!, Click on date options and then time slot options to find available sessions.",
-      "source_label": "Nevada County Arts Council",
-      "event_tags": [],
-      "is_family": false
-    },
-    {
-      "event_id": "trumba-203364529",
-      "title": "Dan Tepfer, in Concert",
-      "start_iso": "2026-05-30T16:00:00-07:00",
-      "end_iso": "2026-05-30T18:00:00-07:00",
-      "timezone": "America/Los_Angeles",
-      "venue_name": "Olympic Valley Chapel",
-      "source_type": "feed",
-      "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
-      "venue_city": "Palisades Tahoe",
-      "ticket_url": "https://www.eventbrite.com/e/dan-tepfer-in-concert-tickets-1982559854895?aff=ebdsoporgprofile&keep_tld=true",
-      "tags": [
-        "Music"
-      ],
-      "image_url": "https://www.trumba.com/i/DgApSDX-z0bh0wwiXdY3QFMg.jpg?w=900",
-      "description": "Get Ready for the Dan Tepfer, Tahoe Music Alive is honored to present Dan Tepfer in concert on May 30 at Olympic Valley Chapel., One of his generation’s extraordinary talents, Dan Tepfer has earned an international reputation as a pianist-composer of wide-ranging innovation, individuality, and drive—one “who refuses to set himself limits” (France’s Télérama). The New York City-based Tepfer, born in 1982 in Paris to American parents, has recorded and performed around the world with some of the leading lights in jazz and classical music, from Lee Konitz to Renée Fleming, and released eleven albums of his own in solo, duo and trio formats., Tepfer earned global acclaim for his 2011 release Goldberg Variations / Variations, a disc that sees him performing J.S. Bach’s masterpiece as well as improvising upon it—to “elegant, thoughtful and thrilling” effect (New York magazine). Tepfer’s 2019 video album Natural Machines stands as one of his most ingeniously forward-minded yet, finding him exploring in real time the intersection between science and art, coding and improvisation, digital algorithms and the rhythms of the heart. The New York Times has called him “a deeply rational improviser drawn to the unknown.” His 2023 return to Bach, Inventions / Reinventions, an exploration of the narrative processes behind Bach’s beloved Inventions, became a best-seller, spending two weeks in the #1 spot on the Billboard Classical Charts.",
-      "source_label": "Nevada County Arts Council",
-      "event_tags": [
-        "live-music"
-      ],
-      "is_family": false
-    },
-    {
-      "event_id": "goldenera-jl2flfwrea83f4p6cn49zrbgx8weet",
-      "title": "D.J. FOSSIL",
-      "start_iso": "2026-05-30T20:00:00-07:00",
-      "timezone": "America/Los_Angeles",
-      "venue_name": "Golden Era Lounge",
-      "venue_city": "Nevada City",
-      "source_type": "squarespace",
-      "source_ref": "https://www.goldeneralounge.com",
-      "source_label": "Golden Era Lounge",
-      "is_family": false,
-      "last_verified_at": "2026-05-30T09:09:46-07:00",
-      "end_iso": "2026-05-30T23:00:00-07:00",
-      "venue_address": "309 Broad Street, Nevada City, CA, 95959",
-      "ticket_url": "https://www.goldeneralounge.com/events/jl2flfwrea83f4p6cn49zrbgx8weet",
-      "event_tags": [
-        "live-music"
-      ]
-    },
-    {
-      "event_id": "crazyhorse-18764-1780176600-1780187400-20260530",
-      "title": "Tea Leaf Green - Night Two **SOLD OUT**",
-      "start_iso": "2026-05-30T21:30:00-07:00",
-      "end_iso": "2026-05-31T00:30:00-07:00",
-      "timezone": "America/Los_Angeles",
-      "venue_name": "Crazy Horse Saloon & Grill",
-      "venue_city": "Nevada City",
-      "source_type": "crazyhorse",
-      "source_ref": "https://crazyhorsenc.com/?post_type=tribe_events&ical=1&eventDisplay=list",
-      "source_label": "Crazy Horse Saloon",
-      "is_family": false,
-      "last_verified_at": "2026-05-30T09:09:46-07:00",
-      "description": "Just a few notches below a unicorn or snow leopard on the rarity scale, Tea Leaf Green only emerges these days in tune with particular celestial alignments. They were last seen in Nevada County back in October at the area’s most mystical outdoor venue, Rosebud Ranch. The effect they had on the crowd that night made it very clear that the band has only become more irresistible over time. The thought of putting them inside the Crazy Horse for two nights is akin to having the ’87 Lakers play your h",
-      "venue_address": "Crazy Horse Saloon & Grill, 230 Commercial Street, Nevada City, NV, 95959, United States",
-      "event_tags": [
-        "live-music"
-      ]
-    },
-    {
       "event_id": "trumba-199990407",
       "title": "Woodturning 101 – Craft a Beautiful Wooden Bowl",
       "start_iso": "2026-05-31T11:00:00-07:00",
@@ -3084,7 +2895,7 @@
       "venue_name": "The Curious Forge",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://thecuriousforge.org/product/woodturning-class/",
       "tags": [
@@ -3107,7 +2918,7 @@
       "venue_name": "Seven Stars Gallery",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D202349884",
       "tags": [
@@ -3130,7 +2941,7 @@
       "venue_name": "Unknown venue",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://thecuriousforge.org/virtual-tour/",
       "tags": [
@@ -3151,7 +2962,7 @@
       "venue_name": "The Curious Forge",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://thecuriousforge.org/virtual-tour/",
       "tags": [
@@ -3172,7 +2983,7 @@
       "venue_name": "The Curious Forge",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://thecuriousforge.org/product/glassblowing-102/",
       "tags": [
@@ -3193,7 +3004,7 @@
       "venue_name": "The Curious Forge",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://thecuriousforge.org/virtual-tour/",
       "tags": [
@@ -3214,7 +3025,7 @@
       "venue_name": "The Curious Forge",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://thecuriousforge.org/virtual-tour/",
       "tags": [
@@ -3235,7 +3046,7 @@
       "venue_name": "Nevada Theatre",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.theonyxtheatre.com/movies/929-for-a-few-dollars-more/",
       "tags": [
@@ -3259,7 +3070,7 @@
       "source_ref": "https://crazyhorsenc.com/?post_type=tribe_events&ical=1&eventDisplay=list",
       "source_label": "Crazy Horse Saloon",
       "is_family": false,
-      "last_verified_at": "2026-05-30T09:09:46-07:00",
+      "last_verified_at": "2026-05-31T02:46:22-07:00",
       "description": "KG is hitting the road this spring/summer with the Kyle Gass Company. Prepare yourselves for a three-piece acoustic assault, playing favorites from his bands over the years, as well as some tasty covers. The show will be followed by a meet and greet at the merch booth every night! Come for the jams, stay for the hang! This run Kyle will be joined by John Konesky, who has played with Kyle for 25 years in various projects including Tenacious D. Also, Sean Gardner, a guitarist and songwriter for Co",
       "venue_address": "Crazy Horse Saloon & Grill, 230 Commercial Street, Nevada City, NV, 95959, United States",
       "event_tags": [
@@ -3275,7 +3086,7 @@
       "venue_name": "Eric Rood Center",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D202909225",
       "tags": [
@@ -3296,7 +3107,7 @@
       "venue_name": "The Curious Forge",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://thecuriousforge.org/product/glassblowing-102/",
       "tags": [
@@ -3317,7 +3128,7 @@
       "venue_name": "The Curious Forge",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://thecuriousforge.org/product/glassblowing-102/",
       "tags": [
@@ -3338,7 +3149,7 @@
       "venue_name": "The Curious Forge",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://thecuriousforge.org/",
       "tags": [
@@ -3359,7 +3170,7 @@
       "venue_name": "Seven Stars Gallery 210 Spring Street",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D195322398",
       "tags": [
@@ -3385,7 +3196,7 @@
       "venue_name": "The Curious Forge",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://thecuriousforge.org/",
       "tags": [
@@ -3406,7 +3217,7 @@
       "venue_name": "Eric Rood Center",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D202909226",
       "tags": [
@@ -3427,7 +3238,7 @@
       "venue_name": "Miners Foundry Cultural Center",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.facebook.com/groups/246116427305067/?ref=share_group_link&mibextid=wwXIfr",
       "tags": [
@@ -3450,7 +3261,7 @@
       "venue_name": "Unknown venue",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D203861596",
       "tags": [
@@ -3472,7 +3283,7 @@
       "venue_name": "Eric Rood Center",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D202909227",
       "tags": [
@@ -3493,7 +3304,7 @@
       "venue_name": "Members homes",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Grass Valley",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D183038856",
       "tags": [
@@ -3517,7 +3328,7 @@
       "venue_name": "The Curious Forge",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://thecuriousforge.org/product/glassblowing-102/",
       "tags": [
@@ -3538,7 +3349,7 @@
       "venue_name": "Unknown venue",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D203861597",
       "tags": [
@@ -3563,7 +3374,7 @@
       "source_ref": "https://crazyhorsenc.com/?post_type=tribe_events&ical=1&eventDisplay=list",
       "source_label": "Crazy Horse Saloon",
       "is_family": false,
-      "last_verified_at": "2026-05-30T09:09:46-07:00",
+      "last_verified_at": "2026-05-31T02:46:22-07:00",
       "description": "Nevada City’s longest running Trivia Night happens on *most* Wednesdays at the Crazy Horse. Great minds unite to Eat! Drink! Think! Bring your most clever friends, establish a team of up to five people and catalyze the collective power of your brilliant intellect. Your charismatic host BK will present questions covering a wide range of subjects in eight different categories. You’ll tap into knowledge you didn’t even realize you had. It’s challenging, it’s fun and it’s a refreshing change from th",
       "venue_address": "Crazy Horse Saloon & Grill, 230 Commercial Street, Nevada City, NV, 95959, United States",
       "event_tags": [
@@ -3579,7 +3390,7 @@
       "venue_name": "Eric Rood Center",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D202909228",
       "tags": [
@@ -3600,7 +3411,7 @@
       "venue_name": "Main Stage - Marisa Funk Theater",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Grass Valley",
       "ticket_url": "https://thecenterforthearts.my.salesforce-sites.com/ticket/#/events/a0SUZ0000059mqX2AQ",
       "tags": [
@@ -3623,7 +3434,7 @@
       "venue_name": "Unknown venue",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://thecuriousforge.org/virtual-tour/",
       "tags": [
@@ -3646,7 +3457,7 @@
       "venue_name": "The Curious Forge",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://thecuriousforge.org/virtual-tour/",
       "tags": [
@@ -3669,7 +3480,7 @@
       "venue_name": "Unknown venue",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D203861587",
       "tags": [
@@ -3693,7 +3504,7 @@
       "venue_name": "Unknown venue",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D203861598",
       "tags": [
@@ -3715,7 +3526,7 @@
       "venue_name": "Nevada City Film Festival HQ",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.facebook.com/events/2440371953104711/",
       "tags": [
@@ -3748,7 +3559,7 @@
       "venue_name": "Grass Valley Brewing Co",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Grass Valley",
       "ticket_url": "https://www.gvbrew.com/",
       "tags": [
@@ -3772,7 +3583,7 @@
       "venue_name": "The Curious Forge",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://thecuriousforge.org/product/glassblowing-taster-experience-30-minutes/",
       "tags": [
@@ -3797,7 +3608,7 @@
       "venue_name": "Eric Rood Center",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D202909229",
       "tags": [
@@ -3818,7 +3629,7 @@
       "venue_name": "The Curious Forge",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://thecuriousforge.org/product/advanced-glassblowing-level-4-adv-tech/",
       "tags": [
@@ -3841,7 +3652,7 @@
       "venue_name": "Northwoods Clubhouse",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Truckee",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D113922958",
       "tags": [
@@ -3865,7 +3676,7 @@
       "venue_name": "Atelier",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Truckee",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D114306313",
       "tags": [
@@ -3886,7 +3697,7 @@
       "venue_name": "Unknown venue",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D203861599",
       "tags": [
@@ -3908,7 +3719,7 @@
       "venue_name": "Historic Downtown Truckee",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Truckee",
       "ticket_url": "http://www.historictruckee.com",
       "tags": [
@@ -3929,7 +3740,7 @@
       "venue_name": "The Center for the Arts",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Grass Valley",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D194683321",
       "tags": [
@@ -3955,7 +3766,7 @@
       "source_ref": "https://crazyhorsenc.com/?post_type=tribe_events&ical=1&eventDisplay=list",
       "source_label": "Crazy Horse Saloon",
       "is_family": true,
-      "last_verified_at": "2026-05-30T09:09:46-07:00",
+      "last_verified_at": "2026-05-31T02:46:22-07:00",
       "description": "Junglist Massive! Evolv3 DnB is back at it again! Friday, June 5th we welcome two very talented artists from SoCal: dela Moon of Moontribe and Chief Jesta of Momentive LA. The Evolv3 DnB Crew will also be blessing the place with epic sounds and bass. Bartek Industries, Dust & Beau, and Bass Honey are reuniting again for an evening of sweaty good times. You don’t wanna miss this one! We are all STOKED to rock the f*ck out together as a DnB family. See ya’ll Friday, June 5th at The Crazy Horse Sal",
       "venue_address": "Crazy Horse Saloon & Grill, 230 Commercial Street, Nevada City, NV, 95959, United States",
       "event_tags": [
@@ -3972,7 +3783,7 @@
       "venue_name": "Mcknight crossing shopping center",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Grass Valley",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D191631920",
       "tags": [
@@ -3993,7 +3804,7 @@
       "venue_name": "Kidzone Museum",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Truckee",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D175236115",
       "tags": [
@@ -4013,7 +3824,7 @@
       "venue_name": "The Curious Forge",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://thecuriousforge.org/product/glassblowing-taster-experience-30-minutes/",
       "tags": [
@@ -4038,7 +3849,7 @@
       "venue_name": "Siren Song Fleece Works at Lucchesi Vineyards",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Grass Valley",
       "ticket_url": "https://sirensongfleeceworks.com/events",
       "tags": [
@@ -4059,7 +3870,7 @@
       "venue_name": "The Curious Forge",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://thecuriousforge.org/",
       "tags": [
@@ -4080,7 +3891,7 @@
       "venue_name": "The Curious Forge",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://thecuriousforge.org/product/kids-creation-day-polymer-clay/",
       "tags": [
@@ -4105,7 +3916,7 @@
       "venue_name": "GV Veterans Memorial Hall",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Grass Valley",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D203846380",
       "tags": [
@@ -4129,7 +3940,7 @@
       "source_ref": "https://crazyhorsenc.com/?post_type=tribe_events&ical=1&eventDisplay=list",
       "source_label": "Crazy Horse Saloon",
       "is_family": false,
-      "last_verified_at": "2026-05-30T09:09:46-07:00",
+      "last_verified_at": "2026-05-31T02:46:22-07:00",
       "description": "Tucked away in the Sierra Foothills of Northern California, a band of renegade women honor the music of the Grateful Dead all the way to its roots. Las Ninas Muertas is a five-piece, mostly acoustic unit playing a wide range of material from the Dead catalog as well as some of their well-loved covers. Ingrained with a passion for this timeless songbook, Las Ninas Muertas sing in that high-lonesome, four-part harmony style. Searing harmonica slices through the mix along with electric guitar riffs",
       "venue_address": "Crazy Horse Saloon & Grill, 230 Commercial Street, Nevada City, NV, 95959, United States",
       "event_tags": [
@@ -4145,7 +3956,7 @@
       "venue_name": "Unknown venue",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D203861600",
       "tags": [
@@ -4167,7 +3978,7 @@
       "venue_name": "Bandshell",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://nevadacityfilmfestival.com/events/mutp/",
       "tags": [
@@ -4196,7 +4007,7 @@
       "source_ref": "https://crazyhorsenc.com/?post_type=tribe_events&ical=1&eventDisplay=list",
       "source_label": "Crazy Horse Saloon",
       "is_family": false,
-      "last_verified_at": "2026-05-30T09:09:46-07:00",
+      "last_verified_at": "2026-05-31T02:46:22-07:00",
       "description": "GET YOUR TICKETS If you’re a true disciple of the music of Jerry Garcia, then you’ll know that there are few deeper cuts than “Magnificent Sanctuary Band.” This bonus track on Cats Down Under the Stars is extremely obscure, yet if you’re lucky enough to hear it, you’ll find yourself instantly wrapped in the familiarity of its bubbly warmth and honeysuckle groove. In this sense, it’s the most appropriate name for a band like the one playing on this night at the Crazy Horse Saloon. Once their soun",
       "venue_address": "Crazy Horse Saloon & Grill, 230 Commercial Street, Nevada City, NV, 95959, United States",
       "event_tags": [
@@ -4212,7 +4023,7 @@
       "venue_name": "Truckee Roundhouse Community Makerspace",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Truckee",
       "ticket_url": "https://www.truckeeroundhouse.org/makershow",
       "tags": [
@@ -4240,7 +4051,7 @@
       "venue_name": "Unknown venue",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://thecuriousforge.org/virtual-tour/",
       "tags": [
@@ -4261,7 +4072,7 @@
       "venue_name": "The Curious Forge",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://thecuriousforge.org/virtual-tour/",
       "tags": [
@@ -4282,7 +4093,7 @@
       "venue_name": "The Curious Forge",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://thecuriousforge.org/product/glassblowing-taster-experience-30-minutes/",
       "tags": [
@@ -4307,7 +4118,7 @@
       "venue_name": "Nevada Theatre",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://booking.theonyxtheatre.com/warning/756038/007166000003",
       "tags": [
@@ -4328,7 +4139,7 @@
       "venue_name": "Main Stage - Marisa Funk Theater",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Grass Valley",
       "ticket_url": "https://thecenterforthearts.my.salesforce-sites.com/ticket/?_gl=1*1elrx18*_gcl_au*MTU4NjQyMzM2Ni4xNzcxODc1MjM1#/events/a0SUZ000005ADlt2AG",
       "tags": [
@@ -4351,7 +4162,7 @@
       "venue_name": "Eric Rood Center",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D202909230",
       "tags": [
@@ -4372,7 +4183,7 @@
       "venue_name": "The Curious Forge",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://thecuriousforge.org/",
       "tags": [
@@ -4393,7 +4204,7 @@
       "venue_name": "Seven Stars Gallery 210 Spring Street",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D195322399",
       "tags": [
@@ -4419,7 +4230,7 @@
       "venue_name": "Tahoe Truckee Airport",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Truckee",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D114306761",
       "tags": [
@@ -4444,7 +4255,7 @@
       "venue_name": "The Curious Forge",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://thecuriousforge.org/",
       "tags": [
@@ -4465,7 +4276,7 @@
       "venue_name": "Eric Rood Center",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D202909231",
       "tags": [
@@ -4486,7 +4297,7 @@
       "venue_name": "Miners Foundry Cultural Center",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.facebook.com/groups/246116427305067/?ref=share_group_link&mibextid=wwXIfr",
       "tags": [
@@ -4509,7 +4320,7 @@
       "venue_name": "Unknown venue",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D203861601",
       "tags": [
@@ -4531,7 +4342,7 @@
       "venue_name": "Eric Rood Center",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D202909232",
       "tags": [
@@ -4552,7 +4363,7 @@
       "venue_name": "Unknown venue",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D203861602",
       "tags": [
@@ -4577,7 +4388,7 @@
       "source_ref": "https://crazyhorsenc.com/?post_type=tribe_events&ical=1&eventDisplay=list",
       "source_label": "Crazy Horse Saloon",
       "is_family": false,
-      "last_verified_at": "2026-05-30T09:09:46-07:00",
+      "last_verified_at": "2026-05-31T02:46:22-07:00",
       "description": "Nevada City’s longest running Trivia Night happens on *most* Wednesdays at the Crazy Horse. Great minds unite to Eat! Drink! Think! Bring your most clever friends, establish a team of up to five people and catalyze the collective power of your brilliant intellect. Your charismatic host BK will present questions covering a wide range of subjects in eight different categories. You’ll tap into knowledge you didn’t even realize you had. It’s challenging, it’s fun and it’s a refreshing change from th",
       "venue_address": "Crazy Horse Saloon & Grill, 230 Commercial Street, Nevada City, NV, 95959, United States",
       "event_tags": [
@@ -4593,7 +4404,7 @@
       "venue_name": "Eric Rood Center",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D202909233",
       "tags": [
@@ -4614,7 +4425,7 @@
       "venue_name": "The Curious Forge",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://thecuriousforge.org/product/make-a-stained-glass-suncatcher/",
       "tags": [
@@ -4637,7 +4448,7 @@
       "venue_name": "Unknown venue",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D203861603",
       "tags": [
@@ -4659,7 +4470,7 @@
       "venue_name": "Grass Valley",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Grass Valley",
       "ticket_url": "https://downtowngrassvalley.com/gvda-events/2026-thursday-night-market/",
       "tags": [
@@ -4689,7 +4500,7 @@
       "source_ref": "https://crazyhorsenc.com/?post_type=tribe_events&ical=1&eventDisplay=list",
       "source_label": "Crazy Horse Saloon",
       "is_family": false,
-      "last_verified_at": "2026-05-30T09:09:46-07:00",
+      "last_verified_at": "2026-05-31T02:46:22-07:00",
       "description": "GET YOUR TICKETS Soul Brass Band is the genre-bending creation of New Orleans percussionist and frontman Derrick “Smoker” Freeman, joined by an all-star cast of New Orleans heavyweights. Their sound is a fearless fusion of hip hop, jazz, second line tradition, classic soul, and street-born swagger — modern, infectious, and undeniably alive. Featuring Grammy-winning tubist Miles Lyons, Billboard-charting saxophonist James Martin, and a rotating lineup of elite New Orleans talent, Soul Brass Band ",
       "venue_address": "Crazy Horse Saloon & Grill, 230 Commercial Street, Nevada City, NV, 95959, United States",
       "event_tags": [
@@ -4705,7 +4516,7 @@
       "venue_name": "Eric Rood Center",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D202909234",
       "tags": [
@@ -4726,7 +4537,7 @@
       "venue_name": "Eric Rood Center",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D202909213",
       "tags": [
@@ -4752,7 +4563,7 @@
       "source_ref": "https://crazyhorsenc.com/?post_type=tribe_events&ical=1&eventDisplay=list",
       "source_label": "Crazy Horse Saloon",
       "is_family": false,
-      "last_verified_at": "2026-05-30T09:09:46-07:00",
+      "last_verified_at": "2026-05-31T02:46:22-07:00",
       "description": "Over fifteen years running and still going strong, this “Second Friday Tradition” is as reliable as the tides. You definitely don’t have to be a geezer to appreciate this community pow wow. Bob Woods is the most eminently tasteful guitarist in the foothills. The lifelong railroad man is too good to be this humble, while firmly planted behind the wheel of the locomotive. Doubling as a member of ZZ Top, drummer Skip Alan Smith relishes his role in powering the steam engine of the groove. Retro-coo",
       "venue_address": "Crazy Horse Saloon & Grill, 230 Commercial Street, Nevada City, NV, 95959, United States",
       "event_tags": [
@@ -4769,7 +4580,7 @@
       "venue_name": "Unknown venue",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D203861604",
       "tags": [
@@ -4791,7 +4602,7 @@
       "venue_name": "Camptonville Community Center",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Southern Sierra County",
       "ticket_url": "https://www.camptonvillecommunitycenter.org/",
       "tags": [
@@ -4815,7 +4626,7 @@
       "venue_name": "Main Stage - Marisa Funk Theater",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Grass Valley",
       "ticket_url": "https://thecenterforthearts.my.salesforce-sites.com/ticket/#/events/a0SUZ000005PkCr2AK",
       "tags": [
@@ -4841,7 +4652,7 @@
       "source_ref": "https://crazyhorsenc.com/?post_type=tribe_events&ical=1&eventDisplay=list",
       "source_label": "Crazy Horse Saloon",
       "is_family": false,
-      "last_verified_at": "2026-05-30T09:09:46-07:00",
+      "last_verified_at": "2026-05-31T02:46:22-07:00",
       "description": "GET YOUR TICKETS Born in 2015, Oakland’s “El Duo” blends lo-fi electronics and afro dance grooves with a natural sense of wonder. Drawing from their deep love of improvisation, Randy Schwartz (Brett Dennen, Illumination) & Harrison Murphy (Sun Hop Fat, Harry & the Hitmen) curate unique and inspired soundscapes for audiences. El Duo weaves together its unabashed brand of experimental dance music with an odd array of drums, percussion, synthesizers and effects. The witty pair approaches their conc",
       "venue_address": "Crazy Horse Saloon & Grill, 230 Commercial Street, Nevada City, NV, 95959, United States",
       "event_tags": [
@@ -4857,7 +4668,7 @@
       "venue_name": "Mcknight crossing shopping center",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Grass Valley",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D191631921",
       "tags": [
@@ -4878,7 +4689,7 @@
       "venue_name": "Kidzone Museum",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-05-30T09:09:43-07:00",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
       "venue_city": "Truckee",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D175236116",
       "tags": [
@@ -4888,6 +4699,116 @@
       "source_label": "Nevada County Arts Council",
       "event_tags": [],
       "is_family": false
+    },
+    {
+      "event_id": "trumba-201251990",
+      "title": "Saturday Get Behind the Wheel Ceramics",
+      "start_iso": "2026-06-13T10:30:00-07:00",
+      "end_iso": "2026-06-13T12:30:00-07:00",
+      "timezone": "America/Los_Angeles",
+      "venue_name": "The Curious Forge",
+      "source_type": "feed",
+      "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
+      "venue_city": "Nevada City",
+      "ticket_url": "https://thecuriousforge.org/",
+      "tags": [
+        "Art & Gallery"
+      ],
+      "image_url": "https://www.trumba.com/i/DgDjb-qKo6Fbuc2W5fpbnrYc.jpg?w=900",
+      "description": "Saturday Get Behind the Wheel Ceramics",
+      "source_label": "Nevada County Arts Council",
+      "event_tags": [],
+      "is_family": false
+    },
+    {
+      "event_id": "trumba-197331517",
+      "title": "Watercolor Exploration with Chappy Valente",
+      "start_iso": "2026-06-13T13:00:00-07:00",
+      "end_iso": "2026-06-13T16:00:00-07:00",
+      "timezone": "America/Los_Angeles",
+      "venue_name": "The Curious Forge",
+      "source_type": "feed",
+      "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
+      "venue_city": "Nevada City",
+      "ticket_url": "https://thecuriousforge.org/product/watercolor-exploration/",
+      "tags": [
+        "Art & Gallery",
+        "Visual Arts",
+        "Workshop"
+      ],
+      "image_url": "https://www.trumba.com/i/DgDdOaYaPL-Naa0nheFTNRwM.jpg?w=900",
+      "description": "Exploring Watercolor with Chappy Valente, Description:, Immerse yourself in the expressive world of watercolor painting! Whether you’re brand new to watercolor or looking to expand your skills, this hands-on class with artist and educator Chappy Valente will help you gain confidence and technique. Learn to paint with fluidity and intention as you explore the tools, papers, and brushwork that make watercolor such a luminous and rewarding medium., Each session is a stand-alone class with fresh projects and techniques—join once or come monthly to continue growing your watercolor practice., What’s the Project:, Create your own watercolor studies exploring washes, color mixing, and texture effects. Each class introduces a new focus—such as landscapes, botanicals, or abstract forms—to inspire your creativity., What Will They Learn:, Brush control and paint-to-water ratios, Wash techniques (wet-on-wet, wet-on-dry, gradient), Paper types, brush styles, and pigment selection, Layering, and color blending, Tips for composition and adding expressive detail, Materials Needed:, All materials are provided for in-class use. Students are welcome to bring their own favorite brushes or watercolor set if desired., Skill Level / Prerequisites:, All skill levels welcome—from first-time painters to those continuing their watercolor journey., Class Length:, One 3-hour session, (Optional continuing classes offered monthly), Fee: $50 + $20 materials, Minimum 3 / Maximum 6 participants",
+      "source_label": "Nevada County Arts Council",
+      "event_tags": [
+        "arts-gallery"
+      ],
+      "is_family": false
+    },
+    {
+      "event_id": "trumba-203861605",
+      "title": "Eli Rush Retrospective Art Show",
+      "start_iso": "2026-06-13T17:00:00-07:00",
+      "end_iso": "2026-06-13T18:00:00-07:00",
+      "timezone": "America/Los_Angeles",
+      "venue_name": "Unknown venue",
+      "source_type": "feed",
+      "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
+      "venue_city": "Nevada City",
+      "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D203861605",
+      "tags": [
+        "Art & Gallery"
+      ],
+      "image_url": "https://www.trumba.com/i/DgCj0fV5vwSqPzbbYM96WW7F.jpg?w=900",
+      "source_label": "Nevada County Arts Council",
+      "event_tags": [
+        "arts-gallery"
+      ],
+      "is_family": false
+    },
+    {
+      "event_id": "trumba-198522972",
+      "title": "The Floyd - A Tribute to Pink Floyd",
+      "start_iso": "2026-06-13T20:00:00-07:00",
+      "end_iso": "2026-06-13T22:00:00-07:00",
+      "timezone": "America/Los_Angeles",
+      "venue_name": "Main Stage - Marisa Funk Theater",
+      "source_type": "feed",
+      "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
+      "last_verified_at": "2026-05-31T02:46:17-07:00",
+      "venue_city": "Grass Valley",
+      "ticket_url": "https://thecenterforthearts.my.salesforce-sites.com/ticket/#/events/a0SUZ000005FFtV2AW",
+      "tags": [
+        "Music"
+      ],
+      "image_url": "https://www.trumba.com/i/DgBZXLB%2Akr8NCBKdpWbqSAZC.png?w=900",
+      "description": "Experience the music and atmosphere of Pink Floyd live on stage when The Floyd Nevada comes to the Main Stage - Marisa Funk Theater on Saturday, June 13., Dedicated to recreating the sound, mood, and sonic depth of Pink Floyd’s most iconic eras, The Floyd Nevada delivers soaring guitar solos, expansive instrumentals, and immersive lighting that transports audiences back to the golden age of progressive rock. From atmospheric ballads to electrifying anthems, this tribute honors one of rock’s most influential bands with precision and passion., Saturday, June 13, 2026, Doors 7:00 PM | Show 8:00 PM",
+      "source_label": "Nevada County Arts Council",
+      "event_tags": [
+        "live-music"
+      ],
+      "is_family": false
+    },
+    {
+      "event_id": "crazyhorse-19223-1781386200-1781397000-20260613",
+      "title": "Collectivity",
+      "start_iso": "2026-06-13T21:30:00-07:00",
+      "end_iso": "2026-06-14T00:30:00-07:00",
+      "timezone": "America/Los_Angeles",
+      "venue_name": "Crazy Horse Saloon & Grill",
+      "venue_city": "Nevada City",
+      "source_type": "crazyhorse",
+      "source_ref": "https://crazyhorsenc.com/?post_type=tribe_events&ical=1&eventDisplay=list",
+      "source_label": "Crazy Horse Saloon",
+      "is_family": false,
+      "last_verified_at": "2026-05-31T02:46:22-07:00",
+      "description": "GET YOUR TICKETS Collectivity doesn’t play groove music so much as activate it. Their live sets unfold like a conversation between muscle memory and curiosity – deep rhythmic foundations opening into psychedelic detours, then snapping back into focus with precision and intent. Its music built for movement, but powered by listening. Formed in Shanghai and now operating out of the Bay Area, Collectivity emerged from a desire to work off the grid – outside rigid genre lines and predictable structur",
+      "venue_address": "Crazy Horse Saloon & Grill, 230 Commercial Street, Nevada City, NV, 95959, United States",
+      "event_tags": [
+        "live-music"
+      ]
     }
   ]
 }
