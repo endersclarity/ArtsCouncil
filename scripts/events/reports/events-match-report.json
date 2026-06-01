@@ -1,24 +1,24 @@
 {
-  "generated_at": "2026-05-31T09:46:24.482691+00:00",
+  "generated_at": "2026-06-01T12:36:02.294131+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 240,
-    "matched_events": 166,
+    "total_events": 235,
+    "matched_events": 161,
     "unmatched_events": 74,
     "matched_by_pid": 0,
-    "matched_by_alias": 15,
-    "matched_by_name_city": 48,
-    "matched_by_name_city_fuzzy": 103,
-    "upcoming_14d": 87
+    "matched_by_alias": 14,
+    "matched_by_name_city": 45,
+    "matched_by_name_city_fuzzy": 102,
+    "upcoming_14d": 82
   },
   "unmatched_venues": [
     {
       "venue_key": "unknownvenue|nevadacity",
       "venue_name": "Unknown venue",
       "venue_city": "Nevada City",
-      "count": 17,
+      "count": 16,
       "sample_event_id": "gvda-198326438",
       "sample_title": "Fogelberg Revisited &#8211; A Tribute to Dan Fogelberg",
       "candidate_assets": []
@@ -192,6 +192,15 @@
       "count": 1,
       "sample_event_id": "trumba-204111392",
       "sample_title": "From the Hip | Casual Photos of Contradictions & Conundrums",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "darkhosecoffee|truckee",
+      "venue_name": "Dark Hose Coffee",
+      "venue_city": "Truckee",
+      "count": 1,
+      "sample_event_id": "trumba-116325476",
+      "sample_title": "Word Jam",
       "candidate_assets": []
     }
   ],
