@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-06-01T12:36:02.294131+00:00",
+  "generated_at": "2026-06-02T11:16:23.935345+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 235,
-    "matched_events": 161,
+    "total_events": 240,
+    "matched_events": 166,
     "unmatched_events": 74,
     "matched_by_pid": 0,
     "matched_by_alias": 14,
-    "matched_by_name_city": 45,
-    "matched_by_name_city_fuzzy": 102,
-    "upcoming_14d": 82
+    "matched_by_name_city": 48,
+    "matched_by_name_city_fuzzy": 104,
+    "upcoming_14d": 87
   },
   "unmatched_venues": [
     {
@@ -28,7 +28,7 @@
       "venue_name": "Eric Rood Center",
       "venue_city": "Nevada City",
       "count": 11,
-      "sample_event_id": "trumba-202909225",
+      "sample_event_id": "trumba-202909226",
       "sample_title": "Lavender Glow | Queer Art & Our Shared History",
       "candidate_assets": []
     },
