@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-06-05T10:45:06.923583+00:00",
+  "generated_at": "2026-06-06T09:24:39.908037+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 257,
-    "matched_events": 185,
-    "unmatched_events": 72,
+    "total_events": 263,
+    "matched_events": 192,
+    "unmatched_events": 71,
     "matched_by_pid": 0,
-    "matched_by_alias": 18,
-    "matched_by_name_city": 55,
-    "matched_by_name_city_fuzzy": 112,
-    "upcoming_14d": 104
+    "matched_by_alias": 27,
+    "matched_by_name_city": 52,
+    "matched_by_name_city_fuzzy": 113,
+    "upcoming_14d": 106
   },
   "unmatched_venues": [
     {
@@ -28,7 +28,7 @@
       "venue_name": "Eric Rood Center",
       "venue_city": "Nevada City",
       "count": 11,
-      "sample_event_id": "trumba-202909229",
+      "sample_event_id": "trumba-202909230",
       "sample_title": "Lavender Glow | Queer Art & Our Shared History",
       "candidate_assets": []
     },
@@ -174,15 +174,6 @@
       "count": 1,
       "sample_event_id": "gvda-198214906",
       "sample_title": "Decendants: The Musical",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "northwoodsclubhouse|truckee",
-      "venue_name": "Northwoods Clubhouse",
-      "venue_city": "Truckee",
-      "count": 1,
-      "sample_event_id": "trumba-113922958",
-      "sample_title": "Kids Night Out",
       "candidate_assets": []
     },
     {
