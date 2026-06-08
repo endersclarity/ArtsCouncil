@@ -1,24 +1,24 @@
 {
-  "generated_at": "2026-06-07T09:58:50.023273+00:00",
+  "generated_at": "2026-06-08T11:56:30.710567+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 260,
-    "matched_events": 189,
-    "unmatched_events": 71,
+    "total_events": 257,
+    "matched_events": 187,
+    "unmatched_events": 70,
     "matched_by_pid": 0,
     "matched_by_alias": 26,
     "matched_by_name_city": 51,
-    "matched_by_name_city_fuzzy": 112,
-    "upcoming_14d": 104
+    "matched_by_name_city_fuzzy": 110,
+    "upcoming_14d": 101
   },
   "unmatched_venues": [
     {
       "venue_key": "unknownvenue|nevadacity",
       "venue_name": "Unknown venue",
       "venue_city": "Nevada City",
-      "count": 14,
+      "count": 13,
       "sample_event_id": "gvda-198326438",
       "sample_title": "Fogelberg Revisited &#8211; A Tribute to Dan Fogelberg",
       "candidate_assets": []
