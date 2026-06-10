@@ -935,7 +935,7 @@
       els.filters.innerHTML = `
         <div class="outing-browse">
           <div class="outing-browse-head">
-            <span class="outing-browse-title">Browse by outing type</span>
+            <span class="outing-browse-title">What are you in the mood for?</span>
             ${hasActive ? `<button class="outing-done" type="button" data-outing-done>Done</button>` : ""}
           </div>
           <div class="outing-list" role="group" aria-label="Outing types">${rows}</div>
@@ -1201,7 +1201,21 @@
       return;
     }
     setDetailCardMode("primary-anchor");
-    els.hint.innerHTML = `<p class="hint-title">Start here</p><p>${escapeHtml(place.anchor.hook)}</p>`;
+    // Flow-upgrade Stage 2 ("First 30 Seconds" board): the panel opens with a
+    // visual host card for the top anchor — photo, its hook, and a direct way
+    // in — instead of a text-only hint.
+    const hintImage = resolvePlaceImage(place).src || categoryPlaceholderFor(place.category);
+    els.hint.innerHTML = `
+      <div class="hint-feature">
+        ${hintImage ? `<img class="hint-feature-img" src="${escapeHtml(hintImage)}" alt="${escapeHtml(place.name)}" loading="lazy">` : ""}
+        <div class="hint-feature-copy">
+          <p class="hint-title">Start here</p>
+          <p class="hint-feature-name">${escapeHtml(place.name)}</p>
+          <p>${escapeHtml(place.anchor.hook)}</p>
+          <button type="button" class="hint-feature-action">View place</button>
+        </div>
+      </div>`;
+    els.hint.querySelector(".hint-feature-action")?.addEventListener("click", () => showPlace(place));
     els.detail.innerHTML = `
       <button class="selected-place-close" type="button" aria-label="Close selected place">Close</button>
       ${renderImage(place)}

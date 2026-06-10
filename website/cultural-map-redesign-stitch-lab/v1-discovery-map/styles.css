@@ -405,6 +405,50 @@ button {
   margin-bottom: 12px;
 }
 
+/* Flow-upgrade Stage 2: visual host card inside the featured hint */
+.hint-feature {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.hint-feature-img {
+  display: block;
+  width: 100%;
+  height: 96px;
+  object-fit: cover;
+  border: 1px solid var(--line-strong);
+}
+
+.hint-feature-name {
+  margin: 0 0 4px;
+  font-family: var(--font-brand);
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.hint-feature-copy p:last-of-type {
+  margin: 0 0 8px;
+  color: var(--ink-soft);
+  line-height: 1.35;
+}
+
+.hint-feature-action {
+  appearance: none;
+  border: 2px solid var(--ink);
+  background: var(--ncac-red);
+  color: var(--paper);
+  font-family: var(--font-brand);
+  font-weight: 800;
+  font-size: 13px;
+  padding: 7px 12px;
+  cursor: pointer;
+}
+
+.hint-feature-action:hover {
+  background: var(--ink);
+}
+
 /* CLA-20: Outing Type browse list (the way in) + compact active-filter bar */
 .outing-browse {
   border: 1px solid var(--line-strong);

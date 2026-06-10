@@ -3,6 +3,12 @@
  "entries": [
   {
    "date": "2026-06-10",
+   "title": "The map now greets you like a host, not a database",
+   "summary": "The panel opens with a featured cultural anchor — photo, its story hook, and a one-tap way in — followed by a 'What are you in the mood for?' browse list. Search is still there, just no longer the front door.",
+   "kind": "improvement"
+  },
+  {
+   "date": "2026-06-10",
    "title": "Map markers redesigned: named anchors first, calmer dots, live-event halos",
    "summary": "At county zoom the map now leads with named cultural anchors instead of ~700 equal dots; ordinary places fade in as you zoom into town. Dot colors moved to a muted ink-leaning palette so red is reserved for what is live or selected, and any place with an upcoming event now carries a soft red halo in every mode.",
    "kind": "improvement"
