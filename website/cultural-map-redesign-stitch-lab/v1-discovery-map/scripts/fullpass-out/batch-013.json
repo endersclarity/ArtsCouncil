@@ -1,0 +1,214 @@
+[
+  {
+    "id": "loch-leven-lodge-truckee",
+    "name": "Loch Leven Lodge",
+    "self_description": "",
+    "source_url": "https://lochlevenlodge.com",
+    "source_page": "home",
+    "confidence": "low",
+    "notes": "Home page only contains title; no self-descriptive narrative found."
+  },
+  {
+    "id": "makiali-truckee",
+    "name": "MakiAli",
+    "self_description": "",
+    "source_url": "https://makiali.com",
+    "source_page": "home",
+    "confidence": "empty",
+    "notes": "Home page text is empty."
+  },
+  {
+    "id": "martis-valley-lodge-truckee",
+    "name": "Martis Valley Lodge",
+    "self_description": "",
+    "source_url": "https://martisvalleylodge.com",
+    "source_page": "",
+    "confidence": "empty",
+    "notes": "fetch failed: HTTP Error 403: Forbidden"
+  },
+  {
+    "id": "masa-kitchen-truckee",
+    "name": "Masa Kitchen",
+    "self_description": "",
+    "source_url": "https://masa.kitchen",
+    "source_page": "home",
+    "confidence": "low",
+    "notes": "Home page only contains title; no substantive self-description."
+  },
+  {
+    "id": "mehfil-indian-bistro-truckee",
+    "name": "Mehfil Indian Bistro",
+    "self_description": "",
+    "source_url": "https://mehfilindianbistrotruckee.com",
+    "source_page": "",
+    "confidence": "empty",
+    "notes": "fetch failed: <urlopen error [Errno 11001] getaddrinfo failed>"
+  },
+  {
+    "id": "moi-s-thai-cafe-penn-valley",
+    "name": "Moi's Thai Cafe",
+    "self_description": "Nestled in the heart of Penn Valley, Moi's Thai Café is a delightful culinary gem that brings the vibrant flavors of Thailand straight to 11332 Pleasant Valley Rd.",
+    "source_url": "https://mois-thai-cafe.bartgrocerybbq.com/#google_vignette",
+    "source_page": "home",
+    "confidence": "high"
+  },
+  {
+    "id": "montoliva-vineyard-and-winery-chicago-park",
+    "name": "Montoliva Vineyard & Winery",
+    "self_description": "Founded in 2000, Montoliva Vineyard & Winery creates Tuscan-inspired wines of uncommon depth and character.",
+    "source_url": "https://www.montoliva.com/?srsltid=AfmBOoqwH7of5tVpgcJqRX0SMHAv3lU_z1JPd6rWOHbfUefgnCoI_vKH",
+    "source_page": "about",
+    "confidence": "high"
+  },
+  {
+    "id": "moody-s-bistro-bar-and-beats-truckee",
+    "name": "Moody's Bistro Bar and Beats",
+    "self_description": "Established in 2002, Moody's Bistro is the quintessential Truckee experience.",
+    "source_url": "https://www.moodysbistro.com/?y_source=1_MTQ2MTA4ODYtNzE1LWxvY2F0aW9uLndlYnNpdGU%3D",
+    "source_page": "home",
+    "confidence": "high"
+  },
+  {
+    "id": "mountain-lotus-cafe-truckee",
+    "name": "Mountain Lotus Cafe",
+    "self_description": "Mountain Lotus is more than a yoga studio. It is a place to move, breathe, nourish, and connect.",
+    "source_url": "https://mountainlotusyoga.com",
+    "source_page": "home",
+    "confidence": "high"
+  },
+  {
+    "id": "old-town-tap-truckee",
+    "name": "Old Town Tap",
+    "self_description": "We set out to bring something different and amazing to the Truckee community. Our passion is creating delicious food, an amazing bar program and top notch service that's local, seasonal and sustainable.",
+    "source_url": "https://oldtowntaptruckee.com",
+    "source_page": "home",
+    "confidence": "high"
+  },
+  {
+    "id": "pj-s-at-grays-crossing-truckee",
+    "name": "PJ's at Grays Crossing",
+    "self_description": "PJ's at Gray's Crossing is the ultimate outdoor dining destination in Truckee, California.",
+    "source_url": "https://tahoemountainclub.com/dining/pjs",
+    "source_page": "home",
+    "confidence": "high"
+  },
+  {
+    "id": "pianeta-truckee",
+    "name": "Pianeta",
+    "self_description": "We are a cozy restaurant located in the heart of historic downtown Truckee, specializing in creating delicious Italian foods, homemade pastas, and stellar dining service since 1998.",
+    "source_url": "https://pianetarestauranttruckee.com",
+    "source_page": "about",
+    "confidence": "high"
+  },
+  {
+    "id": "rmu-truckee",
+    "name": "RMU",
+    "self_description": "",
+    "source_url": "https://rmumtnculture.com/pages/rmu-truckee",
+    "source_page": "home",
+    "confidence": "low",
+    "notes": "Page contains navigation, menu items, and event info; no clear self-description narrative."
+  },
+  {
+    "id": "river-street-inn-truckee",
+    "name": "River Street Inn",
+    "self_description": "",
+    "source_url": "https://riverstreetinntruckee.com",
+    "source_page": "",
+    "confidence": "empty",
+    "notes": "fetch failed: <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1010)>"
+  },
+  {
+    "id": "siam-cuisine-truckee",
+    "name": "Siam Cuisine",
+    "self_description": "",
+    "source_url": "https://siamthaicuisinetruckee.com",
+    "source_page": "home",
+    "confidence": "empty",
+    "notes": "Home page text is only 'Store'; no self-description."
+  },
+  {
+    "id": "sierra-bakehouse-truckee",
+    "name": "Sierra Bakehouse",
+    "self_description": "Sierra Bakehouse was created by two friends, Daniella and Kristy, with a love and passion for baking.",
+    "source_url": "https://www.sierrabakehouse.com/",
+    "source_page": "home",
+    "confidence": "high"
+  },
+  {
+    "id": "smokey-s-kitchen-truckee",
+    "name": "Smokey's Kitchen",
+    "self_description": "Smokey's Kitchen is a family-friendly breakfast, lunch and dinner restaurant, with fast and friendly service in Truckee, California.",
+    "source_url": "https://smokeyskitchen.com",
+    "source_page": "about",
+    "confidence": "high"
+  },
+  {
+    "id": "springhill-suites-by-marriott-truckee-truckee",
+    "name": "SpringHill Suites by Marriott Truckee",
+    "self_description": "",
+    "source_url": "https://marriott.com/hotels/travel/rnosu-springhill-suites-truckee",
+    "source_page": "",
+    "confidence": "empty",
+    "notes": "fetch failed: HTTP Error 403: Forbidden"
+  },
+  {
+    "id": "squeeze-in-truckee",
+    "name": "Squeeze In",
+    "self_description": "Nestled in the Sierra Nevada mountain town of Truckee, CA, Squeeze In first opened its doors in 1974. At just 10 feet wide and 62 feet long, guests literally have to 'squeeze in' to enjoy the cozy breakfast nook that offers 'the best omelettes on the planet' alongside boozy mimosas, eclectic decor, and unforgettable charm.",
+    "source_url": "https://squeezein.com",
+    "source_page": "about",
+    "confidence": "high"
+  },
+  {
+    "id": "stella-truckee",
+    "name": "Stella",
+    "self_description": "Soulful, Locally Sourced California Cuisine. Fresh, Vibrant, and Innovative.",
+    "source_url": "https://stellatruckee.com/",
+    "source_page": "home",
+    "confidence": "medium"
+  },
+  {
+    "id": "sweets-handmade-candies-truckee",
+    "name": "Sweets Handmade Candies",
+    "self_description": "",
+    "source_url": "https://sweetshandmadecandies.com/",
+    "source_page": "home",
+    "confidence": "low",
+    "notes": "Home page is product catalog; no venue self-description found."
+  },
+  {
+    "id": "tack-room-restaurant-and-bar-penn-valley",
+    "name": "Tack Room Restaurant and Bar",
+    "self_description": "",
+    "source_url": "https://www.facebook.com/tackroompennvalley/",
+    "source_page": "home",
+    "confidence": "low",
+    "notes": "Home page text is only title; no substantive self-description."
+  },
+  {
+    "id": "tacos-jalisco-truckee",
+    "name": "Tacos Jalisco",
+    "self_description": "Tacos Jalisco is your destination for authentic Mexican street tacos, family-owned and operated, with deep roots in the bold, vibrant flavors of Jalisco, Mexico.",
+    "source_url": "https://authentictacosjalisco.com",
+    "source_page": "home",
+    "confidence": "high"
+  },
+  {
+    "id": "tahoe-star-hotel-truckee",
+    "name": "Tahoe Star Hotel",
+    "self_description": "",
+    "source_url": "https://www.stardust-tahoe.com/",
+    "source_page": "home",
+    "confidence": "low",
+    "notes": "Home page lists amenities and room types; no clear first-person self-description."
+  },
+  {
+    "id": "tangerine-french-bistro-truckee",
+    "name": "Tangerine French Bistro",
+    "self_description": "Nestled in Truckee's vibrant downtown, Tangerine is a classic French bistro, brought to life by the creators of Great Gold.",
+    "source_url": "https://tangerinetahoe.com",
+    "source_page": "about",
+    "confidence": "high"
+  }
+]

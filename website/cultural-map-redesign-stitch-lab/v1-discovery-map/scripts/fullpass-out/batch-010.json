@@ -1,0 +1,227 @@
+[
+  {
+    "id": "pioneer-park-nevada-city",
+    "name": "Pioneer Park",
+    "self_description": "",
+    "source_url": "https://www.nevadacityca.gov/pview.aspx?id=20737&catID=564",
+    "source_page": "",
+    "confidence": "empty",
+    "notes": "fetch failed"
+  },
+  {
+    "id": "rattlesnake-trail-grass-valley",
+    "name": "Rattlesnake Trail",
+    "self_description": "Located off Rattlesnake Road in Grass Valley, this lovely, quiet forested walk with an irrigation canal and mining history was a joint project of the Rattlesnake Neighborhood Association and Bear Yuba Land Trust.",
+    "source_url": "https://www.bylt.org/locations/grass-valley/",
+    "source_page": "home",
+    "confidence": "medium",
+    "notes": "descriptive text from trail listing; Bear Yuba Land Trust website rather than venue's own site"
+  },
+  {
+    "id": "scotts-flat-lake-and-trails-nevada-city",
+    "name": "Scotts Flat Lake and Trails",
+    "self_description": "",
+    "source_url": "https://www.alltrails.com/trail/us/california/scotts-flat-trail",
+    "source_page": "",
+    "confidence": "empty",
+    "notes": "fetch failed (HTTP 403 Forbidden)"
+  },
+  {
+    "id": "spaulding-reservoir-nevada-city",
+    "name": "Spaulding Reservoir",
+    "self_description": "The lake was originally built for hydraulic mining in 1912, but today campers and boaters enjoy this beautiful lake.",
+    "source_url": "http://www.aboutnevadacounty.com/lakes/spaulding/",
+    "source_page": "home",
+    "confidence": "medium",
+    "notes": "descriptive text from informational page; not first-person from venue operator"
+  },
+  {
+    "id": "sugarloaf-mountain-nevada-city",
+    "name": "Sugarloaf Mountain",
+    "self_description": "Early in 2011, the City of Nevada City acquired Sugarloaf Mountain, the iconic landmark just north of town; it is now a 30-acre open space preserve.",
+    "source_url": "https://www.bylt.org/trail/sugarloaf-mountain-trail/",
+    "source_page": "home",
+    "confidence": "medium",
+    "notes": "trail facts/description; not direct self-description from venue"
+  },
+  {
+    "id": "the-independence-trail-nevada-city",
+    "name": "The Independence Trail",
+    "self_description": "Founded by the late John Olmsted, the Independence Trail transformed a historic gold mining ditch into the nation's first identified handicapped-accessible wilderness trail.",
+    "source_url": "https://www.bylt.org/trail/independence-trail-west/",
+    "source_page": "home",
+    "confidence": "high",
+    "notes": "clear statement of founding and mission"
+  },
+  {
+    "id": "walking-tour-of-historic-grass-valley-self-guided-and-guided-grass-valley",
+    "name": "Walking Tour of Historic Grass Valley: self guided and guided",
+    "self_description": "",
+    "source_url": "https://www.nevadacountygold.com/experience/tours-sightseeing/grass-valley-walking-tour",
+    "source_page": "",
+    "confidence": "low",
+    "notes": "pages contain navigation text and menu structure only; no actual venue self-description found"
+  },
+  {
+    "id": "walking-tour-of-nevada-city-trees-nevada-city",
+    "name": "Walking Tour of Nevada City Trees",
+    "self_description": "The self-guided walking (or driving) tour of native and non-native trees in the downtown Nevada City area was originally prepared by horticulturist and tree care consultant Ellen Solomon in 2008, along with contributors Randall Frizzell, Roger McGehee and Chet Blackburn.",
+    "source_url": "https://www.nevadacitychamber.com/nevada-city-things-to-do/a-walking-tour-of-nevada-city-trees/",
+    "source_page": "home",
+    "confidence": "high",
+    "notes": "clear origin story and mission statement"
+  },
+  {
+    "id": "yewei-im-bom-trail-nevada-city",
+    "name": "Yewei'Im Bom Trail",
+    "self_description": "This one-mile exterior loop trail was completed in the spring of 2016. It traverses a variety of landscapes such as meadow, chaparral, mixed conifer forest and wetland habitat.",
+    "source_url": "https://www.bylt.org/trail/yeweiim-bom-trail/",
+    "source_page": "home",
+    "confidence": "medium",
+    "notes": "trail facts; not direct first-person self-description"
+  },
+  {
+    "id": "innerrhythms-dance-theater-truckee",
+    "name": "InnerRhythms Dance Theater",
+    "self_description": "For two decades InnerRhythms has served the Truckee-Tahoe community through the Performing Arts. It is our mission to use the power of dance and music to cultivate life skills in our youth, promote global stewardship and create an everlasting passion for the arts.",
+    "source_url": "https://innerrhythms.org/",
+    "source_page": "about",
+    "confidence": "high",
+    "notes": "first-person mission statement from About page"
+  },
+  {
+    "id": "trails-and-vistas",
+    "name": "Trails & Vistas",
+    "self_description": "Trails & Vistas mission is to create community by celebrating the arts and nature.",
+    "source_url": "https://trailsandvistas.org",
+    "source_page": "about",
+    "confidence": "high",
+    "notes": "clear mission statement"
+  },
+  {
+    "id": "truckee-tahoe-theatre-company-truckee",
+    "name": "Truckee Tahoe Theatre Company",
+    "self_description": "Truckee Tahoe Theatre Company's mission is to provide community members of all ages with an inclusive space to engage in high-quality performing arts, inspire creativity, and bring people together to experience the transformative magic of live theater.",
+    "source_url": "https://truckeetheatre.org",
+    "source_page": "about",
+    "confidence": "high",
+    "notes": "clear mission statement from About page"
+  },
+  {
+    "id": "arbor-tahoe-truckee",
+    "name": "Arbor Tahoe",
+    "self_description": "",
+    "source_url": "https://arborcollective.com/pages/arbor-flagship-tahoe",
+    "source_page": "",
+    "confidence": "empty",
+    "notes": "fetch failed (SSL certificate error)"
+  },
+  {
+    "id": "filmprojects-penn-valley",
+    "name": "Filmprojects",
+    "self_description": "We are a non-profit dedicated to promoting the advancement of LGBTQ+ people, other marginalized groups, and the film community as an independent film company. We strive to make films and celebrate cinematic works that are culturally diverse, socially conscious and spiritually positive.",
+    "source_url": "https://filmprojects.org/",
+    "source_page": "about",
+    "confidence": "high",
+    "notes": "first-person 'We are' mission statement"
+  },
+  {
+    "id": "granite-chief-ski-and-mountain-shop-truckee",
+    "name": "Granite Chief Ski & Mountain Shop",
+    "self_description": "For over 40 years, Granite Chief has been a trusted name in Truckee's ski community known for expert boot fitting, race-ready tunes, and deep roots in the Sierra. BlueZone Sports has now joined forces with Granite Chief and will operate as Granite Chief Powered by BlueZone Sports in our Truckee location.",
+    "source_url": "https://granitechief.com",
+    "source_page": "home",
+    "confidence": "high",
+    "notes": "clear origin and current business description"
+  },
+  {
+    "id": "gratitudes-gifts-and-home-decor-truckee",
+    "name": "Gratitudes Gifts & Home Decor",
+    "self_description": "Gratitudes Gifts & Home Decor began as a Gift Basket Venture in 1996, owned and operated by Sue Moule and Julie Huck out of Sue's family home. Due to the high demand for their offerings, the mother-daughter team quickly diversified and opened its beautifully eclectic storefront in 2000 and Gratitudes has continued to thrive since its inception.",
+    "source_url": "https://gratitudesgifts.com",
+    "source_page": "about",
+    "confidence": "high",
+    "notes": "detailed founding story"
+  },
+  {
+    "id": "love-and-lupines-floral-design-truckee",
+    "name": "Love and Lupines Floral Design",
+    "self_description": "Love and Lupines is a floral design studio based in Truckee, CA. We have been creating stunning floral arrangements for weddings and other special events since 2015.",
+    "source_url": "https://loveandlupines.com/",
+    "source_page": "about",
+    "confidence": "high",
+    "notes": "clear first-person origin and mission"
+  },
+  {
+    "id": "mountain-forge-inc-truckee",
+    "name": "Mountain Forge Inc.",
+    "self_description": "We are a family owned and operated blacksmith shop in Lake Tahoe. We handcraft custom metal work.",
+    "source_url": "http://www.mtnforge.com/#1",
+    "source_page": "home",
+    "confidence": "high",
+    "notes": "first-person description of business model"
+  },
+  {
+    "id": "nevada-county-arts-council-and-truckee-cultural-district-truckee",
+    "name": "Nevada County Arts Council and Truckee Cultural District",
+    "self_description": "",
+    "source_url": "https://nevadacountyarts.org, truckeeculturaldistrict.org",
+    "source_page": "",
+    "confidence": "empty",
+    "notes": "fetch failed (invalid URL format with comma separator)"
+  },
+  {
+    "id": "snowy-mountain-tattoo-co-truckee",
+    "name": "Snowy Mountain Tattoo Co.",
+    "self_description": "Founded in 2018 to preserve and celebrate tattoo art, history, and culture, Snowy Mountain Tattoo brings together artists from across diverse cultures and backgrounds.",
+    "source_url": "https://smtco.co",
+    "source_page": "home",
+    "confidence": "high",
+    "notes": "clear founding mission"
+  },
+  {
+    "id": "swazzle-inc",
+    "name": "Swazzle Inc.",
+    "self_description": "Swazzle Inc. is a California-based puppet company that offers a wide range of services, including custom-designed and-built puppets, rental puppets, live puppet shows, and puppet production services.",
+    "source_url": "https://www.swazzle.com/",
+    "source_page": "about",
+    "confidence": "high",
+    "notes": "clear service description"
+  },
+  {
+    "id": "tip-printing-and-graphics-truckee",
+    "name": "TIP Printing & Graphics",
+    "self_description": "Our goal is to achieve your vision because your success is also our success. We are experienced in digital color imaging, multi color offset printing, letterpress & mailing services.",
+    "source_url": "https://printtip.com/",
+    "source_page": "home",
+    "confidence": "high",
+    "notes": "first-person mission and service description"
+  },
+  {
+    "id": "tahoe-mountain-sports-truckee",
+    "name": "Tahoe Mountain Sports",
+    "self_description": "At TMS, we are deeply committed to our community, the environment, education, and our valued customers. We are a locally owned and operated business nestled in Truckee, California, a small town filled with great adventures.",
+    "source_url": "https://tahoemountainsports.com",
+    "source_page": "about",
+    "confidence": "high",
+    "notes": "first-person values and identity statement"
+  },
+  {
+    "id": "tahoe-print-shop-truckee",
+    "name": "Tahoe Print Shop",
+    "self_description": "Tahoe Print Shop owner/operator Grant Barta has more than 25 years in the printing and publication industry. As a photographer, writer, publisher, graphic designer, print production manager, sign maker, and print quality control technician Grant brings a wide gamut of experience to Tahoe Print Shop.",
+    "source_url": "http://www.tahoeprintshop.com/",
+    "source_page": "about",
+    "confidence": "high",
+    "notes": "founder background and expertise"
+  },
+  {
+    "id": "tahoe-sports-hub-truckee",
+    "name": "Tahoe Sports Hub",
+    "self_description": "We are a family owned and operated outdoor sporting goods retailer operating in a 130 year old historic building in downtown Truckee California. We are committed to offering the largest selection of inventory and the best customer service in the Truckee-Tahoe region.",
+    "source_url": "https://tahoesportshub.com",
+    "source_page": "about",
+    "confidence": "high",
+    "notes": "first-person description of ownership and commitment"
+  }
+]

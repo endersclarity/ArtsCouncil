@@ -4,3 +4,8 @@ dogfood-output/**/screenshots/
 dogfood-output/**/videos/
 dogfood-output/draft3-agent-browser/
 dogfood-output/issue16-broad-qa/
+
+# flow-upgrade pass: local artifacts, never ship
+dogfood-output/
+scripts/fullpass-pages/
+scripts/coord-audit-report.json

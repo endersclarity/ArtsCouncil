@@ -1,74 +1,80 @@
 {
-  "_readme": "Site changelog, rendered by changelog.html. Newest entry FIRST. Every meaningful commit to v1-discovery-map gets an entry (the pre-commit hook enforces this). Write 'summary' in plain language for the Arts Council — what changed for a visitor, not implementation detail. 'commit' is the short hash; the page links it to GitHub.",
-  "entries": [
-    {
-      "date": "2026-06-10",
-      "title": "219 places now describe themselves in their own words",
-      "summary": "We visited the websites of 452 places that still had placeholder text and copied how each business describes itself — verbatim, from their own homepage or About page. 219 cards now carry the venue's own voice (the Holbrooke's \"We've been building character since 1852,\" for example). Every quote was machine-verified against the source page; nothing was reworded or invented. A side benefit: we found 88 broken venue links and one hijacked website, now logged for follow-up.",
-      "commit": ""
-    },
-    {
-      "date": "2026-06-10",
-      "title": "This page — a public update log",
-      "summary": "The site now has this “What's New” page (linked in the top menu) so the Arts Council and community can see every update at a glance. Each entry links to the exact code change for anyone who wants the technical detail.",
-      "commit": ""
-    },
-    {
-      "date": "2026-06-10",
-      "title": "Usability fix round 1 — 11 issues from a full site audit",
-      "summary": "We tested the whole site like a first-time visitor (on a computer and a phone) and fixed everything we found. Phone users get a proper menu button now, and a bug that could trap phone users on the map is gone.",
-      "details": [
-        "New: menu button on phones — MUSE Magazine, Culture Forward, Current Map, and Proposed Flows are reachable on mobile",
-        "New: the Events tab now shows a browsable, date-sorted list of all upcoming events",
-        "Improved: place search moved to the top of the panel, with results right under the box",
-        "Improved: routes now have a back button, and route copy says four routes (there are four)",
-        "Fixed: on phones, the detail card could cover the whole screen with no way to close it",
-        "Fixed: detail cards opened mid-scroll instead of at the top",
-        "Fixed: map labels no longer draw on top of the detail card; map credits no longer hidden"
-      ],
-      "commit": "9ea0fea"
-    },
-    {
-      "date": "2026-05-30",
-      "title": "Site goes live + Proposed Flows gallery",
-      "summary": "The map got its own public web address (v1-discovery-map.vercel.app) and a new Proposed Flows page showing design directions for where the project could go next.",
-      "commit": "5491e5c"
-    },
-    {
-      "date": "2026-05-30",
-      "title": "Live community events, refreshed daily",
-      "summary": "Events on the map are now real and current — pulled automatically every day from nine community calendars (Arts Council, library, county, KVMR, GVDA, and local venues including Crazy Horse, Golden Era, and Bodhi Hive).",
-      "commit": "f568d18"
-    },
-    {
-      "date": "2026-05-30",
-      "title": "Friendlier wording across the site",
-      "summary": "All on-screen text was rewritten in a warmer, citizen voice — less database jargon, more like a local pointing you somewhere good.",
-      "commit": "fc74ca7"
-    },
-    {
-      "date": "2026-05-29",
-      "title": "Cleaner place data",
-      "summary": "Duplicate place entries were merged and the map's data tooling was reworked, so each venue appears once with its best information.",
-      "commit": "8f2394c"
-    },
-    {
-      "date": "2026-05-28",
-      "title": "Real street map + places snapped to rooftops",
-      "summary": "The background map switched to a clear street map, and 411 places whose locations were only estimates were moved onto their actual buildings.",
-      "commit": "2180ae2"
-    },
-    {
-      "date": "2026-05-27",
-      "title": "Browse by Outing Type",
-      "summary": "A new way in: pick a lane like Art, History, or Local Shops and the map narrows to match, with counts shown for each.",
-      "commit": "607469b"
-    },
-    {
-      "date": "2026-05-26",
-      "title": "One trustworthy place dataset",
-      "summary": "All place lists were combined into a single canonical dataset with honest confidence tiers — solid markers for verified locations, hollow for estimates.",
-      "commit": "eaa7156"
-    }
-  ]
+ "_readme": "Site changelog, rendered by changelog.html. Newest entry FIRST. Every meaningful commit to v1-discovery-map gets an entry (the pre-commit hook enforces this). Write 'summary' in plain language for the Arts Council — what changed for a visitor, not implementation detail. 'commit' is the short hash; the page links it to GitHub.",
+ "entries": [
+  {
+   "date": "2026-06-10",
+   "title": "Map markers redesigned: named anchors first, calmer dots, live-event halos",
+   "summary": "At county zoom the map now leads with named cultural anchors instead of ~700 equal dots; ordinary places fade in as you zoom into town. Dot colors moved to a muted ink-leaning palette so red is reserved for what is live or selected, and any place with an upcoming event now carries a soft red halo in every mode.",
+   "kind": "improvement"
+  },
+  {
+   "date": "2026-06-10",
+   "title": "219 places now describe themselves in their own words",
+   "summary": "We visited the websites of 452 places that still had placeholder text and copied how each business describes itself — verbatim, from their own homepage or About page. 219 cards now carry the venue's own voice (the Holbrooke's \"We've been building character since 1852,\" for example). Every quote was machine-verified against the source page; nothing was reworded or invented. A side benefit: we found 88 broken venue links and one hijacked website, now logged for follow-up.",
+   "commit": ""
+  },
+  {
+   "date": "2026-06-10",
+   "title": "This page — a public update log",
+   "summary": "The site now has this “What's New” page (linked in the top menu) so the Arts Council and community can see every update at a glance. Each entry links to the exact code change for anyone who wants the technical detail.",
+   "commit": ""
+  },
+  {
+   "date": "2026-06-10",
+   "title": "Usability fix round 1 — 11 issues from a full site audit",
+   "summary": "We tested the whole site like a first-time visitor (on a computer and a phone) and fixed everything we found. Phone users get a proper menu button now, and a bug that could trap phone users on the map is gone.",
+   "details": [
+    "New: menu button on phones — MUSE Magazine, Culture Forward, Current Map, and Proposed Flows are reachable on mobile",
+    "New: the Events tab now shows a browsable, date-sorted list of all upcoming events",
+    "Improved: place search moved to the top of the panel, with results right under the box",
+    "Improved: routes now have a back button, and route copy says four routes (there are four)",
+    "Fixed: on phones, the detail card could cover the whole screen with no way to close it",
+    "Fixed: detail cards opened mid-scroll instead of at the top",
+    "Fixed: map labels no longer draw on top of the detail card; map credits no longer hidden"
+   ],
+   "commit": "9ea0fea"
+  },
+  {
+   "date": "2026-05-30",
+   "title": "Site goes live + Proposed Flows gallery",
+   "summary": "The map got its own public web address (v1-discovery-map.vercel.app) and a new Proposed Flows page showing design directions for where the project could go next.",
+   "commit": "5491e5c"
+  },
+  {
+   "date": "2026-05-30",
+   "title": "Live community events, refreshed daily",
+   "summary": "Events on the map are now real and current — pulled automatically every day from nine community calendars (Arts Council, library, county, KVMR, GVDA, and local venues including Crazy Horse, Golden Era, and Bodhi Hive).",
+   "commit": "f568d18"
+  },
+  {
+   "date": "2026-05-30",
+   "title": "Friendlier wording across the site",
+   "summary": "All on-screen text was rewritten in a warmer, citizen voice — less database jargon, more like a local pointing you somewhere good.",
+   "commit": "fc74ca7"
+  },
+  {
+   "date": "2026-05-29",
+   "title": "Cleaner place data",
+   "summary": "Duplicate place entries were merged and the map's data tooling was reworked, so each venue appears once with its best information.",
+   "commit": "8f2394c"
+  },
+  {
+   "date": "2026-05-28",
+   "title": "Real street map + places snapped to rooftops",
+   "summary": "The background map switched to a clear street map, and 411 places whose locations were only estimates were moved onto their actual buildings.",
+   "commit": "2180ae2"
+  },
+  {
+   "date": "2026-05-27",
+   "title": "Browse by Outing Type",
+   "summary": "A new way in: pick a lane like Art, History, or Local Shops and the map narrows to match, with counts shown for each.",
+   "commit": "607469b"
+  },
+  {
+   "date": "2026-05-26",
+   "title": "One trustworthy place dataset",
+   "summary": "All place lists were combined into a single canonical dataset with honest confidence tiers — solid markers for verified locations, hollow for estimates.",
+   "commit": "eaa7156"
+  }
+ ]
 }

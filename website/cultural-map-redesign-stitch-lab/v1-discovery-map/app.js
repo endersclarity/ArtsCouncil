@@ -234,6 +234,7 @@
         localReveal: Boolean(state.localReveal?.placeIds?.includes(place.id)),
         nearbyDensity: nearbyDensity,
         denseConstellation: denseConstellation,
+        hasEvent: Boolean(state.eventPlaceIds?.has(place.id)),
         selected: place.id === state.selectedPlaceId,
       },
     };
@@ -707,7 +708,10 @@
     } else if (zoom >= LABEL_ZOOM_ON) {
       state.labelsActive = true;
     }
-    if (!state.labelsActive) return;
+    // Flow-upgrade Stage 1: below the label band, anchors/featured (and the
+    // selected/previewed place) STAY labeled so county zoom shows named
+    // cultural anchors instead of anonymous dots ("First 30 Seconds" board).
+    const anchorsOnly = !state.labelsActive;
 
     const bounds = state.map.getBounds();
     const mapCanvas = state.map.getCanvas();
@@ -748,6 +752,7 @@
           screenPos,
         };
       })
+      .filter((place) => !anchorsOnly || place.importanceTier <= 3)
       .sort(compareImportance)
       .slice(0, 72);
 
@@ -1613,12 +1618,24 @@
           14, ["case", ["get", "denseConstellation"], ["interpolate", ["linear"], ["get", "nearbyDensity"], 8, 5.5, 18, 7.8, 36, 10.8], 6]
         ],
         "circle-color": CATEGORY_COLOR,
+        // Flow-upgrade Stage 1: ordinary dots stay recessive at county zoom so
+        // the labeled anchors carry the first impression; they ramp to full
+        // presence as the visitor zooms into a town.
         "circle-opacity": [
-          "case",
-          ["get", "denseConstellation"], 0.32,
-          ["get", "currentContext"], 0.82,
-          ["get", "sampler"], 0.78,
-          0.72
+          "interpolate", ["linear"], ["zoom"],
+          9.75, [
+            "case",
+            ["any", ["get", "anchor"], ["get", "featured"], ["get", "selected"]], 0.9,
+            ["get", "denseConstellation"], 0.1,
+            0.22
+          ],
+          11.75, [
+            "case",
+            ["get", "denseConstellation"], 0.32,
+            ["get", "currentContext"], 0.82,
+            ["get", "sampler"], 0.78,
+            0.72
+          ]
         ],
         "circle-blur": ["case", ["get", "denseConstellation"], 0.18, 0],
         "circle-stroke-color": MARKERS.paper,
@@ -1661,6 +1678,23 @@
         "circle-opacity": 1,
         "circle-stroke-color": MARKERS.paper,
         "circle-stroke-width": ["case", ["get", "selected"], 3, 1.4],
+      },
+    });
+    // Flow-upgrade Stage 1: places with an upcoming event carry a soft red
+    // "live" halo in every mode (Events-01 board) — the map signals now-ness
+    // without the visitor having to open Events mode.
+    state.map.addLayer({
+      id: "place-live-halo",
+      type: "circle",
+      source: "places",
+      filter: ["all", ["!", ["has", "point_count"]], ["get", "hasEvent"]],
+      paint: {
+        "circle-radius": ["interpolate", ["linear"], ["zoom"], 8, 9, 13, 13],
+        "circle-color": "rgba(255,46,0,0.16)",
+        "circle-blur": 0.45,
+        "circle-stroke-color": MARKERS.red,
+        "circle-stroke-width": 1.1,
+        "circle-stroke-opacity": 0.55,
       },
     });
     state.map.addLayer({
@@ -1814,6 +1848,7 @@
     // carry a past event. Filtering here makes "Upcoming event" true by
     // construction everywhere state.events is read (markers, count, related).
     state.events = upcomingEvents(events);
+    state.eventPlaceIds = new Set(state.events.map((event) => event.placeId).filter(Boolean));
     state.paths = paths;
     state.placeIndex = V1PlaceData.buildPlaceIndex(state.places);
 

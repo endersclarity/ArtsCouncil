@@ -1,0 +1,209 @@
+[
+  {
+    "id": "kaido-grass-valley",
+    "name": "Kaido",
+    "self_description": "Kazuhiko Mukai, Sushi Chef and owner of the Kaido Japanese Restaurant in Grass Valley, grew up in restaurant family in Japan. Kaido offers both sushi and tempura.",
+    "source_url": "http://kaidosushi.com/",
+    "source_page": "about",
+    "confidence": "high"
+  },
+  {
+    "id": "lazy-dog-chocolateria-grass-valley",
+    "name": "Lazy Dog Chocolateria",
+    "self_description": "Our mission is to connect Grass Valley with a sweet sense of place, a hometown atmosphere and put a smile on everyones who walks through our door. We use all the original recipes for your favorite treats.",
+    "source_url": "https://www.lazydogchocolateria.com/",
+    "source_page": "about",
+    "confidence": "high"
+  },
+  {
+    "id": "lola-at-the-national-exchange-hotel-nevada-city",
+    "name": "Lola at the National Exchange Hotel",
+    "self_description": "Cuisine at Lola is high-spirited and modern, sparked by the great wild west and a shine of European finesse; a dedication to beautiful ingredients, locally sourced, sustainable, and seasonally inspired.",
+    "source_url": "https://www.thenationalexchangehotel.com/dining/lola/",
+    "source_page": "home",
+    "confidence": "high"
+  },
+  {
+    "id": "lucchesi-tasting-room-grass-valley",
+    "name": "Lucchesi Tasting Room",
+    "self_description": "Founded in 2000, Lucchesi Vineyards was born from a shared dream of Mario and Linda Clough, to craft exceptional wines from their scenic Grass Valley estate, nurtured by family and community.",
+    "source_url": "https://lucchesivineyards.com",
+    "source_page": "home",
+    "confidence": "high"
+  },
+  {
+    "id": "mak-s-bbq-grass-valley",
+    "name": "MAK's BBQ",
+    "self_description": "",
+    "source_url": "https://www.grassvalleychamber.com/directory/listing/maks-bbq/",
+    "source_page": "home",
+    "confidence": "empty",
+    "notes": "Fetch failed (HTTP Error 404: Not Found)"
+  },
+  {
+    "id": "maria-s-mexican-restaurant-grass-valley",
+    "name": "Maria's Mexican Restaurant",
+    "self_description": "Family restaurant serving homecooked authentic Mexican food for over 30 years. Located in Grass Valley, CA Maria's serves authentic Mexican food created from scratch.",
+    "source_url": "https://www.mariasgrassvalley.com/",
+    "source_page": "home",
+    "confidence": "high"
+  },
+  {
+    "id": "marshall-s-pasties-grass-valley",
+    "name": "Marshall's Pasties",
+    "self_description": "At Marshall's Pasties, we pride ourselves on crafting delicious, hand-held meals that celebrate tradition and flavor. Nestled in Grass Valley, CA, our story begins with a passion for quality ingredients and authentic recipes.",
+    "source_url": "https://marshalls-pasties.restaurants-world.com/",
+    "source_page": "home",
+    "confidence": "high"
+  },
+  {
+    "id": "mcgee-s-annex-nevada-city",
+    "name": "McGee's Annex",
+    "self_description": "",
+    "source_url": "https://mcgeesnevadacity.com/",
+    "source_page": "home",
+    "confidence": "empty",
+    "notes": "Fetch failed (getaddrinfo failed)"
+  },
+  {
+    "id": "meze-eatery-grass-valley",
+    "name": "MeZe Eatery",
+    "self_description": "Mezé, a Middle Eastern Eatery offering conscious, healthy, organic and simple food, a casual and warm atmosphere, ordering convenience, excellent customer service and attention to detail.",
+    "source_url": "https://mezeeatery.com/",
+    "source_page": "home",
+    "confidence": "high"
+  },
+  {
+    "id": "mountain-ranch-winery-grass-valley",
+    "name": "Mountain Ranch Winery",
+    "self_description": "The secret that makes Mountain Ranch Winery special stems from winemaker Bob Hoffman's passion for winemaking. Mountain Ranch Winery was established in 2003.",
+    "source_url": "https://mountainranchwinery.com",
+    "source_page": "home",
+    "confidence": "high"
+  },
+  {
+    "id": "naggiar-vineyards-and-winery-grass-valley",
+    "name": "Naggiar Vineyards and Winery",
+    "self_description": "Naggiar is much more than just an off-the-beaten-path treasure, our winery is the source of some of California's most desirable grapes. Pair unprecedented wines with our picturesque one hundred thirty-five acre estate.",
+    "source_url": "https://naggiarvineyards.com/",
+    "source_page": "about",
+    "confidence": "high"
+  },
+  {
+    "id": "national-exchange-hotel-nevada-city",
+    "name": "National Exchange Hotel",
+    "self_description": "Built in 1856 in what was to become the most sophisticated of the gold rush mining camps, the National Exchange Hotel is a treasured piece of Nevada City history.",
+    "source_url": "https://www.thenationalexchangehotel.com/",
+    "source_page": "home",
+    "confidence": "high"
+  },
+  {
+    "id": "nevada-city-classic-cafe-nevada-city",
+    "name": "Nevada City Classic Cafe",
+    "self_description": "",
+    "source_url": "https://nevada-city-classic-cafe.wa-cafe.com/",
+    "source_page": "home",
+    "confidence": "empty",
+    "notes": "Fetch failed (getaddrinfo failed)"
+  },
+  {
+    "id": "nevada-club-grass-valley",
+    "name": "Nevada Club",
+    "self_description": "",
+    "source_url": "https://www.instagram.com/explore/locations/155974021116220/nevada-club/",
+    "source_page": "home",
+    "confidence": "low",
+    "notes": "Instagram location page returned JSON; no self-descriptive text extracted"
+  },
+  {
+    "id": "new-west-wine-co-grass-valley",
+    "name": "New West Wine Co.",
+    "self_description": "New West Wine has moved to our new location at 126 Mill Street in Grass Valley. We're open for bottle sales as well serving wines beers by the glass.",
+    "source_url": "https://www.newwestwine.com/",
+    "source_page": "home",
+    "confidence": "medium",
+    "notes": "Limited self-description; mostly operational details"
+  },
+  {
+    "id": "panader-a-matilija-nevada-city",
+    "name": "Panadería Matilija",
+    "self_description": "Panadería Matilija is located in picturesque Nevada City, California. Housed in the town's oldest kitchen in a historic building dating back to the 1850s, the panadería serves up handmade Mexican pastries.",
+    "source_url": "https://www.panaderiamatilija.com/",
+    "source_page": "about",
+    "confidence": "high"
+  },
+  {
+    "id": "pete-s-pizza-grass-valley",
+    "name": "Pete's Pizza",
+    "self_description": "Family Owned And Operated! We specialize in crafting thin-crust pizzas made fresh daily with homemade dough and our secret recipe sauce, promising an authentic flavor in every bite.",
+    "source_url": "https://petes-pizza.com/",
+    "source_page": "home",
+    "confidence": "high"
+  },
+  {
+    "id": "restaurant-dakan-nevada-city",
+    "name": "Restaurant DaKan",
+    "self_description": "Restaurant DaKan was founded with a passion for sustainable, community-focused dining. We source our ingredients from local farms and transform them into inspired dishes with global influences.",
+    "source_url": "https://www.restaurantdakan.com/",
+    "source_page": "about",
+    "confidence": "high"
+  },
+  {
+    "id": "sergio-s-caffe-grass-valley",
+    "name": "Sergio's Caffe",
+    "self_description": "Sergio began working in the restaurant business in upstate New York when he moved to the U.S. in 1975 from Argentina. He and Lena married in 2002 and opened Sergio's Caffé soon after.",
+    "source_url": "http://www.sergioscaffe.com/",
+    "source_page": "home",
+    "confidence": "high"
+  },
+  {
+    "id": "sierra-starr-tasting-room-grass-valley",
+    "name": "Sierra Starr Tasting Room",
+    "self_description": "The Starr family has been producing award winning wines in the Sierra Foothills since 1996. We take pride in crafting small lot wines from our estate vineyards, specializing in Zinfandel, Sauvignon Blanc and Cabernet Franc.",
+    "source_url": "https://sierrastarr.com/",
+    "source_page": "home",
+    "confidence": "high"
+  },
+  {
+    "id": "sopa-thai-cuisine-nevada-city",
+    "name": "Sopa Thai Cuisine",
+    "self_description": "At Sopa Thai Cuisine, we embrace the vibrant and aromatic essence of Thai culinary traditions. Our story is one of community and connection, where every dish invites patrons to savor the heart of Thai cuisine.",
+    "source_url": "https://sopa-thai-cuisine.res-menu.com/",
+    "source_page": "home",
+    "confidence": "high"
+  },
+  {
+    "id": "south-pine-cafe-grass-valley",
+    "name": "South Pine Cafe",
+    "self_description": "",
+    "source_url": "https://www.southpinecafe.com/",
+    "source_page": "home",
+    "confidence": "empty",
+    "notes": "Fetch failed (getaddrinfo failed)"
+  },
+  {
+    "id": "sushi-q-nevada-city",
+    "name": "Sushi Q",
+    "self_description": "",
+    "source_url": "https://www.sushiqnevadacity.com/",
+    "source_page": "home",
+    "confidence": "low",
+    "notes": "No self-descriptive narrative found; only operating hours and contact details"
+  },
+  {
+    "id": "sushi-at-nourish-nevada-city",
+    "name": "Sushi at Nourish",
+    "self_description": "Hello friends, we're Lacie and Ryan Whittington. Born and raised in Nevada County, we're dedicated to the health and well-being of our community. That's why we created Nourish Sushi.",
+    "source_url": "https://nourishsushi.com/",
+    "source_page": "about",
+    "confidence": "high"
+  },
+  {
+    "id": "sushi-in-the-raw-at-california-organics-nevada-city",
+    "name": "Sushi in the Raw at California Organics",
+    "self_description": "Join us for an evening at Sushi in the Raw, Nevada County's premier sushi restaurant that has been locally owned and operated for over 20 years. Since our founding in 2002, our goal has been to use the freshest fish and organic ingredients.",
+    "source_url": "https://www.sushiintheraw.net/",
+    "source_page": "about",
+    "confidence": "high"
+  }
+]

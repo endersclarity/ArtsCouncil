@@ -16,13 +16,16 @@
   if (root) root.MarkerCategoryColor = api;
 })(typeof window !== "undefined" ? window : this, function () {
   // Group -> hex. No value is red (#ff2e00); red is reserved for selection.
+  // Ink-dominant palette (flow-upgrade Stage 1): the proposal boards read as
+  // mostly dark dots with red reserved for live/selected, so every group is a
+  // muted ink-leaning tint rather than a saturated hue.
   const GROUP_COLORS = {
-    Art: "#b8860b", // gold
-    "Music & Performance": "#365c76", // blue
+    Art: "#7a6433", // muted bronze
+    "Music & Performance": "#3d4f63", // slate blue
     History: "#1a1a2e", // dark (the existing default ink)
-    "Local Shops": "#2e6b5e", // teal-green
-    Outdoors: "#4a7c2f", // forest
-    Events: "#6b3f8c", // plum
+    "Local Shops": "#3d5c54", // muted teal
+    Outdoors: "#56624d", // sage
+    Events: "#54466b", // muted plum
   };
 
   const FALLBACK_COLOR = "#5d625b"; // MARKERS.quiet — unmatched / missing category

@@ -1,0 +1,395 @@
+{
+  "counts": {
+    "approximate-ok": 13,
+    "stored-likely-right": 16,
+    "stored-suspect": 4,
+    "needs-human": 22
+  },
+  "items": [
+    {
+      "id": "hirschman-trail-nevada-city",
+      "name": "Hirschman Trail",
+      "distanceM": 2468.9,
+      "verdict": "approximate-ok",
+      "reason": "Venue type legitimately lacks precise rooftop address"
+    },
+    {
+      "id": "truckee-river-winery-truckee",
+      "name": "Truckee River Winery",
+      "distanceM": 2131.4,
+      "verdict": "approximate-ok",
+      "reason": "Venue type legitimately lacks precise rooftop address"
+    },
+    {
+      "id": "scotts-flat-lake-and-trails-nevada-city",
+      "name": "Scotts Flat Lake and Trails",
+      "distanceM": 1378.7,
+      "verdict": "approximate-ok",
+      "reason": "Venue type legitimately lacks precise rooftop address"
+    },
+    {
+      "id": "cascade-canal-trail-banner-mountain-nevada-city",
+      "name": "Cascade Canal Trail:Banner Mountain",
+      "distanceM": 569.3,
+      "verdict": "approximate-ok",
+      "reason": "Venue type legitimately lacks precise rooftop address"
+    },
+    {
+      "id": "emigrant-trail-museum-donner-lake-memorial-state-park-museum-truckee",
+      "name": "Emigrant Trail Museum - Donner Lake Memorial State Park - Museum",
+      "distanceM": 553.4,
+      "verdict": "approximate-ok",
+      "reason": "Venue type legitimately lacks precise rooftop address"
+    },
+    {
+      "id": "bear-river-historic-bridge-grass-valley",
+      "name": "Bear River Historic Bridge",
+      "distanceM": 336.3,
+      "verdict": "approximate-ok",
+      "reason": "Venue type legitimately lacks precise rooftop address"
+    },
+    {
+      "id": "western-gateway-park-penn-valley",
+      "name": "Western Gateway Park",
+      "distanceM": 330.0,
+      "verdict": "approximate-ok",
+      "reason": "Venue type legitimately lacks precise rooftop address"
+    },
+    {
+      "id": "sculpture-western-gateway-park-penn-valley",
+      "name": "Sculpture - Western Gateway Park",
+      "distanceM": 329.8,
+      "verdict": "approximate-ok",
+      "reason": "Venue type legitimately lacks precise rooftop address"
+    },
+    {
+      "id": "north-star-historic-conservancy-grass-valley",
+      "name": "North Star Historic Conservancy",
+      "distanceM": 230.7,
+      "verdict": "approximate-ok",
+      "reason": "Venue type legitimately lacks precise rooftop address"
+    },
+    {
+      "id": "lindeboom-memorial-nevada-city",
+      "name": "Lindeboom Memorial",
+      "distanceM": 200.9,
+      "verdict": "approximate-ok",
+      "reason": "Venue type legitimately lacks precise rooftop address"
+    },
+    {
+      "id": "kenny-ranch-trails-grass-valley",
+      "name": "Kenny Ranch Trails",
+      "distanceM": 180.1,
+      "verdict": "approximate-ok",
+      "reason": "Venue type legitimately lacks precise rooftop address"
+    },
+    {
+      "id": "park-and-walk-trail-chicago-park-chicago-park",
+      "name": "Park and Walk Trail: Chicago Park",
+      "distanceM": 175.3,
+      "verdict": "approximate-ok",
+      "reason": "Venue type legitimately lacks precise rooftop address"
+    },
+    {
+      "id": "nevada-city-airport-trails-nevada-city",
+      "name": "Nevada City Airport Trails",
+      "distanceM": 152.6,
+      "verdict": "approximate-ok",
+      "reason": "Venue type legitimately lacks precise rooftop address"
+    },
+    {
+      "id": "town-of-truckee-truckee",
+      "name": "Town of Truckee",
+      "distanceM": 4456.9,
+      "verdict": "needs-human",
+      "reason": "Requires human judgment"
+    },
+    {
+      "id": "sierra-business-council-truckee",
+      "name": "Sierra Business Council",
+      "distanceM": 4456.9,
+      "verdict": "needs-human",
+      "reason": "Requires human judgment"
+    },
+    {
+      "id": "truckee-tahoe-airport-district-art-at-the-airport-truckee",
+      "name": "Truckee Tahoe Airport District (Art at the Airport)",
+      "distanceM": 3771.4,
+      "verdict": "needs-human",
+      "reason": "Requires human judgment"
+    },
+    {
+      "id": "music-in-the-mountains-summer-fest-grass-valley",
+      "name": "Music in the Mountains Summer Fest",
+      "distanceM": 1754.9,
+      "verdict": "needs-human",
+      "reason": "Requires human judgment"
+    },
+    {
+      "id": "artists-studio-in-the-foothills-asif-grass-valley",
+      "name": "Artists Studio in the Foothills (ASIF)",
+      "distanceM": 1199.7,
+      "verdict": "needs-human",
+      "reason": "Requires human judgment"
+    },
+    {
+      "id": "metal-flower-sculpture-at-as-if-studios-grass-valley",
+      "name": "Metal Flower sculpture at As-If Studios",
+      "distanceM": 1199.5,
+      "verdict": "needs-human",
+      "reason": "Requires human judgment"
+    },
+    {
+      "id": "the-band-truckee",
+      "name": "The Band\"\"",
+      "distanceM": 456.1,
+      "verdict": "needs-human",
+      "reason": "Requires human judgment"
+    },
+    {
+      "id": "nevada-city-school-of-the-arts-nevada-city",
+      "name": "Nevada City School of the Arts",
+      "distanceM": 446.1,
+      "verdict": "needs-human",
+      "reason": "Requires human judgment"
+    },
+    {
+      "id": "the-union-newspaper-grass-valley",
+      "name": "The Union Newspaper",
+      "distanceM": 439.4,
+      "verdict": "needs-human",
+      "reason": "Requires human judgment"
+    },
+    {
+      "id": "ellu-gallery-grass-valley",
+      "name": "Ellu Gallery",
+      "distanceM": 350.4,
+      "verdict": "needs-human",
+      "reason": "Requires human judgment"
+    },
+    {
+      "id": "art-truckee-truckee",
+      "name": "Art Truckee",
+      "distanceM": 257.6,
+      "verdict": "needs-human",
+      "reason": "Requires human judgment"
+    },
+    {
+      "id": "tahoe-safe-alliance-truckee",
+      "name": "Tahoe Safe Alliance",
+      "distanceM": 241.7,
+      "verdict": "needs-human",
+      "reason": "Requires human judgment"
+    },
+    {
+      "id": "nevada-county-certified-growers-market-grass-valley",
+      "name": "Nevada County Certified Growers Market",
+      "distanceM": 230.7,
+      "verdict": "needs-human",
+      "reason": "Requires human judgment"
+    },
+    {
+      "id": "north-star-house-grass-valley",
+      "name": "North Star House",
+      "distanceM": 230.6,
+      "verdict": "needs-human",
+      "reason": "Requires human judgment"
+    },
+    {
+      "id": "foothills-celebration-grass-valley",
+      "name": "Foothills Celebration",
+      "distanceM": 204.9,
+      "verdict": "needs-human",
+      "reason": "Requires human judgment"
+    },
+    {
+      "id": "metal-flower-sculptures-truckee",
+      "name": "Metal Flower sculptures",
+      "distanceM": 195.9,
+      "verdict": "needs-human",
+      "reason": "Requires human judgment"
+    },
+    {
+      "id": "lorien-powers-studio-jewelry-truckee",
+      "name": "Lorien Powers Studio Jewelry",
+      "distanceM": 185.4,
+      "verdict": "needs-human",
+      "reason": "Requires human judgment"
+    },
+    {
+      "id": "bear-yuba-land-trust-grass-valley",
+      "name": "Bear Yuba Land Trust",
+      "distanceM": 185.0,
+      "verdict": "needs-human",
+      "reason": "Requires human judgment"
+    },
+    {
+      "id": "the-sierra-fund-nevada-city",
+      "name": "The Sierra Fund",
+      "distanceM": 182.1,
+      "verdict": "needs-human",
+      "reason": "Requires human judgment"
+    },
+    {
+      "id": "ma-trux-mural-at-mother-truckers-nevada-city",
+      "name": "Ma Trux\"\" Mural at Mother Truckers",
+      "distanceM": 169.2,
+      "verdict": "needs-human",
+      "reason": "Requires human judgment"
+    },
+    {
+      "id": "nevada-county-gold-magazine-grass-valley",
+      "name": "Nevada County Gold Magazine",
+      "distanceM": 155.9,
+      "verdict": "needs-human",
+      "reason": "Requires human judgment"
+    },
+    {
+      "id": "the-curious-forge-nevada-city",
+      "name": "The Curious Forge",
+      "distanceM": 155.1,
+      "verdict": "needs-human",
+      "reason": "Requires human judgment"
+    },
+    {
+      "id": "truckee-roundhouse-makerspace-truckee",
+      "name": "Truckee Roundhouse Makerspace",
+      "distanceM": 3117.5,
+      "verdict": "stored-likely-right",
+      "reason": "Strong ArcGIS cultural assets source"
+    },
+    {
+      "id": "naggiar-vineyards-grass-valley",
+      "name": "Naggiar Vineyards",
+      "distanceM": 1588.8,
+      "verdict": "stored-likely-right",
+      "reason": "Strong ArcGIS cultural assets source"
+    },
+    {
+      "id": "american-hill-diggings-nevada-city",
+      "name": "American Hill Diggings",
+      "distanceM": 874.2,
+      "verdict": "stored-likely-right",
+      "reason": "Hand-verified source, non-exact census match"
+    },
+    {
+      "id": "spaulding-reservoir-nevada-city",
+      "name": "Spaulding Reservoir",
+      "distanceM": 433.6,
+      "verdict": "stored-likely-right",
+      "reason": "Strong ArcGIS cultural assets source"
+    },
+    {
+      "id": "sierra-bakehouse-truckee",
+      "name": "Sierra Bakehouse",
+      "distanceM": 424.2,
+      "verdict": "stored-likely-right",
+      "reason": "Strong ArcGIS cultural assets source"
+    },
+    {
+      "id": "1849-brewing-company-grass-valley",
+      "name": "1849 Brewing Company",
+      "distanceM": 398.3,
+      "verdict": "stored-likely-right",
+      "reason": "Strong ArcGIS cultural assets source"
+    },
+    {
+      "id": "truckee-tahoe-community-chorus-sierra-college-campus-truckee",
+      "name": "Truckee Tahoe Community Chorus Sierra College Campus",
+      "distanceM": 395.0,
+      "verdict": "stored-likely-right",
+      "reason": "Strong ArcGIS cultural assets source"
+    },
+    {
+      "id": "sierra-college-tahoe-truckee-truckee",
+      "name": "Sierra College Tahoe Truckee",
+      "distanceM": 395.0,
+      "verdict": "stored-likely-right",
+      "reason": "Strong ArcGIS cultural assets source"
+    },
+    {
+      "id": "avanguardia-winery-nevada-city",
+      "name": "Avanguardia Winery",
+      "distanceM": 385.8,
+      "verdict": "stored-likely-right",
+      "reason": "Strong ArcGIS cultural assets source"
+    },
+    {
+      "id": "sierra-dance-center-truckee",
+      "name": "Sierra Dance Center",
+      "distanceM": 276.7,
+      "verdict": "stored-likely-right",
+      "reason": "Strong ArcGIS cultural assets source"
+    },
+    {
+      "id": "ananda-village-crystal-hermitage-gardens-nevada-city",
+      "name": "Ananda Village: Crystal Hermitage Gardens",
+      "distanceM": 209.8,
+      "verdict": "stored-likely-right",
+      "reason": "Strong ArcGIS cultural assets source"
+    },
+    {
+      "id": "ananda-crystal-hermitage-gardens-nevada-city",
+      "name": "Ananda Crystal Hermitage Gardens",
+      "distanceM": 209.8,
+      "verdict": "stored-likely-right",
+      "reason": "Strong ArcGIS cultural assets source"
+    },
+    {
+      "id": "bell-hill-school-bell-grass-valley",
+      "name": "Bell Hill School Bell",
+      "distanceM": 198.2,
+      "verdict": "stored-likely-right",
+      "reason": "Hand-verified source, non-exact census match"
+    },
+    {
+      "id": "truckee-round-house-site-truckee",
+      "name": "Truckee Round House Site",
+      "distanceM": 195.6,
+      "verdict": "stored-likely-right",
+      "reason": "Hand-verified source, non-exact census match"
+    },
+    {
+      "id": "fifty-fifty-brewing-company-truckee",
+      "name": "Fifty Fifty Brewing Company",
+      "distanceM": 177.2,
+      "verdict": "stored-likely-right",
+      "reason": "Strong ArcGIS cultural assets source"
+    },
+    {
+      "id": "neighborhood-center-of-the-arts-grass-valley",
+      "name": "Neighborhood Center of the Arts",
+      "distanceM": 157.6,
+      "verdict": "stored-likely-right",
+      "reason": "Strong ArcGIS cultural assets source"
+    },
+    {
+      "id": "art-hike-soda-springs",
+      "name": "Art Hike",
+      "distanceM": 25119.5,
+      "verdict": "stored-suspect",
+      "reason": "Claims exact census match but 5km+ away suggests coordinate error"
+    },
+    {
+      "id": "gold-country-celtic-society-nevada-city",
+      "name": "Gold Country Celtic Society",
+      "distanceM": 16436.0,
+      "verdict": "stored-suspect",
+      "reason": "Claims exact census match but 5km+ away suggests coordinate error"
+    },
+    {
+      "id": "martis-sculpture-front-of-martis-outlook-professional-building-truckee",
+      "name": "Martis Sculpture\"\" - front of Martis Outlook professional building.",
+      "distanceM": 10023.7,
+      "verdict": "stored-suspect",
+      "reason": "Claims exact census match but 5km+ away suggests coordinate error"
+    },
+    {
+      "id": "craft-and-logic-taproom-truckee",
+      "name": "Craft and Logic Taproom",
+      "distanceM": 2071.8,
+      "verdict": "stored-suspect",
+      "reason": "Weak source with exact census match at significant distance"
+    }
+  ]
+}

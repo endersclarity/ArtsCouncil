@@ -1,0 +1,227 @@
+[
+  {
+    "id": "choquiero-cacao-cafe-nevada-city",
+    "name": "Choquiero Cacao Cafe",
+    "self_description": "",
+    "source_url": "https://www.thechocolatemarketplace.com/",
+    "source_page": "home",
+    "confidence": "empty",
+    "notes": "Home page content is empty string; no self-description available"
+  },
+  {
+    "id": "cirino-s-at-main-street-grass-valley",
+    "name": "Cirino's at Main Street",
+    "self_description": "Our story began in 1983 when Jerry Cirino first opened the doors to Cirino's Bar & Grill, an Italian Restaurant in Nevada City, offering 'time honored' Italian recipes from the Cirino family kitchen.",
+    "source_url": "https://www.cirinosatmainstreet.com/",
+    "source_page": "home",
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "id": "coco-s-candy-and-creamery-grass-valley",
+    "name": "Coco's Candy and Creamery",
+    "self_description": "",
+    "source_url": "https://www.cocoscandyandcreamery.com/",
+    "source_page": "home",
+    "confidence": "low",
+    "notes": "Only 'Our Story' heading present; no actual narrative or self-description text provided"
+  },
+  {
+    "id": "cork-49-grass-valley",
+    "name": "Cork 49",
+    "self_description": "",
+    "source_url": "https://downtowngrassvalley.com/cork-49/",
+    "source_page": "home",
+    "confidence": "empty",
+    "notes": "fetch failed: HTTP Error 404"
+  },
+  {
+    "id": "corvus-bakery-grass-valley",
+    "name": "Corvus Bakery",
+    "self_description": "As the only GF bakery in Nevada County, we are dedicated to offering you a creative twist on classic bakery favorites, in a facility that is 100% Gluten-Free.",
+    "source_url": "https://corvusbakery.com/",
+    "source_page": "home",
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "id": "crazy-horse-saloon-and-grill-nevada-city",
+    "name": "Crazy Horse Saloon & Grill",
+    "self_description": "Our identity is synonymous with world-class live music, elevated bar food using organic ingredients, a full range of libations, sporting spirit and an overriding comfort factor that makes us a home away from home for many.",
+    "source_url": "https://crazyhorsenc.com/",
+    "source_page": "about",
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "id": "deer-creek-bakehouse-nevada-city",
+    "name": "Deer Creek Bakehouse",
+    "self_description": "Deer Creek Bakehouse, lead by Graeme Aycock, launched in 2021 from a tiny house on Deer Creek in Nevada City with dreams of sharing delicious, hand-crafted bread with the people.",
+    "source_url": "https://www.deercreekbakehouse.com/",
+    "source_page": "about",
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "id": "dew-drop-inn-grass-valley",
+    "name": "Dew Drop Inn",
+    "self_description": "",
+    "source_url": "https://www.kvmr.org/venue/the-dew-drop-inn/",
+    "source_page": "home",
+    "confidence": "low",
+    "notes": "Page is KVMR radio event listing; no Dew Drop Inn self-description text found"
+  },
+  {
+    "id": "diego-s-restaurant-grass-valley",
+    "name": "Diego's Restaurant",
+    "self_description": "Diego's celebrates hand-prepared latin inspired recipes from Chile up to California for over two decades. By operating with a culture of love, gratitude and a professional personal touch, we enjoy providing a colorful, eclectic and comfortable atmosphere.",
+    "source_url": "https://diegosrestaurant.com/",
+    "source_page": "home",
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "id": "el-milagro-mexican-restaurant-grass-valley",
+    "name": "El Milagro Mexican Restaurant",
+    "self_description": "",
+    "source_url": "https://www.elmilagromenu.com/",
+    "source_page": "home",
+    "confidence": "low",
+    "notes": "Page contains only menu/location/hours info; no self-description narrative"
+  },
+  {
+    "id": "elixart-nevada-city",
+    "name": "Elixart",
+    "self_description": "",
+    "source_url": "https://elixart.com/",
+    "source_page": "home",
+    "confidence": "empty",
+    "notes": "fetch failed: SSL certificate verification error"
+  },
+  {
+    "id": "enrique-s-lounge-grass-valley",
+    "name": "Enrique's Lounge",
+    "self_description": "",
+    "source_url": "https://www.enriqueslounge.com/",
+    "source_page": "home",
+    "confidence": "empty",
+    "notes": "Page appears to be spam/malware redirect (eBay slot gambling content); unusable"
+  },
+  {
+    "id": "farmstead-cheeses-and-wines-grass-valley",
+    "name": "Farmstead Cheeses and Wines",
+    "self_description": "Farmstead Cheeses & Wines was founded in 2003 by Jeff Diamond and sold to Dave Chambers in April of 2023. Dave focuses on sustainable, family producers of fine wines and specializes in under the radar and hard-to-find boutique wines and artisan cheeses.",
+    "source_url": "https://farmstead.biz",
+    "source_page": "about",
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "id": "friar-tucks-restaurant-and-bar-nevada-city",
+    "name": "Friar Tucks Restaurant & Bar",
+    "self_description": "Inside a landmark 1860 brick building, Friar Tuck's has been Nevada City's most beloved table since 1973, offering live music every night and a Wine Spectator award-winning cellar.",
+    "source_url": "https://www.friartucks.com/",
+    "source_page": "home",
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "id": "gary-s-place-grass-valley",
+    "name": "Gary's Place",
+    "self_description": "Gary's Place is a lively cocktail bar in Grass Valley, CA, offering a full kitchen with fresh food, karaoke nights, and a pool table with a Main Street patio for outdoor seating.",
+    "source_url": "https://nextdoor.com/pages/garys-place-grass-valley-ca/",
+    "source_page": "home",
+    "confidence": "medium",
+    "notes": "Text is from Nextdoor business listing, but captures venue's self-presentation"
+  },
+  {
+    "id": "gold-miners-inn-grass-valley",
+    "name": "Gold Miners Inn",
+    "self_description": "Gold Miners Inn Grass Valley an Ascend Collection Hotel is a 2.5-star property located in Grass Valley, California, steps from Grass Valley Brewing and serving as a convenient base for exploring the region's mining heritage and cultural attractions.",
+    "source_url": "https://www.bookonline.com/hotel/gold-miners-inn-ascend-hotel-collection?id2=127382637273&gad_source=1&gad_campaignid=14286969773&gbraid=0AAAAABov2PYZv8hp0X-_uxYvSxdThuTCy&gclid=Cj0KCQjwkILEBhDeARIsAL--pjyAaYSNaU5mdA83CFPIten2CXkUQ5mZnhghtiApt1eX2JsnjWnBBx8aAqbtEALw_wcB",
+    "source_page": "home",
+    "confidence": "medium",
+    "notes": "Description from third-party booking site, not direct venue content"
+  },
+  {
+    "id": "gold-vibe-kombuchary-grass-valley",
+    "name": "Gold Vibe Kombuchary",
+    "self_description": "",
+    "source_url": "https://www.goldvibe.com/",
+    "source_page": "home",
+    "confidence": "empty",
+    "notes": "fetch failed: SSL certificate verification error"
+  },
+  {
+    "id": "golden-era-lounge-nevada-city",
+    "name": "Golden Era Lounge",
+    "self_description": "Golden Era is host to a vibrant music scene with Jazz, Blues, R&B, Funk, World, and Soul as weekend entertainment offerings and single artists across multiple genres on weekdays.",
+    "source_url": "https://www.goldeneralounge.com/",
+    "source_page": "home",
+    "confidence": "medium",
+    "notes": ""
+  },
+  {
+    "id": "golden-gate-saloon-grass-valley",
+    "name": "Golden Gate Saloon",
+    "self_description": "The Golden Gate is one of the longest operating barrooms west of the Mississippi River, serving classic and seasonal cocktails, regional and international wines, and a selection of beers with live music nights and local character.",
+    "source_url": "https://holbrooke.com/dining/golden-gate-saloon/",
+    "source_page": "home",
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "id": "grass-valley-brewing-co-grass-valley",
+    "name": "Grass Valley Brewing Co.",
+    "self_description": "Grass Valley Brewing Company came to life because of our passion for great beer and love of community. We believe great beer is produced when skill meets ingredients.",
+    "source_url": "https://www.gvbrew.com/",
+    "source_page": "home",
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "id": "grass-valley-courtyard-suites-grass-valley",
+    "name": "Grass Valley Courtyard Suites",
+    "self_description": "",
+    "source_url": "https://www.gvcourtyardsuites.com/",
+    "source_page": "home",
+    "confidence": "low",
+    "notes": "Page contains only operational info (hours, pool times); no self-description"
+  },
+  {
+    "id": "grass-valley-rv-resort-grass-valley",
+    "name": "Grass Valley RV Resort",
+    "self_description": "Tucked into the rolling hills of California's Sierra Nevada foothills, Grass Valley RV Resort is where the spirit of Gold Country meets modern comfort. We're not just a stop along the road — we're a destination where families, friends, and fellow travelers gather to celebrate life, adventure, and community.",
+    "source_url": "https://www.gvrvresort.com/",
+    "source_page": "about",
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "id": "harmony-ridge-lodge-nevada-city",
+    "name": "Harmony Ridge Lodge",
+    "self_description": "Harmony Ridge Lodge, nestled in the woods of the Tahoe National Forest 5 miles from Nevada City, is one of Nevada County's true gems. We specialize in Weddings, Retreats and Bed & Breakfast.",
+    "source_url": "https://harmonyridgelodge.com/",
+    "source_page": "home",
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "id": "holbrooke-hotel-grass-valley",
+    "name": "Holbrooke Hotel",
+    "self_description": "We've been building character since 1852. Celebrating Grass Valley at its most authentic—unearthed, restored and brought forward into today. After serving the community for over 150 years, the Holbrooke Hotel is ready to spend some time with you.",
+    "source_url": "https://holbrooke.com/",
+    "source_page": "home",
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "id": "iron-door-speakeasy-grass-valley",
+    "name": "Iron Door Speakeasy",
+    "self_description": "",
+    "source_url": "https://www.instagram.com/iron_door_speakeasy/",
+    "source_page": "home",
+    "confidence": "empty",
+    "notes": "Page is raw Instagram JSON/script data; no readable self-description"
+  }
+]

@@ -1,0 +1,218 @@
+[
+  {
+    "id": "black-swan-trail-smartsville",
+    "name": "Black Swan Trail",
+    "self_description": "Built by BYLT's trail team and volunteers, the community-supported trail weaves through blue oak and gray pine woodlands.",
+    "source_url": "https://www.bylt.org/trail/black-swan-trail/",
+    "source_page": "home",
+    "confidence": "medium",
+    "notes": "BYLT (Bear Yuba Land Trust) is the trail manager; found descriptive passage about trail construction/community involvement"
+  },
+  {
+    "id": "blair-trail",
+    "name": "Blair Trail",
+    "self_description": "",
+    "source_url": "https://www.alltrails.com/trail/us/california/blair-trail",
+    "source_page": "none",
+    "confidence": "empty",
+    "notes": "fetch failed"
+  },
+  {
+    "id": "blue-lake-trail",
+    "name": "Blue Lake Trail",
+    "self_description": "",
+    "source_url": "https://www.alltrails.com/trail/us/california/blue-lake-trail--5",
+    "source_page": "none",
+    "confidence": "empty",
+    "notes": "fetch failed"
+  },
+  {
+    "id": "boca-atv-connector",
+    "name": "Boca ATV Connector",
+    "self_description": "",
+    "source_url": "https://www.alltrails.com/trail/us/california/boca-atv-tie-trail-and-boca-reservoir-loop",
+    "source_page": "none",
+    "confidence": "empty",
+    "notes": "fetch failed"
+  },
+  {
+    "id": "boca-break-ohv-trail",
+    "name": "Boca Break OHV Trail",
+    "self_description": "",
+    "source_url": "https://www.alltrails.com/trail/us/california/boca-hill-loop-ohv-trail",
+    "source_page": "none",
+    "confidence": "empty",
+    "notes": "fetch failed"
+  },
+  {
+    "id": "boca-reservoir-truckee",
+    "name": "Boca Reservoir",
+    "self_description": "Boca Reservoir is managed by Bureau of Reclamation and is located near Truckee, California.",
+    "source_url": "https://www.recreation.gov/camping/gateways/30",
+    "source_page": "home",
+    "confidence": "low",
+    "notes": "This is a bare institutional description, not a self-description from the venue itself; about page is generic Recreation.gov content"
+  },
+  {
+    "id": "buttermilk-bend-trail-penn-valley",
+    "name": "Buttermilk Bend Trail",
+    "self_description": "",
+    "source_url": "http://syrpa.lindberglce.com/buttermilk.htm",
+    "source_page": "none",
+    "confidence": "empty",
+    "notes": "fetch failed"
+  },
+  {
+    "id": "coldstream-trailhead-truckee",
+    "name": "Coldstream Trailhead",
+    "self_description": "",
+    "source_url": "https://www.alltrails.com/trail/us/california/cold-stream-trail--2",
+    "source_page": "none",
+    "confidence": "empty",
+    "notes": "fetch failed"
+  },
+  {
+    "id": "dewbeyumuwe-park-at-west-river-street-truckee",
+    "name": "DEWBEYUMUWE PARK at West River Street",
+    "self_description": "The park is named DEWBEYUMUWE, a Washoe Tribe name meaning 'the water running out,' honoring the Truckee River as the sole outlet of Lake Tahoe.",
+    "source_url": "https://www.townoftruckee.gov/198/West-River-Site-Project",
+    "source_page": "home",
+    "confidence": "medium",
+    "notes": "Clear, meaningful description with cultural context from the Town of Truckee's project page"
+  },
+  {
+    "id": "donner-memorial-state-park-truckee",
+    "name": "Donner Memorial State Park",
+    "self_description": "",
+    "source_url": "http://www.parks.ca.gov/?page_id=503",
+    "source_page": "none",
+    "confidence": "empty",
+    "notes": "fetch failed (timeout)"
+  },
+  {
+    "id": "donner-summit-canyon-truckee",
+    "name": "Donner Summit Canyon",
+    "self_description": "Purchased by the Land Trust in 2010 and conveyed to California State Parks in 2012 as an addition to Donner Memorial State Park, Donner Summit Canyon is the gateway to perhaps the most important square mile in California's history.",
+    "source_url": "https://www.truckeedonnerlandtrust.org/donner-summit-canyon",
+    "source_page": "home",
+    "confidence": "high",
+    "notes": "Clear first-person organizational voice ('purchased by the Land Trust'); meaningful self-description with historical significance"
+  },
+  {
+    "id": "hole-in-the-ground-trail-soda-springs",
+    "name": "Hole in the Ground Trail",
+    "self_description": "",
+    "source_url": "https://www.alltrails.com/trail/us/california/hole-in-the-ground-trail",
+    "source_page": "none",
+    "confidence": "empty",
+    "notes": "fetch failed"
+  },
+  {
+    "id": "pacific-crest-trail-castle-peak-trailhead-soda-springs",
+    "name": "Pacific Crest Trail/Castle Peak Trailhead",
+    "self_description": "",
+    "source_url": "https://www.visitcalifornia.com/attraction/pacific-crest-trail-castle-peak",
+    "source_page": "home",
+    "confidence": "empty",
+    "notes": "Page content is corrupted/unreadable binary data; unusable"
+  },
+  {
+    "id": "palisades-creek-trail-soda-springs",
+    "name": "Palisades Creek Trail",
+    "self_description": "",
+    "source_url": "https://www.alltrails.com/trail/us/california/palisade-creek-trail",
+    "source_page": "none",
+    "confidence": "empty",
+    "notes": "fetch failed"
+  },
+  {
+    "id": "park-and-walk-trail-chicago-park-chicago-park",
+    "name": "Park and Walk Trail: Chicago Park",
+    "self_description": "This trail was built by the community so parents could drive their kids to the village center, park, and then walk them out to the elementary school.",
+    "source_url": "https://www.bylt.org/trail/park-and-walk-trail/",
+    "source_page": "home",
+    "confidence": "high",
+    "notes": "Clear origin story and community purpose; meaningful self-description explaining the trail's reason for existing"
+  },
+  {
+    "id": "penn-valley-bike-trail-penn-valley",
+    "name": "Penn Valley Bike Trail",
+    "self_description": "",
+    "source_url": "https://www.bylt.org/trail/penn-valley-bike-trail/",
+    "source_page": "home",
+    "confidence": "low",
+    "notes": "Trail is not maintained by BYLT; only basic descriptive facts available, no meaningful self-description"
+  },
+  {
+    "id": "point-defiance-trail-penn-valley",
+    "name": "Point Defiance Trail",
+    "self_description": "",
+    "source_url": "http://syrpa.lindberglce.com/defiance.htm",
+    "source_page": "none",
+    "confidence": "empty",
+    "notes": "fetch failed"
+  },
+  {
+    "id": "rambler-trail-clover-valley-preserve-alta-sierra",
+    "name": "Rambler Trail: Clover Valley Preserve",
+    "self_description": "In December 2014, the Bach family – owners of the property since the 1970s – generously donated the land to BYLT for the purpose of protecting the land from development forever.",
+    "source_url": "https://www.bylt.org/trail/rambler-trail/",
+    "source_page": "home",
+    "confidence": "high",
+    "notes": "Clear preservation story with community donation; meaningful self-description from BYLT about the preserve's origin"
+  },
+  {
+    "id": "sawtooth-trailhead-truckee",
+    "name": "Sawtooth Trailhead",
+    "self_description": "",
+    "source_url": "https://www.nps.gov/places/000/sawtooth-trailhead.htm",
+    "source_page": "home",
+    "confidence": "low",
+    "notes": "NPS page is purely informational (facts about trail); no self-description or organizational narrative"
+  },
+  {
+    "id": "shoreline-park-truckee",
+    "name": "Shoreline Park",
+    "self_description": "TDRPD has been providing recreation and park services since 1963.",
+    "source_url": "https://www.tdrpd.org/169/Shoreline-Park",
+    "source_page": "about",
+    "confidence": "medium",
+    "notes": "Found on about page for Truckee-Donner Recreation & Park District; institutional mission statement"
+  },
+  {
+    "id": "south-yuba-river-state-park-penn-valley",
+    "name": "South Yuba River State Park",
+    "self_description": "",
+    "source_url": "http://syrpa.lindberglce.com/visitor.htm",
+    "source_page": "none",
+    "confidence": "empty",
+    "notes": "fetch failed"
+  },
+  {
+    "id": "summit-lake-trail-soda-springs",
+    "name": "Summit Lake Trail",
+    "self_description": "",
+    "source_url": "https://www.alltrails.com/trail/us/california/summit-lake-trail",
+    "source_page": "none",
+    "confidence": "empty",
+    "notes": "fetch failed"
+  },
+  {
+    "id": "truckee-river-legacy-trail-truckee",
+    "name": "Truckee River Legacy Trail",
+    "self_description": "The Truckee River Legacy Trail follows its namesake river's south side from downtown Truckee to the Glenshire neighborhood.",
+    "source_url": "https://www.traillink.com/trail/truckee-river-legacy-trail/",
+    "source_page": "home",
+    "confidence": "medium",
+    "notes": "TrailLink description; factual but not first-person from the venue itself"
+  },
+  {
+    "id": "truckee-river-regional-park-truckee",
+    "name": "Truckee River Regional Park",
+    "self_description": "",
+    "source_url": "http://www.tdrpd.org/parks/195-regional-park.html",
+    "source_page": "none",
+    "confidence": "empty",
+    "notes": "fetch failed"
+  }
+]

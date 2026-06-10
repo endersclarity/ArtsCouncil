@@ -1,0 +1,227 @@
+[
+  {
+    "id": "grass-valley-antique-emporium-grass-valley",
+    "name": "Grass Valley Antique Emporium",
+    "self_description": "The Antique Emporium specializes in high-value collectibles and rare artifacts, catering to discerning collectors and connoisseurs.",
+    "source_url": "https://grass-emporium.edan.io/",
+    "source_page": "home",
+    "confidence": "medium",
+    "notes": ""
+  },
+  {
+    "id": "kodo-arts-japanese-antiques-nevada-city",
+    "name": "Kodo Arts Japanese Antiques",
+    "self_description": "KODO ARTS is pleased to announce our SPRING 2026 SALE will be held MAY 16-24, 2026.",
+    "source_url": "https://kodo-arts.com/",
+    "source_page": "home",
+    "confidence": "low",
+    "notes": "Home page contains only sale announcement; no substantive self-description found"
+  },
+  {
+    "id": "lost-and-found-vintage-nevada-city",
+    "name": "Lost and Found Vintage",
+    "self_description": "We specialize in western style & rare finds!",
+    "source_url": "https://linktr.ee/lostandfoundvintage",
+    "source_page": "home",
+    "confidence": "medium",
+    "notes": "Linktree landing page only; limited self-description available"
+  },
+  {
+    "id": "solstice-nevada-city",
+    "name": "Solstice",
+    "self_description": "Quality Resale Clothing for both men and women, Vintage, Costumes, Jewelry & Accessories.",
+    "source_url": "https://solsticenc.com/",
+    "source_page": "home",
+    "confidence": "medium",
+    "notes": ""
+  },
+  {
+    "id": "sunchild-s-parlour-grass-valley",
+    "name": "Sunchild's Parlour",
+    "self_description": "Sunchild's Parlour BLOOMED ON the Legendary Haight street in San Francisco, California and has NOW officially BEEN TRANSPLANTED to the SierRa mountains.",
+    "source_url": "https://www.sunchildsparlour.com/",
+    "source_page": "home",
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "id": "vintage-on-mill-grass-valley",
+    "name": "Vintage on Mill",
+    "self_description": "",
+    "source_url": "https://downtowngrassvalley.com/vintage-on-mill/",
+    "source_page": "none",
+    "confidence": "empty",
+    "notes": "fetch failed; HTTP 404"
+  },
+  {
+    "id": "ananda-village-crystal-hermitage-gardens-nevada-city",
+    "name": "Ananda Village: Crystal Hermitage Gardens",
+    "self_description": "A place of peace, meditation, and beauty.",
+    "source_url": "https://crystalhermitage.org/",
+    "source_page": "home",
+    "confidence": "high",
+    "notes": ""
+  },
+  {
+    "id": "bailey-trail-grass-valley",
+    "name": "Bailey Trail",
+    "self_description": "",
+    "source_url": "https://www.fs.usda.gov/r05/tahoe/recreation",
+    "source_page": "home",
+    "confidence": "low",
+    "notes": "Government recreation portal; no venue self-description, only general USFS information"
+  },
+  {
+    "id": "bear-river-historic-bridge-grass-valley",
+    "name": "Bear River Historic Bridge",
+    "self_description": "",
+    "source_url": "https://en.wikipedia.org/wiki/Bear_River_Bridge",
+    "source_page": "home",
+    "confidence": "low",
+    "notes": "Wikipedia article; no venue self-description from business"
+  },
+  {
+    "id": "cascade-canal-trail-banner-mountain-nevada-city",
+    "name": "Cascade Canal Trail:Banner Mountain",
+    "self_description": "This popular trail offers an almost level walk along a peaceful canal through a forest with many Douglas firs and dogwoods.",
+    "source_url": "https://www.bylt.org/trail/cascade-canal-trail/",
+    "source_page": "home",
+    "confidence": "medium",
+    "notes": "Managed by Bear Yuba Land Trust; descriptive trail information"
+  },
+  {
+    "id": "champion-mine-rd-trails-nevada-city",
+    "name": "Champion Mine Rd. Trails",
+    "self_description": "",
+    "source_url": "https://www.gaiagps.com/hike/326251/champion-mine-road/",
+    "source_page": "home",
+    "confidence": "low",
+    "notes": "Trail aggregator site; no venue self-description"
+  },
+  {
+    "id": "condon-park-trails-grass-valley",
+    "name": "Condon Park Trails",
+    "self_description": "Condon Park was donated to the City in 1957 by Lulu Condon.",
+    "source_url": "https://www.cityofgrassvalley.com/pod/condon-park",
+    "source_page": "home",
+    "confidence": "medium",
+    "notes": "City of Grass Valley park information page"
+  },
+  {
+    "id": "emerald-pools-south-yuba-river-nevada-city",
+    "name": "Emerald Pools: South Yuba River",
+    "self_description": "",
+    "source_url": "https://www.outdoorproject.com/adventures/california/hikes/emerald-pools",
+    "source_page": "home",
+    "confidence": "low",
+    "notes": "Site has moved; insufficient content to extract venue description"
+  },
+  {
+    "id": "empire-mine-memorial-park-trail-grass-valley",
+    "name": "Empire Mine: Memorial Park Trail",
+    "self_description": "The trail from Memorial Park brings you right into the heart of Empire Mine State Historic Park where you can tour the visitor center, picnic, hike further on an extensive web of trails and see historic buildings and mining artifacts.",
+    "source_url": "https://www.bylt.org/trail/memorial-park-trail/",
+    "source_page": "home",
+    "confidence": "medium",
+    "notes": "Managed by Bear Yuba Land Trust"
+  },
+  {
+    "id": "empire-mine-osborne-hill-trails-grass-valley",
+    "name": "Empire Mine: Osborne-Hill Trails",
+    "self_description": "The Osborne Hill Trail area makes up the southern arm of Empire Mine State Historic Park.",
+    "source_url": "https://www.bylt.org/trail/osborne-hill-trail-area/",
+    "source_page": "home",
+    "confidence": "medium",
+    "notes": "Managed by Bear Yuba Land Trust"
+  },
+  {
+    "id": "empire-mine-union-hill-trail-area-grass-valley",
+    "name": "Empire Mine: Union Hill Trail Area",
+    "self_description": "The Union Hill Trail Area is part of the 800-acre Empire Mine State Historic Park.",
+    "source_url": "https://www.bylt.org/trail/union-hill-trail-area/",
+    "source_page": "home",
+    "confidence": "medium",
+    "notes": "Managed by Bear Yuba Land Trust"
+  },
+  {
+    "id": "fall-colors-in-nevada-city-self-guided-tour-nevada-city",
+    "name": "Fall Colors in Nevada City:self guided tour",
+    "self_description": "",
+    "source_url": "https://www.nevadacitychamber.com/images/fallcolors.pdf",
+    "source_page": "home",
+    "confidence": "low",
+    "notes": "PDF file with binary content; no usable text extraction"
+  },
+  {
+    "id": "hirschman-trail-nevada-city",
+    "name": "Hirschman Trail",
+    "self_description": "Only a mile from the heart of downtown Nevada City, this trail system gets you quickly out into nature with lots of different things to enjoy.",
+    "source_url": "https://www.bylt.org/trail/hirschman-trail/",
+    "source_page": "home",
+    "confidence": "medium",
+    "notes": "Maintained by Bear Yuba Land Trust for City of Nevada City"
+  },
+  {
+    "id": "hoyt-trail-south-yuba-river-nevada-city",
+    "name": "Hoyt Trail - South Yuba River",
+    "self_description": "This trail leads to swimming holes along the South Yuba River and historic Hoyt Crossing.",
+    "source_url": "https://www.bylt.org/trail/hoyt-trail/",
+    "source_page": "home",
+    "confidence": "medium",
+    "notes": "Managed by South Yuba River State Park"
+  },
+  {
+    "id": "kenny-ranch-trails-grass-valley",
+    "name": "Kenny Ranch Trails",
+    "self_description": "Wildflower Ridge Trail winds through Wildflower Ridge Preserve just west of Grass Valley.",
+    "source_url": "https://www.bylt.org/trail/kenny-ranch-trails/",
+    "source_page": "home",
+    "confidence": "medium",
+    "notes": "Operated by Bear Yuba Land Trust"
+  },
+  {
+    "id": "litton-trail-nevada-city",
+    "name": "Litton Trail",
+    "self_description": "",
+    "source_url": "https://www.alltrails.com/trail/us/california/litton-trail",
+    "source_page": "none",
+    "confidence": "empty",
+    "notes": "fetch failed; HTTP 403 Forbidden"
+  },
+  {
+    "id": "loma-rica-trail-grass-valley",
+    "name": "Loma Rica Trail",
+    "self_description": "This commuter trail runs alongside Brunswick Road; after it crosses Idaho-Maryland Road, it ascends through meadows and woods to Loma Rica Road.",
+    "source_url": "https://www.bylt.org/trail/loma-rica-trail/",
+    "source_page": "home",
+    "confidence": "medium",
+    "notes": "Managed by Bear Yuba Land Trust"
+  },
+  {
+    "id": "malakoff-diggins-state-historic-park-nevada-city",
+    "name": "Malakoff Diggins State Historic Park",
+    "self_description": "Malakoff Diggins State Historic Park is nestled amongst the pine-studded chaparral forest of the Sierra Nevada Foothills and is home to California's largest hydraulic gold mine.",
+    "source_url": "https://www.parks.ca.gov/?page_id=494",
+    "source_page": "home",
+    "confidence": "medium",
+    "notes": "California State Parks official page"
+  },
+  {
+    "id": "narrow-gauge-trail-grass-valley",
+    "name": "Narrow Gauge Trail",
+    "self_description": "This is a well-used local trail running through the countryside north of Chicago Park.",
+    "source_url": "https://www.bylt.org/trail/narrow-gauge-trail/",
+    "source_page": "home",
+    "confidence": "medium",
+    "notes": "Managed by Bear Yuba Land Trust"
+  },
+  {
+    "id": "nevada-city-airport-trails-nevada-city",
+    "name": "Nevada City Airport Trails",
+    "self_description": "Old lightly used trail on city property overseen by Bear Yuba Land Trust.",
+    "source_url": "https://www.trailforks.com/trails/old-airport-loop/",
+    "source_page": "home",
+    "confidence": "medium",
+    "notes": "Trailforks trail aggregator; managed by Bear Yuba Land Trust"
+  }
+]
