@@ -9,14 +9,22 @@ See: .planning/PROJECT.md (updated 2026-02-14)
 
 ## Current Position
 
-## NEXT after compact: Free Image Pass (Google API plan is DEAD)
+## Free Image Pass — DONE 2026-06-10 (3 commits: 6628cd3, 26851e2, 56eb720; NOT pushed)
 
-Owner killed the Places API refresh (expiring-URL treadmill). Plan lives at
-website/cultural-map-redesign-stitch-lab/v1-discovery-map/scripts/free-image-pass-HANDOFF.md
-— read it in full first. Three stages: (A) dead-image probe -> honest placeholders,
-(B) og:image harvest from venue websites, self-hosted, (C) demotion pass.
-HARD CONSTRAINT: owner is watching token burn — scripts on disk, summaries only,
-no screenshots for photo picking, vision budget = 6 image reads total.
+Plan: scripts/free-image-pass-HANDOFF.md (Google API refresh stays DEAD).
+- Stage A: probed all 1,065 googleusercontent image URLs; 209 dead (20%) ->
+  image.kind="placeholder" with deadSrc audit trail. Zero broken <img> now.
+- Stage B: og:image harvest over the 159 placeholder-image places with websites.
+  22 candidates passed URL filters; a flat-color heuristic (unique colors in a
+  64x64 thumb < 2000) rejected 8 logos; 14 real photos self-hosted at
+  assets/venue-photos/ with venue-website provenance + credit.
+- Stage C: only 4 places had all four content gaps; 2 candidate-tier demoted
+  (publicMarker:false, public 1043->1041), 2 in scripts/demotion-review.md for owner.
+- Repeatable scripts: image-audit.py, apply-image-deadlist.py, og-image-harvest.py,
+  apply-venue-photos.py, curation-demotion.py.
+- Remaining photo gap (~330 placeholder places): 92 venue sites publish no og:image,
+  36 sites unreachable/stale, ~190 placeholder places have no website at all.
+  Real fix = community photo drive (long-term plan).
 
 ## Coordinate audit adopted 2026-06-10 (commit ca9b108, pushed)
 
