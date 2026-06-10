@@ -9,6 +9,24 @@ See: .planning/PROJECT.md (updated 2026-02-14)
 
 ## Current Position
 
+## Flow upgrade pass — DONE 2026-06-10 (5 commits, NOT pushed)
+
+All five stages of scripts/flow-upgrade-SPEC.md committed locally (7a6b504..f021cfe),
+stacked on the unpushed self-description commit. Owner review at http://127.0.0.1:8013, then push.
+
+1. Markers: anchor-first county zoom with name labels, muted ink palette, red live-event halos.
+2. First load: featured anchor host card + "What are you in the mood for?" browse; search demoted.
+3. Place card joins events (clickable), MUSE evidence, paths (tap to walk), nearby, and description provenance.
+4. Events time lens: Today / This weekend / Next 7 days / All upcoming (list + markers).
+5. Delights: Surprise me nearby (re-rollable, venues' own words), Before-or-after stops on event cards.
+
+Deliberately NOT built (pushback, recorded in the spec): "Open Now" (zero places have
+hours data — data gap), MUSE excerpt lens (only musePick boolean + evidence links exist;
+no story excerpts), curated "Make It A Night" (no curation data; shipped honest
+distance-based "Before or after" instead), "Good morning" time-of-day greeting (gimmick).
+
+
+
 Phase: No active GSD phase — current work is the V1 Discovery Map quality loop (outside GSD)
 Plan: N/A
 Status: Dogfood sprint #1 complete: 11/11 issues from the 2026-06-09 browser audit fixed and verified (1 critical mobile trap, 4 major, 6 minor). Report + fix log: v1-discovery-map/dogfood-output/2026-06-09-live/report.md.
