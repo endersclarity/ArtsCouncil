@@ -132,6 +132,26 @@ button {
   color: var(--ncac-red);
 }
 
+/* Hamburger is mobile-only; desktop keeps the inline nav row. */
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  width: 40px;
+  height: 36px;
+  padding: 8px;
+  background: var(--field);
+  border: 1px solid color-mix(in srgb, var(--ink) 25%, transparent);
+  cursor: pointer;
+}
+
+.nav-toggle-bar {
+  display: block;
+  height: 2px;
+  background: var(--ink);
+}
+
 .alpha-pill {
   justify-self: end;
   border: 1px solid color-mix(in srgb, var(--ink) 25%, transparent);
@@ -252,7 +272,9 @@ button {
 
 .selection-drawer {
   position: absolute;
-  z-index: 5;
+  /* Above map smart labels (selected label is z-index 6) — nothing from the
+     map may paint over an open drawer. */
+  z-index: 8;
   top: 18px;
   right: clamp(18px, 4vw, 54px);
   width: min(380px, calc(100vw - 420px));
@@ -273,9 +295,12 @@ button {
 
 .panel-topline {
   display: flex;
+  /* Count wraps below the title so the headline gets the panel's full width
+     instead of breaking one word per line. */
+  flex-wrap: wrap;
   justify-content: space-between;
   align-items: flex-start;
-  gap: 16px;
+  gap: 6px 16px;
   padding-bottom: 10px;
   margin-bottom: 12px;
   border-bottom: 2px solid var(--line-strong);
@@ -308,9 +333,9 @@ button {
   font-variant-numeric: tabular-nums;
   text-transform: uppercase;
   letter-spacing: 0.03em;
-  flex: 0 0 auto;
+  flex: 1 0 100%;
   margin-top: 2px;
-  text-align: right;
+  text-align: left;
 }
 
 .mode-tabs {
@@ -643,7 +668,9 @@ body:not([data-map-mode="places"]) .review-tools {
 .places-list-items {
   display: grid;
   gap: 6px;
-  max-height: 220px;
+  /* Tall enough for ~6 result cards — the 220px window showed barely 2.5
+     cards and made the panel feel like scrollbars inside scrollbars. */
+  max-height: 340px;
   overflow: auto;
   overscroll-behavior: contain;
   padding-right: 2px;
@@ -1482,6 +1509,61 @@ body:not([data-map-mode="places"]) .review-tools {
   color: var(--ink-soft);
 }
 
+/* Events-mode browse list (mirrors the outing-row look). */
+.events-browse-list {
+  display: grid;
+}
+
+.event-list-row {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+  width: 100%;
+  padding: 10px 2px;
+  background: none;
+  border: 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--ink) 12%, transparent);
+  text-align: left;
+  font: inherit;
+  cursor: pointer;
+}
+
+.event-list-row:hover,
+.event-list-row.active {
+  background: color-mix(in srgb, var(--ncac-red) 7%, transparent);
+}
+
+.event-list-date {
+  flex: 0 0 auto;
+  font-size: 11px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  color: var(--ncac-red);
+}
+
+.event-list-copy {
+  display: grid;
+  min-width: 0;
+}
+
+.event-list-copy strong {
+  font-size: 13px;
+  line-height: 1.25;
+}
+
+.event-list-copy em {
+  font-style: normal;
+  font-size: 11px;
+  color: var(--ink-soft);
+}
+
+/* The legend shares the bottom-right corner with the drawer; fade it out
+   while the drawer is open so it never peeks past the drawer's edge. */
+.map-stage:has(.selection-drawer.open) .map-legend {
+  opacity: 0;
+  pointer-events: none;
+}
+
 .legend-dot {
   display: inline-block;
   width: 9px;
@@ -1523,14 +1605,42 @@ body:not([data-map-mode="places"]) .review-tools {
 
 @media (max-width: 880px) {
   .site-header {
-    grid-template-columns: 1fr auto;
+    position: relative;
+    grid-template-columns: 1fr auto auto;
     gap: 12px;
     padding-left: 16px;
     padding-right: 16px;
   }
 
+  .nav-toggle {
+    display: flex;
+    order: 3;
+  }
+
+  /* Nav collapses into a dropdown sheet under the header, opened by the
+     hamburger (header gets .nav-open). */
   .site-nav {
     display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 30;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: var(--field);
+    border-bottom: 3px solid var(--ncac-red);
+    box-shadow: 0 10px 24px rgba(20, 20, 20, 0.18);
+  }
+
+  .site-header.nav-open .site-nav {
+    display: flex;
+  }
+
+  .site-nav a {
+    padding: 14px 16px;
+    border-top: 1px solid color-mix(in srgb, var(--ink) 14%, transparent);
   }
 
   .brand {
@@ -1705,8 +1815,13 @@ body:not([data-map-mode="places"]) .review-tools {
   }
 
   .site-header {
-    grid-template-columns: 1fr;
+    /* Brand + hamburger; the preview pill is dropped at phone width. */
+    grid-template-columns: 1fr auto;
     min-height: 64px;
+  }
+
+  .alpha-pill {
+    display: none;
   }
 
   .map-stage {

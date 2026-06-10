@@ -890,6 +890,9 @@
 
   function openSelectionDrawer() {
     els.selectionDrawer?.classList.add("open");
+    // Each selection starts at the top of the card — never inherit the
+    // previous place's scroll position.
+    if (els.selectionDrawer) els.selectionDrawer.scrollTop = 0;
   }
 
   function closeSelectionDrawer() {
@@ -973,6 +976,34 @@
     if (changeButton) changeButton.addEventListener("click", () => { state.filterListOpen = true; renderFilters(); });
     const doneButton = els.filters.querySelector("[data-outing-done]");
     if (doneButton) doneButton.addEventListener("click", () => { state.filterListOpen = false; renderFilters(); });
+  }
+
+  // Events mode replaces the Outing Type browse list with a date-sorted,
+  // browsable list of upcoming events (the map diamonds alone are not a
+  // discovery surface).
+  function renderEventsList() {
+    const events = [...state.events].sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0));
+    const rows = events.map((event) => `
+      <button class="event-list-row${state.selectedEventId === event.id ? " active" : ""}" type="button" data-event-id="${escapeHtml(event.id)}">
+        <span class="event-list-date">${escapeHtml(event.date)}</span>
+        <span class="event-list-copy"><strong>${escapeHtml(event.title)}</strong><em>${escapeHtml(event.placeName || "")}</em></span>
+      </button>`).join("");
+    els.filters.innerHTML = `
+      <div class="outing-browse">
+        <div class="outing-browse-head">
+          <span class="outing-browse-title">Upcoming events (${escapeHtml(events.length)})</span>
+        </div>
+        <div class="events-browse-list" role="list" aria-label="Upcoming events">${rows}</div>
+      </div>`;
+    els.filters.querySelectorAll(".event-list-row").forEach((button) => {
+      button.addEventListener("click", () => {
+        const event = state.events.find((item) => item.id === button.dataset.eventId);
+        if (event) {
+          showEvent(event);
+          renderEventsList();
+        }
+      });
+    });
   }
 
   function setDetailCardMode(mode) {
@@ -1138,6 +1169,7 @@
     }
     els.hint.innerHTML = `<p class="hint-title">Outing Type selected</p><p>${escapeHtml(places.length)} places match ${escapeHtml(filterLabel)}.</p>`;
     els.detail.innerHTML = `
+      <button class="selected-place-close" type="button" aria-label="Close selected place">Close</button>
       ${renderImage(place)}
       <div class="anchor-card-heading">
         <p class="detail-eyebrow">First match</p>
@@ -1148,6 +1180,7 @@
       <div class="detail-actions"><button type="button" class="anchor-map-action">View on map</button></div>
     `;
     els.detail.querySelector(".anchor-map-action")?.addEventListener("click", () => showPlace(place));
+    els.detail.querySelector(".selected-place-close")?.addEventListener("click", closeSelectionDrawer);
   }
 
   function renderFeaturedAnchor() {
@@ -1165,6 +1198,7 @@
     setDetailCardMode("primary-anchor");
     els.hint.innerHTML = `<p class="hint-title">Start here</p><p>${escapeHtml(place.anchor.hook)}</p>`;
     els.detail.innerHTML = `
+      <button class="selected-place-close" type="button" aria-label="Close selected place">Close</button>
       ${renderImage(place)}
       <div class="anchor-card-heading">
         <p class="detail-eyebrow">Start here</p>
@@ -1177,6 +1211,7 @@
       <div class="detail-actions"><button type="button" class="anchor-map-action">View on map</button></div>
     `;
     els.detail.querySelector(".anchor-map-action")?.addEventListener("click", () => showPlace(place));
+    els.detail.querySelector(".selected-place-close")?.addEventListener("click", closeSelectionDrawer);
   }
 
   function showPlace(place) {
@@ -1249,6 +1284,7 @@
     setSourceData();
     const place = placeById(event.placeId);
     els.detail.innerHTML = `
+      <button class="selected-place-close" type="button" aria-label="Close selected event">Close</button>
       ${event.image ? `<img class="place-image" src="${escapeHtml(event.image)}" alt="${escapeHtml(event.title)}" width="640" height="360" loading="lazy" decoding="async">` : ""}
       <p class="detail-eyebrow">Upcoming event</p>
       <h2>${escapeHtml(event.title)}</h2>
@@ -1261,6 +1297,10 @@
     `;
     const jump = document.getElementById("event-place-jump");
     if (jump && place) jump.addEventListener("click", () => showPlace(place));
+    els.detail.querySelector(".selected-place-close")?.addEventListener("click", () => {
+      closeSelectionDrawer();
+      if (state.mode === "events") renderEventsList();
+    });
     revealDetailCard();
     updateReviewUrl();
   }
@@ -1330,6 +1370,7 @@
     const thesis = activePath.thesis || activePath.dek;
     const copy = activePath.copy || "";
     els.detail.innerHTML = `
+      <button class="selected-place-close path-back-action" type="button" aria-label="Back to all routes">‹ All routes</button>
       <div class="path-card-heading">
         <p class="detail-eyebrow">Walk this route</p>
         <h2>${escapeHtml(activePath.title)}</h2>
@@ -1352,6 +1393,14 @@
       const place = placeById(button.dataset.place);
       if (place) button.addEventListener("click", () => showPlace(place));
     });
+    els.detail.querySelector(".path-back-action")?.addEventListener("click", () => {
+      state.selectedPath = null;
+      clearPathMarkers();
+      setMapSourceData("paths", []);
+      renderPathChooser();
+      updateReviewUrl();
+    });
+    revealDetailCard();
     els.hint.innerHTML = `
       <p class="hint-title">Stop sequence selected</p>
       <p>${escapeHtml(activePath.stops.length)} numbered stops. The markers carry the route; the connector stays quiet.</p>
@@ -1362,9 +1411,10 @@
     setDetailCardMode("path");
     els.hint.innerHTML = `
       <p class="hint-title">Cultural routes</p>
-      <p>Three routes through the county's cultural life. Pick one to start walking.</p>
+      <p>Four routes through the county's cultural life. Pick one to start walking.</p>
     `;
     els.detail.innerHTML = `
+      <button class="selected-place-close" type="button" aria-label="Close route list">Close</button>
       <div class="path-list">
         ${state.paths.map((path) => `
           <button class="path-button${state.selectedPath?.id === path.id ? " active" : ""}" type="button" data-path="${escapeHtml(path.id)}">
@@ -1378,6 +1428,10 @@
       const path = state.paths.find((item) => item.id === button.dataset.path);
       button.addEventListener("click", () => showPath(path));
     });
+    els.detail.querySelector(".selected-place-close")?.addEventListener("click", closeSelectionDrawer);
+    // The chooser is the content of Paths mode — opening it is the direct
+    // result of the user picking the tab, so revealing the drawer is expected.
+    revealDetailCard();
   }
 
   function setMode(mode) {
@@ -1389,22 +1443,29 @@
     if (mode !== "events") state.selectedEventId = "";
     if (els.search) els.search.value = state.searchQuery;
     document.querySelectorAll(".mode-tab").forEach((tab) => tab.classList.toggle("active", tab.dataset.mode === mode));
+    // Switching modes always closes the drawer — it must never auto-open
+    // without a user selection (on mobile it covers the whole control panel).
+    els.selectionDrawer?.classList.remove("open");
     clearPathMarkers();
     setMapSourceData("paths", []);
     ["event-hit-target", "event-halo", "event-points"].forEach((layerId) => {
       setMapLayerVisibility(layerId, mode === "events" ? "visible" : "none");
     });
+    const reviewTools = document.getElementById("review-tools");
+    if (reviewTools) reviewTools.style.display = mode === "events" ? "none" : "";
     if (mode === "events") {
-      els.hint.innerHTML = `<p class="hint-title">Events on the map</p><p>Upcoming NCAC-feed events appear when the venue matches a visible place.</p>`;
-      const first = state.events[0];
-      if (first) {
-        showEvent(first);
+      if (state.events.length) {
+        els.hint.innerHTML = `<p class="hint-title">Events on the map</p><p>Pick an event from the list, or tap a red diamond on the map.</p>`;
+        renderEventsList();
       } else {
-        showEventsEmpty();
+        els.hint.innerHTML = `<p class="hint-title">No events listed here this week</p><p>Check back soon — new happenings appear here as venues add them.</p>`;
+        els.filters.innerHTML = "";
       }
     } else if (mode === "paths") {
+      renderFilters();
       renderPathChooser();
     } else {
+      renderFilters();
       renderFeaturedAnchor();
     }
     setSourceData();
@@ -1774,8 +1835,10 @@
       style: STREET_BASEMAP_STYLE,
       center: isMobileViewport() ? MOBILE_INITIAL_MAP_VIEW.center : DESKTOP_INITIAL_MAP_VIEW.center,
       zoom: isMobileViewport() ? MOBILE_INITIAL_MAP_VIEW.zoom : DESKTOP_INITIAL_MAP_VIEW.zoom,
-      attributionControl: true,
+      // Attribution sits bottom-left so the legend (bottom-right) never clips it.
+      attributionControl: false,
     });
+    state.map.addControl(new maplibregl.AttributionControl(), "bottom-left");
     state.map.addControl(new maplibregl.NavigationControl({ showCompass: false }), "bottom-right");
     state.map.on("load", () => {
       hideBasemapPoiLayers();
@@ -1790,6 +1853,16 @@
     document.querySelectorAll(".mode-tab").forEach((tab) => {
       tab.addEventListener("click", () => setMode(tab.dataset.mode));
     });
+
+    const navToggle = document.querySelector(".nav-toggle");
+    const siteHeader = document.querySelector(".site-header");
+    if (navToggle && siteHeader) {
+      navToggle.addEventListener("click", () => {
+        const open = siteHeader.classList.toggle("nav-open");
+        navToggle.setAttribute("aria-expanded", open ? "true" : "false");
+        navToggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+      });
+    }
 
     els.search?.addEventListener("input", () => {
       state.localReveal = null;

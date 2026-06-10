@@ -5,14 +5,15 @@
 See: .planning/PROJECT.md (updated 2026-02-14)
 
 **Core value:** Drive people to downtowns, local businesses, performance venues, and cultural spaces through an editorial-quality interactive experience that feels like MUSE magazine.
-**Current focus:** Post-committee sprint complete. No active phase. Next: new milestone planning.
+**Current focus:** V1 Discovery Map quality push (website/cultural-map-redesign-stitch-lab/v1-discovery-map — the build shown to NCAC, live at v1-discovery-map.vercel.app). Iterating dogfood → fix → verify.
 
 ## Current Position
 
-Phase: No active phase — all GSD phases complete
+Phase: No active GSD phase — current work is the V1 Discovery Map quality loop (outside GSD)
 Plan: N/A
-Status: Tier1 post-roundtable sprint complete (6/6 tasks). Phases 7, 9, 09.1 all fully executed. Stitch-lab deployed (commit 5fec226).
-Last activity: 2026-02-18 -- Tier1 sprint wrap: verified dreamboard (29/29 checks pass) + email capture (form + module + validation), committed index-maplibre-email-capture.js + vercel.json, deployed to stitch-lab Vercel.
+Status: Dogfood sprint #1 complete: 11/11 issues from the 2026-06-09 browser audit fixed and verified (1 critical mobile trap, 4 major, 6 minor). Report + fix log: v1-discovery-map/dogfood-output/2026-06-09-live/report.md.
+Last activity: 2026-06-10 -- Fixed all 11 dogfood issues (mobile drawer trap, hamburger nav, events list, search placement, drawer scroll/z-index, route back button, copy + visual nits); verified locally at 1258px/390px via agent-browser; deployed to v1-discovery-map Vercel.
+Next: (1) re-dogfood the live site to confirm deploy + hunt fresh issues, (2) decide next quality targets with user (candidates: events date grouping, path stop UX, design polish per .planning/hub/design/DESIGN-SOURCE-OF-TRUTH.md — Polymath typography confirmed 2026-06-09), (3) eventually fold this folder's direction into formal milestone planning (/gsd:new-milestone).
 
 Progress: [████████████████████] 100% overall (all planned phases complete)
 

@@ -15,7 +15,7 @@
   <script>try{Typekit.load({async:true});}catch(e){}</script>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23ff2500'/%3E%3Cpath d='M7 24V8h4l10 9V8h4v16h-4L11 15v9z' fill='%23faf8f4'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
-  <link rel="stylesheet" href="styles.css?v=cla-42-v1">
+  <link rel="stylesheet" href="styles.css?v=cla-44-dogfood-fixes7">
 </head>
 <body>
   <a class="skip-link" href="#map">Skip to map</a>
@@ -25,7 +25,12 @@
       <span>Nevada County</span>
       <span>Cultural Map</span>
     </a>
-    <nav class="site-nav" aria-label="Reference navigation">
+    <button type="button" class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="site-nav">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
+    <nav class="site-nav" id="site-nav" aria-label="Reference navigation">
       <a href="https://www.nevadacountyarts.org/muse-magazine">MUSE Magazine</a>
       <a href="https://www.nevadacountyarts.org/culture-forward">Culture Forward</a>
       <a href="https://www.nevadacountyarts.org/cultural-asset-map">Current Map</a>
@@ -70,8 +75,6 @@
           <p>Grass Valley and Nevada City are where the map is densest — the wider county stays in view.</p>
         </div>
 
-        <div class="filter-wrap" id="filters" aria-label="Outing Type browse list"></div>
-
         <div class="review-tools" id="review-tools" aria-label="Review navigation">
           <h2 class="browse-heading">Places to explore</h2>
           <label class="review-search-label" for="place-search">
@@ -80,6 +83,8 @@
           </label>
           <div class="places-list" id="places-list"></div>
         </div>
+
+        <div class="filter-wrap" id="filters" aria-label="Outing Type browse list"></div>
 
       </aside>
 
@@ -102,6 +107,6 @@
   <script src="review-state.js"></script>
   <script src="place-data.js"></script>
   <script src="marker-category-color.js"></script>
-  <script src="app.js?v=cla-42-v1"></script>
+  <script src="app.js?v=cla-44-dogfood-fixes7"></script>
 </body>
 </html>
