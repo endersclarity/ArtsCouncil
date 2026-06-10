@@ -3,6 +3,12 @@
  "entries": [
   {
    "date": "2026-06-10",
+   "title": "Every website link checked: 13 repaired, 65 dead links retired",
+   "summary": "All 831 venue website links were tested. 646 work fine. 13 had small address problems (a missing www or an outdated link) that we repaired automatically. 65 led to vanished pages or domains that no longer exist; place cards no longer offer those links, so visitors stop landing on error pages. 55 borderline cases (sites that block automated checks or have certificate problems) are held in a review list rather than being removed.",
+   "kind": "fix"
+  },
+  {
+   "date": "2026-06-10",
    "title": "103 more places switched to photos from their own websites",
    "summary": "Hundreds of place photos were still borrowed from Google links that expire over time. We checked all 581 places that have both a Google-linked photo and their own website, and for 103 of them the venue's own site offered a usable photo. Those are now stored with the map permanently and credited to the venue. That brings self-hosted, never-expiring photos to 117 places, and every one is the image the venue chose to represent itself.",
    "kind": "improvement"

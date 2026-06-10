@@ -1240,7 +1240,7 @@
     const rows = [
       place.address ? ["Address", escapeHtml(place.address)] : null,
       place.phone ? ["Phone", `<a href="tel:${escapeHtml(place.phone.replace(/[^0-9+]/g, ""))}">${escapeHtml(place.phone)}</a>`] : null,
-      place.website ? ["Website", `<a href="${escapeHtml(place.website)}" target="_blank" rel="noopener">Open website</a>`] : null,
+      place.website && place.websiteStatus !== "dead" ? ["Website", `<a href="${escapeHtml(place.website)}" target="_blank" rel="noopener">Open website</a>`] : null,
     ].filter(Boolean);
     if (!rows.length) return "";
     return `
@@ -1390,7 +1390,7 @@
     const events = relatedEvents(place.id);
     const anchor = place.anchor || null;
     const actionLabel = place.anchorCard?.primaryAction || "Visit site";
-    const action = place.website ? `<a href="${escapeHtml(place.website)}" target="_blank" rel="noopener">${escapeHtml(actionLabel)}</a>` : "";
+    const action = place.website && place.websiteStatus !== "dead" ? `<a href="${escapeHtml(place.website)}" target="_blank" rel="noopener">${escapeHtml(actionLabel)}</a>` : "";
     const isPrimaryAnchor = Boolean(anchor && place.anchorCard);
     const isSupportingStop = Boolean(!anchor && place.anchorCard);
     setDetailCardMode(isPrimaryAnchor ? "primary-anchor" : isSupportingStop ? "supporting-stop" : "");

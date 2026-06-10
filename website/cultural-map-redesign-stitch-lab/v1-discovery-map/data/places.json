@@ -855,7 +855,7 @@
   "intent": "See a Show",
   "musePick": false,
   "description": "Located in Grass Valley, California, the Nevada County Fairgrounds has been declared as California’s Most Beautiful Fairgrounds, and is covered with hundreds of towering pine trees on almost 90 acres. It is home to the annual Nevada County Fair, the Draft Horse Classic, the Country Christmas Faire, world class music festivals, and year round community events. There is also a year round RV Park, Lions Lake, rental facilities, weekly events, weddings, some of our community’s largest outdoor events, and lots of areas to walk.",
-  "website": "https://www.nevadacountyfair.org",
+  "website": "http://www.nevadacountyfair.org/",
   "address": "11128 McCourtney Rd",
   "phone": "530-273-6217",
   "lat": 39.20789814267049,
@@ -932,7 +932,7 @@
   "intent": "Historic Places",
   "musePick": false,
   "description": "The Nevada County Gem and Mineral Society is a non profit organization that has the following objectives: To promote the study of mineralogy, geology, and fossils. To encourage the collection of minerals and gems. To foster the study and practice of the lapidary arts. To provide field trips to mineral localities. To promote good fellowship, education and recreation.",
-  "website": "https://www.ncgms.org",
+  "website": "https://www.ncgms.org/",
   "address": "P.O. Box 1686",
   "phone": "530-305-9212 (Todd)",
   "lat": 39.195862823007104,
@@ -1218,7 +1218,8 @@
   "featured": false,
   "coordinateProvenance": "arcgis-confident",
   "markerTier": "map-ready",
-  "inGvncScope": true
+  "inGvncScope": true,
+  "websiteStatus": "dead"
  },
  {
   "id": "off-broadstreet-nevada-city",
@@ -1354,7 +1355,8 @@
   "featured": false,
   "coordinateProvenance": "arcgis-confident",
   "markerTier": "map-ready",
-  "inGvncScope": true
+  "inGvncScope": true,
+  "websiteStatus": "dead"
  },
  {
   "id": "sierra-dance-institute-grass-valley",
@@ -1496,7 +1498,8 @@
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
   "markerTier": "candidate",
-  "inGvncScope": true
+  "inGvncScope": true,
+  "websiteStatus": "dead"
  },
  {
   "id": "sierra-stages-nevada-city",
@@ -1867,7 +1870,8 @@
   "featured": false,
   "coordinateProvenance": "arcgis-confident",
   "markerTier": "map-ready",
-  "inGvncScope": true
+  "inGvncScope": true,
+  "websiteStatus": "dead"
  },
  {
   "id": "touchdown-productions-grass-valley",
@@ -2117,7 +2121,8 @@
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
   "markerTier": "candidate",
-  "inGvncScope": true
+  "inGvncScope": true,
+  "websiteStatus": "dead"
  },
  {
   "id": "country-copy-grass-valley",
@@ -3408,7 +3413,8 @@
   "featured": false,
   "coordinateProvenance": "diana",
   "markerTier": "map-ready",
-  "inGvncScope": true
+  "inGvncScope": true,
+  "websiteStatus": "dead"
  },
  {
   "id": "fieldmouse-press-grass-valley",
@@ -4096,7 +4102,8 @@
   "featured": false,
   "coordinateProvenance": "diana",
   "markerTier": "map-ready",
-  "inGvncScope": true
+  "inGvncScope": true,
+  "websiteStatus": "dead"
  },
  {
   "id": "madelyn-helling-library-nevada-city",
@@ -4704,7 +4711,8 @@
   "featured": false,
   "coordinateProvenance": "diana",
   "markerTier": "map-ready",
-  "inGvncScope": true
+  "inGvncScope": true,
+  "websiteStatus": "dead"
  },
  {
   "id": "ngakmang-foundation-nevada-city",
@@ -4928,7 +4936,8 @@
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
   "markerTier": "candidate",
-  "inGvncScope": true
+  "inGvncScope": true,
+  "websiteStatus": "dead"
  },
  {
   "id": "searls-historical-library-nevada-city",
@@ -4962,7 +4971,8 @@
   "featured": false,
   "coordinateProvenance": "diana",
   "markerTier": "map-ready",
-  "inGvncScope": true
+  "inGvncScope": true,
+  "websiteStatus": "dead"
  },
  {
   "id": "sibylline-press-grass-valley",
@@ -5036,7 +5046,8 @@
   "featured": false,
   "coordinateProvenance": "diana",
   "markerTier": "map-ready",
-  "inGvncScope": true
+  "inGvncScope": true,
+  "websiteStatus": "dead"
  },
  {
   "id": "sierra-foodwineart-magazine-nevada-city",
@@ -5047,7 +5058,7 @@
   "intent": "Historic Places",
   "musePick": false,
   "description": "Sierra FoodWineArt is a free, quarterly lifestyle magazine that is the go-to publication for restaurants, wineries, wine & beer, arts & music, and travel & tourism in the Sierra Foothills, Tahoe/Truckee, Reno and outlying Sacramento region. We also have a companion website called SierraCulture.com.",
-  "website": "https://www.sierraculture.com",
+  "website": "http://www.sierraculture.com/",
   "address": "132 Main St",
   "phone": "530-263-1843",
   "lat": 39.26309397334557,
@@ -5561,7 +5572,8 @@
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
   "markerTier": "candidate",
-  "inGvncScope": true
+  "inGvncScope": true,
+  "websiteStatus": "dead"
  },
  {
   "id": "alloro-ristorante-grass-valley",
@@ -5595,7 +5607,8 @@
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
   "markerTier": "candidate",
-  "inGvncScope": true
+  "inGvncScope": true,
+  "websiteStatus": "dead"
  },
  {
   "id": "alta-sierra-village-inn-grass-valley",
@@ -5811,7 +5824,8 @@
   "featured": false,
   "coordinateProvenance": "arcgis-confident",
   "markerTier": "candidate",
-  "inGvncScope": true
+  "inGvncScope": true,
+  "websiteStatus": "dead"
  },
  {
   "id": "avanguardia-wines-tasting-room-grass-valley",
@@ -6515,7 +6529,8 @@
   "featured": false,
   "coordinateProvenance": "arcgis-confident",
   "markerTier": "map-ready",
-  "inGvncScope": true
+  "inGvncScope": true,
+  "websiteStatus": "dead"
  },
  {
   "id": "corvus-bakery-grass-valley",
@@ -8292,7 +8307,8 @@
   "featured": false,
   "coordinateProvenance": "candidate",
   "markerTier": "candidate",
-  "inGvncScope": true
+  "inGvncScope": true,
+  "websiteStatus": "dead"
  },
  {
   "id": "maria-s-mexican-restaurant-grass-valley",
@@ -8418,7 +8434,8 @@
   "featured": false,
   "coordinateProvenance": "arcgis-confident",
   "markerTier": "map-ready",
-  "inGvncScope": true
+  "inGvncScope": true,
+  "websiteStatus": "dead"
  },
  {
   "id": "meze-eatery-grass-valley",
@@ -8720,7 +8737,8 @@
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
   "markerTier": "candidate",
-  "inGvncScope": true
+  "inGvncScope": true,
+  "websiteStatus": "dead"
  },
  {
   "id": "nevada-city-inn-nevada-city",
@@ -9618,7 +9636,8 @@
   "featured": false,
   "coordinateProvenance": "arcgis-confident",
   "markerTier": "map-ready",
-  "inGvncScope": true
+  "inGvncScope": true,
+  "websiteStatus": "dead"
  },
  {
   "id": "sushi-q-nevada-city",
@@ -10815,7 +10834,8 @@
   "featured": false,
   "coordinateProvenance": "diana",
   "markerTier": "map-ready",
-  "inGvncScope": true
+  "inGvncScope": true,
+  "websiteStatus": "dead"
  },
  {
   "id": "country-christmas-craft-fair-grass-valley",
@@ -10954,7 +10974,8 @@
   "featured": false,
   "coordinateProvenance": "diana",
   "markerTier": "map-ready",
-  "inGvncScope": true
+  "inGvncScope": true,
+  "websiteStatus": "dead"
  },
  {
   "id": "earth-fest-street-fair-nevada-city",
@@ -11062,7 +11083,8 @@
   "featured": false,
   "coordinateProvenance": "diana",
   "markerTier": "map-ready",
-  "inGvncScope": true
+  "inGvncScope": true,
+  "websiteStatus": "dead"
  },
  {
   "id": "fathers-day-bluegrass-festival-grass-valley",
@@ -11139,7 +11161,8 @@
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
   "markerTier": "candidate",
-  "inGvncScope": true
+  "inGvncScope": true,
+  "websiteStatus": "dead"
  },
  {
   "id": "first-friday-art-walk-nevada-city",
@@ -11207,7 +11230,8 @@
   "featured": false,
   "coordinateProvenance": "diana",
   "markerTier": "candidate",
-  "inGvncScope": true
+  "inGvncScope": true,
+  "websiteStatus": "dead"
  },
  {
   "id": "grass-valley-car-show-grass-valley",
@@ -11241,7 +11265,8 @@
   "featured": false,
   "coordinateProvenance": "diana",
   "markerTier": "map-ready",
-  "inGvncScope": true
+  "inGvncScope": true,
+  "websiteStatus": "dead"
  },
  {
   "id": "grass-valley-farmers-market-grass-valley",
@@ -11689,7 +11714,8 @@
   "featured": false,
   "coordinateProvenance": "diana",
   "markerTier": "map-ready",
-  "inGvncScope": true
+  "inGvncScope": true,
+  "websiteStatus": "dead"
  },
  {
   "id": "sierra-poetry-festival-grass-valley",
@@ -11723,7 +11749,8 @@
   "featured": false,
   "coordinateProvenance": "diana",
   "markerTier": "map-ready",
-  "inGvncScope": true
+  "inGvncScope": true,
+  "websiteStatus": "dead"
  },
  {
   "id": "st-piran-s-day-festival-grass-valley",
@@ -11757,7 +11784,8 @@
   "featured": false,
   "coordinateProvenance": "diana",
   "markerTier": "map-ready",
-  "inGvncScope": true
+  "inGvncScope": true,
+  "websiteStatus": "dead"
  },
  {
   "id": "strawberry-music-festival-grass-valley",
@@ -11859,7 +11887,8 @@
   "featured": false,
   "coordinateProvenance": "none",
   "markerTier": "directory-only",
-  "inGvncScope": true
+  "inGvncScope": true,
+  "websiteStatus": "dead"
  },
  {
   "id": "victorian-christmas-nevada-city",
@@ -11927,7 +11956,8 @@
   "featured": false,
   "coordinateProvenance": "diana",
   "markerTier": "map-ready",
-  "inGvncScope": true
+  "inGvncScope": true,
+  "websiteStatus": "dead"
  },
  {
   "id": "asif-studios-grass-valley",
@@ -12666,7 +12696,8 @@
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
   "markerTier": "candidate",
-  "inGvncScope": true
+  "inGvncScope": true,
+  "websiteStatus": "dead"
  },
  {
   "id": "nevada-city-picture-framing-nevada-city",
@@ -13171,7 +13202,8 @@
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
   "markerTier": "candidate",
-  "inGvncScope": true
+  "inGvncScope": true,
+  "websiteStatus": "dead"
  },
  {
   "id": "the-vault-crush-nevada-city",
@@ -16936,7 +16968,8 @@
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
   "markerTier": "candidate",
-  "inGvncScope": true
+  "inGvncScope": true,
+  "websiteStatus": "dead"
  },
  {
   "id": "cosmic-shark-clothing-grass-valley",
@@ -17818,7 +17851,8 @@
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
   "markerTier": "candidate",
-  "inGvncScope": true
+  "inGvncScope": true,
+  "websiteStatus": "dead"
  },
  {
   "id": "kiya-s-naturals-nevada-city",
@@ -17988,7 +18022,8 @@
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
   "markerTier": "candidate",
-  "inGvncScope": true
+  "inGvncScope": true,
+  "websiteStatus": "dead"
  },
  {
   "id": "main-street-kids-nevada-city",
@@ -18864,7 +18899,8 @@
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
   "markerTier": "candidate",
-  "inGvncScope": true
+  "inGvncScope": true,
+  "websiteStatus": "dead"
  },
  {
   "id": "the-phoenix-rose-nevada-city",
@@ -19046,7 +19082,8 @@
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
   "markerTier": "candidate",
-  "inGvncScope": true
+  "inGvncScope": true,
+  "websiteStatus": "dead"
  },
  {
   "id": "winnie-superette-nevada-city",
@@ -19091,7 +19128,7 @@
   "intent": "Historic Places",
   "musePick": true,
   "description": "A muse picks entry in Nevada City, included for alpha review while source descriptions are cleaned.",
-  "website": "https://www.asylumdown.com",
+  "website": "http://www.asylumdown.com/",
   "address": "107 N. Pine Street",
   "phone": "530-478-9114",
   "lat": 39.2627842,
@@ -21093,7 +21130,8 @@
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
   "markerTier": "candidate",
-  "inGvncScope": true
+  "inGvncScope": true,
+  "websiteStatus": "dead"
  },
  {
   "id": "ananda-village-crystal-hermitage-gardens-nevada-city",
@@ -21872,7 +21910,8 @@
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
   "markerTier": "candidate",
-  "inGvncScope": true
+  "inGvncScope": true,
+  "websiteStatus": "dead"
  },
  {
   "id": "rattlesnake-trail-grass-valley",
@@ -22572,7 +22611,8 @@
   "featured": false,
   "coordinateProvenance": "arcgis-confident",
   "markerTier": "candidate",
-  "inGvncScope": false
+  "inGvncScope": false,
+  "websiteStatus": "dead"
  },
  {
   "id": "tahoe-music-alive-truckee",
@@ -24183,7 +24223,8 @@
   "featured": false,
   "coordinateProvenance": "diana",
   "markerTier": "map-ready",
-  "inGvncScope": false
+  "inGvncScope": false,
+  "websiteStatus": "dead"
  },
  {
   "id": "friends-of-the-truckee-library-truckee",
@@ -25461,7 +25502,8 @@
   "featured": false,
   "coordinateProvenance": "diana",
   "markerTier": "map-ready",
-  "inGvncScope": false
+  "inGvncScope": false,
+  "websiteStatus": "dead"
  },
  {
   "id": "truckee-river-watershed-council-truckee",
@@ -25626,7 +25668,7 @@
   "intent": "Eat, Drink & Stay",
   "musePick": true,
   "description": "A eat, drink & stay entry in Truckee, included for alpha review while source descriptions are cleaned.",
-  "website": "https://riverstreetinntruckee.com",
+  "website": "http://riverstreetinntruckee.com/",
   "address": "10009 E River St",
   "phone": "530 550 9222",
   "lat": 39.3273442,
@@ -26065,7 +26107,8 @@
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
   "markerTier": "candidate",
-  "inGvncScope": false
+  "inGvncScope": false,
+  "websiteStatus": "dead"
  },
  {
   "id": "casa-baeza-mexican-restaurant-truckee",
@@ -26441,7 +26484,8 @@
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
   "markerTier": "candidate",
-  "inGvncScope": false
+  "inGvncScope": false,
+  "websiteStatus": "dead"
  },
  {
   "id": "cottonwood-restaurant-and-bar-truckee",
@@ -26549,7 +26593,8 @@
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
   "markerTier": "candidate",
-  "inGvncScope": true
+  "inGvncScope": true,
+  "websiteStatus": "dead"
  },
  {
   "id": "dark-horse-coffee-roasters-truckee-truckee",
@@ -26737,7 +26782,8 @@
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
   "markerTier": "candidate",
-  "inGvncScope": false
+  "inGvncScope": false,
+  "websiteStatus": "dead"
  },
  {
   "id": "dorinda-s-chocolates-truckee",
@@ -26987,7 +27033,8 @@
   "featured": false,
   "coordinateProvenance": "none",
   "markerTier": "directory-only",
-  "inGvncScope": false
+  "inGvncScope": false,
+  "websiteStatus": "dead"
  },
  {
   "id": "fifty-fifty-brewing-company-truckee",
@@ -27364,7 +27411,7 @@
   "intent": "Eat, Drink & Stay",
   "musePick": true,
   "description": "A eat, drink & stay entry in Penn Valley, included for alpha review while source descriptions are cleaned.",
-  "website": "https://graypinewinery.com",
+  "website": "http://graypinewinery.com/",
   "address": "19396 Branding Iron Rd",
   "phone": "530 432 7045",
   "lat": 39.205137270663,
@@ -27655,7 +27702,8 @@
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
   "markerTier": "candidate",
-  "inGvncScope": false
+  "inGvncScope": false,
+  "websiteStatus": "dead"
  },
  {
   "id": "little-truckee-ice-creamery-truckee",
@@ -27859,7 +27907,8 @@
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
   "markerTier": "candidate",
-  "inGvncScope": false
+  "inGvncScope": false,
+  "websiteStatus": "dead"
  },
  {
   "id": "mi-pueblito-market-truckee",
@@ -28582,7 +28631,7 @@
   "intent": "Eat, Drink & Stay",
   "musePick": true,
   "description": "A eat, drink & stay entry in Truckee, included for alpha review while source descriptions are cleaned.",
-  "website": "https://riverstreetinntruckee.com",
+  "website": "http://riverstreetinntruckee.com/",
   "address": "10009 E River St",
   "phone": "530 550 9290",
   "lat": 39.3273442,
@@ -30011,7 +30060,7 @@
   "intent": "Eat, Drink & Stay",
   "musePick": true,
   "description": "A eat, drink & stay entry in Truckee, included for alpha review while source descriptions are cleaned.",
-  "website": "https://restauranttrokay.com",
+  "website": "https://www.restauranttrokay.com/",
   "address": "10046 Donner Pass Rd",
   "phone": "530 582 1040",
   "lat": 39.3282348,
@@ -30436,7 +30485,7 @@
   "intent": "Eat, Drink & Stay",
   "musePick": true,
   "description": "A eat, drink & stay entry in Truckee, included for alpha review while source descriptions are cleaned.",
-  "website": "https://villagepizzeriatruckee.com",
+  "website": "http://villagepizzeriatruckee.com/",
   "address": "11329 Deerfield Dr",
   "phone": "530 587 7171",
   "lat": 39.3196655,
@@ -30533,7 +30582,8 @@
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
   "markerTier": "candidate",
-  "inGvncScope": false
+  "inGvncScope": false,
+  "websiteStatus": "dead"
  },
  {
   "id": "wild-cherries-coffee-house-truckee",
@@ -30980,7 +31030,8 @@
   "featured": false,
   "coordinateProvenance": "none",
   "markerTier": "directory-only",
-  "inGvncScope": false
+  "inGvncScope": false,
+  "websiteStatus": "dead"
  },
  {
   "id": "moody-s-jazz-camp-truckee",
@@ -31224,7 +31275,8 @@
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
   "markerTier": "candidate",
-  "inGvncScope": false
+  "inGvncScope": false,
+  "websiteStatus": "dead"
  },
  {
   "id": "the-great-ski-race-tahoe-city",
@@ -31400,7 +31452,8 @@
   "featured": false,
   "coordinateProvenance": "none",
   "markerTier": "directory-only",
-  "inGvncScope": false
+  "inGvncScope": false,
+  "websiteStatus": "dead"
  },
  {
   "id": "truckee-literary-festival-truckee",
@@ -31474,7 +31527,8 @@
   "featured": false,
   "coordinateProvenance": "none",
   "markerTier": "directory-only",
-  "inGvncScope": false
+  "inGvncScope": false,
+  "websiteStatus": "dead"
  },
  {
   "id": "truckee-pride-week-truckee",
@@ -31729,7 +31783,7 @@
   "intent": "See a Show",
   "musePick": false,
   "description": "In October, Trails & Vistas presents an eerie experience exploring spooky ghostly tales in their Truckee’s Haunted Historic Tour. During the walkabout through the area’s sinister past of yesteryear, participants will be guided through the first home, first school, first church, the oldest building and the oldest retail store in Truckee … and, there just may be a haunted visit by one of the ghosts rumored to inhabit these haunts.",
-  "website": "https://www.truckeehistorytour.org/",
+  "website": "http://www.truckeehistorytour.org/",
   "address": "10007 Bridge St",
   "phone": "(775) 527-4485",
   "lat": 39.3285081,
@@ -31917,7 +31971,7 @@
   "intent": "Galleries & Studios",
   "musePick": false,
   "description": "The Emigrant Trail Museum contains exhibits about the cultural history of the area, including local Native Americans, the Donner Party, and building of the First Transcontinental Railroad.",
-  "website": "http://www.parks.ca.gov/?page_id=503",
+  "website": "https://www.parks.ca.gov/?page_id=503",
   "address": "12593 Donner Pass Rd",
   "phone": "530-582-7892",
   "lat": 39.325978891688095,
@@ -32612,7 +32666,8 @@
   "featured": false,
   "coordinateProvenance": "diana",
   "markerTier": "map-ready",
-  "inGvncScope": false
+  "inGvncScope": false,
+  "websiteStatus": "dead"
  },
  {
   "id": "alpha-and-omega-hydraulic",
@@ -38061,7 +38116,8 @@
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
   "markerTier": "candidate",
-  "inGvncScope": false
+  "inGvncScope": false,
+  "websiteStatus": "dead"
  },
  {
   "id": "mo-jo-and-zoe-truckee",
@@ -38106,7 +38162,7 @@
   "intent": "Historic Places",
   "musePick": true,
   "description": "A muse picks entry in Truckee, included for alpha review while source descriptions are cleaned.",
-  "website": "https://nomadboutique.com",
+  "website": "https://www.nomadboutique.com/",
   "address": "10046 Donner Pass Rd",
   "phone": "(530) 536-5058",
   "lat": 39.3282348,
@@ -38197,7 +38253,8 @@
   "featured": false,
   "coordinateProvenance": "candidate",
   "markerTier": "candidate",
-  "inGvncScope": false
+  "inGvncScope": false,
+  "websiteStatus": "dead"
  },
  {
   "id": "tahoe-oil-and-spice",
@@ -38647,7 +38704,8 @@
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
   "markerTier": "candidate",
-  "inGvncScope": false
+  "inGvncScope": false,
+  "websiteStatus": "dead"
  },
  {
   "id": "community-arts-center-truckee",
@@ -39954,7 +40012,8 @@
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
   "markerTier": "candidate",
-  "inGvncScope": false
+  "inGvncScope": false,
+  "websiteStatus": "dead"
  },
  {
   "id": "valhalla-vintage-truckee",
@@ -40938,7 +40997,8 @@
   "featured": false,
   "coordinateProvenance": "arcgis-confident",
   "markerTier": "map-ready",
-  "inGvncScope": true
+  "inGvncScope": true,
+  "websiteStatus": "dead"
  },
  {
   "id": "campfire-center-trail",
@@ -41765,7 +41825,7 @@
   "intent": "Outdoors",
   "musePick": false,
   "description": "A walks & trails entry in Truckee, included for alpha review while source descriptions are cleaned.",
-  "website": "http://www.parks.ca.gov/?page_id=503",
+  "website": "https://www.parks.ca.gov/?page_id=503",
   "address": "12593 Donner Pass Rd",
   "phone": "",
   "lat": 39.324685568617,
@@ -45104,7 +45164,8 @@
   "featured": false,
   "coordinateProvenance": "arcgis-confident",
   "markerTier": "map-ready",
-  "inGvncScope": true
+  "inGvncScope": true,
+  "websiteStatus": "dead"
  },
  {
   "id": "pond-trail",
@@ -46986,7 +47047,8 @@
   "featured": false,
   "coordinateProvenance": "arcgis-confident",
   "markerTier": "map-ready",
-  "inGvncScope": true
+  "inGvncScope": true,
+  "websiteStatus": "dead"
  },
  {
   "id": "south-yuba-trail",
@@ -47706,7 +47768,8 @@
   "featured": false,
   "coordinateProvenance": "arcgis-confident",
   "markerTier": "map-ready",
-  "inGvncScope": false
+  "inGvncScope": false,
+  "websiteStatus": "dead"
  },
  {
   "id": "turnpike-trail",
@@ -48012,7 +48075,8 @@
   "featured": false,
   "coordinateProvenance": "arcgis-confident",
   "markerTier": "map-ready",
-  "inGvncScope": false
+  "inGvncScope": false,
+  "websiteStatus": "dead"
  },
  {
   "id": "western-gateway-park-penn-valley",
@@ -48046,7 +48110,8 @@
   "featured": false,
   "coordinateProvenance": "arcgis-confident",
   "markerTier": "candidate",
-  "inGvncScope": true
+  "inGvncScope": true,
+  "websiteStatus": "dead"
  },
  {
   "id": "western-gateway-park-creek-trail",
