@@ -9,6 +9,27 @@ See: .planning/PROJECT.md (updated 2026-02-14)
 
 ## Current Position
 
+## Data-cleanliness pass — DONE 2026-06-10 (5 commits e7bb84d..623de8b, NOT pushed)
+
+1. og:image full sweep: 103 more venue photos self-hosted (581 checked); 266 total
+   self-hosted, 753 still on expiring Google links (sites publish no og:image or block).
+2. Website link-rot: 831 probed; 13 URLs auto-repaired, 65 dead links retired from
+   cards (websiteStatus:"dead", renderer change, cache-bust cla-50-dead-websites);
+   55 borderline in scripts/website-review.md. Facebook/AllTrails bot-walls exempt.
+3. Self-description retry: 8 more venues in their own words (one Haiku batch,
+   strict-verify); yabobo website spam-hijacked -> dead.
+4. Parcel coordinate pass: county PARCEL_ADDRESS_PRO_LOC locator over the 127
+   census-unmatched; 33 confirmed, 2 corrected (Banner Mountain 14km, Storytelling
+   Festival 4.3km), 15 downgraded, broad-street-inn flagged for human (address field
+   contradicts pin). Tiers: map-ready 483 / candidate 560 / directory-only 308.
+5. scripts/audit-everything.py: one-command health report, documented in README.
+   Run monthly; flags name the deep-dive script to use.
+
+Remaining: 441 templated descriptions (216 websites are bot-walled or say nothing
+about themselves — people problem); ~330 placeholder photos (community photo drive);
+76 places no census AND no parcel match; review files: demotion-review.md,
+website-review.md, broad-street-inn.
+
 ## Claim Your Listing — concept board added 2026-06-10
 
 Owner direction post-launch-pressure: the remaining content gap (~450 templated
