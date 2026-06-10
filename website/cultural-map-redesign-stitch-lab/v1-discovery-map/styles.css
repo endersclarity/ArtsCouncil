@@ -1382,6 +1382,76 @@ body:not([data-map-mode="places"]) .review-tools {
   color: var(--ncac-red);
 }
 
+.story-lens-button {
+  border-style: solid;
+  margin-top: 6px;
+}
+
+.story-list {
+  display: grid;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.story-row {
+  appearance: none;
+  text-align: left;
+  border: 1px solid var(--line, #d8d4cb);
+  background: var(--surface);
+  padding: 8px 10px;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+.story-row:hover {
+  border-color: var(--ncac-red);
+}
+
+.story-row strong {
+  display: block;
+  font-size: 13px;
+}
+
+.story-row span {
+  display: block;
+  margin-top: 2px;
+  font-size: 11px;
+  color: var(--ink-soft);
+}
+
+.story-title {
+  margin: 4px 0 0;
+  font-size: 19px;
+}
+
+.story-issue {
+  margin: 2px 0 8px;
+  font-size: 12px;
+  color: var(--ink-soft);
+}
+
+button.seen-in-muse-story {
+  appearance: none;
+  text-align: left;
+  width: 100%;
+  border: 1px solid var(--line, #d8d4cb);
+  background: var(--surface);
+  cursor: pointer;
+  font-family: inherit;
+}
+
+button.seen-in-muse-story:hover {
+  border-color: var(--ncac-red);
+}
+
+button.seen-in-muse-story em {
+  display: block;
+  margin-top: 3px;
+  font-size: 11px;
+  font-style: normal;
+  color: var(--ncac-red);
+}
+
 .surprise-list .place-nearby-link em {
   display: block;
   margin-top: 3px;

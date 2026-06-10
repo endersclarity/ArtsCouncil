@@ -14,6 +14,7 @@
     anchorCards: "data/anchor_cards.json",
     museEvidence: "data/muse_evidence_links.json",
     museSampler: "data/muse_grounded_sampler.json",
+    museStories: "data/muse-stories.json",
   };
 
   const MARKERS = {
@@ -147,6 +148,7 @@
     paths: [],
     anchorCards: [],
     museEvidenceByPlace: new Map(),
+    museStories: [],
     browseSamplerPlaceIds: [],
     selectedPath: null,
     selectedPlaceId: "",
@@ -980,6 +982,7 @@
           </div>
           <div class="outing-list" role="group" aria-label="Outing types">${rows}</div>
           <button class="surprise-button" type="button" data-surprise>Surprise me nearby</button>
+          <button class="surprise-button story-lens-button" type="button" data-muse-stories>Stories from MUSE</button>
         </div>`;
     } else {
       const pills = activeIntents.map((outingType) => `
@@ -1013,6 +1016,7 @@
     };
 
     els.filters.querySelector("[data-surprise]")?.addEventListener("click", renderSurprise);
+    els.filters.querySelector("[data-muse-stories]")?.addEventListener("click", renderStoryList);
     els.filters.querySelectorAll(".outing-row").forEach((button) => {
       button.addEventListener("click", () => toggleIntent(button.dataset.outingType));
     });
@@ -1134,7 +1138,20 @@
   }
 
   function rollSurprise() {
-    const eligible = surpriseEligiblePlaces();
+    let eligible = surpriseEligiblePlaces();
+    // "Nearby" must mean nearby: rank by distance to the current map view and
+    // draw from the closest ~30 so Nevada City doesn't surprise you with Truckee.
+    const center = state.map?.getCenter?.();
+    if (center) {
+      eligible = eligible
+        .map((place) => ({
+          place,
+          dist: Math.hypot((place.lng - center.lng) * Math.cos((center.lat * Math.PI) / 180), place.lat - center.lat),
+        }))
+        .sort((a, b) => a.dist - b.dist)
+        .slice(0, 30)
+        .map((item) => item.place);
+    }
     // Prefer places with a real photo, then top up from the rest.
     const withImage = eligible.filter((place) => place.image?.kind === "real");
     const pool = withImage.length >= 4 ? withImage : eligible;
@@ -1170,6 +1187,86 @@
       closeSelectionDrawer();
     });
     els.detail.querySelector(".surprise-reroll")?.addEventListener("click", renderSurprise);
+    els.detail.querySelectorAll("[data-nearby-place]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const place = placeById(button.dataset.nearbyPlace);
+        if (place) showPlace(place);
+      });
+    });
+    revealDetailCard();
+  }
+
+  // MUSE Story Lens ("MUSE Story Lens" board): browse the map through real
+  // MUSE Magazine articles. Stories come from exact, direct-evidence matches
+  // only (data/muse-stories.json) — never theme/fuzzy guesses.
+  function storiesForPlace(placeId) {
+    return state.museStories.filter((story) => story.placeIds.includes(placeId));
+  }
+
+  function renderStoryList() {
+    state.selectedPlaceId = "";
+    state.surprisePlaceIds = [];
+    setSourceData();
+    setDetailCardMode("");
+    if (!state.museStories.length) return;
+    els.detail.innerHTML = `
+      <button class="selected-place-close" type="button" aria-label="Close stories">Close</button>
+      <p class="section-label">MUSE story lens</p>
+      <p class="empty-copy">Real articles from MUSE Magazine — pick one to see everywhere it touches the map.</p>
+      <div class="story-list">
+        ${state.museStories.map((story) => `
+          <button class="story-row" type="button" data-muse-story="${escapeHtml(story.id)}">
+            <strong>${escapeHtml(story.title)}</strong>
+            <span>${escapeHtml(story.issue)} · ${escapeHtml(story.placeIds.length)} places</span>
+          </button>
+        `).join("")}
+      </div>
+    `;
+    els.detail.querySelector(".selected-place-close")?.addEventListener("click", closeSelectionDrawer);
+    els.detail.querySelectorAll("[data-muse-story]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const story = state.museStories.find((item) => item.id === button.dataset.museStory);
+        if (story) renderStory(story);
+      });
+    });
+    revealDetailCard();
+  }
+
+  function renderStory(story) {
+    const members = story.placeIds.map((id) => placeById(id)).filter((place) => place && place.lat && place.lng);
+    if (!members.length) return;
+    state.selectedPlaceId = "";
+    // Reuse the surprise ring layer to mark every place the story touches.
+    state.surprisePlaceIds = members.map((place) => place.id);
+    setSourceData();
+    setDetailCardMode("");
+    const bounds = members.reduce(
+      (box, place) => box.extend([place.lng, place.lat]),
+      new maplibregl.LngLatBounds([members[0].lng, members[0].lat], [members[0].lng, members[0].lat]),
+    );
+    state.map.fitBounds(bounds, { padding: 90, maxZoom: 15, duration: prefersReducedMotion() ? 0 : 800 });
+    els.detail.innerHTML = `
+      <button class="selected-place-close" type="button" aria-label="Close story">Close</button>
+      <p class="section-label">From the pages of MUSE</p>
+      <h2 class="story-title">${escapeHtml(story.title)}</h2>
+      <p class="story-issue">${escapeHtml(story.issue)}${story.pages?.[0] ? ` · pages ${escapeHtml(story.pages[0])}–${escapeHtml(story.pages[1] || story.pages[0])}` : ""}</p>
+      <p class="empty-copy">This article mentions ${escapeHtml(members.length)} places on the map.</p>
+      <div class="surprise-list">
+        ${members.map((place) => `
+          <button class="place-nearby-link" type="button" data-nearby-place="${escapeHtml(place.id)}">
+            <strong>${escapeHtml(place.name)}</strong>
+            <span>${escapeHtml([place.category, place.city].filter(Boolean).join(" / "))}</span>
+          </button>
+        `).join("")}
+      </div>
+      <div class="detail-actions"><button type="button" class="story-back">All stories</button></div>
+    `;
+    els.detail.querySelector(".selected-place-close")?.addEventListener("click", () => {
+      state.surprisePlaceIds = [];
+      setSourceData();
+      closeSelectionDrawer();
+    });
+    els.detail.querySelector(".story-back")?.addEventListener("click", renderStoryList);
     els.detail.querySelectorAll("[data-nearby-place]").forEach((button) => {
       button.addEventListener("click", () => {
         const place = placeById(button.dataset.nearbyPlace);
@@ -1290,6 +1387,16 @@
           ${visibleLinks.map((link) => {
             const article = link.article || {};
             const issue = article.issue || (article.issue_year ? `MUSE ${article.issue_year}` : "");
+            const story = state.museStories.find((item) => item.id === article.id);
+            if (story) {
+              return `
+                <button class="seen-in-muse-item seen-in-muse-story" type="button" data-place-story="${escapeHtml(story.id)}">
+                  <strong>${escapeHtml(article.title || "MUSE Magazine")}</strong>
+                  ${issue ? `<span>${escapeHtml(issue)}</span>` : ""}
+                  <em>See this story on the map ›</em>
+                </button>
+              `;
+            }
             return `
               <article class="seen-in-muse-item">
                 <strong>${escapeHtml(article.title || "MUSE Magazine")}</strong>
@@ -1476,6 +1583,12 @@
       button.addEventListener("click", () => {
         const other = placeById(button.dataset.nearbyPlace);
         if (other) showPlace(other);
+      });
+    });
+    els.detail.querySelectorAll("[data-place-story]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const story = state.museStories.find((item) => item.id === button.dataset.placeStory);
+        if (story) renderStory(story);
       });
     });
     if (isPlaceMapReady(place)) {
@@ -2095,15 +2208,17 @@
   }
 
   async function init() {
-    const [places, events, paths, anchorCards, museEvidence, museSampler] = await Promise.all([
+    const [places, events, paths, anchorCards, museEvidence, museSampler, museStories] = await Promise.all([
       fetch(DATA.places).then((r) => r.json()),
       fetch(DATA.events).then((r) => r.json()),
       fetch(DATA.paths).then((r) => r.json()),
       fetch(DATA.anchorCards).then((r) => r.json()).catch(() => []),
       fetch(DATA.museEvidence).then((r) => r.json()).catch(() => ({ links: [] })),
       fetch(DATA.museSampler).then((r) => r.json()).catch(() => ({ showcaseSampler: [] })),
+      fetch(DATA.museStories).then((r) => r.json()).catch(() => ({ stories: [] })),
     ]);
     state.anchorCards = Array.isArray(anchorCards) ? anchorCards : [];
+    state.museStories = museStories.stories || [];
     state.museEvidenceByPlace = buildDirectMuseEvidenceByPlace(museEvidence);
     state.browseSamplerPlaceIds = (museSampler.showcaseSampler || museSampler.recommendedSampler || [])
       .map((place) => place.id)

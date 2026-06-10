@@ -3,6 +3,18 @@
  "entries": [
   {
    "date": "2026-06-10",
+   "title": "New: browse the map through MUSE Magazine stories",
+   "summary": "A new 'Stories from MUSE' button opens the story lens: 33 real articles from the three MUSE issues, each linked to the places it actually mentions (only confirmed, exact mentions are used — 167 places appear across the stories). Pick an article and the map highlights everywhere it touches, with the issue and page numbers cited. Place cards now also offer 'See this story on the map' under their MUSE mentions.",
+   "kind": "feature"
+  },
+  {
+   "date": "2026-06-10",
+   "title": "'Surprise me nearby' now actually means nearby",
+   "summary": "The surprise button used to pick from the whole county, so browsing Nevada City could land you in Truckee. It now draws from the places closest to wherever the map is currently looking.",
+   "kind": "fix"
+  },
+  {
+   "date": "2026-06-10",
    "title": "A one-command health check for all map data",
    "summary": "All the data checks built this year (photo links, website links, pin accuracy, descriptions, event freshness) are now bundled into a single script that prints a one-page health report. Anyone maintaining the map can run it monthly and see exactly what has rotted and which repair tool to use. This makes the cleanup work repeatable instead of a one-time effort.",
    "kind": "improvement"
