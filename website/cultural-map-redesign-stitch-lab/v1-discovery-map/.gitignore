@@ -9,3 +9,10 @@ dogfood-output/issue16-broad-qa/
 dogfood-output/
 scripts/fullpass-pages/
 scripts/coord-audit-report.json
+scripts/image-audit.json
+scripts/og-image-harvest.json
+
+# Google Places API key — secret, never commit
+scripts/.places-api-key
+scripts/.env
+.env

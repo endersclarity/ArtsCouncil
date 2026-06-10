@@ -3,6 +3,12 @@
  "entries": [
   {
    "date": "2026-06-10",
+   "title": "Broken photos replaced with honest placeholders",
+   "summary": "Many place photos were hot-linked from Google and those links expire. We checked all 1,065 of them: 856 still work, 209 had quietly died and were showing as broken images. Those 209 places now show a clean category placeholder with a 'photo not yet sourced' note instead of a broken picture. Next step: pulling real photos from the venues' own websites.",
+   "kind": "fix"
+  },
+  {
+   "date": "2026-06-10",
    "title": "Map accuracy audit: 6 misplaced pins corrected, 48 relabeled as approximate",
    "summary": "Every public place with a street address (946 of them) was cross-checked against the US Census geocoder. 764 matched within 150 meters. Six pins that were 2-25 km from their real address (including Art Hike and the Gold Country Celtic Society) now sit at the correct location. Forty-eight pins we could not verify keep their spot but are honestly marked as approximate until reviewed. The check is a repeatable script, so we can re-audit any time the data changes.",
    "kind": "fix"

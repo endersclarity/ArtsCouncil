@@ -9,6 +9,15 @@ See: .planning/PROJECT.md (updated 2026-02-14)
 
 ## Current Position
 
+## NEXT after compact: Free Image Pass (Google API plan is DEAD)
+
+Owner killed the Places API refresh (expiring-URL treadmill). Plan lives at
+website/cultural-map-redesign-stitch-lab/v1-discovery-map/scripts/free-image-pass-HANDOFF.md
+— read it in full first. Three stages: (A) dead-image probe -> honest placeholders,
+(B) og:image harvest from venue websites, self-hosted, (C) demotion pass.
+HARD CONSTRAINT: owner is watching token burn — scripts on disk, summaries only,
+no screenshots for photo picking, vision budget = 6 image reads total.
+
 ## Coordinate audit adopted 2026-06-10 (commit ca9b108, pushed)
 
 Cross-session handoff reviewed and verified (54 deltas match claims exactly, all 6
