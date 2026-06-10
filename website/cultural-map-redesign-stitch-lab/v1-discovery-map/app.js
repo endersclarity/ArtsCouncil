@@ -1055,6 +1055,30 @@
     return state.events.filter((event) => event.placeId === placeId).slice(0, 3);
   }
 
+  // Flow-upgrade Stage 3 ("Place Pulse" board): the selected place is the
+  // connective surface, so the card needs to know which authored paths a place
+  // belongs to and what sits nearby.
+  function pathsForPlace(placeId) {
+    return state.paths.filter((path) => (path.stops || []).some((stop) => stop.placeId === placeId));
+  }
+
+  function nearbyPlaces(place, limit = 3) {
+    if (!isPlaceMapReady(place)) return [];
+    return state.places
+      .filter((other) => other.id !== place.id && isPlaceMapReady(other))
+      .map((other) => ({
+        place: other,
+        // Equirectangular approximation — plenty for "what's a short walk away".
+        dist: Math.hypot(
+          (other.lng - place.lng) * Math.cos((place.lat * Math.PI) / 180),
+          other.lat - place.lat,
+        ),
+      }))
+      .sort((a, b) => a.dist - b.dist)
+      .slice(0, limit)
+      .map((entry) => entry.place);
+  }
+
   function anchorIconText(anchor) {
     return ANCHOR_ICON_TEXT[anchor?.iconKey] || "NC";
   }
@@ -1255,13 +1279,37 @@
       <div class="related-events">
         <p class="section-label">Coming up here</p>
         ${events.map((event) => `
-          <div class="event-mini">
+          <button class="event-mini" type="button" data-related-event="${escapeHtml(event.id)}">
             <strong>${escapeHtml(event.title)}</strong>
             <span>${escapeHtml(event.date)} at ${escapeHtml(event.placeName)}</span>
-          </div>
+          </button>
         `).join("")}
       </div>
     ` : "";
+    const placePaths = pathsForPlace(place.id);
+    const pathHtml = placePaths.length ? `
+      <div class="place-paths">
+        <p class="section-label">Part of a path</p>
+        ${placePaths.map((path) => `
+          <button class="place-path-link" type="button" data-place-path="${escapeHtml(path.id)}">${escapeHtml(path.title)}</button>
+        `).join("")}
+      </div>
+    ` : "";
+    const nearby = nearbyPlaces(place);
+    const nearbyHtml = nearby.length ? `
+      <div class="place-nearby">
+        <p class="section-label">Nearby</p>
+        ${nearby.map((other) => `
+          <button class="place-nearby-link" type="button" data-nearby-place="${escapeHtml(other.id)}">
+            <strong>${escapeHtml(other.name)}</strong>
+            <span>${escapeHtml(other.category || "")}</span>
+          </button>
+        `).join("")}
+      </div>
+    ` : "";
+    const provenance = place.descriptionSource?.kind === "venue-website"
+      ? `<p class="description-provenance">In their own words — from <a href="${escapeHtml(place.descriptionSource.url)}" target="_blank" rel="noopener">their website</a></p>`
+      : "";
     els.detail.innerHTML = `
       <button class="selected-place-close" type="button" aria-label="Close selected place">Close</button>
       ${renderImage(place, imageLabel ? { imageLabel } : {})}
@@ -1276,12 +1324,36 @@
       ${renderLocationCaveat(place)}
       ${anchorCardMeta(place)}
       <p class="detail-description">${escapeHtml(place.anchorCard?.supportingDescription || place.description)}</p>
+      ${provenance}
       ${directoryRecordMeta(place)}
-      ${renderSeenInMuse(place)}
       ${action ? `<div class="detail-actions">${action}</div>` : ""}
       ${eventHtml}
+      ${renderSeenInMuse(place)}
+      ${pathHtml}
+      ${nearbyHtml}
     `;
     els.detail.querySelector(".selected-place-close")?.addEventListener("click", closeSelectionDrawer);
+    els.detail.querySelectorAll("[data-related-event]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const event = state.events.find((item) => item.id === button.dataset.relatedEvent);
+        if (event) showEvent(event);
+      });
+    });
+    els.detail.querySelectorAll("[data-place-path]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const path = state.paths.find((item) => item.id === button.dataset.placePath);
+        if (path) {
+          setMode("paths");
+          showPath(path);
+        }
+      });
+    });
+    els.detail.querySelectorAll("[data-nearby-place]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const other = placeById(button.dataset.nearbyPlace);
+        if (other) showPlace(other);
+      });
+    });
     if (isPlaceMapReady(place)) {
       const targetZoom = Math.max(state.map.getZoom(), 13.5);
       if (prefersReducedMotion()) {

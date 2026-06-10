@@ -1361,6 +1361,70 @@ body:not([data-map-mode="places"]) .review-tools {
   display: block;
 }
 
+/* Flow-upgrade Stage 3: joined-up place card sections */
+button.event-mini {
+  display: block;
+  width: 100%;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  cursor: pointer;
+  margin-bottom: 6px;
+}
+
+button.event-mini:hover {
+  border-color: var(--ncac-red);
+}
+
+.place-paths,
+.place-nearby {
+  margin-top: 12px;
+}
+
+.place-path-link,
+.place-nearby-link {
+  display: block;
+  width: 100%;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  border: 1px solid var(--line-strong);
+  background: var(--surface);
+  padding: 9px;
+  cursor: pointer;
+  margin-top: 6px;
+}
+
+.place-path-link {
+  box-shadow: inset 4px 0 0 var(--ink);
+  font-weight: 700;
+}
+
+.place-path-link:hover,
+.place-nearby-link:hover {
+  border-color: var(--ncac-red);
+}
+
+.place-nearby-link strong {
+  display: block;
+}
+
+.place-nearby-link span {
+  color: var(--ink-soft);
+  font-size: 13px;
+}
+
+.description-provenance {
+  margin: -6px 0 10px;
+  font-size: 12px;
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+.description-provenance a {
+  color: inherit;
+}
+
 .path-list {
   display: grid;
   gap: 10px;
