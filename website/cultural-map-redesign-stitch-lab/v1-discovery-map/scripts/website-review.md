@@ -58,3 +58,4 @@ broken SSL, or a redirect to a different domain that needs judgment).
 - `uncorked-truckee-truckee` — https://FB: /uncorkedtruckee (nonnumeric port: ' ')
 - `whim-be-beautiful-penn-valley` — https://whimbebeautiful.com/ (<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] ce)
 - `wolf-craft-school-nevada-city` — https://wolfcraftcollective.com (<urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] ce)
+- `yabobo-nevada-city` — site redirects to asylumdown.com which serves spam (hijacked); websiteStatus set to dead 2026-06-10

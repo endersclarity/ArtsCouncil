@@ -3,6 +3,12 @@
  "entries": [
   {
    "date": "2026-06-10",
+   "title": "8 more places described in their own words",
+   "summary": "We retried the venue websites that could not be reached in the first description pass. Eight more places (including Gray Pine Winery, Jax at the Tracks, River Street Inn, and Nomad Boutique) now carry descriptions taken word-for-word from their own websites instead of a generic placeholder sentence. One venue's old website turned out to be hijacked by spam, so its link was removed for visitor safety.",
+   "kind": "improvement"
+  },
+  {
+   "date": "2026-06-10",
    "title": "Every website link checked: 13 repaired, 65 dead links retired",
    "summary": "All 831 venue website links were tested. 646 work fine. 13 had small address problems (a missing www or an outdated link) that we repaired automatically. 65 led to vanished pages or domains that no longer exist; place cards no longer offer those links, so visitors stop landing on error pages. 55 borderline cases (sites that block automated checks or have certificate problems) are held in a review list rather than being removed.",
    "kind": "fix"

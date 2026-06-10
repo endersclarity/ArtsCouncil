@@ -19151,7 +19151,8 @@
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
   "markerTier": "candidate",
-  "inGvncScope": true
+  "inGvncScope": true,
+  "websiteStatus": "dead"
  },
  {
   "id": "yuba-blue-grass-valley",
@@ -19161,7 +19162,7 @@
   "category": "MUSE Picks",
   "intent": "Historic Places",
   "musePick": true,
-  "description": "A muse picks entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+  "description": "Yuba Blue was founded in 1995 by Sarah Lazard. From the day she opened the doors, Yuba Blue was a local favorite and a must-see for tourists visiting the area. Yuba Blue remains a small business run by generations of creative women who are active in day-to-day operations.",
   "website": "https://www.yubablueonline.com/",
   "address": "116 Mill St",
   "phone": "(530) 273-9620",
@@ -19185,7 +19186,13 @@
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
   "markerTier": "candidate",
-  "inGvncScope": true
+  "inGvncScope": true,
+  "descriptionSource": {
+   "kind": "venue-website",
+   "url": "https://www.yubablueonline.com/",
+   "page": "about",
+   "fetched": "2026-06-10"
+  }
  },
  {
   "id": "107-argall-way-nevada-city",
@@ -25667,7 +25674,7 @@
   "category": "Eat, Drink & Stay",
   "intent": "Eat, Drink & Stay",
   "musePick": true,
-  "description": "A eat, drink & stay entry in Truckee, included for alpha review while source descriptions are cleaned.",
+  "description": "The newest addition to the river Street Inn is 1882, a restaurant named after the year the building was built. Offering a full bar and BBQ style menu, meats are smoked daily on our authentic Texas smoker. Also, we are the only restaurant serving delicious Beignets daily.",
   "website": "http://riverstreetinntruckee.com/",
   "address": "10009 E River St",
   "phone": "530 550 9222",
@@ -25691,7 +25698,13 @@
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
   "markerTier": "candidate",
-  "inGvncScope": false
+  "inGvncScope": false,
+  "descriptionSource": {
+   "kind": "venue-website",
+   "url": "http://riverstreetinntruckee.com/",
+   "page": "home",
+   "fetched": "2026-06-10"
+  }
  },
  {
   "id": "1882-bar-and-grill-at-the-river-street-inn-truckee",
@@ -27410,7 +27423,7 @@
   "category": "Eat, Drink & Stay",
   "intent": "Eat, Drink & Stay",
   "musePick": true,
-  "description": "A eat, drink & stay entry in Penn Valley, included for alpha review while source descriptions are cleaned.",
+  "description": "Named for the native California Gray Pine which is prevalent in our area, Gray Pine Vineyard & Winery is a small, limited-production winery located in Penn Valley, California, in the Sierra Foothills, with an annual production of approximately 300 cases. We grow our own grapes on our two-acre vineyard and make our own wines. Specializing in Bordeaux red varietals, we produce Cabernet Sauvignon, Merlot, Cabernet Franc, Petit Verdot, Malbec and a classic Bordeaux-style Red Blend called PennRidge.",
   "website": "http://graypinewinery.com/",
   "address": "19396 Branding Iron Rd",
   "phone": "530 432 7045",
@@ -27434,7 +27447,13 @@
   "featured": false,
   "coordinateProvenance": "candidate",
   "markerTier": "candidate",
-  "inGvncScope": true
+  "inGvncScope": true,
+  "descriptionSource": {
+   "kind": "venue-website",
+   "url": "http://graypinewinery.com/",
+   "page": "home",
+   "fetched": "2026-06-10"
+  }
  },
  {
   "id": "heychef-truckee",
@@ -27604,7 +27623,7 @@
   "category": "Eat, Drink & Stay",
   "intent": "Eat, Drink & Stay",
   "musePick": true,
-  "description": "A eat, drink & stay entry in Truckee, included for alpha review while source descriptions are cleaned.",
+  "description": "At Jax At The Tracks, we’re all about comfort food with a twist. Located at 10144 W River St, Truckee, CA, we bring you the flavors of classic American diner fare in a welcoming, casual atmosphere.",
   "website": "https://jaxatthetracks.com",
   "address": "10144 W River St,",
   "phone": "530 550 7450",
@@ -27628,7 +27647,13 @@
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
   "markerTier": "candidate",
-  "inGvncScope": false
+  "inGvncScope": false,
+  "descriptionSource": {
+   "kind": "venue-website",
+   "url": "https://jaxatthetracks.com",
+   "page": "home",
+   "fetched": "2026-06-10"
+  }
  },
  {
   "id": "jerky-junction-truckee",
@@ -28630,7 +28655,7 @@
   "category": "Eat, Drink & Stay",
   "intent": "Eat, Drink & Stay",
   "musePick": true,
-  "description": "A eat, drink & stay entry in Truckee, included for alpha review while source descriptions are cleaned.",
+  "description": "The River Street Inn offers small Hotel charm in historic Old Town Truckee. A perfect vacation getaway, just minutes from Lake Tahoe. Built in 1882, this Bed and Breakfast sits on the Truckee River and located in the heart of Old Town.",
   "website": "http://riverstreetinntruckee.com/",
   "address": "10009 E River St",
   "phone": "530 550 9290",
@@ -28654,7 +28679,13 @@
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
   "markerTier": "candidate",
-  "inGvncScope": false
+  "inGvncScope": false,
+  "descriptionSource": {
+   "kind": "venue-website",
+   "url": "http://riverstreetinntruckee.com/",
+   "page": "home",
+   "fetched": "2026-06-10"
+  }
  },
  {
   "id": "rubicon-pizza-company-truckee",
@@ -30484,7 +30515,7 @@
   "category": "Eat, Drink & Stay",
   "intent": "Eat, Drink & Stay",
   "musePick": true,
-  "description": "A eat, drink & stay entry in Truckee, included for alpha review while source descriptions are cleaned.",
+  "description": "Since 1981 the Village Pizzeria has been family owned. It originally opened in Tahoe City and then relocated to its current location in Truckee, California. The Village Pizzeria has been a local favorite and is proud to be a part of the Truckee Tahoe community.",
   "website": "http://villagepizzeriatruckee.com/",
   "address": "11329 Deerfield Dr",
   "phone": "530 587 7171",
@@ -30508,7 +30539,13 @@
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
   "markerTier": "candidate",
-  "inGvncScope": false
+  "inGvncScope": false,
+  "descriptionSource": {
+   "kind": "venue-website",
+   "url": "http://villagepizzeriatruckee.com/",
+   "page": "home",
+   "fetched": "2026-06-10"
+  }
  },
  {
   "id": "west-river-house-truckee",
@@ -38161,7 +38198,7 @@
   "category": "MUSE Picks",
   "intent": "Historic Places",
   "musePick": true,
-  "description": "A muse picks entry in Truckee, included for alpha review while source descriptions are cleaned.",
+  "description": "Nomad Boutique is your go-to destination for the latest in women’s fashion, with two locations in Midtown Reno, Nevada and Downtown Truckee, California. Founded by Allison Schultz, a Truckee local with a love for style and community, Nomad has grown over the past 10 years into one of the best boutiques in Reno and Truckee—trusted by locals and adored by visitors.",
   "website": "https://www.nomadboutique.com/",
   "address": "10046 Donner Pass Rd",
   "phone": "(530) 536-5058",
@@ -38185,7 +38222,13 @@
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
   "markerTier": "candidate",
-  "inGvncScope": false
+  "inGvncScope": false,
+  "descriptionSource": {
+   "kind": "venue-website",
+   "url": "https://www.nomadboutique.com/",
+   "page": "about",
+   "fetched": "2026-06-10"
+  }
  },
  {
   "id": "sticks-market-truckee",
@@ -41824,7 +41867,7 @@
   "category": "Walks & Trails",
   "intent": "Outdoors",
   "musePick": false,
-  "description": "A walks & trails entry in Truckee, included for alpha review while source descriptions are cleaned.",
+  "description": "Offers hiking and recreation opportunities along Donner Lake and contains a historic monument and visitor center exhibits paying tribute to pioneers crossing the Sierra Nevada.",
   "website": "https://www.parks.ca.gov/?page_id=503",
   "address": "12593 Donner Pass Rd",
   "phone": "",
@@ -41848,7 +41891,13 @@
   "featured": false,
   "coordinateProvenance": "arcgis-confident",
   "markerTier": "map-ready",
-  "inGvncScope": false
+  "inGvncScope": false,
+  "descriptionSource": {
+   "kind": "venue-website",
+   "url": "https://www.parks.ca.gov/?page_id=503",
+   "page": "home",
+   "fetched": "2026-06-10"
+  }
  },
  {
   "id": "donner-summit-canyon-truckee",
