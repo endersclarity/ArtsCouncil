@@ -9,6 +9,14 @@ See: .planning/PROJECT.md (updated 2026-02-14)
 
 ## Current Position
 
+## Coordinate audit adopted 2026-06-10 (commit ca9b108, pushed)
+
+Cross-session handoff reviewed and verified (54 deltas match claims exactly, all 6
+corrected pins land town-consistent). 6 gross coordinate errors fixed, 48 unproven
+map-ready markers honestly downgraded to candidate. Repeatable: scripts/audit-coords-census.py
++ apply-coord-corrections.py. Follow-ups queued: 4 non-exact flags need a human;
+127 no-census-match places await parcel-layer or Places API pass.
+
 ## Flow upgrade pass — DONE 2026-06-10 (5 commits, NOT pushed)
 
 All five stages of scripts/flow-upgrade-SPEC.md committed locally (7a6b504..f021cfe),
