@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>What's New — Nevada County Cultural Map</title>
+  <meta name="description" content="Update history for the Nevada County Cultural Map.">
+  <meta name="theme-color" content="#f7f7f4">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23ff2500'/%3E%3Cpath d='M7 24V8h4l10 9V8h4v16h-4L11 15v9z' fill='%23faf8f4'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css?v=cla-44-dogfood-fixes7">
+  <style>
+    .changelog-shell {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 28px clamp(16px, 4vw, 54px) 80px;
+    }
+    .changelog-shell > h1 {
+      font-family: var(--font-brand);
+      font-size: clamp(26px, 4vw, 38px);
+      margin: 18px 0 6px;
+    }
+    .changelog-intro {
+      color: var(--ink-soft);
+      max-width: 56ch;
+      margin: 0 0 30px;
+    }
+    .changelog-entry {
+      border: 2px solid var(--line-strong);
+      border-left: 6px solid var(--ncac-red);
+      background: var(--panel);
+      padding: 16px 18px;
+      margin: 0 0 18px;
+    }
+    .changelog-entry-date {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--ncac-red);
+      font-variant-numeric: tabular-nums;
+    }
+    .changelog-entry h2 {
+      font-family: var(--font-brand);
+      font-size: 19px;
+      margin: 4px 0 8px;
+      line-height: 1.2;
+    }
+    .changelog-entry-summary {
+      margin: 0 0 8px;
+      line-height: 1.45;
+    }
+    .changelog-entry ul {
+      margin: 8px 0;
+      padding-left: 20px;
+      color: var(--ink-soft);
+      font-size: 13.5px;
+      line-height: 1.5;
+    }
+    .changelog-commit {
+      font-size: 11px;
+      color: var(--ink-soft);
+    }
+    .changelog-commit a {
+      color: inherit;
+      font-variant-numeric: tabular-nums;
+    }
+    .changelog-back {
+      display: inline-block;
+      margin-bottom: 4px;
+      font-family: var(--font-brand);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      text-decoration: none;
+      border: 1px solid color-mix(in srgb, var(--ink) 30%, transparent);
+      padding: 7px 11px 6px;
+    }
+    .changelog-back:hover {
+      background: var(--ncac-red);
+      color: var(--paper);
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header" aria-label="Nevada County Arts Council shell">
+    <a class="brand" href="index.html" aria-label="Nevada County Cultural Map home">
+      <span>Nevada County</span>
+      <span>Cultural Map</span>
+    </a>
+    <span class="alpha-pill">Internal preview build</span>
+  </header>
+
+  <main class="changelog-shell">
+    <a class="changelog-back" href="index.html">‹ Back to the map</a>
+    <h1>What's New</h1>
+    <p class="changelog-intro">Every meaningful update to the Cultural Map, newest first — what changed and why it matters for visitors. Technical readers can follow each entry's commit link to the exact code change.</p>
+    <div id="changelog-list"><p>Loading updates…</p></div>
+  </main>
+
+  <script>
+    (function () {
+      "use strict";
+      var REPO_COMMIT_URL = "https://github.com/endersclarity/ArtsCouncil/commit/";
+      function esc(value) {
+        return String(value == null ? "" : value)
+          .replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+      }
+      fetch("data/changelog.json?ts=" + Date.now())
+        .then(function (response) { return response.json(); })
+        .then(function (data) {
+          var list = document.getElementById("changelog-list");
+          list.innerHTML = (data.entries || []).map(function (entry) {
+            var details = (entry.details || []).map(function (line) {
+              return "<li>" + esc(line) + "</li>";
+            }).join("");
+            return '<article class="changelog-entry">' +
+              '<p class="changelog-entry-date">' + esc(entry.date) + "</p>" +
+              "<h2>" + esc(entry.title) + "</h2>" +
+              '<p class="changelog-entry-summary">' + esc(entry.summary) + "</p>" +
+              (details ? "<ul>" + details + "</ul>" : "") +
+              (entry.commit
+                ? '<p class="changelog-commit">Commit <a href="' + REPO_COMMIT_URL + esc(entry.commit) + '" target="_blank" rel="noopener">' + esc(entry.commit) + "</a></p>"
+                : "") +
+              "</article>";
+          }).join("") || "<p>No updates recorded yet.</p>";
+        })
+        .catch(function () {
+          document.getElementById("changelog-list").innerHTML = "<p>Could not load the update list. Try refreshing.</p>";
+        });
+    })();
+  </script>
+</body>
+</html>

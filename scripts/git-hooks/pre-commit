@@ -1,0 +1,36 @@
+#!/bin/sh
+# Changelog + state discipline for the live V1 Discovery Map.
+#
+# If a commit touches v1-discovery-map source (app code, styles, pages, data
+# pipeline) it must also touch the site changelog, so the public "What's New"
+# page never silently drifts behind the code. Bypass for genuine non-events
+# (typo in a comment, etc.) with:  SKIP_CHANGELOG=1 git commit ...
+#
+# Installed via:  git config core.hooksPath scripts/git-hooks
+
+V1="website/cultural-map-redesign-stitch-lab/v1-discovery-map"
+
+if [ "$SKIP_CHANGELOG" = "1" ]; then
+  exit 0
+fi
+
+staged=$(git diff --cached --name-only)
+
+touches_v1=$(echo "$staged" | grep -E "^$V1/(app\.js|index\.html|styles\.css|review-state\.js|place-data\.js|marker-category-color\.js|proposed-flows\.html|changelog\.html|scripts/)" || true)
+touches_changelog=$(echo "$staged" | grep -F "$V1/data/changelog.json" || true)
+
+if [ -n "$touches_v1" ] && [ -z "$touches_changelog" ]; then
+  echo ""
+  echo "BLOCKED: this commit changes the live V1 Discovery Map but not its changelog."
+  echo ""
+  echo "  1. Add an entry (newest first) to $V1/data/changelog.json"
+  echo "     - plain-language summary for the Arts Council, commit hash optional pre-commit"
+  echo "  2. Consider updating .planning/STATE.md (current position / last activity / next)"
+  echo "  3. Re-stage and commit."
+  echo ""
+  echo "  Truly no visitor-visible change? Bypass once with: SKIP_CHANGELOG=1 git commit ..."
+  echo ""
+  exit 1
+fi
+
+exit 0

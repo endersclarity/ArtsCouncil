@@ -41,3 +41,13 @@ census-estimated / none. Marker tier **"Candidate"** = estimated coords (hollow 
 Serve static from the `cultural-map-redesign-stitch-lab` dir: `python -m http.server 4178` →
 `http://127.0.0.1:4178/v1-discovery-map/index.html`. Observe via the chrome-devtools MCP over CDP
 9222 against the **existing** Chrome (never launch/kill it). Not Playwright/agent-browser.
+
+## Changelog + journey tracking (owner rule, 2026-06-10)
+6. **Every commit that changes this folder's source must add an entry to
+   `data/changelog.json`** (newest first, plain language for the Arts Council — what changed
+   for a visitor). The page `changelog.html` ("What's New" in the site nav) renders it.
+   A pre-commit hook (`scripts/git-hooks/pre-commit` at repo root, wired via
+   `git config core.hooksPath scripts/git-hooks`) blocks commits that forget;
+   bypass for non-visitor-visible changes with `SKIP_CHANGELOG=1`.
+   Also keep `.planning/STATE.md` (Current Position / Last activity / Next) current at the
+   end of each working session — that file is the cross-session journey tracker.
