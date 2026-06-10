@@ -9,6 +9,18 @@ See: .planning/PROJECT.md (updated 2026-02-14)
 
 ## Current Position
 
+## Claim Your Listing — concept board added 2026-06-10
+
+Owner direction post-launch-pressure: the remaining content gap (~450 templated
+descriptions, ~330 missing photos) is a people problem; the fix is venues filling
+their own gaps. Concept board (Flow 07) generated and added to
+docs/flow-proposal-gallery.html + docs/briefing-assets/flow-proposals/claim-your-listing.png.
+Flow: bare listing shows "Is this your place?" -> 5-minute form (photo, own words,
+hours, contact) -> Arts Council human review -> published with "in their own words"
+provenance badge; pin upgrades hollow -> solid. NOT built yet — board only.
+Next when picked up: decide form backend (static form service vs. simple endpoint)
+and the review queue workflow.
+
 ## Free Image Pass — DONE 2026-06-10 (3 commits: 6628cd3, 26851e2, 56eb720; NOT pushed)
 
 Plan: scripts/free-image-pass-HANDOFF.md (Google API refresh stays DEAD).
