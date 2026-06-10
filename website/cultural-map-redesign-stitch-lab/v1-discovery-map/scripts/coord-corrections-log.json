@@ -440,5 +440,114 @@
  "counts": {
   "corrected": 6,
   "downgraded": 48
+ },
+ "parcelPass": {
+  "date": "2026-06-10",
+  "source": "nevada-county-parcel-locator",
+  "corrected": [
+   {
+    "id": "banner-mountain-artisans-nevada-city",
+    "before": {
+     "lat": 39.38320306172,
+     "lng": -121.090732114762
+    },
+    "after": {
+     "lat": 39.26605799466,
+     "lng": -121.030713385831
+    },
+    "distM": 14012,
+    "matched": "005050004000, 518 STATE HIGHWAY 49, Nevada City, CA, 95959"
+   },
+   {
+    "id": "sierra-storytelling-festival-north-san-juan",
+    "before": {
+     "lat": 39.40765211251418,
+     "lng": -120.97275961321336
+    },
+    "after": {
+     "lat": 39.371554110459,
+     "lng": -120.9902635172
+    },
+    "distM": 4287,
+    "matched": "061130020000, 17894 Tyler Foote Road, Nevada City, CA, 95959"
+   }
+  ],
+  "downgraded": [
+   {
+    "id": "don-baggett-theater-grass-valley",
+    "distM": 244,
+    "status": "downgrade"
+   },
+   {
+    "id": "donner-emigrant-trail",
+    "distM": 160,
+    "status": "downgrade"
+   },
+   {
+    "id": "hirschman-s-pond-nevada-city",
+    "distM": 404,
+    "status": "downgrade"
+   },
+   {
+    "id": "mciver-arena-truckee",
+    "distM": 154,
+    "status": "downgrade"
+   },
+   {
+    "id": "miner-statue-nevada-union-high-school-grass-valley",
+    "distM": 244,
+    "status": "downgrade"
+   },
+   {
+    "id": "mining-artifact-sculpture-nevada-union-high-school-grass-valley",
+    "distM": 244,
+    "status": "downgrade"
+   },
+   {
+    "id": "nevada-union-high-school-grass-valley",
+    "distM": 244,
+    "status": "downgrade"
+   },
+   {
+    "id": "nevada-union-high-school-library-grass-valley",
+    "distM": 244,
+    "status": "downgrade"
+   },
+   {
+    "id": "nevada-union-theatrical-society-grass-valley",
+    "distM": 244,
+    "status": "downgrade"
+   },
+   {
+    "id": "rambler-trail-clover-valley-preserve-alta-sierra",
+    "distM": 154,
+    "status": "downgrade"
+   },
+   {
+    "id": "salty-gebhardt-amphitheater-truckee-river-park-truckee",
+    "distM": 1432,
+    "status": "downgrade"
+   },
+   {
+    "id": "sheriff-david-fulton-douglass",
+    "distM": 174,
+    "status": "downgrade"
+   },
+   {
+    "id": "truckee-donner-horsemen-truckee",
+    "distM": 154,
+    "status": "downgrade"
+   },
+   {
+    "id": "truckee-rodeo-truckee",
+    "distM": 154,
+    "status": "downgrade"
+   },
+   {
+    "id": "western-skisport-museum-soda-springs",
+    "distM": 503,
+    "status": "downgrade"
+   }
+  ]
  }
 }

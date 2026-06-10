@@ -85,12 +85,12 @@
   "website": "http://www.bannermountainartisans.com/",
   "address": "518 Hwy 49",
   "phone": "",
-  "lat": 39.38320306172,
-  "lng": -121.090732114762,
+  "lat": 39.26605799466,
+  "lng": -121.030713385831,
   "publicMarker": true,
   "locationReviewStatus": "Map-Ready",
-  "coordinateSource": "arcgis-cultural-assets-confident-match",
-  "coordinateConfidence": "high",
+  "coordinateSource": "nevada-county-parcel-corrected",
+  "coordinateConfidence": "parcel-exact",
   "locationCaveat": "",
   "image": {
    "placeholderType": "gallery-studio",
@@ -1133,7 +1133,7 @@
   "lat": 39.2415447848791,
   "lng": -121.054555378134,
   "publicMarker": true,
-  "locationReviewStatus": "Map-Ready",
+  "locationReviewStatus": "Needs Location Review",
   "coordinateSource": "arcgis-cultural-assets-confident-match",
   "coordinateConfidence": "high",
   "locationCaveat": "",
@@ -1149,7 +1149,7 @@
   },
   "featured": false,
   "coordinateProvenance": "arcgis-confident",
-  "markerTier": "map-ready",
+  "markerTier": "candidate",
   "inGvncScope": true
  },
  {
@@ -4660,7 +4660,7 @@
   "lat": 39.24154487949876,
   "lng": -121.05455121983243,
   "publicMarker": true,
-  "locationReviewStatus": "Map-Ready",
+  "locationReviewStatus": "Needs Location Review",
   "coordinateSource": "diana-workbook-webmercator",
   "coordinateConfidence": "authoritative",
   "locationCaveat": "",
@@ -4676,7 +4676,7 @@
   },
   "featured": false,
   "coordinateProvenance": "diana",
-  "markerTier": "map-ready",
+  "markerTier": "candidate",
   "inGvncScope": true
  },
  {
@@ -4694,7 +4694,7 @@
   "lat": 39.24154487949876,
   "lng": -121.05455121983243,
   "publicMarker": true,
-  "locationReviewStatus": "Map-Ready",
+  "locationReviewStatus": "Needs Location Review",
   "coordinateSource": "diana-workbook-webmercator",
   "coordinateConfidence": "authoritative",
   "locationCaveat": "",
@@ -4710,7 +4710,7 @@
   },
   "featured": false,
   "coordinateProvenance": "diana",
-  "markerTier": "map-ready",
+  "markerTier": "candidate",
   "inGvncScope": true,
   "websiteStatus": "dead"
  },
@@ -14747,7 +14747,7 @@
   "lat": 39.26844,
   "lng": -121.02969,
   "publicMarker": true,
-  "locationReviewStatus": "Map-Ready",
+  "locationReviewStatus": "Needs Location Review",
   "coordinateSource": "none",
   "coordinateConfidence": "needs-review",
   "locationCaveat": "",
@@ -14763,7 +14763,7 @@
   },
   "featured": false,
   "coordinateProvenance": "human-verified",
-  "markerTier": "map-ready",
+  "markerTier": "candidate",
   "inGvncScope": true,
   "coordinateResolutionNote": "trailhead coord, Bear Yuba Land Trust + Nevada City Chamber, web-verified 2026-05-28"
  },
@@ -19323,7 +19323,7 @@
   "lat": 39.24154487949876,
   "lng": -121.05456020298527,
   "publicMarker": true,
-  "locationReviewStatus": "Map-Ready",
+  "locationReviewStatus": "Needs Location Review",
   "coordinateSource": "diana-workbook-webmercator",
   "coordinateConfidence": "authoritative",
   "locationCaveat": "",
@@ -19339,7 +19339,7 @@
   },
   "featured": false,
   "coordinateProvenance": "diana",
-  "markerTier": "map-ready",
+  "markerTier": "candidate",
   "inGvncScope": true
  },
  {
@@ -20228,7 +20228,7 @@
   "lat": 39.24154487949876,
   "lng": -121.05456020298527,
   "publicMarker": true,
-  "locationReviewStatus": "Map-Ready",
+  "locationReviewStatus": "Needs Location Review",
   "coordinateSource": "diana-workbook-webmercator",
   "coordinateConfidence": "authoritative",
   "locationCaveat": "",
@@ -20244,7 +20244,7 @@
   },
   "featured": false,
   "coordinateProvenance": "diana",
-  "markerTier": "map-ready",
+  "markerTier": "candidate",
   "inGvncScope": true
  },
  {
@@ -20262,7 +20262,7 @@
   "lat": 39.24154487949876,
   "lng": -121.05456020298527,
   "publicMarker": true,
-  "locationReviewStatus": "Map-Ready",
+  "locationReviewStatus": "Needs Location Review",
   "coordinateSource": "diana-workbook-webmercator",
   "coordinateConfidence": "authoritative",
   "locationCaveat": "",
@@ -20278,7 +20278,7 @@
   },
   "featured": false,
   "coordinateProvenance": "diana",
-  "markerTier": "map-ready",
+  "markerTier": "candidate",
   "inGvncScope": true
  },
  {
@@ -25387,7 +25387,7 @@
   "lat": 39.32613593765363,
   "lng": -120.17304341467879,
   "publicMarker": true,
-  "locationReviewStatus": "Map-Ready",
+  "locationReviewStatus": "Needs Location Review",
   "coordinateSource": "diana-workbook-webmercator",
   "coordinateConfidence": "authoritative",
   "locationCaveat": "",
@@ -25406,7 +25406,7 @@
   },
   "featured": false,
   "coordinateProvenance": "diana",
-  "markerTier": "map-ready",
+  "markerTier": "candidate",
   "inGvncScope": false
  },
  {
@@ -31224,12 +31224,12 @@
   "website": "http://sierrastorytellingfestival.org",
   "address": "17894 Tyler Foote Rd",
   "phone": "530-265-2826",
-  "lat": 39.40765211251418,
-  "lng": -120.97275961321336,
+  "lat": 39.371554110459,
+  "lng": -120.9902635172,
   "publicMarker": true,
   "locationReviewStatus": "Map-Ready",
-  "coordinateSource": "diana-workbook-webmercator",
-  "coordinateConfidence": "authoritative",
+  "coordinateSource": "nevada-county-parcel-corrected",
+  "coordinateConfidence": "parcel-exact",
   "locationCaveat": "",
   "image": {
    "placeholderType": "performance-event-venue",
@@ -31616,7 +31616,7 @@
   "lat": 39.32613593765363,
   "lng": -120.17304341467879,
   "publicMarker": true,
-  "locationReviewStatus": "Map-Ready",
+  "locationReviewStatus": "Needs Location Review",
   "coordinateSource": "diana-workbook-webmercator",
   "coordinateConfidence": "authoritative",
   "locationCaveat": "",
@@ -31632,7 +31632,7 @@
   },
   "featured": false,
   "coordinateProvenance": "diana",
-  "markerTier": "map-ready",
+  "markerTier": "candidate",
   "inGvncScope": false
  },
  {
@@ -32683,7 +32683,7 @@
   "lat": 39.33766117589672,
   "lng": -120.35061339689068,
   "publicMarker": true,
-  "locationReviewStatus": "Map-Ready",
+  "locationReviewStatus": "Needs Location Review",
   "coordinateSource": "diana-workbook-webmercator",
   "coordinateConfidence": "authoritative",
   "locationCaveat": "",
@@ -32702,7 +32702,7 @@
   },
   "featured": false,
   "coordinateProvenance": "diana",
-  "markerTier": "map-ready",
+  "markerTier": "candidate",
   "inGvncScope": false,
   "websiteStatus": "dead"
  },
@@ -33441,7 +33441,7 @@
   "lat": 39.3258,
   "lng": -120.2169,
   "publicMarker": true,
-  "locationReviewStatus": "Map-Ready",
+  "locationReviewStatus": "Needs Location Review",
   "coordinateSource": "diana-workbook-lonlat",
   "coordinateConfidence": "authoritative",
   "locationCaveat": "",
@@ -33457,7 +33457,7 @@
   },
   "featured": false,
   "coordinateProvenance": "diana",
-  "markerTier": "map-ready",
+  "markerTier": "candidate",
   "inGvncScope": false
  },
  {
@@ -36611,7 +36611,7 @@
   "lat": 39.278,
   "lng": -121.0301,
   "publicMarker": true,
-  "locationReviewStatus": "Map-Ready",
+  "locationReviewStatus": "Needs Location Review",
   "coordinateSource": "diana-workbook-lonlat",
   "coordinateConfidence": "authoritative",
   "locationCaveat": "",
@@ -36627,7 +36627,7 @@
   },
   "featured": false,
   "coordinateProvenance": "diana",
-  "markerTier": "map-ready",
+  "markerTier": "candidate",
   "inGvncScope": false
  },
  {
@@ -38873,7 +38873,7 @@
   "lat": 39.32613593765363,
   "lng": -120.17304341467879,
   "publicMarker": true,
-  "locationReviewStatus": "Map-Ready",
+  "locationReviewStatus": "Needs Location Review",
   "coordinateSource": "diana-workbook-webmercator",
   "coordinateConfidence": "authoritative",
   "locationCaveat": "",
@@ -38889,7 +38889,7 @@
   },
   "featured": false,
   "coordinateProvenance": "diana",
-  "markerTier": "map-ready",
+  "markerTier": "candidate",
   "inGvncScope": false
  },
  {
@@ -38907,7 +38907,7 @@
   "lat": 39.32907874705209,
   "lng": -120.18320336054218,
   "publicMarker": true,
-  "locationReviewStatus": "Map-Ready",
+  "locationReviewStatus": "Needs Location Review",
   "coordinateSource": "diana-workbook-webmercator",
   "coordinateConfidence": "authoritative",
   "locationCaveat": "",
@@ -38923,7 +38923,7 @@
   },
   "featured": false,
   "coordinateProvenance": "diana",
-  "markerTier": "map-ready",
+  "markerTier": "candidate",
   "inGvncScope": false
  },
  {
@@ -45707,7 +45707,7 @@
   "lat": 39.1947798751837,
   "lng": -121.078026637132,
   "publicMarker": true,
-  "locationReviewStatus": "Map-Ready",
+  "locationReviewStatus": "Needs Location Review",
   "coordinateSource": "arcgis-cultural-assets-confident-match",
   "coordinateConfidence": "high",
   "locationCaveat": "",
@@ -45723,7 +45723,7 @@
   },
   "featured": false,
   "coordinateProvenance": "arcgis-confident",
-  "markerTier": "map-ready",
+  "markerTier": "candidate",
   "inGvncScope": true,
   "descriptionSource": {
    "kind": "venue-website",

@@ -3,6 +3,12 @@
  "entries": [
   {
    "date": "2026-06-10",
+   "title": "Second location check using the county's own parcel maps",
+   "summary": "The 127 places the US Census check could not verify were re-checked against Nevada County's own parcel address system. 33 were confirmed accurate. Two pins that were 4-14 km from their real address (Banner Mountain Artisans and the Sierra Storytelling Festival) now sit on the correct parcel. Fifteen pins that disagree by 150-400 meters are now honestly marked as approximate until reviewed. One place where the listed address and the pin tell different stories (Broad Street Inn) is held for human review rather than guessed at.",
+   "kind": "fix"
+  },
+  {
+   "date": "2026-06-10",
    "title": "8 more places described in their own words",
    "summary": "We retried the venue websites that could not be reached in the first description pass. Eight more places (including Gray Pine Winery, Jax at the Tracks, River Street Inn, and Nomad Boutique) now carry descriptions taken word-for-word from their own websites instead of a generic placeholder sentence. One venue's old website turned out to be hijacked by spam, so its link was removed for visitor safety.",
    "kind": "improvement"
