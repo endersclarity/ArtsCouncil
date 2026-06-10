@@ -42,6 +42,20 @@ street interpolation. `reports/v1-coordinate-sanity-pass-summary.json` reports
 counts for Diana, ArcGIS, Census, rejected/low-confidence, and Needs Location
 Review rows.
 
+## Data Health Check
+
+```bash
+python scripts/audit-everything.py          # fast report, no network
+python scripts/audit-everything.py --probe  # also probe image + website URLs (~2 min)
+```
+
+Prints a one-page report: marker/tier counts, coordinate bbox sanity, image
+inventory (self-hosted vs. expiring Google links, with a dead-link probe),
+website link rot, description provenance, and events freshness. Read-only.
+Run it monthly, or whenever data changes; it names the deep-dive script to run
+for anything it flags (image-audit.py, website-audit.py, audit-coords-census.py,
+audit-coords-parcel.py, og-image-fullsweep.py).
+
 ## Recommended Next Use
 
 Use this as source material for OpenDesign / Claude Design:

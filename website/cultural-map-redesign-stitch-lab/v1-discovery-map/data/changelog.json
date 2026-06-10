@@ -3,6 +3,12 @@
  "entries": [
   {
    "date": "2026-06-10",
+   "title": "A one-command health check for all map data",
+   "summary": "All the data checks built this year (photo links, website links, pin accuracy, descriptions, event freshness) are now bundled into a single script that prints a one-page health report. Anyone maintaining the map can run it monthly and see exactly what has rotted and which repair tool to use. This makes the cleanup work repeatable instead of a one-time effort.",
+   "kind": "improvement"
+  },
+  {
+   "date": "2026-06-10",
    "title": "Second location check using the county's own parcel maps",
    "summary": "The 127 places the US Census check could not verify were re-checked against Nevada County's own parcel address system. 33 were confirmed accurate. Two pins that were 4-14 km from their real address (Banner Mountain Artisans and the Sierra Storytelling Festival) now sit on the correct parcel. Fifteen pins that disagree by 150-400 meters are now honestly marked as approximate until reviewed. One place where the listed address and the pin tell different stories (Broad Street Inn) is held for human review rather than guessed at.",
    "kind": "fix"
