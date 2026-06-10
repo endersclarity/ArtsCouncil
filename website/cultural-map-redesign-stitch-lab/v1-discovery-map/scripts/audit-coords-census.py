@@ -77,6 +77,8 @@ ok = [x for x in report if x["status"] == "ok"]
 nomatch = [x for x in report if x["status"] == "no-census-match"]
 summary = {"audited": len(report), "ok": len(ok), "flagged": len(flags),
            "noCensusMatch": len(nomatch), "flagThresholdMeters": FLAG_METERS}
+census_coords = {pid: {"lat": h["censusLat"], "lng": h["censusLng"]} for pid, h in results.items()}
 json.dump({"summary": summary, "flags": sorted(flags, key=lambda x: -x["distanceM"]),
-           "report": report}, open(OUT, "w", encoding="utf-8"), indent=1)
+           "censusCoords": census_coords, "report": report},
+          open(OUT, "w", encoding="utf-8"), indent=1)
 print(json.dumps(summary, indent=1))

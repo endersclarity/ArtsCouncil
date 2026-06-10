@@ -3,6 +3,12 @@
  "entries": [
   {
    "date": "2026-06-10",
+   "title": "Map accuracy audit: 6 misplaced pins corrected, 48 relabeled as approximate",
+   "summary": "Every public place with a street address (946 of them) was cross-checked against the US Census geocoder. 764 matched within 150 meters. Six pins that were 2-25 km from their real address (including Art Hike and the Gold Country Celtic Society) now sit at the correct location. Forty-eight pins we could not verify keep their spot but are honestly marked as approximate until reviewed. The check is a repeatable script, so we can re-audit any time the data changes.",
+   "kind": "fix"
+  },
+  {
+   "date": "2026-06-10",
    "title": "Two small delights: Surprise me nearby, and Before-or-after stops on events",
    "summary": "A 'Surprise me nearby' button in Places mode pulls up a handful of under-the-radar stops described in their own words, with a re-roll. Event cards now list the closest eat/drink/shop stops so an event can become an evening. Both are plain distance and real venue text — no invented curation.",
    "kind": "improvement"

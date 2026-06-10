@@ -48,10 +48,10 @@
   "lat": 39.3692327490976,
   "lng": -121.044776876703,
   "publicMarker": true,
-  "locationReviewStatus": "Map-Ready",
+  "locationReviewStatus": "Needs Location Review",
   "coordinateSource": "arcgis-cultural-assets-confident-match",
   "coordinateConfidence": "high",
-  "locationCaveat": "",
+  "locationCaveat": "Tier downgraded by audit: 210m from exact address geocode.",
   "image": {
    "placeholderType": "gallery-studio",
    "placeholderSrc": "assets/placeholders/gallery-studio.webp",
@@ -64,7 +64,7 @@
   },
   "featured": false,
   "coordinateProvenance": "arcgis-confident",
-  "markerTier": "map-ready",
+  "markerTier": "candidate",
   "inGvncScope": true
  },
  {
@@ -680,10 +680,10 @@
   "lat": 39.2346725114802,
   "lng": -121.055731611506,
   "publicMarker": true,
-  "locationReviewStatus": "Map-Ready",
+  "locationReviewStatus": "Needs Location Review",
   "coordinateSource": "arcgis-cultural-assets-confident-match",
   "coordinateConfidence": "high",
-  "locationCaveat": "",
+  "locationCaveat": "Tier downgraded by audit: 158m from exact address geocode.",
   "image": {
    "placeholderType": "gallery-studio",
    "placeholderSrc": "assets/placeholders/gallery-studio.webp",
@@ -696,7 +696,7 @@
   },
   "featured": false,
   "coordinateProvenance": "arcgis-confident",
-  "markerTier": "map-ready",
+  "markerTier": "candidate",
   "inGvncScope": true
  },
  {
@@ -1700,10 +1700,10 @@
   "lat": 39.25456082889578,
   "lng": -121.13245312127127,
   "publicMarker": true,
-  "locationReviewStatus": "Map-Ready",
+  "locationReviewStatus": "Needs Location Review",
   "coordinateSource": "diana-workbook-webmercator",
   "coordinateConfidence": "authoritative",
-  "locationCaveat": "",
+  "locationCaveat": "Tier downgraded by audit: 155m from exact address geocode.",
   "image": {
    "kind": "real",
    "src": "assets/anchors/the-curious-forge.webp",
@@ -1723,7 +1723,7 @@
    ]
   },
   "coordinateProvenance": "diana",
-  "markerTier": "map-ready",
+  "markerTier": "candidate",
   "inGvncScope": true
  },
  {
@@ -3033,10 +3033,10 @@
   "lat": 39.194779550060034,
   "lng": -121.07802419820646,
   "publicMarker": true,
-  "locationReviewStatus": "Map-Ready",
+  "locationReviewStatus": "Needs Location Review",
   "coordinateSource": "diana-workbook-webmercator",
   "coordinateConfidence": "authoritative",
-  "locationCaveat": "",
+  "locationCaveat": "Tier downgraded by audit: 185m from exact address geocode.",
   "image": {
    "placeholderType": "historic-place",
    "placeholderSrc": "assets/placeholders/historic-place.webp",
@@ -3049,7 +3049,7 @@
   },
   "featured": false,
   "coordinateProvenance": "diana",
-  "markerTier": "map-ready",
+  "markerTier": "candidate",
   "inGvncScope": true
  },
  {
@@ -3548,13 +3548,13 @@
   "website": "https://www.goldcountrycelticsociety.org/",
   "address": "423 Nimrod St",
   "phone": "530-274-0185",
-  "lat": 39.11607022522616,
-  "lng": -121.05915059408713,
+  "lat": 39.259384088534,
+  "lng": -121.012458560035,
   "publicMarker": true,
   "locationReviewStatus": "Map-Ready",
-  "coordinateSource": "diana-workbook-webmercator",
-  "coordinateConfidence": "authoritative",
-  "locationCaveat": "",
+  "coordinateSource": "us-census-geocoder-corrected",
+  "coordinateConfidence": "rooftop-exact",
+  "locationCaveat": "Auto-corrected 16436m from prior diana-workbook-webmercator point (audit 150m).",
   "image": {
    "placeholderType": "historic-place",
    "placeholderSrc": "assets/placeholders/historic-place.webp",
@@ -4224,10 +4224,10 @@
   "lat": 39.254436315758205,
   "lng": -121.13223752560309,
   "publicMarker": true,
-  "locationReviewStatus": "Map-Ready",
+  "locationReviewStatus": "Needs Location Review",
   "coordinateSource": "diana-workbook-webmercator",
   "coordinateConfidence": "authoritative",
-  "locationCaveat": "",
+  "locationCaveat": "Tier downgraded by audit: 446m from exact address geocode.",
   "image": {
    "placeholderType": "historic-place",
    "placeholderSrc": "assets/placeholders/historic-place.webp",
@@ -4240,7 +4240,7 @@
   },
   "featured": false,
   "coordinateProvenance": "diana",
-  "markerTier": "map-ready",
+  "markerTier": "candidate",
   "inGvncScope": true
  },
  {
@@ -4366,10 +4366,10 @@
   "lat": 39.17953955517265,
   "lng": -121.057686340174,
   "publicMarker": true,
-  "locationReviewStatus": "Map-Ready",
+  "locationReviewStatus": "Needs Location Review",
   "coordinateSource": "diana-workbook-webmercator",
   "coordinateConfidence": "authoritative",
-  "locationCaveat": "",
+  "locationCaveat": "Tier downgraded by audit: 156m from exact address geocode.",
   "image": {
    "placeholderType": "historic-place",
    "placeholderSrc": "assets/placeholders/historic-place.webp",
@@ -4382,7 +4382,7 @@
   },
   "featured": false,
   "coordinateProvenance": "diana",
-  "markerTier": "map-ready",
+  "markerTier": "candidate",
   "inGvncScope": true
  },
  {
@@ -4687,10 +4687,10 @@
   "lat": 39.196523499915024,
   "lng": -121.07786250145533,
   "publicMarker": true,
-  "locationReviewStatus": "Map-Ready",
+  "locationReviewStatus": "Needs Location Review",
   "coordinateSource": "diana-workbook-webmercator",
   "coordinateConfidence": "authoritative",
-  "locationCaveat": "",
+  "locationCaveat": "Tier downgraded by audit: 231m from exact address geocode.",
   "image": {
    "placeholderType": "historic-place",
    "placeholderSrc": "assets/placeholders/historic-place.webp",
@@ -4703,7 +4703,7 @@
   },
   "featured": false,
   "coordinateProvenance": "diana",
-  "markerTier": "map-ready",
+  "markerTier": "candidate",
   "inGvncScope": true
  },
  {
@@ -5178,10 +5178,10 @@
   "lat": 39.24946186983044,
   "lng": -121.02797905372816,
   "publicMarker": true,
-  "locationReviewStatus": "Map-Ready",
+  "locationReviewStatus": "Needs Location Review",
   "coordinateSource": "diana-workbook-webmercator",
   "coordinateConfidence": "authoritative",
-  "locationCaveat": "",
+  "locationCaveat": "Tier downgraded by audit: 182m from exact address geocode.",
   "image": {
    "placeholderType": "historic-place",
    "placeholderSrc": "assets/placeholders/historic-place.webp",
@@ -5194,7 +5194,7 @@
   },
   "featured": false,
   "coordinateProvenance": "diana",
-  "markerTier": "map-ready",
+  "markerTier": "candidate",
   "inGvncScope": true
  },
  {
@@ -5246,10 +5246,10 @@
   "lat": 39.2327,
   "lng": -121.0366,
   "publicMarker": true,
-  "locationReviewStatus": "Map-Ready",
+  "locationReviewStatus": "Needs Location Review",
   "coordinateSource": "diana-workbook-lonlat",
   "coordinateConfidence": "authoritative",
-  "locationCaveat": "",
+  "locationCaveat": "Tier downgraded by audit: 439m from exact address geocode.",
   "image": {
    "placeholderType": "historic-place",
    "placeholderSrc": "assets/placeholders/historic-place.webp",
@@ -5262,7 +5262,7 @@
   },
   "featured": false,
   "coordinateProvenance": "diana",
-  "markerTier": "map-ready",
+  "markerTier": "candidate",
   "inGvncScope": true
  },
  {
@@ -5348,10 +5348,10 @@
   "lat": 39.2324595163263,
   "lng": -121.036218982724,
   "publicMarker": true,
-  "locationReviewStatus": "Map-Ready",
+  "locationReviewStatus": "Needs Location Review",
   "coordinateSource": "arcgis-cultural-assets-confident-match",
   "coordinateConfidence": "high",
-  "locationCaveat": "",
+  "locationCaveat": "Tier downgraded by audit: 398m from exact address geocode.",
   "image": {
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
@@ -5364,7 +5364,7 @@
   },
   "featured": false,
   "coordinateProvenance": "arcgis-confident",
-  "markerTier": "map-ready",
+  "markerTier": "candidate",
   "inGvncScope": true
  },
  {
@@ -5688,10 +5688,10 @@
   "lat": 39.2686878964622,
   "lng": -121.11230341807,
   "publicMarker": true,
-  "locationReviewStatus": "Map-Ready",
+  "locationReviewStatus": "Needs Location Review",
   "coordinateSource": "arcgis-cultural-assets-confident-match",
   "coordinateConfidence": "high",
-  "locationCaveat": "",
+  "locationCaveat": "Tier downgraded by audit: 386m from exact address geocode.",
   "image": {
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
@@ -5704,7 +5704,7 @@
   },
   "featured": false,
   "coordinateProvenance": "arcgis-confident",
-  "markerTier": "map-ready",
+  "markerTier": "candidate",
   "inGvncScope": true
  },
  {
@@ -8342,10 +8342,10 @@
   "lat": 39.0619338929494,
   "lng": -121.185697982147,
   "publicMarker": true,
-  "locationReviewStatus": "Map-Ready",
+  "locationReviewStatus": "Needs Location Review",
   "coordinateSource": "arcgis-cultural-assets-confident-match",
   "coordinateConfidence": "high",
-  "locationCaveat": "",
+  "locationCaveat": "Tier downgraded by audit: 1589m from exact address geocode.",
   "image": {
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
@@ -8358,7 +8358,7 @@
   },
   "featured": false,
   "coordinateProvenance": "arcgis-confident",
-  "markerTier": "map-ready",
+  "markerTier": "candidate",
   "inGvncScope": true
  },
  {
@@ -10935,10 +10935,10 @@
   "lat": 39.21912966480513,
   "lng": -121.06242944487418,
   "publicMarker": true,
-  "locationReviewStatus": "Map-Ready",
+  "locationReviewStatus": "Needs Location Review",
   "coordinateSource": "diana-workbook-webmercator",
   "coordinateConfidence": "authoritative",
-  "locationCaveat": "",
+  "locationCaveat": "Tier downgraded by audit: 205m from exact address geocode.",
   "image": {
    "placeholderType": "performance-event-venue",
    "placeholderSrc": "assets/placeholders/performance-event-venue.webp",
@@ -10951,7 +10951,7 @@
   },
   "featured": false,
   "coordinateProvenance": "diana",
-  "markerTier": "map-ready",
+  "markerTier": "candidate",
   "inGvncScope": true
  },
  {
@@ -11207,10 +11207,10 @@
   "lat": 39.20654149653078,
   "lng": -121.0760838371928,
   "publicMarker": true,
-  "locationReviewStatus": "Map-Ready",
+  "locationReviewStatus": "Needs Location Review",
   "coordinateSource": "diana-workbook-webmercator",
   "coordinateConfidence": "authoritative",
-  "locationCaveat": "",
+  "locationCaveat": "Tier downgraded by audit: 1755m from exact address geocode.",
   "image": {
    "placeholderType": "performance-event-venue",
    "placeholderSrc": "assets/placeholders/performance-event-venue.webp",
@@ -11223,7 +11223,7 @@
   },
   "featured": false,
   "coordinateProvenance": "diana",
-  "markerTier": "map-ready",
+  "markerTier": "candidate",
   "inGvncScope": true
  },
  {
@@ -11343,10 +11343,10 @@
   "lat": 39.196523499915024,
   "lng": -121.07786250145533,
   "publicMarker": true,
-  "locationReviewStatus": "Map-Ready",
+  "locationReviewStatus": "Needs Location Review",
   "coordinateSource": "diana-workbook-webmercator",
   "coordinateConfidence": "authoritative",
-  "locationCaveat": "",
+  "locationCaveat": "Tier downgraded by audit: 231m from exact address geocode.",
   "image": {
    "placeholderType": "performance-event-venue",
    "placeholderSrc": "assets/placeholders/performance-event-venue.webp",
@@ -11359,7 +11359,7 @@
   },
   "featured": false,
   "coordinateProvenance": "diana",
-  "markerTier": "map-ready",
+  "markerTier": "candidate",
   "inGvncScope": true
  },
  {
@@ -11799,10 +11799,10 @@
   "lat": 39.22424126727766,
   "lng": -121.0377078082552,
   "publicMarker": true,
-  "locationReviewStatus": "Map-Ready",
+  "locationReviewStatus": "Needs Location Review",
   "coordinateSource": "diana-workbook-webmercator",
   "coordinateConfidence": "authoritative",
-  "locationCaveat": "",
+  "locationCaveat": "Tier downgraded by audit: 1200m from exact address geocode.",
   "image": {
    "placeholderType": "gallery-studio",
    "placeholderSrc": "assets/placeholders/gallery-studio.webp",
@@ -11818,7 +11818,7 @@
   },
   "featured": false,
   "coordinateProvenance": "diana",
-  "markerTier": "map-ready",
+  "markerTier": "candidate",
   "inGvncScope": true
  },
  {
@@ -11981,10 +11981,10 @@
   "lat": 39.22337346937334,
   "lng": -121.0488738672368,
   "publicMarker": true,
-  "locationReviewStatus": "Map-Ready",
+  "locationReviewStatus": "Needs Location Review",
   "coordinateSource": "diana-workbook-webmercator",
   "coordinateConfidence": "authoritative",
-  "locationCaveat": "",
+  "locationCaveat": "Tier downgraded by audit: 350m from exact address geocode.",
   "image": {
    "placeholderType": "gallery-studio",
    "placeholderSrc": "assets/placeholders/gallery-studio.webp",
@@ -12000,7 +12000,7 @@
   },
   "featured": false,
   "coordinateProvenance": "diana",
-  "markerTier": "map-ready",
+  "markerTier": "candidate",
   "inGvncScope": true
  },
  {
@@ -12484,10 +12484,10 @@
   "lat": 39.196523,
   "lng": -121.077862,
   "publicMarker": true,
-  "locationReviewStatus": "Map-Ready",
+  "locationReviewStatus": "Needs Location Review",
   "coordinateSource": "diana-workbook-lonlat",
   "coordinateConfidence": "authoritative",
-  "locationCaveat": "",
+  "locationCaveat": "Tier downgraded by audit: 231m from exact address geocode.",
   "image": {
    "kind": "real",
    "src": "assets/anchors/north-star-house.jpg",
@@ -12507,7 +12507,7 @@
    ]
   },
   "coordinateProvenance": "human-verified",
-  "markerTier": "map-ready",
+  "markerTier": "candidate",
   "inGvncScope": true,
   "coordinateResolutionNote": "human-confirmed 2026-05-28"
  },
@@ -13301,10 +13301,10 @@
   "lat": 39.2669,
   "lng": -121.0263,
   "publicMarker": true,
-  "locationReviewStatus": "Map-Ready",
+  "locationReviewStatus": "Needs Location Review",
   "coordinateSource": "diana-workbook-lonlat",
   "coordinateConfidence": "authoritative",
-  "locationCaveat": "",
+  "locationCaveat": "Tier downgraded by audit: 874m from exact address geocode.",
   "image": {
    "placeholderType": "historic-place",
    "placeholderSrc": "assets/placeholders/historic-place.webp",
@@ -13317,7 +13317,7 @@
   },
   "featured": false,
   "coordinateProvenance": "diana",
-  "markerTier": "map-ready",
+  "markerTier": "candidate",
   "inGvncScope": true
  },
  {
@@ -13369,10 +13369,10 @@
   "lat": 39.2163,
   "lng": -121.0693,
   "publicMarker": true,
-  "locationReviewStatus": "Map-Ready",
+  "locationReviewStatus": "Needs Location Review",
   "coordinateSource": "diana-workbook-lonlat",
   "coordinateConfidence": "authoritative",
-  "locationCaveat": "",
+  "locationCaveat": "Tier downgraded by audit: 198m from exact address geocode.",
   "image": {
    "placeholderType": "historic-place",
    "placeholderSrc": "assets/placeholders/historic-place.webp",
@@ -13385,7 +13385,7 @@
   },
   "featured": false,
   "coordinateProvenance": "diana",
-  "markerTier": "map-ready",
+  "markerTier": "candidate",
   "inGvncScope": true
  },
  {
@@ -14789,10 +14789,10 @@
   "lat": 39.2639,
   "lng": -121.0215,
   "publicMarker": true,
-  "locationReviewStatus": "Map-Ready",
+  "locationReviewStatus": "Needs Location Review",
   "coordinateSource": "diana-workbook-lonlat",
   "coordinateConfidence": "authoritative",
-  "locationCaveat": "",
+  "locationCaveat": "Tier downgraded by audit: 201m from exact address geocode.",
   "image": {
    "placeholderType": "historic-place",
    "placeholderSrc": "assets/placeholders/historic-place.webp",
@@ -14805,7 +14805,7 @@
   },
   "featured": false,
   "coordinateProvenance": "diana",
-  "markerTier": "map-ready",
+  "markerTier": "candidate",
   "inGvncScope": true
  },
  {
@@ -19671,10 +19671,10 @@
   "lat": 39.35301756411047,
   "lng": -121.06506150865664,
   "publicMarker": true,
-  "locationReviewStatus": "Map-Ready",
+  "locationReviewStatus": "Needs Location Review",
   "coordinateSource": "diana-workbook-webmercator",
   "coordinateConfidence": "authoritative",
-  "locationCaveat": "",
+  "locationCaveat": "Tier downgraded by audit: 169m from exact address geocode.",
   "image": {
    "placeholderType": "public-art",
    "placeholderSrc": "assets/placeholders/public-art.webp",
@@ -19687,7 +19687,7 @@
   },
   "featured": false,
   "coordinateProvenance": "diana",
-  "markerTier": "map-ready",
+  "markerTier": "candidate",
   "inGvncScope": true
  },
  {
@@ -19739,10 +19739,10 @@
   "lat": 39.22423222052245,
   "lng": -121.0377078082552,
   "publicMarker": true,
-  "locationReviewStatus": "Map-Ready",
+  "locationReviewStatus": "Needs Location Review",
   "coordinateSource": "diana-workbook-webmercator",
   "coordinateConfidence": "authoritative",
-  "locationCaveat": "",
+  "locationCaveat": "Tier downgraded by audit: 1200m from exact address geocode.",
   "image": {
    "placeholderType": "public-art",
    "placeholderSrc": "assets/placeholders/public-art.webp",
@@ -19755,7 +19755,7 @@
   },
   "featured": false,
   "coordinateProvenance": "diana",
-  "markerTier": "map-ready",
+  "markerTier": "candidate",
   "inGvncScope": true
  },
  {
@@ -20801,10 +20801,10 @@
   "lat": 39.3692327490976,
   "lng": -121.044776876703,
   "publicMarker": true,
-  "locationReviewStatus": "Map-Ready",
+  "locationReviewStatus": "Needs Location Review",
   "coordinateSource": "arcgis-cultural-assets-confident-match",
   "coordinateConfidence": "high",
-  "locationCaveat": "",
+  "locationCaveat": "Tier downgraded by audit: 210m from exact address geocode.",
   "image": {
    "placeholderType": "historic-place",
    "placeholderSrc": "assets/placeholders/historic-place.webp",
@@ -20817,7 +20817,7 @@
   },
   "featured": false,
   "coordinateProvenance": "arcgis-confident",
-  "markerTier": "map-ready",
+  "markerTier": "candidate",
   "inGvncScope": true,
   "descriptionSource": {
    "kind": "venue-website",
@@ -20875,10 +20875,10 @@
   "lat": 39.1332050793561,
   "lng": -120.960225711108,
   "publicMarker": true,
-  "locationReviewStatus": "Map-Ready",
+  "locationReviewStatus": "Needs Location Review",
   "coordinateSource": "arcgis-cultural-assets-confident-match",
   "coordinateConfidence": "high",
-  "locationCaveat": "",
+  "locationCaveat": "Tier downgraded by audit: 336m from exact address geocode.",
   "image": {
    "placeholderType": "historic-place",
    "placeholderSrc": "assets/placeholders/historic-place.webp",
@@ -20891,7 +20891,7 @@
   },
   "featured": false,
   "coordinateProvenance": "arcgis-confident",
-  "markerTier": "map-ready",
+  "markerTier": "candidate",
   "inGvncScope": true
  },
  {
@@ -20909,10 +20909,10 @@
   "lat": 39.2404815679791,
   "lng": -120.997277935931,
   "publicMarker": true,
-  "locationReviewStatus": "Map-Ready",
+  "locationReviewStatus": "Needs Location Review",
   "coordinateSource": "arcgis-cultural-assets-confident-match",
   "coordinateConfidence": "high",
-  "locationCaveat": "",
+  "locationCaveat": "Tier downgraded by audit: 569m from exact address geocode.",
   "image": {
    "placeholderType": "historic-place",
    "placeholderSrc": "assets/placeholders/historic-place.webp",
@@ -20925,7 +20925,7 @@
   },
   "featured": false,
   "coordinateProvenance": "arcgis-confident",
-  "markerTier": "map-ready",
+  "markerTier": "candidate",
   "inGvncScope": true,
   "descriptionSource": {
    "kind": "venue-website",
@@ -21217,10 +21217,10 @@
   "lat": 39.2827603464905,
   "lng": -121.049307229801,
   "publicMarker": true,
-  "locationReviewStatus": "Map-Ready",
+  "locationReviewStatus": "Needs Location Review",
   "coordinateSource": "arcgis-cultural-assets-confident-match",
   "coordinateConfidence": "high",
-  "locationCaveat": "",
+  "locationCaveat": "Tier downgraded by audit: 2469m from exact address geocode.",
   "image": {
    "placeholderType": "historic-place",
    "placeholderSrc": "assets/placeholders/historic-place.webp",
@@ -21233,7 +21233,7 @@
   },
   "featured": false,
   "coordinateProvenance": "arcgis-confident",
-  "markerTier": "map-ready",
+  "markerTier": "candidate",
   "inGvncScope": true
  },
  {
@@ -21291,10 +21291,10 @@
   "lat": 39.2291424406067,
   "lng": -121.091408319795,
   "publicMarker": true,
-  "locationReviewStatus": "Map-Ready",
+  "locationReviewStatus": "Needs Location Review",
   "coordinateSource": "arcgis-cultural-assets-confident-match",
   "coordinateConfidence": "high",
-  "locationCaveat": "",
+  "locationCaveat": "Tier downgraded by audit: 180m from exact address geocode.",
   "image": {
    "placeholderType": "historic-place",
    "placeholderSrc": "assets/placeholders/historic-place.webp",
@@ -21307,7 +21307,7 @@
   },
   "featured": false,
   "coordinateProvenance": "arcgis-confident",
-  "markerTier": "map-ready",
+  "markerTier": "candidate",
   "inGvncScope": true,
   "descriptionSource": {
    "kind": "venue-website",
@@ -21491,10 +21491,10 @@
   "lat": 39.2782248356988,
   "lng": -121.027249334257,
   "publicMarker": true,
-  "locationReviewStatus": "Map-Ready",
+  "locationReviewStatus": "Needs Location Review",
   "coordinateSource": "arcgis-cultural-assets-confident-match",
   "coordinateConfidence": "high",
-  "locationCaveat": "",
+  "locationCaveat": "Tier downgraded by audit: 153m from exact address geocode.",
   "image": {
    "placeholderType": "historic-place",
    "placeholderSrc": "assets/placeholders/historic-place.webp",
@@ -21510,7 +21510,7 @@
   },
   "featured": false,
   "coordinateProvenance": "arcgis-confident",
-  "markerTier": "map-ready",
+  "markerTier": "candidate",
   "inGvncScope": true,
   "descriptionSource": {
    "kind": "venue-website",
@@ -21608,10 +21608,10 @@
   "lat": 39.2828625207504,
   "lng": -120.92222155685,
   "publicMarker": true,
-  "locationReviewStatus": "Map-Ready",
+  "locationReviewStatus": "Needs Location Review",
   "coordinateSource": "arcgis-cultural-assets-confident-match",
   "coordinateConfidence": "high",
-  "locationCaveat": "",
+  "locationCaveat": "Tier downgraded by audit: 1379m from exact address geocode.",
   "image": {
    "placeholderType": "historic-place",
    "placeholderSrc": "assets/placeholders/historic-place.webp",
@@ -21624,7 +21624,7 @@
   },
   "featured": false,
   "coordinateProvenance": "arcgis-confident",
-  "markerTier": "map-ready",
+  "markerTier": "candidate",
   "inGvncScope": true
  },
  {
@@ -21642,10 +21642,10 @@
   "lat": 39.3211935779083,
   "lng": -120.637162660391,
   "publicMarker": true,
-  "locationReviewStatus": "Map-Ready",
+  "locationReviewStatus": "Needs Location Review",
   "coordinateSource": "arcgis-cultural-assets-confident-match",
   "coordinateConfidence": "high",
-  "locationCaveat": "",
+  "locationCaveat": "Tier downgraded by audit: 434m from exact address geocode.",
   "image": {
    "placeholderType": "historic-place",
    "placeholderSrc": "assets/placeholders/historic-place.webp",
@@ -21658,7 +21658,7 @@
   },
   "featured": false,
   "coordinateProvenance": "arcgis-confident",
-  "markerTier": "map-ready",
+  "markerTier": "candidate",
   "inGvncScope": true,
   "descriptionSource": {
    "kind": "venue-website",
@@ -22188,10 +22188,10 @@
   "lat": 39.3222935262015,
   "lng": -120.203201802721,
   "publicMarker": true,
-  "locationReviewStatus": "Map-Ready",
+  "locationReviewStatus": "Needs Location Review",
   "coordinateSource": "arcgis-cultural-assets-confident-match",
   "coordinateConfidence": "high",
-  "locationCaveat": "",
+  "locationCaveat": "Tier downgraded by audit: 395m from exact address geocode.",
   "image": {
    "placeholderType": "gallery-studio",
    "placeholderSrc": "assets/placeholders/gallery-studio.webp",
@@ -22204,7 +22204,7 @@
   },
   "featured": false,
   "coordinateProvenance": "arcgis-confident",
-  "markerTier": "map-ready",
+  "markerTier": "candidate",
   "inGvncScope": false
  },
  {
@@ -22222,10 +22222,10 @@
   "lat": 39.4248154547607,
   "lng": -120.146650359167,
   "publicMarker": true,
-  "locationReviewStatus": "Map-Ready",
+  "locationReviewStatus": "Needs Location Review",
   "coordinateSource": "arcgis-cultural-assets-confident-match",
   "coordinateConfidence": "high",
-  "locationCaveat": "",
+  "locationCaveat": "Tier downgraded by audit: 277m from exact address geocode.",
   "image": {
    "placeholderType": "gallery-studio",
    "placeholderSrc": "assets/placeholders/gallery-studio.webp",
@@ -22238,7 +22238,7 @@
   },
   "featured": false,
   "coordinateProvenance": "arcgis-confident",
-  "markerTier": "map-ready",
+  "markerTier": "candidate",
   "inGvncScope": false
  },
  {
@@ -22608,10 +22608,10 @@
   "lat": 39.3288149999454,
   "lng": -120.184364999884,
   "publicMarker": true,
-  "locationReviewStatus": "Map-Ready",
+  "locationReviewStatus": "Needs Location Review",
   "coordinateSource": "arcgis-cultural-assets-confident-match",
   "coordinateConfidence": "high",
-  "locationCaveat": "",
+  "locationCaveat": "Tier downgraded by audit: 3118m from exact address geocode.",
   "image": {
    "placeholderType": "maker-shop",
    "placeholderSrc": "assets/placeholders/maker-shop.webp",
@@ -22627,7 +22627,7 @@
   },
   "featured": false,
   "coordinateProvenance": "arcgis-confident",
-  "markerTier": "map-ready",
+  "markerTier": "candidate",
   "inGvncScope": false
  },
  {
@@ -22679,10 +22679,10 @@
   "lat": 39.3222935262015,
   "lng": -120.203201802721,
   "publicMarker": true,
-  "locationReviewStatus": "Map-Ready",
+  "locationReviewStatus": "Needs Location Review",
   "coordinateSource": "arcgis-cultural-assets-confident-match",
   "coordinateConfidence": "high",
-  "locationCaveat": "",
+  "locationCaveat": "Tier downgraded by audit: 395m from exact address geocode.",
   "image": {
    "placeholderType": "gallery-studio",
    "placeholderSrc": "assets/placeholders/gallery-studio.webp",
@@ -22695,7 +22695,7 @@
   },
   "featured": false,
   "coordinateProvenance": "arcgis-confident",
-  "markerTier": "map-ready",
+  "markerTier": "candidate",
   "inGvncScope": false
  },
  {
@@ -24434,13 +24434,13 @@
   "website": "http://sierrabusiness.org/",
   "address": "10183 Truckee Airport Rd, No 202",
   "phone": "530-582-4800",
-  "lat": 39.31660205259922,
-  "lng": -120.14707311981489,
+  "lat": 39.356307453999,
+  "lng": -120.139985218404,
   "publicMarker": true,
   "locationReviewStatus": "Map-Ready",
-  "coordinateSource": "diana-workbook-webmercator",
-  "coordinateConfidence": "authoritative",
-  "locationCaveat": "",
+  "coordinateSource": "us-census-geocoder-corrected",
+  "coordinateConfidence": "rooftop-exact",
+  "locationCaveat": "Auto-corrected 4457m from prior diana-workbook-webmercator point (audit 150m).",
   "image": {
    "placeholderType": "historic-place",
    "placeholderSrc": "assets/placeholders/historic-place.webp",
@@ -24724,10 +24724,10 @@
   "lat": 39.31578335242555,
   "lng": -120.14860025579789,
   "publicMarker": true,
-  "locationReviewStatus": "Map-Ready",
+  "locationReviewStatus": "Needs Location Review",
   "coordinateSource": "diana-workbook-webmercator",
   "coordinateConfidence": "authoritative",
-  "locationCaveat": "",
+  "locationCaveat": "Tier downgraded by audit: 242m from exact address geocode.",
   "image": {
    "placeholderType": "historic-place",
    "placeholderSrc": "assets/placeholders/historic-place.webp",
@@ -24743,7 +24743,7 @@
   },
   "featured": false,
   "coordinateProvenance": "diana",
-  "markerTier": "map-ready",
+  "markerTier": "candidate",
   "inGvncScope": false
  },
  {
@@ -24860,13 +24860,13 @@
   "website": "https://www.townoftruckee.com/",
   "address": "10183 Truckee Airport Rd",
   "phone": "530-582-2914",
-  "lat": 39.31660205259922,
-  "lng": -120.14707311981489,
+  "lat": 39.356307453999,
+  "lng": -120.139985218404,
   "publicMarker": true,
   "locationReviewStatus": "Map-Ready",
-  "coordinateSource": "diana-workbook-webmercator",
-  "coordinateConfidence": "authoritative",
-  "locationCaveat": "",
+  "coordinateSource": "us-census-geocoder-corrected",
+  "coordinateConfidence": "rooftop-exact",
+  "locationCaveat": "Auto-corrected 4457m from prior diana-workbook-webmercator point (audit 150m).",
   "image": {
    "placeholderType": "historic-place",
    "placeholderSrc": "assets/placeholders/historic-place.webp",
@@ -26582,10 +26582,10 @@
   "lat": 39.3216694871493,
   "lng": -120.163441505863,
   "publicMarker": true,
-  "locationReviewStatus": "Map-Ready",
+  "locationReviewStatus": "Needs Location Review",
   "coordinateSource": "arcgis-cultural-assets-confident-match",
   "coordinateConfidence": "high",
-  "locationCaveat": "",
+  "locationCaveat": "Tier downgraded by audit: 177m from exact address geocode.",
   "image": {
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
@@ -26598,7 +26598,7 @@
   },
   "featured": false,
   "coordinateProvenance": "arcgis-confident",
-  "markerTier": "map-ready",
+  "markerTier": "candidate",
   "inGvncScope": false
  },
  {
@@ -28218,10 +28218,10 @@
   "lat": 39.3357904726843,
   "lng": -120.180564420156,
   "publicMarker": true,
-  "locationReviewStatus": "Map-Ready",
+  "locationReviewStatus": "Needs Location Review",
   "coordinateSource": "arcgis-cultural-assets-confident-match",
   "coordinateConfidence": "high",
-  "locationCaveat": "",
+  "locationCaveat": "Tier downgraded by audit: 424m from exact address geocode.",
   "image": {
    "placeholderType": "gallery-studio",
    "placeholderSrc": "assets/placeholders/gallery-studio.webp",
@@ -28237,7 +28237,7 @@
   },
   "featured": false,
   "coordinateProvenance": "arcgis-confident",
-  "markerTier": "map-ready",
+  "markerTier": "candidate",
   "inGvncScope": false,
   "descriptionSource": {
    "kind": "venue-website",
@@ -29616,10 +29616,10 @@
   "lat": 39.3200864251148,
   "lng": -120.159964432826,
   "publicMarker": true,
-  "locationReviewStatus": "Map-Ready",
+  "locationReviewStatus": "Needs Location Review",
   "coordinateSource": "arcgis-cultural-assets-confident-match",
   "coordinateConfidence": "high",
-  "locationCaveat": "",
+  "locationCaveat": "Tier downgraded by audit: 2131m from exact address geocode.",
   "image": {
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
@@ -29632,7 +29632,7 @@
   },
   "featured": false,
   "coordinateProvenance": "arcgis-confident",
-  "markerTier": "map-ready",
+  "markerTier": "candidate",
   "inGvncScope": false,
   "descriptionSource": {
    "kind": "venue-website",
@@ -30230,13 +30230,13 @@
   "website": "http://www.trailsandvistas.org/trails--vistas-art-hikes.html",
   "address": "9411 Pahatsi Road",
   "phone": "530-536-0388",
-  "lat": 39.355257696078766,
-  "lng": -120.10101649519807,
+  "lat": 39.312272080857,
+  "lng": -120.387748589747,
   "publicMarker": true,
   "locationReviewStatus": "Map-Ready",
-  "coordinateSource": "diana-workbook-webmercator",
-  "coordinateConfidence": "authoritative",
-  "locationCaveat": "",
+  "coordinateSource": "us-census-geocoder-corrected",
+  "coordinateConfidence": "rooftop-exact",
+  "locationCaveat": "Auto-corrected 25120m from prior diana-workbook-webmercator point (audit 150m).",
   "image": {
    "placeholderType": "performance-event-venue",
    "placeholderSrc": "assets/placeholders/performance-event-venue.webp",
@@ -31188,10 +31188,10 @@
   "lat": 39.32795027940891,
   "lng": -120.18508982263884,
   "publicMarker": true,
-  "locationReviewStatus": "Map-Ready",
+  "locationReviewStatus": "Needs Location Review",
   "coordinateSource": "diana-workbook-webmercator",
   "coordinateConfidence": "authoritative",
-  "locationCaveat": "",
+  "locationCaveat": "Tier downgraded by audit: 258m from exact address geocode.",
   "image": {
    "placeholderType": "gallery-studio",
    "placeholderSrc": "assets/placeholders/gallery-studio.webp",
@@ -31204,7 +31204,7 @@
   },
   "featured": false,
   "coordinateProvenance": "diana",
-  "markerTier": "map-ready",
+  "markerTier": "candidate",
   "inGvncScope": false
  },
  {
@@ -31262,10 +31262,10 @@
   "lat": 39.325978891688095,
   "lng": -120.23869229564225,
   "publicMarker": true,
-  "locationReviewStatus": "Map-Ready",
+  "locationReviewStatus": "Needs Location Review",
   "coordinateSource": "diana-workbook-webmercator",
   "coordinateConfidence": "authoritative",
-  "locationCaveat": "",
+  "locationCaveat": "Tier downgraded by audit: 553m from exact address geocode.",
   "image": {
    "placeholderType": "gallery-studio",
    "placeholderSrc": "assets/placeholders/gallery-studio.webp",
@@ -31278,7 +31278,7 @@
   },
   "featured": false,
   "coordinateProvenance": "diana",
-  "markerTier": "map-ready",
+  "markerTier": "candidate",
   "inGvncScope": false
  },
  {
@@ -31478,10 +31478,10 @@
   "lat": 39.3284109799136,
   "lng": -120.18412862528483,
   "publicMarker": true,
-  "locationReviewStatus": "Map-Ready",
+  "locationReviewStatus": "Needs Location Review",
   "coordinateSource": "diana-workbook-webmercator",
   "coordinateConfidence": "authoritative",
-  "locationCaveat": "",
+  "locationCaveat": "Tier downgraded by audit: 185m from exact address geocode.",
   "image": {
    "placeholderType": "gallery-studio",
    "placeholderSrc": "assets/placeholders/gallery-studio.webp",
@@ -31494,7 +31494,7 @@
   },
   "featured": false,
   "coordinateProvenance": "diana",
-  "markerTier": "map-ready",
+  "markerTier": "candidate",
   "inGvncScope": false
  },
  {
@@ -31888,13 +31888,13 @@
   "website": "https://truckeetahoeairport.com/",
   "address": "10356 Truckee Airport Rd.",
   "phone": "530-587-4119 x-105",
-  "lat": 39.31910326822942,
-  "lng": -120.14526750609379,
+  "lat": 39.352225971057,
+  "lng": -120.135831857555,
   "publicMarker": true,
   "locationReviewStatus": "Map-Ready",
-  "coordinateSource": "diana-workbook-webmercator",
-  "coordinateConfidence": "authoritative",
-  "locationCaveat": "",
+  "coordinateSource": "us-census-geocoder-corrected",
+  "coordinateConfidence": "rooftop-exact",
+  "locationCaveat": "Auto-corrected 3771m from prior diana-workbook-webmercator point (audit 150m).",
   "image": {
    "placeholderType": "gallery-studio",
    "placeholderSrc": "assets/placeholders/gallery-studio.webp",
@@ -36368,10 +36368,10 @@
   "lat": 39.3289,
   "lng": -120.1825,
   "publicMarker": true,
-  "locationReviewStatus": "Map-Ready",
+  "locationReviewStatus": "Needs Location Review",
   "coordinateSource": "diana-workbook-lonlat",
   "coordinateConfidence": "authoritative",
-  "locationCaveat": "",
+  "locationCaveat": "Tier downgraded by audit: 196m from exact address geocode.",
   "image": {
    "placeholderType": "historic-place",
    "placeholderSrc": "assets/placeholders/historic-place.webp",
@@ -36384,7 +36384,7 @@
   },
   "featured": false,
   "coordinateProvenance": "diana",
-  "markerTier": "map-ready",
+  "markerTier": "candidate",
   "inGvncScope": false
  },
  {
@@ -38591,13 +38591,13 @@
   "website": "",
   "address": "12313 Soaring Way",
   "phone": "",
-  "lat": 39.35306827176813,
-  "lng": -120.2544487457257,
+  "lat": 39.317108368645,
+  "lng": -120.147574795027,
   "publicMarker": true,
   "locationReviewStatus": "Map-Ready",
-  "coordinateSource": "diana-workbook-webmercator",
-  "coordinateConfidence": "authoritative",
-  "locationCaveat": "",
+  "coordinateSource": "us-census-geocoder-corrected",
+  "coordinateConfidence": "rooftop-exact",
+  "locationCaveat": "Auto-corrected 10024m from prior diana-workbook-webmercator point (audit 150m).",
   "image": {
    "placeholderType": "public-art",
    "placeholderSrc": "assets/placeholders/public-art.webp",
@@ -38662,10 +38662,10 @@
   "lat": 39.321903217088646,
   "lng": -120.1639524640035,
   "publicMarker": true,
-  "locationReviewStatus": "Map-Ready",
+  "locationReviewStatus": "Needs Location Review",
   "coordinateSource": "diana-workbook-webmercator",
   "coordinateConfidence": "authoritative",
-  "locationCaveat": "",
+  "locationCaveat": "Tier downgraded by audit: 196m from exact address geocode.",
   "image": {
    "placeholderType": "public-art",
    "placeholderSrc": "assets/placeholders/public-art.webp",
@@ -38678,7 +38678,7 @@
   },
   "featured": false,
   "coordinateProvenance": "diana",
-  "markerTier": "map-ready",
+  "markerTier": "candidate",
   "inGvncScope": false
  },
  {
@@ -38832,10 +38832,10 @@
   "lat": 39.201306086356134,
   "lng": -121.1921641382067,
   "publicMarker": true,
-  "locationReviewStatus": "Map-Ready",
+  "locationReviewStatus": "Needs Location Review",
   "coordinateSource": "diana-workbook-webmercator",
   "coordinateConfidence": "authoritative",
-  "locationCaveat": "",
+  "locationCaveat": "Tier downgraded by audit: 330m from exact address geocode.",
   "image": {
    "placeholderType": "public-art",
    "placeholderSrc": "assets/placeholders/public-art.webp",
@@ -38848,7 +38848,7 @@
   },
   "featured": false,
   "coordinateProvenance": "diana",
-  "markerTier": "map-ready",
+  "markerTier": "candidate",
   "inGvncScope": true
  },
  {
@@ -38900,10 +38900,10 @@
   "lat": 39.32637984462658,
   "lng": -120.19525875165506,
   "publicMarker": true,
-  "locationReviewStatus": "Map-Ready",
+  "locationReviewStatus": "Needs Location Review",
   "coordinateSource": "diana-workbook-webmercator",
   "coordinateConfidence": "authoritative",
-  "locationCaveat": "",
+  "locationCaveat": "Tier downgraded by audit: 456m from exact address geocode.",
   "image": {
    "placeholderType": "public-art",
    "placeholderSrc": "assets/placeholders/public-art.webp",
@@ -38916,7 +38916,7 @@
   },
   "featured": false,
   "coordinateProvenance": "diana",
-  "markerTier": "map-ready",
+  "markerTier": "candidate",
   "inGvncScope": false
  },
  {
@@ -43875,10 +43875,10 @@
   "lat": 39.1466411694017,
   "lng": -120.968435275251,
   "publicMarker": true,
-  "locationReviewStatus": "Map-Ready",
+  "locationReviewStatus": "Needs Location Review",
   "coordinateSource": "arcgis-cultural-assets-confident-match",
   "coordinateConfidence": "high",
-  "locationCaveat": "",
+  "locationCaveat": "Tier downgraded by audit: 175m from exact address geocode.",
   "image": {
    "placeholderType": "historic-place",
    "placeholderSrc": "assets/placeholders/historic-place.webp",
@@ -43891,7 +43891,7 @@
   },
   "featured": false,
   "coordinateProvenance": "arcgis-confident",
-  "markerTier": "map-ready",
+  "markerTier": "candidate",
   "inGvncScope": true,
   "descriptionSource": {
    "kind": "venue-website",
@@ -47333,10 +47333,10 @@
   "lat": 39.2013064093612,
   "lng": -121.192161383074,
   "publicMarker": true,
-  "locationReviewStatus": "Map-Ready",
+  "locationReviewStatus": "Needs Location Review",
   "coordinateSource": "arcgis-cultural-assets-confident-match",
   "coordinateConfidence": "high",
-  "locationCaveat": "",
+  "locationCaveat": "Tier downgraded by audit: 330m from exact address geocode.",
   "image": {
    "placeholderType": "historic-place",
    "placeholderSrc": "assets/placeholders/historic-place.webp",
@@ -47349,7 +47349,7 @@
   },
   "featured": false,
   "coordinateProvenance": "arcgis-confident",
-  "markerTier": "map-ready",
+  "markerTier": "candidate",
   "inGvncScope": true
  },
  {
