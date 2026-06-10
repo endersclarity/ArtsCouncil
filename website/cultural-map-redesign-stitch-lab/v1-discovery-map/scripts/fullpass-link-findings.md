@@ -1,0 +1,97 @@
+# Website link findings — self-description pass 2026-06-10
+
+Dead/broken/junk website links found while fetching venue sites.
+Owner decision required before removing any link from data.
+
+## Known hijacked (CONFIRMED MALICIOUS — recommend removing link ASAP)
+- The Vault @ Crush / Crush Nevada City — https://crushnevadacity.com/ serves Indonesian gambling spam (found in pilot + batch 006; also Native Wren flagged in batch 007)
+
+## Fetch failures (dead DNS, SSL errors, 404s, junk URLs)
+- Black Bart Ornamental Iron Works — https://blackbartironworks.com/contact.html — HTTP Error 404: Not Found
+- Heathered Yarn Co. — https://heatheredyarnco.com/ — <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.
+- KYRR 93.3 FM — https://www.angelfire.com/ky3/kyrr93.3/ — <urlopen error [Errno 11001] getaddrinfo failed>
+- Nevada Union High School Library — http://nevadaunion.njuhsd.com/Library/index.html — HTTP Error 404: Not Found
+- Sans Backup Plan Records — https://@sans.backup.plan — <urlopen error [Errno 11003] getaddrinfo failed>
+- Alloro Ristorante — https://www.allororistorantegrassvalley.com/ — HTTP Error 404: Not Found
+- Caroline's Coffee Roasters — https://carolinescoffee.com/ — HTTP Error 403: Forbidden
+- Cork 49 — https://downtowngrassvalley.com/cork-49/ — HTTP Error 404: Not Found
+- Elixart — https://elixart.com/ — <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.
+- Gold Vibe Kombuchary — https://www.goldvibe.com/ — <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.
+- MAK's BBQ — https://www.grassvalleychamber.com/directory/listing/maks-bbq/ — HTTP Error 404: Not Found
+- McGee’s Annex — https://mcgeesnevadacity.com/ — <urlopen error [Errno 11001] getaddrinfo failed>
+- Nevada City Classic Cafe — https://nevada-city-classic-cafe.wa-cafe.com/ — <urlopen error [Errno 11002] getaddrinfo failed>
+- South Pine Cafe — https://www.southpinecafe.com/ — <urlopen error [Errno 11001] getaddrinfo failed>
+- The Place on South Pine — https://www.theplaceonsouthpine.com/ — HTTP Error 401: Unauthorized
+- MIX decor + design — https://@mix_nevadacity — <urlopen error [Errno 11003] getaddrinfo failed>
+- Wolf Craft School — https://wolfcraftcollective.com — <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.
+- Bamboo Home Store — https://downtowngrassvalley.com/bamboo-home-store/ — HTTP Error 404: Not Found
+- Field Day Apparel — https://www.fielddayapparel.com/?srsltid=AfmBOooCArwld5myxRAUAIJYomr-1JVJxORGHsloxnge9OvDKxyTLQGl — <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.
+- Foothill Mercantile — https://foothillmercantile.com/ — <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.
+- J.J. Jackson's — https://www.jj-jacksons.com — HTTP Error 404: Not Found
+- Long's Bottle Shop — https://@longsbottleshop — <urlopen error [Errno 11003] getaddrinfo failed>
+- Of Earth and Salt — https://www.ofearthandsalt.com/ — <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.
+- SoulCrafts — https://www.ofearthandsalt.com/ — <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.
+- The Olive Groove — https://theolivegroove.com/ — <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1010)>
+- The Outpost — https://@theoutpostdowntown — <urlopen error [Errno 11003] getaddrinfo failed>
+- Two Little Birds — https://twolittlebirdsnevadacity.com/ — <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.
+- Wild Side — https://downtowngrassvalley.com/wild-side/ — HTTP Error 404: Not Found
+- Yabobo — https://www.asylumdown.com — <urlopen error timed out>
+- Yuba Blue — https://www.yubablueonline.com/ — The read operation timed out
+- Vintage on Mill — https://downtowngrassvalley.com/vintage-on-mill/ — HTTP Error 404: Not Found
+- Litton Trail — https://www.alltrails.com/trail/us/california/litton-trail — HTTP Error 403: Forbidden
+- Pioneer Park — https://www.nevadacityca.gov/pview.aspx?id=20737&catID=564 — HTTP Error 404: Not Found
+- Scotts Flat Lake and Trails — https://www.alltrails.com/trail/us/california/scotts-flat-trail — HTTP Error 403: Forbidden
+- Arbor Tahoe — https://arborcollective.com/pages/arbor-flagship-tahoe — <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.
+- Nevada County Arts Council and Truckee Cultural District — https://nevadacountyarts.org, truckeeculturaldistrict.org — URL can't contain control characters. 'nevadacountyarts.org, truckeeculturaldistrict.org' (found at least ' ')
+- Mountain Gazette — https://mountaingazette.com/?srsltid=AfmBOooKnwKlEPFiNb28ACIf4hOu67SlzHP6ck4dSv1XSOANqv1SFj8g — <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.
+- 1882 Bar & Grill — https://riverstreetinntruckee.com — <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1010)>
+- Café Lupine — https://@cafelupine — <urlopen error [Errno 11003] getaddrinfo failed>
+- Cornerstone Bakery & Kitchen — https://@truckeecornerstonebakery — <urlopen error [Errno 11003] getaddrinfo failed>
+- Crazy 4 Yogurt — https://@crazy.4yogurt — <urlopen error [Errno 11003] getaddrinfo failed>
+- Donner Lake Kitchen — https://@donner_lake_kitchen — <urlopen error [Errno 11003] getaddrinfo failed>
+- Dorinda’s Chocolates — https://dorindaschocolates.com/ — <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.
+- Everwild Wines — https://@everwildwines — <urlopen error [Errno 11003] getaddrinfo failed>
+- Gray Pine Winery — https://graypinewinery.com — <urlopen error [WinError 10054] An existing connection was forcibly closed by the remote host>
+- Jax At The Tracks — https://jaxatthetracks.com — HTTP Error 403: Forbidden
+- La Bamba Mexican Restaurant — https://@labambatruckee — <urlopen error [Errno 11003] getaddrinfo failed>
+- Martis Valley Lodge — https://martisvalleylodge.com — HTTP Error 403: Forbidden
+- Mehfil Indian Bistro — https://mehfilindianbistrotruckee.com — <urlopen error [Errno 11001] getaddrinfo failed>
+- River Street Inn — https://riverstreetinntruckee.com — <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: self-signed certificate (_ssl.c:1010)>
+- SpringHill Suites by Marriott Truckee — https://marriott.com/hotels/travel/rnosu-springhill-suites-truckee — HTTP Error 403: Forbidden
+- Thirsty Barrel Brewing Penn Valley — https://thirstybarrelbrewing.com/ — <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: certificate has expired (_ssl.c:1010)>
+- Trokay — https://restauranttrokay.com — <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid f
+- Uncorked Truckee — https://FB: /uncorkedtruckee — nonnumeric port: ' '
+- Village Pizzaria — https://villagepizzeriatruckee.com — <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: Hostname mismatch, certificate is not valid f
+- Whole Treats Bakery & Coffee House — https://@wholetreatsbakery — <urlopen error [Errno 11003] getaddrinfo failed>
+- Juniper Boutique — https://10056 Donner Pass Rd — URL can't contain control characters. '10056 Donner Pass Rd' (found at least ' ')
+- Kalifornia Jean Bar — https://kaliforniajeanbar.com — <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.
+- Marilyn’s Catwalk — https://@marilynscatwalk — <urlopen error [Errno 11003] getaddrinfo failed>
+- Nomad Boutique — https://nomadboutique.com — <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.
+- Sticks Market — https://FB: /sticksmarket — nonnumeric port: ' '
+- Tahoe Mountain Life — https://@tahoe_mountain_life — <urlopen error [Errno 11003] getaddrinfo failed>
+- Tahoe Oil & Spice — https://tahoeoilandspice.com — <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.
+- The Cooking Gallery — https://cookinggallery.net/pages/about — <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.
+- Whim Be Beautiful — https://whimbebeautiful.com/ — <urlopen error [SSL: CERTIFICATE_VERIFY_FAILED] certificate verify failed: unable to get local issuer certificate (_ssl.
+- truckee love. — https://www.truckeelove.com/ — HTTP Error 404: Not Found
+- Liberty Bell Smart Home — https://www.lbsmarthome.com/ — HTTP Error 403: Forbidden
+- Unique Boutique — https://@uniqueboutique_truckee — <urlopen error [Errno 11003] getaddrinfo failed>
+- Betsy Mine Trail — https://www.trailforks.com/trails/betsy-mine-trail/ — HTTP Error 403: Forbidden
+- Beyers Lake Trail — https://www.trailforks.com/trails/beyers-lake-trail/ — HTTP Error 403: Forbidden
+- Big Boca OHV Tie Trail — https://www.alltrails.com/trail/us/california/boca-atv-tie-trail-and-boca-reservoir-loop — HTTP Error 403: Forbidden
+- Big Boca OHV Trail — https://www.alltrails.com/trail/us/california/boca-hill-loop-ohv-trail — HTTP Error 403: Forbidden
+- Big Sagehen OHV Trail — https://www.outerspatial.com/trails/uid-0517-big-sagehen-ohv?community=west-virginia — HTTP Error 429: Too Many Requests
+- Blair Trail — https://www.alltrails.com/trail/us/california/blair-trail — HTTP Error 403: Forbidden
+- Blue Lake Trail — https://www.alltrails.com/trail/us/california/blue-lake-trail--5 — HTTP Error 403: Forbidden
+- Boca ATV Connector — https://www.alltrails.com/trail/us/california/boca-atv-tie-trail-and-boca-reservoir-loop — HTTP Error 403: Forbidden
+- Boca Break OHV Trail — https://www.alltrails.com/trail/us/california/boca-hill-loop-ohv-trail — HTTP Error 403: Forbidden
+- Buttermilk Bend Trail — http://syrpa.lindberglce.com/buttermilk.htm — HTTP Error 404: Not Found
+- Coldstream Trailhead — https://www.alltrails.com/trail/us/california/cold-stream-trail--2 — HTTP Error 403: Forbidden
+- Donner Memorial State Park — http://www.parks.ca.gov/?page_id=503 — <urlopen error timed out>
+- Hole in the Ground Trail — https://www.alltrails.com/trail/us/california/hole-in-the-ground-trail — HTTP Error 403: Forbidden
+- Palisades Creek Trail — https://www.alltrails.com/trail/us/california/palisade-creek-trail — HTTP Error 403: Forbidden
+- Point Defiance Trail — http://syrpa.lindberglce.com/defiance.htm — HTTP Error 404: Not Found
+- South Yuba River State Park — http://syrpa.lindberglce.com/visitor.htm — HTTP Error 404: Not Found
+- Summit Lake Trail — https://www.alltrails.com/trail/us/california/summit-lake-trail — HTTP Error 403: Forbidden
+- Truckee River Regional Park — http://www.tdrpd.org/parks/195-regional-park.html — HTTP Error 404: Not Found
+- West End Beach — http://www.tdrpd.org/parks/west-end-beach.html — HTTP Error 404: Not Found
+- Western Gateway Park — http://gonevadacounty.com/attraction/western-gateway-park/ — HTTP Error 404: Not Found

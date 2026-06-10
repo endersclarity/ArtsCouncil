@@ -12,8 +12,8 @@ See: .planning/PROJECT.md (updated 2026-02-14)
 Phase: No active GSD phase — current work is the V1 Discovery Map quality loop (outside GSD)
 Plan: N/A
 Status: Dogfood sprint #1 complete: 11/11 issues from the 2026-06-09 browser audit fixed and verified (1 critical mobile trap, 4 major, 6 minor). Report + fix log: v1-discovery-map/dogfood-output/2026-06-09-live/report.md.
-Last activity: 2026-06-10 -- Fixed all 11 dogfood issues (mobile drawer trap, hamburger nav, events list, search placement, drawer scroll/z-index, route back button, copy + visual nits); verified locally at 1258px/390px via agent-browser; deployed to v1-discovery-map Vercel.
-Next: (1) re-dogfood the live site to confirm deploy + hunt fresh issues, (2) decide next quality targets with user (candidates: events date grouping, path stop UX, design polish per .planning/hub/design/DESIGN-SOURCE-OF-TRUTH.md — Polymath typography confirmed 2026-06-09), (3) eventually fold this folder's direction into formal milestone planning (/gsd:new-milestone).
+Last activity: 2026-06-10 -- (a) Fixed all 11 dogfood issues, deployed. (b) Added public "What's New" changelog (changelog.html + data/changelog.json) with pre-commit hook enforcement; AGENTS.md blesses STATE.md as journey tracker. (c) Self-description pass (scripts/self-description-pass-SPEC.md): scraped 452 venue websites, Haiku subagents extracted self-descriptions, strict verbatim verification accepted 219, merged into places.json with descriptionSource provenance. Committed locally, NOT pushed — owner review pending.
+Next: (1) owner reviews self-description merge locally (port 8013), then push to publish; (2) act on scripts/fullpass-link-findings.md — 88 broken venue links + crushnevadacity.com HIJACKED (gambling spam, remove link ASAP); (3) remaining placeholder data: 149 placeholder images, ~450 templated descriptions with no website, expired Google photo URLs (~1 in 8 broken) — candidates: Google Places API refresh or community photo submissions; (4) fold into formal milestone planning.
 
 Progress: [████████████████████] 100% overall (all planned phases complete)
 
