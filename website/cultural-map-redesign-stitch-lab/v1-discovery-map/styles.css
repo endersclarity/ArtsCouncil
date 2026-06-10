@@ -1430,6 +1430,14 @@ body:not([data-map-mode="places"]) .review-tools {
   color: var(--ink-soft);
 }
 
+.story-read-link {
+  display: inline-block;
+  margin: 0 0 8px;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--ncac-red);
+}
+
 button.seen-in-muse-story {
   appearance: none;
   text-align: left;

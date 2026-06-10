@@ -1199,6 +1199,20 @@
   // MUSE Story Lens ("MUSE Story Lens" board): browse the map through real
   // MUSE Magazine articles. Stories come from exact, direct-evidence matches
   // only (data/muse-stories.json) — never theme/fuzzy guesses.
+  // Published e-magazine flip-books (nevadacountyarts.org/muse); #page/N is
+  // Heyzine's page deep-link. Print vs flip-book numbering may drift a page.
+  const MUSE_ISSUE_URLS = {
+    2024: "https://heyzine.com/flip-book/4d7f1d311e.html",
+    2025: "https://heyzine.com/flip-book/MUSE",
+    2026: "https://heyzine.com/flip-book/MUSE26",
+  };
+
+  function museArticleUrl(story) {
+    const base = MUSE_ISSUE_URLS[story.issueYear];
+    if (!base) return "";
+    const page = story.pages?.[0];
+    return page ? `${base}#page/${page}` : base;
+  }
   function storiesForPlace(placeId) {
     return state.museStories.filter((story) => story.placeIds.includes(placeId));
   }
@@ -1250,6 +1264,7 @@
       <p class="section-label">From the pages of MUSE</p>
       <h2 class="story-title">${escapeHtml(story.title)}</h2>
       <p class="story-issue">${escapeHtml(story.issue)}${story.pages?.[0] ? ` · pages ${escapeHtml(story.pages[0])}–${escapeHtml(story.pages[1] || story.pages[0])}` : ""}</p>
+      ${museArticleUrl(story) ? `<a class="story-read-link" href="${escapeHtml(museArticleUrl(story))}" target="_blank" rel="noopener">Read the article in MUSE ›</a>` : ""}
       <p class="empty-copy">This article mentions ${escapeHtml(members.length)} places on the map.</p>
       <div class="surprise-list">
         ${members.map((place) => `
