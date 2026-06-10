@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arts Hub V2 — Platform Ecosystem</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Playfair+Display:ital,wght@1,400;1,700&display=swap" rel="stylesheet">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Nunito', sans-serif; background: #faf7f5; overflow: hidden; height: 100vh; width: 100vw; user-select: none; }
+svg { width: 100%; height: 100%; }
+text { font-family: 'Nunito', sans-serif; pointer-events: none; }
+
+.edge { stroke: #d4ccc4; stroke-width: 1.2; fill: none; opacity: 0.3; transition: opacity 0.3s, stroke 0.3s, stroke-width 0.3s; }
+.edge.future { stroke-dasharray: 6 4; opacity: 0.15; }
+
+.node-group { cursor: pointer; transition: opacity 0.3s; }
+.node-shape { transition: filter 0.2s; }
+.node-label { fill: #3F3F3F; font-weight: 800; font-size: 11px; text-anchor: middle; transition: fill 0.2s; }
+
+/* Hub */
+.node-hub .node-shape { fill: #FF2400; }
+.node-hub .node-label { fill: #fff; font-size: 15px; font-weight: 900; }
+
+/* Features — scarlet border pills */
+.node-feature .node-shape { fill: #fff; stroke: #FF2400; stroke-width: 2.5; }
+.node-feature .node-label { fill: #FF2400; font-size: 12px; }
+
+/* Sources — sage border pills */
+.node-source .node-shape { fill: #fff; stroke: #5a8a6a; stroke-width: 2; }
+.node-source .node-label { fill: #5a8a6a; font-size: 11px; }
+
+/* Outcomes — navy border pills */
+.node-outcome .node-shape { fill: #fff; stroke: #1e3a5f; stroke-width: 2; }
+.node-outcome .node-label { fill: #1e3a5f; font-size: 11px; }
+
+/* Future — dashed muted pills */
+.node-future .node-shape { fill: #f5f0eb; stroke: #c5bdb0; stroke-width: 1.5; stroke-dasharray: 5 3; }
+.node-future .node-label { fill: #b0a898; font-size: 10px; font-weight: 700; }
+
+/* Dimmed state */
+svg.has-active .node-group { opacity: 0.1; }
+svg.has-active .edge { opacity: 0.03; }
+svg.has-active .node-group.active { opacity: 1; }
+svg.has-active .node-group.connected { opacity: 0.7; }
+svg.has-active .edge.active { opacity: 0.7; stroke: #FF2400; stroke-width: 2; }
+
+.node-group:hover .node-shape { filter: drop-shadow(0 2px 10px rgba(255,36,0,0.15)); }
+.node-hub:hover .node-shape { filter: drop-shadow(0 3px 16px rgba(255,36,0,0.3)); }
+
+/* Tooltip */
+.tooltip { position: fixed; background: #fff; border-left: 3px solid #FF2400; padding: 8px 14px; font-size: 12px; font-weight: 600; color: #3F3F3F; max-width: 260px; pointer-events: none; opacity: 0; transition: opacity 0.15s; z-index: 100; box-shadow: 0 4px 20px rgba(0,0,0,0.06); line-height: 1.4; }
+.tooltip.visible { opacity: 1; }
+.tooltip .tt-type { font-size: 9px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; color: #FF2400; margin-bottom: 1px; }
+
+/* Title */
+.page-title { position: fixed; top: 20px; left: 28px; z-index: 10; }
+.page-title h1 { font-family: 'Playfair Display', serif; font-style: italic; font-size: 1.4rem; color: #3F3F3F; line-height: 1.2; }
+.page-title p { font-size: 0.7rem; color: #b0a898; margin-top: 3px; letter-spacing: 0.02em; }
+
+/* Column labels */
+.col-label { fill: #c5bdb0; font-size: 9px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; text-anchor: middle; }
+
+/* Legend */
+.legend { position: fixed; bottom: 20px; left: 28px; display: flex; gap: 16px; z-index: 10; }
+.legend-item { display: flex; align-items: center; gap: 5px; font-size: 10px; color: #b0a898; font-weight: 700; }
+.legend-pill { width: 24px; height: 12px; border-radius: 6px; border: 2px solid; background: #fff; }
+.legend-pill.feat { border-color: #FF2400; }
+.legend-pill.src { border-color: #5a8a6a; }
+.legend-pill.out { border-color: #1e3a5f; }
+.legend-pill.fut { border-color: #c5bdb0; border-style: dashed; background: #f5f0eb; }
+</style>
+</head>
+<body>
+
+<div class="page-title">
+  <h1>Arts Hub Ecosystem</h1>
+  <p>Hover to explore connections</p>
+</div>
+
+<div class="legend">
+  <div class="legend-item"><div class="legend-pill feat"></div>Feature</div>
+  <div class="legend-item"><div class="legend-pill src"></div>Data Source</div>
+  <div class="legend-item"><div class="legend-pill out"></div>Outcome</div>
+  <div class="legend-item"><div class="legend-pill fut"></div>Future</div>
+</div>
+
+<div class="tooltip" id="tooltip">
+  <div class="tt-type" id="tt-type"></div>
+  <div id="tt-text"></div>
+</div>
+
+<svg id="canvas" xmlns="http://www.w3.org/2000/svg"></svg>
+
+<script>
+(function() {
+  var W, H, cx, cy;
+  function resize() { W = window.innerWidth; H = window.innerHeight; cx = W * 0.5; cy = H * 0.5; }
+  resize();
+
+  // Pill dimensions: padding around text
+  var PAD_X = 18, PAD_Y = 10;
+
+  var nodes = [
+    // Hub (circle, special)
+    { id: 'hub', label: 'Arts Hub', type: 'hub', shape: 'circle', r: 34, x: 0, y: 0, detail: 'Centralized digital platform for Nevada County arts & culture' },
+
+    // Features — inner ring, tight
+    { id: 'events', label: 'Events', type: 'feature', x: -55, y: -105, detail: '198 events, date-grouped, Family Friendly + Free filters' },
+    { id: 'map', label: 'Map', type: 'feature', x: 75, y: -90, detail: '1,969 assets with hover tooltips and auto-labels' },
+    { id: 'directory', label: 'Directory', type: 'feature', x: 110, y: 10, detail: '1,650 venues, artists, orgs — A-Z search' },
+    { id: 'stories', label: 'Stories', type: 'feature', x: 65, y: 100, detail: '9 MUSE editorials — wine, 48hrs, gallery walk' },
+    { id: 'soundcheck', label: 'Sound Check', type: 'feature', x: -65, y: 100, detail: 'Live music hub — this week\'s shows + venues' },
+    { id: 'submit', label: 'Submit', type: 'feature', x: -115, y: 35, detail: 'Event submission form (demo)' },
+    { id: 'about', label: 'Programs', type: 'feature', x: -110, y: -45, detail: 'Team, mission, 6 NCAC programs incl. I Am Nisenan' },
+
+    // Sources — left column, pulled in
+    { id: 'trumba', label: 'Trumba', type: 'source', x: -240, y: -85, detail: 'Arts Council calendar — nightly auto-refresh' },
+    { id: 'arcgis', label: 'ArcGIS', type: 'source', x: -245, y: -20, detail: '1,969 cultural assets from county GIS' },
+    { id: 'muse', label: 'MUSE', type: 'source', x: -245, y: 45, detail: '211 artists, editorials, business directory' },
+    { id: 'supabase', label: 'Supabase', type: 'source', x: -235, y: 105, detail: 'Live music venue data' },
+    { id: 'ncac', label: 'NCAC Site', type: 'source', x: -220, y: -145, detail: 'Accelerator, Business of Art, Jobs, Relief Fund' },
+
+    // Outcomes — right column, pulled in, short labels
+    { id: 'visitors', label: 'Discovery', type: 'outcome', x: 235, y: -80, detail: 'Solve the #1 barrier: 26% cite lack of info' },
+    { id: 'artists', label: 'Artists', type: 'outcome', x: 245, y: -15, detail: '211 artists visible, linked to career programs' },
+    { id: 'venues', label: 'Venues', type: 'outcome', x: 240, y: 50, detail: 'Free exposure via map, events, and stories' },
+    { id: 'data', label: 'Analytics', type: 'outcome', x: 225, y: 110, detail: 'Umami — engagement proof for grants' },
+
+    // Future — pulled in, short labels
+    { id: 'corridors', label: 'Corridors', type: 'future', x: 165, y: -150, detail: '10 curated routes — data ready' },
+    { id: 'bilingual', label: 'Bilingual', type: 'future', x: 170, y: 145, detail: 'Translation widget proven on stitch-lab' },
+    { id: 'ticketing', label: 'Ticketing', type: 'future', x: -165, y: -160, detail: 'Needs venue partnerships' },
+    { id: 'newsletter', label: 'Digest', type: 'future', x: -155, y: 150, detail: 'Auto-generate weekly email from event data' },
+    { id: 'venueanalytics', label: 'Reports', type: 'future', x: 195, y: -120, detail: 'Monthly venue stats for partnerships' },
+  ];
+
+  var edges = [
+    ['trumba', 'events'], ['trumba', 'hub'],
+    ['arcgis', 'map'], ['arcgis', 'directory'],
+    ['muse', 'stories'], ['muse', 'directory'], ['muse', 'soundcheck'],
+    ['supabase', 'soundcheck'],
+    ['ncac', 'about'],
+    ['hub', 'events'], ['hub', 'map'], ['hub', 'directory'],
+    ['hub', 'stories'], ['hub', 'soundcheck'], ['hub', 'submit'], ['hub', 'about'],
+    ['events', 'visitors'], ['events', 'venues'],
+    ['map', 'visitors'], ['map', 'venues'],
+    ['directory', 'artists'], ['directory', 'venues'],
+    ['stories', 'visitors'],
+    ['soundcheck', 'visitors'], ['soundcheck', 'venues'],
+    ['about', 'artists'],
+    ['hub', 'data'],
+    ['corridors', 'map', true], ['corridors', 'stories', true],
+    ['bilingual', 'hub', true],
+    ['ticketing', 'events', true],
+    ['newsletter', 'events', true], ['newsletter', 'data', true],
+    ['venueanalytics', 'data', true], ['venueanalytics', 'venues', true],
+  ];
+
+  var nodeMap = {};
+  nodes.forEach(function(n) { nodeMap[n.id] = n; });
+  var adj = {};
+  nodes.forEach(function(n) { adj[n.id] = []; });
+  edges.forEach(function(e) { adj[e[0]].push(e[1]); adj[e[1]].push(e[0]); });
+
+  var svg = document.getElementById('canvas');
+  var tooltip = document.getElementById('tooltip');
+  var ttType = document.getElementById('tt-type');
+  var ttText = document.getElementById('tt-text');
+
+  // Measure text width using a hidden canvas
+  var measureCtx = document.createElement('canvas').getContext('2d');
+
+  function textWidth(str, size, weight) {
+    measureCtx.font = (weight || 800) + ' ' + (size || 11) + 'px Nunito, sans-serif';
+    return measureCtx.measureText(str).width;
+  }
+
+  function render() {
+    resize();
+    svg.innerHTML = '';
+    svg.setAttribute('viewBox', '0 0 ' + W + ' ' + H);
+
+    // Column labels
+    var cols = [
+      { label: 'Data Sources', x: cx - 240, y: cy - 195 },
+      { label: 'The Hub', x: cx, y: cy - 195 },
+      { label: 'Outcomes', x: cx + 240, y: cy - 195 },
+    ];
+    cols.forEach(function(c) {
+      var t = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+      t.setAttribute('class', 'col-label');
+      t.setAttribute('x', c.x);
+      t.setAttribute('y', c.y);
+      t.textContent = c.label;
+      svg.appendChild(t);
+    });
+
+    // Draw edges first (behind nodes)
+    edges.forEach(function(e) {
+      var a = nodeMap[e[0]], b = nodeMap[e[1]];
+      var line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+      line.setAttribute('x1', cx + a.x);
+      line.setAttribute('y1', cy + a.y);
+      line.setAttribute('x2', cx + b.x);
+      line.setAttribute('y2', cy + b.y);
+      line.setAttribute('class', 'edge' + (e[2] ? ' future' : ''));
+      line.setAttribute('data-from', e[0]);
+      line.setAttribute('data-to', e[1]);
+      svg.appendChild(line);
+    });
+
+    // Draw nodes
+    nodes.forEach(function(n) {
+      var g = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+      g.setAttribute('class', 'node-group node-' + n.type);
+      g.setAttribute('data-id', n.id);
+
+      var nx = cx + n.x, ny = cy + n.y;
+
+      if (n.shape === 'circle') {
+        // Hub: circle with label inside
+        var circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        circle.setAttribute('class', 'node-shape');
+        circle.setAttribute('cx', nx);
+        circle.setAttribute('cy', ny);
+        circle.setAttribute('r', n.r);
+        g.appendChild(circle);
+
+        var label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        label.setAttribute('class', 'node-label');
+        label.setAttribute('x', nx);
+        label.setAttribute('y', ny + 5);
+        label.textContent = n.label;
+        g.appendChild(label);
+      } else {
+        // Pill: rounded rect sized to text
+        var fontSize = n.type === 'feature' ? 12 : (n.type === 'future' ? 10 : 11);
+        var tw = textWidth(n.label, fontSize, 800);
+        var pw = tw + PAD_X * 2;
+        var ph = fontSize + PAD_Y * 2;
+        var rx = ph / 2; // fully rounded ends
+
+        var rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+        rect.setAttribute('class', 'node-shape');
+        rect.setAttribute('x', nx - pw / 2);
+        rect.setAttribute('y', ny - ph / 2);
+        rect.setAttribute('width', pw);
+        rect.setAttribute('height', ph);
+        rect.setAttribute('rx', rx);
+        rect.setAttribute('ry', rx);
+        g.appendChild(rect);
+
+        var label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        label.setAttribute('class', 'node-label');
+        label.setAttribute('x', nx);
+        label.setAttribute('y', ny + fontSize * 0.35);
+        label.textContent = n.label;
+        g.appendChild(label);
+      }
+
+      // Store bounds for edge clipping later if needed
+      n._nx = nx;
+      n._ny = ny;
+
+      // Interactions
+      g.addEventListener('mouseenter', function(evt) {
+        svg.classList.add('has-active');
+        g.classList.add('active');
+        adj[n.id].forEach(function(connId) {
+          var el = svg.querySelector('[data-id="' + connId + '"]');
+          if (el) el.classList.add('connected');
+        });
+        svg.querySelectorAll('.edge').forEach(function(edge) {
+          if (edge.getAttribute('data-from') === n.id || edge.getAttribute('data-to') === n.id)
+            edge.classList.add('active');
+        });
+        var types = { hub: 'Platform', feature: 'Feature', source: 'Data Source', outcome: 'Outcome', future: 'Coming Next' };
+        ttType.textContent = types[n.type] || '';
+        ttText.textContent = n.detail;
+        tooltip.classList.add('visible');
+        posTooltip(evt);
+      });
+      g.addEventListener('mousemove', posTooltip);
+      g.addEventListener('mouseleave', function() {
+        svg.classList.remove('has-active');
+        svg.querySelectorAll('.active, .connected').forEach(function(el) {
+          el.classList.remove('active', 'connected');
+        });
+        tooltip.classList.remove('visible');
+      });
+
+      svg.appendChild(g);
+    });
+  }
+
+  function posTooltip(evt) {
+    var x = evt.clientX + 14, y = evt.clientY - 8;
+    if (x + 270 > W) x = evt.clientX - 274;
+    if (y + 60 > H) y = evt.clientY - 60;
+    tooltip.style.left = x + 'px';
+    tooltip.style.top = y + 'px';
+  }
+
+  // Default: all pills
+  nodes.forEach(function(n) { if (!n.shape) n.shape = 'pill'; });
+
+  render();
+  window.addEventListener('resize', render);
+})();
+</script>
+</body>
+</html>

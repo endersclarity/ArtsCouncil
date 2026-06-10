@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html><head>
+<meta charset="utf-8">
+<title>Arts Hub V2 — Site Walkthrough</title>
+<style>
+body { font-family: -apple-system, sans-serif; max-width: 800px; margin: 2rem auto; padding: 0 1rem; color: #3F3F3F; line-height: 1.6; }
+h1 { color: #FF2400; border-bottom: 3px solid #FF2400; padding-bottom: 0.5rem; }
+h2 { color: #FF2400; margin-top: 2rem; }
+h3 { margin-top: 1.5rem; }
+table { border-collapse: collapse; width: 100%; margin: 1rem 0; }
+th, td { border: 1px solid #ddd; padding: 8px 12px; text-align: left; }
+th { background: #f5f5f5; }
+code { background: #f5f5f5; padding: 2px 6px; font-size: 0.9em; }
+hr { border: none; border-top: 1px solid #ddd; margin: 2rem 0; }
+strong { color: #222; }
+a { color: #FF2400; }
+.status { display: inline-block; padding: 2px 8px; font-size: 0.8em; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; }
+.live { background: #e6ffe6; color: #2a7a2a; }
+.demo { background: #FFF0ED; color: #FF2400; }
+.ready { background: #e6f0ff; color: #2a5a9a; }
+</style>
+</head><body>
+
+<h1>Arts Hub V2 — Site Walkthrough</h1>
+<p>
+<strong>Date:</strong> March 16, 2026<br>
+<strong>Author:</strong> Kaelen Jennings<br>
+<strong>For:</strong> Eliza Tudor (ED), Diana Arbex / Gianna (Program)<br>
+<strong>URL:</strong> <a href="https://arts-hub-v2.vercel.app">arts-hub-v2.vercel.app</a>
+</p>
+
+<hr>
+
+<h2>What the Site Does</h2>
+<p>Events, venues, artists, and editorial content for western Nevada County. 1,969 cultural assets on an interactive map, 198 events from Trumba, 1,650 directory entries, 9 stories adapted from MUSE.</p>
+
+<hr>
+
+<h2>Platform Overview</h2>
+<p style="font-size:0.85rem;color:#9a9084;margin-bottom:0.5rem;">Hover any node to see its connections. Click for details.</p>
+<iframe src="ecosystem.html" style="width:100%;height:500px;border:1px solid #ddd;margin-bottom:1rem;" frameborder="0"></iframe>
+
+<hr>
+
+<h2>Pages</h2>
+<table>
+<tr><th>Page</th><th>What It Does</th><th>Status</th></tr>
+<tr>
+  <td><strong><a href="https://arts-hub-v2.vercel.app/index.html">Homepage</a></strong></td>
+  <td>Interactive map (1,969 assets, color-coded, filterable) + event sidebar with venue-grouped shows. Hover tooltips on desktop, zoom-based auto-labels, letter markers on venue pins. Events deduped by showtime.</td>
+  <td><span class="status live">Live</span></td>
+</tr>
+<tr>
+  <td><strong><a href="https://arts-hub-v2.vercel.app/events.html">Events</a></strong></td>
+  <td>198 events from Trumba, grouped by date with date headings. Multi-showtime events collapsed into one card with date chips. Filters: time (tonight/weekend/month), category, Family Friendly, Free. Share buttons + "See on Map" deep links on every card.</td>
+  <td><span class="status live">Live</span></td>
+</tr>
+<tr>
+  <td><strong><a href="https://arts-hub-v2.vercel.app/story-sound-check.html">Sound Check</a></strong></td>
+  <td>Live music hub. This week's shows (Supabase feed), 8 venue cards with map links, 40-year music history editorial below. In the main nav.</td>
+  <td><span class="status demo">Demo</span></td>
+</tr>
+<tr>
+  <td><strong><a href="https://arts-hub-v2.vercel.app/stories.html">Stories</a></strong></td>
+  <td>9 editorial pages adapted from MUSE: wine country, 48hrs GVNC, 48hrs Truckee, theatre, maker spaces, friday night, gallery walk, the ridge. Native share on mobile.</td>
+  <td><span class="status live">Live</span></td>
+</tr>
+<tr>
+  <td><strong><a href="https://arts-hub-v2.vercel.app/directory.html">Directory</a></strong></td>
+  <td>~1,650 deduplicated entries: venues, restaurants, galleries, artists, organizations. A-Z letter bar, keyword search, category filters. Map pin links for geolocated entries. Compact text list, not cards.</td>
+  <td><span class="status live">Live</span></td>
+</tr>
+<tr>
+  <td><strong><a href="https://arts-hub-v2.vercel.app/submit-event.html">Submit an Event</a></strong></td>
+  <td>Event submission form (demo — client-side only, no backend).</td>
+  <td><span class="status demo">Demo</span></td>
+</tr>
+<tr>
+  <td><strong><a href="https://arts-hub-v2.vercel.app/about.html">About</a></strong></td>
+  <td>Mission, Culture Forward context, team. Programs &amp; Resources section linking to Artist Accelerator, Business of Art, Jobs in the Arts, Resources for Creatives, Artist Relief Fund, and I Am Nisenan.</td>
+  <td><span class="status live">Live</span></td>
+</tr>
+</table>
+
+<hr>
+
+<h2>Under the Hood</h2>
+<table>
+<tr><th>Feature</th><th>Detail</th></tr>
+<tr><td>Event pipeline</td><td>GitHub Actions cron, midnight Pacific daily. Trumba calendar + venue feeds (Crazy Horse, Golden Era, Bodhi Hive). Auto-matches events to venues, auto-deploys to Vercel.</td></tr>
+<tr><td>Analytics</td><td>Umami Cloud on all pages. Privacy-friendly, no cookies, no consent banner.</td></tr>
+<tr><td>Mobile</td><td>Responsive layout tested at 375px. Haptic feedback on interactive elements. Touch targets 44px minimum.</td></tr>
+<tr><td>Accessibility</td><td>WCAG 2.1 AA: skip links, focus-visible, aria-labels, reduced motion, contrast, landmarks.</td></tr>
+<tr><td>SEO</td><td>OG/Twitter meta on all pages, sitemap.xml, robots.txt, canonical URLs.</td></tr>
+<tr><td>Social share</td><td>Web Share API on mobile (native share sheet), Facebook/X fallback on desktop.</td></tr>
+<tr><td>Data</td><td>1,969 cultural assets (ArcGIS), 211 artists (MUSE OCR), 502 asset images, 198 matched events.</td></tr>
+</table>
+
+<hr>
+
+<h2>Culture Forward Alignment</h2>
+
+<table>
+<tr><th>CF Goal / Priority</th><th>What We Built</th><th>What's Next</th></tr>
+<tr>
+  <td><strong>Goal 2:</strong> Creative Network Exchange</td>
+  <td>All pages</td>
+  <td>Custom domain, content ownership</td>
+</tr>
+<tr>
+  <td><strong>Pillar 1:</strong> Information barrier (26%)</td>
+  <td>Events, map, directory, Family Friendly and Free filters</td>
+  <td>Additional event sources, venue partnerships</td>
+</tr>
+<tr>
+  <td><strong>Pillar 1:</strong> Local talent visibility</td>
+  <td>211 artists in directory with discipline, medium, website</td>
+  <td>Artist profiles, self-service listing</td>
+</tr>
+<tr>
+  <td><strong>Pillar 1:</strong> Bilingual access</td>
+  <td>Translation widget working on the cultural map site</td>
+  <td>Port to the hub if approved</td>
+</tr>
+<tr>
+  <td><strong>Pillar 2:</strong> Career Pathways</td>
+  <td>About page links to Accelerator, Business of Art, Jobs, Resources, Relief Fund</td>
+  <td>Dedicated page or more prominent placement</td>
+</tr>
+<tr>
+  <td><strong>Pillar 4:</strong> Indigenous visibility</td>
+  <td>I Am Nisenan in Programs section. 'Uba Seo on map. Ridge story.</td>
+  <td>Deeper content, community involvement</td>
+</tr>
+<tr>
+  <td><strong>Priority #3:</strong> Destination marketing</td>
+  <td>48hrs guides, wine country, map, events, Sound Check</td>
+  <td>Tourism partnerships</td>
+</tr>
+<tr>
+  <td><strong>Priority #4:</strong> Communications</td>
+  <td>Daily auto-refresh, SEO, social sharing</td>
+  <td>Newsletter integration</td>
+</tr>
+</table>
+
+<hr>
+
+<h2>Ready to Build Next</h2>
+<p>Data or prototypes exist for each of these. They need approval before building.</p>
+
+<table>
+<tr><th>Feature</th><th>What Exists</th><th>Status</th></tr>
+<tr>
+  <td><strong>Cultural Corridors</strong></td>
+  <td>10 curated routes with stop-by-stop narratives: Gold Rush Heritage Trail, Highway 49 Arts Trail, Gallery &amp; Studio Loop, Family Fun Day, 6 more. Data in JSON.</td>
+  <td><span class="status ready">Data Ready</span></td>
+</tr>
+<tr>
+  <td><strong>Sound Check live feed</strong></td>
+  <td>Supabase integration prototyped. Pulls from live-music-nc venue data. Needs partnership approval.</td>
+  <td><span class="status demo">Demo</span></td>
+</tr>
+<tr>
+  <td><strong>Event submission workflow</strong></td>
+  <td>Form built. Needs a backend: Google Forms, Trumba, or custom.</td>
+  <td><span class="status demo">Demo</span></td>
+</tr>
+<tr>
+  <td><strong>Artist profiles</strong></td>
+  <td>211 artists with name, discipline, medium, website, social. Profile pages possible.</td>
+  <td><span class="status ready">Data Ready</span></td>
+</tr>
+<tr>
+  <td><strong>Bilingual translation</strong></td>
+  <td>Working on the cultural map site. Same approach applies here.</td>
+  <td><span class="status ready">Proven</span></td>
+</tr>
+</table>
+
+<hr>
+
+<h2>Known Issues</h2>
+<table>
+<tr><th>Area</th><th>What Needs Work</th></tr>
+<tr><td><strong>Map UX</strong></td><td>Asset markers and event venue pins look too similar. The connection between an event and its venue on the map is unclear. What appears at county zoom vs. downtown zoom vs. street level needs tuning. Marker clustering, label priority, and the detail panel need a design pass.</td></tr>
+</table>
+
+<hr>
+
+<h2>Needs Discussion</h2>
+<table>
+<tr><th>Topic</th><th>Context</th></tr>
+<tr><td>Event source partnerships</td><td>KVMR, Crazy Horse, Golden Era, and others post their own calendars. The ingestion pipeline exists. We need permission to mirror their listings.</td></tr>
+<tr><td>Ticketing integration</td><td>CF calls for unified ticketing. What platforms do venues use?</td></tr>
+<tr><td>Integration</td><td>Currently at arts-hub-v2.vercel.app. Options: integrate into the Squarespace site, point a subdomain here, or keep it standalone on Vercel.</td></tr>
+<tr><td>Link vs. host</td><td>The About page links out to NCAC programs on nevadacountyarts.org. Should some of that content live on the hub instead?</td></tr>
+</table>
+
+<hr>
+
+<h2>Tech Stack</h2>
+<table>
+<tr><th>Layer</th><th>Choice</th></tr>
+<tr><td>Markup</td><td>Vanilla HTML (no framework, no build step)</td></tr>
+<tr><td>Styling</td><td>Vanilla CSS + Tailwind CDN (directory only)</td></tr>
+<tr><td>Interactivity</td><td>Vanilla JS</td></tr>
+<tr><td>Map</td><td>MapLibre GL JS v4.7.1</td></tr>
+<tr><td>Events</td><td>Trumba RSS → match pipeline → static JSON</td></tr>
+<tr><td>Assets</td><td>ArcGIS GeoJSON → static JSON (1,969 entries)</td></tr>
+<tr><td>Artists</td><td>MUSE Issue 3 OCR → static JSON (211 entries)</td></tr>
+<tr><td>Live music</td><td>Supabase (shared with live-music-nc)</td></tr>
+<tr><td>Analytics</td><td>Umami Cloud</td></tr>
+<tr><td>Hosting</td><td>Vercel (free tier)</td></tr>
+<tr><td>CI/CD</td><td>GitHub Actions (daily event refresh + auto-deploy)</td></tr>
+</table>
+
+</body></html>

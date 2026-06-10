@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nevada County Arts & Culture</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;800;900&family=Playfair+Display:ital,wght@1,400;1,500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --color-scarlet: #FF2400;
+  --color-scarlet-hover: #CC1D00;
+  --color-charcoal: #3F3F3F;
+  --color-muted: #6B6B6B;
+  --color-border: #E5E5E5;
+  --color-subtle-bg: #F5F5F5;
+  --color-white: #FFFFFF;
+  --font-editorial: 'Playfair Display', Georgia, serif;
+  --font-sans: 'Nunito', sans-serif;
+  --frame-width: 3px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-charcoal);
+  background: var(--color-white);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===== NAV: "The Civic Banner" ===== */
+.nav {
+  display: flex;
+  align-items: center;
+  padding: 0 48px;
+  height: 64px;
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  background: var(--color-white);
+  z-index: 100;
+}
+
+.nav-logo {
+  background: var(--color-scarlet);
+  color: white;
+  padding: 10px 18px;
+  font-weight: 900;
+  font-size: 13px;
+  line-height: 1.25;
+  display: flex;
+  flex-direction: column;
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 36px;
+  margin-left: 48px;
+  list-style: none;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: var(--color-charcoal);
+  font-size: 14px;
+  font-weight: 700;
+  transition: color 200ms ease;
+}
+
+.nav-links a:hover { color: var(--color-scarlet); }
+
+/* ===== HERO: "The Declaration" ===== */
+.hero {
+  text-align: center;
+  padding: 100px 48px 80px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.hero h1 {
+  font-family: var(--font-editorial);
+  font-style: italic;
+  font-weight: 400;
+  font-size: clamp(2.5rem, 4.5vw, 3.5rem);
+  color: var(--color-charcoal);
+  letter-spacing: -0.015em;
+  line-height: 1.15;
+  margin-bottom: 20px;
+}
+
+.cta-link {
+  color: var(--color-scarlet);
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 700;
+  transition: color 200ms ease;
+}
+
+.cta-link:hover { color: var(--color-scarlet-hover); }
+
+/* ===== CONTENT LAYOUT ===== */
+.content-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+/* ===== SECTION LABEL ===== */
+.section-label {
+  color: var(--color-scarlet);
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  margin-bottom: 24px;
+}
+
+/* ===== HAPPENING NOW: "The Broadsheet" ===== */
+.happening-now {
+  padding-bottom: 80px;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+}
+
+.event-card {
+  display: flex;
+  flex-direction: column;
+  transition: transform 300ms ease;
+}
+
+.event-card:hover { transform: translateY(-3px); }
+
+/* ===== GALLERY FRAME (the core brand device) ===== */
+.gallery-frame {
+  border: var(--frame-width) solid var(--color-scarlet);
+  border-radius: 0;
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+}
+
+.gallery-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.gallery-frame .program-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: var(--color-scarlet);
+  color: white;
+  font-size: 10px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 6px 12px;
+  z-index: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.event-card-info {
+  padding: 16px 0;
+  text-align: center;
+}
+
+.event-card-info h3 {
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 4px;
+  line-height: 1.3;
+}
+
+.event-card-info p {
+  font-size: 13px;
+  color: var(--color-muted);
+  margin-bottom: 2px;
+  line-height: 1.5;
+}
+
+.read-more {
+  color: var(--color-scarlet);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 700;
+  margin-top: 8px;
+  display: inline-block;
+  transition: color 200ms ease;
+}
+
+.read-more:hover { color: var(--color-scarlet-hover); }
+
+/* ===== SECOND ROW OF CARDS ===== */
+.card-row-2 {
+  padding-bottom: 80px;
+}
+
+/* ===== OUR PROGRAMS ===== */
+.programs-section {
+  border-top: 1px solid var(--color-border);
+  padding: 64px 0;
+}
+
+.programs-section h2 {
+  font-family: var(--font-sans);
+  font-size: 28px;
+  font-weight: 900;
+  text-align: center;
+  margin-bottom: 48px;
+}
+
+.programs-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.program-card {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.program-card .prog-thumb {
+  width: 64px;
+  height: 64px;
+  background: var(--color-subtle-bg);
+  border-radius: 4px;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.program-card .prog-thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.program-card h4 {
+  font-size: 15px;
+  font-weight: 800;
+  margin-bottom: 2px;
+}
+
+.program-card h4 a {
+  color: var(--color-scarlet);
+  text-decoration: underline;
+}
+
+.program-card p {
+  font-size: 12px;
+  color: var(--color-muted);
+}
+
+/* ===== DISTRICT LINKS ===== */
+.district-links {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  padding: 48px 0;
+}
+
+.district-link {
+  border: var(--frame-width) solid var(--color-scarlet);
+  border-radius: 0;
+  padding: 24px 32px;
+  text-decoration: none;
+  color: var(--color-charcoal);
+  font-size: 20px;
+  font-weight: 900;
+  line-height: 1.3;
+  transition: background 200ms ease, color 200ms ease;
+}
+
+.district-link:hover {
+  background: var(--color-scarlet);
+  color: white;
+}
+
+/* ===== COMMUNITY CALENDAR ===== */
+.calendar-section {
+  border-top: 1px solid var(--color-border);
+  padding: 64px 0;
+}
+
+.calendar-section h2 {
+  font-family: var(--font-sans);
+  font-size: 28px;
+  font-weight: 900;
+  text-align: center;
+  margin-bottom: 48px;
+  text-decoration: underline;
+  text-underline-offset: 8px;
+}
+
+.calendar-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.cal-event {
+  border: 1px solid var(--color-border);
+  padding: 20px;
+  display: flex;
+  gap: 16px;
+}
+
+.cal-event .cal-thumb {
+  width: 80px;
+  height: 80px;
+  background: var(--color-subtle-bg);
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.cal-event h4 { font-size: 14px; font-weight: 800; margin-bottom: 4px; }
+.cal-event p { font-size: 12px; color: var(--color-muted); line-height: 1.4; }
+.cal-event .cal-date { color: var(--color-charcoal); font-weight: 700; font-size: 12px; }
+
+.view-all {
+  text-align: center;
+  margin-top: 32px;
+}
+
+/* ===== NEWSLETTER ===== */
+.newsletter-section {
+  border-top: 1px solid var(--color-border);
+  padding: 64px 0;
+  text-align: center;
+}
+
+.newsletter-section h2 {
+  font-size: 28px;
+  font-weight: 900;
+  margin-bottom: 8px;
+}
+
+.newsletter-section .subtitle {
+  font-size: 13px;
+  color: var(--color-muted);
+  max-width: 500px;
+  margin: 0 auto 32px;
+  line-height: 1.5;
+}
+
+.newsletter-form h3 {
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 16px;
+  text-align: left;
+}
+
+.newsletter-form {
+  max-width: 700px;
+  margin: 0 auto 24px;
+}
+
+.form-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.form-row input {
+  flex: 1;
+  padding: 10px 14px;
+  border: 1px solid var(--color-border);
+  font-family: var(--font-sans);
+  font-size: 13px;
+}
+
+.btn-signup {
+  background: var(--color-scarlet);
+  color: white;
+  border: none;
+  padding: 10px 24px;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+  border-radius: 24px;
+  transition: background 200ms ease;
+}
+
+.btn-signup:hover { background: var(--color-scarlet-hover); }
+
+/* ===== CTA BUTTONS (Donate / Become a member) ===== */
+.cta-buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  padding: 48px 0;
+}
+
+.cta-btn {
+  border: var(--frame-width) solid var(--color-scarlet);
+  border-radius: 0;
+  padding: 20px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: 800;
+  text-decoration: none;
+  color: var(--color-charcoal);
+  transition: background 200ms ease, color 200ms ease;
+}
+
+.cta-btn:hover {
+  background: var(--color-scarlet);
+  color: white;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  border-top: 1px solid var(--color-border);
+  padding: 48px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 32px;
+  font-size: 12px;
+}
+
+.footer h4 {
+  font-size: 13px;
+  font-weight: 800;
+  margin-bottom: 12px;
+}
+
+.footer a {
+  color: var(--color-charcoal);
+  text-decoration: none;
+  display: block;
+  margin-bottom: 6px;
+  font-size: 12px;
+  transition: color 200ms ease;
+}
+
+.footer a:hover { color: var(--color-scarlet); }
+
+/* ===== RED TOP ACCENT BAR ===== */
+.top-accent {
+  height: 4px;
+  background: var(--color-scarlet);
+}
+</style>
+</head>
+<body>
+
+<!-- Red accent bar at very top -->
+<div class="top-accent"></div>
+
+<!-- NAV -->
+<nav class="nav">
+  <a href="#" class="nav-logo">
+    <span>Nevada County</span>
+    <span>Arts & Culture</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#">About</a></li>
+    <li><a href="#">Events</a></li>
+    <li><a href="#">Programs</a></li>
+    <li><a href="#">Resources</a></li>
+    <li><a href="#">Contribute</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <h1>Art moves mountains</h1>
+  <a href="#" class="cta-link">Become a member &rarr;</a>
+</section>
+
+<div class="content-wrapper">
+
+  <!-- HAPPENING NOW -->
+  <section class="happening-now">
+    <div class="section-label">Happening Now</div>
+    <div class="card-grid">
+      <article class="event-card">
+        <div class="gallery-frame">
+          <div class="program-label">
+            <span>Art at the Airport</span>
+          </div>
+          <img src="poster-sunset.jpeg" alt="Sunrise to Sunset exhibition">
+        </div>
+        <div class="event-card-info">
+          <h3>Sunrise to Sunset</h3>
+          <p>On display daily</p>
+          <p>through April 2026</p>
+          <p>&nbsp;</p>
+          <p>10356</p>
+          <p>Truckee Airport Rd</p>
+          <a href="#" class="read-more">Read more &rarr;</a>
+        </div>
+      </article>
+      <article class="event-card">
+        <div class="gallery-frame">
+          <div class="program-label">
+            <span></span>
+            <span style="text-align:right;font-size:9px;line-height:1.3;">Thu Mar 12<br>5&mdash;7pm</span>
+          </div>
+          <img src="poster-meetup.jpeg" alt="Creatives Meetup poster">
+        </div>
+        <div class="event-card-info">
+          <h3>Creatives Meetup:<br>GV City Hall</h3>
+          <p>Thu, Mar 12, 5&ndash;7pm</p>
+          <p>&nbsp;</p>
+          <p>City Hall</p>
+          <p>125 E Main Street</p>
+          <a href="#" class="read-more">Read more &rarr;</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- SECOND ROW OF CARDS -->
+  <section class="card-row-2">
+    <div class="card-grid">
+      <article class="event-card">
+        <div class="gallery-frame">
+          <div class="program-label">
+            <span>Arts in Public Spaces</span>
+          </div>
+          <img src="poster-mobilize.jpeg" alt="Mobilize exhibition">
+        </div>
+        <div class="event-card-info">
+          <h3>Art Inspiring Activism<br>Wild & Scenic Film Festival</h3>
+          <p>On display through May 1</p>
+          <p>&nbsp;</p>
+          <p>Nevada County</p>
+          <p>950 Maidu Ave, Nevada City</p>
+          <a href="#" class="read-more">Read more &rarr;</a>
+        </div>
+      </article>
+      <article class="event-card">
+        <div class="gallery-frame">
+          <div class="program-label">
+            <span>Arts in Public Spaces</span>
+          </div>
+          <img src="poster-capitol.jpeg" alt="Creative Capitol">
+        </div>
+        <div class="event-card-info">
+          <h3>Creative Capitol</h3>
+          <p>Reception</p>
+          <p>Sep 21, 4:30PM</p>
+          <p>&nbsp;</p>
+          <p>Royal Center</p>
+          <p>950 Maidu Ave, Nevada City</p>
+          <a href="#" class="read-more">Read more &rarr;</a>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- OUR PROGRAMS -->
+  <section class="programs-section">
+    <h2>Our Programs</h2>
+    <div class="programs-grid">
+      <div class="program-card">
+        <div class="prog-thumb"></div>
+        <div>
+          <h4><a href="#">MUSE Magazine</a></h4>
+          <p>A guide to local arts &amp; culture</p>
+        </div>
+      </div>
+      <div class="program-card">
+        <div class="prog-thumb"></div>
+        <div>
+          <h4><a href="#">Culture Forward</a></h4>
+          <p>Shaping the future of arts, culture &amp; creativity in Nevada County</p>
+        </div>
+      </div>
+      <div class="program-card">
+        <div class="prog-thumb"></div>
+        <div>
+          <h4><a href="#">Art at the Airport</a></h4>
+          <p>Public art at Truckee Tahoe Airport</p>
+        </div>
+      </div>
+      <div class="program-card">
+        <div class="prog-thumb"></div>
+        <div>
+          <h4><a href="#">Artist Directory</a></h4>
+          <p>A listing of artists working in Nevada County</p>
+        </div>
+      </div>
+      <div class="program-card">
+        <div class="prog-thumb"></div>
+        <div>
+          <h4><a href="#">Art in Public Spaces</a></h4>
+          <p>A regular rotation of art on display at the Royal Center</p>
+        </div>
+      </div>
+      <div class="program-card">
+        <div class="prog-thumb"></div>
+        <div>
+          <h4><a href="#">Arts in Education</a></h4>
+          <p>Advocacy for increasing access to arts education</p>
+        </div>
+      </div>
+      <div class="program-card">
+        <div class="prog-thumb"></div>
+        <div>
+          <h4><a href="#">Artist Accelerator</a></h4>
+          <p>A career intensive for local artists</p>
+        </div>
+      </div>
+      <div class="program-card">
+        <div class="prog-thumb"></div>
+        <div>
+          <h4><a href="#">Creative Meetups</a></h4>
+          <p>A forum for local Arts &amp; Culture</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DISTRICT LINKS -->
+  <div class="district-links">
+    <a href="#" class="district-link">Grass Valley&ndash;<br>Nevada City<br>Cultural District &rarr;</a>
+    <a href="#" class="district-link">Truckee<br>Cultural District &rarr;</a>
+  </div>
+
+  <!-- COMMUNITY CALENDAR -->
+  <section class="calendar-section">
+    <h2>Community Calendar</h2>
+    <div class="calendar-grid">
+      <div class="cal-event">
+        <div class="cal-thumb"></div>
+        <div>
+          <h4>Corn and Coffee group walks</h4>
+          <p>Mindful running/walking groups</p>
+          <p class="cal-date">Fri Feb 22, 2026, 9am</p>
+        </div>
+      </div>
+      <div class="cal-event">
+        <div class="cal-thumb"></div>
+        <div>
+          <h4>STEAM Experience Saturday</h4>
+          <p>Kidzone Museum</p>
+          <p class="cal-date">Sat Feb 22, 2026, 10am</p>
+        </div>
+      </div>
+      <div class="cal-event">
+        <div class="cal-thumb"></div>
+        <div>
+          <h4>Community Stone Day at North Star House</h4>
+          <p>North Star House</p>
+          <p class="cal-date">Sat Mar 1, 2026</p>
+        </div>
+      </div>
+      <div class="cal-event">
+        <div class="cal-thumb"></div>
+        <div>
+          <h4>Sierra Poetry Festival</h4>
+          <p>Nevada County, Grass Valley, CA</p>
+          <p class="cal-date">Spring 2026</p>
+        </div>
+      </div>
+    </div>
+    <div class="view-all">
+      <a href="#" class="cta-link">View All Events &rarr;</a>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="newsletter-section">
+    <h2>Subscribe to our newsletters</h2>
+    <p class="subtitle">Get updates about the arts including events, programs, grants, volunteer opportunities, artist calls, and more.</p>
+    <div class="newsletter-form">
+      <h3>GV&ndash;NC Culture Connection</h3>
+      <div class="form-row">
+        <input type="text" placeholder="First">
+        <input type="text" placeholder="Last">
+        <input type="email" placeholder="Email">
+        <button class="btn-signup">Sign up</button>
+      </div>
+    </div>
+    <div class="newsletter-form">
+      <h3>Truckee Turntable</h3>
+      <div class="form-row">
+        <input type="text" placeholder="First">
+        <input type="text" placeholder="Last">
+        <input type="email" placeholder="Email">
+        <button class="btn-signup">Sign up</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BUTTONS -->
+  <div class="cta-buttons">
+    <a href="#" class="cta-btn">Donate</a>
+    <a href="#" class="cta-btn">Become a member</a>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div>
+      <h4>About</h4>
+      <a href="#">Cultural Districts</a>
+      <a href="#">Media</a>
+      <a href="#">Reports</a>
+      <a href="#">Contact</a>
+    </div>
+    <div>
+      <h4>Events</h4>
+      <a href="#">Happening Now</a>
+      <a href="#">Community Calendar</a>
+      <a href="#">Arts & Culture Calendar</a>
+      <a href="#">Sierra Poetry Festival</a>
+      <a href="#">The Business of Art</a>
+    </div>
+    <div>
+      <h4>Programs</h4>
+      <a href="#">MUSE Magazine</a>
+      <a href="#">Culture Forward</a>
+      <a href="#">Art at the Airport</a>
+      <a href="#">Art in Public Spaces</a>
+      <a href="#">Arts in Education</a>
+      <a href="#">Artist Accelerator</a>
+    </div>
+    <div>
+      <h4>Resources</h4>
+      <a href="#">Newsletters</a>
+      <a href="#">Artist Calls</a>
+      <a href="#">Jobs in Arts</a>
+      <a href="#">Cultural Asset Map</a>
+    </div>
+    <div>
+      <h4>Contribute</h4>
+      <a href="#">Become a member</a>
+      <a href="#">Volunteer</a>
+      <a href="#">Advocate</a>
+      <a href="#">Arts & Culture Master Plan</a>
+    </div>
+  </footer>
+
+</div>
+
+</body>
+</html>
