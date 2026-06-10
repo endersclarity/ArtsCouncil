@@ -126,15 +126,20 @@
   "image": {
    "placeholderType": "gallery-studio",
    "placeholderSrc": "assets/placeholders/gallery-studio.webp",
-   "kind": "placeholder",
-   "src": "assets/placeholders/gallery-studio.webp",
-   "alt": "Editorial placeholder image for Center Stage Dance Studio",
-   "credit": "Generated placeholder",
+   "kind": "real",
+   "src": "assets/venue-photos/center-stage-dance-studio-grass-valley.jpg",
+   "alt": "Center Stage Dance Studio",
+   "credit": "Photo: Center Stage Dance Studio website",
    "status": "weak",
    "reason": "watercolor/category art",
    "originalSrc": "img/watercolor/arts.png",
    "originalAlt": "Center Stage Dance Studio in Grass Valley",
-   "originalCredit": "Nevada County Arts Council"
+   "originalCredit": "Nevada County Arts Council",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://www.centerstagegrassvalley.org/wp-content/uploads/2026/05/Showcase-2026-1-683x1024.png",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "arcgis-confident",
@@ -1077,12 +1082,18 @@
   "image": {
    "placeholderType": "gallery-studio",
    "placeholderSrc": "assets/placeholders/gallery-studio.webp",
-   "kind": "placeholder",
-   "alt": "Nevada Union Art Guild in Nevada City",
-   "credit": "Nevada Union Art Guild",
+   "kind": "real",
+   "alt": "Nevada Union Art Guild",
+   "credit": "Photo: Nevada Union Art Guild website",
    "status": "credible",
    "reason": "",
-   "deadSrc": "https://lh3.googleusercontent.com/sitesv/APaQ0SSB55NwitOa6CGx78o8D_sDNzWYRtyi6j8mB4WOb40Oz2jhBGsZyCS-bD37ylKhAceFw2gB9622P_O4Wfu4HaPvt2ATjcoxQSFS3Ezl064qul8mwfdnkQGUW4dbnSH7hH2xozNAjLFSMiisA_FxQwp1V2sGg6xSTRJUvWmqlqQF8A_0u8xsyeWSMj8htOGXhv3kNql1FNvbVUM=w1280"
+   "deadSrc": "https://lh3.googleusercontent.com/sitesv/APaQ0SSB55NwitOa6CGx78o8D_sDNzWYRtyi6j8mB4WOb40Oz2jhBGsZyCS-bD37ylKhAceFw2gB9622P_O4Wfu4HaPvt2ATjcoxQSFS3Ezl064qul8mwfdnkQGUW4dbnSH7hH2xozNAjLFSMiisA_FxQwp1V2sGg6xSTRJUvWmqlqQF8A_0u8xsyeWSMj8htOGXhv3kNql1FNvbVUM=w1280",
+   "src": "assets/venue-photos/nevada-union-art-guild-nevada-city.jpg",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://lh3.googleusercontent.com/sitesv/AA5AbUAiaHaxCTzm1aRUdAZO2NRR7fGfKsXg3QPB6KG7OVkq3gawJR_qeborSpsPhrlr7NKY8gUvmwrDRQaIUL1d2-0tjm_veMzO3fhQrTaGEEpL3QSNdHTNlVt0Oklnp9zxiMuiBxk78lnZ_RJP37ElL3Nj3uVsXPkz9bXAwd8wsDbPQraEe28zAAhykbgYZYWh3kYOzAfjQHhUMwO2SW8=w1280",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "arcgis-confident",
@@ -4762,12 +4773,17 @@
   "image": {
    "placeholderType": "performance-event-venue",
    "placeholderSrc": "assets/placeholders/performance-event-venue.webp",
-   "kind": "placeholder",
-   "src": "assets/placeholders/performance-event-venue.webp",
-   "alt": "Editorial placeholder image for Ron's Real Records",
-   "credit": "Generated placeholder",
+   "kind": "real",
+   "src": "assets/venue-photos/ron-s-real-records-grass-valley.jpg",
+   "alt": "Ron's Real Records",
+   "credit": "Photo: Ron's Real Records website",
    "status": "missing",
-   "reason": "missing image"
+   "reason": "missing image",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://downtowngrassvalley.com/wp-content/uploads/2020/12/Ron_s-Real-Records.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "candidate",
@@ -6677,12 +6693,18 @@
   "image": {
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
-   "kind": "placeholder",
-   "alt": "Diego’s Restaurant in Grass Valley",
-   "credit": "Dave Frenzel, via Google",
+   "kind": "real",
+   "alt": "Diego’s Restaurant",
+   "credit": "Photo: Diego’s Restaurant website",
    "status": "credible",
    "reason": "",
-   "deadSrc": "https://lh3.googleusercontent.com/place-photos/AL8-SNFPXiwtqJXY3Bh6qFp5EK84iwVyxQd1UXp83JRGLQS_wod1TFrv76WoXdjZWWpWZZAcfaSkJOpKXPH_ae9uywBUm_KX30vJAMlN39ARDdIINxCQBlsg101GF1J8OAtEBgI2IY5F94KHkZlqtA=s1600-w600"
+   "deadSrc": "https://lh3.googleusercontent.com/place-photos/AL8-SNFPXiwtqJXY3Bh6qFp5EK84iwVyxQd1UXp83JRGLQS_wod1TFrv76WoXdjZWWpWZZAcfaSkJOpKXPH_ae9uywBUm_KX30vJAMlN39ARDdIINxCQBlsg101GF1J8OAtEBgI2IY5F94KHkZlqtA=s1600-w600",
+   "src": "assets/venue-photos/diego-s-restaurant-grass-valley.jpg",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://popmenucloud.com/cdn-cgi/image/width=1200,height=630,format=auto,fit=cover/bleptqan/8933c3dd-d891-44f7-b4de-5742e1011b99.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "arcgis-confident",
@@ -7862,15 +7884,20 @@
   "image": {
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
-   "kind": "placeholder",
-   "src": "assets/placeholders/food-stay-gathering.webp",
-   "alt": "Editorial placeholder image for Lamb’s Victorian Inn",
-   "credit": "Generated placeholder",
+   "kind": "real",
+   "src": "assets/venue-photos/lamb-s-victorian-inn-grass-valley.jpg",
+   "alt": "Lamb’s Victorian Inn",
+   "credit": "Photo: Lamb’s Victorian Inn website",
    "status": "weak",
    "reason": "watercolor/category art",
    "originalSrc": "img/watercolor/eat-drink.png",
    "originalAlt": "Lamb’s Victorian Inn in Grass Valley",
-   "originalCredit": "Nevada County Arts Council"
+   "originalCredit": "Nevada County Arts Council",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://scontent.fsac1-1.fna.fbcdn.net/v/t39.30808-1/299910695_396327502624346_5173541957358142922_n.jpg?stp=dst-jpg_tt6&cstp=mx2048x1536&ctp=s960x960&_nc_cat=101&ccb=1-7&_nc_sid=3ab345&_nc_ohc=s67WgDMZN84Q7kNvwHguwgr&_nc_oc=Adqjk_VS0GrWyZZpW1sPobTInMoHX5QCnsSsgHInfv5Wh1wtx-u9qiLexTI_YhDXA0c&_nc_zt=24&_nc_ht=scontent.fsac1-1.fna&_nc_gid=l8Utn2rox1qe9ggebJDKsQ&_nc_ss=7820f&oh=00_Af8nTZJXS3N8BNBC4OkQclx8D8fAMthZ5_DSI78-IiLczw&oe=6A2F7A15",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "arcgis-confident",
@@ -9445,12 +9472,18 @@
   "image": {
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
-   "kind": "placeholder",
-   "alt": "Sushi at Nourish in Nevada City",
-   "credit": "Son Mai, G Tour Photos, via Google",
+   "kind": "real",
+   "alt": "Sushi at Nourish",
+   "credit": "Photo: Sushi at Nourish website",
    "status": "credible",
    "reason": "",
-   "deadSrc": "https://lh3.googleusercontent.com/place-photos/AL8-SNE5SNtgU33kdP9wBlNflsJ3xvmLva2tImzMSHrhnGAzrl1aq-BvV1b0QxDFLNAnMks8LbiEqy0XeTW3_2TyiKRifskmJaVxh2KhHDfLGkVeLEy3L-KJsstPCnUiQhq324QPWkR9lDS8SSNIWAs=s1600-w600"
+   "deadSrc": "https://lh3.googleusercontent.com/place-photos/AL8-SNE5SNtgU33kdP9wBlNflsJ3xvmLva2tImzMSHrhnGAzrl1aq-BvV1b0QxDFLNAnMks8LbiEqy0XeTW3_2TyiKRifskmJaVxh2KhHDfLGkVeLEy3L-KJsstPCnUiQhq324QPWkR9lDS8SSNIWAs=s1600-w600",
+   "src": "assets/venue-photos/sushi-at-nourish-nevada-city.jpg",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://static.spotapps.co/website_images/ab_websites/408973_website_v1/social_share.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "arcgis-confident",
@@ -11350,12 +11383,18 @@
   "image": {
    "placeholderType": "performance-event-venue",
    "placeholderSrc": "assets/placeholders/performance-event-venue.webp",
-   "kind": "placeholder",
-   "alt": "Nevada County Certified Growers Market in Grass Valley",
-   "credit": "M Henderson, via Google",
+   "kind": "real",
+   "alt": "Nevada County Certified Growers Market",
+   "credit": "Photo: Nevada County Certified Growers Market website",
    "status": "credible",
    "reason": "",
-   "deadSrc": "https://lh3.googleusercontent.com/place-photos/AL8-SNHs6_-A8u6Gsrkx4013E4UtQXHGmBRDtoBqKj8eaaPYTv_dLJBoyX89otu5lPT4UZcoLHBZT1LGPSm8sGEF_Ts9hP11rsoE4jmVCM5GMKyH1AqgRTalPpbVQaoVO46pLwZGbkSsSqSLVBtaYMw=s1600-w600"
+   "deadSrc": "https://lh3.googleusercontent.com/place-photos/AL8-SNHs6_-A8u6Gsrkx4013E4UtQXHGmBRDtoBqKj8eaaPYTv_dLJBoyX89otu5lPT4UZcoLHBZT1LGPSm8sGEF_Ts9hP11rsoE4jmVCM5GMKyH1AqgRTalPpbVQaoVO46pLwZGbkSsSqSLVBtaYMw=s1600-w600",
+   "src": "assets/venue-photos/nevada-county-certified-growers-market-grass-valley.jpg",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://cdn.elebase.io/29559e61-1a75-4e70-a155-f8688960c1c1/a1903607-3254-47c6-b62e-9953cba1284f-sieccc4ee8f42e7fd177.jpg?q=90",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "diana",
@@ -20956,12 +20995,18 @@
   "image": {
    "placeholderType": "historic-place",
    "placeholderSrc": "assets/placeholders/historic-place.webp",
-   "kind": "placeholder",
-   "alt": "Champion Mine Rd. Trails trail in Nevada City",
-   "credit": "T H, via Google",
+   "kind": "real",
+   "alt": "Champion Mine Rd. Trails",
+   "credit": "Photo: Champion Mine Rd. Trails website",
    "status": "credible",
    "reason": "",
-   "deadSrc": "https://lh3.googleusercontent.com/place-photos/AL8-SNFnPEmz4lKOmKM8pE2_6kh5o6gPBNlgxVi28pwDKWRsp5SjBwnlCcVQh0bncIQC7aco_-6qYQt5tceZYLyGYJGZyf7rF0jTALgRWSf5IwnLN2mfbIL17Lda5-e3Btx_5H3mzlk-rt94jiOjgA=s1600-w600"
+   "deadSrc": "https://lh3.googleusercontent.com/place-photos/AL8-SNFnPEmz4lKOmKM8pE2_6kh5o6gPBNlgxVi28pwDKWRsp5SjBwnlCcVQh0bncIQC7aco_-6qYQt5tceZYLyGYJGZyf7rF0jTALgRWSf5IwnLN2mfbIL17Lda5-e3Btx_5H3mzlk-rt94jiOjgA=s1600-w600",
+   "src": "assets/venue-photos/champion-mine-rd-trails-nevada-city.jpg",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://www.gaiagps.com/api/objects/photo/b4eb5559ba5338ccb42879e333fb1862/image/full/",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "arcgis-confident",
@@ -22195,12 +22240,18 @@
   "image": {
    "placeholderType": "gallery-studio",
    "placeholderSrc": "assets/placeholders/gallery-studio.webp",
-   "kind": "placeholder",
-   "alt": "Sierra College Tahoe Truckee in Truckee",
-   "credit": "Vicente O, via Google",
+   "kind": "real",
+   "alt": "Sierra College Tahoe Truckee",
+   "credit": "Photo: Sierra College Tahoe Truckee website",
    "status": "credible",
    "reason": "",
-   "deadSrc": "https://lh3.googleusercontent.com/place-photos/AL8-SNEKc1x_IGqFGX1g9N8_RuX5OC46u31081ovVTFsLVh3b2AIK8gcNgqpNRQc9PnXpZ9oxTQxN33QKMGSuzRQoWCsmpnG7eXLK883KoIQIMS-rHydVpNB8SIV1R-6BloINfJ4ptcrY15k9BLHpQ=s1600-w600"
+   "deadSrc": "https://lh3.googleusercontent.com/place-photos/AL8-SNEKc1x_IGqFGX1g9N8_RuX5OC46u31081ovVTFsLVh3b2AIK8gcNgqpNRQc9PnXpZ9oxTQxN33QKMGSuzRQoWCsmpnG7eXLK883KoIQIMS-rHydVpNB8SIV1R-6BloINfJ4ptcrY15k9BLHpQ=s1600-w600",
+   "src": "assets/venue-photos/sierra-college-tahoe-truckee-truckee.jpg",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://www.sierracollege.edu/wp-content/uploads/2022/07/tt-campus-hero.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "arcgis-confident",
@@ -22368,12 +22419,17 @@
   "image": {
    "placeholderType": "performance-event-venue",
    "placeholderSrc": "assets/placeholders/performance-event-venue.webp",
-   "kind": "placeholder",
-   "src": "assets/placeholders/performance-event-venue.webp",
-   "alt": "Editorial placeholder image for Trails & Vistas",
-   "credit": "Generated placeholder",
+   "kind": "real",
+   "src": "assets/venue-photos/trails-and-vistas.jpg",
+   "alt": "Trails & Vistas",
+   "credit": "Photo: Trails & Vistas website",
    "status": "missing",
-   "reason": "missing image"
+   "reason": "missing image",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://cdn.prod.website-files.com/5c92d70e4bd22c6fb9b7ada8/5cdb1745fe020c00b3dc175d_og-image-trailsvistas.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "none",
@@ -22547,12 +22603,18 @@
   "image": {
    "placeholderType": "gallery-studio",
    "placeholderSrc": "assets/placeholders/gallery-studio.webp",
-   "kind": "placeholder",
-   "alt": "Truckee High School Bands in Truckee",
-   "credit": "Thomas Chee, via Google",
+   "kind": "real",
+   "alt": "Truckee High School Bands",
+   "credit": "Photo: Truckee High School Bands website",
    "status": "credible",
    "reason": "",
-   "deadSrc": "https://lh3.googleusercontent.com/place-photos/AL8-SNH1xytBsC57khzM_hdhjqhcki7-yjn3iVNSzcCC8az5c0QbR1mXK1V6epj5WbxOh5U1a8Z9PdrVWcUod84X0VzDFaLDf16AyuTBmnGuJyQwXdRauDVvMY1yfkoTSDWN-OyekE48Z4O-S5-sBg=s1600-w600"
+   "deadSrc": "https://lh3.googleusercontent.com/place-photos/AL8-SNH1xytBsC57khzM_hdhjqhcki7-yjn3iVNSzcCC8az5c0QbR1mXK1V6epj5WbxOh5U1a8Z9PdrVWcUod84X0VzDFaLDf16AyuTBmnGuJyQwXdRauDVvMY1yfkoTSDWN-OyekE48Z4O-S5-sBg=s1600-w600",
+   "src": "assets/venue-photos/truckee-high-school-bands-truckee.jpg",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://www.truckeebands.org/uploads/1/1/7/6/117634516/folsom-jb-group_orig.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "arcgis-confident",
@@ -28450,12 +28512,17 @@
   "image": {
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
-   "kind": "placeholder",
-   "src": "assets/placeholders/food-stay-gathering.webp",
-   "alt": "Editorial placeholder image for Starting From Scratch Catering",
-   "credit": "Generated placeholder",
+   "kind": "real",
+   "src": "assets/venue-photos/starting-from-scratch-catering-truckee.jpg",
+   "alt": "Starting From Scratch Catering",
+   "credit": "Photo: Starting From Scratch Catering website",
    "status": "missing",
-   "reason": "missing image"
+   "reason": "missing image",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://img1.wsimg.com/isteam/ip/8f6e29ac-45f0-4f81-8103-cf6a073e67c1/Chicken%20sandwich.jpeg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "candidate",
@@ -29271,12 +29338,18 @@
   "image": {
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
-   "kind": "placeholder",
-   "alt": "The Ritz-Carlton, Lake Tahoe in Truckee",
-   "credit": "The Ritz-Carlton, Lake Tahoe, via Google",
+   "kind": "real",
+   "alt": "The Ritz-Carlton, Lake Tahoe",
+   "credit": "Photo: The Ritz-Carlton, Lake Tahoe website",
    "status": "credible",
    "reason": "",
-   "deadSrc": "https://lh3.googleusercontent.com/places/ANXAkqHOA91_PnvvZ62ZV7EEs4vCFjlBcXf5pWfjnXwrHCTx2ko7RM7x5QmZDfypVBLLY2tCiC5QXMs3vbj1w8io-qMYwwFE4rw4HjM=s4800-w480"
+   "deadSrc": "https://lh3.googleusercontent.com/places/ANXAkqHOA91_PnvvZ62ZV7EEs4vCFjlBcXf5pWfjnXwrHCTx2ko7RM7x5QmZDfypVBLLY2tCiC5QXMs3vbj1w8io-qMYwwFE4rw4HjM=s4800-w480",
+   "src": "assets/venue-photos/the-ritz-carlton-lake-tahoe-truckee.jpg",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://cache.marriott.com/is/image/marriotts7prod/rz-rnorz-summer-exterior-40168:Wide-Hor?wid=1336&fit=constrain",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
@@ -39432,12 +39505,17 @@
   "image": {
    "placeholderType": "historic-place",
    "placeholderSrc": "assets/placeholders/historic-place.webp",
-   "kind": "placeholder",
-   "src": "assets/placeholders/historic-place.webp",
-   "alt": "Editorial placeholder image for Beaver Pond Route Trail",
-   "credit": "Generated placeholder",
+   "kind": "real",
+   "src": "assets/venue-photos/beaver-pond-route-trail-truckee.jpg",
+   "alt": "Beaver Pond Route Trail",
+   "credit": "Photo: Beaver Pond Route Trail website",
    "status": "missing",
-   "reason": "missing image"
+   "reason": "missing image",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://www.hikingproject.com/assets/photos/hike/7000203_medium_1554159022.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "none",

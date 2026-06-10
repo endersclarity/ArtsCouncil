@@ -3,6 +3,12 @@
  "entries": [
   {
    "date": "2026-06-10",
+   "title": "14 places now show photos from the venues' own websites",
+   "summary": "For places that lost their photo, we checked the venue's own website for the picture it chooses to represent itself (the image a site declares for social sharing). 159 venue sites were checked; 14 yielded a usable photo, now stored with the map itself so it can never expire, each credited to the venue's website. Logos and graphics were filtered out automatically. Most small venue sites simply don't publish a share photo, which is why the long-term plan is a community photo drive.",
+   "kind": "improvement"
+  },
+  {
+   "date": "2026-06-10",
    "title": "Broken photos replaced with honest placeholders",
    "summary": "Many place photos were hot-linked from Google and those links expire. We checked all 1,065 of them: 856 still work, 209 had quietly died and were showing as broken images. Those 209 places now show a clean category placeholder with a 'photo not yet sourced' note instead of a broken picture. Next step: pulling real photos from the venues' own websites.",
    "kind": "fix"
