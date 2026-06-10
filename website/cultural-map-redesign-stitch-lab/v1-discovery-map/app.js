@@ -152,6 +152,7 @@
     selectedPlaceId: "",
     selectedEventId: "",
     eventLens: "all",
+    surprisePlaceIds: [],
     searchQuery: "",
     localReveal: null,
     localRevealPreviousContext: null,
@@ -236,6 +237,7 @@
         nearbyDensity: nearbyDensity,
         denseConstellation: denseConstellation,
         hasEvent: Boolean(state.eventPlaceIds?.has(place.id)),
+        surprise: state.surprisePlaceIds.includes(place.id),
         selected: place.id === state.selectedPlaceId,
       },
     };
@@ -977,6 +979,7 @@
             ${hasActive ? `<button class="outing-done" type="button" data-outing-done>Done</button>` : ""}
           </div>
           <div class="outing-list" role="group" aria-label="Outing types">${rows}</div>
+          <button class="surprise-button" type="button" data-surprise>Surprise me nearby</button>
         </div>`;
     } else {
       const pills = activeIntents.map((outingType) => `
@@ -1009,6 +1012,7 @@
       refreshAfterChange();
     };
 
+    els.filters.querySelector("[data-surprise]")?.addEventListener("click", renderSurprise);
     els.filters.querySelectorAll(".outing-row").forEach((button) => {
       button.addEventListener("click", () => toggleIntent(button.dataset.outingType));
     });
@@ -1109,6 +1113,70 @@
 
   function relatedEvents(placeId) {
     return state.events.filter((event) => event.placeId === placeId).slice(0, 3);
+  }
+
+  // Flow-upgrade Stage 5 ("Hidden Gems" board, honest version): a handful of
+  // random under-the-radar places that have REAL descriptions. The "reason to
+  // go" line is the venue's own first sentence — never generated copy.
+  function surpriseEligiblePlaces() {
+    return state.places.filter((place) =>
+      isPlaceMapReady(place) &&
+      !place.anchor &&
+      !place.featured &&
+      place.description &&
+      !place.description.includes("included for alpha review"),
+    );
+  }
+
+  function firstSentence(text) {
+    const match = String(text || "").match(/^.*?[.!?](?=\s|$)/);
+    return (match ? match[0] : String(text || "")).slice(0, 160);
+  }
+
+  function rollSurprise() {
+    const eligible = surpriseEligiblePlaces();
+    // Prefer places with a real photo, then top up from the rest.
+    const withImage = eligible.filter((place) => place.image?.kind === "real");
+    const pool = withImage.length >= 4 ? withImage : eligible;
+    const picks = [...pool].sort(() => Math.random() - 0.5).slice(0, 4);
+    state.surprisePlaceIds = picks.map((place) => place.id);
+    return picks;
+  }
+
+  function renderSurprise() {
+    const picks = rollSurprise();
+    state.selectedPlaceId = "";
+    setSourceData();
+    setDetailCardMode("");
+    if (!picks.length) return;
+    els.detail.innerHTML = `
+      <button class="selected-place-close" type="button" aria-label="Close surprises">Close</button>
+      <p class="section-label">Surprise me nearby</p>
+      <p class="empty-copy">A few cultural stops you might have missed — in their own words.</p>
+      <div class="surprise-list">
+        ${picks.map((place) => `
+          <button class="place-nearby-link" type="button" data-nearby-place="${escapeHtml(place.id)}">
+            <strong>${escapeHtml(place.name)}</strong>
+            <span>${escapeHtml([place.category, place.city].filter(Boolean).join(" / "))}</span>
+            <em>${escapeHtml(firstSentence(place.description))}</em>
+          </button>
+        `).join("")}
+      </div>
+      <div class="detail-actions"><button type="button" class="surprise-reroll">Surprise me again</button></div>
+    `;
+    els.detail.querySelector(".selected-place-close")?.addEventListener("click", () => {
+      state.surprisePlaceIds = [];
+      setSourceData();
+      closeSelectionDrawer();
+    });
+    els.detail.querySelector(".surprise-reroll")?.addEventListener("click", renderSurprise);
+    els.detail.querySelectorAll("[data-nearby-place]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const place = placeById(button.dataset.nearbyPlace);
+        if (place) showPlace(place);
+      });
+    });
+    revealDetailCard();
   }
 
   // Flow-upgrade Stage 3 ("Place Pulse" board): the selected place is the
@@ -1441,9 +1509,16 @@
         ${event.url ? `<a href="${escapeHtml(event.url)}" target="_blank" rel="noopener">Event link</a>` : ""}
         ${place ? `<button class="filter-chip" type="button" id="event-place-jump">Show place</button>` : ""}
       </div>
+      ${renderBeforeOrAfter(place)}
     `;
     const jump = document.getElementById("event-place-jump");
     if (jump && place) jump.addEventListener("click", () => showPlace(place));
+    els.detail.querySelectorAll("[data-nearby-place]").forEach((button) => {
+      button.addEventListener("click", () => {
+        const other = placeById(button.dataset.nearbyPlace);
+        if (other) showPlace(other);
+      });
+    });
     els.detail.querySelector(".selected-place-close")?.addEventListener("click", () => {
       closeSelectionDrawer();
       if (state.mode === "events") renderEventsList();
@@ -1455,6 +1530,40 @@
   // Empty Events State (citizen-voiced, never a stale list or process caveat).
   // NOTE: uses .events-empty, NOT .empty-title — styles.css hides any card with
   // .empty-title via `.detail-card:has(.empty-title){display:none}`.
+  // Flow-upgrade Stage 5 ("Make It A Night", honest version): the closest
+  // eat/drink/shop stops to the event's venue, by plain distance. No curation
+  // data exists, so this is labeled "Before or after" and nothing grander.
+  function renderBeforeOrAfter(place) {
+    if (!place) return "";
+    const stops = state.places
+      .filter((other) =>
+        other.id !== place.id &&
+        isPlaceMapReady(other) &&
+        ["Eat, Drink & Stay", "Shops & Makers"].includes(other.category))
+      .map((other) => ({
+        place: other,
+        dist: Math.hypot(
+          (other.lng - place.lng) * Math.cos((place.lat * Math.PI) / 180),
+          other.lat - place.lat,
+        ),
+      }))
+      .sort((a, b) => a.dist - b.dist)
+      .slice(0, 3)
+      .map((entry) => entry.place);
+    if (!stops.length) return "";
+    return `
+      <div class="place-nearby">
+        <p class="section-label">Before or after</p>
+        ${stops.map((other) => `
+          <button class="place-nearby-link" type="button" data-nearby-place="${escapeHtml(other.id)}">
+            <strong>${escapeHtml(other.name)}</strong>
+            <span>${escapeHtml(other.category || "")}</span>
+          </button>
+        `).join("")}
+      </div>
+    `;
+  }
+
   function showEventsEmpty() {
     setDetailCardMode("");
     state.selectedEventId = "";
@@ -1837,6 +1946,21 @@
         "circle-stroke-color": MARKERS.red,
         "circle-stroke-width": 1.1,
         "circle-stroke-opacity": 0.55,
+      },
+    });
+    // Flow-upgrade Stage 5: dashed ink rings highlight the current "Surprise
+    // me nearby" picks without stealing red from live/selected.
+    state.map.addLayer({
+      id: "surprise-rings",
+      type: "circle",
+      source: "places",
+      filter: ["all", ["!", ["has", "point_count"]], ["get", "surprise"]],
+      paint: {
+        "circle-radius": 12,
+        "circle-color": "rgba(255,255,255,0)",
+        "circle-stroke-color": MARKERS.ink,
+        "circle-stroke-width": 2,
+        "circle-opacity": 0.9,
       },
     });
     state.map.addLayer({
