@@ -151,6 +151,7 @@
     selectedPath: null,
     selectedPlaceId: "",
     selectedEventId: "",
+    eventLens: "all",
     searchQuery: "",
     localReveal: null,
     localRevealPreviousContext: null,
@@ -315,6 +316,43 @@
     return (Array.isArray(events) ? events : []).filter(
       (event) => typeof event.date === "string" && event.date >= today,
     );
+  }
+
+  // Flow-upgrade Stage 4: events-only time lens. There is NO hours data for
+  // places, so "Open Now" is deliberately absent — the lens only ever narrows
+  // the (already future-only) event list. Lenses: today | weekend | week | all.
+  function localISO(date) {
+    const y = date.getFullYear();
+    const m = String(date.getMonth() + 1).padStart(2, "0");
+    const d = String(date.getDate()).padStart(2, "0");
+    return `${y}-${m}-${d}`;
+  }
+
+  function eventLensRange(lens) {
+    const now = new Date();
+    const today = todayISO();
+    if (lens === "today") return [today, today];
+    if (lens === "week") {
+      const end = new Date(now);
+      end.setDate(end.getDate() + 7);
+      return [today, localISO(end)];
+    }
+    if (lens === "weekend") {
+      // The coming Sat–Sun; if today already is the weekend, start today.
+      const day = now.getDay(); // 0 Sun … 6 Sat
+      const start = new Date(now);
+      if (day >= 1 && day <= 5) start.setDate(start.getDate() + (6 - day));
+      const end = new Date(start);
+      end.setDate(end.getDate() + (start.getDay() === 0 ? 0 : 1));
+      return [localISO(start), localISO(end)];
+    }
+    return null; // all upcoming
+  }
+
+  function lensFilteredEvents() {
+    const range = eventLensRange(state.eventLens);
+    if (!range) return state.events;
+    return state.events.filter((event) => event.date >= range[0] && event.date <= range[1]);
   }
 
   function eventToFeature(event) {
@@ -590,7 +628,7 @@
     }
     setLocalRevealSourceData();
 
-    const events = state.mode === "events" ? state.events.map(eventToFeature) : [];
+    const events = state.mode === "events" ? lensFilteredEvents().map(eventToFeature) : [];
     const eventSource = state.map.getSource("events");
     if (eventSource) {
       eventSource.setData({ type: "FeatureCollection", features: events });
@@ -987,7 +1025,16 @@
   // browsable list of upcoming events (the map diamonds alone are not a
   // discovery surface).
   function renderEventsList() {
-    const events = [...state.events].sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0));
+    const events = lensFilteredEvents().sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0));
+    // Stage 4 time lens: events-only chips (no "Open Now" — no hours data).
+    const lenses = [
+      ["today", "Today"],
+      ["weekend", "This weekend"],
+      ["week", "Next 7 days"],
+      ["all", "All upcoming"],
+    ];
+    const chips = lenses.map(([key, label]) => `
+      <button class="time-lens-chip${state.eventLens === key ? " active" : ""}" type="button" data-event-lens="${key}" aria-pressed="${state.eventLens === key ? "true" : "false"}">${label}</button>`).join("");
     const rows = events.map((event) => `
       <button class="event-list-row${state.selectedEventId === event.id ? " active" : ""}" type="button" data-event-id="${escapeHtml(event.id)}">
         <span class="event-list-date">${escapeHtml(event.date)}</span>
@@ -995,11 +1042,20 @@
       </button>`).join("");
     els.filters.innerHTML = `
       <div class="outing-browse">
+        <div class="time-lens-row" role="group" aria-label="When">${chips}</div>
         <div class="outing-browse-head">
-          <span class="outing-browse-title">Upcoming events (${escapeHtml(events.length)})</span>
+          <span class="outing-browse-title">${events.length ? `Events (${escapeHtml(events.length)})` : "No events in this window"}</span>
         </div>
         <div class="events-browse-list" role="list" aria-label="Upcoming events">${rows}</div>
       </div>`;
+    els.filters.querySelectorAll("[data-event-lens]").forEach((button) => {
+      button.addEventListener("click", () => {
+        state.eventLens = button.dataset.eventLens;
+        state.selectedEventId = "";
+        renderEventsList();
+        setSourceData();
+      });
+    });
     els.filters.querySelectorAll(".event-list-row").forEach((button) => {
       button.addEventListener("click", () => {
         const event = state.events.find((item) => item.id === button.dataset.eventId);

@@ -1361,6 +1361,36 @@ body:not([data-map-mode="places"]) .review-tools {
   display: block;
 }
 
+/* Flow-upgrade Stage 4: events time lens chips */
+.time-lens-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+
+.time-lens-chip {
+  appearance: none;
+  border: 1px solid var(--line-strong);
+  background: var(--surface);
+  color: var(--ink);
+  font-family: var(--font-brand);
+  font-weight: 700;
+  font-size: 12px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.time-lens-chip.active {
+  background: var(--ncac-red);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+
+.time-lens-chip:hover:not(.active) {
+  border-color: var(--ncac-red);
+}
+
 /* Flow-upgrade Stage 3: joined-up place card sections */
 button.event-mini {
   display: block;

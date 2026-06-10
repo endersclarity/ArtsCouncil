@@ -3,6 +3,12 @@
  "entries": [
   {
    "date": "2026-06-10",
+   "title": "Events mode gets a time lens: Today, This weekend, Next 7 days",
+   "summary": "A chip row in Events mode narrows both the list and the map markers to the window you care about. Events-only by design: the map has no opening-hours data yet, so there is deliberately no Open Now filter.",
+   "kind": "improvement"
+  },
+  {
+   "date": "2026-06-10",
    "title": "Place cards now connect everything: events, MUSE, paths, and what is nearby",
    "summary": "Selecting a place now shows its upcoming events (tap to open), the MUSE Magazine stories it appears in, the curated paths it belongs to (tap to walk the route), and the closest cultural stops around it. Venue descriptions sourced from the venue itself now say so, with a link.",
    "kind": "improvement"
