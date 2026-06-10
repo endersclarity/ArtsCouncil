@@ -56,11 +56,17 @@
    "placeholderType": "gallery-studio",
    "placeholderSrc": "assets/placeholders/gallery-studio.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/places/ANXAkqG_IDhPWpuW8TtkWpxc5VZmmziovxZitf1Cxo35Bl4Wa-SOHTCeWKuABGq7ABp9e4ZO9Lmz-filFvqgIDPp_r74XJyd72bAUt4=s1600-w600",
-   "alt": "Ananda Crystal Hermitage Gardens in Nevada City",
-   "credit": "Crystal Hermitage Gardens, via Google",
+   "src": "assets/venue-photos/ananda-crystal-hermitage-gardens-nevada-city.jpg",
+   "alt": "Ananda Crystal Hermitage Gardens",
+   "credit": "Photo: Ananda Crystal Hermitage Gardens website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/places/ANXAkqG_IDhPWpuW8TtkWpxc5VZmmziovxZitf1Cxo35Bl4Wa-SOHTCeWKuABGq7ABp9e4ZO9Lmz-filFvqgIDPp_r74XJyd72bAUt4=s1600-w600",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://crystalhermitage.org/wp-content/uploads/2026/05/tulip-e1779387103265.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "arcgis-confident",
@@ -897,14 +903,20 @@
    "placeholderType": "gallery-studio",
    "placeholderSrc": "assets/placeholders/gallery-studio.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZNeA-7HAspK0TGPRPesHRfWJ2LThDpR9aHccI4aAFaI8bRHSPGoQAPyB3jpPSpqqKagTs1gnuGQAZQo7WgC4FeQ4zNWENGsQo5is_aWJTMGUuZnAtiN_FQwBqHBfYGDSU3Gcuhn2eb31LY5V1I=s4800-w800",
-   "alt": "Nevada County Fairgrounds Foundation Inc. in Grass Valley",
-   "credit": "Nevada County Fairgrounds, via Google",
+   "src": "assets/venue-photos/nevada-county-fairgrounds-foundation-inc-grass-valley.jpg",
+   "alt": "Nevada County Fairgrounds Foundation Inc.",
+   "credit": "Photo: Nevada County Fairgrounds Foundation Inc. website",
    "status": "credible",
    "reason": "",
    "originalSrc": "https://cdn.saffire.com/images.ashx?t=ig&rid=NevadaCntyFair&i=logo(2).png",
    "originalAlt": "Nevada County Fairgrounds Foundation Inc. in Grass Valley",
-   "originalCredit": "Nevada County Fairgrounds Foundation Inc."
+   "originalCredit": "Nevada County Fairgrounds Foundation Inc.",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZNeA-7HAspK0TGPRPesHRfWJ2LThDpR9aHccI4aAFaI8bRHSPGoQAPyB3jpPSpqqKagTs1gnuGQAZQo7WgC4FeQ4zNWENGsQo5is_aWJTMGUuZnAtiN_FQwBqHBfYGDSU3Gcuhn2eb31LY5V1I=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://cdn.saffire.com/images.ashx?t=ig&rid=NevadaCntyFair&i=Foundation_Board_Members_Wanted_CROPPED.png&cb=d0292210",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "arcgis-confident",
@@ -1002,11 +1014,17 @@
    "placeholderType": "performance-event-venue",
    "placeholderSrc": "assets/placeholders/performance-event-venue.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/places/ANXAkqE-S7sKTDzqaAIxsXQ20ader3beRXKYSNTZw8jplT7ogpBh77mE9P3CCVVrqg9uQj8MOPgd9R8CjecXaKimn9ytQfwjpi31goI=s4800-w800",
-   "alt": "Nevada Theater in Nevada City",
-   "credit": "Nevada Theatre, via Google",
+   "src": "assets/venue-photos/nevada-theater-nevada-city.jpg",
+   "alt": "Nevada Theater",
+   "credit": "Photo: Nevada Theater website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/places/ANXAkqE-S7sKTDzqaAIxsXQ20ader3beRXKYSNTZw8jplT7ogpBh77mE9P3CCVVrqg9uQj8MOPgd9R8CjecXaKimn9ytQfwjpi31goI=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://nevadatheatre.com/wp-content/uploads/2019/12/nevada-theatre-side-steve-hillis-01.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
@@ -1611,11 +1629,17 @@
    "placeholderType": "performance-event-venue",
    "placeholderSrc": "assets/placeholders/performance-event-venue.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZNhQeHPnvNM_So1fxffxZdLuN-D75DN5iR-aEyP4-MM74oSDHRGPaC2qoXZSWiCPur-tz7co2NyLCli2P2d-glSVAoNE59rY1xbCIwQZK0D-15zzI6DQNNCahLwAmIFseJnDCeRqnVX5GpEZA=s4800-w800",
-   "alt": "Stardust Station in Nevada City",
-   "credit": "Linda Michelle Hardy, via Google",
+   "src": "assets/venue-photos/stardust-station-nevada-city.jpg",
+   "alt": "Stardust Station",
+   "credit": "Photo: Stardust Station website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZNhQeHPnvNM_So1fxffxZdLuN-D75DN5iR-aEyP4-MM74oSDHRGPaC2qoXZSWiCPur-tz7co2NyLCli2P2d-glSVAoNE59rY1xbCIwQZK0D-15zzI6DQNNCahLwAmIFseJnDCeRqnVX5GpEZA=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://img1.wsimg.com/isteam/ip/41af8d7f-f194-4f3d-9da3-0ec99a1204e0/fb_1886534611558675_960x960",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "candidate",
@@ -1760,11 +1784,17 @@
    "placeholderType": "performance-event-venue",
    "placeholderSrc": "assets/placeholders/performance-event-venue.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/places/ANXAkqE-S7sKTDzqaAIxsXQ20ader3beRXKYSNTZw8jplT7ogpBh77mE9P3CCVVrqg9uQj8MOPgd9R8CjecXaKimn9ytQfwjpi31goI=s4800-w800",
-   "alt": "The Lyric Rose Rose Theatre Company in Nevada City",
-   "credit": "Nevada Theatre, via Google",
+   "src": "assets/venue-photos/the-lyric-rose-rose-theatre-company-nevada-city.jpg",
+   "alt": "The Lyric Rose Rose Theatre Company",
+   "credit": "Photo: The Lyric Rose Rose Theatre Company website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/places/ANXAkqE-S7sKTDzqaAIxsXQ20ader3beRXKYSNTZw8jplT7ogpBh77mE9P3CCVVrqg9uQj8MOPgd9R8CjecXaKimn9ytQfwjpi31goI=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://img1.wsimg.com/isteam/ip/412d50db-a172-489d-8db5-a28b30d425b8/ca6d62eb-9e92-4922-af98-52b5a71d53e0.JPG",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "none",
@@ -2152,11 +2182,17 @@
    "placeholderType": "gallery-studio",
    "placeholderSrc": "assets/placeholders/gallery-studio.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZPZSixIJkXLUrlQYHv8oeiB15xgMWvCLMFsqoFb5j50NHnZfINdmS9xcmJVUy64ASNhQUKLhDlwlM1_WVVsAHCYUYVVhMA90DbIV6xb4wUU7HDODHQEnBkpiC5MNv8oqwRKy16tPvPNDtYU9Q=s4800-w800",
-   "alt": "Gold Crush in Grass Valley",
-   "credit": "Gold Crush Climbing Gym, via Google",
+   "src": "assets/venue-photos/gold-crush-grass-valley.jpg",
+   "alt": "Gold Crush",
+   "credit": "Photo: Gold Crush website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZPZSixIJkXLUrlQYHv8oeiB15xgMWvCLMFsqoFb5j50NHnZfINdmS9xcmJVUy64ASNhQUKLhDlwlM1_WVVsAHCYUYVVhMA90DbIV6xb4wUU7HDODHQEnBkpiC5MNv8oqwRKy16tPvPNDtYU9Q=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "http://static1.squarespace.com/static/6229336de17e6a4255b6b23b/t/66aa67fa31348450db101822/1722443780273/6P1A9656+copy.jpg?format=1500w",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
@@ -2488,11 +2524,17 @@
    "placeholderType": "gallery-studio",
    "placeholderSrc": "assets/placeholders/gallery-studio.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/places/ANXAkqEOylrBOR-cvAx6bEou7s38dTJ3pTxSxzP0-_zKWy2Lk-N2_j0V6tz7VjzqP8AQoeQa4qyfgQlYxVVM9Vy6mhL6KnD12UZV4-0=s4800-w800",
-   "alt": "Myrtle Tree Arts in Nevada City",
-   "credit": "Myrtle & Marjoram, via Google",
+   "src": "assets/venue-photos/myrtle-tree-arts-nevada-city.jpg",
+   "alt": "Myrtle Tree Arts",
+   "credit": "Photo: Myrtle Tree Arts website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/places/ANXAkqEOylrBOR-cvAx6bEou7s38dTJ3pTxSxzP0-_zKWy2Lk-N2_j0V6tz7VjzqP8AQoeQa4qyfgQlYxVVM9Vy6mhL6KnD12UZV4-0=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://img1.wsimg.com/isteam/ip/e4f77075-c862-4b6f-aa81-64c9a93f100a/darkredgreen-bud1.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
@@ -2670,11 +2712,17 @@
    "placeholderType": "gallery-studio",
    "placeholderSrc": "assets/placeholders/gallery-studio.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZNknzNhfzpr_LqooySnSIk5xEEbK2KfF4A7Sw8zU-iFbSMm7f3dd4FtE_7_Ho1nX7InQGaDYERYTiUVEcF9Wos_o1W-Jw2THxdkfBd4wSGPBqRU_3yMc6aT9xIMl6yic1OvGXaO9kLiJxaKCw=s4800-w720",
-   "alt": "SRC Event Rentals in Grass Valley",
-   "credit": "SRC Party Rentals & Supplies, via Google",
+   "src": "assets/venue-photos/src-event-rentals-grass-valley.jpg",
+   "alt": "SRC Event Rentals",
+   "credit": "Photo: SRC Event Rentals website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZNknzNhfzpr_LqooySnSIk5xEEbK2KfF4A7Sw8zU-iFbSMm7f3dd4FtE_7_Ho1nX7InQGaDYERYTiUVEcF9Wos_o1W-Jw2THxdkfBd4wSGPBqRU_3yMc6aT9xIMl6yic1OvGXaO9kLiJxaKCw=s4800-w720",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://www.srcparty.com/wp-content/uploads/2024/04/home-cover-table-edited2-1.webp",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
@@ -2784,11 +2832,17 @@
    "placeholderType": "gallery-studio",
    "placeholderSrc": "assets/placeholders/gallery-studio.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZPUfcthrminDeUfb1yggAulO2Zy8ygPoCGXc588PwvP8zVK7TLAVsY7qIPDivoQ07JF_3ITdiUrxEUvCel5JV9OYg_uqiNsSyJ-m4s5yKUAK6zDmq9R19_R86S9mrK4IFfrFtDTNtH2PX-VHA=s4800-w800",
-   "alt": "Someone Said Yes DJ and Photo Booth in Grass Valley",
-   "credit": "Someone Said Yes DJ and Photo Booth Service, via Google",
+   "src": "assets/venue-photos/someone-said-yes-dj-and-photo-booth-grass-valley.jpg",
+   "alt": "Someone Said Yes DJ and Photo Booth",
+   "credit": "Photo: Someone Said Yes DJ and Photo Booth website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZPUfcthrminDeUfb1yggAulO2Zy8ygPoCGXc588PwvP8zVK7TLAVsY7qIPDivoQ07JF_3ITdiUrxEUvCel5JV9OYg_uqiNsSyJ-m4s5yKUAK6zDmq9R19_R86S9mrK4IFfrFtDTNtH2PX-VHA=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://static.wixstatic.com/media/9942ef_e97d493a4de44d23ac2ffc1e27e6abc0~mv2.jpg/v1/fill/w_2500,h_1484,al_c/9942ef_e97d493a4de44d23ac2ffc1e27e6abc0~mv2.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "none",
@@ -4533,11 +4587,17 @@
    "placeholderType": "historic-place",
    "placeholderSrc": "assets/placeholders/historic-place.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZNJjHJpWm2Lu518HUqcwFYpkqJdoYTD3WhZBxp4_Zu3CowZ_mgfUuDHi-2_U6_iI87KiIlIamCSGGJe6Lm4oQ4U0GbFvX9m-ykruQsRZGSVKH1oEivQ7HBikCZJ5f-APaRdmuMhAJmu8bebxg=s4800-w800",
-   "alt": "Nevada County Media in Grass Valley",
-   "credit": "Nevada County Media, via Google",
+   "src": "assets/venue-photos/nevada-county-media-grass-valley.jpg",
+   "alt": "Nevada County Media",
+   "credit": "Photo: Nevada County Media website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZNJjHJpWm2Lu518HUqcwFYpkqJdoYTD3WhZBxp4_Zu3CowZ_mgfUuDHi-2_U6_iI87KiIlIamCSGGJe6Lm4oQ4U0GbFvX9m-ykruQsRZGSVKH1oEivQ7HBikCZJ5f-APaRdmuMhAJmu8bebxg=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "http://static1.squarespace.com/static/5e0bb8a18adabe16e11040d6/t/643177194759de4a2eeb4e71/1680963353756/IMGL2517%2Bcopy.jpg?format=1500w",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "none",
@@ -4813,11 +4873,17 @@
    "placeholderType": "performance-event-venue",
    "placeholderSrc": "assets/placeholders/performance-event-venue.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZOQceaGh8fzwhWePXGDaTbN3V3MqC7SNNvIGPpNyek4bU-rb1-QbfaxMLDj_lQsSw8uLGfiZ4PtKD4kwKL-mGO5L7tzHXF5DHDa4iqgrBysoCNh5udSNYHlW9S9aLaknLpw795jRIX-epaNJDE=s4800-w800",
-   "alt": "San Juan Ridge Community Library in Nevada City",
-   "credit": "Raybies Flynn, via Google",
+   "src": "assets/venue-photos/san-juan-ridge-community-library-nevada-city.jpg",
+   "alt": "San Juan Ridge Community Library",
+   "credit": "Photo: San Juan Ridge Community Library website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZOQceaGh8fzwhWePXGDaTbN3V3MqC7SNNvIGPpNyek4bU-rb1-QbfaxMLDj_lQsSw8uLGfiZ4PtKD4kwKL-mGO5L7tzHXF5DHDa4iqgrBysoCNh5udSNYHlW9S9aLaknLpw795jRIX-epaNJDE=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://www.sjrcommunitylibrary.org/wp-content/uploads/2018/09/IMG_3259-e1561732090771.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "candidate",
@@ -5066,11 +5132,17 @@
    "placeholderType": "performance-event-venue",
    "placeholderSrc": "assets/placeholders/performance-event-venue.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZNL7JyPhFqFsFHfuChTe-jA837KV9TlQs8maF10-t8Z856HDyAgR8bgCyhgus3Lg9Z0bH4btgcimEZDeVoGo0_GU6DVEuEmsCKvck5oaMVnVruA42HfZtMTEJmBurAZxUIDGWtqCjbBfYzbUQ=s4800-w800",
-   "alt": "Sound Check Music in Grass Valley",
-   "credit": "Raybies Flynn, via Google",
+   "src": "assets/venue-photos/sound-check-music-grass-valley.jpg",
+   "alt": "Sound Check Music",
+   "credit": "Photo: Sound Check Music website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZNL7JyPhFqFsFHfuChTe-jA837KV9TlQs8maF10-t8Z856HDyAgR8bgCyhgus3Lg9Z0bH4btgcimEZDeVoGo0_GU6DVEuEmsCKvck5oaMVnVruA42HfZtMTEJmBurAZxUIDGWtqCjbBfYzbUQ=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://img1.wsimg.com/isteam/stock/3855",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "candidate",
@@ -5304,11 +5376,17 @@
    "placeholderType": "performance-event-venue",
    "placeholderSrc": "assets/placeholders/performance-event-venue.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZOZG3S7hP4ggQ1a0WvXcGdojO6N-a4NvnWwG1FdeF9jDm5fM7ohs2rdf4RZxpfyncOvLnZ-rM8J5521JggsFxWOZlmz_SahZcjSSIXt29h0AxXCObeWyaG3-tFmoGUeC2YhMmXLM7qw83bI=s4800-w800",
-   "alt": "Toad Hall Books in Nevada City",
-   "credit": "J S, via Google",
+   "src": "assets/venue-photos/toad-hall-books-nevada-city.jpg",
+   "alt": "Toad Hall Books",
+   "credit": "Photo: Toad Hall Books website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZOZG3S7hP4ggQ1a0WvXcGdojO6N-a4NvnWwG1FdeF9jDm5fM7ohs2rdf4RZxpfyncOvLnZ-rM8J5521JggsFxWOZlmz_SahZcjSSIXt29h0AxXCObeWyaG3-tFmoGUeC2YhMmXLM7qw83bI=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://s3-media0.fl.yelpcdn.com/bphoto/FzjFjkd9PbBKmCNms0PhOw/o.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
@@ -5644,11 +5722,17 @@
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZNxYUlQSmt40roHT8hudY7sJaVGO_8hjQgWfaMD2TGW_Of58gFV73OyS3nyXVj8bC6qhegpz_qdE5O-zzeBNvxz6418RQaG5ONjf4QaD0YBzdNvrOLDldb8kCciIvOuctnL0Gji9egVO-HxOg=s4800-w800",
-   "alt": "Arquils Wine in Nevada City",
-   "credit": "Nevada City Winery, via Google",
+   "src": "assets/venue-photos/arquils-wine-nevada-city.jpg",
+   "alt": "Arquils Wine",
+   "credit": "Photo: Arquils Wine website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZNxYUlQSmt40roHT8hudY7sJaVGO_8hjQgWfaMD2TGW_Of58gFV73OyS3nyXVj8bC6qhegpz_qdE5O-zzeBNvxz6418RQaG5ONjf4QaD0YBzdNvrOLDldb8kCciIvOuctnL0Gji9egVO-HxOg=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "http://static1.squarespace.com/static/5e4702b89dd7a0769bb07806/t/5eb2f81994f93e386f6eca33/1588787228362/Arquils+Wine.png?format=1500w",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
@@ -5678,11 +5762,17 @@
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZNxYUlQSmt40roHT8hudY7sJaVGO_8hjQgWfaMD2TGW_Of58gFV73OyS3nyXVj8bC6qhegpz_qdE5O-zzeBNvxz6418RQaG5ONjf4QaD0YBzdNvrOLDldb8kCciIvOuctnL0Gji9egVO-HxOg=s4800-w800",
-   "alt": "Arquils Winery in Nevada City",
-   "credit": "Nevada City Winery, via Google",
+   "src": "assets/venue-photos/arquils-winery-nevada-city.jpg",
+   "alt": "Arquils Winery",
+   "credit": "Photo: Arquils Winery website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZNxYUlQSmt40roHT8hudY7sJaVGO_8hjQgWfaMD2TGW_Of58gFV73OyS3nyXVj8bC6qhegpz_qdE5O-zzeBNvxz6418RQaG5ONjf4QaD0YBzdNvrOLDldb8kCciIvOuctnL0Gji9egVO-HxOg=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "http://static1.squarespace.com/static/5e4702b89dd7a0769bb07806/t/5eb2f81994f93e386f6eca33/1588787228362/Arquils+Wine.png?format=1500w",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
@@ -5916,11 +6006,17 @@
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/places/ANXAkqGx8Kk81MpHKfVG8GuUXRDJ4LcQEzWhC0QvUKNwBUjh0D6dBzLbzoXpotAQUaVi0hI2I5Vq0hmnEODssWSj_sV3x0LZn9KXKhs=s4800-w800",
-   "alt": "BrewHaus in Nevada City",
-   "credit": "BrewBilt BrewHaus, via Google",
+   "src": "assets/venue-photos/brewhaus-nevada-city.jpg",
+   "alt": "BrewHaus",
+   "credit": "Photo: BrewHaus website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/places/ANXAkqGx8Kk81MpHKfVG8GuUXRDJ4LcQEzWhC0QvUKNwBUjh0D6dBzLbzoXpotAQUaVi0hI2I5Vq0hmnEODssWSj_sV3x0LZn9KXKhs=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://static.spotapps.co/website_images/ab_websites/478712_website_v1/shared_image.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
@@ -5950,11 +6046,17 @@
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZOovJ6ye6gRYBmLofoPIiK-P4kiOzDRz4rA1EVivdEkm0sXTTn3GbtGYgbfWaXXfeNcjCsein-zo3xiBdFv-AhzXlUZLYEGhwyK-6DvR-6UbYiFrc4EPI2lXic1FNPbWdjkM5y9AwRE5LSOH3SXdMk3HA=s4800-w800",
-   "alt": "BriarPatch Food Co-op in Grass Valley",
-   "credit": "BriarPatch Food Co-op, via Google",
+   "src": "assets/venue-photos/briarpatch-food-co-op-grass-valley.jpg",
+   "alt": "BriarPatch Food Co-op",
+   "credit": "Photo: BriarPatch Food Co-op website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZOovJ6ye6gRYBmLofoPIiK-P4kiOzDRz4rA1EVivdEkm0sXTTn3GbtGYgbfWaXXfeNcjCsein-zo3xiBdFv-AhzXlUZLYEGhwyK-6DvR-6UbYiFrc4EPI2lXic1FNPbWdjkM5y9AwRE5LSOH3SXdMk3HA=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://briarpatch.coop/wp-content/uploads/2023/11/charcuterie-holiday.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "candidate",
@@ -6438,11 +6540,17 @@
    "placeholderType": "gallery-studio",
    "placeholderSrc": "assets/placeholders/gallery-studio.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/places/ANXAkqEGQKSwREYgprmTUeeoQzfFjK5_g3VoeMKKXy4rIfvrlVCppYUoQFmHLv1E2R4sBz6cA_8qP5P4-Lbd46xIvqH7zYvOiK-vC0Y=s4800-w640",
-   "alt": "Corvus Bakery in Grass Valley",
-   "credit": "Corvus Bakery, via Google",
+   "src": "assets/venue-photos/corvus-bakery-grass-valley.jpg",
+   "alt": "Corvus Bakery",
+   "credit": "Photo: Corvus Bakery website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/places/ANXAkqEGQKSwREYgprmTUeeoQzfFjK5_g3VoeMKKXy4rIfvrlVCppYUoQFmHLv1E2R4sBz6cA_8qP5P4-Lbd46xIvqH7zYvOiK-vC0Y=s4800-w640",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://img1.wsimg.com/isteam/ip/c24e88e0-2846-401c-a7ae-6ff304b3d2d9/ig_17887602919860669-0001.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
@@ -6876,11 +6984,17 @@
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZOllRAqmu62dWPASEsVo7M_iB4fhcKwa3g9xWL7kNwKjQYfp06A99YsL0FMVMgvxsvV17M_fQTqqENZa6NLGlHgw-Na1ud6MQ1MXVXjMQrI7TXJ_Zo2H9rWA4eYabnh68DrpJ7EXGWzuWtcFeE=s4800-w800",
-   "alt": "Enrique's Lounge in Grass Valley",
-   "credit": "Barbara Phelan, via Google",
+   "src": "assets/venue-photos/enrique-s-lounge-grass-valley.jpg",
+   "alt": "Enrique's Lounge",
+   "credit": "Photo: Enrique's Lounge website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZOllRAqmu62dWPASEsVo7M_iB4fhcKwa3g9xWL7kNwKjQYfp06A99YsL0FMVMgvxsvV17M_fQTqqENZa6NLGlHgw-Na1ud6MQ1MXVXjMQrI7TXJ_Zo2H9rWA4eYabnh68DrpJ7EXGWzuWtcFeE=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://res.cloudinary.com/dqywf30no/image/upload/v1776585106/topslot88_2_uzmryr.png",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
@@ -6978,11 +7092,17 @@
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZObCPnIwXU-7StlQtfmYeEayT9EtUTLT13IT2ZQXTg-Ke0GTUOHN-MOYTlDRpzkB1KAfqmthwZkiHGga3Hjay5gSPABCg9Z9n7_sy7lKnhYELLlvMtDwvY-2_dO_A9AF-_8q9jQ7gM-J2u6=s4800-w800",
-   "alt": "Flume’s End in Nevada City",
-   "credit": "Flume's End, via Google",
+   "src": "assets/venue-photos/flume-s-end-nevada-city.jpg",
+   "alt": "Flume’s End",
+   "credit": "Photo: Flume’s End website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZObCPnIwXU-7StlQtfmYeEayT9EtUTLT13IT2ZQXTg-Ke0GTUOHN-MOYTlDRpzkB1KAfqmthwZkiHGga3Hjay5gSPABCg9Z9n7_sy7lKnhYELLlvMtDwvY-2_dO_A9AF-_8q9jQ7gM-J2u6=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://lirp.cdn-website.com/56efa5f9/dms3rep/multi/opt/gold_creek_home_gallery_adjusted_2-1920w.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
@@ -7157,11 +7277,17 @@
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZNnDlRZSYxafFkHdLSKpoBZ0qMWJD_qM8YHqhGFGl8B837d90OUv_0BUA9y2rkC3HcuAV6DLtAevaOyH7DNTkEbr8_J1MKJLc8FC1tx3SKUjGr3K4x9K6kXxk9zjryZGAFJQNYrswKHfxg=s4800-w800",
-   "alt": "Gary's Place in Grass Valley",
-   "credit": "JEFFREY OLSON, via Google",
+   "src": "assets/venue-photos/gary-s-place-grass-valley.jpg",
+   "alt": "Gary's Place",
+   "credit": "Photo: Gary's Place website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZNnDlRZSYxafFkHdLSKpoBZ0qMWJD_qM8YHqhGFGl8B837d90OUv_0BUA9y2rkC3HcuAV6DLtAevaOyH7DNTkEbr8_J1MKJLc8FC1tx3SKUjGr3K4x9K6kXxk9zjryZGAFJQNYrswKHfxg=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://us1-photo.nextdoor.com/business_gallery/94/99/9499ac585cc016d3f406cb1bfe747f80.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
@@ -7197,11 +7323,17 @@
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/places/ANXAkqEcRIusBhgkfY3vKx_dZHe1939aGOj2ipzohKGQC-FYCe6v18_hlaAifp_5wAKWqBwDMumz2DR0DwcoD7YYbCN0VIdVN2VQIlE=s4800-w800",
-   "alt": "Gold Miners Inn in Grass Valley",
-   "credit": "Gold Miners Inn Grass Valley, an Ascend Collection Hotel, via Google",
+   "src": "assets/venue-photos/gold-miners-inn-grass-valley.jpg",
+   "alt": "Gold Miners Inn",
+   "credit": "Photo: Gold Miners Inn website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/places/ANXAkqEcRIusBhgkfY3vKx_dZHe1939aGOj2ipzohKGQC-FYCe6v18_hlaAifp_5wAKWqBwDMumz2DR0DwcoD7YYbCN0VIdVN2VQIlE=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://hotelmedia.s3.amazonaws.com/720/480/a15e593739ebd8727fc091b69aa90d3f549880bb",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
@@ -7379,11 +7511,17 @@
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZPjukKbTmH6XT5sERD71mfI2TO7tJgVQuYg2wdT1QduuD4XTX2FK9SY4XqIjg8kIAr5YobvmEkKN0s7cIAYk7jIyrW4qtSQUl56nZqBybRot3jBjGgV0wS-uW9orf1M5COU0Tbg-7M_VNTWFMU=s4800-w800",
-   "alt": "Grass Valley Brewing Co. in Grass Valley",
-   "credit": "Buddy, via Google",
+   "src": "assets/venue-photos/grass-valley-brewing-co-grass-valley.jpg",
+   "alt": "Grass Valley Brewing Co.",
+   "credit": "Photo: Grass Valley Brewing Co. website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZPjukKbTmH6XT5sERD71mfI2TO7tJgVQuYg2wdT1QduuD4XTX2FK9SY4XqIjg8kIAr5YobvmEkKN0s7cIAYk7jIyrW4qtSQUl56nZqBybRot3jBjGgV0wS-uW9orf1M5COU0Tbg-7M_VNTWFMU=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "http://gvbrew.com/wp-content/uploads/2018/11/ATW2.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
@@ -7419,11 +7557,17 @@
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZPihSAkRs0iW8tTnSatocPGIaQdCLQKecpkvShSVu4W-da1z4SY2_HmNdDlfC3m-R-rW9iwuRLerTtfaTtYvVWhEUOyAd-zlegnLWgupSwE1jsQMOQ2QoWwd1aW5jDh8YZzrcaO7OVXtYnxCdo=s4800-w800",
-   "alt": "Grass Valley Courtyard Suites in Grass Valley",
-   "credit": "Grass Valley Courtyard Suites, via Google",
+   "src": "assets/venue-photos/grass-valley-courtyard-suites-grass-valley.jpg",
+   "alt": "Grass Valley Courtyard Suites",
+   "credit": "Photo: Grass Valley Courtyard Suites website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZPihSAkRs0iW8tTnSatocPGIaQdCLQKecpkvShSVu4W-da1z4SY2_HmNdDlfC3m-R-rW9iwuRLerTtfaTtYvVWhEUOyAd-zlegnLWgupSwE1jsQMOQ2QoWwd1aW5jDh8YZzrcaO7OVXtYnxCdo=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://www.gvcourtyardsuites.com/wp-content/uploads/2014/03/cropped-cropped-grass-valley-courtyard-suites-1.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
@@ -7453,11 +7597,17 @@
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZPwL89yAU3yzYPEatrF2afvmjMXChNklcMusC1WmfJN2FBDp8fPSGtACnSx3u_p7eN4SAQ6ovUFcoz3faBy9L0bt_L8iO9gW3DrsZhGXlXR4wsbpv6646Hghni-04sUs0LZyNksd72PhtyYqg=s4800-w800",
-   "alt": "Grass Valley RV Resort in Grass Valley",
-   "credit": "Grass Valley RV Resort, via Google",
+   "src": "assets/venue-photos/grass-valley-rv-resort-grass-valley.jpg",
+   "alt": "Grass Valley RV Resort",
+   "credit": "Photo: Grass Valley RV Resort website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZPwL89yAU3yzYPEatrF2afvmjMXChNklcMusC1WmfJN2FBDp8fPSGtACnSx3u_p7eN4SAQ6ovUFcoz3faBy9L0bt_L8iO9gW3DrsZhGXlXR4wsbpv6646Hghni-04sUs0LZyNksd72PhtyYqg=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://gvrvresort.com/wp-content/uploads/cropped-airstream-1-1.webp",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "none",
@@ -7493,11 +7643,17 @@
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZPbBJ95p1QeD_OUI06OXTM7oSRjl1OhilNaORGjmC9coOWyB8bl4Qfn6XtitbFJ8Gm-75l83-ZhmUO7muLk31IqDDDygwMvBDjwajaIdnls_ootYmzY23ilG9oTa-Av-lFrM5B1qpzOhKnj=s4800-w800",
-   "alt": "GratiDude Ranch in Nevada City",
-   "credit": "GratiDude Ranch Nevada City, via Google",
+   "src": "assets/venue-photos/gratidude-ranch-nevada-city.jpg",
+   "alt": "GratiDude Ranch",
+   "credit": "Photo: GratiDude Ranch website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZPbBJ95p1QeD_OUI06OXTM7oSRjl1OhilNaORGjmC9coOWyB8bl4Qfn6XtitbFJ8Gm-75l83-ZhmUO7muLk31IqDDDygwMvBDjwajaIdnls_ootYmzY23ilG9oTa-Av-lFrM5B1qpzOhKnj=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "http://static1.squarespace.com/static/57b64661f7e0abfaa2b82966/t/57b64866893fc004c0025676/1643585534986/IMG_0001.JPG?format=1500w",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "candidate",
@@ -7811,11 +7967,17 @@
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/places/ANXAkqFh63zkGhPsWkHvnkadFPdrIiyo6eDR0BcmgIR8cfQMozjpXv3DxRjeuw09XVahGpsYwJdci3Qxh_PVsxkwvOqlqANj90BN9Bk=s4800-w800",
-   "alt": "Jule Vacation Rentals in Grass Valley",
-   "credit": "Jule Vacation Rentals, via Google",
+   "src": "assets/venue-photos/jule-vacation-rentals-grass-valley.jpg",
+   "alt": "Jule Vacation Rentals",
+   "credit": "Photo: Jule Vacation Rentals website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/places/ANXAkqFh63zkGhPsWkHvnkadFPdrIiyo6eDR0BcmgIR8cfQMozjpXv3DxRjeuw09XVahGpsYwJdci3Qxh_PVsxkwvOqlqANj90BN9Bk=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://julevacationrentals.com/wp-content/uploads/2025/05/52684-396223-uxwlJGWOJWrsX3gBHsOZ9HLgzkgN6QUb9Z5Lx2DBtzE-683727a3afb4a.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
@@ -8041,11 +8203,17 @@
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/places/ANXAkqG2SM7aZuNFTGMMEwH6Bu57Zuh7ildIgu5eMwER7wmED7e9r4gJlv3eQNQrQ1JNcqYvq-alTvyP3b8E2l4s-DWYwDMbiYQqVCw=s4800-w800",
-   "alt": "Lucchesi Tasting Room in Grass Valley",
-   "credit": "Lucchesi Mill Street Tasting Room, via Google",
+   "src": "assets/venue-photos/lucchesi-tasting-room-grass-valley.jpg",
+   "alt": "Lucchesi Tasting Room",
+   "credit": "Photo: Lucchesi Tasting Room website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/places/ANXAkqG2SM7aZuNFTGMMEwH6Bu57Zuh7ildIgu5eMwER7wmED7e9r4gJlv3eQNQrQ1JNcqYvq-alTvyP3b8E2l4s-DWYwDMbiYQqVCw=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://img1.wsimg.com/isteam/ip/a9b67124-03d2-4e77-a14d-60eb51f848f0/Image%206-4-26%20at%208.22%E2%80%AFPM.png",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
@@ -8149,11 +8317,17 @@
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZP0Ebr8MJSZ4SvjUBu93mcVKjL29FWvykRcsDBlpJ_bRsIli0LCr2aeHn5xgysifRBtNIcRRxpUJOrEIMaumKtNab356eKLF4BpnCCu66cETrIhHEJuPkKgxWR2nY0xHgWYrwWL4zibDAAuAA=s4800-w800",
-   "alt": "Maria's Mexican Restaurant in Grass Valley",
-   "credit": "Maria's Mexican Restaurant, via Google",
+   "src": "assets/venue-photos/maria-s-mexican-restaurant-grass-valley.jpg",
+   "alt": "Maria's Mexican Restaurant",
+   "credit": "Photo: Maria's Mexican Restaurant website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZP0Ebr8MJSZ4SvjUBu93mcVKjL29FWvykRcsDBlpJ_bRsIli0LCr2aeHn5xgysifRBtNIcRRxpUJOrEIMaumKtNab356eKLF4BpnCCu66cETrIhHEJuPkKgxWR2nY0xHgWYrwWL4zibDAAuAA=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://popmenucloud.com/cdn-cgi/image/width=1200,height=630,format=auto,fit=cover/znjvbthe/d8766a3b-d0d4-40d8-8f39-1f94b438f05b.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
@@ -8189,11 +8363,17 @@
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZMTPsH5n9HRKu_5h_HhJQEA9VSz4OBV3Mn9_XDhSoDR4rivVhduz9yeG9S3JjmUluEK7eIziBw1P6YsAHZ5WPxM1CwQF6OUADaZVPJPvWCgbna1nLIt9d9pY55_12WMjC-sVyRnHIwPO6egCQ=s4800-w800",
-   "alt": "Marshall's Pasties in Grass Valley",
-   "credit": "Marshall's Pasties, via Google",
+   "src": "assets/venue-photos/marshall-s-pasties-grass-valley.jpg",
+   "alt": "Marshall's Pasties",
+   "credit": "Photo: Marshall's Pasties website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZMTPsH5n9HRKu_5h_HhJQEA9VSz4OBV3Mn9_XDhSoDR4rivVhduz9yeG9S3JjmUluEK7eIziBw1P6YsAHZ5WPxM1CwQF6OUADaZVPJPvWCgbna1nLIt9d9pY55_12WMjC-sVyRnHIwPO6egCQ=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://cdn.restaurants-world.net/marshalls-pasties/3.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
@@ -8303,11 +8483,17 @@
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZPzLiConv28kA3dloxHsye5e1vkAyNNpBgMwAWmqH0AKFdZZRA1ogxf1ln9Rvpe97ZsHDLT40lBPyuo3CDVlu_QbzqgJmW2YuIO3F-MYusd4k9OtXEtkp_RGl9u_0ZF5Ifxyvwmzu2l93n82w=s4800-w800",
-   "alt": "Moonrise on Mill St. Inn in Nevada City",
-   "credit": "Jess Witte, via Google",
+   "src": "assets/venue-photos/moonrise-on-mill-st-inn-nevada-city.jpg",
+   "alt": "Moonrise on Mill St. Inn",
+   "credit": "Photo: Moonrise on Mill St. Inn website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZPzLiConv28kA3dloxHsye5e1vkAyNNpBgMwAWmqH0AKFdZZRA1ogxf1ln9Rvpe97ZsHDLT40lBPyuo3CDVlu_QbzqgJmW2YuIO3F-MYusd4k9OtXEtkp_RGl9u_0ZF5Ifxyvwmzu2l93n82w=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://l.icdbcdn.com/oh/260362ec-6436-4133-be3b-6bca924c1333.jpg?w=1200",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
@@ -8701,11 +8887,17 @@
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZNyk7NMKY8rVx1PC8ewgzh6nksrDFuLwBkzJoVIgo2Kiqmo8nYvhUg94HVEsetuxauX859uRx8Gd_rvlHIuh437bZvrs5Wuwy0idgqLVK4QMUPM6C3Wsi6OJMLn0hKCWCTCkDHMORdavtVzf-c=s4800-w800",
-   "alt": "Northern Queen Inn in Nevada City",
-   "credit": "Northern Queen Inn, via Google",
+   "src": "assets/venue-photos/northern-queen-inn-nevada-city.jpg",
+   "alt": "Northern Queen Inn",
+   "credit": "Photo: Northern Queen Inn website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZNyk7NMKY8rVx1PC8ewgzh6nksrDFuLwBkzJoVIgo2Kiqmo8nYvhUg94HVEsetuxauX859uRx8Gd_rvlHIuh437bZvrs5Wuwy0idgqLVK4QMUPM6C3Wsi6OJMLn0hKCWCTCkDHMORdavtVzf-c=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://www.northernqueeninn.com/gallery-images/properties/1/9/0/400_Railroad_Ave_-_010(Photos).jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "candidate",
@@ -8911,11 +9103,17 @@
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZNZJKxebeAwWTcVNfZlH6zx4w4WaDOu_gsw0K59B92ue8QDPSGCf0X1PPGW49pi7g3nn6oKhRdXqbotp-7GNtGKnq23t1ahetE2pCQHKRxZ9Xm3Ej86ngmeLrwZOgV12VG_wAjVsG4g9lwrhg=s4800-w800",
-   "alt": "Pete's Pizza in Grass Valley",
-   "credit": "Tyler Ann Sands aka Sister Gramps, via Google",
+   "src": "assets/venue-photos/pete-s-pizza-grass-valley.jpg",
+   "alt": "Pete's Pizza",
+   "credit": "Photo: Pete's Pizza website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZNZJKxebeAwWTcVNfZlH6zx4w4WaDOu_gsw0K59B92ue8QDPSGCf0X1PPGW49pi7g3nn6oKhRdXqbotp-7GNtGKnq23t1ahetE2pCQHKRxZ9Xm3Ej86ngmeLrwZOgV12VG_wAjVsG4g9lwrhg=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://petes-pizza.com/wp-content/uploads/2025/03/qtq80-8LkOSk.jpeg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
@@ -9229,11 +9427,17 @@
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZM70TTBrQ04uZEiF1j8e-Md5MW4KH-hnFg5JlbBVN-NUCa8r1hQytW2jsD3MHxO1KRCTowGAX6p6XqzXE4lg0_ugy0Sf7Q6dXMrNp9AfT0er_m5W3coAj-IhZwcRn1gvJpsBvLn01YGFmzoRTSUHDiS=s4800-w800",
-   "alt": "Sierra Starr Tasting Room in Grass Valley",
-   "credit": "Emma Wong-Stephens, via Google",
+   "src": "assets/venue-photos/sierra-starr-tasting-room-grass-valley.jpg",
+   "alt": "Sierra Starr Tasting Room",
+   "credit": "Photo: Sierra Starr Tasting Room website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZM70TTBrQ04uZEiF1j8e-Md5MW4KH-hnFg5JlbBVN-NUCa8r1hQytW2jsD3MHxO1KRCTowGAX6p6XqzXE4lg0_ugy0Sf7Q6dXMrNp9AfT0er_m5W3coAj-IhZwcRn1gvJpsBvLn01YGFmzoRTSUHDiS=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://sierrastarr.com/wp-content/uploads/dad-on-beam.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
@@ -9439,11 +9643,17 @@
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZNIxGPtB_WTEBHeLkUpjQG7r7SquOLSXYz1-gm_v1k1HeVQlKBKii4wdZPT-xDJVSqRjZAcvl5fMV-qA395fEufeYFjHL9xXL1I_Agt6EVCwu-_hzyTd9z-vHq47JjI-3KS1BaWhRlzkaZ32Ug=s4800-w800",
-   "alt": "Sushi Q in Nevada City",
-   "credit": "Son Mai, G Tour Photos, via Google",
+   "src": "assets/venue-photos/sushi-q-nevada-city.jpg",
+   "alt": "Sushi Q",
+   "credit": "Photo: Sushi Q website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZNIxGPtB_WTEBHeLkUpjQG7r7SquOLSXYz1-gm_v1k1HeVQlKBKii4wdZPT-xDJVSqRjZAcvl5fMV-qA395fEufeYFjHL9xXL1I_Agt6EVCwu-_hzyTd9z-vHq47JjI-3KS1BaWhRlzkaZ32Ug=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "http://static1.squarespace.com/static/5ee6843624d5726139602872/t/5f1fd2f4d5f9b4137ea3e926/1595921153095/IMG_0017.jpg?format=1500w",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
@@ -10769,11 +10979,17 @@
    "placeholderType": "performance-event-venue",
    "placeholderSrc": "assets/placeholders/performance-event-venue.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/places/ANXAkqFDsRs_4thjuSI4vqflo53bZAsCE7ofXjM0_9tHW7izQ5izMs2i-8Ki1DvkuEQo6emAQfEcKX7t36dRldHkkN9UjySvdhZzotE=s4800-w800",
-   "alt": "Earth Fest Street Fair in Nevada City",
-   "credit": "The Earth Store, via Google",
+   "src": "assets/venue-photos/earth-fest-street-fair-nevada-city.jpg",
+   "alt": "Earth Fest Street Fair",
+   "credit": "Photo: Earth Fest Street Fair website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/places/ANXAkqFDsRs_4thjuSI4vqflo53bZAsCE7ofXjM0_9tHW7izQ5izMs2i-8Ki1DvkuEQo6emAQfEcKX7t36dRldHkkN9UjySvdhZzotE=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://www.nevadacitychamber.com/wp-content/uploads/2025/01/EarthFest-2-1-scaled.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "none",
@@ -10871,14 +11087,20 @@
    "placeholderType": "performance-event-venue",
    "placeholderSrc": "assets/placeholders/performance-event-venue.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZNeA-7HAspK0TGPRPesHRfWJ2LThDpR9aHccI4aAFaI8bRHSPGoQAPyB3jpPSpqqKagTs1gnuGQAZQo7WgC4FeQ4zNWENGsQo5is_aWJTMGUuZnAtiN_FQwBqHBfYGDSU3Gcuhn2eb31LY5V1I=s4800-w800",
-   "alt": "Fathers Day Bluegrass Festival in Grass Valley",
-   "credit": "Nevada County Fairgrounds, via Google",
+   "src": "assets/venue-photos/fathers-day-bluegrass-festival-grass-valley.jpg",
+   "alt": "Fathers Day Bluegrass Festival",
+   "credit": "Photo: Fathers Day Bluegrass Festival website",
    "status": "credible",
    "reason": "",
    "originalSrc": "https://californiabluegrass.org/wp-content/uploads/2021/03/Fathers-Day-Festival-2024-logo-rect.jpg",
    "originalAlt": "Fathers Day Bluegrass Festival in Grass Valley",
-   "originalCredit": "Fathers Day Bluegrass Festival"
+   "originalCredit": "Fathers Day Bluegrass Festival",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZNeA-7HAspK0TGPRPesHRfWJ2LThDpR9aHccI4aAFaI8bRHSPGoQAPyB3jpPSpqqKagTs1gnuGQAZQo7WgC4FeQ4zNWENGsQo5is_aWJTMGUuZnAtiN_FQwBqHBfYGDSU3Gcuhn2eb31LY5V1I=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://californiabluegrass.org/wp-content/uploads/2025/12/FDF-Tile.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "diana",
@@ -11960,11 +12182,17 @@
    "placeholderType": "gallery-studio",
    "placeholderSrc": "assets/placeholders/gallery-studio.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/places/ANXAkqHZmLwpdevGmLSH6RLMf9-FcGni5UrJQp5B5AczTlo2cmw3hD-q6kSwYko9ZSIvqu-kRX5ogDzueaR8zD8DgQvx9hQOqpeBK1I=s1600-w600",
-   "alt": "BriarPatch Art Gallery and Amphitheater in Grass Valley",
-   "credit": "The Center For the Arts, via Google",
+   "src": "assets/venue-photos/briarpatch-art-gallery-and-amphitheater-grass-valley.jpg",
+   "alt": "BriarPatch Art Gallery and Amphitheater",
+   "credit": "Photo: BriarPatch Art Gallery and Amphitheater website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/places/ANXAkqHZmLwpdevGmLSH6RLMf9-FcGni5UrJQp5B5AczTlo2cmw3hD-q6kSwYko9ZSIvqu-kRX5ogDzueaR8zD8DgQvx9hQOqpeBK1I=s1600-w600",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://briarpatch.coop/wp-content/uploads/2023/11/charcuterie-holiday.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "diana",
@@ -12315,11 +12543,17 @@
    "placeholderType": "gallery-studio",
    "placeholderSrc": "assets/placeholders/gallery-studio.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/places/ANXAkqEbQwPbHqouu1dsSJzvFVqc3FYBSTHuCa4gYo1N6qOyGHaLDmxAej91enH8DfyVHNpxQazznb5a6ZMMc9MdngVJBMLDVVL_j94=s1600-w600",
-   "alt": "Kitkitdizzi in Nevada City",
-   "credit": "Kitkitdizzi, via Google",
+   "src": "assets/venue-photos/kitkitdizzi-nevada-city.jpg",
+   "alt": "Kitkitdizzi",
+   "credit": "Photo: Kitkitdizzi website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/places/ANXAkqEbQwPbHqouu1dsSJzvFVqc3FYBSTHuCa4gYo1N6qOyGHaLDmxAej91enH8DfyVHNpxQazznb5a6ZMMc9MdngVJBMLDVVL_j94=s1600-w600",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://cdn.shopify.com/s/files/1/0164/3818/files/cover-1.jpg?v=1608143763",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "diana",
@@ -16903,11 +17137,17 @@
    "placeholderType": "gallery-studio",
    "placeholderSrc": "assets/placeholders/gallery-studio.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/places/ANXAkqG5FehIS-wsldps5Ovh-drFteBWG0_M3g1ow2z10Y_pYcOf6Fybr1IsWF7DC6e-AGulnQpilmgowImdP0eN_TaQ55Vb5leMbaE=s4800-w800",
-   "alt": "Earthdrop in Nevada City",
-   "credit": "EarthDrop, via Google",
+   "src": "assets/venue-photos/earthdrop-nevada-city.jpg",
+   "alt": "Earthdrop",
+   "credit": "Photo: Earthdrop website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/places/ANXAkqG5FehIS-wsldps5Ovh-drFteBWG0_M3g1ow2z10Y_pYcOf6Fybr1IsWF7DC6e-AGulnQpilmgowImdP0eN_TaQ55Vb5leMbaE=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://img1.wsimg.com/isteam/ip/23970d16-ab6d-4d05-a4c3-fa3d8494ccdd/a30e5a97-4e0a-4249-8c12-7c5fdb5b2a79.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
@@ -17523,11 +17763,17 @@
    "placeholderType": "gallery-studio",
    "placeholderSrc": "assets/placeholders/gallery-studio.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/places/ANXAkqGahWCpGKwYv9PgYExwe5iASk_XgBr2YpS3PeyazhnVrhDcP3RbyFkro1YMm6pFRukkXNz5Y-niN4sqve9tLkSYDvytmjsL5L8=s4800-w800",
-   "alt": "J. Breuer Clothing in Grass Valley",
-   "credit": "J Breuer Men & Women's Clothing, via Google",
+   "src": "assets/venue-photos/j-breuer-clothing-grass-valley.jpg",
+   "alt": "J. Breuer Clothing",
+   "credit": "Photo: J. Breuer Clothing website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/places/ANXAkqGahWCpGKwYv9PgYExwe5iASk_XgBr2YpS3PeyazhnVrhDcP3RbyFkro1YMm6pFRukkXNz5Y-niN4sqve9tLkSYDvytmjsL5L8=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://downtowngrassvalley.com/wp-content/uploads/2021/06/J-Breuer-Clothing-141-Mill-St-httpswww.facebook.com-JBreuerClothing-1024x768.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
@@ -17767,11 +18013,17 @@
    "placeholderType": "gallery-studio",
    "placeholderSrc": "assets/placeholders/gallery-studio.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/places/ANXAkqFe_ndeXd5QcwIXyAp-joHihR1C4_ZMyXgScjiuFmJYmZeAyqP_SZvo1sMmK8coTC_m0Mx7RxHHhP6ORXb46FSMFxxMIxFt4g=s4800-w800",
-   "alt": "Main Street Kids in Nevada City",
-   "credit": "Main Street Kids, via Google",
+   "src": "assets/venue-photos/main-street-kids-nevada-city.jpg",
+   "alt": "Main Street Kids",
+   "credit": "Photo: Main Street Kids website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/places/ANXAkqFe_ndeXd5QcwIXyAp-joHihR1C4_ZMyXgScjiuFmJYmZeAyqP_SZvo1sMmK8coTC_m0Mx7RxHHhP6ORXb46FSMFxxMIxFt4g=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://img1.wsimg.com/isteam/getty/671260158",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
@@ -17977,11 +18229,17 @@
    "placeholderType": "gallery-studio",
    "placeholderSrc": "assets/placeholders/gallery-studio.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/places/ANXAkqH-myNX5Sthhzkox8Up3jDgcVltfrMRT14fY-JX61Lv4ofwEUqXSyibbtvfkj_-7OBs4N6g5IEo5juAbdyqQjm11KahFBhVrjk=s4800-w800",
-   "alt": "Mountain Pastimes in Nevada City",
-   "credit": "Mountain Pastimes, via Google",
+   "src": "assets/venue-photos/mountain-pastimes-nevada-city.jpg",
+   "alt": "Mountain Pastimes",
+   "credit": "Photo: Mountain Pastimes website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/places/ANXAkqH-myNX5Sthhzkox8Up3jDgcVltfrMRT14fY-JX61Lv4ofwEUqXSyibbtvfkj_-7OBs4N6g5IEo5juAbdyqQjm11KahFBhVrjk=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://img1.wsimg.com/isteam/ip/7cbf2dfb-061f-4745-a1b9-44a9b2949bce/4f5486f1-42b1-493d-8beb-7de77f21d54f.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
@@ -18289,11 +18547,17 @@
    "placeholderType": "gallery-studio",
    "placeholderSrc": "assets/placeholders/gallery-studio.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZOoDGLbIeD7ukRJrwZgE_02e6VPQLQkVDkTtDNpbvWKO0qddCmJJTfqTTco3dVrHMIm47ia29pK3WTXdzmtsUdPcaj4lnmkgqYvuh5hEmR1BF53uNS0BXs1oU15jr6HJfi5WzI_Q_qMBVJac4o=s4800-w800",
-   "alt": "Stucki Jewelers Inc. in Grass Valley",
-   "credit": "Sreenivasa Viswanadha, via Google",
+   "src": "assets/venue-photos/stucki-jewelers-inc-grass-valley.jpg",
+   "alt": "Stucki Jewelers Inc.",
+   "credit": "Photo: Stucki Jewelers Inc. website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZOoDGLbIeD7ukRJrwZgE_02e6VPQLQkVDkTtDNpbvWKO0qddCmJJTfqTTco3dVrHMIm47ia29pK3WTXdzmtsUdPcaj4lnmkgqYvuh5hEmR1BF53uNS0BXs1oU15jr6HJfi5WzI_Q_qMBVJac4o=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://img1.wsimg.com/isteam/ip/aad66942-fead-415d-ba0d-b5a07c668b74/Store_Front_2.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
@@ -19091,11 +19355,17 @@
    "placeholderType": "performance-event-venue",
    "placeholderSrc": "assets/placeholders/performance-event-venue.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/places/ANXAkqE-S7sKTDzqaAIxsXQ20ader3beRXKYSNTZw8jplT7ogpBh77mE9P3CCVVrqg9uQj8MOPgd9R8CjecXaKimn9ytQfwjpi31goI=s4800-w800",
-   "alt": "LeGacy Presents in Nevada City",
-   "credit": "Nevada Theatre, via Google",
+   "src": "assets/venue-photos/legacy-presents-nevada-city.jpg",
+   "alt": "LeGacy Presents",
+   "credit": "Photo: LeGacy Presents website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/places/ANXAkqE-S7sKTDzqaAIxsXQ20ader3beRXKYSNTZw8jplT7ogpBh77mE9P3CCVVrqg9uQj8MOPgd9R8CjecXaKimn9ytQfwjpi31goI=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "http://legacypresents.com/uploads/3/4/8/6/34866524/see-ya-soon_orig.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "none",
@@ -20848,11 +21118,17 @@
    "placeholderType": "historic-place",
    "placeholderSrc": "assets/placeholders/historic-place.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/places/ANXAkqG_IDhPWpuW8TtkWpxc5VZmmziovxZitf1Cxo35Bl4Wa-SOHTCeWKuABGq7ABp9e4ZO9Lmz-filFvqgIDPp_r74XJyd72bAUt4=s1600-w600",
-   "alt": "Ananda Village: Crystal Hermitage Gardens trail in Nevada City",
-   "credit": "Crystal Hermitage Gardens, via Google",
+   "src": "assets/venue-photos/ananda-village-crystal-hermitage-gardens-nevada-city.jpg",
+   "alt": "Ananda Village: Crystal Hermitage Gardens",
+   "credit": "Photo: Ananda Village: Crystal Hermitage Gardens website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/places/ANXAkqG_IDhPWpuW8TtkWpxc5VZmmziovxZitf1Cxo35Bl4Wa-SOHTCeWKuABGq7ABp9e4ZO9Lmz-filFvqgIDPp_r74XJyd72bAUt4=s1600-w600",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://crystalhermitage.org/wp-content/uploads/2026/05/tulip-e1779387103265.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "arcgis-confident",
@@ -21849,11 +22125,17 @@
    "placeholderType": "historic-place",
    "placeholderSrc": "assets/placeholders/historic-place.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/places/ANXAkqGQnfx6whYkQZjBVvHIz3I7go1VBu24s55F3487EaNDL0QAlnL8ELQBhdfcDxe76UQwajEJNcf6A1rkzseLWzrMKXUzcQh0YQg=s1600-w600",
-   "alt": "Walking Tour of Nevada City Trees trail in Nevada City",
-   "credit": "Scavenger Hunt Walking Tours - Nevada City, via Google",
+   "src": "assets/venue-photos/walking-tour-of-nevada-city-trees-nevada-city.jpg",
+   "alt": "Walking Tour of Nevada City Trees",
+   "credit": "Photo: Walking Tour of Nevada City Trees website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/places/ANXAkqGQnfx6whYkQZjBVvHIz3I7go1VBu24s55F3487EaNDL0QAlnL8ELQBhdfcDxe76UQwajEJNcf6A1rkzseLWzrMKXUzcQh0YQg=s1600-w600",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://www.nevadacitychamber.com/wp-content/uploads/2025/06/IMG_0021-1-rotated.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "arcgis-confident",
@@ -22965,11 +23247,17 @@
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZPvfuh1i5tJZ-aNm4pCGFyIY59ODyqlT_URuTmMKExJkWTX9ABAf9lL2TmBs5EgdeFw9Gq6bBNDnPsQ1aowCdzunliRHUqkwWzgxsRVymA_ROVhcg8zPg-uJA9oOi62-CBPCKISEi3ee1oidzul5HQXog=s4800-w800",
-   "alt": "Granite Chief Ski & Mountain Shop in Truckee",
-   "credit": "Granite Chief Powered by BlueZone Sports, via Google",
+   "src": "assets/venue-photos/granite-chief-ski-and-mountain-shop-truckee.jpg",
+   "alt": "Granite Chief Ski & Mountain Shop",
+   "credit": "Photo: Granite Chief Ski & Mountain Shop website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZPvfuh1i5tJZ-aNm4pCGFyIY59ODyqlT_URuTmMKExJkWTX9ABAf9lL2TmBs5EgdeFw9Gq6bBNDnPsQ1aowCdzunliRHUqkwWzgxsRVymA_ROVhcg8zPg-uJA9oOi62-CBPCKISEi3ee1oidzul5HQXog=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://www.bluezonesports.com/cms/BZSBLOG/cache/file/F648FA34-A9F4-0FC6-29B2F9CF4E2A5653_source.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
@@ -23279,11 +23567,17 @@
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/places/ANXAkqG2CPHE0xi_wSamwchf1ar6T6atW7n5iOLEH4-xXAFHyDCLFSK2y520hSZIk8rgmuLbSvpisgPt7h5GTqkGNnK_eIWlHX_lRzo=s4800-w800",
-   "alt": "Tahoe Mountain Sports in Truckee",
-   "credit": "Tahoe Mountain Sports, via Google",
+   "src": "assets/venue-photos/tahoe-mountain-sports-truckee.jpg",
+   "alt": "Tahoe Mountain Sports",
+   "credit": "Photo: Tahoe Mountain Sports website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/places/ANXAkqG2CPHE0xi_wSamwchf1ar6T6atW7n5iOLEH4-xXAFHyDCLFSK2y520hSZIk8rgmuLbSvpisgPt7h5GTqkGNnK_eIWlHX_lRzo=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "http://tahoemountainsports.com/cdn/shop/files/Untitled_1200_x_628_px.png?v=1729529914",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
@@ -23479,11 +23773,17 @@
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZMuimuNi4D0V7FOnS60B3eOdJhJDEGqnEo_5dZYrHX5MfgSAVuiitKSUERWqDjxkfmdBWGBib_s5cbguQZGk34NMDGUMqnGVhEsN_3jT-t0YfOAj_QKZaYx_6YZyiDICVSIja9yusjGfTQ_Syo=s4800-w800",
-   "alt": "Totally Board in Truckee",
-   "credit": "Chris Edmonds, via Google",
+   "src": "assets/venue-photos/totally-board-truckee.jpg",
+   "alt": "Totally Board",
+   "credit": "Photo: Totally Board website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZMuimuNi4D0V7FOnS60B3eOdJhJDEGqnEo_5dZYrHX5MfgSAVuiitKSUERWqDjxkfmdBWGBib_s5cbguQZGk34NMDGUMqnGVhEsN_3jT-t0YfOAj_QKZaYx_6YZyiDICVSIja9yusjGfTQ_Syo=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://www.totallyboardtahoe.com/uploads/b/f499e9a0-40d3-11f0-acc8-137d9aa0ae7d/image-site-TB-main.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
@@ -24439,11 +24739,17 @@
    "placeholderType": "performance-event-venue",
    "placeholderSrc": "assets/placeholders/performance-event-venue.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZPL8Ihf_xfZb5xFJk5C4ETkfL_oN_YDpMcKYO7bSSqHAX29shg0JkJ8WPHeYpWBqAedoD10xidqpaYLLLn3ngVPqDpWpfuuemIP588HMDx-n_ZxlrY_BFZon6tmS9d8uHpH1Ab2LTJWHLvEzuI=s4800-w800",
-   "alt": "Rock Cellar Records in Truckee",
-   "credit": "Igor Bandeira, via Google",
+   "src": "assets/venue-photos/rock-cellar-records-truckee.jpg",
+   "alt": "Rock Cellar Records",
+   "credit": "Photo: Rock Cellar Records website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZPL8Ihf_xfZb5xFJk5C4ETkfL_oN_YDpMcKYO7bSSqHAX29shg0JkJ8WPHeYpWBqAedoD10xidqpaYLLLn3ngVPqDpWpfuuemIP588HMDx-n_ZxlrY_BFZon6tmS9d8uHpH1Ab2LTJWHLvEzuI=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://img1.wsimg.com/isteam/ip/47278454-d46d-49e9-aa0e-a086e845bfea/release-vinyl-record-collection-shelf.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
@@ -24609,11 +24915,17 @@
    "placeholderType": "historic-place",
    "placeholderSrc": "assets/placeholders/historic-place.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZNIZUrEPoxPghb_LvEr99IfvUq7_QvRkPJEoPf-U09XWskw5ycK-oku6u--2_LQJWlp81WBnoHFPRTftfE--BF86hQyNz5ysXz7MjRQCXkfED5lHpKf9lndFsuFDQnV-QD4yOZRgJ5_UHtAeBc=s4800-w800",
-   "alt": "Sierra Sun in Truckee",
-   "credit": "Sierra Sun, via Google",
+   "src": "assets/venue-photos/sierra-sun-truckee.jpg",
+   "alt": "Sierra Sun",
+   "credit": "Photo: Sierra Sun website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZNIZUrEPoxPghb_LvEr99IfvUq7_QvRkPJEoPf-U09XWskw5ycK-oku6u--2_LQJWlp81WBnoHFPRTftfE--BF86hQyNz5ysXz7MjRQCXkfED5lHpKf9lndFsuFDQnV-QD4yOZRgJ5_UHtAeBc=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://swiftmedia.s3.amazonaws.com/pacific.swiftcom.com/images/sites/4/2018/05/15075729/SSshareimage.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "none",
@@ -25208,11 +25520,17 @@
    "placeholderType": "historic-place",
    "placeholderSrc": "assets/placeholders/historic-place.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/places/ANXAkqG9KjGDLBAUQzPf6FUL9x4vkTTehwHxNuDcMklyg9Nj5mVl1aWQeQaKIQzqIm-OBu3BbEwxwLkuATDJiXVgWWwQmwIspmuHE5k=s1600-w600",
-   "alt": "Truckee Tahoe Community Television in Truckee",
-   "credit": "Tahoe Truckee Media, via Google",
+   "src": "assets/venue-photos/truckee-tahoe-community-television-truckee.jpg",
+   "alt": "Truckee Tahoe Community Television",
+   "credit": "Photo: Truckee Tahoe Community Television website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/places/ANXAkqG9KjGDLBAUQzPf6FUL9x4vkTTehwHxNuDcMklyg9Nj5mVl1aWQeQaKIQzqIm-OBu3BbEwxwLkuATDJiXVgWWwQmwIspmuHE5k=s1600-w600",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://manggis.lol/assets/img/gas138.webp",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "diana",
@@ -25470,11 +25788,17 @@
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZNDntfUxphVkKag6avtOCtzgAMBsl5KfqeEw_dX4xjMY9q2qQKtGeRIWzSa9JtwOArQ72bkW5WL571amW_szDd4OpGgVHWrzDCy5qjmnWt1aStvvifrNdv5xNF-V6xCOcDR6TR4xUNg1-x2PuI=s4800-w800",
-   "alt": "Bar of America in Truckee",
-   "credit": "Martin Gollery, via Google",
+   "src": "assets/venue-photos/bar-of-america-truckee.jpg",
+   "alt": "Bar of America",
+   "credit": "Photo: Bar of America website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZNDntfUxphVkKag6avtOCtzgAMBsl5KfqeEw_dX4xjMY9q2qQKtGeRIWzSa9JtwOArQ72bkW5WL571amW_szDd4OpGgVHWrzDCy5qjmnWt1aStvvifrNdv5xNF-V6xCOcDR6TR4xUNg1-x2PuI=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://www.barofamerica.com/uploads/8/9/6/4/8964087/7448912.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
@@ -25578,11 +25902,17 @@
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZOpb4hnx_R5t-vHllf6e8xLDDqmIaYprTHOee7NZ8SynoKVYA92M_M4hNI3KkAd3Ghdvh1BgNOEPWsAtF9FLZKRMVNfk5Cg-DRC6X0BWITD53ol-qOi624nUlBV8hIrc_J20Rv1IvuE9qlL3_s=s4800-w800",
-   "alt": "Blue Coyote Bar & Grill in Truckee",
-   "credit": "Sean M., via Google",
+   "src": "assets/venue-photos/blue-coyote-bar-and-grill-truckee.jpg",
+   "alt": "Blue Coyote Bar & Grill",
+   "credit": "Photo: Blue Coyote Bar & Grill website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZOpb4hnx_R5t-vHllf6e8xLDDqmIaYprTHOee7NZ8SynoKVYA92M_M4hNI3KkAd3Ghdvh1BgNOEPWsAtF9FLZKRMVNfk5Cg-DRC6X0BWITD53ol-qOi624nUlBV8hIrc_J20Rv1IvuE9qlL3_s=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://bluecoyotetruckee.com/wp-content/uploads/2025/09/o-4.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
@@ -25652,11 +25982,17 @@
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZN7tFFU3TIfxaa5BbL_cgOcy-dVuJJSulZ89gLzRZx3zwZc6EkeoAYVMYDw2mMPEw7fr7XCxIZ9eGf1myQMiFLr3pV-57wfiLFnIVZRt0mj7awAjETkr-WhC4svF2NsnYMUPzIPzoZmpjaDaw=s4800-w800",
-   "alt": "Burger Me! in Truckee",
-   "credit": "Burger Me, via Google",
+   "src": "assets/venue-photos/burger-me-truckee.jpg",
+   "alt": "Burger Me!",
+   "credit": "Photo: Burger Me! website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZN7tFFU3TIfxaa5BbL_cgOcy-dVuJJSulZ89gLzRZx3zwZc6EkeoAYVMYDw2mMPEw7fr7XCxIZ9eGf1myQMiFLr3pV-57wfiLFnIVZRt0mj7awAjETkr-WhC4svF2NsnYMUPzIPzoZmpjaDaw=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://static.spotapps.co/website_images/ab_websites/162325_website/gift_page.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
@@ -25862,11 +26198,17 @@
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZPQuJQhI4HMSSqcUZb6u1n_Hz2X43d8yrUJMtU77qZNrzzb1PjOKQO2Qe1CoK7XFY6yl9xDzZUtKgeCkrtAIek3YjENvMbn77MAzu_c3r_1e23CTWUE6U31kAsu1Ejft4ESZXqVOoBWUcCqTEw=s4800-w752",
-   "alt": "Clair Tappaan Lodge in Truckee",
-   "credit": "Clair Tappaan Lodge, via Google",
+   "src": "assets/venue-photos/clair-tappaan-lodge-truckee.jpg",
+   "alt": "Clair Tappaan Lodge",
+   "credit": "Photo: Clair Tappaan Lodge website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZPQuJQhI4HMSSqcUZb6u1n_Hz2X43d8yrUJMtU77qZNrzzb1PjOKQO2Qe1CoK7XFY6yl9xDzZUtKgeCkrtAIek3YjENvMbn77MAzu_c3r_1e23CTWUE6U31kAsu1Ejft4ESZXqVOoBWUcCqTEw=s4800-w752",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://9483a395ff419bf71e77-9a13f87be9803cb0a767980e2aee38c5.ssl.cf1.rackcdn.com/u/exterior-clair-tappaan.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "candidate",
@@ -25896,11 +26238,17 @@
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZPQuJQhI4HMSSqcUZb6u1n_Hz2X43d8yrUJMtU77qZNrzzb1PjOKQO2Qe1CoK7XFY6yl9xDzZUtKgeCkrtAIek3YjENvMbn77MAzu_c3r_1e23CTWUE6U31kAsu1Ejft4ESZXqVOoBWUcCqTEw=s4800-w752",
-   "alt": "Clair Tappan Lodge in Norden",
-   "credit": "Clair Tappaan Lodge, via Google",
+   "src": "assets/venue-photos/clair-tappan-lodge-norden.jpg",
+   "alt": "Clair Tappan Lodge",
+   "credit": "Photo: Clair Tappan Lodge website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZPQuJQhI4HMSSqcUZb6u1n_Hz2X43d8yrUJMtU77qZNrzzb1PjOKQO2Qe1CoK7XFY6yl9xDzZUtKgeCkrtAIek3YjENvMbn77MAzu_c3r_1e23CTWUE6U31kAsu1Ejft4ESZXqVOoBWUcCqTEw=s4800-w752",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://9483a395ff419bf71e77-9a13f87be9803cb0a767980e2aee38c5.ssl.cf1.rackcdn.com/u/exterior-clair-tappaan.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "none",
@@ -26004,11 +26352,17 @@
    "placeholderType": "gallery-studio",
    "placeholderSrc": "assets/placeholders/gallery-studio.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/places/ANXAkqGURMKVkfM3NJnXgGQc-TgjYH7x9v0gAEtZs0CpztEAmpxes_RuGi9RUu3OFcljaSLJcPCKGIzgeMyJShs9NjrgbyvJ7Nau_SI=s4800-w600",
-   "alt": "Coffeebar Bakery in Truckee",
-   "credit": "Coffeebar Bakery, via Google",
+   "src": "assets/venue-photos/coffeebar-bakery-truckee.jpg",
+   "alt": "Coffeebar Bakery",
+   "credit": "Photo: Coffeebar Bakery website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/places/ANXAkqGURMKVkfM3NJnXgGQc-TgjYH7x9v0gAEtZs0CpztEAmpxes_RuGi9RUu3OFcljaSLJcPCKGIzgeMyJShs9NjrgbyvJ7Nau_SI=s4800-w600",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://coffeebar.square.site/uploads/b/c1718f70-b1c0-11ea-bb8b-a5187a29bd17/paje%20victoria%20x%20coffeebar%20x%20square%20menu-44.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
@@ -26328,11 +26682,17 @@
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/places/ANXAkqHoEgus3BNXbmQtTkoDFFGJ6Kz9kO-C6BROrAnxNAagtxLE3FeyIMZA4QWqIotXueXZOSN6Exm3LV9BSI3bt9aNy8KZi9B7KSA=s4800-w800",
-   "alt": "Donner Lake Inn in Truckee",
-   "credit": "Donner Lake Inn, via Google",
+   "src": "assets/venue-photos/donner-lake-inn-truckee.jpg",
+   "alt": "Donner Lake Inn",
+   "credit": "Photo: Donner Lake Inn website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/places/ANXAkqHoEgus3BNXbmQtTkoDFFGJ6Kz9kO-C6BROrAnxNAagtxLE3FeyIMZA4QWqIotXueXZOSN6Exm3LV9BSI3bt9aNy8KZi9B7KSA=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://donnerlakeinn.com/wp-content/uploads/2024/08/gallery1.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
@@ -26686,11 +27046,17 @@
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/places/ANXAkqGoghor1GLg1M3TMn2HmoPvCojF38N-MAB9FmRCD1CuhG-Qbc7Xz59tVtnx9BtiehH0kaTXCnr_4YnLZaeScYY4aW55iUo48qw=s4800-w800",
-   "alt": "FiftyFifty Brewing Co. in Truckee",
-   "credit": "FiftyFifty Brewing Co, via Google",
+   "src": "assets/venue-photos/fiftyfifty-brewing-co-truckee.jpg",
+   "alt": "FiftyFifty Brewing Co.",
+   "credit": "Photo: FiftyFifty Brewing Co. website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/places/ANXAkqGoghor1GLg1M3TMn2HmoPvCojF38N-MAB9FmRCD1CuhG-Qbc7Xz59tVtnx9BtiehH0kaTXCnr_4YnLZaeScYY4aW55iUo48qw=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "http://www.fiftyfiftybrewing.com/cdn/shop/files/Screen_Shot_2020-04-20_at_1.36.03_PM_1200x1200.png?v=1613543737",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "candidate",
@@ -26726,11 +27092,17 @@
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZPXoVQ_H1N9cLpNzAkKAgZNpnY6G7NnXPQbHmevvuqzLEESqrMxoNM6fdSy00cwHnpdJrHQpiMGlU-SdHkDS0JpeoxNpTVO4FRqLj1pCxf4_pLGlGwdgB99atohCtcPyPDaMY0i2Flm-VXxNA=s4800-w800",
-   "alt": "Front Street Station Pizza in Truckee",
-   "credit": "Leonardo Carsol, via Google",
+   "src": "assets/venue-photos/front-street-station-pizza-truckee.jpg",
+   "alt": "Front Street Station Pizza",
+   "credit": "Photo: Front Street Station Pizza website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZPXoVQ_H1N9cLpNzAkKAgZNpnY6G7NnXPQbHmevvuqzLEESqrMxoNM6fdSy00cwHnpdJrHQpiMGlU-SdHkDS0JpeoxNpTVO4FRqLj1pCxf4_pLGlGwdgB99atohCtcPyPDaMY0i2Flm-VXxNA=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://static.spotapps.co/website_images/ab_websites/144898_website_v2/specials_pbg.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
@@ -26760,11 +27132,17 @@
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZOfJ1zsEDY-rc7XUqzB4DCapFISqGpywpPUDyF_8cKqijkaX-Jd7yFNw8iLPP21t-awaqlu3aKvfYC2P_u4m3Jm62lPUEqG6ltDhPrcMwMn_tyeEsIgPkcZPZgWYAU6CuiCW0mN3F-m_DRXag=s4800-w800",
-   "alt": "Full Belly Deli in Truckee",
-   "credit": "MF Outdoors, via Google",
+   "src": "assets/venue-photos/full-belly-deli-truckee.jpg",
+   "alt": "Full Belly Deli",
+   "credit": "Photo: Full Belly Deli website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZOfJ1zsEDY-rc7XUqzB4DCapFISqGpywpPUDyF_8cKqijkaX-Jd7yFNw8iLPP21t-awaqlu3aKvfYC2P_u4m3Jm62lPUEqG6ltDhPrcMwMn_tyeEsIgPkcZPZgWYAU6CuiCW0mN3F-m_DRXag=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://static.spotapps.co/website_images/ab_websites/152235_website/social_share.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "none",
@@ -26800,11 +27178,17 @@
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZNG2H6OYgEksyb4h0CWpAMBd5udjpzNeRlOP5ipsi3B2reuCHlQVc1n0lrs8BupyXz9TSWzvbFlnkQHHa2ir-BTDDi9eKr9Vr8qE30iVhreeozrB0jXRp_I3gpG-Phyp1cm4knNiG1rRytGBg=s4800-w800",
-   "alt": "Glenshire General Store in Truckee",
-   "credit": "Glenshire General Store, via Google",
+   "src": "assets/venue-photos/glenshire-general-store-truckee.jpg",
+   "alt": "Glenshire General Store",
+   "credit": "Photo: Glenshire General Store website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZNG2H6OYgEksyb4h0CWpAMBd5udjpzNeRlOP5ipsi3B2reuCHlQVc1n0lrs8BupyXz9TSWzvbFlnkQHHa2ir-BTDDi9eKr9Vr8qE30iVhreeozrB0jXRp_I3gpG-Phyp1cm4knNiG1rRytGBg=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://glenshirestore.com/wp-content/uploads/2019/06/chips.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "candidate",
@@ -26868,11 +27252,17 @@
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZPAWG_ls2F1Xm2lFIrfrSOL38SFph5GPOwFQKDy6rfxVRwu9jl4Hq6NhdxSuWAtaWurRN8fQTFzELQgJQ0EvBkzMRBNyX2PcXTpcavpKnGnavwCnCOQB91Nz12c0iLcz-jA3WBPzcHDdpVWFJWbwqSh=s4800-w800",
-   "alt": "Golden Rotisserie in Truckee",
-   "credit": "Golden Rotisserie, via Google",
+   "src": "assets/venue-photos/golden-rotisserie-truckee.jpg",
+   "alt": "Golden Rotisserie",
+   "credit": "Photo: Golden Rotisserie website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZPAWG_ls2F1Xm2lFIrfrSOL38SFph5GPOwFQKDy6rfxVRwu9jl4Hq6NhdxSuWAtaWurRN8fQTFzELQgJQ0EvBkzMRBNyX2PcXTpcavpKnGnavwCnCOQB91Nz12c0iLcz-jA3WBPzcHDdpVWFJWbwqSh=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://goldenrotisserieinc.com/wp-content/uploads/2025/01/1L9A4012-e1745435526473.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
@@ -26942,11 +27332,17 @@
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/places/ANXAkqGJ3l67fOzToBjUff-jTNgNzBizMETYiI-pioV7IFpRBqReFtmbmVuRABMAli0Oza-HGzMo-06MFI6tMVghgGjfvhcSDsgsgbU=s4800-w800",
-   "alt": "Gravity Haus Truckee-Tahoe in Truckee",
-   "credit": "Gravity Haus Truckee-Tahoe, via Google",
+   "src": "assets/venue-photos/gravity-haus-truckee-tahoe-truckee.jpg",
+   "alt": "Gravity Haus Truckee-Tahoe",
+   "credit": "Photo: Gravity Haus Truckee-Tahoe website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/places/ANXAkqGJ3l67fOzToBjUff-jTNgNzBizMETYiI-pioV7IFpRBqReFtmbmVuRABMAli0Oza-HGzMo-06MFI6tMVghgGjfvhcSDsgsgbU=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://cdn.prod.website-files.com/66842d497470ff2f6767bc7b/66b40ae2b351688dd6b53278_Gravity%20Haus%20Truckee-Tahoe.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
@@ -27016,11 +27412,17 @@
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/places/ANXAkqF9mwkzNvyPa6bOA1Oh-iUoaPuywZ0ljalegZI8KGezdgEO9rV-pynDHqHauMgbZurw14wsPq3He5qYBbOYQuEeihQH7sURCiw=s4800-w800",
-   "alt": "HeyChef! in Truckee",
-   "credit": "Hey Chef!, via Google",
+   "src": "assets/venue-photos/heychef-truckee.jpg",
+   "alt": "HeyChef!",
+   "credit": "Photo: HeyChef! website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/places/ANXAkqF9mwkzNvyPa6bOA1Oh-iUoaPuywZ0ljalegZI8KGezdgEO9rV-pynDHqHauMgbZurw14wsPq3He5qYBbOYQuEeihQH7sURCiw=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://heychef.com/wp-content/uploads/2022/05/heychef-home-facebook.png",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
@@ -27050,11 +27452,17 @@
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZPDyrVa4V4kj1N2EE1958jvNIZ5l5pUwuTYgXB4v32tdFn6Qet_IrwGYZdW-Nw1h-Gibqzv8oDhnroI3i01OeO3iN0KtlvADejtb5QUSNRBNs6vmDZTshDNvSqedwwE8PQQBbwzveqw3zcZ1w=s4800-w800",
-   "alt": "High Altitude Fitness in Truckee",
-   "credit": "High Altitude Fitness Truckee, via Google",
+   "src": "assets/venue-photos/high-altitude-fitness-truckee.jpg",
+   "alt": "High Altitude Fitness",
+   "credit": "Photo: High Altitude Fitness website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZPDyrVa4V4kj1N2EE1958jvNIZ5l5pUwuTYgXB4v32tdFn6Qet_IrwGYZdW-Nw1h-Gibqzv8oDhnroI3i01OeO3iN0KtlvADejtb5QUSNRBNs6vmDZTshDNvSqedwwE8PQQBbwzveqw3zcZ1w=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "http://static1.squarespace.com/static/60b6881e95518c029c7d8a86/t/60d135164f32530186f47c91/1626131644410/HAF_STheis-5027.jpg?format=1500w",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
@@ -27090,11 +27498,17 @@
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZMqttUuYyZxg5UveQ0UYvVBHvWNj-hIM7ZGv5FsqRO6cUel0CUxunKHSulHnqoGMmKcC3stWK8ZHAT20rcemwq7Jya3mr2QtnPe_Oz9MJLlq2Yte2valxXFooi72Ot4qkNBKXyUC1GXs1MmMA=s4800-w800",
-   "alt": "The Inn at Truckee in Truckee",
-   "credit": "The Inn at Truckee, via Google",
+   "src": "assets/venue-photos/the-inn-at-truckee-truckee.jpg",
+   "alt": "The Inn at Truckee",
+   "credit": "Photo: The Inn at Truckee website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZMqttUuYyZxg5UveQ0UYvVBHvWNj-hIM7ZGv5FsqRO6cUel0CUxunKHSulHnqoGMmKcC3stWK8ZHAT20rcemwq7Jya3mr2QtnPe_Oz9MJLlq2Yte2valxXFooi72Ot4qkNBKXyUC1GXs1MmMA=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/40a7ded4-ce36-4569-a597-9764119e509e/id-preview-3b01e9f0--8bc4f7fe-f69c-48da-9692-2b3cf20a9693.lovable.app-1778826259922.png",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
@@ -27192,11 +27606,17 @@
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZM-MGsj7pYy3eA0S4ABHZuDQVXZcRHosQr6ltT_0T8mPiP0cJxY47r8-I4tLZaYtnVIgGVKgldLqVg5a9RPP_2UC40ITtZYUCxCgYuJB_DfuOhog-NZGwiXl20HVSYmVBr5CZKMG009YqqNKw=s4800-w800",
-   "alt": "Jerky Junction in Truckee",
-   "credit": "Steven Willinger, via Google",
+   "src": "assets/venue-photos/jerky-junction-truckee.jpg",
+   "alt": "Jerky Junction",
+   "credit": "Photo: Jerky Junction website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZM-MGsj7pYy3eA0S4ABHZuDQVXZcRHosQr6ltT_0T8mPiP0cJxY47r8-I4tLZaYtnVIgGVKgldLqVg5a9RPP_2UC40ITtZYUCxCgYuJB_DfuOhog-NZGwiXl20HVSYmVBr5CZKMG009YqqNKw=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://tahoetruckeejerky.com/wp-content/uploads/2025/03/slide-2.jpeg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
@@ -27498,11 +27918,17 @@
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZP8s_gqmJbYF5ZxWDdRvj3UzQmMo-KsRkcUEgx3DDSntCBzViJJfEVufwOCbgAtzYEVqTw6jYHsN7ajdAae_lKPDIz9a15VjZh53n5NSmGrzKUOR9HoWN3lkfGxM0nejPI0xjKLsm4gah5T=s4800-w800",
-   "alt": "Moi's Thai Cafe in Penn Valley",
-   "credit": "Zach Huntley, via Google",
+   "src": "assets/venue-photos/moi-s-thai-cafe-penn-valley.jpg",
+   "alt": "Moi's Thai Cafe",
+   "credit": "Photo: Moi's Thai Cafe website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZP8s_gqmJbYF5ZxWDdRvj3UzQmMo-KsRkcUEgx3DDSntCBzViJJfEVufwOCbgAtzYEVqTw6jYHsN7ajdAae_lKPDIz9a15VjZh53n5NSmGrzKUOR9HoWN3lkfGxM0nejPI0xjKLsm4gah5T=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://cdn.wherevi.com/3632-wvphoto-1.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "candidate",
@@ -27686,11 +28112,17 @@
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/places/ANXAkqEnHifVan3a_hvlfsqOfvGZC5cMIs-JBgLpcxg6H3JJjEDx25ttfBAbTEeq6lRfcKMihnubqsjw5bSHv5-ElhVGUNLcw9VA4qw=s4800-w720",
-   "alt": "Mountain Lotus Cafe in Truckee",
-   "credit": "Mountain Lotus Cafe, via Google",
+   "src": "assets/venue-photos/mountain-lotus-cafe-truckee.jpg",
+   "alt": "Mountain Lotus Cafe",
+   "credit": "Photo: Mountain Lotus Cafe website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/places/ANXAkqEnHifVan3a_hvlfsqOfvGZC5cMIs-JBgLpcxg6H3JJjEDx25ttfBAbTEeq6lRfcKMihnubqsjw5bSHv5-ElhVGUNLcw9VA4qw=s4800-w720",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "http://static1.squarespace.com/static/6089b6610cbfee038b918cad/t/66c3b2d450df1357c826327f/1724101332220/2.png?format=1500w",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
@@ -27794,11 +28226,17 @@
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZPyZtHr-01TLD2DF7xfEtytZwNKnHtxX8K3C68FwyOZUSNUDER_5YfrGs4Ma1yn2lUVWPMLQ4-KrmueQyYYOHmlq15gn7UrEGvU_nva8EDHvKBMEv7Rp1HP1cw7itD9CUaf5QhZHqXEvtSzeHE=s4800-w800",
-   "alt": "Northridge Penn Valley in Penn Valley",
-   "credit": "Joseph Nguyen, G Tour Photos, via Google",
+   "src": "assets/venue-photos/northridge-penn-valley-penn-valley.jpg",
+   "alt": "Northridge Penn Valley",
+   "credit": "Photo: Northridge Penn Valley website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZPyZtHr-01TLD2DF7xfEtytZwNKnHtxX8K3C68FwyOZUSNUDER_5YfrGs4Ma1yn2lUVWPMLQ4-KrmueQyYYOHmlq15gn7UrEGvU_nva8EDHvKBMEv7Rp1HP1cw7itD9CUaf5QhZHqXEvtSzeHE=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://img1.wsimg.com/isteam/ip/21b6424a-a7dd-4aab-8167-9aba8b320efb/DSC07999-Enhanced-NR.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
@@ -28010,11 +28448,17 @@
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/places/ANXAkqFQGi4BAtMys93QZRWEoGySn7x2211JqUjKyrx75SePAAvKCEbi-HOE62Z-uHTzzZhq6joCzkr6ay8aqcUDhDHiaLMMV8V7LEA=s4800-w800",
-   "alt": "Palisades Tahoe Lodge in Olympic Valley",
-   "credit": "Palisades Tahoe Lodge Rentals, via Google",
+   "src": "assets/venue-photos/palisades-tahoe-lodge-olympic-valley.jpg",
+   "alt": "Palisades Tahoe Lodge",
+   "credit": "Photo: Palisades Tahoe Lodge website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/places/ANXAkqFQGi4BAtMys93QZRWEoGySn7x2211JqUjKyrx75SePAAvKCEbi-HOE62Z-uHTzzZhq6joCzkr6ay8aqcUDhDHiaLMMV8V7LEA=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://www.palisadestahoelodgerentals.com/wp-content/uploads/2025/09/2.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "none",
@@ -28186,11 +28630,17 @@
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/places/ANXAkqGGe_RrcPGr411g0oQv9Ri5JLXYPkOZcld17jIiwLxTKeMWihh2kmR4FfOKqg02Pzz6eVNSBrKNhlMVcw3iLtHHmgWHtgXivGM=s4800-w800",
-   "alt": "Rubicon Pizza Company in Truckee",
-   "credit": "Rubicon Pizza, via Google",
+   "src": "assets/venue-photos/rubicon-pizza-company-truckee.jpg",
+   "alt": "Rubicon Pizza Company",
+   "credit": "Photo: Rubicon Pizza Company website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/places/ANXAkqGGe_RrcPGr411g0oQv9Ri5JLXYPkOZcld17jIiwLxTKeMWihh2kmR4FfOKqg02Pzz6eVNSBrKNhlMVcw3iLtHHmgWHtgXivGM=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://popmenucloud.com/cdn-cgi/image/width=1200,height=630,format=auto,fit=cover/eckovsfd/9b73214b-edda-410e-bf55-515f72e97682.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "candidate",
@@ -28288,14 +28738,20 @@
    "placeholderType": "gallery-studio",
    "placeholderSrc": "assets/placeholders/gallery-studio.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZOhb_oxb-4E2xDlVBH86-Bdef2kJu2rph5Lvh-Ltm00U38VHlj0XSz9Hf9OpZZ4PrZDHLVrMEkwe1xtxLs5f1udBuuCwEQN_jyJCM_wwoCPlrVZ1ZRi-nICJMe7UQGnI7_gjRzvNVJRqqQ4_--T_g3j=s4800-w800",
-   "alt": "Sierra Bakehouse in Truckee",
-   "credit": "CR250R, via Google",
+   "src": "assets/venue-photos/sierra-bakehouse-truckee.jpg",
+   "alt": "Sierra Bakehouse",
+   "credit": "Photo: Sierra Bakehouse website",
    "status": "credible",
    "reason": "",
    "originalSrc": "https://www.sierrabakehouse.com/uploads/1/1/2/1/112115861/edited/sierra-bakehouse-logo.png?1715204753",
    "originalAlt": "Sierra Bakehouse in Truckee",
-   "originalCredit": "Sierra Bakehouse"
+   "originalCredit": "Sierra Bakehouse",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZOhb_oxb-4E2xDlVBH86-Bdef2kJu2rph5Lvh-Ltm00U38VHlj0XSz9Hf9OpZZ4PrZDHLVrMEkwe1xtxLs5f1udBuuCwEQN_jyJCM_wwoCPlrVZ1ZRi-nICJMe7UQGnI7_gjRzvNVJRqqQ4_--T_g3j=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://www.sierrabakehouse.com/uploads/1/1/2/1/112115861/croissantplain.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "arcgis-confident",
@@ -28331,11 +28787,17 @@
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZNhc-tN5ieKspD7O4iWtpIJWPpMIYv8lpTV9oHxmR9DixexEXQUfYaNGm8cPkVj235jQjHWBoFICEwJpFdJwYpRlU_bXmowtYwwVzFSBy6LCszjlGUZ1Rem3HkSotqAYU5d3rCyUQlG3y0xaIrSpDmHqA=s4800-w800",
-   "alt": "Smokey’s Kitchen in Truckee",
-   "credit": "Sherry A, via Google",
+   "src": "assets/venue-photos/smokey-s-kitchen-truckee.jpg",
+   "alt": "Smokey’s Kitchen",
+   "credit": "Photo: Smokey’s Kitchen website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZNhc-tN5ieKspD7O4iWtpIJWPpMIYv8lpTV9oHxmR9DixexEXQUfYaNGm8cPkVj235jQjHWBoFICEwJpFdJwYpRlU_bXmowtYwwVzFSBy6LCszjlGUZ1Rem3HkSotqAYU5d3rCyUQlG3y0xaIrSpDmHqA=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://www.smokeyskitchen.com/uploads/1/5/5/3/155323294/smokeys-ribs_orig.png",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
@@ -28552,11 +29014,17 @@
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZMntUa-oKO4ohTmZsuRGm8_qCek1Wp7GY5hwPkfARhWtjP1S_M4yYfswqXT64Z-baCyWk_K3D1j0gkIC4aV2IWYtiNQpGe0bd6Yx1CbPyrzihjuq0ktLEpCzVXF9NiCkOrW8LZlwg0daKMMQA=s4800-w800",
-   "alt": "Stella in Truckee",
-   "credit": "Stella, via Google",
+   "src": "assets/venue-photos/stella-truckee.jpg",
+   "alt": "Stella",
+   "credit": "Photo: Stella website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZMntUa-oKO4ohTmZsuRGm8_qCek1Wp7GY5hwPkfARhWtjP1S_M4yYfswqXT64Z-baCyWk_K3D1j0gkIC4aV2IWYtiNQpGe0bd6Yx1CbPyrzihjuq0ktLEpCzVXF9NiCkOrW8LZlwg0daKMMQA=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://stellatruckee.com/wp-content/uploads/2023/01/Stella-winter2022-23-dinner.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
@@ -28694,11 +29162,17 @@
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/places/ANXAkqFqNYt2bTat_ktWUnjVYOwRABGlqT0BPc_Z9wzkf5WRAynv8Vp6ailwIJPPQi5mjOCoVW64xt2Y48o_ah-v6ql8yhBJmR5H4xM=s4800-w800",
-   "alt": "T-Bones Meat Shop in Auburn",
-   "credit": "T Bones Meat Shop, via Google",
+   "src": "assets/venue-photos/t-bones-meat-shop-auburn.jpg",
+   "alt": "T-Bones Meat Shop",
+   "credit": "Photo: T-Bones Meat Shop website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/places/ANXAkqFqNYt2bTat_ktWUnjVYOwRABGlqT0BPc_Z9wzkf5WRAynv8Vp6ailwIJPPQi5mjOCoVW64xt2Y48o_ah-v6ql8yhBJmR5H4xM=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "http://static1.squarespace.com/static/64fbcbca66e5c369d30aad18/t/659c5561a84ced56346efbaf/1704744289181/Screen%2BShot%2B2023-09-08%2Bat%2B7.53.59%2BPM.jpg?format=1500w",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "candidate",
@@ -28762,11 +29236,17 @@
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZPab493AH6LAJwkqSf3lfiovN9VvxqjoBdGPVO2KIawwaQWhMVGnBEU3eH6E1ZmoZ8btVPP1fa8zr7OnnpZmjrOnd2RnvvONctWLpdT5A22oWYptnmShP02kP1YQ2AMm0PVGMEbZ0N2jDkCh28UVvW3Og=s4800-w800",
-   "alt": "Tacos Jalisco in Truckee",
-   "credit": "Jon P, via Google",
+   "src": "assets/venue-photos/tacos-jalisco-truckee.jpg",
+   "alt": "Tacos Jalisco",
+   "credit": "Photo: Tacos Jalisco website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZPab493AH6LAJwkqSf3lfiovN9VvxqjoBdGPVO2KIawwaQWhMVGnBEU3eH6E1ZmoZ8btVPP1fa8zr7OnnpZmjrOnd2RnvvONctWLpdT5A22oWYptnmShP02kP1YQ2AMm0PVGMEbZ0N2jDkCh28UVvW3Og=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://authentictacosjalisco.com/wp-content/uploads/2025/06/maxresdefault.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
@@ -28802,11 +29282,17 @@
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZPYMYVLP_cQxsgsF6xDOxCWCs0AqDhM1tSnxDjy-1ZdCgx8kv4PrUgIxLNC0mwI338QjUJmRuCwX9jqW-F0PpqH_1eq3ku536L7-OdaS-HMmCFUFzWTR7cDHuLc9eGSLf74hswdtZmofton=s4800-w800",
-   "alt": "Tahoe Donner - Pizza on the Hill Restaurant in Truckee",
-   "credit": "Andrew Barash, via Google",
+   "src": "assets/venue-photos/tahoe-donner-pizza-on-the-hill-restaurant-truckee.jpg",
+   "alt": "Tahoe Donner - Pizza on the Hill Restaurant",
+   "credit": "Photo: Tahoe Donner - Pizza on the Hill Restaurant website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZPYMYVLP_cQxsgsF6xDOxCWCs0AqDhM1tSnxDjy-1ZdCgx8kv4PrUgIxLNC0mwI338QjUJmRuCwX9jqW-F0PpqH_1eq3ku536L7-OdaS-HMmCFUFzWTR7cDHuLc9eGSLf74hswdtZmofton=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://www.tahoedonner.com/wp-content/uploads/2024/06/176_NR1_4432.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
@@ -28870,11 +29356,17 @@
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/places/ANXAkqEvu0Gt69eOfO34ijvVG2QRpf1Ex5_mYXM-84AQ67zdY4b4RwG0GAX9loFwo-jEDp93GlfdyOc1RGjXoKqruWS5NM_A_4MYaWs=s4800-w800",
-   "alt": "Tahoe Getaways in Truckee",
-   "credit": "Tahoe Getaways, via Google",
+   "src": "assets/venue-photos/tahoe-getaways-truckee.jpg",
+   "alt": "Tahoe Getaways",
+   "credit": "Photo: Tahoe Getaways website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/places/ANXAkqEvu0Gt69eOfO34ijvVG2QRpf1Ex5_mYXM-84AQ67zdY4b4RwG0GAX9loFwo-jEDp93GlfdyOc1RGjXoKqruWS5NM_A_4MYaWs=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://www.tahoegetaways.com/sites/default/files/styles/og_image/public/page-banners/adobestock_51828148.jpeg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
@@ -29154,11 +29646,17 @@
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/places/ANXAkqFNhyPNcui5L4CBTMDRsaU2TqeAQ7O_oOweRGzfg-Qtb82f2GvP5C7i48FPrIPcKi4RadFyaGSagjl5prkgaDWu-9IJpPwvP8k=s4800-w800",
-   "alt": "The Lodge Restaurant & Pub in Truckee",
-   "credit": "The Lodge Restaurant & Pub, via Google",
+   "src": "assets/venue-photos/the-lodge-restaurant-and-pub-truckee.jpg",
+   "alt": "The Lodge Restaurant & Pub",
+   "credit": "Photo: The Lodge Restaurant & Pub website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/places/ANXAkqFNhyPNcui5L4CBTMDRsaU2TqeAQ7O_oOweRGzfg-Qtb82f2GvP5C7i48FPrIPcKi4RadFyaGSagjl5prkgaDWu-9IJpPwvP8k=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://www.tahoedonner.com/wp-content/uploads/2025/10/1920x790_LodgeWinterMenu_2025.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
@@ -29259,11 +29757,17 @@
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/places/ANXAkqHA8XBOwv5iezlYfnv4fZKXHfqcNxwgdYqdKbrmy8k-lt6-9O6H90YvdbkK17XDi0U7avjDP1Lm1C1PV8e-1QTsXAD8rEU5WIE=s4800-w800",
-   "alt": "The Pub at Donner Lake in Truckee",
-   "credit": "The Pub at Donner Lake, via Google",
+   "src": "assets/venue-photos/the-pub-at-donner-lake-truckee.jpg",
+   "alt": "The Pub at Donner Lake",
+   "credit": "Photo: The Pub at Donner Lake website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/places/ANXAkqHA8XBOwv5iezlYfnv4fZKXHfqcNxwgdYqdKbrmy8k-lt6-9O6H90YvdbkK17XDi0U7avjDP1Lm1C1PV8e-1QTsXAD8rEU5WIE=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://img1.wsimg.com/isteam/ip/24b8b2ea-4e10-4a14-b726-2d90e8333f85/Screenshot%202024-02-26%209.33.53%20AM.png",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
@@ -29555,11 +30059,17 @@
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/places/ANXAkqFIAOdQ0_Y7em6ro5Z290qottvARmfJLkpCnyFYc8mIiUaiWaZ7VkyLdySFJf5VqlhqQT2T4MTSBJ0iTBSPIzeNKtKPhkV8O_A=s4800-w800",
-   "alt": "Truckee Brewing Company in Truckee",
-   "credit": "Truckee Brewing Company 2 - Restaurant, via Google",
+   "src": "assets/venue-photos/truckee-brewing-company-truckee.jpg",
+   "alt": "Truckee Brewing Company",
+   "credit": "Photo: Truckee Brewing Company website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/places/ANXAkqFIAOdQ0_Y7em6ro5Z290qottvARmfJLkpCnyFYc8mIiUaiWaZ7VkyLdySFJf5VqlhqQT2T4MTSBJ0iTBSPIzeNKtKPhkV8O_A=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://static.spotapps.co/website_images/ab_websites/144877_website/social_share.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
@@ -29589,11 +30099,17 @@
    "placeholderType": "gallery-studio",
    "placeholderSrc": "assets/placeholders/gallery-studio.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/places/ANXAkqHLDM4gpQokhWt_GQKx76EBLEp1HD_7oVRdB10UShmGne04gH_wiJf7R-GCoMZWt2fDO-N6jqQnzZRUyqjTffLQnk5Ha3CQX-o=s4800-w800",
-   "alt": "Truckee Cookies in Truckee",
-   "credit": "Truckee Cookies, via Google",
+   "src": "assets/venue-photos/truckee-cookies-truckee.jpg",
+   "alt": "Truckee Cookies",
+   "credit": "Photo: Truckee Cookies website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/places/ANXAkqHLDM4gpQokhWt_GQKx76EBLEp1HD_7oVRdB10UShmGne04gH_wiJf7R-GCoMZWt2fDO-N6jqQnzZRUyqjTffLQnk5Ha3CQX-o=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://www.truckeecookies.com/uploads/b/8f5282f0-c72e-11ef-82e4-d3258001bac3/IMG_0731%20small.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "candidate",
@@ -29663,11 +30179,17 @@
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZOLVs0dvQhIi6d7Qc6IoItYKWoL-5yaPdPWxHg2lRygxwzxYpSqntW9DWn6VKvvNPkdmOc25C4ypX8Uxwr-q4g13vQJnUB24JTF0NI5Ea70nGJkS5MznsxLz5MDynwuQWwi4xmYr-2rLc0q1Q=s4800-w800",
-   "alt": "Truckee River RV Park in Truckee",
-   "credit": "f j kearney, via Google",
+   "src": "assets/venue-photos/truckee-river-rv-park-truckee.jpg",
+   "alt": "Truckee River RV Park",
+   "credit": "Photo: Truckee River RV Park website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZOLVs0dvQhIi6d7Qc6IoItYKWoL-5yaPdPWxHg2lRygxwzxYpSqntW9DWn6VKvvNPkdmOc25C4ypX8Uxwr-q4g13vQJnUB24JTF0NI5Ea70nGJkS5MznsxLz5MDynwuQWwi4xmYr-2rLc0q1Q=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://nebula.wsimg.com/42648b89b56400dba993e4d9ac958f5d?AccessKeyId=5C2ECB52169D1187BCAD&disposition=0&alloworigin=1",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
@@ -29888,11 +30410,17 @@
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/places/ANXAkqGVlLrzZPEtBR1jkUCBDzx63RpfED4VYo8vVi-FhjW8eQXlum-pwrwi9jnMJ66wyp9CKX8L2a4XySMDmFeqGR_Zr0f0VTc_eGE=s4800-w800",
-   "alt": "Village Camp Truckee in Truckee",
-   "credit": "Village Camp Truckee, via Google",
+   "src": "assets/venue-photos/village-camp-truckee-truckee.jpg",
+   "alt": "Village Camp Truckee",
+   "credit": "Photo: Village Camp Truckee website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/places/ANXAkqGVlLrzZPEtBR1jkUCBDzx63RpfED4VYo8vVi-FhjW8eQXlum-pwrwi9jnMJ66wyp9CKX8L2a4XySMDmFeqGR_Zr0f0VTc_eGE=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://villagecamp.com/wp-content/uploads/2024/08/Cedar-Cabin-Truckee-Tahoe-2.avif",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "candidate",
@@ -30030,11 +30558,17 @@
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZM17wGHHj4dyJd1yFe7-0a8aP-pnWfoP1xANeSTCodioALJ5LkwtrLQRoGfno75GDJmFwe2zrhu-II1ze20Fq6QR3l3KNn8bkwI1YWhfANgxKcwV9oV8NavCos7Q8gnoX80NALLAaDdov9f4w=s4800-w800",
-   "alt": "Wild Cherries Coffee House in Truckee",
-   "credit": "Rachel, via Google",
+   "src": "assets/venue-photos/wild-cherries-coffee-house-truckee.jpg",
+   "alt": "Wild Cherries Coffee House",
+   "credit": "Photo: Wild Cherries Coffee House website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZM17wGHHj4dyJd1yFe7-0a8aP-pnWfoP1xANeSTCodioALJ5LkwtrLQRoGfno75GDJmFwe2zrhu-II1ze20Fq6QR3l3KNn8bkwI1YWhfANgxKcwV9oV8NavCos7Q8gnoX80NALLAaDdov9f4w=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://www.wildcherriescoffeehouse.com/uploads/1/3/6/3/136361541/11-20-2020-wc-190.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
@@ -30064,11 +30598,17 @@
    "placeholderType": "food-stay-gathering",
    "placeholderSrc": "assets/placeholders/food-stay-gathering.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZMEB3wVMHLDUxmGp-Tac-QUVnwWg_5L0uuxBI3UaHckF9cybpd-kBIn1cs8m0qgFxD60LB779fwbcXejszeHu42J92WQiMhh-vgj3pHkJOyFtSWnP295vxj6oNUhE5_bvOEJx4BSyXdPb6Y-g=s4800-w800",
-   "alt": "Willow Springs Lodge & Retreat Center in North San Juan",
-   "credit": "Paul R, via Google",
+   "src": "assets/venue-photos/willow-springs-lodge-and-retreat-center-north-san-juan.jpg",
+   "alt": "Willow Springs Lodge & Retreat Center",
+   "credit": "Photo: Willow Springs Lodge & Retreat Center website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZMEB3wVMHLDUxmGp-Tac-QUVnwWg_5L0uuxBI3UaHckF9cybpd-kBIn1cs8m0qgFxD60LB779fwbcXejszeHu42J92WQiMhh-vgj3pHkJOyFtSWnP295vxj6oNUhE5_bvOEJx4BSyXdPb6Y-g=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://willowspringslodge.com/wp-content/uploads/IMG_6498.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "candidate",
@@ -30280,11 +30820,17 @@
    "placeholderType": "performance-event-venue",
    "placeholderSrc": "assets/placeholders/performance-event-venue.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZPGJtjaZFaEZc95CdIDbp_BzuoIn2DbfiEoL2bMHwofDP-VDGjCVtdv_g8w900OsO5dUVIrKHQ0JSYC6j2x3vtiYmuKMqvGMsQR-cXFDrpb1BMAvjG9zgE_HzBPB_2Lb6rQU2-aqomFvjVMhA=s4800-w800",
-   "alt": "Annual Truckee River Day & Fair in Truckee",
-   "credit": "Truckee River Rafting, via Google",
+   "src": "assets/venue-photos/annual-truckee-river-day-and-fair-truckee.jpg",
+   "alt": "Annual Truckee River Day & Fair",
+   "credit": "Photo: Annual Truckee River Day & Fair website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZPGJtjaZFaEZc95CdIDbp_BzuoIn2DbfiEoL2bMHwofDP-VDGjCVtdv_g8w900OsO5dUVIrKHQ0JSYC6j2x3vtiYmuKMqvGMsQR-cXFDrpb1BMAvjG9zgE_HzBPB_2Lb6rQU2-aqomFvjVMhA=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://www.truckeeriverwc.org/wp-content/uploads/2023/08/22-Coldstream-Canyon-Wetlands-Kevin-Drake-2.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "candidate",
@@ -30385,11 +30931,17 @@
    "placeholderType": "performance-event-venue",
    "placeholderSrc": "assets/placeholders/performance-event-venue.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZMJibnU6m2uIvV-FakMr26HnCE9f_Cu1ehoaWBE5x-cYiuXNPCmvTTXes46jEmWaw_mCD-bmiOrSo1lFpDsxmz7d0GmwxU3whHA9q3cjQBnPIOWT09g31XkRes_wjAzKGcfcKc7u5q51JT5=s4800-w800",
-   "alt": "Latitude 39 Festival in Truckee",
-   "credit": "Michael Cohen, via Google",
+   "src": "assets/venue-photos/latitude-39-festival-truckee.jpg",
+   "alt": "Latitude 39 Festival",
+   "credit": "Photo: Latitude 39 Festival website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZMJibnU6m2uIvV-FakMr26HnCE9f_Cu1ehoaWBE5x-cYiuXNPCmvTTXes46jEmWaw_mCD-bmiOrSo1lFpDsxmz7d0GmwxU3whHA9q3cjQBnPIOWT09g31XkRes_wjAzKGcfcKc7u5q51JT5=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://img1.wsimg.com/isteam/ip/bc1b98be-0802-44b0-908a-2341b3787f24/blob-9eeffbd.png",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "none",
@@ -30453,11 +31005,17 @@
    "placeholderType": "performance-event-venue",
    "placeholderSrc": "assets/placeholders/performance-event-venue.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZPyO_cLiVanQ4_8FTQDO8o5zfV7_fh_7Oy1LdECbLkyN1kBcpznAeCGWpxxg0P_-810nlVqOBHe4fwleP9s-ATd12ZZXLdFLT1TLB9b62sL4QS1T-nko5zt32c7rVbP_eOMoSShSLpgs27uEA=s4800-w800",
-   "alt": "Moody's Jazz Camp in Truckee",
-   "credit": "Robert Bolar, via Google",
+   "src": "assets/venue-photos/moody-s-jazz-camp-truckee.jpg",
+   "alt": "Moody's Jazz Camp",
+   "credit": "Photo: Moody's Jazz Camp website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZPyO_cLiVanQ4_8FTQDO8o5zfV7_fh_7Oy1LdECbLkyN1kBcpznAeCGWpxxg0P_-810nlVqOBHe4fwleP9s-ATd12ZZXLdFLT1TLB9b62sL4QS1T-nko5zt32c7rVbP_eOMoSShSLpgs27uEA=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://www.moodysjazzcamp.com/uploads/5/4/7/8/54788215/1224654.jpeg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
@@ -30759,11 +31317,17 @@
    "placeholderType": "performance-event-venue",
    "placeholderSrc": "assets/placeholders/performance-event-venue.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/places/ANXAkqGoghor1GLg1M3TMn2HmoPvCojF38N-MAB9FmRCD1CuhG-Qbc7Xz59tVtnx9BtiehH0kaTXCnr_4YnLZaeScYY4aW55iUo48qw=s4800-w800",
-   "alt": "Truckee Brewfest in Truckee",
-   "credit": "FiftyFifty Brewing Co, via Google",
+   "src": "assets/venue-photos/truckee-brewfest-truckee.jpg",
+   "alt": "Truckee Brewfest",
+   "credit": "Photo: Truckee Brewfest website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/places/ANXAkqGoghor1GLg1M3TMn2HmoPvCojF38N-MAB9FmRCD1CuhG-Qbc7Xz59tVtnx9BtiehH0kaTXCnr_4YnLZaeScYY4aW55iUo48qw=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://www.eventbrite.com/e/_next/image?url=https%3A%2F%2Fimg.evbuc.com%2Fhttps%253A%252F%252Fcdn.evbuc.com%252Fimages%252F1021927683%252F2696736980301%252F1%252Foriginal.20250502-154522%3Fcrop%3Dfocalpoint%26fit%3Dcrop%26w%3D940%26auto%3Dformat%252Ccompress%26q%3D75%26sharp%3D10%26fp-x%3D0.862658570632%26fp-y%3D0.571944281513%26s%3D32e2cb4428314ee0426498d94306f7ce&w=1880&q=75",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "none",
@@ -30861,11 +31425,17 @@
    "placeholderType": "performance-event-venue",
    "placeholderSrc": "assets/placeholders/performance-event-venue.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZO6Hurr6GHjTClJ5AHby2rbeHZfyqDNV04dxNB1xspad8reX2Ab399Nrs7x9X3E3tsDZD0e2Nw6U8HNa4fyWUp9oww7GnTP65slcHbyQyRsp1OSHVoV1y_BmvHJVeHJtzpFfOKa-A4fxO6QTA=s4800-w800",
-   "alt": "Truckee Literary Festival in Truckee",
-   "credit": "Dogan Berktas, via Google",
+   "src": "assets/venue-photos/truckee-literary-festival-truckee.jpg",
+   "alt": "Truckee Literary Festival",
+   "credit": "Photo: Truckee Literary Festival website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZO6Hurr6GHjTClJ5AHby2rbeHZfyqDNV04dxNB1xspad8reX2Ab399Nrs7x9X3E3tsDZD0e2Nw6U8HNa4fyWUp9oww7GnTP65slcHbyQyRsp1OSHVoV1y_BmvHJVeHJtzpFfOKa-A4fxO6QTA=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "http://static1.squarespace.com/static/687945230774356b6bcbe427/t/6914c432dc1bc40ece234f80/1762968626345/20251010_Tahoe_Lit_Fest_071.jpg?format=1500w",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
@@ -31065,11 +31635,17 @@
    "placeholderType": "performance-event-venue",
    "placeholderSrc": "assets/placeholders/performance-event-venue.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZO6Hurr6GHjTClJ5AHby2rbeHZfyqDNV04dxNB1xspad8reX2Ab399Nrs7x9X3E3tsDZD0e2Nw6U8HNa4fyWUp9oww7GnTP65slcHbyQyRsp1OSHVoV1y_BmvHJVeHJtzpFfOKa-A4fxO6QTA=s4800-w800",
-   "alt": "Truckee Tree Lighting Ceremony in Truckee",
-   "credit": "Dogan Berktas, via Google",
+   "src": "assets/venue-photos/truckee-tree-lighting-ceremony-truckee.jpg",
+   "alt": "Truckee Tree Lighting Ceremony",
+   "credit": "Photo: Truckee Tree Lighting Ceremony website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZO6Hurr6GHjTClJ5AHby2rbeHZfyqDNV04dxNB1xspad8reX2Ab399Nrs7x9X3E3tsDZD0e2Nw6U8HNa4fyWUp9oww7GnTP65slcHbyQyRsp1OSHVoV1y_BmvHJVeHJtzpFfOKa-A4fxO6QTA=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://tahoesignatureproperties.com/wp-content/uploads/2012/11/christmas-decoration-and-christmas-lights-bokeh-2024-11-26-13-29-09-utc.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
@@ -31201,11 +31777,17 @@
    "placeholderType": "gallery-studio",
    "placeholderSrc": "assets/placeholders/gallery-studio.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZPPkXAwSPZ1PTjAnIXvSAXApJJQj1tstkFdn4s0KepTsYPmDZ6xXoAwRB3FZha5QrUipXm3eXyKBGBqdjw9cquGQnWjvu584F0IScWFcFijiiuf8vINaI-xY61fIJenIQxdOApAj4wiwzM2FQ=s4800-w800",
-   "alt": "9848 Gallery at Truckee Artist Lofts in Truckee",
-   "credit": "Tiffany “Payton The Painter” Marie, via Google",
+   "src": "assets/venue-photos/9848-gallery-at-truckee-artist-lofts-truckee.jpg",
+   "alt": "9848 Gallery at Truckee Artist Lofts",
+   "credit": "Photo: 9848 Gallery at Truckee Artist Lofts website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZPPkXAwSPZ1PTjAnIXvSAXApJJQj1tstkFdn4s0KepTsYPmDZ6xXoAwRB3FZha5QrUipXm3eXyKBGBqdjw9cquGQnWjvu584F0IScWFcFijiiuf8vINaI-xY61fIJenIQxdOApAj4wiwzM2FQ=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://lh3.googleusercontent.com/sitesv/AA5AbUD0rx3HeBqyjWREJR6BgTISR9UUFBLwPLBZ4j1SmJOipbjH-shuxXmk5VXnt-uWK5Ua2NEWTmq3MC0CYN_CEITF2U01V1vNJds7D-IgaVgZoFWZ4uNYDVhKvncnQk9KzN5459MknMVzr87Dm46m03unDWD958VG05p7lrPcSamvrajysFUG9o7VHBMUaxMM79YtEoZo6hPx6LiHVxfC2v_HTA-07ttf4jUbydci=w1280",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "none",
@@ -31235,11 +31817,17 @@
    "placeholderType": "gallery-studio",
    "placeholderSrc": "assets/placeholders/gallery-studio.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZPPkXAwSPZ1PTjAnIXvSAXApJJQj1tstkFdn4s0KepTsYPmDZ6xXoAwRB3FZha5QrUipXm3eXyKBGBqdjw9cquGQnWjvu584F0IScWFcFijiiuf8vINaI-xY61fIJenIQxdOApAj4wiwzM2FQ=s4800-w800",
-   "alt": "9848.Gallery Truckee Artist Lofts in Truckee",
-   "credit": "Tiffany “Payton The Painter” Marie, via Google",
+   "src": "assets/venue-photos/9848-gallery-truckee-artist-lofts-truckee.jpg",
+   "alt": "9848.Gallery Truckee Artist Lofts",
+   "credit": "Photo: 9848.Gallery Truckee Artist Lofts website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZPPkXAwSPZ1PTjAnIXvSAXApJJQj1tstkFdn4s0KepTsYPmDZ6xXoAwRB3FZha5QrUipXm3eXyKBGBqdjw9cquGQnWjvu584F0IScWFcFijiiuf8vINaI-xY61fIJenIQxdOApAj4wiwzM2FQ=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://lh3.googleusercontent.com/sitesv/AA5AbUD0rx3HeBqyjWREJR6BgTISR9UUFBLwPLBZ4j1SmJOipbjH-shuxXmk5VXnt-uWK5Ua2NEWTmq3MC0CYN_CEITF2U01V1vNJds7D-IgaVgZoFWZ4uNYDVhKvncnQk9KzN5459MknMVzr87Dm46m03unDWD958VG05p7lrPcSamvrajysFUG9o7VHBMUaxMM79YtEoZo6hPx6LiHVxfC2v_HTA-07ttf4jUbydci=w1280",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "none",
@@ -31593,11 +32181,17 @@
    "placeholderType": "maker-shop",
    "placeholderSrc": "assets/placeholders/maker-shop.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZP4YUM4t6MbOFv0FNS6D3HKHLku_hwRKm58Y4Q2fdfmm5y1mdP1Izgc3JHDSIyU6pdI1-rGJOA4_vAa6T4PmWv0_YUhRBVP62GH4YlGN9RPDYVAVII3b36tjFKUPlNyuKUMai9_1G76BijMcseEGROP=s4800-w800",
-   "alt": "Made By Me in Truckee in Truckee",
-   "credit": "bryan jones, via Google",
+   "src": "assets/venue-photos/made-by-me-in-truckee-truckee.jpg",
+   "alt": "Made By Me in Truckee",
+   "credit": "Photo: Made By Me in Truckee website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZP4YUM4t6MbOFv0FNS6D3HKHLku_hwRKm58Y4Q2fdfmm5y1mdP1Izgc3JHDSIyU6pdI1-rGJOA4_vAa6T4PmWv0_YUhRBVP62GH4YlGN9RPDYVAVII3b36tjFKUPlNyuKUMai9_1G76BijMcseEGROP=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://static.wixstatic.com/media/6ddc9c_499e804cdb7a49f186bca2f7c36adc74%7Emv2.jpg/v1/fit/w_2500,h_1330,al_c/6ddc9c_499e804cdb7a49f186bca2f7c36adc74%7Emv2.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "candidate",
@@ -37270,11 +37864,17 @@
    "placeholderType": "gallery-studio",
    "placeholderSrc": "assets/placeholders/gallery-studio.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZPlhwtCCRCHow70Hckm4MsyhizT66C_vRuKU5jF0o-0O-DKD6Patz35y6p68FqbZw7Yveg7y6tC8DOXrdYSgPcxIw8claOrA9kPCbBf8XrHMOh0tfYIUWWQe0G8NWfRzXAGfu_M5bWYLd6CXg=s4800-w800",
-   "alt": "Echo Blue in Truckee",
-   "credit": "Tim Bui, G Tour Photos, via Google",
+   "src": "assets/venue-photos/echo-blue-truckee.jpg",
+   "alt": "Echo Blue",
+   "credit": "Photo: Echo Blue website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZPlhwtCCRCHow70Hckm4MsyhizT66C_vRuKU5jF0o-0O-DKD6Patz35y6p68FqbZw7Yveg7y6tC8DOXrdYSgPcxIw8claOrA9kPCbBf8XrHMOh0tfYIUWWQe0G8NWfRzXAGfu_M5bWYLd6CXg=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://img1.wsimg.com/isteam/ip/c95afac0-efa9-4b51-a35b-3300462d1e2e/04694fa2-9b08-49bc-bcc4-0f94cbc6c229.JPG",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
@@ -37656,11 +38256,17 @@
    "placeholderType": "gallery-studio",
    "placeholderSrc": "assets/placeholders/gallery-studio.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZM-MGsj7pYy3eA0S4ABHZuDQVXZcRHosQr6ltT_0T8mPiP0cJxY47r8-I4tLZaYtnVIgGVKgldLqVg5a9RPP_2UC40ITtZYUCxCgYuJB_DfuOhog-NZGwiXl20HVSYmVBr5CZKMG009YqqNKw=s4800-w800",
-   "alt": "Tahoe Truckee Jerky in Truckee",
-   "credit": "Steven Willinger, via Google",
+   "src": "assets/venue-photos/tahoe-truckee-jerky-truckee.jpg",
+   "alt": "Tahoe Truckee Jerky",
+   "credit": "Photo: Tahoe Truckee Jerky website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZM-MGsj7pYy3eA0S4ABHZuDQVXZcRHosQr6ltT_0T8mPiP0cJxY47r8-I4tLZaYtnVIgGVKgldLqVg5a9RPP_2UC40ITtZYUCxCgYuJB_DfuOhog-NZGwiXl20HVSYmVBr5CZKMG009YqqNKw=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://tahoetruckeejerky.com/wp-content/uploads/2025/03/slide-2.jpeg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
@@ -37798,11 +38404,17 @@
    "placeholderType": "gallery-studio",
    "placeholderSrc": "assets/placeholders/gallery-studio.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZPFg_FKKsGeve9fT155Fc2SCQ1SQXYRySgNUMJ-89n2BaQu3zFPMdilnrsyjUEiTf0MssZXjeZK3N-ngUmq1FWdooMdjnOc0yedBb9EtN3QJOFaQsHm2d2jqyInF1d_XfciobNIgfpEd_JRJjbGQrU30g=s4800-w800",
-   "alt": "The Sock Parlour in Truckee",
-   "credit": "K, via Google",
+   "src": "assets/venue-photos/the-sock-parlour-truckee.jpg",
+   "alt": "The Sock Parlour",
+   "credit": "Photo: The Sock Parlour website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZPFg_FKKsGeve9fT155Fc2SCQ1SQXYRySgNUMJ-89n2BaQu3zFPMdilnrsyjUEiTf0MssZXjeZK3N-ngUmq1FWdooMdjnOc0yedBb9EtN3QJOFaQsHm2d2jqyInF1d_XfciobNIgfpEd_JRJjbGQrU30g=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://img1.wsimg.com/isteam/ip/74434a97-858e-4cb6-a34f-b086be475539/B2D5E391-3B20-4160-8A3B-B5F34E1B9FC2.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "osm-rooftop",
@@ -37952,11 +38564,17 @@
    "placeholderType": "gallery-studio",
    "placeholderSrc": "assets/placeholders/gallery-studio.webp",
    "kind": "real",
-   "src": "https://lh3.googleusercontent.com/place-photos/AJRVUZNDDUvnz7Z-ePohxCynH2IsCsZdsdGqEnROWg416--b6lVIGJFIngLN3CZQyVtpbwy7UZiHRD0WKlqnaiG0mD21E0m7xaFiBsLtxLI9g656O_Kci1sNknYFiORcYSewfIp2kYWW8yg6Fu1Cq-A=s4800-w800",
-   "alt": "Z Market Place in Truckee",
-   "credit": "Dragoslav Grbovic, via Google",
+   "src": "assets/venue-photos/z-market-place-truckee.jpg",
+   "alt": "Z Market Place",
+   "credit": "Photo: Z Market Place website",
    "status": "credible",
-   "reason": ""
+   "reason": "",
+   "replacedSrc": "https://lh3.googleusercontent.com/place-photos/AJRVUZNDDUvnz7Z-ePohxCynH2IsCsZdsdGqEnROWg416--b6lVIGJFIngLN3CZQyVtpbwy7UZiHRD0WKlqnaiG0mD21E0m7xaFiBsLtxLI9g656O_Kci1sNknYFiORcYSewfIp2kYWW8yg6Fu1Cq-A=s4800-w800",
+   "imageSource": {
+    "kind": "venue-website",
+    "url": "https://assets.zyrosite.com/cdn-cgi/image/format=auto,w=1440,h=756,fit=crop,f=jpeg/Yg2lW4DB1rF8PwM5/imagejpeg_0-YrDal550qZszBp42.jpg",
+    "fetched": "2026-06-10"
+   }
   },
   "featured": false,
   "coordinateProvenance": "osm-rooftop",

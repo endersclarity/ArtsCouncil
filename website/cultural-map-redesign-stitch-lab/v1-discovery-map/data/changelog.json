@@ -3,6 +3,12 @@
  "entries": [
   {
    "date": "2026-06-10",
+   "title": "103 more places switched to photos from their own websites",
+   "summary": "Hundreds of place photos were still borrowed from Google links that expire over time. We checked all 581 places that have both a Google-linked photo and their own website, and for 103 of them the venue's own site offered a usable photo. Those are now stored with the map permanently and credited to the venue. That brings self-hosted, never-expiring photos to 117 places, and every one is the image the venue chose to represent itself.",
+   "kind": "improvement"
+  },
+  {
+   "date": "2026-06-10",
    "title": "Two contentless map pins retired pending real information",
    "summary": "A sweep for places with nothing to show a visitor (template description, no photo, no website, no events) found only four. Two unverified ones no longer get a map pin (they remain findable in the directory and are easy to restore once real content arrives). The other two are public-art entries held for the Arts Council to decide. Nearly everything on the map has at least one piece of real content, which is better than expected.",
    "kind": "improvement"
