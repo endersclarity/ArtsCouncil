@@ -35,6 +35,10 @@ CARTO Positron basemap, flat JSON in `data/`. No backend, no bundler. **Read tha
 - `.planning/` — GSD planning for the *"GVNC Cultural District Experience Platform"* (36-module
   flagship vision: AI concierge, trip builder, MUSE editorial, Vercel; analysis dated 2026-02).
   It describes the flagship, not the V1 map. Aspirational history, not the current build.
+  **Exception (owner decision 2026-06-10): `.planning/STATE.md` IS the live cross-session
+  journey tracker** — read it on session start, update its Current Position / Last activity /
+  Next at session end. Also live: `.planning/hub/` (current product + design direction, incl.
+  `design/DESIGN-SOURCE-OF-TRUTH.md`). The *phase plans* remain aspirational history.
 - `.narrative-quarantine/` — the old CLAUDE.md/AGENTS.md narrative, quarantined for the same reason.
 
 Build your mental model from the live app's code + `CONTEXT.md` (glossary) + `docs/adr/`.
