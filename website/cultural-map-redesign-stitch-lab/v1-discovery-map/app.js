@@ -96,7 +96,6 @@
     "Fairs & Festivals": "assets/category-placeholders-ncac/fairs-festivals.png",
     "Galleries & Studios": "assets/category-placeholders-ncac/galleries-studios.png",
     "Historic Places": "assets/category-placeholders-ncac/historic-places.png",
-    "MUSE Picks": "assets/category-placeholders-ncac/muse-picks.png",
     "Performing Arts": "assets/category-placeholders-ncac/performing-arts.png",
     "Public Art": "assets/category-placeholders-ncac/public-art.png",
     "Shops & Makers": "assets/category-placeholders-ncac/shops-makers.png",
@@ -106,7 +105,7 @@
   const OUTING_TYPES = [
     {
       label: "Art",
-      matchCategories: ["Arts Organizations", "Creative Services", "Galleries & Studios", "MUSE Picks", "Public Art"],
+      matchCategories: ["Arts Organizations", "Creative Services", "Galleries & Studios", "Public Art"],
       matchIntents: ["Galleries & Studios"],
     },
     {

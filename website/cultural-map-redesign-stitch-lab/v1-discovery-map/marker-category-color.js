@@ -30,12 +30,13 @@
 
   const FALLBACK_COLOR = "#5d625b"; // MARKERS.quiet — unmatched / missing category
 
-  // Each of the 11 real categories maps to exactly one group (deterministic).
+  // Each of the 10 real categories maps to exactly one group (deterministic).
+  // ("MUSE Picks" retired 2026-06: provenance bucket, not a kind of place —
+  //  its members were re-homed into real categories; musePick flag remains.)
   const CATEGORY_TO_GROUP = {
     "Arts Organizations": "Art",
     "Galleries & Studios": "Art",
     "Public Art": "Art",
-    "MUSE Picks": "Art",
     "Creative Services": "Art",
     "Performing Arts": "Music & Performance",
     "Historic Places": "History",
