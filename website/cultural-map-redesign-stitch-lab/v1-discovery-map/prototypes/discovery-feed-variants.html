@@ -1,0 +1,303 @@
+<!doctype html>
+<!--
+  PROTOTYPE — THROWAWAY. Delete or absorb when the discovery-feed question is answered.
+  Question: should the panel become a feed that LEADS the experience (April 24 brief, part 2),
+  and what shape should that feed take?
+  Plan: three structurally different variants on one page, switchable via ?variant= (A/B/C)
+  and a floating bottom switcher. Reads real data from ../data/. No writes, no app changes.
+  Run: serve the v1-discovery-map folder (e.g. `python -m http.server 8013`) and open
+       http://127.0.0.1:8013/prototypes/discovery-feed-variants.html
+-->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PROTOTYPE — Discovery Feed Variants</title>
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+<style>
+  :root {
+    --paper: #f7f7f4; --ink: #1f1f1d; --muted: #6b6b64; --line: #e3e2dc;
+    --accent: #ff2500; --gold: #b98a2f; --card: #ffffff;
+    font-family: "DM Sans", "Inter", system-ui, sans-serif;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; height: 100%; background: var(--paper); color: var(--ink); }
+  .proto-banner {
+    background: #1f1f1d; color: #f7f7f4; font-size: 12px; letter-spacing: .04em;
+    padding: 6px 14px; display: flex; justify-content: space-between; align-items: center;
+  }
+  .proto-banner strong { color: #ffb199; }
+  #stage { position: relative; height: calc(100% - 29px); overflow: hidden; }
+
+  .card {
+    background: var(--card); border: 1px solid var(--line); border-radius: 10px;
+    overflow: hidden; cursor: pointer; transition: box-shadow .15s, transform .15s;
+  }
+  .card:hover { box-shadow: 0 6px 18px rgba(0,0,0,.10); transform: translateY(-1px); }
+  .card.active { outline: 2px solid var(--accent); }
+  .card img { width: 100%; height: 130px; object-fit: cover; display: block; background: #ddd; }
+  .card .body { padding: 10px 12px 12px; }
+  .kicker { font-size: 10px; font-weight: 700; letter-spacing: .09em; text-transform: uppercase; }
+  .kicker.event { color: var(--accent); }
+  .kicker.place { color: var(--gold); }
+  .kicker.story { color: #4a6fa5; }
+  .kicker.path  { color: #3e7d52; }
+  .card h3 { margin: 3px 0 4px; font-size: 15px; line-height: 1.25; }
+  .card p { margin: 0; font-size: 12.5px; color: var(--muted); line-height: 1.45;
+            display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .meta { margin-top: 6px; font-size: 11px; color: var(--muted); }
+
+  /* ---------- Variant A: Front Page ---------- */
+  .vA { display: grid; grid-template-columns: 400px 1fr; height: 100%; }
+  .vA .feed { overflow-y: auto; padding: 18px 16px 80px; background: var(--paper); border-right: 1px solid var(--line); }
+  .vA .feed h2 { font-size: 12px; letter-spacing: .12em; text-transform: uppercase; color: var(--muted);
+                 border-bottom: 2px solid var(--ink); padding-bottom: 5px; margin: 22px 0 10px; }
+  .vA .feed h2:first-child { margin-top: 0; }
+  .vA .feed .card { margin-bottom: 10px; }
+  .vA .masthead { font-size: 21px; font-weight: 800; margin: 0 0 2px; }
+  .vA .dateline { font-size: 12px; color: var(--muted); margin: 0 0 14px; }
+  .vA .mapwrap { position: relative; }
+
+  /* ---------- Variant B: Card Rail ---------- */
+  .vB { position: relative; height: 100%; }
+  .vB .mapwrap { position: absolute; inset: 0; }
+  .vB .rail {
+    position: absolute; left: 0; right: 0; bottom: 64px; display: flex; gap: 12px;
+    overflow-x: auto; padding: 10px 24px 14px; scroll-snap-type: x mandatory;
+  }
+  .vB .rail::-webkit-scrollbar { height: 8px; }
+  .vB .card { flex: 0 0 240px; scroll-snap-align: center; box-shadow: 0 8px 24px rgba(0,0,0,.18); }
+  .vB .card img { height: 96px; }
+  .vB .railLabel {
+    position: absolute; bottom: 218px; left: 24px; background: rgba(31,31,29,.85); color: #f7f7f4;
+    font-size: 11px; letter-spacing: .08em; text-transform: uppercase; padding: 4px 10px; border-radius: 99px;
+  }
+  .vB .chips { position: absolute; top: 14px; left: 24px; display: flex; gap: 8px; }
+  .vB .chip { background: #fff; border: 1px solid var(--line); border-radius: 99px; padding: 5px 12px;
+              font-size: 12px; cursor: pointer; }
+  .vB .chip.on { background: var(--ink); color: #fff; border-color: var(--ink); }
+
+  /* ---------- Variant C: The Reader ---------- */
+  .vC { height: 100%; overflow-y: auto; }
+  .vC .col { max-width: 620px; margin: 0 auto; padding: 26px 18px 120px; }
+  .vC .masthead { font-size: 30px; font-weight: 800; margin: 0; }
+  .vC .dateline { color: var(--muted); font-size: 13px; margin: 4px 0 24px; }
+  .vC .card { margin-bottom: 18px; }
+  .vC .card img { height: 220px; }
+  .vC .card h3 { font-size: 19px; }
+  .vC .card p { -webkit-line-clamp: 3; font-size: 14px; }
+  .vC .showmap { margin-top: 8px; display: inline-block; font-size: 12px; font-weight: 700;
+                 color: var(--accent); }
+  .vC .mapPanel {
+    position: fixed; top: 29px; right: 0; bottom: 0; width: min(460px, 92vw); background: #fff;
+    box-shadow: -10px 0 30px rgba(0,0,0,.2); transform: translateX(105%); transition: transform .25s;
+    z-index: 40; display: flex; flex-direction: column;
+  }
+  .vC .mapPanel.open { transform: translateX(0); }
+  .vC .mapPanel header { padding: 10px 14px; display: flex; justify-content: space-between; align-items: center;
+                         border-bottom: 1px solid var(--line); font-weight: 700; font-size: 14px; }
+  .vC .mapPanel .close { cursor: pointer; border: 0; background: none; font-size: 18px; }
+  .vC .mapPanel .mapwrap { flex: 1; }
+
+  .mapwrap > div { width: 100%; height: 100%; }
+
+  /* ---------- Floating switcher ---------- */
+  .switcher {
+    position: fixed; bottom: 14px; left: 50%; transform: translateX(-50%); z-index: 99;
+    background: #1f1f1d; color: #fff; border-radius: 99px; display: flex; align-items: center;
+    gap: 6px; padding: 7px 10px; box-shadow: 0 8px 30px rgba(0,0,0,.35); font-size: 13px;
+  }
+  .switcher button { background: #3a3a36; color: #fff; border: 0; border-radius: 99px;
+                     width: 28px; height: 28px; cursor: pointer; font-size: 14px; }
+  .switcher .label { min-width: 190px; text-align: center; font-weight: 600; }
+</style>
+</head>
+<body>
+<div class="proto-banner"><span><strong>PROTOTYPE</strong> — discovery feed variants (throwaway, not the live site)</span><span>data: live places.json / events.json / paths.json / muse-stories.json</span></div>
+<div id="stage">Loading real data…</div>
+<div class="switcher">
+  <button id="prev" aria-label="Previous variant">←</button>
+  <span class="label" id="label">…</span>
+  <button id="next" aria-label="Next variant">→</button>
+</div>
+
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<script>
+(async function () {
+  const STYLE = "https://tiles.openfreemap.org/styles/liberty";
+  const CENTER = [-121.04, 39.24]; // between Grass Valley and Nevada City
+  const VARIANTS = [
+    { key: "A", name: "Front Page (feed left, map right)" },
+    { key: "B", name: "Card Rail (map first, feed floats)" },
+    { key: "C", name: "The Reader (feed only, map on demand)" },
+  ];
+
+  const [places, events, paths, museRaw] = await Promise.all([
+    fetch("../data/places.json").then(r => r.json()),
+    fetch("../data/events.json").then(r => r.json()),
+    fetch("../data/paths.json").then(r => r.json()),
+    fetch("../data/muse-stories.json").then(r => r.json()),
+  ]);
+  const stories = Array.isArray(museRaw) ? museRaw : (museRaw.stories || []);
+  const placeById = new Map(places.map(p => [p.id, p]));
+
+  // ---- Build one shared feed model: interleaved events / places / story / path ----
+  const today = new Date().toISOString().slice(0, 10);
+  const upcoming = events.filter(e => e.date >= today).sort((a, b) => a.date.localeCompare(b.date));
+  const niceDate = d => new Date(d + "T12:00:00").toLocaleDateString(undefined, { weekday: "short", month: "short", day: "numeric" });
+  const img = p => (p.image && p.image.kind === "real" && p.image.src) ? p.image.src
+              : (p.image && p.image.placeholderSrc) ? "../" + p.image.placeholderSrc : "";
+
+  const goodPlaces = places.filter(p => p.publicMarker && p.description && p.image && p.image.kind === "real");
+  const pick = (arr, n, seedFilter) => arr.filter(seedFilter || (() => true)).slice(0, n);
+
+  const feed = [];
+  upcoming.slice(0, 4).forEach(e => feed.push({ type: "event", title: e.title, sub: e.placeName + " · " + niceDate(e.date), desc: e.description, img: e.image, lat: e.lat, lng: e.lng, kicker: e.date === today ? "Tonight" : "Coming up" }));
+  pick(goodPlaces, 3, p => p.musePick).forEach(p => feed.push({ type: "place", title: p.name, sub: p.city, desc: p.description, img: img(p), lat: p.lat, lng: p.lng, kicker: "Worth a stop" }));
+  if (stories[0]) {
+    const s = stories[0]; const sp = (s.placeIds || []).map(id => placeById.get(id)).filter(Boolean);
+    feed.push({ type: "story", title: s.title, sub: s.issue, desc: sp.length + " places from this story are on the map.", img: sp.map(img).find(Boolean) || "", lat: sp[0] && sp[0].lat, lng: sp[0] && sp[0].lng, kicker: "Stories from MUSE" });
+  }
+  if (paths[0]) {
+    const pa = paths[0];
+    feed.push({ type: "path", title: pa.title, sub: pa.stops.length + " stops", desc: pa.dek, img: "", lat: pa.stops[0].lat, lng: pa.stops[0].lng, kicker: "A path to walk" });
+  }
+  upcoming.slice(4, 8).forEach(e => feed.push({ type: "event", title: e.title, sub: e.placeName + " · " + niceDate(e.date), desc: e.description, img: e.image, lat: e.lat, lng: e.lng, kicker: "This week" }));
+  pick(goodPlaces, 4, p => !p.musePick).forEach(p => feed.push({ type: "place", title: p.name, sub: p.city, desc: p.description, img: img(p), lat: p.lat, lng: p.lng, kicker: "On the map" }));
+
+  const cardHTML = (item, i) => `
+    <article class="card" data-i="${i}">
+      ${item.img ? `<img loading="lazy" src="${item.img}" alt="">` : ""}
+      <div class="body">
+        <span class="kicker ${item.type}">${item.kicker}</span>
+        <h3>${item.title}</h3>
+        ${item.desc ? `<p>${item.desc}</p>` : ""}
+        <div class="meta">${item.sub || ""}</div>
+      </div>
+    </article>`;
+
+  // ---- Shared map helper ----
+  let map = null, marker = null;
+  function mountMap(el) {
+    map = new maplibregl.Map({ container: el, style: STYLE, center: CENTER, zoom: 12.2, attributionControl: false });
+    return map;
+  }
+  function focus(item, cardEl, root) {
+    if (!map || item.lat == null) return;
+    map.flyTo({ center: [item.lng, item.lat], zoom: 15, speed: 1.4 });
+    if (marker) marker.remove();
+    marker = new maplibregl.Marker({ color: "#ff2500" }).setLngLat([item.lng, item.lat]).addTo(map);
+    root.querySelectorAll(".card").forEach(c => c.classList.remove("active"));
+    if (cardEl) cardEl.classList.add("active");
+  }
+
+  // ---- Variants ----
+  const stage = document.getElementById("stage");
+
+  function renderA() {
+    stage.innerHTML = `<div class="vA">
+      <div class="feed">
+        <p class="masthead">Nevada County, today</p>
+        <p class="dateline">${new Date().toLocaleDateString(undefined, { weekday: "long", month: "long", day: "numeric" })} · Grass Valley & Nevada City</p>
+        ${feed.map(cardHTML).join("")}
+      </div>
+      <div class="mapwrap"><div id="mapA"></div></div>
+    </div>`;
+    mountMap(document.getElementById("mapA"));
+    stage.querySelectorAll(".card").forEach(c => c.addEventListener("click", () => focus(feed[+c.dataset.i], c, stage)));
+  }
+
+  function renderB() {
+    stage.innerHTML = `<div class="vB">
+      <div class="mapwrap"><div id="mapB"></div></div>
+      <div class="chips">
+        <button class="chip on" data-f="all">Everything</button>
+        <button class="chip" data-f="event">Events</button>
+        <button class="chip" data-f="place">Places</button>
+      </div>
+      <span class="railLabel">Happening now & nearby — scroll →</span>
+      <div class="rail">${feed.map(cardHTML).join("")}</div>
+    </div>`;
+    mountMap(document.getElementById("mapB"));
+    const rail = stage.querySelector(".rail");
+    stage.querySelectorAll(".card").forEach(c => c.addEventListener("click", () => focus(feed[+c.dataset.i], c, stage)));
+    // map follows the card nearest the rail's center as you scroll
+    let t;
+    rail.addEventListener("scroll", () => {
+      clearTimeout(t);
+      t = setTimeout(() => {
+        const mid = rail.scrollLeft + rail.clientWidth / 2;
+        let best = null, bd = 1e9;
+        rail.querySelectorAll(".card").forEach(c => {
+          const d = Math.abs(c.offsetLeft + c.offsetWidth / 2 - mid);
+          if (d < bd) { bd = d; best = c; }
+        });
+        if (best) focus(feed[+best.dataset.i], best, stage);
+      }, 160);
+    });
+    stage.querySelectorAll(".chip").forEach(ch => ch.addEventListener("click", () => {
+      stage.querySelectorAll(".chip").forEach(x => x.classList.remove("on"));
+      ch.classList.add("on");
+      const f = ch.dataset.f;
+      rail.querySelectorAll(".card").forEach(c => {
+        c.style.display = (f === "all" || feed[+c.dataset.i].type === f) ? "" : "none";
+      });
+    }));
+  }
+
+  function renderC() {
+    stage.innerHTML = `<div class="vC">
+      <div class="col">
+        <p class="masthead">The Cultural Feed</p>
+        <p class="dateline">What's happening, where it is, and what else is nearby — ${new Date().toLocaleDateString(undefined, { month: "long", day: "numeric" })}</p>
+        ${feed.map((item, i) => cardHTML(item, i).replace("</div>\n    </article>", `<span class="showmap">Show on map →</span></div></article>`)).join("")}
+      </div>
+      <div class="mapPanel" id="mapPanel">
+        <header><span id="mapPanelTitle">On the map</span><button class="close" id="mapClose">✕</button></header>
+        <div class="mapwrap"><div id="mapC"></div></div>
+      </div>
+    </div>`;
+    const panel = document.getElementById("mapPanel");
+    let mounted = false;
+    stage.querySelectorAll(".card").forEach(c => c.addEventListener("click", () => {
+      const item = feed[+c.dataset.i];
+      panel.classList.add("open");
+      document.getElementById("mapPanelTitle").textContent = item.title;
+      if (!mounted) { mountMap(document.getElementById("mapC")); mounted = true; }
+      setTimeout(() => { map.resize(); focus(item, c, stage); }, 260);
+    }));
+    document.getElementById("mapClose").addEventListener("click", () => panel.classList.remove("open"));
+  }
+
+  const renderers = { A: renderA, B: renderB, C: renderC };
+
+  // ---- Switcher ----
+  function current() {
+    const k = new URLSearchParams(location.search).get("variant") || "A";
+    return VARIANTS.some(v => v.key === k) ? k : "A";
+  }
+  function show(key) {
+    const url = new URL(location); url.searchParams.set("variant", key);
+    history.replaceState(null, "", url);
+    if (map) { map.remove(); map = null; marker = null; }
+    renderers[key]();
+    const v = VARIANTS.find(v => v.key === key);
+    document.getElementById("label").textContent = `${v.key} — ${v.name}`;
+  }
+  function step(dir) {
+    const i = VARIANTS.findIndex(v => v.key === current());
+    show(VARIANTS[(i + dir + VARIANTS.length) % VARIANTS.length].key);
+  }
+  document.getElementById("prev").addEventListener("click", () => step(-1));
+  document.getElementById("next").addEventListener("click", () => step(1));
+  document.addEventListener("keydown", e => {
+    if (/INPUT|TEXTAREA/.test(document.activeElement.tagName) || document.activeElement.isContentEditable) return;
+    if (e.key === "ArrowLeft") step(-1);
+    if (e.key === "ArrowRight") step(1);
+  });
+
+  show(current());
+})();
+</script>
+</body>
+</html>

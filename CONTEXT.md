@@ -317,6 +317,14 @@ _Avoid_: "as of <date>" caveat on the surface, trusting a label without filterin
 The citizen-voiced state shown when no current events match visible places. It invites the citizen to return ("No events listed here this week — check back soon") rather than exposing a stale list, a broken-feed message, or a process/QA caveat.
 _Avoid_: Stale list as fallback, "feed unavailable" error, process-label caveat, silent empty Events mode
 
+**Discovery Rail** *(provisional — agent self-grill 2026-06-10, pending owner nod)*:
+The horizontal, snap-scrolling stream of event, place, story, and path cards along the bottom of the map that serves as the first-load browsing surface. It is the Browse Starting View in rail form: the map stays the hero, the rail carries the County Sampler doctrine (events first under the Event Freshness Guarantee, then MUSE-Grounded Sampler places, one path card). Chosen from prototype variant B over a left feed column (A) and a feed-only reader (C).
+_Avoid_: Card rail, Context Rail (rejected term, different concept), carousel, feed panel, replacing the Directory Browser
+
+**Rail Follow** *(provisional — agent self-grill 2026-06-10, pending owner nod)*:
+The constrained map-follow behavior for the Discovery Rail: on scroll-settle the map gently eases to the centered card's place and highlights its marker without changing zoom; a full fly-and-zoom happens only on explicit card tap. The camera never moves while cards are still moving.
+_Avoid_: Continuous scroll-driven flyTo, zoom churn while scrolling, map-driven rail surprise
+
 ## Relationships
 
 - The **Stakeholder Review Audience** is the first audience for the next selected-place-card and path-treatment slice.
@@ -389,6 +397,9 @@ _Avoid_: Stale list as fallback, "feed unavailable" error, process-label caveat,
 - The **Living Event Layer** is fed by the live event pipeline re-wired into V1, not a hand-picked frozen set; it shows events only at visible places.
 - The **Living Event Layer** must honor the **Event Freshness Guarantee**; when nothing current matches, it shows the **Empty Events State** rather than a stale list.
 - An **Orientation Failure** includes showing a past event as "Upcoming"; the **Event Freshness Guarantee** exists to prevent it.
+- *(provisional, 2026-06-10)* The **Discovery Rail** is the first-load embodiment of the **Browse Starting View**; the **Directory Browser** remains the deeper browse surface, expanded on search or **Show Places In This Area**.
+- *(provisional, 2026-06-10)* The **Discovery Rail** honors **Implicit MUSE Grounding**: MUSE story cards use the "In the pages of MUSE Magazine" credential form, and the rail's opening state is not presented as a MUSE feature.
+- *(provisional, 2026-06-10)* **Rail Follow** is list-driving-map and therefore allowed; the banned direction remains map-driven list surprise.
 
 ## Example dialogue
 
