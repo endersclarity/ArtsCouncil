@@ -3,6 +3,12 @@
   "entries": [
     {
       "date": "2026-06-11",
+      "title": "The map opens warm — no more stock-map flash",
+      "summary": "Until now, the page opened with a split second of the stock online map — grey roads, bright green parks, blue water — before our warm cream-and-sage palette painted over it. The warm colors are now applied before the map ever draws, so the very first thing you see is the finished look. (If the map style can't be fetched ahead of time, the old paint-over still kicks in as a safety net.) Behind the scenes we also tidied the stylesheet: the matching scrollbars and photo caption bars are now defined once and shared, and the translucent cream used for map labels and overlays comes from a single named color instead of five hand-typed copies. Nothing about the look changed — it just arrives instantly and is easier to keep consistent.",
+      "kind": "improvement"
+    },
+    {
+      "date": "2026-06-11",
       "title": "Photos that fail to load now bow out gracefully",
       "summary": "When a photo can't be fetched — a venue moved its image, a link went stale — every card now recovers the same considered way. A place card swaps in its labeled stand-in artwork, keeps the name-and-city caption bar, and drops the photographer credit (which belonged to the missing photo, not the stand-in); the \"photo not yet sourced\" tag now sits neatly above the caption bar instead of on top of it. An event card keeps its venue and town visible under the stand-in image rather than losing them with the photo. And a card in the bottom rail turns into one of the colorful poster cards the rail already uses for imageless items, instead of going blank. Event photos also now load by the same rules everywhere, so an image that worked in the rail can't break on the big card.",
       "kind": "fix"

@@ -2424,30 +2424,35 @@
   }
 
   // Warmth pass 4 (cla-65): retint the Liberty basemap to the brand's warm
-  // paper world. Iterates the loaded style's actual layer list and matches by
+  // paper world. Iterates a style's actual layer list and matches by
   // source-layer + id pattern (Liberty ids like road_minor / bridge_motorway_casing /
   // landcover_wood), so a tile-style update can't strand a hardcoded id. Only
   // plain color strings are written — no new expressions, so nothing here can
   // invalidate a layer's paint and silently drop it. App-owned layers (places,
   // events, paths sources) are added after this runs and are never touched.
-  function applyWarmBasemap() {
-    if (!state.map) return;
-    const map = state.map;
+  //
+  // F10 (cla-71): the palette + matching logic lives here once, decoupled from
+  // HOW the edits land. `ops.paint(layer, prop, value)` / `ops.layout(...)`
+  // either mutate a raw style object before the Map is constructed (happy
+  // path: warm first paint, no stock-Liberty flash) or drive
+  // setPaintProperty/setLayoutProperty on a live map (degraded path when the
+  // style fetch fails). Same values either way — only WHEN they apply differs.
+  function warmBasemapEdits(layers, ops) {
     const W = WARM_BASEMAP;
-    const paint = (id, property, value) => map.setPaintProperty(id, property, value);
-    (map.getStyle().layers || []).forEach((layer) => {
+    (layers || []).forEach((layer) => {
       const id = layer.id;
       const sourceLayer = layer["source-layer"] || "";
+      const paint = (property, value) => ops.paint(layer, property, value);
       if (layer.type === "background") {
-        paint(id, "background-color", W.background);
+        paint("background-color", W.background);
         return;
       }
       if (layer.type === "fill") {
-        if (sourceLayer === "water") paint(id, "fill-color", W.water);
+        if (sourceLayer === "water") paint("fill-color", W.water);
         else if (sourceLayer === "park") {
-          paint(id, "fill-color", W.parkFill);
+          paint("fill-color", W.parkFill);
           // Liberty draws a saturated green outline on the park fill itself.
-          paint(id, "fill-outline-color", W.parkOutline);
+          paint("fill-outline-color", W.parkOutline);
         }
         else if (sourceLayer === "landcover") {
           const tone = id.includes("wood") ? W.wood
@@ -2455,30 +2460,30 @@
             : id.includes("ice") ? W.ice
             : id.includes("sand") ? W.sand
             : W.grass;
-          paint(id, "fill-color", tone);
+          paint("fill-color", tone);
         } else if (sourceLayer === "landuse") {
-          paint(id, "fill-color", id.includes("residential") ? W.residential : W.landuse);
+          paint("fill-color", id.includes("residential") ? W.residential : W.landuse);
         } else if (sourceLayer === "building") {
-          paint(id, "fill-color", W.building);
-          paint(id, "fill-outline-color", W.buildingOutline);
+          paint("fill-color", W.building);
+          paint("fill-outline-color", W.buildingOutline);
         } else if (sourceLayer === "aeroway") {
-          paint(id, "fill-color", W.aeroway);
+          paint("fill-color", W.aeroway);
         }
         return;
       }
       if (layer.type === "fill-extrusion" && sourceLayer === "building") {
-        paint(id, "fill-extrusion-color", W.building);
+        paint("fill-extrusion-color", W.building);
         return;
       }
       if (layer.type === "line") {
-        if (sourceLayer === "waterway") paint(id, "line-color", W.water);
-        else if (sourceLayer === "boundary") paint(id, "line-color", W.boundary);
+        if (sourceLayer === "waterway") paint("line-color", W.water);
+        else if (sourceLayer === "boundary") paint("line-color", W.boundary);
         else if (sourceLayer === "park") {
           // Park outlines tile the whole county at low zoom; keep them barely-there.
-          paint(id, "line-color", W.parkOutline);
-          paint(id, "line-opacity", 0.5);
+          paint("line-color", W.parkOutline);
+          paint("line-opacity", 0.5);
         }
-        else if (sourceLayer === "aeroway") paint(id, "line-color", W.roadCasing);
+        else if (sourceLayer === "aeroway") paint("line-color", W.roadCasing);
         else if (sourceLayer === "transportation") {
           // Quiet warm road ramp; hierarchy survives as value steps, not hue.
           const tone = /rail/.test(id) ? W.rail
@@ -2488,7 +2493,7 @@
             : /trunk_primary/.test(id) ? W.trunkPrimary
             : /secondary_tertiary/.test(id) ? W.secondaryTertiary
             : W.minor;
-          paint(id, "line-color", tone);
+          paint("line-color", tone);
         }
         return;
       }
@@ -2496,23 +2501,48 @@
         // Density cut: footpath names and one-way arrows are tile noise here.
         // (Business POIs are already hidden by hideBasemapPoiLayers.)
         if (id === "highway-name-path" || id.startsWith("road_one_way")) {
-          map.setLayoutProperty(id, "visibility", "none");
+          ops.layout(layer, "visibility", "none");
           return;
         }
         if (sourceLayer === "place") {
-          paint(id, "text-color", W.placeLabel);
-          paint(id, "text-halo-color", W.labelHalo);
+          paint("text-color", W.placeLabel);
+          paint("text-halo-color", W.labelHalo);
         } else if (sourceLayer === "transportation_name" && !id.includes("shield")) {
-          paint(id, "text-color", W.roadLabel);
-          paint(id, "text-halo-color", W.labelHalo);
+          paint("text-color", W.roadLabel);
+          paint("text-halo-color", W.labelHalo);
         } else if (sourceLayer === "water_name" || sourceLayer === "waterway") {
-          paint(id, "text-color", W.waterLabel);
-          paint(id, "text-halo-color", W.labelHalo);
+          paint("text-color", W.waterLabel);
+          paint("text-halo-color", W.labelHalo);
         } else if (sourceLayer === "aerodrome_label") {
-          paint(id, "text-color", W.roadLabel);
-          paint(id, "text-halo-color", W.labelHalo);
+          paint("text-color", W.roadLabel);
+          paint("text-halo-color", W.labelHalo);
         }
       }
+    });
+  }
+
+  // Happy path: mutate the fetched Liberty style JSON in place, before the
+  // Map constructor ever sees it — the first painted frame is already warm.
+  function warmStyleObject(style) {
+    warmBasemapEdits(style.layers, {
+      paint: (layer, property, value) => {
+        (layer.paint || (layer.paint = {}))[property] = value;
+      },
+      layout: (layer, property, value) => {
+        (layer.layout || (layer.layout = {}))[property] = value;
+      },
+    });
+    return style;
+  }
+
+  // Degraded path (style fetch failed, Map constructed from the URL): retint
+  // the live map on "load" — the pre-F10 behavior, kept as the fallback.
+  function applyWarmBasemap() {
+    if (!state.map) return;
+    const map = state.map;
+    warmBasemapEdits(map.getStyle().layers, {
+      paint: (layer, property, value) => map.setPaintProperty(layer.id, property, value),
+      layout: (layer, property, value) => map.setLayoutProperty(layer.id, property, value),
     });
   }
 
@@ -2821,7 +2851,7 @@
   }
 
   async function init() {
-    const [places, events, paths, anchorCards, museEvidence, museSampler, museStories] = await Promise.all([
+    const [places, events, paths, anchorCards, museEvidence, museSampler, museStories, warmStyle] = await Promise.all([
       fetch(DATA.places).then((r) => r.json()),
       fetch(DATA.events).then((r) => r.json()),
       fetch(DATA.paths).then((r) => r.json()),
@@ -2829,6 +2859,14 @@
       fetch(DATA.museEvidence).then((r) => r.json()).catch(() => ({ links: [] })),
       fetch(DATA.museSampler).then((r) => r.json()).catch(() => ({ showcaseSampler: [] })),
       fetch(DATA.museStories).then((r) => r.json()).catch(() => ({ stories: [] })),
+      // F10: pre-fetch the Liberty style and retint it BEFORE the Map is
+      // constructed, so the first painted frame is already warm paper — no
+      // stock-Liberty flash, no ~200-call setPaintProperty burst on load.
+      // Any failure degrades to the pre-F10 path: URL style + retint on load.
+      fetch(STREET_BASEMAP_STYLE)
+        .then((r) => (r.ok ? r.json() : Promise.reject(new Error(`style fetch ${r.status}`))))
+        .then((style) => warmStyleObject(style))
+        .catch(() => null),
     ]);
     state.anchorCards = Array.isArray(anchorCards) ? anchorCards : [];
     state.museStories = museStories.stories || [];
@@ -2859,9 +2897,13 @@
     }
 
     renderFilters();
+    state.basemapPretinted = Boolean(warmStyle);
+    if (!state.basemapPretinted) {
+      console.warn("[basemap] style fetch failed — constructing from URL, retint deferred to load");
+    }
     state.map = new maplibregl.Map({
       container: "map",
-      style: STREET_BASEMAP_STYLE,
+      style: warmStyle || STREET_BASEMAP_STYLE,
       center: isMobileViewport() ? MOBILE_INITIAL_MAP_VIEW.center : DESKTOP_INITIAL_MAP_VIEW.center,
       zoom: isMobileViewport() ? MOBILE_INITIAL_MAP_VIEW.zoom : DESKTOP_INITIAL_MAP_VIEW.zoom,
       // Attribution sits bottom-left so the legend (bottom-right) never clips it.
@@ -2872,11 +2914,16 @@
     // without the fragile constructor-wrap init script.
     if (new URLSearchParams(window.location.search).has("contract")) {
       window.__map = state.map;
+      // F10 contract seam: lets the verifier confirm the constructor received
+      // a pre-tinted style OBJECT (true) vs the degraded URL path (false).
+      window.__basemapPretinted = state.basemapPretinted;
     }
     state.map.addControl(new maplibregl.AttributionControl(), "bottom-left");
     state.map.addControl(new maplibregl.NavigationControl({ showCompass: false }), "bottom-right");
     state.map.on("load", () => {
-      applyWarmBasemap();
+      // Happy path: the style object was retinted before construction, so the
+      // load-time setPaintProperty burst is skipped entirely.
+      if (!state.basemapPretinted) applyWarmBasemap();
       hideBasemapPoiLayers();
       addMapLayers();
       setSourceData();
