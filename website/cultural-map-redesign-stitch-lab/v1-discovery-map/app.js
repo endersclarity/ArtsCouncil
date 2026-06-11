@@ -1121,6 +1121,7 @@
     els.detail.classList.toggle("primary-anchor-card", mode === "primary-anchor");
     els.detail.classList.toggle("supporting-stop-card", mode === "supporting-stop");
     els.detail.classList.toggle("path-detail-card", mode === "path");
+    els.detail.classList.toggle("event-feature-card", mode === "event");
   }
 
   function resolvePlaceImage(place) {
@@ -1707,26 +1708,39 @@
     updateReviewUrl();
   }
 
+  // Warmth-pass 1 ("charcoal feature", mockup A): the event detail is a dark
+  // editorial surface — ink card, white knockout title, red weighted kicker
+  // for the date ("Tonight" / "Fri, Jun 12"), photo with an ink caption bar
+  // carrying venue + city, red primary action, muted-outline secondary.
   function showEvent(event) {
     expandDrawer();
-    setDetailCardMode("");
+    setDetailCardMode("event");
     state.selectedEventId = event.id;
     state.selectedPlaceId = "";
     state.selectedPath = null;
     setSourceData();
     const place = placeById(event.placeId);
+    const venueLine = [event.placeName, event.city].filter(Boolean).join(", ");
+    const kicker = event.date === todayISO() ? "Tonight" : niceEventDate(event.date);
+    const blurb = displayEventDescription(event.description);
     els.detail.innerHTML = `
       <button class="selected-place-close" type="button" aria-label="Close selected event">Close</button>
-      ${event.image ? `<img class="place-image" src="${escapeHtml(event.image)}" alt="${escapeHtml(event.title)}" width="640" height="360" loading="lazy" decoding="async">` : ""}
-      <p class="detail-eyebrow">Upcoming event</p>
-      <h2>${escapeHtml(event.title)}</h2>
-      <p>${escapeHtml(event.date)} at ${escapeHtml(event.placeName)}</p>
-      <p>${escapeHtml(displayEventDescription(event.description))}</p>
-      <div class="detail-actions">
-        ${event.url ? `<a href="${escapeHtml(event.url)}" target="_blank" rel="noopener">Event link</a>` : ""}
-        ${place ? `<button class="filter-chip" type="button" id="event-place-jump">Show place</button>` : ""}
+      ${event.image ? `
+        <figure class="event-feature-photo">
+          <img class="place-image" src="${escapeHtml(event.image)}" alt="${escapeHtml(event.title)}" width="640" height="360" loading="lazy" decoding="async">
+          ${venueLine ? `<figcaption>${escapeHtml(venueLine)}</figcaption>` : ""}
+        </figure>` : ""}
+      <div class="event-feature-body">
+        <p class="event-feature-kicker">${escapeHtml(kicker)}</p>
+        <h2>${escapeHtml(event.title)}</h2>
+        ${!event.image && venueLine ? `<p class="event-feature-venue">${escapeHtml(venueLine)}</p>` : ""}
+        ${blurb ? `<p class="event-feature-blurb">${escapeHtml(blurb)}</p>` : ""}
+        <div class="detail-actions event-feature-actions">
+          ${event.url ? `<a href="${escapeHtml(event.url)}" target="_blank" rel="noopener">Event details</a>` : ""}
+          ${place ? `<button type="button" id="event-place-jump">Show place</button>` : ""}
+        </div>
+        ${renderBeforeOrAfter(place)}
       </div>
-      ${renderBeforeOrAfter(place)}
     `;
     const jump = document.getElementById("event-place-jump");
     if (jump && place) jump.addEventListener("click", () => showPlace(place));

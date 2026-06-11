@@ -3,6 +3,12 @@
   "entries": [
     {
       "date": "2026-06-11",
+      "title": "Event details get a bold new look",
+      "summary": "Tapping an event on the map or in the bottom rail now opens a dark, magazine-style feature card instead of a plain white box. The date leads in red — \"Tonight\" when it's happening today — the event name is big and white, and the photo (when a venue provides one) carries a caption bar with the venue and town. A red button takes you to the event page and a quieter outlined one shows the place on the map. Place cards are unchanged for now; their warm-up comes next.",
+      "kind": "improvement"
+    },
+    {
+      "date": "2026-06-11",
       "title": "Smoother feel: buttons, cards, and panels now ease instead of snap",
       "summary": "A light touch of motion across the map. Cards along the bottom rail lift gently when you hover and the red highlight on the centered card now fades in instead of blinking on. Filter chips, tabs, and toggles ease between their on and off looks and give a tiny press when tapped. The place detail panel slides in softly and slips away a little quicker when closed. Everything stays quick and quiet — and if your device is set to reduce motion, all of it simply appears instantly instead.",
       "kind": "improvement"

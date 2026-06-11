@@ -911,6 +911,166 @@ body:not([data-map-mode="places"]) .review-tools {
   background: linear-gradient(180deg, rgba(26, 26, 26, 0.05), rgba(255, 255, 255, 0) 118px), var(--surface);
 }
 
+/* Warmth pass 1 — event "charcoal feature" (approved mockup A). Events are
+   campaign surfaces: the drawer becomes a dark editorial feature on ink.
+   White knockout title, red weighted kicker for date, photo with full-width
+   ink caption bar, red primary action, muted-outline secondary.
+   Contrast: #fff on #1A1A1A 17.4:1; --line (#D8D0C6) body ~10.9:1 — both AA.
+   Red appears only as the weighted kicker + the primary fill (one red device;
+   structural, never decorative — no red rules or borders here). */
+.detail-card.event-feature-card,
+.selection-drawer .detail-card.event-feature-card {
+  border: 0;
+  background: var(--ink);
+  color: var(--line);
+  padding: 0;
+}
+
+.event-feature-card .selected-place-close {
+  top: 14px;
+  right: 14px;
+  border-color: var(--ink-soft);
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.event-feature-card .selected-place-close:hover,
+.event-feature-card .selected-place-close:focus-visible {
+  background: var(--paper);
+  border-color: var(--paper);
+  color: var(--ink);
+}
+
+.event-feature-photo {
+  position: relative;
+  margin: 0;
+}
+
+.event-feature-photo .place-image {
+  border: 0;
+  aspect-ratio: 16 / 9;
+}
+
+.event-feature-photo figcaption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--caption-scrim);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  padding: 6px 20px;
+}
+
+.event-feature-body {
+  padding: 18px 20px 20px;
+}
+
+.event-feature-kicker {
+  margin: 0 0 6px;
+  color: var(--ncac-red);
+  font-family: var(--font-brand);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+}
+
+.detail-card.event-feature-card h2 {
+  margin: 0 0 10px;
+  padding-right: 52px; /* clear the Close button on photo-less cards */
+  color: #fff;
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1.08;
+}
+
+.event-feature-card .event-feature-photo + .event-feature-body h2 {
+  padding-right: 0;
+}
+
+.event-feature-venue {
+  margin: -4px 0 10px;
+  color: var(--line);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.event-feature-blurb {
+  margin: 0;
+  color: var(--line);
+  font-size: 14px;
+  line-height: 1.5;
+  max-width: 62ch;
+}
+
+.event-feature-actions {
+  margin-top: 16px;
+  gap: 10px;
+}
+
+.event-feature-card .event-feature-actions a {
+  border: 1px solid var(--ncac-red);
+  background: var(--ncac-red);
+  color: #fff;
+  font-size: 13px;
+  padding: 10px 16px 9px;
+}
+
+.event-feature-card .event-feature-actions a:hover,
+.event-feature-card .event-feature-actions a:focus-visible {
+  border-color: var(--paper);
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.event-feature-card .event-feature-actions button {
+  border: 1px solid var(--ink-soft);
+  background: transparent;
+  color: var(--paper);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px 16px 9px;
+}
+
+.event-feature-card .event-feature-actions button:hover,
+.event-feature-card .event-feature-actions button:focus-visible {
+  border-color: var(--paper);
+  background: transparent;
+  color: #fff;
+}
+
+/* "Before or after" stops inside the charcoal feature: same ink surface,
+   hairline separation instead of boxed white cards. */
+.event-feature-card .section-label {
+  color: var(--line);
+}
+
+.event-feature-card .place-nearby {
+  margin-top: 16px;
+  border-top: 1px solid var(--ink-soft);
+  padding-top: 12px;
+}
+
+.event-feature-card .place-nearby-link {
+  border: 1px solid var(--ink-soft);
+  background: transparent;
+  color: var(--paper);
+}
+
+.event-feature-card .place-nearby-link:hover,
+.event-feature-card .place-nearby-link:focus-visible {
+  border-color: var(--paper);
+}
+
+.event-feature-card .place-nearby-link span {
+  color: var(--line);
+}
+
 .detail-card:has(.empty-title) {
   display: none;
 }
