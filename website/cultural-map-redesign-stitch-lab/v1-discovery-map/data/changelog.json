@@ -3,6 +3,12 @@
   "entries": [
     {
       "date": "2026-06-11",
+      "title": "A cleaner reset, and friendlier button hovers",
+      "summary": "Returning to the fresh Places view now truly starts fresh: if you had a place selected, tapping the Places tab or the \"Show tonight's rail\" button clears that selection too — the web address, the highlighted dot on the map, and the open detail card all reset together instead of lingering. The \"Clear filters\" button on the no-results screen now clears your search as well as your filters, so results always come back. Behind the scenes the reset also stopped doing its work twice, so it feels snappier. And hovering over small buttons like \"Surprise me again\" or \"All stories\" no longer flashes hard-to-read white-on-red text — the hover is now a calm, high-contrast flip. The \"first match\" card you see after picking an Outing Type was also restyled to match the regular place cards, photo and all.",
+      "kind": "improvement"
+    },
+    {
+      "date": "2026-06-11",
       "title": "Bringing back the \"tonight\" rail",
       "summary": "The scrolling card rail along the bottom of the map shows what's happening tonight and a few places worth a stop. It only appears on the fresh Places view, so as soon as you searched or picked a filter it would slide away — and there was no obvious way to get it back. Now there is. Whenever a search or filter has hidden the rail, a small \"Show tonight's rail\" button appears in the browse panel; one tap clears your search and filters and the rail returns. And simply tapping the Places tab again — from anywhere — now resets to that fresh starting view too, so the rail always comes back.",
       "kind": "improvement"

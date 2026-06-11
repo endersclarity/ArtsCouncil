@@ -615,14 +615,9 @@
           ${state.activeIntents.size || state.musePicksOnly ? `<button class="filter-chip" type="button" id="clear-place-filters">Clear filters</button>` : ""}
         </div>
       `;
-      els.placesList.querySelector("#clear-place-filters")?.addEventListener("click", () => {
-        state.activeIntents.clear();
-        state.musePicksOnly = false;
-        renderFilters();
-        setSourceData();
-        renderFeaturedAnchor();
-        updateReviewUrl();
-      });
+      // Mode is already places here — delegate to the shared reset so search
+      // and local reveal clear too, exactly like the rail reset chip.
+      els.placesList.querySelector("#clear-place-filters")?.addEventListener("click", resetToBrowseStartingView);
       return;
     }
     const shown = places.slice(0, limit);
@@ -1538,23 +1533,34 @@
     const places = filteredPlaces();
     const place = places[0];
     const filterLabel = [...state.activeIntents].sort().join(", ");
-    setDetailCardMode("");
     if (!place) {
+      setDetailCardMode("");
       els.hint.innerHTML = `<p class="hint-title">No places match this Outing Type</p><p>Try another broad outing lane to bring places back onto the map.</p>`;
       els.detail.innerHTML = `<p class="empty-title">No matching places</p><p class="empty-copy">The active filter does not currently match any mapped places.</p>`;
       return;
     }
     els.hint.innerHTML = `<p class="hint-title">Outing Type selected</p><p>${escapeHtml(places.length)} places match ${escapeHtml(filterLabel)}.</p>`;
+    // The first match rides the same place-feature card language showPlace
+    // uses (photo + caption, meta column, title block) — no orphaned
+    // anchor-card markup.
+    setDetailCardMode("place");
     els.detail.innerHTML = `
       <button class="selected-place-close" type="button" aria-label="Close selected place">Close</button>
-      ${renderImage(place)}
-      <div class="anchor-card-heading">
-        <p class="detail-eyebrow">First match</p>
-        <h2>${escapeHtml(place.name)}</h2>
-        <p class="detail-location">${escapeHtml(place.category)} / ${escapeHtml(place.city || "Nevada County")}</p>
+      ${renderImage(place, { caption: [place.name, place.city].filter(Boolean).join(", ") })}
+      <div class="place-feature-body">
+        <p class="place-feature-flag">First match</p>
+        <div class="place-feature-head">
+          <div class="place-meta-block">
+            <span class="place-meta-primary">${escapeHtml(place.category || "Cultural place")}</span>
+            <span class="place-meta-secondary">${escapeHtml(place.city || "Nevada County")}</span>
+          </div>
+          <div class="place-feature-title">
+            <h2>${escapeHtml(place.name)}</h2>
+          </div>
+        </div>
+        <p class="detail-description">Select a point or choose another Outing Type to refine the map.</p>
+        <div class="detail-actions"><button type="button" class="anchor-map-action">View on map</button></div>
       </div>
-      <p class="empty-copy">Select a point or choose another Outing Type to refine the map.</p>
-      <div class="detail-actions"><button type="button" class="anchor-map-action">View on map</button></div>
     `;
     els.detail.querySelector(".anchor-map-action")?.addEventListener("click", () => showPlace(place));
     els.detail.querySelector(".selected-place-close")?.addEventListener("click", closeSelectionDrawer);
@@ -2072,19 +2078,48 @@
     return state.mode === "places" && isBrowseStartingView() && !state.localReveal;
   }
 
-  // Single source of truth for "return to the pristine Places starting view":
-  // clears every refinement that suppresses the rail (search, Outing Type chips,
-  // MUSE Picks, local reveal) and re-syncs the search input + chip UI to match,
-  // then re-renders so the rail comes back. Used by Places-tab re-entry and the
-  // visible "Show tonight's rail" reset chip. Camera/zoom untouched.
-  function resetToBrowseStartingView() {
+  // The pristine Places starting view: nothing searched, filtered, revealed,
+  // selected, or surprise-ringed — the state the rail expects.
+  function isPristineBrowseStartingView() {
+    return isBrowseStartingView()
+      && !state.localReveal
+      && !state.selectedPlaceId
+      && !state.surprisePlaceIds.length;
+  }
+
+  // State half of the reset: clears every refinement that suppresses the rail
+  // (search, Outing Type chips, MUSE Picks, local reveal) plus any lingering
+  // selection or surprise/story rings, re-syncs the search input, and closes
+  // the selection drawer the same way setMode does — the pristine view never
+  // shows a selection. No re-renders here, so callers that immediately run
+  // setMode (the mode tabs) get exactly one render pipeline.
+  function clearBrowseRefinements() {
     state.searchQuery = "";
     state.activeIntents.clear();
     state.musePicksOnly = false;
     state.localReveal = null;
     state.localRevealPreviousContext = null;
+    state.selectedPlaceId = "";
+    state.surprisePlaceIds = [];
     if (els.search) els.search.value = "";
     state.filterListOpen = true;
+    els.selectionDrawer?.classList.remove("open");
+  }
+
+  // Single source of truth for "return to the pristine Places starting view":
+  // clears state via clearBrowseRefinements, then re-renders so the rail comes
+  // back (markers, labels, list, detail card, and URL all reflect the pristine
+  // view). Used by the visible "Show tonight's rail" reset chip and the
+  // empty-state "Clear filters" button. Camera/zoom untouched.
+  function resetToBrowseStartingView() {
+    if (isPristineBrowseStartingView()) {
+      // Nothing to clear — skip the re-renders, just keep the rail chrome
+      // (body class + reset chip visibility) honest.
+      els.selectionDrawer?.classList.remove("open");
+      syncBrowseChrome();
+      return;
+    }
+    clearBrowseRefinements();
     renderFilters();
     setSourceData();
     renderFeaturedAnchor();
@@ -2788,10 +2823,19 @@
     document.querySelectorAll(".mode-tab").forEach((tab) => {
       tab.addEventListener("click", () => {
         const mode = tab.dataset.mode;
+        // Re-entering Places — whether refined-in-place or arriving from
+        // another mode — resets to the pristine starting view so the rail
+        // returns. Refinements are cleared *before* the single setMode call so
+        // the render pipeline (filters, anchor, source data, URL) runs exactly
+        // once per click; an already-pristine Places click is a no-op.
+        if (mode === "places") {
+          if (state.mode === "places" && isPristineBrowseStartingView()) {
+            syncBrowseChrome();
+            return;
+          }
+          clearBrowseRefinements();
+        }
         setMode(mode);
-        // Re-entering Places — whether refined-in-place or arriving from another
-        // mode — resets to the pristine starting view so the rail returns.
-        if (mode === "places") resetToBrowseStartingView();
       });
     });
 

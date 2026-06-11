@@ -1088,14 +1088,17 @@ body:not([data-map-mode="places"]) .review-tools {
   background: transparent;
 }
 
-/* Actions inline: red primary (white knockout), hairline outline secondary. */
+/* Shared feature-action recipe — the ONE place the red primary lives for both
+   detail cards (place + event). Red fill at 19px/800 = WCAG large text, so
+   white-on-red (3.72:1) clears AA-large; knockout-on-red stays display-size
+   only, per the brand rule. Secondary actions are quiet hairline outlines.
+   Per-card hover/colour differences are small overrides further down. */
 .place-feature-card .detail-actions a,
-.place-feature-card .detail-actions .anchor-map-action {
+.place-feature-card .detail-actions .anchor-map-action,
+.event-feature-card .event-feature-actions a {
   border: 1px solid var(--ncac-red);
   background: var(--ncac-red);
   color: #fff;
-  /* 19px/800 = WCAG large text, so white-on-red (3.72:1) clears AA-large.
-     Knockout-on-red stays display-size only, per the brand rule. */
   font-size: 19px;
   line-height: 1.1;
   font-weight: 800;
@@ -1111,7 +1114,8 @@ body:not([data-map-mode="places"]) .review-tools {
   color: #fff;
 }
 
-.place-feature-card .detail-actions button:not(.anchor-map-action) {
+.place-feature-card .detail-actions button:not(.anchor-map-action),
+.event-feature-card .event-feature-actions button {
   border: 1px solid var(--line);
   background: transparent;
   color: var(--ink);
@@ -1255,17 +1259,8 @@ body:not([data-map-mode="places"]) .review-tools {
   gap: 10px;
 }
 
-.event-feature-card .event-feature-actions a {
-  border: 1px solid var(--ncac-red);
-  background: var(--ncac-red);
-  color: #fff;
-  /* 19px/800 = WCAG large text, so white-on-red (3.72:1) clears AA-large. */
-  font-size: 19px;
-  line-height: 1.1;
-  font-weight: 800;
-  padding: 9px 16px 8px;
-}
-
+/* On-ink overrides to the shared feature-action recipe above: the dark card
+   hovers flip to paper, and the secondary outline reads in paper, not ink. */
 .event-feature-card .event-feature-actions a:hover,
 .event-feature-card .event-feature-actions a:focus-visible {
   border-color: var(--paper);
@@ -1274,18 +1269,14 @@ body:not([data-map-mode="places"]) .review-tools {
 }
 
 .event-feature-card .event-feature-actions button {
-  border: 1px solid var(--ink-soft);
-  background: transparent;
+  border-color: var(--ink-soft);
   color: var(--paper);
-  font-size: 13px;
-  font-weight: 600;
   padding: 10px 16px 9px;
 }
 
 .event-feature-card .event-feature-actions button:hover,
 .event-feature-card .event-feature-actions button:focus-visible {
   border-color: var(--paper);
-  background: transparent;
   color: #fff;
 }
 
@@ -1693,11 +1684,15 @@ body:not([data-map-mode="places"]) .review-tools {
   cursor: pointer;
 }
 
+/* Hover inverts the ink fill to paper — never red. White-on-red below the
+   19px/800 large-text recipe fails AA, and these base actions are 12px
+   (surprise-reroll, story-back, the plain anchor-map-action, small links).
+   The feature cards layer their own AA-safe hovers on top. */
 .detail-actions a:hover,
 .detail-actions button:hover,
 .small-link:hover {
-  background: var(--ncac-red);
-  color: var(--field);
+  background: var(--paper);
+  color: var(--ink);
 }
 
 .related-events {
