@@ -3,6 +3,12 @@
   "entries": [
     {
       "date": "2026-06-11",
+      "title": "Smoother Discovery Rail scrolling",
+      "summary": "Fixed two small hiccups in the new card rail at the bottom of the map: tapping a card that was already in front of you no longer makes the map ignore your next scroll, and switching between the rail's filter chips (All, Events, Places...) while scrolled partway along no longer nudges the map unexpectedly.",
+      "kind": "fix"
+    },
+    {
+      "date": "2026-06-11",
       "title": "New: browse the map through the MUSE business directory",
       "summary": "In Places mode there is now a MUSE Picks only switch - tap it and the map shows just the places listed in MUSE Magazine's business directory, and it combines with the outing-type filters you already use. Each of those places now carries a badge on its card saying which issue's directory it appears in (for example, Listed in the MUSE 2026 directory), shows the directory's own label for the business (like Coffee / Roastery), and the badge links straight to that listing's page in the published MUSE e-magazine.",
       "kind": "feature"

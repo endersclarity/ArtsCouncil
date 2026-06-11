@@ -2002,7 +2002,10 @@
   function syncBrowseChrome() {
     const visible = railVisible();
     document.body.classList.toggle("rail-browse", visible);
-    if (!visible) setRailFocus("");
+    if (!visible) {
+      setRailFocus("");
+      state.railLastFollowIndex = -1;
+    }
   }
 
   function setRailFocus(placeId) {
@@ -2055,10 +2058,19 @@
   function activateRailCard(index, cardEl) {
     const item = state.railItems[index];
     if (!item) return;
-    state.railSuppressFollow = true;
     state.railLastFollowIndex = index;
     markActiveRailCard(cardEl);
-    cardEl?.scrollIntoView({ inline: "center", block: "nearest", behavior: prefersReducedMotion() ? "auto" : "smooth" });
+    if (cardEl && els.railTrack) {
+      // Suppress only when centering will actually scroll; an already-centered
+      // card fires no scroll event, and a stale flag would eat the next settle.
+      const track = els.railTrack;
+      const target = Math.max(0, Math.min(
+        cardEl.offsetLeft + cardEl.offsetWidth / 2 - track.clientWidth / 2,
+        track.scrollWidth - track.clientWidth
+      ));
+      if (Math.abs(target - track.scrollLeft) > 1) state.railSuppressFollow = true;
+      cardEl.scrollIntoView({ inline: "center", block: "nearest", behavior: prefersReducedMotion() ? "auto" : "smooth" });
+    }
     if (item.type === "place") {
       showPlace(item.place);
     } else if (item.type === "event") {
@@ -2085,6 +2097,11 @@
     const visibleItems = state.railItems
       .map((item, index) => ({ item, index }))
       .filter(({ item }) => filter === "all" || item.type === filter);
+    if (els.railTrack.scrollLeft !== 0) {
+      // Rebuilding the track resets scroll and fires a settle; that move is
+      // ours, not the user's. Flag it before the innerHTML swap clamps scroll.
+      state.railSuppressFollow = true;
+    }
     if (!visibleItems.length) {
       // Empty Events State pattern: invite a return, never expose machinery.
       const copy = filter === "event"
@@ -2094,11 +2111,7 @@
     } else {
       els.railTrack.innerHTML = visibleItems.map(({ item, index }) => railCardHtml(item, index)).join("");
     }
-    if (els.railTrack.scrollLeft !== 0) {
-      // Resetting scroll fires a settle; that move is ours, not the user's.
-      state.railSuppressFollow = true;
-      els.railTrack.scrollLeft = 0;
-    }
+    els.railTrack.scrollLeft = 0;
     state.railLastFollowIndex = -1;
     els.railTrack.querySelectorAll("[data-rail-index]").forEach((card) => {
       card.addEventListener("click", () => activateRailCard(Number(card.dataset.railIndex), card));

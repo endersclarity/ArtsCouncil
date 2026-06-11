@@ -527,7 +527,7 @@ function main() {
   lines.push(`### 3a. Found only in older issues (${absentButOlder.length}) — badge will say the honest year`);
   lines.push("");
   for (const p of absentButOlder) {
-    const yrs = [...new Set(matches.filter((m) => m.place.id === p.id).map((m) => m.listing.issue))].sort();
+    const yrs = [...new Set(matches.filter((m) => m.place.id === p.id).map((m) => m.listing.issue))].sort((a, b) => a - b);
     lines.push(`- ${p.name} (${p.id}, ${p.city || "no city"}) — issues: ${yrs.join(", ")}`);
   }
   lines.push("");
@@ -544,7 +544,7 @@ function main() {
   lines.push("## 4. Matched but not currently flagged (candidate flag adds — owner sign-off required)");
   lines.push("");
   for (const e of matchedButUnflagged) {
-    const yrs = [...new Set(e.listings.map((l) => l.issue))].sort();
+    const yrs = [...new Set(e.listings.map((l) => l.issue))].sort((a, b) => a - b);
     const weak = e.methods.every((m) => m === "name-only") ? " ⚠ name-only match" : "";
     lines.push(`- ${e.place.name} (${e.place.id}, category ${e.place.category}) — in MUSE ${yrs.join(", ")}${weak}`);
   }

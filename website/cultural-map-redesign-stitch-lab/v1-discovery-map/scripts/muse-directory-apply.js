@@ -62,7 +62,7 @@ for (const p of places) {
   if (p.musePick && ms && ms.length) {
     const sorted = [...ms].sort((a, b) => b.issue - a.issue);
     const latest = sorted.find((m) => m.museCategory) || sorted[0];
-    const issues = [...new Set(ms.map((m) => m.issue))].sort();
+    const issues = [...new Set(ms.map((m) => m.issue))].sort((a, b) => a - b);
     if (latest.museCategory) p.museCategory = latest.museCategory;
     p.museIssues = issues;
     p.musePage = sorted[0].page;
