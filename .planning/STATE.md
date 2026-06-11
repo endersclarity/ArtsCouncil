@@ -9,6 +9,45 @@ See: .planning/PROJECT.md (updated 2026-02-14)
 
 ## Current Position
 
+## Sandbox: MUSE business directory layer (Stream 2) — DONE 2026-06-11 (branch sandbox/rail-and-muse, NOT pushed, never push)
+
+Built per .planning/muse-directory-layer-PRD-2026-06-10.md, three commits on top of Stream 1:
+
+1. **Reconciliation pass (8a8e43c, data-only).** scripts/muse-directory-parse.js parses the
+   MUSE Business Directory OCR (2024 pp.66–71, 2025 pp.96–105, 2026 pp.95–105) into 1,003
+   structured listings (column-aware state-machine parser — the OCR interleaves columns, so
+   blank lines are NOT listing separators after column slicing). Matching: website domain
+   first, then name+city, then name-only, with a token-overlap tie-break for shared domains.
+   Results: 817 listings matched (453 distinct places; 2026 alone parsed 445 listings vs the
+   magazine's "more than 450"), 48 ambiguous, 138 unmatched. Review doc
+   scripts/muse-directory-reconcile.md: 41 matched-but-unflagged candidates, 54 flagged
+   places never matched in any issue, 96 flagged places absent from the 2026 parse,
+   full re-home plan for the 186. **OWNER SIGN-OFF GATE: review this doc before merging
+   the next commit.**
+2. **Staged data commit (1a88076, clearly named "STAGED PENDING OWNER SIGN-OFF", droppable).**
+   scripts/muse-directory-apply.js enriches the 412 matched flagged places with museCategory
+   (directory's own label, latest issue), museIssues (years list), musePage (print page,
+   latest issue); re-homes the 186 "MUSE Picks"-category places (Shops & Makers 114,
+   Eat Drink & Stay 56, Galleries & Studios 16); retires the "MUSE Picks" category from the
+   renderers (placeholder map, Art outing type, marker color group). musePick flags
+   untouched (466 before and after); marker visibility asserted unchanged
+   (175 candidate-rendered / 10 directory-only-hidden / 1 map-ready). Also fixes the
+   Discovery Rail's "MUSE Picks" kickers (cards now show real categories).
+3. **UI (005dd8f).** "MUSE Picks only" chip in Places mode (open outing list + compact
+   active bar), AND-composed with outing-type filters; card badge "Listed in the MUSE
+   {year} directory" (honest latest year from museIssues) with museCategory ride-along;
+   badge deep-links to the Heyzine flip-book page via museDirectoryUrl() (same #page/N
+   mechanism as Story Lens; per-issue offset seam = 0 for all three issues, same one-page
+   drift caveat). Cache-bust cla-55-muse-chip-badge.
+
+Verified at http://127.0.0.1:8014 (agent-browser session "sandbox"): zero console errors;
+marker-hierarchy contract allPass; chip 1351→466 places, +Local Shops AND→337; badge link
+https://heyzine.com/flip-book/MUSE26#page/101 on a re-homed Shops & Makers place.
+
+Both streams are now done — sandbox effort complete. Owner reviews 8014 vs main 8013,
+signs off scripts/muse-directory-reconcile.md (or drops commit 1a88076+005dd8f), and
+decides on merge. Do not push.
+
 ## Sandbox: Discovery Rail (Stream 1) — DONE 2026-06-10 (branch sandbox/rail-and-muse, NOT pushed, never push)
 
 Built in the sandbox worktree per handoff-sandbox-rail-and-muse-2026-06-10.md. ADR 0002
