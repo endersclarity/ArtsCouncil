@@ -2,6 +2,12 @@
   "_readme": "Site changelog, rendered by changelog.html. Newest entry FIRST. Every meaningful commit to v1-discovery-map gets an entry (the pre-commit hook enforces this). Write 'summary' in plain language for the Arts Council — what changed for a visitor, not implementation detail. 'commit' is the short hash; the page links it to GitHub.",
   "entries": [
     {
+      "date": "2026-06-10",
+      "title": "Warmer, truer brand colors",
+      "summary": "Updated the site's base colors to match the official Nevada County Arts & Culture brand guide: the background is now the brand's warm cream instead of a plain off-white, and text, dividers, and shadows use the guide's exact charcoal and warm-gray tones. Nothing moved -- the whole map just looks a touch warmer and more on-brand.",
+      "kind": "improvement"
+    },
+    {
       "date": "2026-06-11",
       "title": "Smoother Discovery Rail scrolling",
       "summary": "Fixed two small hiccups in the new card rail at the bottom of the map: tapping a card that was already in front of you no longer makes the map ignore your next scroll, and switching between the rail's filter chips (All, Events, Places...) while scrolled partway along no longer nudges the map unexpectedly.",
