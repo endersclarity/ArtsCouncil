@@ -3,6 +3,12 @@
   "entries": [
     {
       "date": "2026-06-11",
+      "title": "Small fixes: keyboard browsing, quieter details",
+      "summary": "A round of small finishing touches. You can now browse the card rail at the bottom of the map with the left and right arrow keys, not just by swiping or dragging. The detail panel’s scrollbar now matches the rest of the page instead of the chunky default one. In the map key, the Events swatch is now a small red diamond — the same shape events have on the map — so the difference no longer relies on color alone. And one place description that was written entirely in capital letters (Zumo Wine) has been retyped in normal sentence case so it no longer reads as shouting.",
+      "kind": "improvement"
+    },
+    {
+      "date": "2026-06-11",
       "title": "The map itself joins the warm-up",
       "summary": "Until now the street map underneath everything still looked like a stock online map — grey roads, bright green parks, blue water. The map now wears the same warm palette as the rest of the page: the ground is soft cream, parks and woods are a gentle sage, water is a single calm slate, and roads are quiet warm tones that still show which streets matter. Street names are softer so the places and events we add stay the loudest thing on the map, and footpath names and one-way arrows no longer clutter the view. The small name tags on the map match the new card look, and the little preview card now fades in gently when you hover over a dot.",
       "kind": "improvement"

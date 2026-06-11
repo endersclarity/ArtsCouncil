@@ -2196,6 +2196,25 @@
     if (!els.rail || !els.railTrack) return;
     state.railItems = buildRailItems();
     renderDiscoveryRail();
+    // Keyboard path (P2 carry-along): Left/Right arrows walk the rail without
+    // leaving the keyboard. Focus moves to the card button itself, so the
+    // existing focus ring shows and the card's aria-label is announced for
+    // free; Enter/Space then activates it like a click. Tab order untouched.
+    els.railTrack.addEventListener("keydown", (event) => {
+      if (event.key !== "ArrowRight" && event.key !== "ArrowLeft") return;
+      const cards = Array.from(els.railTrack.querySelectorAll(".rail-card"));
+      if (!cards.length) return;
+      event.preventDefault();
+      const current = cards.indexOf(document.activeElement);
+      const next = current === -1
+        ? (event.key === "ArrowRight" ? 0 : cards.length - 1)
+        : Math.max(0, Math.min(cards.length - 1, current + (event.key === "ArrowRight" ? 1 : -1)));
+      const card = cards[next];
+      card.focus({ preventScroll: true });
+      // Centering scrolls the track; the existing settle handler then runs the
+      // Rail Follow (active card + map ease) exactly as it does for touch.
+      card.scrollIntoView({ inline: "center", block: "nearest", behavior: prefersReducedMotion() ? "auto" : "smooth" });
+    });
     let settleTimer;
     els.railTrack.addEventListener("scroll", () => {
       clearTimeout(settleTimer);

@@ -293,12 +293,28 @@ button {
   max-height: calc(100% - 36px);
   overflow: auto;
   overscroll-behavior: contain;
+  /* Same quiet in-system scrollbar as the control panel — the raw OS bar was
+     the last piece of stock chrome on the drawer. */
+  scrollbar-width: thin;
+  scrollbar-color: var(--line) transparent;
   opacity: 0;
   pointer-events: none;
   transform: translateX(18px);
   /* Closed state carries the exit duration (fast); .open overrides with the
      entrance duration (base) — exits faster than entrances. */
   transition: opacity var(--motion-fast) var(--ease-out), transform var(--motion-fast) var(--ease-out);
+}
+
+.selection-drawer::-webkit-scrollbar {
+  width: 8px;
+}
+
+.selection-drawer::-webkit-scrollbar-thumb {
+  background: var(--line);
+}
+
+.selection-drawer::-webkit-scrollbar-track {
+  background: transparent;
 }
 
 .selection-drawer.open {
@@ -2146,6 +2162,10 @@ button.event-mini:hover {
 
 .legend-dot.event {
   background: var(--ncac-red);
+  /* Mirror the marker shapes: events render as red diamonds on the map, so
+     the legend swatch is a diamond too — color is no longer the only signal. */
+  border-radius: 0;
+  transform: rotate(45deg) scale(0.86);
 }
 
 .legend-line {
