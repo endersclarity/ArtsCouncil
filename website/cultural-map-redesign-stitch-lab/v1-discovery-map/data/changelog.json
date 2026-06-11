@@ -3,6 +3,12 @@
   "entries": [
     {
       "date": "2026-06-11",
+      "title": "Easier-to-read buttons and better-behaved photos",
+      "summary": "Three small repairs from the final review. The red \"Event details\" and \"View on map\" buttons on the detail cards now use larger, bolder lettering — at the old small size, white text on the brand red was hard to read for people with low vision; the new size meets the accessibility contrast standard. Photos on detail cards now always crop neatly to the same wide frame — the stand-in artwork used when a place has no photo was spilling out of its box. And if a place's photo ever fails to load, the card now quietly shows the labeled stand-in artwork instead of a broken-image icon.",
+      "kind": "fix"
+    },
+    {
+      "date": "2026-06-11",
       "title": "Small fixes: keyboard browsing, quieter details",
       "summary": "A round of small finishing touches. You can now browse the card rail at the bottom of the map with the left and right arrow keys, not just by swiping or dragging. The detail panel’s scrollbar now matches the rest of the page instead of the chunky default one. In the map key, the Events swatch is now a small red diamond — the same shape events have on the map — so the difference no longer relies on color alone. And one place description that was written entirely in capital letters (Zumo Wine) has been retyped in normal sentence case so it no longer reads as shouting.",
       "kind": "improvement"

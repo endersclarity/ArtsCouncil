@@ -1055,9 +1055,12 @@ body:not([data-map-mode="places"]) .review-tools {
   border: 1px solid var(--ncac-red);
   background: var(--ncac-red);
   color: #fff;
-  font-size: 13px;
+  /* 19px/800 = WCAG large text, so white-on-red (3.72:1) clears AA-large.
+     Knockout-on-red stays display-size only, per the brand rule. */
+  font-size: 19px;
+  line-height: 1.1;
   font-weight: 800;
-  padding: 9px 15px;
+  padding: 8px 16px;
 }
 
 .place-feature-card .detail-actions a:hover,
@@ -1217,8 +1220,11 @@ body:not([data-map-mode="places"]) .review-tools {
   border: 1px solid var(--ncac-red);
   background: var(--ncac-red);
   color: #fff;
-  font-size: 13px;
-  padding: 10px 16px 9px;
+  /* 19px/800 = WCAG large text, so white-on-red (3.72:1) clears AA-large. */
+  font-size: 19px;
+  line-height: 1.1;
+  font-weight: 800;
+  padding: 9px 16px 8px;
 }
 
 .event-feature-card .event-feature-actions a:hover,
@@ -1301,6 +1307,10 @@ body:not([data-map-mode="places"]) .review-tools {
 .place-image {
   position: relative;
   width: 100%;
+  /* height:auto lets aspect-ratio win over the HTML height="360" attribute;
+     without it every card image renders 360px tall and placeholders spill
+     out of the 16:9 frame. */
+  height: auto;
   aspect-ratio: 16 / 9;
   object-fit: cover;
   display: block;

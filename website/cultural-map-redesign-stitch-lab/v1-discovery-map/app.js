@@ -1152,7 +1152,7 @@
       return `
         <figure class="place-image-frame">
           ${proofLabel}
-          <img class="place-image" src="${escapeHtml(resolved.src)}" alt="${escapeHtml(resolved.alt || place.name)}" width="640" height="360" loading="lazy" decoding="async">
+          <img class="place-image" src="${escapeHtml(resolved.src)}" alt="${escapeHtml(resolved.alt || place.name)}" width="640" height="360" loading="lazy" decoding="async" data-fallback="${escapeHtml(categoryPlaceholderFor(place.category) || "assets/placeholders/gallery-studio.webp")}" onerror="this.onerror=null;this.src=this.dataset.fallback;this.classList.add('placeholder-image');var f=this.closest('figure');if(f&&!f.querySelector('.placeholder-label')){var s=document.createElement('span');s.className='placeholder-label';s.textContent='Photo not yet sourced';f.appendChild(s);}">
           ${caption}
         </figure>
       `;
@@ -1578,7 +1578,7 @@
     const hintImage = resolvePlaceImage(place).src || categoryPlaceholderFor(place.category);
     els.hint.innerHTML = `
       <div class="hint-feature">
-        ${hintImage ? `<img class="hint-feature-img" src="${escapeHtml(hintImage)}" alt="${escapeHtml(place.name)}" loading="lazy">` : ""}
+        ${hintImage ? `<img class="hint-feature-img" src="${escapeHtml(hintImage)}" alt="${escapeHtml(place.name)}" loading="lazy" onerror="this.onerror=null;this.remove();">` : ""}
         <div class="hint-feature-copy">
           <p class="hint-title">Start here</p>
           <p class="hint-feature-name">${escapeHtml(place.name)}</p>
@@ -1755,7 +1755,7 @@
       <button class="selected-place-close" type="button" aria-label="Close selected event">Close</button>
       ${event.image ? `
         <figure class="event-feature-photo">
-          <img class="place-image" src="${escapeHtml(event.image)}" alt="${escapeHtml(event.title)}" width="640" height="360" loading="lazy" decoding="async">
+          <img class="place-image" src="${escapeHtml(event.image)}" alt="${escapeHtml(event.title)}" width="640" height="360" loading="lazy" decoding="async" onerror="this.onerror=null;var f=this.closest('figure');if(f)f.remove();">
           ${venueLine ? `<figcaption>${escapeHtml(venueLine)}</figcaption>` : ""}
         </figure>` : ""}
       <div class="event-feature-body">
@@ -2054,7 +2054,7 @@
     const metaLine = `${item.when ? `<strong class="rail-card-when${item.when === "Tonight" ? " is-tonight" : ""}">${escapeHtml(item.when)}</strong> · ` : ""}${escapeHtml(item.meta)}`;
     return `
       <button class="rail-card rail-card-${escapeHtml(item.type)}${railPosterClass(item, index)}" type="button" data-rail-index="${index}" aria-label="${escapeHtml(accessibleName)}">
-        ${item.image ? `<img class="rail-card-img" src="${escapeHtml(item.image)}" alt="" loading="lazy" decoding="async">` : ""}
+        ${item.image ? `<img class="rail-card-img" src="${escapeHtml(item.image)}" alt="" loading="lazy" decoding="async" onerror="this.onerror=null;this.remove();">` : ""}
         <span class="rail-card-body">
           ${item.kicker ? `<span class="rail-card-kicker">${escapeHtml(item.kicker)}</span>` : ""}
           <span class="rail-card-title">${escapeHtml(item.title)}</span>
