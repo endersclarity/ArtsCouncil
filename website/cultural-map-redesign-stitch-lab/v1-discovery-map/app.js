@@ -1118,8 +1118,7 @@
   }
 
   function setDetailCardMode(mode) {
-    els.detail.classList.toggle("primary-anchor-card", mode === "primary-anchor");
-    els.detail.classList.toggle("supporting-stop-card", mode === "supporting-stop");
+    els.detail.classList.toggle("place-feature-card", mode === "place");
     els.detail.classList.toggle("path-detail-card", mode === "path");
     els.detail.classList.toggle("event-feature-card", mode === "event");
   }
@@ -1137,11 +1136,17 @@
     const proofLabel = imageLabel ? `<span class="image-proof-label">${escapeHtml(imageLabel)}</span>` : "";
     const resolved = resolvePlaceImage(place);
     if (resolved.isRealImage) {
+      // Warmth-pass 2 (mockup B): when a caption is supplied the photo carries
+      // a full-width ink caption bar (name/city), with the credit tucked in
+      // small; otherwise the old corner credit chip renders.
+      const caption = options.caption
+        ? `<figcaption class="place-photo-caption"><span>${escapeHtml(options.caption)}</span>${resolved.credit ? `<small>${escapeHtml(resolved.credit)}</small>` : ""}</figcaption>`
+        : resolved.credit ? `<figcaption>${escapeHtml(resolved.credit)}</figcaption>` : "";
       return `
         <figure class="place-image-frame">
           ${proofLabel}
           <img class="place-image" src="${escapeHtml(resolved.src)}" alt="${escapeHtml(resolved.alt || place.name)}" width="640" height="360" loading="lazy" decoding="async">
-          ${resolved.credit ? `<figcaption>${escapeHtml(resolved.credit)}</figcaption>` : ""}
+          ${caption}
         </figure>
       `;
     }
@@ -1559,7 +1564,7 @@
       els.detail.innerHTML = `<p class="empty-title">Select a place</p><p class="empty-copy">Pick a place to see what makes it worth a visit.</p>`;
       return;
     }
-    setDetailCardMode("primary-anchor");
+    setDetailCardMode("place");
     // Flow-upgrade Stage 2 ("First 30 Seconds" board): the panel opens with a
     // visual host card for the top anchor — photo, its hook, and a direct way
     // in — instead of a text-only hint.
@@ -1577,16 +1582,23 @@
     els.hint.querySelector(".hint-feature-action")?.addEventListener("click", () => showPlace(place));
     els.detail.innerHTML = `
       <button class="selected-place-close" type="button" aria-label="Close selected place">Close</button>
-      ${renderImage(place)}
-      <div class="anchor-card-heading">
-        <p class="detail-eyebrow">Start here</p>
-        ${anchorBadge(place)}
-        <h2>${escapeHtml(place.name)}</h2>
-        <p class="detail-location">${escapeHtml(place.category)} / ${escapeHtml(place.city || "Nevada County")}</p>
+      ${renderImage(place, { caption: [place.name, place.city].filter(Boolean).join(", ") })}
+      <div class="place-feature-body">
+        <p class="place-feature-flag">Start here</p>
+        <div class="place-feature-head">
+          <div class="place-meta-block">
+            <span class="place-meta-primary">${escapeHtml(place.category || "Cultural place")}</span>
+            <span class="place-meta-secondary">${escapeHtml(place.city || "Nevada County")}</span>
+          </div>
+          <div class="place-feature-title">
+            ${anchorBadge(place)}
+            <h2>${escapeHtml(place.name)}</h2>
+            ${place.anchorCard ? `<p class="anchor-hook">${escapeHtml(place.anchorCard.hook)}</p>` : ""}
+          </div>
+        </div>
+        ${anchorCardMeta(place)}
+        <div class="detail-actions"><button type="button" class="anchor-map-action">View on map</button></div>
       </div>
-      ${place.anchorCard ? `<p class="anchor-hook">${escapeHtml(place.anchorCard.hook)}</p>` : ""}
-      ${anchorCardMeta(place)}
-      <div class="detail-actions"><button type="button" class="anchor-map-action">View on map</button></div>
     `;
     els.detail.querySelector(".anchor-map-action")?.addEventListener("click", () => showPlace(place));
     els.detail.querySelector(".selected-place-close")?.addEventListener("click", closeSelectionDrawer);
@@ -1604,7 +1616,10 @@
     const action = place.website && place.websiteStatus !== "dead" ? `<a href="${escapeHtml(place.website)}" target="_blank" rel="noopener">${escapeHtml(actionLabel)}</a>` : "";
     const isPrimaryAnchor = Boolean(anchor && place.anchorCard);
     const isSupportingStop = Boolean(!anchor && place.anchorCard);
-    setDetailCardMode(isPrimaryAnchor ? "primary-anchor" : isSupportingStop ? "supporting-stop" : "");
+    // Warmth-pass 2 ("warm magazine page", mockup B): every place — anchor or
+    // not — gets the same calm paper feature card. The old primary-anchor /
+    // supporting-stop card chrome (red top borders, gradients) is retired.
+    setDetailCardMode("place");
     const imageLabel = isSupportingStop && place.image?.status === "candidate"
       ? "Candidate image"
       : isSupportingStop && (!place.image?.src || place.image?.status === "missing")
@@ -1645,28 +1660,34 @@
     const provenance = place.descriptionSource?.kind === "venue-website"
       ? `<p class="description-provenance">In their own words — from <a href="${escapeHtml(place.descriptionSource.url)}" target="_blank" rel="noopener">their website</a></p>`
       : "";
+    const hook = place.anchorCard?.hook || anchor?.hook || "";
     els.detail.innerHTML = `
       <button class="selected-place-close" type="button" aria-label="Close selected place">Close</button>
-      ${renderImage(place, imageLabel ? { imageLabel } : {})}
-      <p class="section-label">Place details</p>
-      <div class="${isPrimaryAnchor ? "anchor-card-heading" : "detail-heading"}">
-        <p class="detail-eyebrow">${escapeHtml(place.category || "Cultural place")}</p>
-        ${anchorBadge(place)}
-        <h2>${escapeHtml(place.name)}</h2>
-        <p class="detail-location">${escapeHtml(place.category)} / ${escapeHtml(place.city || "Nevada County")}</p>
+      ${renderImage(place, { caption: [place.name, place.city].filter(Boolean).join(", "), ...(imageLabel ? { imageLabel } : {}) })}
+      <div class="place-feature-body">
+        <div class="place-feature-head">
+          <div class="place-meta-block">
+            <span class="place-meta-primary">${escapeHtml(place.category || "Cultural place")}</span>
+            <span class="place-meta-secondary">${escapeHtml(place.city || "Nevada County")}</span>
+          </div>
+          <div class="place-feature-title">
+            ${anchorBadge(place)}
+            <h2>${escapeHtml(place.name)}</h2>
+            ${hook ? `<p class="anchor-hook">${escapeHtml(hook)}</p>` : ""}
+          </div>
+        </div>
+        ${renderLocationCaveat(place)}
+        ${anchorCardMeta(place)}
+        <p class="detail-description">${escapeHtml(place.anchorCard?.supportingDescription || place.description)}</p>
+        ${provenance}
+        ${museDirectoryBadge(place)}
+        ${directoryRecordMeta(place)}
+        ${action ? `<div class="detail-actions">${action}</div>` : ""}
+        ${eventHtml}
+        ${renderSeenInMuse(place)}
+        ${pathHtml}
+        ${nearbyHtml}
       </div>
-      ${place.anchorCard ? `<p class="anchor-hook">${escapeHtml(place.anchorCard.hook)}</p>` : anchor ? `<p class="anchor-hook">${escapeHtml(anchor.hook)}</p>` : ""}
-      ${renderLocationCaveat(place)}
-      ${anchorCardMeta(place)}
-      <p class="detail-description">${escapeHtml(place.anchorCard?.supportingDescription || place.description)}</p>
-      ${provenance}
-      ${museDirectoryBadge(place)}
-      ${directoryRecordMeta(place)}
-      ${action ? `<div class="detail-actions">${action}</div>` : ""}
-      ${eventHtml}
-      ${renderSeenInMuse(place)}
-      ${pathHtml}
-      ${nearbyHtml}
     `;
     els.detail.querySelector(".selected-place-close")?.addEventListener("click", closeSelectionDrawer);
     els.detail.querySelectorAll("[data-related-event]").forEach((button) => {
