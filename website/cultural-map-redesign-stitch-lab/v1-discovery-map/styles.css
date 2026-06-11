@@ -19,6 +19,13 @@
   --shadow-low: 0 4px 10px rgba(26, 26, 26, 0.18);
   --caption-scrim: rgba(26, 26, 26, 0.78);
   --focus-ring: 0 0 0 3px var(--ncac-red-ring);
+  /* Brand secondaries — poster/campaign fields ONLY (NCAC-V1-BRAND.md).
+     Full-bleed behind knockout type on featured/campaign cards; never
+     buttons, markers, chips, or any functional UI signal. */
+  --poster-blue: #1d49c9;
+  --poster-green: #0c6b38;
+  --poster-teal: #0b6e78;
+  --poster-pink: #c2186b;
   --font-brand: "polymath-variable-2th9nk", "DM Sans", "Inter", system-ui, sans-serif;
   --font-body: "polymath-variable-2th9nk", "DM Sans", "Inter", system-ui, sans-serif;
   --font-ui: var(--font-brand);
@@ -257,17 +264,36 @@ button {
   overflow: auto;
   overscroll-behavior: contain;
   background: var(--panel);
-  border: 2px solid var(--line-strong);
-  box-shadow: var(--shadow-float);
-  padding: 13px;
+  border: 1px solid var(--line-strong);
+  box-shadow: var(--shadow-low);
+  padding: 16px;
+  /* Quiet, in-system scrollbar instead of the raw OS one. */
+  scrollbar-width: thin;
+  scrollbar-color: var(--line) transparent;
 }
 
-.control-panel::before {
+.control-panel::-webkit-scrollbar {
+  width: 8px;
+}
+
+.control-panel::-webkit-scrollbar-thumb {
+  background: var(--line);
+}
+
+.control-panel::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Bottom fade: a clipped row reads as "more below", not a broken edge. */
+.control-panel::after {
   content: "";
+  position: sticky;
+  bottom: -16px;
   display: block;
-  height: 6px;
-  margin: -13px -13px 12px;
-  background: var(--ncac-red);
+  height: 26px;
+  margin: 0 -16px -16px;
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), var(--panel));
+  pointer-events: none;
 }
 
 .selection-drawer {
@@ -301,9 +327,9 @@ button {
   justify-content: space-between;
   align-items: flex-start;
   gap: 6px 16px;
-  padding-bottom: 10px;
-  margin-bottom: 12px;
-  border-bottom: 2px solid var(--line-strong);
+  padding-bottom: 12px;
+  margin-bottom: 14px;
+  border-bottom: 1px solid var(--line-strong);
 }
 
 .panel-map-copy {
@@ -341,8 +367,8 @@ button {
 .mode-tabs {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  border: 2px solid var(--ink);
-  margin-bottom: 12px;
+  border: 1px solid var(--ink);
+  margin-bottom: 14px;
   background: var(--surface);
 }
 
@@ -378,12 +404,14 @@ button {
   color: var(--paper);
 }
 
+/* Section on the panel's own surface — no box-in-box, no side stripe.
+   A hairline above + breathing room does the grouping. */
 .featured-hint {
-  border: 1px solid var(--line-strong);
-  background: var(--surface);
-  padding: 10px;
+  border: 0;
+  border-top: 1px solid var(--line);
+  background: none;
+  padding: 12px 0 2px;
   margin-bottom: 12px;
-  box-shadow: inset 4px 0 0 var(--ncac-red);
 }
 
 .hint-title {
@@ -449,18 +477,19 @@ button {
   background: var(--ink);
 }
 
-/* CLA-20: Outing Type browse list (the way in) + compact active-filter bar */
+/* CLA-20: Outing Type browse list (the way in) + compact active-filter bar.
+   Lives directly on the panel surface — list rows with hairlines, not a box. */
 .outing-browse {
-  border: 1px solid var(--line-strong);
-  background: var(--surface);
+  border: 0;
+  background: none;
 }
 
 .outing-browse-head {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 10px;
-  border-bottom: 1px solid var(--line-strong);
+  padding: 0 0 8px;
+  border-bottom: 1px solid var(--line);
 }
 
 .outing-browse-title {
@@ -528,7 +557,6 @@ button {
 .outing-row.active {
   background: var(--ncac-red);
   color: var(--field);
-  box-shadow: inset 3px 0 0 var(--ink);
 }
 
 .outing-row.active:hover {
@@ -622,11 +650,11 @@ body:not([data-map-mode="places"]) .review-tools {
 }
 
 .review-tools {
-  border: 1px solid var(--line-strong);
-  background: rgba(255, 255, 255, 0.82);
+  border: 0;
+  border-top: 1px solid var(--line);
+  background: none;
   margin-bottom: 12px;
-  padding: 9px;
-  box-shadow: inset 4px 0 0 var(--ncac-red);
+  padding: 12px 0 0;
 }
 
 .browse-heading {
@@ -718,6 +746,8 @@ body:not([data-map-mode="places"]) .review-tools {
   overflow: auto;
   overscroll-behavior: contain;
   padding-right: 2px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--line) transparent;
 }
 
 .place-list-item {
@@ -732,10 +762,12 @@ body:not([data-map-mode="places"]) .review-tools {
   text-align: left;
 }
 
-.place-list-item.active,
 .place-list-item:hover {
   border-color: var(--ink);
-  box-shadow: inset 5px 0 0 var(--ncac-red);
+}
+
+.place-list-item.active {
+  border-color: var(--ncac-red);
 }
 
 .place-list-item.local-reveal-item {
@@ -818,7 +850,8 @@ body:not([data-map-mode="places"]) .review-tools {
 
 .selection-drawer .detail-card {
   position: relative;
-  box-shadow: var(--shadow-float);
+  /* Brand hard-offset shadow — not the thin-border + wide-blur float. */
+  box-shadow: var(--shadow);
 }
 
 .selected-place-close {
@@ -877,11 +910,11 @@ body:not([data-map-mode="places"]) .review-tools {
   font-weight: 800;
 }
 
+/* In-system photo treatment: a grid crop with the knockout caption bar —
+   not a bordered box inside the card (nested-cards ban). */
 .place-image-frame {
   position: relative;
   margin: 0 0 12px;
-  border: 1px solid var(--line-strong);
-  background: var(--field);
 }
 
 .primary-anchor-card .place-image-frame,
@@ -1134,11 +1167,10 @@ body:not([data-map-mode="places"]) .review-tools {
 }
 
 .seen-in-muse {
-  border: 1px solid var(--line-strong);
-  background: var(--surface);
+  border-top: 1px solid var(--line-strong);
+  border-bottom: 1px solid var(--line);
   margin: 10px 0 12px;
-  padding: 10px;
-  box-shadow: inset 5px 0 0 var(--ncac-red);
+  padding: 10px 0;
 }
 
 .seen-in-muse-list {
@@ -1220,19 +1252,8 @@ body:not([data-map-mode="places"]) .review-tools {
 }
 
 .primary-anchor-card .anchor-card-meta p {
-  border-left: 4px solid var(--ncac-red);
-  padding: 0 0 0 10px;
   color: var(--ink);
   font-size: 13px;
-}
-
-.supporting-stop-card .anchor-card-meta p {
-  border-left: 3px solid var(--line-strong);
-  padding-left: 9px;
-}
-
-.supporting-stop-card .anchor-card-meta .visible-incomplete-note {
-  border-left-color: var(--ncac-red);
 }
 
 .anchor-card-meta p span {
@@ -1354,7 +1375,6 @@ body:not([data-map-mode="places"]) .review-tools {
   border: 1px solid var(--line-strong);
   background: var(--surface);
   padding: 9px;
-  box-shadow: inset 4px 0 0 var(--ncac-red);
 }
 
 .event-mini strong {
@@ -1550,7 +1570,6 @@ button.event-mini:hover {
 }
 
 .place-path-link {
-  box-shadow: inset 4px 0 0 var(--ink);
   font-weight: 700;
 }
 
@@ -2241,25 +2260,35 @@ body.rail-browse .discovery-rail {
 
 .rail-track {
   display: flex;
-  /* Cards size to their own content; a tall photo card must not stretch a
-     short text-only event card into hollow whitespace. */
-  align-items: flex-start;
+  /* One card height for the whole rail — the grid, not the copy, sets the
+     crop. Imageless campaign cards fill the same slab with a poster field. */
+  align-items: stretch;
   gap: 12px;
   overflow-x: auto;
   scroll-snap-type: x mandatory;
-  padding: 6px 24px 6px;
+  padding: 8px 24px 6px;
   pointer-events: auto;
-  scrollbar-width: thin;
+  /* Scrollable, but no raw OS scrollbar; the cut-off card at the right edge
+     plus the fade is the scroll affordance. */
+  scrollbar-width: none;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 16px, #000 calc(100% - 56px), transparent);
+  mask-image: linear-gradient(to right, transparent, #000 16px, #000 calc(100% - 56px), transparent);
+}
+
+.rail-track::-webkit-scrollbar {
+  display: none;
 }
 
 .rail-card {
   flex: 0 0 250px;
+  height: 190px;
+  overflow: hidden;
   scroll-snap-align: center;
   display: flex;
   flex-direction: column;
   background: var(--panel);
   border: 1px solid var(--line-strong);
-  box-shadow: var(--shadow-float);
+  box-shadow: var(--shadow-low);
   padding: 0;
   text-align: left;
   font: inherit;
@@ -2278,21 +2307,63 @@ body.rail-browse .discovery-rail {
 
 .rail-card:focus-visible {
   outline: none;
-  box-shadow: var(--focus-ring), var(--shadow-float);
+  box-shadow: var(--focus-ring), var(--shadow-low);
 }
 
 .rail-card-img {
   width: 100%;
   height: 92px;
+  flex: 0 0 auto;
   object-fit: cover;
   display: block;
   background: var(--paper-warm);
+  border-bottom: 1px solid var(--line);
 }
 
 .rail-card-body {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   gap: 3px;
-  padding: 9px 11px 11px;
+  flex: 1;
+  min-height: 0;
+  padding: 10px 12px 11px;
+}
+
+/* Photo cards: the image is the hook; title + meta carry the rest. */
+.rail-card-img ~ .rail-card-body .rail-card-desc {
+  display: none;
+}
+
+/* Poster field cards (brand secondaries, campaign surfaces only): full-bleed
+   color + knockout type stands in for missing imagery on event/story/path
+   cards. Never on chips, buttons, or markers. */
+.rail-card-poster .rail-card-body {
+  padding: 12px 13px;
+}
+
+.rail-card-poster-blue { background: var(--poster-blue); }
+.rail-card-poster-green { background: var(--poster-green); }
+.rail-card-poster-teal { background: var(--poster-teal); }
+.rail-card-poster-pink { background: var(--poster-pink); }
+.rail-card-poster-ink { background: var(--ink); }
+
+.rail-card-poster .rail-card-kicker,
+.rail-card-event.rail-card-poster .rail-card-kicker {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+.rail-card-poster .rail-card-title {
+  color: #ffffff;
+  font-family: var(--font-brand);
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1.12;
+  -webkit-line-clamp: 3;
+}
+
+.rail-card-poster .rail-card-desc,
+.rail-card-poster .rail-card-meta {
+  color: rgba(255, 255, 255, 0.9);
 }
 
 .rail-card-kicker {
@@ -2312,6 +2383,10 @@ body.rail-browse .discovery-rail {
   font-weight: 700;
   line-height: 1.25;
   color: var(--ink);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .rail-card-desc {
@@ -2327,12 +2402,17 @@ body.rail-browse .discovery-rail {
 .rail-card-meta {
   font-size: 11px;
   color: var(--ink-soft);
+  margin-top: auto;
+  padding-top: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .rail-empty {
   background: var(--panel);
   border: 1px solid var(--line-strong);
-  box-shadow: var(--shadow-float);
+  box-shadow: var(--shadow-low);
   padding: 16px 18px;
   font-size: 13px;
   color: var(--ink-soft);
@@ -2353,13 +2433,16 @@ body.rail-browse .places-list {
   display: none;
 }
 
-/* Lift the map chrome that shares the bottom edge with the rail. */
+/* Lift the map chrome that shares the bottom edge with the rail. One stacking
+   plan for the bottom-right column: track (to 220px) → chips (to ~260px) →
+   legend (bottom 276px) → zoom controls (bottom 332px). Card height is fixed
+   at 190px, so these clearances are deterministic, not accidental. */
 body.rail-browse .map-legend {
-  bottom: 270px;
+  bottom: 276px;
 }
 
 body.rail-browse .map-canvas .maplibregl-ctrl-bottom-right {
-  bottom: 310px;
+  bottom: 332px;
 }
 
 body.rail-browse .map-canvas .maplibregl-ctrl-bottom-left {
@@ -2375,12 +2458,24 @@ body.rail-browse .map-canvas .maplibregl-ctrl-bottom-left {
   }
 
   body.rail-browse .discovery-rail {
-    bottom: 152px;
+    bottom: 144px;
     padding-bottom: 0;
+    gap: 6px;
+  }
+
+  /* Chips drop BELOW the track on mobile — into the thumb zone just above
+     the collapsed toolbar, instead of floating mid-map above the cards. */
+  .rail-chips {
+    order: 2;
   }
 
   .rail-card {
     flex-basis: 220px;
+    height: 168px;
+  }
+
+  .rail-card-img {
+    height: 72px;
   }
 
   .rail-chips,
@@ -2464,11 +2559,10 @@ body.rail-browse .map-canvas .maplibregl-ctrl-bottom-left {
   flex-wrap: wrap;
   align-items: baseline;
   gap: 8px;
-  border: 1px solid var(--line-strong);
-  background: var(--surface);
-  box-shadow: inset 5px 0 0 var(--ncac-red);
+  border-top: 1px solid var(--line-strong);
+  border-bottom: 1px solid var(--line);
   margin: 10px 0 12px;
-  padding: 8px 10px;
+  padding: 8px 0;
 }
 
 .muse-directory-badge-link {

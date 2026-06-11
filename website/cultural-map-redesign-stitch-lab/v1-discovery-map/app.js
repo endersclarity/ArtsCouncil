@@ -18,11 +18,12 @@
   };
 
   const MARKERS = {
-    place: "#1a1a2e",
+    // Canonical NCAC ink (#1A1A1A) — was a navy drift (#1a1a2e).
+    place: "#1a1a1a",
     quiet: "#5d625b",
     red: "#ff2e00",
     paper: "#ffffff",
-    ink: "#1a1a2e",
+    ink: "#1a1a1a",
   };
   // CLA-34: color place dots by outing group (derived from category). The mapping
   // and the MapLibre match expression live in marker-category-color.js (unit-tested,
@@ -1977,9 +1978,23 @@
     return items;
   }
 
+  // Poster fields (brand secondaries) stand in for missing imagery on the
+  // campaign-style cards only: events, the MUSE story, the path. Imageless
+  // PLACE cards stay quiet paper — they are directory entries, not campaigns.
+  const RAIL_POSTER_CYCLE = ["blue", "green", "pink", "teal"];
+  function railPosterClass(item, index) {
+    if (item.image || item.type === "place") return "";
+    if (item.type === "story") return " rail-card-poster rail-card-poster-ink";
+    if (item.type === "path") return " rail-card-poster rail-card-poster-teal";
+    return ` rail-card-poster rail-card-poster-${RAIL_POSTER_CYCLE[index % RAIL_POSTER_CYCLE.length]}`;
+  }
+
   function railCardHtml(item, index) {
+    // Accessible name is title + venue/date only — never the full description
+    // essay (screen readers read the whole name per card).
+    const accessibleName = `${item.title} — ${item.meta}`;
     return `
-      <button class="rail-card rail-card-${escapeHtml(item.type)}" type="button" data-rail-index="${index}">
+      <button class="rail-card rail-card-${escapeHtml(item.type)}${railPosterClass(item, index)}" type="button" data-rail-index="${index}" aria-label="${escapeHtml(accessibleName)}">
         ${item.image ? `<img class="rail-card-img" src="${escapeHtml(item.image)}" alt="" loading="lazy" decoding="async">` : ""}
         <span class="rail-card-body">
           <span class="rail-card-kicker">${escapeHtml(item.kicker)}</span>
