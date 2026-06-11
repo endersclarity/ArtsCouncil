@@ -40,29 +40,6 @@
   --font-ui: var(--font-brand);
 }
 
-body.twilight-mode {
-  --ncac-red: #ff2e00;
-  --ncac-red-soft: rgba(255, 46, 0, 0.1);
-  --ncac-red-ring: rgba(255, 46, 0, 0.34);
-  --ink: #101010;
-  --ink-soft: #454541;
-  --paper: #f2f2ee;
-  --paper-warm: #e5e5df;
-  --field: #f2f2ee;
-  --surface: #f2f2ee;
-  --line: #cecec7;
-  --line-strong: #101010;
-  --panel: #f2f2ee;
-  --map-quiet-field: #eff1ed;
-  --map-quiet-line: #d0d6cf;
-  --map-quiet-label: #686c66;
-  --shadow: 8px 8px 0 rgba(16, 16, 16, 0.14);
-  --shadow-float: 0 18px 42px rgba(16, 16, 16, 0.16);
-  --shadow-low: 0 4px 10px rgba(16, 16, 16, 0.2);
-  --caption-scrim: rgba(16, 16, 16, 0.8);
-  --focus-ring: 0 0 0 3px var(--ncac-red-ring);
-}
-
 * {
   box-sizing: border-box;
 }
@@ -2366,16 +2343,19 @@ button.event-mini:hover {
   }
 }
 
+/* Warmth pass 4 (cla-65): smart-label pills speak the card language — paper
+   surface, hairline --line border, soft warm shadow. Red stays reserved for
+   featured (anchor pins) and the selected state; hover is ink emphasis only. */
 .map-smart-label {
   max-width: 220px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  border: 1px solid rgba(26, 26, 26, 0.18);
+  border: 1px solid var(--line);
   border-radius: 4px;
-  background: rgba(250, 248, 244, 0.94);
+  background: rgba(250, 246, 236, 0.96);
   color: var(--ink);
-  box-shadow: 0 3px 12px rgba(26, 26, 26, 0.16);
+  box-shadow: 0 2px 10px rgba(58, 48, 32, 0.16);
   padding: 5px 8px;
   font-family: inherit;
   font-size: 12px;
@@ -2402,12 +2382,22 @@ button.event-mini:hover {
   opacity: 0.45;
 }
 
+/* Hover/focus = subtle ink emphasis (brand: red is reserved for featured and
+   selected, never a broad hover wash). Lift runs on the pass-5 motion tokens. */
 .map-smart-label:hover,
 .map-smart-label:focus-visible {
-  background: var(--ncac-red);
-  border-color: var(--ncac-red);
-  color: var(--paper);
+  border-color: var(--ink);
+  box-shadow: 0 4px 14px rgba(58, 48, 32, 0.24);
   outline: none;
+}
+
+.map-smart-label.selected:hover,
+.map-smart-label.selected:focus-visible {
+  border-color: var(--ncac-red);
+}
+
+.map-smart-label:focus-visible {
+  box-shadow: var(--focus-ring, 0 0 0 3px rgba(255, 46, 0, 0.34)), 0 4px 14px rgba(58, 48, 32, 0.24);
 }
 
 @media (max-width: 520px) {
@@ -3055,14 +3045,38 @@ button.seen-in-muse-story,
     box-shadow var(--motion-fast) var(--ease-out);
 }
 
-/* Map smart labels: hover/selected red fill eases (paint-only; the label's
-   position is MapLibre-managed and untouched). */
+/* Map smart labels: hover ink emphasis + selected red fill ease (paint-only;
+   the label's position is MapLibre-managed and untouched). */
 .map-smart-label {
   transition:
     background-color var(--motion-fast) var(--ease-out),
     color var(--motion-fast) var(--ease-out),
     border-color var(--motion-fast) var(--ease-out),
+    box-shadow var(--motion-fast) var(--ease-out),
     opacity var(--motion-base) var(--ease-out);
+}
+
+/* Warmth pass 4: the marker hover preview card fades up on the same tokens.
+   The GL dot's own hover ring is filter-driven (instant by design — camera and
+   marker snappiness are a strength); the DOM card carries the felt feedback.
+   Reduced motion: the global prefers-reduced-motion rule above collapses the
+   keyframe to 0.01ms, so it simply appears.
+   (Animation lives on the inner content node, NOT the popup root — MapLibre
+   positions the root with an inline transform that a keyframe would clobber.) */
+.marker-preview-popup .maplibregl-popup-content {
+  animation: markerPreviewIn var(--motion-fast) var(--ease-out) both;
+}
+
+@keyframes markerPreviewIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Deliberately NOT animated in this pass:

@@ -47,37 +47,44 @@
   };
 
   // CLA-27: active basemap is the OpenFreeMap "Liberty" street style (free, no API key).
-  // The QUIET_BASEMAP palette + applyCustomBasemapStyling() below are retained for the
-  // legacy Positron quiet base but are NOT applied to the street basemap.
   const STREET_BASEMAP_STYLE = "https://tiles.openfreemap.org/styles/liberty";
 
-  const QUIET_BASEMAP = {
-    standard: {
-      background: "#f4f5f1",
-      water: "#e1e7e3",
-      waterLine: "#d4ddd8",
-      landcover: "#eef1ec",
-      landuse: "#f0f2ee",
-      residential: "#f5f6f3",
-      park: "#e7eee5",
-      building: "#e7e8e2",
-      buildingTop: "#eff0eb",
-      roadCaseOpacity: 0.1,
-      roadFillOpacity: 0.34,
-    },
-    twilight: {
-      background: "#eff1ed",
-      water: "#dbe3de",
-      waterLine: "#cfd9d3",
-      landcover: "#e8ede7",
-      landuse: "#ecefeb",
-      residential: "#f1f3f0",
-      park: "#dde8dd",
-      building: "#dedfd8",
-      buildingTop: "#e8e9e4",
-      roadCaseOpacity: 0.08,
-      roadFillOpacity: 0.22,
-    },
+  // Warmth pass 4 (cla-65): the stock Liberty palette (cool greys, saturated
+  // greens, blue water, orange motorways) reads stock-Google next to the brand's
+  // warm paper surfaces. WARM_BASEMAP retints every tile layer at runtime via
+  // setPaintProperty after style load (NOT a CSS canvas filter — that muddies
+  // water and labels). Direction owner-validated 2026-06-11 with a live
+  // saturate(.45)+sepia(.22) experiment. All values are plain color strings, so
+  // no paint-expression validity risk; layers are matched from the loaded
+  // style's own layer list by source-layer + id pattern, never hardcoded blind.
+  const WARM_BASEMAP = {
+    background: "#f2ecdc", // paper-warm ground, a step deeper than --paper so panels still lift
+    water: "#a9b6b3", // single muted slate for lakes, rivers, and waterway lines
+    parkFill: "#e2e3c9", // warm paper-sage range for everything green
+    parkOutline: "#cdd0ae",
+    wood: "#dcdec4",
+    grass: "#e7e7cd",
+    wetland: "#e4e7d2",
+    ice: "#f0eee2",
+    sand: "#eee5cb",
+    residential: "#efe8d6",
+    landuse: "#e9e5d0",
+    building: "#e6decb",
+    buildingOutline: "#d8cdb6",
+    aeroway: "#ece6d4",
+    rail: "#cfc5b2",
+    roadCasing: "#dcd3c0", // quiet warm neutrals; ink hierarchy comes from value steps
+    majorCasing: "#c8bba1",
+    motorway: "#ebdab6",
+    trunkPrimary: "#f1e8d0",
+    secondaryTertiary: "#f8f3e5",
+    minor: "#fbf8ee",
+    path: "#d8d0c6",
+    boundary: "#b5ab9b",
+    placeLabel: "#3e3a33", // town names: near-ink, still the loudest tile text
+    roadLabel: "#8a8174", // street names: muted so app content stays the loud layer
+    waterLabel: "#5e7378",
+    labelHalo: "#faf6ec",
   };
 
   const ANCHOR_ICON_TEXT = {
@@ -2269,40 +2276,96 @@
     updateReviewUrl();
   }
 
-  function applyCustomBasemapStyling() {
+  // Warmth pass 4 (cla-65): retint the Liberty basemap to the brand's warm
+  // paper world. Iterates the loaded style's actual layer list and matches by
+  // source-layer + id pattern (Liberty ids like road_minor / bridge_motorway_casing /
+  // landcover_wood), so a tile-style update can't strand a hardcoded id. Only
+  // plain color strings are written — no new expressions, so nothing here can
+  // invalidate a layer's paint and silently drop it. App-owned layers (places,
+  // events, paths sources) are added after this runs and are never touched.
+  function applyWarmBasemap() {
     if (!state.map) return;
-
-    const urlParams = new URLSearchParams(window.location.search);
-    const twilightParam = urlParams.get("twilight");
-    const isTwilight = twilightParam === "true";
-    document.body.classList.toggle("twilight-mode", isTwilight);
-
-    const palette = isTwilight ? QUIET_BASEMAP.twilight : QUIET_BASEMAP.standard;
-    const paintOverrides = [
-      { layerId: "background", property: "background-color", value: palette.background },
-      { layerId: "water", property: "fill-color", value: palette.water },
-      { layerId: "waterway", property: "line-color", value: palette.waterLine },
-      { layerId: "landcover", property: "fill-color", value: palette.landcover },
-      { layerId: "landuse", property: "fill-color", value: palette.landuse },
-      { layerId: "landuse_residential", property: "fill-color", value: palette.residential },
-      { layerId: "park_nature_reserve", property: "fill-color", value: palette.park },
-      { layerId: "park_national_park", property: "fill-color", value: palette.park },
-      { layerId: "building", property: "fill-color", value: palette.building },
-      { layerId: "building-top", property: "fill-color", value: palette.buildingTop },
-    ];
-
-    paintOverrides.forEach(({ layerId, property, value }) => {
-      if (state.map.getLayer(layerId)) state.map.setPaintProperty(layerId, property, value);
-    });
-
-    [
-      "road_service_case", "road_minor_case", "road_path", "road_service_fill", "road_minor_fill",
-      "tunnel_service_case", "tunnel_minor_case", "tunnel_path", "tunnel_service_fill", "tunnel_minor_fill",
-      "bridge_service_case", "bridge_minor_case", "bridge_path", "bridge_service_fill", "bridge_minor_fill",
-    ].forEach((layerId) => {
-      if (!state.map.getLayer(layerId)) return;
-      const isCase = layerId.includes("case");
-      state.map.setPaintProperty(layerId, "line-opacity", isCase ? palette.roadCaseOpacity : palette.roadFillOpacity);
+    const map = state.map;
+    const W = WARM_BASEMAP;
+    const paint = (id, property, value) => map.setPaintProperty(id, property, value);
+    (map.getStyle().layers || []).forEach((layer) => {
+      const id = layer.id;
+      const sourceLayer = layer["source-layer"] || "";
+      if (layer.type === "background") {
+        paint(id, "background-color", W.background);
+        return;
+      }
+      if (layer.type === "fill") {
+        if (sourceLayer === "water") paint(id, "fill-color", W.water);
+        else if (sourceLayer === "park") {
+          paint(id, "fill-color", W.parkFill);
+          // Liberty draws a saturated green outline on the park fill itself.
+          paint(id, "fill-outline-color", W.parkOutline);
+        }
+        else if (sourceLayer === "landcover") {
+          const tone = id.includes("wood") ? W.wood
+            : id.includes("wetland") ? W.wetland
+            : id.includes("ice") ? W.ice
+            : id.includes("sand") ? W.sand
+            : W.grass;
+          paint(id, "fill-color", tone);
+        } else if (sourceLayer === "landuse") {
+          paint(id, "fill-color", id.includes("residential") ? W.residential : W.landuse);
+        } else if (sourceLayer === "building") {
+          paint(id, "fill-color", W.building);
+          paint(id, "fill-outline-color", W.buildingOutline);
+        } else if (sourceLayer === "aeroway") {
+          paint(id, "fill-color", W.aeroway);
+        }
+        return;
+      }
+      if (layer.type === "fill-extrusion" && sourceLayer === "building") {
+        paint(id, "fill-extrusion-color", W.building);
+        return;
+      }
+      if (layer.type === "line") {
+        if (sourceLayer === "waterway") paint(id, "line-color", W.water);
+        else if (sourceLayer === "boundary") paint(id, "line-color", W.boundary);
+        else if (sourceLayer === "park") {
+          // Park outlines tile the whole county at low zoom; keep them barely-there.
+          paint(id, "line-color", W.parkOutline);
+          paint(id, "line-opacity", 0.5);
+        }
+        else if (sourceLayer === "aeroway") paint(id, "line-color", W.roadCasing);
+        else if (sourceLayer === "transportation") {
+          // Quiet warm road ramp; hierarchy survives as value steps, not hue.
+          const tone = /rail/.test(id) ? W.rail
+            : /path|pedestrian/.test(id) ? (id.includes("casing") ? W.roadCasing : W.path)
+            : /casing/.test(id) ? (/motorway|trunk_primary/.test(id) ? W.majorCasing : W.roadCasing)
+            : /motorway/.test(id) ? W.motorway
+            : /trunk_primary/.test(id) ? W.trunkPrimary
+            : /secondary_tertiary/.test(id) ? W.secondaryTertiary
+            : W.minor;
+          paint(id, "line-color", tone);
+        }
+        return;
+      }
+      if (layer.type === "symbol") {
+        // Density cut: footpath names and one-way arrows are tile noise here.
+        // (Business POIs are already hidden by hideBasemapPoiLayers.)
+        if (id === "highway-name-path" || id.startsWith("road_one_way")) {
+          map.setLayoutProperty(id, "visibility", "none");
+          return;
+        }
+        if (sourceLayer === "place") {
+          paint(id, "text-color", W.placeLabel);
+          paint(id, "text-halo-color", W.labelHalo);
+        } else if (sourceLayer === "transportation_name" && !id.includes("shield")) {
+          paint(id, "text-color", W.roadLabel);
+          paint(id, "text-halo-color", W.labelHalo);
+        } else if (sourceLayer === "water_name" || sourceLayer === "waterway") {
+          paint(id, "text-color", W.waterLabel);
+          paint(id, "text-halo-color", W.labelHalo);
+        } else if (sourceLayer === "aerodrome_label") {
+          paint(id, "text-color", W.roadLabel);
+          paint(id, "text-halo-color", W.labelHalo);
+        }
+      }
     });
   }
 
@@ -2666,6 +2729,7 @@
     state.map.addControl(new maplibregl.AttributionControl(), "bottom-left");
     state.map.addControl(new maplibregl.NavigationControl({ showCompass: false }), "bottom-right");
     state.map.on("load", () => {
+      applyWarmBasemap();
       hideBasemapPoiLayers();
       addMapLayers();
       setSourceData();
