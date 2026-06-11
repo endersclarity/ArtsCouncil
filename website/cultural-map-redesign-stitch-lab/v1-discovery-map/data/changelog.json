@@ -3,6 +3,12 @@
   "entries": [
     {
       "date": "2026-06-11",
+      "title": "The map now speaks in the Arts Council's own typeface",
+      "summary": "Polymath, the brand's typeface, was named in our styles all along but never actually delivered to the browser, so every visitor has been seeing a stand-in font. The real Polymath now loads with the page, in every weight, and the whole map is set in it.",
+      "kind": "improvement"
+    },
+    {
+      "date": "2026-06-11",
       "title": "The map opens warm — no more stock-map flash",
       "summary": "Until now, the page opened with a split second of the stock online map — grey roads, bright green parks, blue water — before our warm cream-and-sage palette painted over it. The warm colors are now applied before the map ever draws, so the very first thing you see is the finished look. (If the map style can't be fetched ahead of time, the old paint-over still kicks in as a safety net.) Behind the scenes we also tidied the stylesheet: the matching scrollbars and photo caption bars are now defined once and shared, and the translucent cream used for map labels and overlays comes from a single named color instead of five hand-typed copies. Nothing about the look changed — it just arrives instantly and is easier to keep consistent.",
       "kind": "improvement"

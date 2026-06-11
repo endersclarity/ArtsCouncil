@@ -1,3 +1,14 @@
+/* Polymath (NCAC brand face) self-hosted: the family name matches the
+   Squarespace upload the brand doc references, but the face itself was
+   never loaded here — without this block everything falls back to DM Sans. */
+@font-face {
+  font-family: "polymath-variable-2th9nk";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("assets/fonts/polymath-variable.woff2") format("woff2");
+}
+
 :root {
   --ncac-red: #ff2e00;
   --ncac-red-soft: rgba(255, 46, 0, 0.08);
