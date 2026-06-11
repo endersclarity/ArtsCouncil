@@ -9,6 +9,33 @@ See: .planning/PROJECT.md (updated 2026-02-14)
 
 ## Current Position
 
+## Sandbox: Discovery Rail (Stream 1) — DONE 2026-06-10 (branch sandbox/rail-and-muse, NOT pushed, never push)
+
+Built in the sandbox worktree per handoff-sandbox-rail-and-muse-2026-06-10.md. ADR 0002
+variant B implemented: the map opens with a horizontal snap-scrolling Discovery Rail along
+the bottom (upcoming events first per the Event Freshness Guarantee, then MUSE-Grounded
+Sampler places, one MUSE story card with the exact "In the pages of MUSE Magazine" kicker,
+one path card, interleaved). Rail Follow per ruling: debounced scroll-settle easeTo with
+NO zoom change + marker highlight via the existing place-hover-ring setFilter seam
+(railFocusPlaceId beside previewPlaceId); full fly-and-zoom only on explicit card tap.
+Rail chips (Everything / Events / Places) filter the stream; mode tabs survive. The left
+panel collapses to a compact search/filter toolbar in the Browse Starting View (body
+.rail-browse) and expands on search/filter/Local Reveal. Mobile: rail rides above the
+collapsed bottom panel. Incidental: the historic NUL byte in app.js was normalized to a
+space (the hover-ring filter sentinel) — app.js is a normal text file again; a ?contract=
+URL param now exposes window.__map for contract suites (replaces the constructor-wrap
+init script).
+
+Verified at http://127.0.0.1:8014 (agent-browser session "sandbox"): zero console errors,
+marker-hierarchy contract 10/10 allPass, Rail Follow ease-no-zoom + highlight + tap
+fly-and-zoom + chips + search collapse/expand all exercised. Prototype date-stamped
+(prototypes/discovery-feed-variants.2026-06-10.html, A/C kept as labeled Concept Mockups);
+ADR 0002 status → Implemented; changelog entry added; ?v= bumped to cla-53-discovery-rail.
+
+Next in sandbox: Stream 2 (MUSE business directory layer) per
+.planning/muse-directory-layer-PRD-2026-06-10.md — reconciliation pass first.
+Owner reviews sandbox at 8014 vs main at 8013 and decides on merge; do not push.
+
 ## Data-cleanliness pass — DONE 2026-06-10 (5 commits e7bb84d..623de8b, NOT pushed)
 
 1. og:image full sweep: 103 more venue photos self-hosted (581 checked); 266 total
