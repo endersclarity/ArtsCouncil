@@ -3,6 +3,12 @@
   "entries": [
     {
       "date": "2026-06-11",
+      "title": "New: browse the map through the MUSE business directory",
+      "summary": "In Places mode there is now a MUSE Picks only switch - tap it and the map shows just the places listed in MUSE Magazine's business directory, and it combines with the outing-type filters you already use. Each of those places now carries a badge on its card saying which issue's directory it appears in (for example, Listed in the MUSE 2026 directory), shows the directory's own label for the business (like Coffee / Roastery), and the badge links straight to that listing's page in the published MUSE e-magazine.",
+      "kind": "feature"
+    },
+    {
+      "date": "2026-06-11",
       "title": "MUSE Picks places now live in real categories",
       "summary": "The 186 places that were filed under the catch-all MUSE Picks category have been moved into the real category that fits them (most into Shops & Makers, Eat Drink & Stay, or Galleries & Studios), guided by how the MUSE Magazine business directory itself describes each one. Every place listed in the MUSE directory now also remembers which issues it appeared in and on what page. No markers appeared or disappeared - this is a filing fix, not a map change.",
       "kind": "improvement"

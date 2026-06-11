@@ -153,6 +153,9 @@
     selectedPlaceId: "",
     selectedEventId: "",
     eventLens: "all",
+    // MUSE directory layer (PRD 2026-06-10): Places-mode chip filtering on
+    // the musePick flag, AND-composed with the outing-type filters.
+    musePicksOnly: false,
     surprisePlaceIds: [],
     searchQuery: "",
     localReveal: null,
@@ -451,9 +454,11 @@
   }
 
   function filteredPlaces() {
-    if (!state.activeIntents.size) return state.places;
+    // "MUSE Picks only" ANDs with the outing-type filters (PRD §9 Q2).
+    const base = state.musePicksOnly ? state.places.filter((place) => place.musePick) : state.places;
+    if (!state.activeIntents.size) return base;
     const activeOutingTypes = [...state.activeIntents].map(outingTypeFor).filter(Boolean);
-    return state.places.filter((place) => activeOutingTypes.some((outingType) => placeMatchesOutingType(place, outingType)));
+    return base.filter((place) => activeOutingTypes.some((outingType) => placeMatchesOutingType(place, outingType)));
   }
 
   function distanceMiles(a, b) {
@@ -520,7 +525,7 @@
   }
 
   function isBrowseStartingView() {
-    return state.mode === "places" && !state.searchQuery.trim() && !state.activeIntents.size;
+    return state.mode === "places" && !state.searchQuery.trim() && !state.activeIntents.size && !state.musePicksOnly;
   }
 
   function isMobileViewport() {
@@ -598,11 +603,12 @@
       els.placesList.innerHTML = `
         <div class="places-list-empty">
           <p>No places match ${query ? `"${escapeHtml(query)}"` : "this filter"}.</p>
-          ${state.activeIntents.size ? `<button class="filter-chip" type="button" id="clear-place-filters">Clear filters</button>` : ""}
+          ${state.activeIntents.size || state.musePicksOnly ? `<button class="filter-chip" type="button" id="clear-place-filters">Clear filters</button>` : ""}
         </div>
       `;
       els.placesList.querySelector("#clear-place-filters")?.addEventListener("click", () => {
         state.activeIntents.clear();
+        state.musePicksOnly = false;
         renderFilters();
         setSourceData();
         renderFeaturedAnchor();
@@ -977,6 +983,14 @@
     openSelectionDrawer();
   }
 
+  // "MUSE Picks only" chip (MUSE directory layer, PRD §9 Q2). The name
+  // "MUSE Picks" is already public on the site; "MUSE Directory" as a named
+  // layer waits for Council blessing (PRD §9 Q1).
+  function musePicksChip() {
+    const count = state.places.filter((place) => place.musePick).length;
+    return `<button class="muse-picks-chip${state.musePicksOnly ? " active" : ""}" type="button" data-muse-picks aria-pressed="${state.musePicksOnly ? "true" : "false"}">MUSE Picks only <span class="muse-picks-chip-count">${escapeHtml(count)}</span></button>`;
+  }
+
   function renderFilters() {
     // CLA-20: lead with an Outing Type browse list (a way in); once a lane is
     // chosen, collapse to a compact active-filter bar. The full list re-opens
@@ -1002,6 +1016,7 @@
             ${hasActive ? `<button class="outing-done" type="button" data-outing-done>Done</button>` : ""}
           </div>
           <div class="outing-list" role="group" aria-label="Outing types">${rows}</div>
+          ${musePicksChip()}
           <button class="surprise-button" type="button" data-surprise>Surprise me nearby</button>
           <button class="surprise-button story-lens-button" type="button" data-muse-stories>Stories from MUSE</button>
         </div>`;
@@ -1013,6 +1028,7 @@
       els.filters.innerHTML = `
         <div class="outing-active-bar">
           ${pills}
+          ${musePicksChip()}
           <button class="outing-change" type="button" data-outing-change aria-expanded="false">Change ▾</button>
         </div>`;
     }
@@ -1036,6 +1052,10 @@
       refreshAfterChange();
     };
 
+    els.filters.querySelector("[data-muse-picks]")?.addEventListener("click", () => {
+      state.musePicksOnly = !state.musePicksOnly;
+      refreshAfterChange();
+    });
     els.filters.querySelector("[data-surprise]")?.addEventListener("click", renderSurprise);
     els.filters.querySelector("[data-muse-stories]")?.addEventListener("click", renderStoryList);
     els.filters.querySelectorAll(".outing-row").forEach((button) => {
@@ -1369,6 +1389,42 @@
     `;
   }
 
+  // MUSE Business Directory flip-book deep link. Same mechanism as
+  // museArticleUrl(): Heyzine's #page/N. Per-issue page offsets between the
+  // printed page number (stored as musePage by the reconciliation pass) and
+  // the flip-book's page index — 0 for all three issues today (the flip-books
+  // are page-faithful exports of the print PDFs; same one-page drift caveat
+  // as the Story Lens applies).
+  const MUSE_DIRECTORY_PAGE_OFFSETS = { 2024: 0, 2025: 0, 2026: 0 };
+
+  function museDirectoryUrl(place) {
+    const latestIssue = Array.isArray(place.museIssues) && place.museIssues.length
+      ? place.museIssues[place.museIssues.length - 1]
+      : null;
+    const base = latestIssue ? MUSE_ISSUE_URLS[latestIssue] : "";
+    if (!base) return "";
+    const page = Number(place.musePage) + (MUSE_DIRECTORY_PAGE_OFFSETS[latestIssue] || 0);
+    return Number.isFinite(page) && page > 0 ? `${base}#page/${page}` : base;
+  }
+
+  // Card badge for the MUSE directory layer (PRD §4.3/§4.4): honest issue
+  // year (latest appearance), the directory's own category label riding
+  // along (never replacing the map category), and the flip-book deep link.
+  function museDirectoryBadge(place) {
+    if (!Array.isArray(place.museIssues) || !place.museIssues.length) return "";
+    const latestIssue = place.museIssues[place.museIssues.length - 1];
+    const url = museDirectoryUrl(place);
+    const label = `Listed in the MUSE ${latestIssue} directory`;
+    return `
+      <div class="muse-directory-badge" aria-label="MUSE Business Directory listing">
+        ${url
+          ? `<a class="muse-directory-badge-link" href="${escapeHtml(url)}" target="_blank" rel="noopener">${escapeHtml(label)} ›</a>`
+          : `<span class="muse-directory-badge-link">${escapeHtml(label)}</span>`}
+        ${place.museCategory ? `<span class="muse-directory-category">${escapeHtml(place.museCategory)}</span>` : ""}
+      </div>
+    `;
+  }
+
   function directoryRecordMeta(place) {
     const rows = [
       place.address ? ["Address", escapeHtml(place.address)] : null,
@@ -1592,6 +1648,7 @@
       ${anchorCardMeta(place)}
       <p class="detail-description">${escapeHtml(place.anchorCard?.supportingDescription || place.description)}</p>
       ${provenance}
+      ${museDirectoryBadge(place)}
       ${directoryRecordMeta(place)}
       ${action ? `<div class="detail-actions">${action}</div>` : ""}
       ${eventHtml}

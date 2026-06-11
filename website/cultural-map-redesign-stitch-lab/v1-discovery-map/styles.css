@@ -2422,3 +2422,69 @@ body.rail-browse .map-canvas .maplibregl-ctrl-bottom-left {
     scroll-behavior: auto !important;
   }
 }
+
+/* MUSE business directory layer (PRD 2026-06-10): Places-mode chip + card badge */
+.muse-picks-chip {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  border: 1px solid var(--line-strong);
+  background: var(--surface);
+  color: var(--ink);
+  font-family: var(--font-brand);
+  font-weight: 700;
+  font-size: 12px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.muse-picks-chip:hover:not(.active) {
+  border-color: var(--ncac-red);
+}
+
+.muse-picks-chip.active {
+  background: var(--ncac-red);
+  border-color: var(--ink);
+  color: var(--paper);
+}
+
+.muse-picks-chip-count {
+  font-weight: 800;
+  opacity: 0.75;
+}
+
+.outing-active-bar .muse-picks-chip {
+  margin-top: 0;
+}
+
+.muse-directory-badge {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px;
+  border: 1px solid var(--line-strong);
+  background: var(--surface);
+  box-shadow: inset 5px 0 0 var(--ncac-red);
+  margin: 10px 0 12px;
+  padding: 8px 10px;
+}
+
+.muse-directory-badge-link {
+  font-family: var(--font-brand);
+  font-weight: 800;
+  font-size: 12px;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+a.muse-directory-badge-link:hover {
+  color: var(--ncac-red);
+}
+
+.muse-directory-category {
+  font-size: 12px;
+  color: var(--ink-soft, var(--ink));
+  opacity: 0.85;
+}
