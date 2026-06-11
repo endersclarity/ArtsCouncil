@@ -3,6 +3,12 @@
   "entries": [
     {
       "date": "2026-06-11",
+      "title": "Photos that fail to load now bow out gracefully",
+      "summary": "When a photo can't be fetched — a venue moved its image, a link went stale — every card now recovers the same considered way. A place card swaps in its labeled stand-in artwork, keeps the name-and-city caption bar, and drops the photographer credit (which belonged to the missing photo, not the stand-in); the \"photo not yet sourced\" tag now sits neatly above the caption bar instead of on top of it. An event card keeps its venue and town visible under the stand-in image rather than losing them with the photo. And a card in the bottom rail turns into one of the colorful poster cards the rail already uses for imageless items, instead of going blank. Event photos also now load by the same rules everywhere, so an image that worked in the rail can't break on the big card.",
+      "kind": "fix"
+    },
+    {
+      "date": "2026-06-11",
       "title": "A cleaner reset, and friendlier button hovers",
       "summary": "Returning to the fresh Places view now truly starts fresh: if you had a place selected, tapping the Places tab or the \"Show tonight's rail\" button clears that selection too — the web address, the highlighted dot on the map, and the open detail card all reset together instead of lingering. The \"Clear filters\" button on the no-results screen now clears your search as well as your filters, so results always come back. Behind the scenes the reset also stopped doing its work twice, so it feels snappier. And hovering over small buttons like \"Surprise me again\" or \"All stories\" no longer flashes hard-to-read white-on-red text — the hover is now a calm, high-contrast flip. The \"first match\" card you see after picking an Outing Type was also restyled to match the regular place cards, photo and all.",
       "kind": "improvement"

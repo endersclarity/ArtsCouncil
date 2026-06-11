@@ -1408,6 +1408,12 @@ body:not([data-map-mode="places"]) .review-tools {
   box-shadow: inset 0 -3px 0 var(--ncac-red);
 }
 
+/* Broken-photo fallback inside a captioned frame: the full-width ink caption
+   bar owns the bottom edge, so the "not yet sourced" label rides above it. */
+.place-image-frame:has(.place-photo-caption) .placeholder-label {
+  bottom: 34px;
+}
+
 /* Small red text on white is 3.7:1 — below AA for these sizes. Small labels
    are ink; red stays for display sizes, fills, and rules. */
 .detail-eyebrow {

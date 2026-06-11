@@ -1134,6 +1134,62 @@
     });
   }
 
+  // ONE image-fallback mechanism (warmth-fixes C2): markup builders emit
+  // data-img-fallback="placeholder|remove|event|poster" (plus a data-fallback
+  // src where a stand-in image exists) and this single delegated capture-phase
+  // listener handles every broken image. No JS-in-HTML onerror strings.
+  function handleImageFallback(errorEvent) {
+    const img = errorEvent.target;
+    if (!(img instanceof HTMLImageElement)) return;
+    const mode = img.dataset.imgFallback;
+    if (!mode) return;
+    delete img.dataset.imgFallback; // each image gets exactly one fallback attempt
+    if (mode === "remove") {
+      // Hint feature image: the copy block stands alone without it.
+      img.remove();
+      return;
+    }
+    if (mode === "placeholder") {
+      // Place photo (renderImage): swap to the category placeholder. The
+      // photographer credit belongs to the failed photo, not the stand-in, so
+      // it goes; the name/city caption bar stays; the standard "not yet
+      // sourced" label appears (CSS lifts it above the caption bar).
+      img.src = img.dataset.fallback || "assets/placeholders/gallery-studio.webp";
+      img.classList.add("placeholder-image");
+      img.alt = "NCAC category placeholder image";
+      const figure = img.closest("figure");
+      if (!figure) return;
+      figure.querySelector(".place-photo-caption small")?.remove();
+      figure.querySelector("figcaption:not(.place-photo-caption)")?.remove(); // corner credit chip
+      if (!figure.querySelector(".placeholder-label")) {
+        const label = document.createElement("span");
+        label.className = "placeholder-label";
+        label.textContent = "Photo not yet sourced";
+        figure.appendChild(label);
+      }
+      return;
+    }
+    if (mode === "event") {
+      // Event photo: keep the figure — its figcaption names the venue/city —
+      // and swap the image for the venue's category placeholder.
+      img.src = img.dataset.fallback || "assets/placeholders/gallery-studio.webp";
+      img.classList.add("placeholder-image");
+      img.alt = "";
+      return;
+    }
+    if (mode === "poster") {
+      // Rail card: a dead image becomes the designed imageless poster card
+      // instead of a bare paper card.
+      const card = img.closest(".rail-card");
+      img.remove();
+      if (!card || card.classList.contains("rail-card-poster")) return;
+      const type = (card.className.match(/rail-card-(event|place|story|path)/) || [])[1] || "event";
+      const index = Number(card.dataset.railIndex) || 0;
+      railPosterClasses(type, index).forEach((cls) => card.classList.add(cls));
+    }
+  }
+  document.addEventListener("error", handleImageFallback, true);
+
   function renderImage(place, options = {}) {
     const imageLabel = options.imageLabel || options.proofLabel || "";
     const proofLabel = imageLabel ? `<span class="image-proof-label">${escapeHtml(imageLabel)}</span>` : "";
@@ -1148,7 +1204,7 @@
       return `
         <figure class="place-image-frame">
           ${proofLabel}
-          <img class="place-image" src="${escapeHtml(resolved.src)}" alt="${escapeHtml(resolved.alt || place.name)}" width="640" height="360" loading="lazy" decoding="async" data-fallback="${escapeHtml(categoryPlaceholderFor(place.category) || "assets/placeholders/gallery-studio.webp")}" onerror="this.onerror=null;this.src=this.dataset.fallback;this.classList.add('placeholder-image');var f=this.closest('figure');if(f&&!f.querySelector('.placeholder-label')){var s=document.createElement('span');s.className='placeholder-label';s.textContent='Photo not yet sourced';f.appendChild(s);}">
+          <img class="place-image" src="${escapeHtml(resolved.src)}" alt="${escapeHtml(resolved.alt || place.name)}" width="640" height="360" loading="lazy" decoding="async" data-fallback="${escapeHtml(categoryPlaceholderFor(place.category) || "assets/placeholders/gallery-studio.webp")}" data-img-fallback="placeholder">
           ${caption}
         </figure>
       `;
@@ -1585,7 +1641,7 @@
     const hintImage = resolvePlaceImage(place).src || categoryPlaceholderFor(place.category);
     els.hint.innerHTML = `
       <div class="hint-feature">
-        ${hintImage ? `<img class="hint-feature-img" src="${escapeHtml(hintImage)}" alt="${escapeHtml(place.name)}" loading="lazy" onerror="this.onerror=null;this.remove();">` : ""}
+        ${hintImage ? `<img class="hint-feature-img" src="${escapeHtml(hintImage)}" alt="${escapeHtml(place.name)}" loading="lazy" data-img-fallback="remove">` : ""}
         <div class="hint-feature-copy">
           <p class="hint-title">Start here</p>
           <p class="hint-feature-name">${escapeHtml(place.name)}</p>
@@ -1758,17 +1814,23 @@
     const venueLine = [event.placeName, event.city].filter(Boolean).join(", ");
     const kicker = event.date === todayISO() ? "Tonight" : niceEventDate(event.date);
     const blurb = displayEventDescription(event.description);
+    // Same media resolution as the rail (buildRailItems), so relative paths
+    // load identically on both surfaces; on a 404 the delegated fallback swaps
+    // in the venue's category placeholder and the figcaption keeps naming the
+    // venue/city — the card never loses its venue.
+    const eventImage = resolveMedia(event.image || "");
+    const eventFallback = categoryPlaceholderFor(place?.category) || "assets/placeholders/gallery-studio.webp";
     els.detail.innerHTML = `
       <button class="selected-place-close" type="button" aria-label="Close selected event">Close</button>
-      ${event.image ? `
+      ${eventImage ? `
         <figure class="event-feature-photo">
-          <img class="place-image" src="${escapeHtml(event.image)}" alt="${escapeHtml(event.title)}" width="640" height="360" loading="lazy" decoding="async" onerror="this.onerror=null;var f=this.closest('figure');if(f)f.remove();">
+          <img class="place-image" src="${escapeHtml(eventImage)}" alt="${escapeHtml(event.title)}" width="640" height="360" loading="lazy" decoding="async" data-fallback="${escapeHtml(eventFallback)}" data-img-fallback="event">
           ${venueLine ? `<figcaption>${escapeHtml(venueLine)}</figcaption>` : ""}
         </figure>` : ""}
       <div class="event-feature-body">
         <p class="event-feature-kicker">${escapeHtml(kicker)}</p>
         <h2>${escapeHtml(event.title)}</h2>
-        ${!event.image && venueLine ? `<p class="event-feature-venue">${escapeHtml(venueLine)}</p>` : ""}
+        ${!eventImage && venueLine ? `<p class="event-feature-venue">${escapeHtml(venueLine)}</p>` : ""}
         ${blurb ? `<p class="event-feature-blurb">${escapeHtml(blurb)}</p>` : ""}
         <div class="detail-actions event-feature-actions">
           ${event.url ? `<a href="${escapeHtml(event.url)}" target="_blank" rel="noopener">Event details</a>` : ""}
@@ -2044,11 +2106,16 @@
   // campaign-style cards only: events, the MUSE story, the path. Imageless
   // PLACE cards stay quiet paper — they are directory entries, not campaigns.
   const RAIL_POSTER_CYCLE = ["blue", "green", "pink", "teal"];
+  // Poster field for a card: the MUSE story is always ink, the path is always
+  // teal, everything else cycles the brand secondaries by rail index. Shared
+  // by the render-time class pick and the delegated dead-image fallback.
+  function railPosterClasses(type, index) {
+    const field = type === "story" ? "ink" : type === "path" ? "teal" : RAIL_POSTER_CYCLE[index % RAIL_POSTER_CYCLE.length];
+    return ["rail-card-poster", `rail-card-poster-${field}`];
+  }
   function railPosterClass(item, index) {
     if (item.image || item.type === "place") return "";
-    if (item.type === "story") return " rail-card-poster rail-card-poster-ink";
-    if (item.type === "path") return " rail-card-poster rail-card-poster-teal";
-    return ` rail-card-poster rail-card-poster-${RAIL_POSTER_CYCLE[index % RAIL_POSTER_CYCLE.length]}`;
+    return ` ${railPosterClasses(item.type, index).join(" ")}`;
   }
 
   function railCardHtml(item, index) {
@@ -2061,7 +2128,7 @@
     const metaLine = `${item.when ? `<strong class="rail-card-when${item.when === "Tonight" ? " is-tonight" : ""}">${escapeHtml(item.when)}</strong> · ` : ""}${escapeHtml(item.meta)}`;
     return `
       <button class="rail-card rail-card-${escapeHtml(item.type)}${railPosterClass(item, index)}" type="button" data-rail-index="${index}" aria-label="${escapeHtml(accessibleName)}">
-        ${item.image ? `<img class="rail-card-img" src="${escapeHtml(item.image)}" alt="" loading="lazy" decoding="async" onerror="this.onerror=null;this.remove();">` : ""}
+        ${item.image ? `<img class="rail-card-img" src="${escapeHtml(item.image)}" alt="" loading="lazy" decoding="async" data-img-fallback="poster">` : ""}
         <span class="rail-card-body">
           ${item.kicker ? `<span class="rail-card-kicker">${escapeHtml(item.kicker)}</span>` : ""}
           <span class="rail-card-title">${escapeHtml(item.title)}</span>
