@@ -625,4 +625,6 @@ function mapCategory(museCategory, entry) {
   return "Shops & Makers";
 }
 
-main();
+module.exports = { mapCategory, normName, normDomain };
+
+if (require.main === module) main();
