@@ -2183,6 +2183,227 @@ button.event-mini:hover {
   cursor: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='28'%20height='28'%20viewBox='0%200%2028%2028'%3E%20%3Cdefs%3E%3Cfilter%20id='s'%20x='-30%25'%20y='-30%25'%20width='160%25'%20height='160%25'%3E%3CfeDropShadow%20dx='0'%20dy='1'%20stdDeviation='0.8'%20flood-color='%23000'%20flood-opacity='0.4'/%3E%3C/filter%3E%3C/defs%3E%20%3Cg%20filter='url(%23s)'%20fill='%23fff'%20stroke='%23333'%20stroke-width='1.4'%20stroke-linejoin='round'%3E%20%3Crect%20x='3.0'%20y='12.4'%20width='4.3'%20height='5.2'%20rx='2.1'/%3E%20%3Crect%20x='6.0'%20y='7.2'%20width='3.7'%20height='6'%20rx='1.85'/%3E%20%3Crect%20x='9.8'%20y='6.4'%20width='3.7'%20height='6.8'%20rx='1.85'/%3E%20%3Crect%20x='13.6'%20y='7.2'%20width='3.7'%20height='6'%20rx='1.85'/%3E%20%3Crect%20x='17.0'%20y='8.2'%20width='3.3'%20height='5'%20rx='1.65'/%3E%20%3Crect%20x='4.6'%20y='9.5'%20width='17'%20height='14'%20rx='6.5'/%3E%20%3C/g%3E%20%3C/svg%3E") 13 14, grabbing;
 }
 
+/* --- Discovery Rail (ADR 0002, variant B) ---------------------------------
+   The first-load browsing surface: a horizontal snap-scrolling card rail along
+   the bottom of the map. Shown only in the Browse Starting View (body gets
+   .rail-browse); searching or filtering retires the rail and expands the full
+   Directory Browser. The same body class collapses the left panel to a compact
+   search/filter toolbar. */
+.discovery-rail {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 5;
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0 0 14px;
+  pointer-events: none;
+}
+
+body.rail-browse .discovery-rail {
+  display: flex;
+}
+
+.rail-chips {
+  display: flex;
+  gap: 8px;
+  padding: 0 24px;
+  pointer-events: auto;
+  /* Right-aligned so the chips never collide with the toolbar panel or the
+     attribution, which both live on the left. */
+  align-self: flex-end;
+}
+
+.rail-chip {
+  background: var(--panel);
+  border: 1px solid var(--line-strong);
+  border-radius: 99px;
+  padding: 6px 13px;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink);
+  cursor: pointer;
+  box-shadow: var(--shadow-low);
+}
+
+.rail-chip.on {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.rail-chip:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+.rail-track {
+  display: flex;
+  /* Cards size to their own content; a tall photo card must not stretch a
+     short text-only event card into hollow whitespace. */
+  align-items: flex-start;
+  gap: 12px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 6px 24px 6px;
+  pointer-events: auto;
+  scrollbar-width: thin;
+}
+
+.rail-card {
+  flex: 0 0 250px;
+  scroll-snap-align: center;
+  display: flex;
+  flex-direction: column;
+  background: var(--panel);
+  border: 1px solid var(--line-strong);
+  box-shadow: var(--shadow-float);
+  padding: 0;
+  text-align: left;
+  font: inherit;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.rail-card:hover {
+  transform: translateY(-2px);
+}
+
+.rail-card.active {
+  outline: 2px solid var(--ncac-red);
+  outline-offset: -1px;
+}
+
+.rail-card:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring), var(--shadow-float);
+}
+
+.rail-card-img {
+  width: 100%;
+  height: 92px;
+  object-fit: cover;
+  display: block;
+  background: var(--paper-warm);
+}
+
+.rail-card-body {
+  display: grid;
+  gap: 3px;
+  padding: 9px 11px 11px;
+}
+
+.rail-card-kicker {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+.rail-card-event .rail-card-kicker {
+  color: var(--ncac-red);
+}
+
+.rail-card-title {
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--ink);
+}
+
+.rail-card-desc {
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--ink-soft);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.rail-card-meta {
+  font-size: 11px;
+  color: var(--ink-soft);
+}
+
+.rail-empty {
+  background: var(--panel);
+  border: 1px solid var(--line-strong);
+  box-shadow: var(--shadow-float);
+  padding: 16px 18px;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+/* Compact search/filter toolbar: the deep browse furniture steps back while
+   the rail is the browsing front door. */
+body.rail-browse .featured-hint {
+  display: none;
+}
+
+/* Keep the toolbar clear of the rail along the bottom edge. */
+body.rail-browse .control-panel {
+  max-height: calc(100% - 300px);
+}
+
+body.rail-browse .places-list {
+  display: none;
+}
+
+/* Lift the map chrome that shares the bottom edge with the rail. */
+body.rail-browse .map-legend {
+  bottom: 270px;
+}
+
+body.rail-browse .map-canvas .maplibregl-ctrl-bottom-right {
+  bottom: 310px;
+}
+
+body.rail-browse .map-canvas .maplibregl-ctrl-bottom-left {
+  bottom: 226px;
+}
+
+@media (max-width: 880px) {
+  /* Mobile converges on the rail: bottom drawer cards above the collapsed
+     control panel. */
+  body.rail-browse .control-panel {
+    max-height: 132px;
+    overflow: hidden;
+  }
+
+  body.rail-browse .discovery-rail {
+    bottom: 152px;
+    padding-bottom: 0;
+  }
+
+  .rail-card {
+    flex-basis: 220px;
+  }
+
+  .rail-chips,
+  .rail-track {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  body.rail-browse .map-legend {
+    display: none;
+  }
+
+  body.rail-browse .map-canvas .maplibregl-ctrl-bottom-left,
+  body.rail-browse .map-canvas .maplibregl-ctrl-bottom-right {
+    bottom: 0;
+  }
+
+  /* The selected-place bottom sheet needs the whole bottom edge. */
+  .map-stage:has(.selection-drawer.open) .discovery-rail {
+    display: none;
+  }
+}
+
 /* CLA-42: honor prefers-reduced-motion. Kills the infinite path-marker pulse and
    collapses panel/drawer transitions to near-instant; a scoped belt-and-suspenders
    global rule covers any other animated property. MapLibre camera moves are

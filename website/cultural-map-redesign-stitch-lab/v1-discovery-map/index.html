@@ -15,7 +15,7 @@
   <script>try{Typekit.load({async:true});}catch(e){}</script>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23ff2500'/%3E%3Cpath d='M7 24V8h4l10 9V8h4v16h-4L11 15v9z' fill='%23faf8f4'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
-  <link rel="stylesheet" href="styles.css?v=cla-52-muse-read-links">
+  <link rel="stylesheet" href="styles.css?v=cla-53-discovery-rail">
 </head>
 <body>
   <a class="skip-link" href="#map">Skip to map</a>
@@ -96,6 +96,15 @@
         </div>
       </div>
 
+      <div class="discovery-rail" id="discovery-rail" aria-label="Browse what's happening and worth a stop">
+        <div class="rail-chips" id="rail-chips" role="group" aria-label="Choose what to browse">
+          <button class="rail-chip on" type="button" data-rail-filter="all">Everything</button>
+          <button class="rail-chip" type="button" data-rail-filter="event">Events</button>
+          <button class="rail-chip" type="button" data-rail-filter="place">Places</button>
+        </div>
+        <div class="rail-track" id="rail-track" tabindex="0" aria-label="Scroll through events, places, stories, and paths"></div>
+      </div>
+
       <div class="map-legend" aria-label="Map legend">
         <span><i class="legend-dot place"></i>Places</span>
         <span><i class="legend-dot event"></i>Events</span>
@@ -107,7 +116,7 @@
   <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
   <script src="review-state.js"></script>
   <script src="place-data.js"></script>
-  <script src="marker-category-color.js?v=cla-52-muse-read-links"></script>
-  <script src="app.js?v=cla-52-muse-read-links"></script>
+  <script src="marker-category-color.js?v=cla-53-discovery-rail"></script>
+  <script src="app.js?v=cla-53-discovery-rail"></script>
 </body>
 </html>

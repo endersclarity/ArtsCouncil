@@ -162,6 +162,14 @@
     map: null,
     markerPreviewPopup: null,
     previewPlaceId: "",
+    // Discovery Rail (ADR 0002, variant B). railFocusPlaceId carries the
+    // Rail Follow marker highlight through the same hover-ring filter seam
+    // as previewPlaceId — no new paint expressions, no new layers.
+    railItems: [],
+    railFilter: "all",
+    railFocusPlaceId: "",
+    railLastFollowIndex: -1,
+    railSuppressFollow: false,
     pathMarkers: [],
     smartLabels: [],
     labelsActive: false,
@@ -176,6 +184,8 @@
     hint: document.getElementById("featured-hint"),
     search: document.getElementById("place-search"),
     placesList: document.getElementById("places-list"),
+    rail: document.getElementById("discovery-rail"),
+    railTrack: document.getElementById("rail-track"),
   };
 
   // CLA-42: when the OS requests reduced motion, swap MapLibre's animated camera
@@ -293,14 +303,25 @@
     refreshHoverState(previousPreviewId);
   }
 
+  // The hover ring is the existing lightweight highlight seam (setFilter, no
+  // source rebuild). It now serves two states: marker hover (previewPlaceId)
+  // and Rail Follow focus (railFocusPlaceId). The filter stays a plain
+  // top-level expression - no zoom-in-case anywhere near marker paint.
+  function applyHoverRingFilter() {
+    if (!state.map || !state.map.getLayer("place-hover-ring")) return;
+    state.map.setFilter("place-hover-ring", [
+      "all", ["!", ["has", "point_count"]],
+      ["any",
+        ["==", ["get", "id"], state.previewPlaceId || " "],
+        ["==", ["get", "id"], state.railFocusPlaceId || " "],
+      ],
+    ]);
+  }
+
   // Repaint the hovered dot red (lightweight setFilter, no source rebuild) and
   // refresh smart labels so the previewed place gets a label.
   function refreshHoverState(previousPreviewId) {
-    if (state.map && state.map.getLayer("place-hover-ring")) {
-      state.map.setFilter("place-hover-ring", [
-        "all", ["!", ["has", "point_count"]], ["==", ["get", "id"], state.previewPlaceId || " "],
-      ]);
-    }
+    applyHoverRingFilter();
     if (previousPreviewId !== state.previewPlaceId) updateSmartLabels();
   }
 
@@ -564,6 +585,7 @@
   }
 
   function renderPlacesList() {
+    syncBrowseChrome();
     if (!els.placesList) return;
     const query = state.searchQuery.trim();
     const places = listedPlaces();
@@ -1818,6 +1840,236 @@
     revealDetailCard();
   }
 
+  // ---------------------------------------------------------------------------
+  // Discovery Rail (ADR 0002, variant B) — the first-load Browse Starting View
+  // in rail form. Sampler doctrine order: upcoming events first (Event
+  // Freshness Guarantee — state.events is already today-or-later), then
+  // MUSE-Grounded Sampler places, one MUSE story card, one path card,
+  // interleaved. Rail Follow ruling: on scroll-settle the map eases to the
+  // centered card WITHOUT changing zoom; full fly-and-zoom only on tap. The
+  // camera never moves while cards are still moving (debounced settle).
+  // ---------------------------------------------------------------------------
+
+  function niceEventDate(date) {
+    return new Date(`${date}T12:00:00`).toLocaleDateString(undefined, {
+      weekday: "short", month: "short", day: "numeric",
+    });
+  }
+
+  function buildRailItems() {
+    const items = [];
+    const today = todayISO();
+    const events = [...state.events].sort((a, b) => a.date.localeCompare(b.date));
+    const samplerPlaces = state.browseSamplerPlaceIds
+      .map(placeById)
+      .filter((place) => place && isPlaceMapReady(place));
+    const eventCard = (event) => ({
+      type: "event",
+      kicker: event.date === today ? "Tonight" : "Coming up",
+      title: event.title,
+      meta: `${event.placeName} · ${niceEventDate(event.date)}`,
+      desc: event.description || "",
+      image: resolveMedia(event.image || ""),
+      lat: event.lat,
+      lng: event.lng,
+      event,
+    });
+    const placeCard = (place) => ({
+      type: "place",
+      kicker: placeKindLabel(place),
+      title: place.name,
+      meta: place.city || "Nevada County",
+      desc: firstSentence(place.description || ""),
+      image: resolvePlaceImage(place).src || "",
+      lat: place.lat,
+      lng: place.lng,
+      place,
+    });
+    events.slice(0, 4).forEach((event) => items.push(eventCard(event)));
+    samplerPlaces.slice(0, 3).forEach((place) => items.push(placeCard(place)));
+    const story = state.museStories[0];
+    if (story) {
+      const storyPlaces = (story.placeIds || []).map(placeById).filter((place) => place && isPlaceMapReady(place));
+      items.push({
+        type: "story",
+        kicker: "In the pages of MUSE Magazine",
+        title: story.title,
+        meta: story.issue,
+        desc: "See everywhere this story touches the map.",
+        image: "",
+        lat: storyPlaces[0]?.lat,
+        lng: storyPlaces[0]?.lng,
+        story,
+      });
+    }
+    const path = state.paths[0];
+    if (path?.stops?.length) {
+      items.push({
+        type: "path",
+        kicker: "A path to walk",
+        title: path.title,
+        meta: `${path.stops.length} stops`,
+        desc: path.dek || "",
+        image: "",
+        lat: path.stops[0].lat,
+        lng: path.stops[0].lng,
+        path,
+      });
+    }
+    events.slice(4, 8).forEach((event) => items.push(eventCard(event)));
+    samplerPlaces.slice(3).forEach((place) => items.push(placeCard(place)));
+    return items;
+  }
+
+  function railCardHtml(item, index) {
+    return `
+      <button class="rail-card rail-card-${escapeHtml(item.type)}" type="button" data-rail-index="${index}">
+        ${item.image ? `<img class="rail-card-img" src="${escapeHtml(item.image)}" alt="" loading="lazy" decoding="async">` : ""}
+        <span class="rail-card-body">
+          <span class="rail-card-kicker">${escapeHtml(item.kicker)}</span>
+          <span class="rail-card-title">${escapeHtml(item.title)}</span>
+          ${item.desc ? `<span class="rail-card-desc">${escapeHtml(item.desc)}</span>` : ""}
+          <span class="rail-card-meta">${escapeHtml(item.meta)}</span>
+        </span>
+      </button>`;
+  }
+
+  // The rail is visible exactly when the Browse Starting View is: Places mode,
+  // no search, no Outing Type filter, no Local Reveal. Searching or filtering
+  // expands the full Directory Browser and retires the rail until cleared.
+  function railVisible() {
+    return state.mode === "places" && isBrowseStartingView() && !state.localReveal;
+  }
+
+  // One body class drives both halves of the first-load layout: the rail shows
+  // and the left panel collapses to a compact search/filter toolbar.
+  function syncBrowseChrome() {
+    const visible = railVisible();
+    document.body.classList.toggle("rail-browse", visible);
+    if (!visible) setRailFocus("");
+  }
+
+  function setRailFocus(placeId) {
+    if (state.railFocusPlaceId === placeId) return;
+    state.railFocusPlaceId = placeId;
+    applyHoverRingFilter();
+  }
+
+  function markActiveRailCard(activeCard) {
+    els.railTrack?.querySelectorAll(".rail-card").forEach((card) => {
+      card.classList.toggle("active", card === activeCard);
+    });
+  }
+
+  // Rail Follow: ease to the centered card's place, highlight its marker, no
+  // zoom change. Runs only after scrolling settles, never mid-scroll.
+  function handleRailScrollSettle() {
+    if (!railVisible() || !state.map || !els.railTrack) return;
+    if (state.railSuppressFollow) {
+      state.railSuppressFollow = false;
+      return;
+    }
+    const track = els.railTrack;
+    const mid = track.scrollLeft + track.clientWidth / 2;
+    let best = null;
+    let bestDistance = Infinity;
+    track.querySelectorAll(".rail-card").forEach((card) => {
+      const distance = Math.abs(card.offsetLeft + card.offsetWidth / 2 - mid);
+      if (distance < bestDistance) {
+        bestDistance = distance;
+        best = card;
+      }
+    });
+    if (!best) return;
+    const index = Number(best.dataset.railIndex);
+    if (index === state.railLastFollowIndex) return;
+    state.railLastFollowIndex = index;
+    markActiveRailCard(best);
+    const item = state.railItems[index];
+    if (!item || !Number.isFinite(item.lng) || !Number.isFinite(item.lat)) return;
+    if (prefersReducedMotion()) {
+      state.map.jumpTo({ center: [item.lng, item.lat] });
+    } else {
+      state.map.easeTo({ center: [item.lng, item.lat], duration: 650 });
+    }
+    setRailFocus(item.type === "place" ? item.place.id : "");
+  }
+
+  // Explicit card tap = the full fly-and-zoom plus the real selection flow.
+  function activateRailCard(index, cardEl) {
+    const item = state.railItems[index];
+    if (!item) return;
+    state.railSuppressFollow = true;
+    state.railLastFollowIndex = index;
+    markActiveRailCard(cardEl);
+    cardEl?.scrollIntoView({ inline: "center", block: "nearest", behavior: prefersReducedMotion() ? "auto" : "smooth" });
+    if (item.type === "place") {
+      showPlace(item.place);
+    } else if (item.type === "event") {
+      if (Number.isFinite(item.lng) && Number.isFinite(item.lat)) {
+        const targetZoom = Math.max(state.map.getZoom(), 13.5);
+        if (prefersReducedMotion()) {
+          state.map.jumpTo({ center: [item.lng, item.lat], zoom: targetZoom });
+        } else {
+          state.map.flyTo({ center: [item.lng, item.lat], zoom: targetZoom, speed: 0.8 });
+        }
+      }
+      showEvent(item.event);
+    } else if (item.type === "story") {
+      renderStory(item.story);
+    } else if (item.type === "path") {
+      setMode("paths");
+      showPath(item.path);
+    }
+  }
+
+  function renderDiscoveryRail() {
+    if (!els.railTrack) return;
+    const filter = state.railFilter;
+    const visibleItems = state.railItems
+      .map((item, index) => ({ item, index }))
+      .filter(({ item }) => filter === "all" || item.type === filter);
+    if (!visibleItems.length) {
+      // Empty Events State pattern: invite a return, never expose machinery.
+      const copy = filter === "event"
+        ? "No events listed here this week — check back soon."
+        : "Nothing to browse here yet — check back soon.";
+      els.railTrack.innerHTML = `<div class="rail-empty">${escapeHtml(copy)}</div>`;
+    } else {
+      els.railTrack.innerHTML = visibleItems.map(({ item, index }) => railCardHtml(item, index)).join("");
+    }
+    if (els.railTrack.scrollLeft !== 0) {
+      // Resetting scroll fires a settle; that move is ours, not the user's.
+      state.railSuppressFollow = true;
+      els.railTrack.scrollLeft = 0;
+    }
+    state.railLastFollowIndex = -1;
+    els.railTrack.querySelectorAll("[data-rail-index]").forEach((card) => {
+      card.addEventListener("click", () => activateRailCard(Number(card.dataset.railIndex), card));
+    });
+  }
+
+  function initDiscoveryRail() {
+    if (!els.rail || !els.railTrack) return;
+    state.railItems = buildRailItems();
+    renderDiscoveryRail();
+    let settleTimer;
+    els.railTrack.addEventListener("scroll", () => {
+      clearTimeout(settleTimer);
+      settleTimer = setTimeout(handleRailScrollSettle, 180);
+    }, { passive: true });
+    els.rail.querySelectorAll("[data-rail-filter]").forEach((chip) => {
+      chip.addEventListener("click", () => {
+        state.railFilter = chip.dataset.railFilter;
+        els.rail.querySelectorAll("[data-rail-filter]").forEach((other) => {
+          other.classList.toggle("on", other === chip);
+        });
+        renderDiscoveryRail();
+      });
+    });
+    syncBrowseChrome();
+  }
+
   function setMode(mode) {
     state.mode = mode;
     document.body.dataset.mapMode = mode;
@@ -2269,6 +2521,12 @@
       // Attribution sits bottom-left so the legend (bottom-right) never clips it.
       attributionControl: false,
     });
+    // Contract/debug seam: with any ?contract= param the map instance is
+    // reachable for the CDP contract suites (marker-hierarchy, CLA-33)
+    // without the fragile constructor-wrap init script.
+    if (new URLSearchParams(window.location.search).has("contract")) {
+      window.__map = state.map;
+    }
     state.map.addControl(new maplibregl.AttributionControl(), "bottom-left");
     state.map.addControl(new maplibregl.NavigationControl({ showCompass: false }), "bottom-right");
     state.map.on("load", () => {
@@ -2276,6 +2534,7 @@
       addMapLayers();
       setSourceData();
       applyInitialReviewState();
+      initDiscoveryRail();
     });
 
     state.map.on("moveend", updateSmartLabels);
