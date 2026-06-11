@@ -9,6 +9,39 @@ See: .planning/PROJECT.md (updated 2026-02-14)
 
 ## Current Position
 
+## Sandbox: Impeccable design-pass effort — DONE 2026-06-11, EXIT GATE PASSED (branch sandbox/rail-and-muse, NOT pushed, never push)
+
+Seven-pass plan (.planning/impeccable-pass-plan-2026-06-10.md, in the app checkout) executed
+end to end against the Discovery Rail + MUSE build at http://127.0.0.1:8014:
+
+- Pass 0 (3fb1f7b): token reconciliation — 4 drifted hexes to canonical NCAC values.
+- Pass 1 (fd6b7e9): baseline critique snapshot — **25/40, 0 P0, 5 P1**, 30 in-page detector
+  findings (`.impeccable/critique/2026-06-11T05-45-23Z__...md`).
+- Pass 2 (0df641f): layout — uniform rail card grid, poster fields, chip/legend stacking,
+  scrollbar treatment, Explore panel chrome.
+- Pass 3 (6d17d55): typeset — eyebrows killed, 34px/12px card type jumps, contrast fixes.
+- Pass 4 (1f70a21): polish — states sweep, copy, MUSE chip above the fold.
+- Pass 5 (0534e4a): animate — motion tokens, eased toggles, drawer entrance, reduced-motion.
+- Pass 6 (this commit, read-only): re-critique — **29/40, 0 P0, 0 P1. Exit gate PASS**
+  (beat baseline, zero P0s, no banned patterns: in-page detector 30 findings → 0 real
+  findings, only the two pre-ruled false positives `single-font`/`cream-palette` remain;
+  no visible rail/panel scrollbars; legend/chips 181px apart; uniform 250×190 / ×168
+  cards read as NCAC poster moments at 1440 and 390). All five baseline P1s verified
+  resolved with measurements in the snapshot
+  `.impeccable/critique/2026-06-11T09-16-38Z__ap-redesign-stitch-lab-v1-discovery-map-index-html.md`.
+
+Brand levers from NCAC-V1-BRAND.md now in use: one red framing device per composition,
+knockout type on poster fields and marker selection, poster-field stand-ins for photo-less
+event cards, big type jumps, photography with knockout caption bars.
+
+Backlog left for a possible later pass (logged in the pass-6 snapshot, deliberately NOT
+fixed): drawer default scrollbar (P2), dual chip vocabularies (P2), legend color-only
+encoding (P2), no rail keyboard path (P2), all-caps source-data titles (P3), app.js
+ink-navy marker drift #1a1a2e (re-run marker contract if touched).
+
+Design-pass effort complete. Owner compares 8014 (sandbox) vs 8013 (main) and decides
+merge/demo. Do not push.
+
 ## Sandbox: MUSE business directory layer (Stream 2) — DONE 2026-06-11 (branch sandbox/rail-and-muse, NOT pushed, never push)
 
 Built per .planning/muse-directory-layer-PRD-2026-06-10.md, three commits on top of Stream 1:
