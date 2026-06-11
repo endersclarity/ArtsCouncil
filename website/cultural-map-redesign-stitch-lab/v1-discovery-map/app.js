@@ -1922,9 +1922,12 @@
       .filter((place) => place && isPlaceMapReady(place));
     const eventCard = (event) => ({
       type: "event",
-      kicker: event.date === today ? "Tonight" : "Coming up",
+      // Pass-3 typeset: the banned eyebrow row is gone. The date/recency signal
+      // lives in the meta line as a weighted lead word ("Tonight" / "Sat, Jun 13"),
+      // not a kicker above every card.
+      when: event.date === today ? "Tonight" : niceEventDate(event.date),
       title: event.title,
-      meta: `${event.placeName} · ${niceEventDate(event.date)}`,
+      meta: event.placeName,
       desc: event.description || "",
       image: resolveMedia(event.image || ""),
       lat: event.lat,
@@ -1933,9 +1936,10 @@
     });
     const placeCard = (place) => ({
       type: "place",
-      kicker: placeKindLabel(place),
+      // Place category moves into the meta line (voice rule: category stays
+      // the place card's classifier — just no longer an eyebrow row).
       title: place.name,
-      meta: place.city || "Nevada County",
+      meta: `${placeKindLabel(place)} · ${place.city || "Nevada County"}`,
       desc: firstSentence(place.description || ""),
       image: resolvePlaceImage(place).src || "",
       lat: place.lat,
@@ -1963,9 +1967,8 @@
     if (path?.stops?.length) {
       items.push({
         type: "path",
-        kicker: "A path to walk",
         title: path.title,
-        meta: `${path.stops.length} stops`,
+        meta: `A path to walk · ${path.stops.length} stops`,
         desc: path.dek || "",
         image: "",
         lat: path.stops[0].lat,
@@ -1992,15 +1995,19 @@
   function railCardHtml(item, index) {
     // Accessible name is title + venue/date only — never the full description
     // essay (screen readers read the whole name per card).
-    const accessibleName = `${item.title} — ${item.meta}`;
+    const accessibleName = `${item.title} — ${item.when ? `${item.when} · ` : ""}${item.meta}`;
+    // ONE deliberate kicker across the surface: the MUSE story card's
+    // credential line ("In the pages of MUSE Magazine"). Everything else
+    // carries its signal in the title and meta line.
+    const metaLine = `${item.when ? `<strong class="rail-card-when${item.when === "Tonight" ? " is-tonight" : ""}">${escapeHtml(item.when)}</strong> · ` : ""}${escapeHtml(item.meta)}`;
     return `
       <button class="rail-card rail-card-${escapeHtml(item.type)}${railPosterClass(item, index)}" type="button" data-rail-index="${index}" aria-label="${escapeHtml(accessibleName)}">
         ${item.image ? `<img class="rail-card-img" src="${escapeHtml(item.image)}" alt="" loading="lazy" decoding="async">` : ""}
         <span class="rail-card-body">
-          <span class="rail-card-kicker">${escapeHtml(item.kicker)}</span>
+          ${item.kicker ? `<span class="rail-card-kicker">${escapeHtml(item.kicker)}</span>` : ""}
           <span class="rail-card-title">${escapeHtml(item.title)}</span>
           ${item.desc ? `<span class="rail-card-desc">${escapeHtml(item.desc)}</span>` : ""}
-          <span class="rail-card-meta">${escapeHtml(item.meta)}</span>
+          <span class="rail-card-meta">${metaLine}</span>
         </span>
       </button>`;
   }

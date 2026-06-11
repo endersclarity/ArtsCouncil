@@ -194,11 +194,10 @@ button {
   display: none;
 }
 
-.intro-strip .kicker,
-.panel-label {
+.intro-strip .kicker {
   margin: 0;
   font-family: var(--font-brand);
-  color: var(--ncac-red);
+  color: var(--ink);
   font-weight: 800;
   text-transform: uppercase;
   font-size: 11px;
@@ -336,20 +335,25 @@ button {
   min-width: 0;
 }
 
+/* Explore panel hierarchy: h1 24/800 over 13px body over 11px labels —
+   three sizes, big jumps; no kicker above the h1. */
 .panel-map-copy h1 {
-  margin: 3px 0 4px;
+  margin: 0 0 5px;
   font-family: var(--font-brand);
-  font-size: 20px;
-  line-height: 1;
-  letter-spacing: 0;
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
 }
 
 .panel-map-copy p:last-child {
   margin: 0;
-  max-width: 30ch;
-  font-size: 12px;
-  line-height: 1.25;
+  max-width: 32ch;
+  font-size: 13px;
+  line-height: 1.45;
   color: var(--ink-soft);
+  text-wrap: pretty;
 }
 
 #visible-count {
@@ -357,8 +361,6 @@ button {
   color: var(--ink-soft);
   font-weight: 700;
   font-variant-numeric: tabular-nums;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
   flex: 1 0 100%;
   margin-top: 2px;
   text-align: left;
@@ -399,9 +401,13 @@ button {
   border-right: 0;
 }
 
+/* Active = ink knockout with the red signal as an inset rule. Red FILLS with
+   13px text fail contrast (white on #FF2E00 is 3.7:1, paper 3.4:1); ink/white
+   is 16.9:1 and red still marks the active state. */
 .mode-tab.active {
-  background: var(--ncac-red);
-  color: var(--paper);
+  background: var(--ink);
+  color: #ffffff;
+  box-shadow: inset 0 -3px 0 var(--ncac-red);
 }
 
 /* Section on the panel's own surface — no box-in-box, no side stripe.
@@ -464,8 +470,9 @@ button {
 .hint-feature-action {
   appearance: none;
   border: 2px solid var(--ink);
-  background: var(--ncac-red);
-  color: var(--paper);
+  background: var(--ink);
+  box-shadow: inset 0 -3px 0 var(--ncac-red);
+  color: #ffffff;
   font-family: var(--font-brand);
   font-weight: 800;
   font-size: 13px;
@@ -503,9 +510,12 @@ button {
 .outing-done {
   border: 0;
   background: transparent;
-  color: var(--ncac-red);
+  color: var(--ink);
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 800;
+  text-decoration: underline;
+  text-decoration-color: var(--ncac-red);
+  text-underline-offset: 3px;
   cursor: pointer;
   padding: 0;
 }
@@ -555,12 +565,13 @@ button {
 }
 
 .outing-row.active {
-  background: var(--ncac-red);
+  background: var(--ink);
   color: var(--field);
+  box-shadow: inset 0 -3px 0 var(--ncac-red);
 }
 
 .outing-row.active:hover {
-  background: var(--ncac-red);
+  background: var(--ink);
 }
 
 .outing-row.active .outing-row-count,
@@ -580,7 +591,8 @@ button {
   align-items: center;
   gap: 6px;
   border: 1px solid var(--ink);
-  background: var(--ncac-red);
+  background: var(--ink);
+  box-shadow: inset 0 -3px 0 var(--ncac-red);
   color: var(--field);
   padding: 6px 10px;
   font-size: 12px;
@@ -632,9 +644,9 @@ button {
 
 .filter-chip.active {
   border-color: var(--ink);
-  background: var(--ncac-red);
+  background: var(--ink);
   color: var(--field);
-  box-shadow: inset 0 -3px 0 var(--ink);
+  box-shadow: inset 0 -3px 0 var(--ncac-red);
 }
 
 .filter-chip.active small {
@@ -714,7 +726,7 @@ body:not([data-map-mode="places"]) .review-tools {
   color: var(--ink);
   font-size: 12px;
   font-weight: 800;
-  line-height: 1.25;
+  line-height: 1.35;
   padding: 7px 8px;
 }
 
@@ -787,7 +799,7 @@ body:not([data-map-mode="places"]) .review-tools {
 }
 
 .place-list-badge {
-  color: var(--ncac-red);
+  color: var(--ink);
   font-weight: 800;
   text-transform: uppercase;
 }
@@ -820,7 +832,7 @@ body:not([data-map-mode="places"]) .review-tools {
 }
 
 .marker-preview-kicker {
-  color: var(--ncac-red);
+  color: var(--ink);
   font-size: 9px;
   font-weight: 900;
   letter-spacing: 0.04em;
@@ -1013,9 +1025,11 @@ body:not([data-map-mode="places"]) .review-tools {
   box-shadow: inset 0 -3px 0 var(--ncac-red);
 }
 
+/* Small red text on white is 3.7:1 — below AA for these sizes. Small labels
+   are ink; red stays for display sizes, fills, and rules. */
 .detail-eyebrow {
   margin: 0 0 6px;
-  color: var(--ncac-red);
+  color: var(--ink);
   font-family: var(--font-brand);
   font-weight: 800;
   font-size: 11px;
@@ -1063,7 +1077,7 @@ body:not([data-map-mode="places"]) .review-tools {
   margin-top: -2px;
   border: 1px solid var(--ncac-red);
   background: var(--surface);
-  color: var(--ncac-red);
+  color: var(--ink);
   padding: 3px 5px 2px;
   font-size: 9px;
   font-weight: 900;
@@ -1094,6 +1108,24 @@ body:not([data-map-mode="places"]) .review-tools {
   line-height: 0.98;
 }
 
+/* Even line lengths on headings; fewer orphans in prose (progressive). */
+.detail-card h2,
+.empty-title,
+.events-empty-title,
+.hint-title,
+.browse-heading,
+.path-card-heading h2 {
+  text-wrap: balance;
+}
+
+.detail-description,
+.anchor-hook,
+.empty-copy,
+.featured-hint p:last-child,
+.path-card-heading .path-copy {
+  text-wrap: pretty;
+}
+
 .primary-anchor-card h2 {
   font-size: 34px;
   line-height: 0.94;
@@ -1120,7 +1152,7 @@ body:not([data-map-mode="places"]) .review-tools {
   padding: 9px 10px;
   font-size: 12px;
   font-weight: 800;
-  line-height: 1.25;
+  line-height: 1.4;
 }
 
 .detail-description {
@@ -1156,7 +1188,7 @@ body:not([data-map-mode="places"]) .review-tools {
   margin: 0;
   color: var(--ink);
   font-size: 13px;
-  line-height: 1.25;
+  line-height: 1.4;
 }
 
 .directory-record-meta a {
@@ -1195,7 +1227,7 @@ body:not([data-map-mode="places"]) .review-tools {
 .seen-in-muse-more {
   color: var(--ink-soft);
   font-size: 11px;
-  line-height: 1.25;
+  line-height: 1.35;
 }
 
 .seen-in-muse-item small {
@@ -1248,7 +1280,7 @@ body:not([data-map-mode="places"]) .review-tools {
 .anchor-card-meta p {
   margin: 0;
   color: var(--ink-soft);
-  font-size: 12px;
+  font-size: 13px;
 }
 
 .primary-anchor-card .anchor-card-meta p {
@@ -1274,7 +1306,7 @@ body:not([data-map-mode="places"]) .review-tools {
 }
 
 .primary-anchor-card .anchor-card-meta strong {
-  color: var(--ncac-red);
+  color: var(--ink);
 }
 
 .supporting-stop-card .anchor-card-meta strong {
@@ -1399,7 +1431,6 @@ body:not([data-map-mode="places"]) .review-tools {
 
 .surprise-button:hover {
   border-color: var(--ncac-red);
-  color: var(--ncac-red);
 }
 
 .story-lens-button {
@@ -1454,8 +1485,10 @@ body:not([data-map-mode="places"]) .review-tools {
   display: inline-block;
   margin: 0 0 8px;
   font-size: 12px;
-  font-weight: 700;
-  color: var(--ncac-red);
+  font-weight: 800;
+  color: var(--ink);
+  text-decoration-color: var(--ncac-red);
+  text-underline-offset: 3px;
 }
 
 button.seen-in-muse-story {
@@ -1477,7 +1510,8 @@ button.seen-in-muse-story em {
   margin-top: 3px;
   font-size: 11px;
   font-style: normal;
-  color: var(--ncac-red);
+  font-weight: 700;
+  color: var(--ink-soft);
 }
 
 .surprise-list .place-nearby-link em {
@@ -1526,9 +1560,10 @@ button.seen-in-muse-story em {
 }
 
 .time-lens-chip.active {
-  background: var(--ncac-red);
+  background: var(--ink);
   border-color: var(--ink);
-  color: var(--paper);
+  color: #ffffff;
+  box-shadow: inset 0 -3px 0 var(--ncac-red);
 }
 
 .time-lens-chip:hover:not(.active) {
@@ -1817,9 +1852,9 @@ button.event-mini:hover {
 .event-list-date {
   flex: 0 0 auto;
   font-size: 11px;
-  font-weight: 700;
+  font-weight: 800;
   font-variant-numeric: tabular-nums;
-  color: var(--ncac-red);
+  color: var(--ink);
 }
 
 .event-list-copy {
@@ -1829,7 +1864,7 @@ button.event-mini:hover {
 
 .event-list-copy strong {
   font-size: 13px;
-  line-height: 1.25;
+  line-height: 1.35;
 }
 
 .event-list-copy em {
@@ -2347,17 +2382,17 @@ body.rail-browse .discovery-rail {
 .rail-card-poster-pink { background: var(--poster-pink); }
 .rail-card-poster-ink { background: var(--ink); }
 
-.rail-card-poster .rail-card-kicker,
-.rail-card-event.rail-card-poster .rail-card-kicker {
+.rail-card-poster .rail-card-kicker {
   color: rgba(255, 255, 255, 0.92);
 }
 
+/* Poster knockout type: real display confidence — big, bold, tight (>= -0.04em
+   floor), clamped to 3 lines so the 190/168px slab never overflows. */
 .rail-card-poster .rail-card-title {
   color: #ffffff;
-  font-family: var(--font-brand);
-  font-size: 17px;
-  font-weight: 800;
-  line-height: 1.12;
+  font-size: 22px;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
   -webkit-line-clamp: 3;
 }
 
@@ -2366,6 +2401,11 @@ body.rail-browse .discovery-rail {
   color: rgba(255, 255, 255, 0.9);
 }
 
+.rail-card-poster .rail-card-when {
+  color: #ffffff;
+}
+
+/* The ONE deliberate kicker on the rail: the MUSE story credential line. */
 .rail-card-kicker {
   font-size: 10px;
   font-weight: 700;
@@ -2374,15 +2414,15 @@ body.rail-browse .discovery-rail {
   color: var(--ink-soft);
 }
 
-.rail-card-event .rail-card-kicker {
-  color: var(--ncac-red);
-}
-
+/* Rail surface hierarchy: TWO sizes with a real jump — name (17/800 brand)
+   over meta (12/regular muted). Emphasis inside the meta line is weight. */
 .rail-card-title {
-  font-size: 14px;
-  font-weight: 700;
-  line-height: 1.25;
+  font-family: var(--font-brand);
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1.18;
   color: var(--ink);
+  text-wrap: balance;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -2393,6 +2433,7 @@ body.rail-browse .discovery-rail {
   font-size: 12px;
   line-height: 1.4;
   color: var(--ink-soft);
+  text-wrap: pretty;
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
@@ -2400,13 +2441,20 @@ body.rail-browse .discovery-rail {
 }
 
 .rail-card-meta {
-  font-size: 11px;
+  font-size: 12px;
   color: var(--ink-soft);
   margin-top: auto;
   padding-top: 4px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+/* The recast date signal: a weighted lead word in the meta line, ink not
+   small-red (red below display sizes fails contrast on white). */
+.rail-card-when {
+  font-weight: 800;
+  color: var(--ink);
 }
 
 .rail-empty {
@@ -2540,9 +2588,10 @@ body.rail-browse .map-canvas .maplibregl-ctrl-bottom-left {
 }
 
 .muse-picks-chip.active {
-  background: var(--ncac-red);
+  background: var(--ink);
   border-color: var(--ink);
-  color: var(--paper);
+  color: #ffffff;
+  box-shadow: inset 0 -3px 0 var(--ncac-red);
 }
 
 .muse-picks-chip-count {

@@ -3,6 +3,12 @@
   "entries": [
     {
       "date": "2026-06-11",
+      "title": "Clearer, bolder text everywhere",
+      "summary": "Cards and panels now read at a glance. The little all-caps labels that sat above every card (TONIGHT, COMING UP, category names) are gone — when an event happens now leads the venue line in bold, and a place's category sits right beside its town. Card names are bigger and bolder, the colored poster cards got confident headline type, and several spots where small red text was hard to read against white now use solid dark text instead. Selected tabs and filters switched from a red fill to a dark fill with a red underline so their labels stay easy to read.",
+      "kind": "improvement"
+    },
+    {
+      "date": "2026-06-11",
       "title": "A tidier map: matching cards, no stray scrollbars",
       "summary": "The card rail along the bottom of the map got a proper cleanup. Every card is now the same size, and events without a photo get a bold colored poster look instead of sitting as plain white boxes. The raw gray scrollbars under the rail and inside the side panel are gone (everything still scrolls the same way), the browse chips no longer sit on top of the map legend, and on phones the chips moved down within easy thumb reach. The side panel itself is lighter and airier - fewer boxes inside boxes, more breathing room.",
       "kind": "improvement"
