@@ -63,9 +63,28 @@ borders everywhere, and text-dumped detail cards.
    changelog); legend color-only encoding gets shape/label support if cheap.
    The dual chip-vocabulary IA question stays OPEN — owner decision, not this
    pass.
-5. **Re-critique gate** at the end: must beat 29/40, zero P0/P1, and pass an
+5. **Map canvas pass (owner-validated direction, 2026-06-11):** a live CSS-filter
+   experiment (saturate .45 + sepia .22) proved a warm muted basemap transforms
+   the product. Implement properly via MapLibre style-layer paint overrides at
+   runtime (NOT a canvas filter — it muddies water/labels):
+   - landuse/greens → warm paper-sage range; roads → quiet warm neutrals with
+     ink hierarchy; water → single muted slate; background → paper-warm.
+   - Reduce basemap POI/road-label density and mute tile-label color so app
+     content is the only loud layer.
+   - Smart-label pills restyled to the new card language (paper pill, hairline,
+     red reserved for featured/active).
+   - Cursor states: pointer on markers, grab/grabbing on pan.
+   - Marker hover feedback using pass-5 motion tokens. Marker taxonomy and
+     camera behavior UNTOUCHED (snappiness is a strength; protect it).
+   - Engineering caution: paint expression validity (zoom only top-level in
+     step/interpolate; layers die silently); marker-hierarchy contract must
+     stay 10/10; verify basemap legibility at county zoom AND street zoom.
+6. **"Surprise me" ruling:** keep, zero investment, no prime real estate. Its
+   problem (cold-start serendipity) is minor and the demo audience won't use
+   it. Future home if ever invested in: a rail card, not a button.
+7. **Re-critique gate** at the end: must beat 29/40, zero P0/P1, and pass an
    explicit "cold/stark" check — no pure-white panel surfaces, no decorative
-   black borders.
+   black borders, basemap no longer stock-colored.
 
 ## Non-goals
 
