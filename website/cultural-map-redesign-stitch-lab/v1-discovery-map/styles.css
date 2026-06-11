@@ -26,6 +26,12 @@
   --poster-green: #0c6b38;
   --poster-teal: #0b6e78;
   --poster-pink: #c2186b;
+  /* Pass-5 motion tokens: two durations, one curve (ease-out quint — confident
+     deceleration, no bounce). Feedback = fast; state changes = base. Every
+     animated property is covered by the prefers-reduced-motion block below. */
+  --motion-fast: 120ms;
+  --motion-base: 200ms;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --font-brand: "polymath-variable-2th9nk", "DM Sans", "Inter", system-ui, sans-serif;
   --font-body: "polymath-variable-2th9nk", "DM Sans", "Inter", system-ui, sans-serif;
   --font-ui: var(--font-brand);
@@ -309,13 +315,16 @@ button {
   opacity: 0;
   pointer-events: none;
   transform: translateX(18px);
-  transition: opacity 0.18s ease, transform 0.18s ease;
+  /* Closed state carries the exit duration (fast); .open overrides with the
+     entrance duration (base) — exits faster than entrances. */
+  transition: opacity var(--motion-fast) var(--ease-out), transform var(--motion-fast) var(--ease-out);
 }
 
 .selection-drawer.open {
   opacity: 1;
   pointer-events: auto;
   transform: translateX(0);
+  transition-duration: var(--motion-base), var(--motion-base);
 }
 
 .panel-topline {
@@ -1825,6 +1834,8 @@ button.event-mini:hover {
   padding: 9px 10px;
   font-size: 12px;
   color: var(--ink-soft);
+  /* Eases the legend's hand-off when the drawer claims the corner. */
+  transition: opacity var(--motion-fast) var(--ease-out);
 }
 
 /* Events-mode browse list (mirrors the outing-row look). */
@@ -1994,7 +2005,8 @@ button.event-mini:hover {
     overflow-y: auto;
     scrollbar-width: none;
     /* No max-height transition: animating layout properties janks the map
-       behind the panel (detector: layout-transition). Motion is pass 5. */
+       behind the panel (detector: layout-transition). Pass 5 ruling: the
+       expand/collapse stays instant — deliberate, not an oversight. */
   }
 
   .control-panel:has(.primary-anchor-card) {
@@ -2331,16 +2343,30 @@ body.rail-browse .discovery-rail {
   text-align: left;
   font: inherit;
   cursor: pointer;
-  transition: transform 0.15s ease;
+  /* Hover = lift (fast feedback); active = the red ring easing in on
+     scroll-settle (base — a state change, so it eases rather than snaps).
+     outline-color is paint-only; it cannot fight the Rail Follow camera. */
+  outline: 2px solid transparent;
+  outline-offset: -1px;
+  transition:
+    transform var(--motion-fast) var(--ease-out),
+    box-shadow var(--motion-fast) var(--ease-out),
+    outline-color var(--motion-base) var(--ease-out);
 }
 
 .rail-card:hover {
   transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(26, 26, 26, 0.2);
+}
+
+/* Press: the card sets back down before the selection fires. */
+.rail-card:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-low);
 }
 
 .rail-card.active {
-  outline: 2px solid var(--ncac-red);
-  outline-offset: -1px;
+  outline-color: var(--ncac-red);
 }
 
 .rail-card:focus-visible {
@@ -2377,6 +2403,20 @@ body.rail-browse .discovery-rail {
    cards. Never on chips, buttons, or markers. */
 .rail-card-poster .rail-card-body {
   padding: 12px 13px;
+}
+
+/* Poster-field hover refinement: a saturated slab swallows the 2px lift, so
+   the field itself brightens a touch. Bounded to one 250×190 solid card. */
+.rail-card-poster {
+  transition:
+    transform var(--motion-fast) var(--ease-out),
+    box-shadow var(--motion-fast) var(--ease-out),
+    outline-color var(--motion-base) var(--ease-out),
+    filter var(--motion-fast) var(--ease-out);
+}
+
+.rail-card-poster:hover {
+  filter: brightness(1.06);
 }
 
 .rail-card-poster-blue { background: var(--poster-blue); }
@@ -2695,3 +2735,85 @@ a.muse-directory-badge-link:focus-visible {
     min-height: 44px;
   }
 }
+
+/* ---------------------------------------------------------------------------
+   Pass 5 animate (2026-06-11). Two durations, one curve — see the motion
+   tokens in :root. Feedback (hover, press) runs --motion-fast; state changes
+   (toggle on/off, selection, drawer) run --motion-base. Paint-only properties
+   (background, color, border, box-shadow, opacity) so nothing reflows and
+   nothing fights MapLibre's JS-driven camera. The global
+   prefers-reduced-motion block above collapses all of it to instant.
+--------------------------------------------------------------------------- */
+
+/* Toggles and tabs: the ink fill + red inset rule eases in instead of
+   snapping; hover border/background feedback gets the same treatment. */
+.rail-chip,
+.mode-tab,
+.filter-chip,
+.time-lens-chip,
+.muse-picks-chip,
+.outing-row,
+.outing-pill,
+.outing-change,
+.path-button,
+.event-list-row,
+.hint-feature-action {
+  transition:
+    background-color var(--motion-base) var(--ease-out),
+    color var(--motion-base) var(--ease-out),
+    border-color var(--motion-fast) var(--ease-out),
+    box-shadow var(--motion-base) var(--ease-out),
+    transform var(--motion-fast) var(--ease-out);
+}
+
+/* Pressed state: a 1px set-down acknowledges the tap before the toggle lands. */
+.rail-chip:active,
+.mode-tab:active,
+.filter-chip:active,
+.time-lens-chip:active,
+.muse-picks-chip:active,
+.outing-pill:active,
+.outing-change:active,
+.hint-feature-action:active {
+  transform: translateY(1px);
+}
+
+/* Panel rows, action buttons, and small links: hover border/background
+   changes ease at feedback speed (these only had instant hovers). */
+.place-list-item,
+.story-row,
+button.event-mini,
+button.seen-in-muse-story,
+.place-path-link,
+.place-nearby-link,
+.surprise-button,
+.surprise-reroll,
+.local-reveal-back,
+.selected-place-close,
+.detail-actions a,
+.detail-actions button,
+.small-link {
+  transition:
+    background-color var(--motion-fast) var(--ease-out),
+    color var(--motion-fast) var(--ease-out),
+    border-color var(--motion-fast) var(--ease-out),
+    box-shadow var(--motion-fast) var(--ease-out);
+}
+
+/* Map smart labels: hover/selected red fill eases (paint-only; the label's
+   position is MapLibre-managed and untouched). */
+.map-smart-label {
+  transition:
+    background-color var(--motion-fast) var(--ease-out),
+    color var(--motion-fast) var(--ease-out),
+    border-color var(--motion-fast) var(--ease-out),
+    opacity var(--motion-base) var(--ease-out);
+}
+
+/* Deliberately NOT animated in this pass:
+   - Mobile control-panel expand/collapse (max-height): pass 4 removed the
+     layout transition because it janks the map repaint behind the panel;
+     instant remains the better feel, so it stays instant.
+   - Rail track scrolling: native scroll-snap + scrollIntoView own that motion.
+   - Map camera (easeTo/flyTo): JS-driven per the Rail Follow ruling.
+   - Page/panel load: product register — no entrance choreography. */

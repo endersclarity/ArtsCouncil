@@ -3,6 +3,12 @@
   "entries": [
     {
       "date": "2026-06-11",
+      "title": "Smoother feel: buttons, cards, and panels now ease instead of snap",
+      "summary": "A light touch of motion across the map. Cards along the bottom rail lift gently when you hover and the red highlight on the centered card now fades in instead of blinking on. Filter chips, tabs, and toggles ease between their on and off looks and give a tiny press when tapped. The place detail panel slides in softly and slips away a little quicker when closed. Everything stays quick and quiet — and if your device is set to reduce motion, all of it simply appears instantly instead.",
+      "kind": "improvement"
+    },
+    {
+      "date": "2026-06-11",
       "title": "Final tidy-up: easier taps, clearer labels, MUSE Picks up front",
       "summary": "A sweep of small finishing touches. The \"MUSE Picks only\" switch now sits at the top of the explore panel instead of hiding below the fold. Event descriptions copied from venue websites no longer start by shouting GET YOUR TICKETS. Buttons and toggles all show a visible outline when you move through the page with a keyboard, chips and tabs respond when you hover them, and on phones the small filter chips grew to a comfortable thumb size. A couple of labels that were typed in all capitals now read in normal bold text.",
       "kind": "improvement"
