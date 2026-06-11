@@ -3,6 +3,12 @@
   "entries": [
     {
       "date": "2026-06-11",
+      "title": "Final tidy-up: easier taps, clearer labels, MUSE Picks up front",
+      "summary": "A sweep of small finishing touches. The \"MUSE Picks only\" switch now sits at the top of the explore panel instead of hiding below the fold. Event descriptions copied from venue websites no longer start by shouting GET YOUR TICKETS. Buttons and toggles all show a visible outline when you move through the page with a keyboard, chips and tabs respond when you hover them, and on phones the small filter chips grew to a comfortable thumb size. A couple of labels that were typed in all capitals now read in normal bold text.",
+      "kind": "improvement"
+    },
+    {
+      "date": "2026-06-11",
       "title": "Clearer, bolder text everywhere",
       "summary": "Cards and panels now read at a glance. The little all-caps labels that sat above every card (TONIGHT, COMING UP, category names) are gone — when an event happens now leads the venue line in bold, and a place's category sits right beside its town. Card names are bigger and bolder, the colored poster cards got confident headline type, and several spots where small red text was hard to read against white now use solid dark text instead. Selected tabs and filters switched from a red fill to a dark fill with a red underline so their labels stay easy to read.",
       "kind": "improvement"

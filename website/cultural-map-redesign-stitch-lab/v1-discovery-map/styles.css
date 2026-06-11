@@ -1055,10 +1055,12 @@ body:not([data-map-mode="places"]) .review-tools {
   gap: 7px;
   margin: 0 0 8px;
   color: var(--ink);
+  /* Bold ink label without an all-caps run — labels this long ("Founding
+     cultural landmark") shout when uppercased (pass-3 no-kicker system:
+     weight carries the emphasis). */
   font-size: 12px;
   font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
 }
 
 .anchor-label-copy {
@@ -1256,7 +1258,7 @@ body:not([data-map-mode="places"]) .review-tools {
   margin: 0 0 12px;
   font-size: 16px;
   font-weight: 850;
-  line-height: 1.28;
+  line-height: 1.35;
 }
 
 .supporting-stop-card .anchor-hook {
@@ -1991,7 +1993,8 @@ button.event-mini:hover {
     padding: 11px;
     overflow-y: auto;
     scrollbar-width: none;
-    transition: max-height 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+    /* No max-height transition: animating layout properties janks the map
+       behind the panel (detector: layout-transition). Motion is pass 5. */
   }
 
   .control-panel:has(.primary-anchor-card) {
@@ -2573,6 +2576,7 @@ body.rail-browse .map-canvas .maplibregl-ctrl-bottom-left {
   align-items: center;
   gap: 6px;
   margin-top: 10px;
+  min-height: 32px;
   border: 1px solid var(--line-strong);
   background: var(--surface);
   color: var(--ink);
@@ -2603,6 +2607,13 @@ body.rail-browse .map-canvas .maplibregl-ctrl-bottom-left {
   margin-top: 0;
 }
 
+/* In the open browse list the chip sits ABOVE the mood rows so the demo's
+   marquee layer is visible at the default fold (it was clipped mid-row
+   below the list before). */
+.outing-browse > .muse-picks-chip {
+  margin: 2px 0 11px;
+}
+
 .muse-directory-badge {
   display: flex;
   flex-wrap: wrap;
@@ -2630,4 +2641,57 @@ a.muse-directory-badge-link:hover {
   font-size: 12px;
   color: var(--ink-soft, var(--ink));
   opacity: 0.85;
+}
+
+/* ---------------------------------------------------------------------------
+   Pass 4 polish — interaction-state coverage sweep (2026-06-11).
+   Every interactive element gets the same visible keyboard focus treatment
+   as the pass-3 grouped rule; these were the stragglers. Hovers stay quiet
+   (ink emphasis), actives stay ink-fill + red inset rule — no new patterns.
+--------------------------------------------------------------------------- */
+
+.surprise-button:focus-visible,
+.surprise-reroll:focus-visible,
+.time-lens-chip:focus-visible,
+button.event-mini:focus-visible,
+.story-row:focus-visible,
+button.seen-in-muse-story:focus-visible,
+.place-path-link:focus-visible,
+.place-nearby-link:focus-visible,
+.event-list-row:focus-visible,
+.muse-picks-chip:focus-visible,
+.hint-feature-action:focus-visible,
+.site-nav a:focus-visible,
+a.muse-directory-badge-link:focus-visible {
+  outline: 0;
+  box-shadow: var(--focus-ring), inset 0 -3px 0 var(--ncac-red);
+}
+
+/* Hover feedback parity for the toggles that only had active states. */
+.rail-chip:hover:not(.on) {
+  border-color: var(--ink);
+  background: var(--paper);
+}
+
+.mode-tab:hover:not(.active) {
+  background: var(--paper-warm);
+}
+
+.filter-chip:hover:not(.active) {
+  border-color: var(--ink);
+}
+
+/* Touch targets: the floating map chips and panel toggles reach 44px on
+   coarse pointers (they are 31-33px tall with a mouse). */
+@media (pointer: coarse) {
+  .rail-chip,
+  .muse-picks-chip,
+  .mode-tab,
+  .filter-chip,
+  .time-lens-chip,
+  .outing-done,
+  .outing-change,
+  .outing-pill {
+    min-height: 44px;
+  }
 }

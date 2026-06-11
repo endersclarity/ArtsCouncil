@@ -1016,8 +1016,8 @@
             <span class="outing-browse-title">What are you in the mood for?</span>
             ${hasActive ? `<button class="outing-done" type="button" data-outing-done>Done</button>` : ""}
           </div>
-          <div class="outing-list" role="group" aria-label="Outing types">${rows}</div>
           ${musePicksChip()}
+          <div class="outing-list" role="group" aria-label="Outing types">${rows}</div>
           <button class="surprise-button" type="button" data-surprise>Surprise me nearby</button>
           <button class="surprise-button story-lens-button" type="button" data-muse-stories>Stories from MUSE</button>
         </div>`;
@@ -1177,6 +1177,16 @@
   function firstSentence(text) {
     const match = String(text || "").match(/^.*?[.!?](?=\s|$)/);
     return (match ? match[0] : String(text || "")).slice(0, 160);
+  }
+
+  // Some venue feeds prefix event copy with SHOUTING boilerplate
+  // ("GET YOUR TICKETS Soul Brass Band is…"). Display-only normalization —
+  // the source data in data/events.json stays untouched. Place descriptions
+  // are NOT run through this: all-caps there can be the venue's own brand
+  // voice ("DRINK COFFEE DO STUFF") — those offenders are logged in
+  // data/source-text-review.md for a human pass instead.
+  function displayEventDescription(text) {
+    return String(text || "").replace(/^GET YOUR TICKETS\s+/, "");
   }
 
   function rollSurprise() {
@@ -1711,7 +1721,7 @@
       <p class="detail-eyebrow">Upcoming event</p>
       <h2>${escapeHtml(event.title)}</h2>
       <p>${escapeHtml(event.date)} at ${escapeHtml(event.placeName)}</p>
-      <p>${escapeHtml(event.description)}</p>
+      <p>${escapeHtml(displayEventDescription(event.description))}</p>
       <div class="detail-actions">
         ${event.url ? `<a href="${escapeHtml(event.url)}" target="_blank" rel="noopener">Event link</a>` : ""}
         ${place ? `<button class="filter-chip" type="button" id="event-place-jump">Show place</button>` : ""}
@@ -1928,7 +1938,7 @@
       when: event.date === today ? "Tonight" : niceEventDate(event.date),
       title: event.title,
       meta: event.placeName,
-      desc: event.description || "",
+      desc: displayEventDescription(event.description || ""),
       image: resolveMedia(event.image || ""),
       lat: event.lat,
       lng: event.lng,
