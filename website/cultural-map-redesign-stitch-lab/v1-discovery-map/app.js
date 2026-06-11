@@ -196,6 +196,7 @@
     placesList: document.getElementById("places-list"),
     rail: document.getElementById("discovery-rail"),
     railTrack: document.getElementById("rail-track"),
+    railResetChip: document.getElementById("rail-reset-chip"),
   };
 
   // CLA-42: when the OS requests reduced motion, swap MapLibre's animated camera
@@ -2071,6 +2072,25 @@
     return state.mode === "places" && isBrowseStartingView() && !state.localReveal;
   }
 
+  // Single source of truth for "return to the pristine Places starting view":
+  // clears every refinement that suppresses the rail (search, Outing Type chips,
+  // MUSE Picks, local reveal) and re-syncs the search input + chip UI to match,
+  // then re-renders so the rail comes back. Used by Places-tab re-entry and the
+  // visible "Show tonight's rail" reset chip. Camera/zoom untouched.
+  function resetToBrowseStartingView() {
+    state.searchQuery = "";
+    state.activeIntents.clear();
+    state.musePicksOnly = false;
+    state.localReveal = null;
+    state.localRevealPreviousContext = null;
+    if (els.search) els.search.value = "";
+    state.filterListOpen = true;
+    renderFilters();
+    setSourceData();
+    renderFeaturedAnchor();
+    updateReviewUrl();
+  }
+
   // One body class drives both halves of the first-load layout: the rail shows
   // and the left panel collapses to a compact search/filter toolbar.
   function syncBrowseChrome() {
@@ -2079,6 +2099,12 @@
     if (!visible) {
       setRailFocus("");
       state.railLastFollowIndex = -1;
+    }
+    // The reset chip is the one-click path back to the rail: shown only when
+    // we're in Places but refinements have retired the rail; hidden whenever the
+    // rail is actually visible, and in every non-Places mode.
+    if (els.railResetChip) {
+      els.railResetChip.hidden = !(state.mode === "places" && !visible);
     }
   }
 
@@ -2760,7 +2786,17 @@
     state.map.on("zoomend", updateSmartLabels);
 
     document.querySelectorAll(".mode-tab").forEach((tab) => {
-      tab.addEventListener("click", () => setMode(tab.dataset.mode));
+      tab.addEventListener("click", () => {
+        const mode = tab.dataset.mode;
+        setMode(mode);
+        // Re-entering Places — whether refined-in-place or arriving from another
+        // mode — resets to the pristine starting view so the rail returns.
+        if (mode === "places") resetToBrowseStartingView();
+      });
+    });
+
+    els.railResetChip?.addEventListener("click", () => {
+      resetToBrowseStartingView();
     });
 
     const navToggle = document.querySelector(".nav-toggle");

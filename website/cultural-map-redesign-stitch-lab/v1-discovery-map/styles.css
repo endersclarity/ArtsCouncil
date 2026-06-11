@@ -661,6 +661,45 @@ button {
   color: var(--field);
 }
 
+/* Rail-recovery chip: the visible one-click path back to the Discovery Rail
+   when refinements have retired it. Hairline ink chip in the filter-chip
+   language — paper surface, --line border, ink text; red only on hover/active
+   (one-red-device rule). Hidden via [hidden] whenever the rail is showing. */
+.rail-reset-chip {
+  align-self: flex-start;
+  margin-bottom: 8px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+  padding: 7px 11px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: border-color var(--motion-fast) var(--ease-out),
+    color var(--motion-fast) var(--ease-out),
+    box-shadow var(--motion-base) var(--ease-out);
+}
+
+.rail-reset-chip[hidden] {
+  display: none;
+}
+
+.rail-reset-chip:hover {
+  border-color: var(--ncac-red);
+  color: var(--ncac-red);
+}
+
+.rail-reset-chip:active {
+  border-color: var(--ncac-red);
+  color: var(--ncac-red);
+  box-shadow: inset 0 -3px 0 var(--ncac-red);
+}
+
+.rail-reset-chip:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
 body[data-map-mode="paths"] .filter-wrap {
   display: none;
 }

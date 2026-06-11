@@ -3,6 +3,12 @@
   "entries": [
     {
       "date": "2026-06-11",
+      "title": "Bringing back the \"tonight\" rail",
+      "summary": "The scrolling card rail along the bottom of the map shows what's happening tonight and a few places worth a stop. It only appears on the fresh Places view, so as soon as you searched or picked a filter it would slide away — and there was no obvious way to get it back. Now there is. Whenever a search or filter has hidden the rail, a small \"Show tonight's rail\" button appears in the browse panel; one tap clears your search and filters and the rail returns. And simply tapping the Places tab again — from anywhere — now resets to that fresh starting view too, so the rail always comes back.",
+      "kind": "improvement"
+    },
+    {
+      "date": "2026-06-11",
       "title": "Easier-to-read buttons and better-behaved photos",
       "summary": "Three small repairs from the final review. The red \"Event details\" and \"View on map\" buttons on the detail cards now use larger, bolder lettering — at the old small size, white text on the brand red was hard to read for people with low vision; the new size meets the accessibility contrast standard. Photos on detail cards now always crop neatly to the same wide frame — the stand-in artwork used when a place has no photo was spilling out of its box. And if a place's photo ever fails to load, the card now quietly shows the labeled stand-in artwork instead of a broken-image icon.",
       "kind": "fix"
