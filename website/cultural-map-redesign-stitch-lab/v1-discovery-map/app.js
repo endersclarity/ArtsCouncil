@@ -1540,9 +1540,18 @@
     `;
   }
 
+  // Location caveats arrive in data-audit voice ("Tier downgraded by audit:
+  // 155m from exact address geocode") — provenance for the data team, not
+  // visitor copy. Translate to plain language here; the audit detail stays in
+  // the data where it belongs.
+  function locationCaveatCopy(caveat) {
+    if (/coming soon/i.test(caveat)) return caveat;
+    return "Map pin is approximate — double-check the address before you go.";
+  }
+
   function renderLocationCaveat(place) {
     if (!place.locationCaveat) return "";
-    return `<p class="location-caveat">${escapeHtml(place.locationCaveat)}</p>`;
+    return `<p class="location-caveat">${escapeHtml(locationCaveatCopy(place.locationCaveat))}</p>`;
   }
 
   function buildDirectMuseEvidenceByPlace(evidence) {
@@ -2001,7 +2010,7 @@
           const card = place?.anchorCard || null;
           const icon = anchor ? anchorIconText(anchor) : card ? ANCHOR_ICON_TEXT[card.iconKey] || "" : "";
           const hook = anchor?.hook || card?.hook || stop.note;
-          const role = anchor ? "Primary anchor" : card ? "Supporting stop" : "";
+          const role = anchor ? "Don't miss" : "";
           return `<li><button class="${icon ? "has-path-icon" : "no-path-icon"}${card && !anchor ? " supporting-path-stop" : ""}" type="button" data-place="${escapeHtml(stop.placeId)}">${icon ? `<span class="path-stop-icon">${escapeHtml(icon)}</span>` : ""}<span class="path-stop-copy"><strong>${escapeHtml(stop.name)}</strong><em>${escapeHtml([role, `${stop.category} / ${stop.city}`].filter(Boolean).join(" / "))}</em><small>${escapeHtml(hook)}</small></span></button></li>`;
         }).join("")}
       </ol>
@@ -2019,8 +2028,8 @@
     });
     revealDetailCard();
     els.hint.innerHTML = `
-      <p class="hint-title">Stop sequence selected</p>
-      <p>${escapeHtml(activePath.stops.length)} numbered stops. The markers carry the route; the connector stays quiet.</p>
+      <p class="hint-title">Route selected</p>
+      <p>${escapeHtml(activePath.stops.length)} numbered stops — walk them in order, or tap any stop to jump ahead.</p>
     `;
   }
 

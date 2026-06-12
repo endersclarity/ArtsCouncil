@@ -81,7 +81,7 @@
   {
     "id": "evening-arts-night",
     "title": "Evening Arts Night",
-    "dek": "A night-out route connecting performance, film, music, and after-hours cultural anchors.",
+    "dek": "A night-out route connecting performance, film, music, and a late dinner.",
     "stops": [
       {
         "placeId": "miners-foundry-cultural-center-nevada-city",
@@ -123,10 +123,10 @@
   },
   {
     "id": "landscape-ridge-context",
-    "title": "Landscape / Ridge Context",
-    "thesis": "The GVNC prototype can acknowledge outdoor pause and Ridge culture without making every supporting place a primary anchor.",
-    "dek": "A supporting-context path that keeps Hirschman's Pond and North Columbia Schoolhouse visible as layer and route context.",
-    "copy": "This path is intentionally quieter than the Primary Anchor cards. It shows how supporting stops can enrich the map's sense of landscape, rural gathering, and Nevada County cultural geography while staying subordinate to the six-place review spine.",
+    "title": "Pond, Ridge & Schoolhouse",
+    "thesis": "The quiet side of Nevada County culture — a pond trail in town and a century-old schoolhouse on the San Juan Ridge.",
+    "dek": "A slower path: walk Hirschman's Pond at the edge of Nevada City, then drive the Ridge to the North Columbia Schoolhouse.",
+    "copy": "Not everything cultural happens on a stage. This pairing puts the landscape itself on the itinerary — a wetland trail reclaimed from hydraulic mining, and a one-room schoolhouse that became the Ridge's gathering place for music, film, and storytelling.",
     "stops": [
       {
         "placeId": "hirschman-s-pond-nevada-city",
@@ -135,7 +135,7 @@
         "city": "Nevada City",
         "lat": 39.26017277050303,
         "lng": -121.01361440937157,
-        "note": "Use as an outdoor pause and landscape-context stop, not as a primary cultural anchor."
+        "note": "A flat wetland loop minutes from downtown — herons, ponds, and the scars of hydraulic mining gone green."
       },
       {
         "placeId": "north-columbia-schoolhouse-cultural-center-nevada-city",
@@ -144,7 +144,7 @@
         "city": "Nevada City",
         "lat": 39.37154953491,
         "lng": -120.991370222943,
-        "note": "Use as Ridge and rural-culture context while keeping the GVNC Primary Anchor Set intact."
+        "note": "An 1875 one-room schoolhouse, now the Ridge's living room for concerts, films, and storytelling festivals."
       }
     ]
   }

@@ -3,6 +3,12 @@
   "entries": [
     {
       "date": "2026-06-12",
+      "title": "The map stops talking shop",
+      "summary": "A first-time-visitor review caught the map speaking its internal language out loud. Place cards could say things like \"Tier downgraded by audit: 155m from exact address geocode\" — true, but written for the data team, not for you. Those notes now read simply: \"Map pin is approximate — double-check the address before you go.\" The quiet fourth path got a real name (\"Pond, Ridge & Schoolhouse\") and a description written for walkers instead of designers, and the route panel now tells you what to do (\"walk them in order, or tap any stop to jump ahead\") instead of explaining its own design.",
+      "kind": "improvement"
+    },
+    {
+      "date": "2026-06-12",
       "title": "\"Featured in MUSE\" now means a real article, and the map flies you closer",
       "summary": "The MUSE badge earned a stricter meaning. A place is now marked \"Featured in MUSE\" only when a real MUSE Magazine article actually writes about it — the badge on its card names the article and takes you to that story on the map. The old \"MUSE Picks\" label, which lit up every business listed in the magazine's back-page directory, is gone; being in the directory still shows on a place's card as a quiet \"Listed in the MUSE directory\" line with a link to the right page. The filter chip in the Places browser was renamed to match and now counts only story-featured places. Selecting a place or event also flies you in much closer than before — down to street level, where cross streets are readable and the highlighted marker stands apart — and the detail card now appears just as the camera lands, so the arrival feels like turning to the right page.",
       "kind": "improvement"
