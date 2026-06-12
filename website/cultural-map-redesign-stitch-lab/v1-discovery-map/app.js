@@ -1862,6 +1862,9 @@
     // venue/city — the card never loses its venue.
     const eventImage = resolveMedia(event.image || "");
     const eventFallback = categoryPlaceholderFor(place?.category) || "assets/placeholders/gallery-studio.webp";
+    // Same deal-on-touchdown pattern as showPlace: the event card appears as
+    // the camera lands on the venue, never while it is still in flight.
+    const dealCard = () => {
     els.detail.innerHTML = `
       <button class="selected-place-close" type="button" aria-label="Close selected event">Close</button>
       ${eventImage ? `
@@ -1894,6 +1897,22 @@
       if (state.mode === "events") renderEventsList();
     });
     revealDetailCard();
+    };
+    // Critique P2-8: picking an event must also show WHERE it is — fly to the
+    // venue at street level, exactly like selecting a place.
+    if (place && Number.isFinite(place.lng) && Number.isFinite(place.lat) && state.map) {
+      const seq = ++state.flightSeq;
+      const targetZoom = Math.max(state.map.getZoom(), 16);
+      if (prefersReducedMotion()) {
+        state.map.jumpTo({ center: [place.lng, place.lat], zoom: targetZoom });
+        dealCard();
+      } else {
+        state.map.flyTo({ center: [place.lng, place.lat], zoom: targetZoom, speed: 1.7, curve: 1.35, maxDuration: 2600, essential: true });
+        state.map.once("moveend", () => { if (seq === state.flightSeq) dealCard(); });
+      }
+    } else {
+      dealCard();
+    }
     updateReviewUrl();
   }
 
@@ -2318,21 +2337,8 @@
     if (item.type === "place") {
       showPlace(item.place);
     } else if (item.type === "event") {
-      if (Number.isFinite(item.lng) && Number.isFinite(item.lat)) {
-        // Same selection-flight profile as showPlace: street level, high arc,
-        // card dealt on touchdown.
-        const seq = ++state.flightSeq;
-        const targetZoom = Math.max(state.map.getZoom(), 16);
-        if (prefersReducedMotion()) {
-          state.map.jumpTo({ center: [item.lng, item.lat], zoom: targetZoom });
-          showEvent(item.event);
-        } else {
-          state.map.flyTo({ center: [item.lng, item.lat], zoom: targetZoom, speed: 1.7, curve: 1.35, maxDuration: 2600, essential: true });
-          state.map.once("moveend", () => { if (seq === state.flightSeq) showEvent(item.event); });
-        }
-      } else {
-        showEvent(item.event);
-      }
+      // showEvent owns the selection flight (street level, card on touchdown).
+      showEvent(item.event);
     } else if (item.type === "story") {
       renderStory(item.story);
     } else if (item.type === "path") {
@@ -2443,7 +2449,27 @@
       renderFeaturedAnchor();
     }
     setSourceData();
+    ensureModeContentVisible(mode);
     updateReviewUrl();
+  }
+
+  // Critique P0-2 ("the stranded viewport"): a story lens or selection can
+  // leave the camera over Tahoe or empty forest. On mode change, if none of
+  // the new mode's content is in view, bring the camera home to the initial
+  // county view — a mode must never open looking at nothing.
+  function ensureModeContentVisible(mode) {
+    if (!state.map) return;
+    const points = mode === "events"
+      ? state.events.map((event) => placeById(event.placeId)).filter((place) => place && Number.isFinite(place.lng) && Number.isFinite(place.lat))
+      : mode === "paths"
+        ? state.paths.flatMap((path) => path.stops || []).filter((stop) => Number.isFinite(stop.lng) && Number.isFinite(stop.lat))
+        : state.places.filter(isPlaceMapReady);
+    if (!points.length) return;
+    const bounds = state.map.getBounds();
+    if (points.some((point) => bounds.contains([point.lng, point.lat]))) return;
+    const view = isMobileViewport() ? MOBILE_INITIAL_MAP_VIEW : DESKTOP_INITIAL_MAP_VIEW;
+    if (prefersReducedMotion()) state.map.jumpTo(view);
+    else state.map.easeTo({ ...view, duration: 800 });
   }
 
   function applyInitialReviewState() {

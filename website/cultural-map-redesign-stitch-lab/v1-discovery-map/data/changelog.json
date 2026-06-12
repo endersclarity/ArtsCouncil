@@ -3,6 +3,12 @@
   "entries": [
     {
       "date": "2026-06-12",
+      "title": "The camera stops getting lost",
+      "summary": "Two map-camera fixes from the visitor review. First: switching to Events or Paths could leave you staring at empty forest or Lake Tahoe if an earlier story or selection had carried the camera away — now, if none of that mode's content is on screen, the map glides home to the county view, so a tab always opens looking at its subject. Second: picking an event from the list used to describe the venue without showing it; the map now flies to the venue at street level and the event card lands with the camera, the same way picking a place works.",
+      "kind": "fix"
+    },
+    {
+      "date": "2026-06-12",
       "title": "The map stops talking shop",
       "summary": "A first-time-visitor review caught the map speaking its internal language out loud. Place cards could say things like \"Tier downgraded by audit: 155m from exact address geocode\" — true, but written for the data team, not for you. Those notes now read simply: \"Map pin is approximate — double-check the address before you go.\" The quiet fourth path got a real name (\"Pond, Ridge & Schoolhouse\") and a description written for walkers instead of designers, and the route panel now tells you what to do (\"walk them in order, or tap any stop to jump ahead\") instead of explaining its own design.",
       "kind": "improvement"
