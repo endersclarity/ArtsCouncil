@@ -1,12 +1,16 @@
 <!DOCTYPE html>
-<!-- PROTOTYPE — fable-best. One design, no variants: Claude's best take on the
-     discovery front page, restyled to the canonical brand (docs/brand/NCAC-V1-BRAND.md):
-     Polymath, single structural red, paper + charcoal, strict grid, one frame. -->
+<!-- PROTOTYPE — fable-best v2 "The Field Atlas". Map-first: the map IS the page.
+     Everything else floats on it. Progressive disclosure: anchors at county view,
+     verified dots as you descend, approximate rings last; hover gives a name,
+     click gives a card, the card opens a dossier. Brand per docs/brand/NCAC-V1-BRAND.md:
+     Polymath, paper + ink, ONE red plate (the typemark), red elsewhere only as the
+     active/selected/live signal. The magazine layout this replaced is preserved
+     at fable-best-magazine.html. -->
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Tonight in Nevada County</title>
+<title>The Field Atlas — Nevada County Arts &amp; Culture</title>
 <meta name="robots" content="noindex">
 <link rel="preconnect" href="https://use.typekit.net">
 <script src="https://use.typekit.net/ik/QpZL-jTAx8VcE7iBVv7r5tSVTAEaLdPXUwSgW14405GfelJgfFHN4UJLFRbh52jhWD9tZcjow2MaFQSoZcJD5Q48w2yKwR4cZsGMJ6Nyjaml-AtlSY4zOWiTZe9KIA4kjAoqdhtlZa4ziemDSWm8Jysyjaml-AtlSY4zOAFzdcs8d1F8ZfGHf5dOMsMMeMb6MKG4fOZbIMIjgfMfH6qJz8MbMs6BJMJ7f6Kbk3IbMy6IJMJ7f6KAk3IbMy6BJMJ7f6Kjk3IbMy6eJMJ7f6K5k3IbMy6YJMJ7f6Ksk3IbMy65JMJ7f6KVk3IbMy6sJMHbM-K0oCte.js"></script>
@@ -20,170 +24,344 @@
     --red:#FF2E00; --ink:#1A1A1A; --muted:#5E5852; --paper:#FAF6EC;
     --paper-soft:#F5F0E8; --line:#D8D0C6; --surface:#FFFFFF;
     --font-brand:"polymath-variable-2th9nk","DM Sans","Inter",system-ui,sans-serif;
+    --ease:cubic-bezier(.22,.8,.26,1);
+    --panel-w:374px;
   }
   *{box-sizing:border-box;margin:0;padding:0}
-  html{scroll-behavior:smooth}
-  body{background:var(--paper);color:var(--ink);font-family:var(--font-brand);font-size:15px;line-height:1.42;-webkit-font-smoothing:antialiased}
+  html,body{height:100%}
+  body{background:var(--paper);color:var(--ink);font-family:var(--font-brand);
+    font-size:15px;line-height:1.42;-webkit-font-smoothing:antialiased;overflow:hidden}
   a{color:inherit;text-decoration:none}
+  button{font-family:var(--font-brand);cursor:pointer}
   img{display:block;width:100%;height:100%;object-fit:cover}
-  .wrap{max-width:1240px;margin:0 auto;padding:0 32px}
-  .lbl{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
-  .lbl .live{color:var(--red)}
-  h2.sec{font-weight:700;font-size:clamp(30px,3.6vw,46px);letter-spacing:-.02em;line-height:1.02;margin:8px 0 30px}
+  .lbl{font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
 
-  /* nav — typemark block carries the red field (the one framing device) */
-  nav{position:sticky;top:0;z-index:50;background:var(--paper);border-bottom:1px solid var(--ink)}
-  .nav-in{display:flex;align-items:stretch;justify-content:space-between;min-height:64px}
-  .typemark{background:var(--red);color:#fff;display:flex;align-items:center;padding:0 22px;font-weight:700;font-size:16px;letter-spacing:-.01em;line-height:1.05}
-  .nav-right{display:flex;align-items:center;gap:30px}
-  .nav-links{display:flex;gap:26px;font-size:13.5px;font-weight:500;color:var(--ink)}
-  .nav-links a{padding:4px 0;border-bottom:2px solid transparent}
-  .nav-links a:hover{border-bottom-color:var(--red)}
-  .nav-date{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-  @media(max-width:760px){.nav-links{display:none}}
+  /* ---------- the map is the page ---------- */
+  #map{position:fixed;inset:0;z-index:0;background:var(--paper-soft)}
+  #map .maplibregl-canvas{filter:grayscale(.92) sepia(.05) contrast(1.02) brightness(1.04)}
+  .maplibregl-ctrl-attrib{font-family:var(--font-brand);font-size:10px;background:rgba(250,246,236,.85)}
 
-  /* hero — charcoal field, knockout type, photo cropped to the grid */
-  .hero{background:var(--ink);color:#fff}
-  .hero-grid{display:grid;grid-template-columns:1fr 1fr;min-height:560px}
-  .hero-tx{display:flex;flex-direction:column;justify-content:flex-end;padding:56px 48px 56px 32px}
-  .hero-tx .lbl{color:rgba(255,255,255,.6)}
-  .hero-tx .lbl b{color:var(--red)}
-  .hero h1{font-weight:700;font-size:clamp(36px,4.6vw,64px);line-height:1;letter-spacing:-.03em;margin:16px 0 18px}
-  .hero p{max-width:50ch;color:rgba(255,255,255,.78);font-size:15px;line-height:1.55;margin-bottom:30px}
-  .hero .cta{display:inline-block;background:var(--red);color:#fff;font-weight:700;font-size:14px;padding:14px 26px}
-  .hero .cta:hover{background:#e02900}
-  .hero .cta2{margin-left:22px;color:#fff;font-size:14px;font-weight:500;border-bottom:1px solid rgba(255,255,255,.4);padding-bottom:3px}
-  .hero-ph{position:relative;min-height:340px}
-  .hero-ph .cap{position:absolute;left:0;bottom:0;background:#fff;color:var(--ink);font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:9px 14px}
-  @media(max-width:880px){.hero-grid{grid-template-columns:1fr}.hero-tx{order:2;padding:36px 32px 48px}}
+  /* ---------- intro title card ---------- */
+  #intro{position:fixed;inset:0;z-index:100;background:var(--paper);display:flex;
+    flex-direction:column;justify-content:center;align-items:flex-start;padding:0 7vw;
+    transition:transform .75s cubic-bezier(.76,0,.24,1);cursor:pointer}
+  #intro.lift{transform:translateY(-101%)}
+  #intro .i-plate{background:var(--red);color:#fff;font-weight:700;line-height:.94;
+    letter-spacing:-.035em;font-size:clamp(54px,9.5vw,128px);padding:.14em .16em .16em;text-transform:uppercase}
+  #intro .i-sub{margin-top:22px;font-weight:700;font-size:clamp(15px,2vw,22px);letter-spacing:-.01em}
+  #intro .i-count{margin-top:10px;color:var(--muted);font-size:13px;font-weight:500;letter-spacing:.04em}
+  #intro .i-hint{position:absolute;bottom:5vh;left:7vw;font-size:11px;font-weight:700;
+    letter-spacing:.16em;text-transform:uppercase;color:var(--muted);
+    animation:hintpulse 1.8s ease-in-out infinite}
+  @keyframes hintpulse{0%,100%{opacity:.45}50%{opacity:1}}
 
-  /* sections */
-  section{padding:72px 0 8px}
-  .sec-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px}
-  .sec-head .all{font-size:13px;font-weight:700;color:var(--red);white-space:nowrap;margin-bottom:34px}
+  /* ---------- field-guide panel (left) ---------- */
+  #panel{position:fixed;z-index:30;left:16px;top:16px;bottom:16px;width:var(--panel-w);
+    background:var(--paper);border:1px solid var(--ink);display:flex;flex-direction:column;
+    box-shadow:0 2px 16px rgba(26,26,26,.16);
+    opacity:0;transform:translateX(-14px);transition:opacity .5s var(--ease) .15s,transform .5s var(--ease) .15s}
+  body.ready #panel{opacity:1;transform:none}
+  .grip{display:none}
 
-  /* tonight — ledger rows on the grid, photo right */
-  .ev-row{display:grid;grid-template-columns:120px 1fr 220px 160px;gap:24px;align-items:center;border-top:1px solid var(--line);padding:18px 0;cursor:pointer}
-  .ev-row:last-child{border-bottom:1px solid var(--ink)}
-  .ev-row:hover .t{color:var(--red)}
-  .ev-row .d{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-  .ev-row .d.today{color:var(--red)}
-  .ev-row .t{font-weight:700;font-size:19px;letter-spacing:-.01em;line-height:1.15}
-  .ev-row .v{font-size:13px;color:var(--muted)}
-  .ev-row .ph{height:76px;border:1px solid var(--line)}
-  @media(max-width:880px){.ev-row{grid-template-columns:84px 1fr;}.ev-row .v{grid-column:2}.ev-row .ph{display:none}}
+  /* the one red frame: the typemark plate */
+  .plate{background:var(--red);color:#fff;padding:15px 18px 13px;flex:0 0 auto}
+  .plate h1{font-weight:700;font-size:21px;line-height:1.02;letter-spacing:-.015em;text-transform:uppercase}
+  .plate .tag{margin-top:6px;font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.85)}
+  .plate .live{display:inline-block;margin-left:8px;color:#fff;font-weight:700}
 
-  /* anchors — disciplined grid of white cards, photo cropped, weight does the work */
-  .an-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
-  .an{background:var(--surface);display:flex;flex-direction:column}
-  .an .ph{height:200px;overflow:hidden}
-  .an .ph img{transition:transform .35s}
-  .an:hover .ph img{transform:scale(1.04)}
-  .an .bd{padding:18px 20px 22px;flex:1}
-  .an h3{font-weight:700;font-size:20px;letter-spacing:-.01em;margin:6px 0 8px}
-  .an p{font-size:13.5px;color:var(--muted);line-height:1.5}
-  @media(max-width:880px){.an-grid{grid-template-columns:1fr}}
+  .p-tools{padding:12px 14px 0;flex:0 0 auto}
+  .s-row{display:flex;gap:8px}
+  #q{flex:1;border:1px solid var(--ink);background:var(--surface);font-family:var(--font-brand);
+    font-size:13.5px;padding:10px 12px;color:var(--ink);min-width:0}
+  #q::placeholder{color:var(--muted)}
+  #q:focus{outline:2px solid var(--red);outline-offset:-1px}
+  .sq{width:38px;flex:0 0 38px;border:1px solid var(--ink);background:var(--surface);
+    font-size:15px;display:flex;align-items:center;justify-content:center;transition:background .15s}
+  .sq:hover{background:var(--ink);color:#fff}
 
-  /* routes — numbered, hairline grid, photo strip */
-  .route{display:grid;grid-template-columns:64px 1fr 320px;gap:28px;align-items:center;border-top:1px solid var(--line);padding:28px 0}
-  .route:last-child{border-bottom:1px solid var(--ink)}
-  .route .no{font-weight:700;font-size:30px;color:var(--red);letter-spacing:-.02em}
-  .route h3{font-weight:700;font-size:24px;letter-spacing:-.02em;margin-bottom:7px}
-  .route p{color:var(--muted);font-size:14px;line-height:1.55;max-width:62ch}
-  .route .go{display:inline-block;font-weight:700;font-size:13px;margin-top:10px;border-bottom:2px solid var(--red);padding-bottom:2px}
-  .thumbs{display:flex;gap:1px;background:var(--line);border:1px solid var(--line)}
-  .thumbs .t{flex:1;height:92px;overflow:hidden;background:var(--surface)}
-  @media(max-width:880px){.route{grid-template-columns:44px 1fr}.thumbs{display:none}}
-
-  /* directory — search + category pills + place grid */
-  .dir-controls{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:26px}
-  .dir-search{flex:1;min-width:220px;max-width:380px;border:1px solid var(--ink);background:var(--surface);font-family:var(--font-brand);font-size:14px;padding:11px 14px;color:var(--ink)}
-  .dir-search:focus{outline:2px solid var(--red);outline-offset:-1px}
-  .pill{border:1px solid var(--ink);background:var(--surface);color:var(--ink);font-family:var(--font-brand);font-weight:500;font-size:12.5px;padding:8px 14px;cursor:pointer}
+  .pills{display:flex;gap:6px;overflow-x:auto;padding:10px 0 4px;scrollbar-width:none;
+    mask-image:linear-gradient(90deg,#000 92%,transparent)}
+  .pills::-webkit-scrollbar{display:none}
+  .pill{flex:0 0 auto;border:1px solid var(--ink);background:var(--surface);color:var(--ink);
+    font-weight:500;font-size:11.5px;padding:6px 11px;transition:background .15s,color .15s}
   .pill:hover{background:var(--paper-soft)}
   .pill.on{background:var(--red);border-color:var(--red);color:#fff;font-weight:700}
-  .dir-count{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:14px}
-  .dir-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
-  .pl{background:var(--surface);cursor:pointer}
-  .pl .ph{height:130px;overflow:hidden}
-  .pl .bd{padding:13px 14px 15px}
-  .pl h4{font-weight:700;font-size:15px;letter-spacing:-.01em;line-height:1.2;margin-bottom:4px}
-  .pl .m{font-size:11.5px;color:var(--muted)}
-  .pl:hover h4{color:var(--red)}
-  .dir-more{display:block;margin:22px auto 0;border:1px solid var(--ink);background:var(--surface);font-family:var(--font-brand);font-weight:700;font-size:13px;padding:12px 28px;cursor:pointer}
-  .dir-more:hover{background:var(--ink);color:#fff}
-  @media(max-width:980px){.dir-grid{grid-template-columns:repeat(2,1fr)}}
-  @media(max-width:560px){.dir-grid{grid-template-columns:1fr}}
 
-  /* map — quiet, demoted, red only where something is happening */
-  .mapsec{margin-top:80px;background:var(--paper-soft);border-top:1px solid var(--ink);padding-bottom:80px}
-  .map-head{display:flex;justify-content:space-between;align-items:flex-end;padding:60px 0 26px}
-  .map-head .n{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
-  .map-head .n b{color:var(--ink)}
-  #map{height:540px;border:1px solid var(--ink)}
-  #map .maplibregl-canvas{filter:grayscale(1) contrast(1.02) brightness(1.04)}
-  .maplibregl-popup-content{font-family:var(--font-brand);border-radius:0;border:1px solid var(--ink);box-shadow:none}
+  .stage{padding:7px 2px 9px;font-size:11px;color:var(--muted);display:flex;justify-content:space-between;gap:8px;border-bottom:1px solid var(--line)}
+  .stage b{color:var(--ink);font-variant-numeric:tabular-nums}
 
-  footer{padding:36px 0 64px;color:var(--muted);font-size:13px}
-  footer .f-in{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+  .p-scroll{flex:1;overflow-y:auto;overscroll-behavior:contain;padding:0 14px;scrollbar-width:thin;scrollbar-color:var(--line) transparent}
+
+  .p-sec{padding:16px 0 6px}
+  .p-sec .lbl{display:block;margin-bottom:8px}
+
+  /* expeditions */
+  .xp{display:grid;grid-template-columns:34px 1fr auto;gap:10px;align-items:baseline;
+    border-top:1px solid var(--line);padding:11px 2px;cursor:pointer;transition:background .15s}
+  .xp:hover{background:var(--paper-soft)}
+  .xp .no{font-weight:700;font-size:19px;letter-spacing:-.02em;color:var(--ink)}
+  .xp h3{font-weight:700;font-size:14.5px;letter-spacing:-.01em;line-height:1.15}
+  .xp p{font-size:11.5px;color:var(--muted);line-height:1.45;margin-top:2px;
+    display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .xp .n{font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+  .xp.on{background:var(--paper-soft);box-shadow:inset 3px 0 0 var(--red)}
+  .xp.on .no{color:var(--red)}
+
+  /* index list */
+  .row{display:grid;grid-template-columns:44px 1fr auto;gap:11px;align-items:center;
+    border-top:1px solid var(--line);padding:8px 2px;cursor:pointer;transition:background .15s}
+  .row:hover{background:var(--paper-soft)}
+  .row .th{width:44px;height:44px;overflow:hidden;border:1px solid var(--line);background:var(--paper-soft)}
+  .row .th img{filter:grayscale(1);transition:filter .25s}
+  .row:hover .th img{filter:none}
+  .row h4{font-weight:700;font-size:13.5px;letter-spacing:-.01em;line-height:1.15}
+  .row .m{font-size:11px;color:var(--muted);margin-top:2px}
+  .row .dist{font-size:10.5px;font-weight:700;color:var(--muted);font-variant-numeric:tabular-nums}
+  .row:hover h4{color:var(--red)}
+  .empty{padding:18px 2px;border-top:1px solid var(--line);font-size:13px;color:var(--muted);line-height:1.5}
+  .empty button{display:inline-block;margin-top:10px;border:1px solid var(--ink);background:var(--surface);
+    font-weight:700;font-size:12px;padding:8px 14px}
+  .empty button:hover{background:var(--ink);color:#fff}
+  #more{display:block;width:100%;border:1px solid var(--ink);background:var(--surface);
+    font-weight:700;font-size:12px;padding:10px;margin:12px 0 16px}
+  #more:hover{background:var(--ink);color:#fff}
+
+  .p-foot{flex:0 0 auto;border-top:1px solid var(--ink);padding:9px 14px;display:flex;
+    justify-content:space-between;align-items:center;gap:10px;background:var(--paper)}
+  .legend{display:flex;gap:12px;font-size:10px;color:var(--muted);font-weight:500}
+  .legend i{font-style:normal}
+  .k{display:inline-block;width:8px;height:8px;border-radius:50%;vertical-align:-1px;margin-right:4px}
+  .k.solid{background:var(--ink)}
+  .k.ring{border:1.5px solid var(--muted)}
+  .k.live{background:var(--red)}
+  .p-foot .pn{font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);font-weight:700;white-space:nowrap}
+
+  /* ---------- HUD (bottom-right controls) ---------- */
+  #hud{position:fixed;z-index:30;right:16px;bottom:42px;display:flex;flex-direction:column;gap:6px;
+    opacity:0;transform:translateY(8px);transition:opacity .5s var(--ease) .3s,transform .5s var(--ease) .3s}
+  body.ready #hud{opacity:1;transform:none}
+  .hud-b{width:40px;height:40px;border:1px solid var(--ink);background:var(--paper);
+    font-size:16px;font-weight:700;display:flex;align-items:center;justify-content:center;
+    box-shadow:0 1px 8px rgba(26,26,26,.14);transition:background .15s,color .15s}
+  .hud-b:hover{background:var(--ink);color:#fff}
+  .hud-b span{display:block;transition:transform .6s var(--ease)}
+  .hud-b.spun span{transform:rotate(360deg)}
+  .hud-b[data-tip]{position:relative}
+  .hud-b[data-tip]:hover::after{content:attr(data-tip);position:absolute;right:48px;top:50%;
+    transform:translateY(-50%);background:var(--ink);color:#fff;font-size:10.5px;font-weight:700;
+    letter-spacing:.08em;text-transform:uppercase;padding:5px 9px;white-space:nowrap}
+
+  /* ---------- hover label ---------- */
+  #hoverlab{position:fixed;z-index:35;pointer-events:none;background:var(--paper);
+    border:1px solid var(--ink);padding:6px 10px;max-width:240px;display:none;
+    box-shadow:0 2px 10px rgba(26,26,26,.15)}
+  #hoverlab b{display:block;font-size:12.5px;letter-spacing:-.01em;line-height:1.2}
+  #hoverlab span{font-size:10.5px;color:var(--muted)}
+
+  /* ---------- card popup ---------- */
+  .atlas-pop .maplibregl-popup-content{font-family:var(--font-brand);padding:0;border-radius:0;
+    border:1px solid var(--ink);box-shadow:0 6px 22px rgba(26,26,26,.22);background:var(--surface);width:248px}
+  .atlas-pop .maplibregl-popup-tip{display:none}
+  .atlas-pop{animation:popin .2s var(--ease)}
+  @keyframes popin{from{opacity:0;transform:translateY(5px) scale(.985)}to{opacity:1;transform:none}}
+  .cp-ph{height:118px;overflow:hidden;border-bottom:1px solid var(--ink);position:relative}
+  .cp-x{position:absolute;top:0;right:0;width:26px;height:26px;background:var(--ink);color:#fff;
+    border:none;font-size:13px;line-height:1;display:flex;align-items:center;justify-content:center}
+  .cp-x:hover{background:var(--red)}
+  .cp-bd{padding:11px 13px 12px}
+  .cp-bd h3{font-weight:700;font-size:15.5px;letter-spacing:-.01em;line-height:1.15}
+  .cp-bd .m{font-size:11.5px;color:var(--muted);margin-top:3px}
+  .cp-bd .approx{font-size:10.5px;color:var(--muted);margin-top:6px}
+  .cp-acts{display:flex;gap:14px;margin-top:9px;font-size:12px;font-weight:700}
+  .cp-acts .go{color:var(--red);border:none;background:none;font-size:12px;font-weight:700;padding:0}
+  .cp-acts .go:hover{text-decoration:underline}
+  .cp-acts a{border-bottom:1px solid var(--line);padding-bottom:1px}
+  .cp-acts a:hover{border-bottom-color:var(--ink)}
+
+  /* ---------- dossier drawer (right) ---------- */
+  #drawer{position:fixed;z-index:40;right:16px;top:16px;bottom:16px;width:416px;max-width:calc(100vw - 32px);
+    background:var(--surface);border:1px solid var(--ink);box-shadow:0 4px 26px rgba(26,26,26,.24);
+    transform:translateX(calc(100% + 24px));transition:transform .38s var(--ease);
+    display:flex;flex-direction:column;overflow:hidden}
+  #drawer.open{transform:none}
+  .dr-ph{height:236px;flex:0 0 auto;position:relative;border-bottom:1px solid var(--ink);background:var(--paper-soft)}
+  .dr-ph .cap{position:absolute;left:0;bottom:0;background:#fff;color:var(--ink);font-size:10px;
+    font-weight:700;letter-spacing:.14em;text-transform:uppercase;padding:7px 12px;border-top:1px solid var(--ink);border-right:1px solid var(--ink)}
+  .dr-x{position:absolute;top:0;right:0;width:34px;height:34px;background:var(--ink);color:#fff;
+    border:none;font-size:15px;display:flex;align-items:center;justify-content:center}
+  .dr-x:hover{background:var(--red)}
+  .dr-bd{flex:1;overflow-y:auto;padding:20px 22px 26px;scrollbar-width:thin;scrollbar-color:var(--line) transparent}
+  .dr-bd h2{font-weight:700;font-size:27px;letter-spacing:-.02em;line-height:1.04}
+  .dr-bd .sub{margin-top:6px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .dr-bd .desc{margin-top:14px;font-size:14px;line-height:1.58;color:var(--ink)}
+  .dr-bd .desc.placeholder{color:var(--muted)}
+  .meta{margin-top:18px;border-top:1px solid var(--ink)}
+  .meta .mr{display:grid;grid-template-columns:96px 1fr;gap:12px;padding:9px 0;border-bottom:1px solid var(--line);font-size:12.5px}
+  .meta .mr b{font-size:10px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);padding-top:2px}
+  .dr-acts{display:flex;gap:18px;margin-top:18px;font-size:13px;font-weight:700}
+  .dr-acts a{color:var(--red)}
+  .dr-acts a:hover{text-decoration:underline}
+  .dr-acts a.quiet{color:var(--ink);border-bottom:1px solid var(--line);padding-bottom:1px}
+  .caveat{margin-top:16px;font-size:11px;color:var(--muted);line-height:1.5;border-left:2px solid var(--line);padding-left:10px}
+  /* drawer content stagger */
+  #drawer.open .dr-bd > *{animation:rise .4s var(--ease) backwards}
+  #drawer.open .dr-bd > *:nth-child(2){animation-delay:.05s}
+  #drawer.open .dr-bd > *:nth-child(3){animation-delay:.09s}
+  #drawer.open .dr-bd > *:nth-child(4){animation-delay:.13s}
+  #drawer.open .dr-bd > *:nth-child(5){animation-delay:.17s}
+  @keyframes rise{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:none}}
+
+  /* ---------- expedition tour bar ---------- */
+  #tour{position:fixed;z-index:30;left:50%;bottom:18px;transform:translate(-50%,76px);
+    background:var(--paper);border:1px solid var(--ink);box-shadow:0 3px 16px rgba(26,26,26,.2);
+    display:flex;align-items:stretch;transition:transform .35s var(--ease)}
+  #tour.open{transform:translate(-50%,0)}
+  #tour .tb-tx{padding:9px 16px;display:flex;flex-direction:column;justify-content:center;min-width:230px}
+  #tour .tb-route{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  #tour .tb-stop{font-weight:700;font-size:14px;letter-spacing:-.01em;line-height:1.15;margin-top:2px}
+  #tour button{border:none;background:var(--paper);border-left:1px solid var(--ink);width:44px;font-size:15px;font-weight:700}
+  #tour button:hover{background:var(--ink);color:#fff}
+  #tour .tb-end:hover{background:var(--red)}
+
+  /* route stop markers */
+  .stopmk{width:23px;height:23px;background:var(--paper);border:1.5px solid var(--ink);color:var(--ink);
+    font-family:var(--font-brand);font-weight:700;font-size:11.5px;display:flex;align-items:center;justify-content:center;cursor:pointer}
+  .stopmk.on{background:var(--red);border-color:var(--red);color:#fff}
+
+  /* selected pulse */
+  .pulse{width:13px;height:13px;background:var(--red);border:2px solid #fff;border-radius:50%;
+    box-shadow:0 0 0 1px var(--ink);position:relative}
+  .pulse::after{content:'';position:absolute;inset:-4px;border:2px solid var(--red);border-radius:50%;
+    animation:pul 1.7s cubic-bezier(.2,.6,.36,1) infinite}
+  @keyframes pul{from{transform:scale(.55);opacity:.95}to{transform:scale(2.5);opacity:0}}
+
+  /* events = red happening dots */
+  .evdot{width:10px;height:10px;border-radius:50%;background:var(--red);border:1.5px solid #fff;
+    box-shadow:0 0 0 1px var(--ink);cursor:pointer}
+
+  /* toast */
+  #toast{position:fixed;z-index:60;left:50%;bottom:18px;transform:translate(-50%,80px);
+    background:var(--ink);color:#fff;font-size:12.5px;font-weight:500;padding:11px 18px;
+    transition:transform .3s var(--ease);max-width:88vw}
+  #toast.show{transform:translate(-50%,0)}
+
+  @media (prefers-reduced-motion: reduce){
+    *,*::before,*::after{animation:none!important;transition:none!important}
+  }
+
+  /* ---------- mobile: panel becomes a bottom sheet ---------- */
+  @media(max-width:860px){
+    :root{--panel-w:auto}
+    #panel{left:0;right:0;bottom:0;top:auto;height:45vh;width:auto;border-left:none;border-right:none;border-bottom:none;transition:height .3s var(--ease),opacity .5s var(--ease)}
+    #panel.tall{height:88vh}
+    .grip{display:block;flex:0 0 auto;padding:8px 0 2px;background:var(--paper);border:none;width:100%}
+    .grip i{display:block;width:42px;height:4px;background:var(--line);margin:0 auto}
+    .plate h1{font-size:16px}
+    #hud{right:12px;bottom:auto;top:12px}
+    #drawer{inset:0;width:auto;max-width:none;border:none}
+    #tour{bottom:auto;top:12px;left:12px;right:64px;transform:translateY(-90px)}
+    #tour.open{transform:none}
+    #tour .tb-tx{min-width:0;flex:1}
+  }
 </style>
 </head>
 <body>
-<nav><div class="wrap nav-in">
-  <a class="typemark" href="#">Nevada County<br>Arts &amp; Culture</a>
-  <div class="nav-right">
-    <div class="nav-links"><a href="#tonight">Tonight</a><a href="#anchors">Anchors</a><a href="#routes">Routes</a><a href="#directory">Directory</a><a href="#map">Map</a></div>
-    <div class="nav-date" id="navdate"></div>
+
+<div id="map" aria-label="Map of Nevada County cultural places"></div>
+
+<div id="intro" role="button" aria-label="Enter the atlas">
+  <div class="i-plate">Nevada<br>County</div>
+  <div class="i-sub">Arts &amp; Culture — The Field Atlas</div>
+  <div class="i-count" id="i-count">Charting the county…</div>
+  <div class="i-hint">Click anywhere to descend</div>
+</div>
+
+<aside id="panel" aria-label="Field guide">
+  <button class="grip" id="grip" aria-label="Expand panel"><i></i></button>
+  <div class="plate">
+    <h1>Nevada County<br>Arts &amp; Culture</h1>
+    <div class="tag">The Field Atlas<span class="live" id="livecount"></span></div>
   </div>
-</div></nav>
-
-<header class="hero" id="hero"></header>
-
-<section id="tonight"><div class="wrap">
-  <div class="sec-head"><div><div class="lbl"><span class="live">●</span> Live from nine community calendars</div><h2 class="sec">Tonight &amp; this week</h2></div><a class="all" href="index.html">All events →</a></div>
-  <div id="rows"></div>
-</div></section>
-
-<section id="anchors"><div class="wrap">
-  <div class="lbl">Start here</div><h2 class="sec">Six anchors</h2>
-  <div class="an-grid" id="angrid"></div>
-</div></section>
-
-<section id="routes"><div class="wrap">
-  <div class="lbl">Make a day of it</div><h2 class="sec">Four routes</h2>
-  <div id="routes-list"></div>
-</div></section>
-
-<section id="directory"><div class="wrap">
-  <div class="lbl">Every place we know</div><h2 class="sec">The directory</h2>
-  <div class="dir-controls">
-    <input class="dir-search" id="dirsearch" type="search" placeholder="Search 1,300+ places…" aria-label="Search places">
-    <div id="dirpills" style="display:flex;flex-wrap:wrap;gap:8px"></div>
+  <div class="p-tools">
+    <div class="s-row">
+      <input id="q" type="search" placeholder="Search places, towns, categories…" aria-label="Search places" autocomplete="off">
+      <button class="sq" id="clearbtn" data-tip="Clear" title="Clear search & filters">✕</button>
+    </div>
+    <div class="pills" id="pills"></div>
+    <div class="stage"><span id="stagehint">County view — the anchors</span><span><b id="inview">–</b> in view</span></div>
   </div>
-  <div class="dir-count" id="dircount"></div>
-  <div class="dir-grid" id="dirgrid"></div>
-  <button class="dir-more" id="dirmore">Show more</button>
-</div></section>
+  <div class="p-scroll" id="pscroll">
+    <div class="p-sec">
+      <span class="lbl">Expeditions — ways into the county</span>
+      <div id="xplist"></div>
+    </div>
+    <div class="p-sec">
+      <span class="lbl">The index · <span id="count" style="color:var(--ink)">…</span></span>
+      <div id="list"></div>
+      <button id="more">Show more</button>
+    </div>
+  </div>
+  <div class="p-foot">
+    <div class="legend">
+      <i><span class="k solid"></span>verified</i>
+      <i><span class="k ring"></span>approximate</i>
+      <i><span class="k live"></span>happening</i>
+    </div>
+    <div class="pn">Prototype · fable</div>
+  </div>
+</aside>
 
-<section class="mapsec" id="map-wrap"><div class="wrap">
-  <div class="map-head"><div><div class="lbl">The whole county</div><h2 class="sec" style="margin-bottom:0">On the map</h2></div><div class="n" id="mapcount"></div></div>
-  <div id="map"></div>
-</div></section>
+<div id="hud">
+  <button class="hud-b" id="z-in" data-tip="Zoom in"><span>+</span></button>
+  <button class="hud-b" id="z-out" data-tip="Zoom out"><span>−</span></button>
+  <button class="hud-b" id="home" data-tip="Whole county"><span>⌂</span></button>
+  <button class="hud-b" id="locate" data-tip="Near me"><span>◎</span></button>
+  <button class="hud-b" id="lucky" data-tip="Surprise me"><span>✳</span></button>
+</div>
 
-<footer><div class="wrap f-in">
-  <div>Nevada County Arts Council — internal preview</div>
-  <div class="lbl">Prototype · fable-best · not production</div>
-</div></footer>
+<div id="hoverlab"></div>
+
+<article id="drawer" aria-label="Place details">
+  <div class="dr-ph" id="dr-ph"></div>
+  <div class="dr-bd" id="dr-bd"></div>
+</article>
+
+<div id="tour">
+  <button class="tb-end" id="tb-end" title="End route">✕</button>
+  <div class="tb-tx">
+    <div class="tb-route" id="tb-route"></div>
+    <div class="tb-stop" id="tb-stop"></div>
+  </div>
+  <button id="tb-prev" title="Previous stop">←</button>
+  <button id="tb-next" title="Next stop">→</button>
+</div>
+
+<div id="toast"></div>
 
 <script>
 (async function(){
+  'use strict';
+  const $ = id => document.getElementById(id);
+  const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const MOBILE = () => innerWidth <= 860;
+
+  /* ---------- data ---------- */
   const [events, placesRaw, anchors, paths] = await Promise.all(
     ['data/events.json','data/places.json','data/anchor_cards.json','data/paths.json']
-      .map(u=>fetch(u).then(r=>r.json()))
+      .map(u => fetch(u).then(r => r.json()))
   );
   const places = placesRaw.places || placesRaw;
-  const byId = new Map(places.map(p=>[p.id,p]));
+  const byId = new Map(places.map(p => [p.id, p]));
+  const anchorIds = anchors.map(a => a.placeId).filter(id => byId.has(id));
+  const anchorSet = new Set(anchorIds);
 
+  const today = new Date(); today.setHours(0,0,0,0);
+  const iso = today.toISOString().slice(0,10);
+  const upcoming = events.filter(e => e.date >= iso).sort((a,b) => a.date < b.date ? -1 : 1);
+  const fmtDay = d => d === iso ? 'Tonight'
+    : new Date(d + 'T12:00').toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'});
+
+  /* ---------- photos: real first, category placeholder fallback ---------- */
   const CAT_PH = {
     "Arts Organizations":"assets/category-placeholders-ncac/arts-organizations.png",
     "Cultural Resources":"assets/category-placeholders-ncac/cultural-resources.png",
@@ -197,205 +375,545 @@
     "Shops & Makers":"assets/category-placeholders-ncac/shops-makers.png",
     "Walks & Trails":"assets/category-placeholders-ncac/walks-trails.png"
   };
-  function phOf(placeId, category){
-    const p = byId.get(placeId);
-    return CAT_PH[(p && p.category) || category] || CAT_PH["Cultural Resources"];
-  }
-  function photoOf(placeId, category){
-    const p = byId.get(placeId);
-    const img = p && p.image;
-    if (img && img.kind==='real' && img.src) return img.src;
-    return phOf(placeId, category);
-  }
-  // Stale remote photos (e.g. expired Google refs) fall back to the category card.
-  window.addEventListener('error', e=>{
-    const t=e.target;
-    if(t && t.tagName==='IMG' && t.dataset.ph && !t.src.endsWith(t.dataset.ph)) t.src=t.dataset.ph;
-  }, true);
-  const esc = s => String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
-  const imgTag = (placeId, category) =>
-    `<img loading="lazy" data-ph="${esc(phOf(placeId,category))}" src="${esc(photoOf(placeId,category))}" alt="">`;
-  const trunc = (s,n)=>{s=String(s??'');return s.length>n?s.slice(0,n).replace(/\s+\S*$/,'')+'…':s;};
-
-  const today = new Date(); today.setHours(0,0,0,0);
-  const iso = today.toISOString().slice(0,10);
-  const upcoming = events.filter(e=>e.date>=iso).sort((a,b)=>a.date<b.date?-1:1);
-  const fmtDay = d => d===iso ? 'Tonight' :
-    new Date(d+'T12:00').toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'});
-  document.getElementById('navdate').textContent =
-    today.toLocaleDateString('en-US',{weekday:'long',month:'long',day:'numeric'});
-
-  /* hero: first upcoming event whose venue has a real photo */
-  const heroEv = upcoming.find(e=>{const p=byId.get(e.placeId);return p&&p.image&&p.image.kind==='real';}) || upcoming[0];
-  document.getElementById('hero').innerHTML = heroEv ? `
-    <div class="wrap"><div class="hero-grid">
-      <div class="hero-tx">
-        <div class="lbl"><b>${esc(fmtDay(heroEv.date))}</b> · ${esc(heroEv.placeName||'')}</div>
-        <h1>${esc(heroEv.title)}</h1>
-        <p>${esc(trunc(heroEv.description,200))}</p>
-        <div><a class="cta" href="${esc(heroEv.url||'#')}" target="_blank" rel="noopener">Details</a>
-        <a class="cta2" href="#tonight">Everything this week ↓</a></div>
-      </div>
-      <div class="hero-ph">${imgTag(heroEv.placeId,heroEv.category)}<div class="cap">${esc(heroEv.placeName||'')}</div></div>
-    </div></div>` : '';
-
-  /* tonight: ledger rows */
-  document.getElementById('rows').innerHTML = upcoming.slice(0,10).map(e=>`
-    <a class="ev-row" href="${esc(e.url||'#')}" target="_blank" rel="noopener">
-      <div class="d ${e.date===iso?'today':''}">${esc(fmtDay(e.date))}</div>
-      <div><div class="t">${esc(e.title)}</div></div>
-      <div class="v">${esc(e.placeName||e.category||'')}</div>
-      <div class="ph">${imgTag(e.placeId,e.category)}</div>
-    </a>`).join('');
-
-  /* anchors */
-  document.getElementById('angrid').innerHTML = anchors.slice(0,6).map(a=>`
-    <a class="an" href="index.html">
-      <div class="ph">${imgTag(a.placeId)}</div>
-      <div class="bd"><div class="lbl">${esc(a.anchorLabel||'Anchor')}</div>
-      <h3>${esc(a.name)}</h3><p>${esc(trunc(a.whyItMatters||a.hook||'',130))}</p></div>
-    </a>`).join('');
-
-  /* routes */
-  document.getElementById('routes-list').innerHTML = paths.map((p,i)=>`
-    <div class="route">
-      <div class="no">${String(i+1).padStart(2,'0')}</div>
-      <div>
-        <h3>${esc(p.title)}</h3>
-        <p>${esc(p.dek)}</p>
-        <a class="go" href="index.html">Walk it · ${p.stops.length} stops</a>
-      </div>
-      <div class="thumbs">${p.stops.slice(0,3).map(s=>`<div class="t">${imgTag(s.placeId,s.category)}</div>`).join('')}</div>
-    </div>`).join('');
-
-  /* directory: search + category pills, driving both the grid and the map layer */
-  const cats = [...new Set(places.map(p=>p.category).filter(Boolean))].sort();
-  let dirCat = null, dirQ = '', dirShown = 24;
-  const norm = s => String(s||'').toLowerCase();
-  function dirMatches(){
-    return places.filter(p =>
-      (!dirCat || p.category===dirCat) &&
-      (!dirQ || norm(p.name).includes(dirQ) || norm(p.city).includes(dirQ)));
-  }
-  function renderDir(){
-    const hits = dirMatches();
-    document.getElementById('dircount').textContent =
-      `${hits.length.toLocaleString()} of ${places.length.toLocaleString()} places` +
-      (dirCat ? ` · ${dirCat}` : '') + (dirQ ? ` · “${dirQ}”` : '');
-    document.getElementById('dirgrid').innerHTML = hits.slice(0,dirShown).map(p=>`
-      <div class="pl">
-        <div class="ph">${imgTag(p.id,p.category)}</div>
-        <div class="bd"><h4>${esc(p.name)}</h4><div class="m">${esc(p.category||'')}${p.city?' · '+esc(p.city):''}</div></div>
-      </div>`).join('');
-    document.getElementById('dirmore').style.display = hits.length>dirShown ? 'block':'none';
-    syncMapFilter();
-  }
-  document.getElementById('dirpills').innerHTML =
-    `<button class="pill on" data-cat="">All</button>` +
-    cats.map(c=>`<button class="pill" data-cat="${esc(c)}">${esc(c)}</button>`).join('');
-  document.getElementById('dirpills').addEventListener('click', e=>{
-    const b=e.target.closest('.pill'); if(!b) return;
-    dirCat = b.dataset.cat || null; dirShown = 24;
-    document.querySelectorAll('.pill').forEach(x=>x.classList.toggle('on', x===b));
-    renderDir();
-  });
-  document.getElementById('dirsearch').addEventListener('input', e=>{
-    dirQ = norm(e.target.value.trim()); dirShown = 24; renderDir();
-  });
-  document.getElementById('dirmore').addEventListener('click', ()=>{ dirShown += 48; renderDir(); });
-
-  /* map: quiet grayscale. Every place is a quiet ink dot; red is reserved for
-     where something is happening. Directory filters drive the dot layer too. */
-  document.getElementById('mapcount').innerHTML =
-    `<b>${places.length.toLocaleString()}</b> places · <b>${upcoming.length}</b> happenings`;
-  const map = new maplibregl.Map({container:'map', style:'https://tiles.openfreemap.org/styles/liberty',
-    center:[-121.03,39.245], zoom:11.6, attributionControl:{compact:true}});
-  window.__map = map; // prototype-only debug handle
-  // Only places with building-accurate coordinates get solid dots. Census-estimated
-  // "candidate" coordinates render as faint hollow rings so they read as approximate.
-  const placeFeatures = places.filter(p=>p.lat!=null&&p.lng!=null).map(p=>({
-    type:'Feature',
-    properties:{id:p.id, name:p.name, category:p.category||'', city:p.city||'', tier:p.markerTier||'candidate'},
-    geometry:{type:'Point', coordinates:[p.lng,p.lat]}
-  }));
-  const popupCard = f => {
-    const p = byId.get(f.properties.id) || {};
-    const approx = f.properties.tier!=='map-ready'
-      ? `<div style="font-size:10.5px;color:#5E5852;margin-top:5px">Location approximate — pending review</div>` : '';
-    return `<div style="width:210px">
-      <div style="height:96px;overflow:hidden;margin:-10px -10px 9px;border-bottom:1px solid #1A1A1A">${imgTag(f.properties.id,f.properties.category)}</div>
-      <strong style="font-size:14px;line-height:1.2">${esc(f.properties.name)}</strong><br>
-      <span style="color:#5E5852;font-size:12px">${esc(f.properties.category)}${f.properties.city?' · '+esc(f.properties.city):''}</span>
-      ${p.website?`<div style="margin-top:6px"><a href="${esc(p.website)}" target="_blank" rel="noopener" style="color:#FF2E00;font-weight:700;font-size:12px;text-decoration:none">Website →</a></div>`:''}
-      ${approx}</div>`;
+  const phOf = (id, cat) => {
+    const p = byId.get(id);
+    return CAT_PH[(p && p.category) || cat] || CAT_PH["Cultural Resources"];
   };
-  let hoverPopup = null, clickPopup = null;
-  map.on('load', ()=>{
-    map.addSource('places', {type:'geojson', data:{type:'FeatureCollection', features:placeFeatures}});
-    map.addLayer({id:'places-approx', type:'circle', source:'places',
-      filter:['!=',['get','tier'],'map-ready'], paint:{
-      'circle-radius':['interpolate',['linear'],['zoom'],10,2.5,14,5],
-      'circle-color':'rgba(0,0,0,0)', 'circle-stroke-width':1,
-      'circle-stroke-color':'#5E5852', 'circle-stroke-opacity':0.45
-    }});
-    map.addLayer({id:'places-dots', type:'circle', source:'places',
-      filter:['==',['get','tier'],'map-ready'], paint:{
-      'circle-radius':['interpolate',['linear'],['zoom'],10,3.5,14,7],
-      'circle-color':'#1A1A1A', 'circle-opacity':0.85,
-      'circle-stroke-width':1.25, 'circle-stroke-color':'#FAF6EC'
-    }});
-    // Generous hit target: query a padded box around the cursor, not the exact pixel.
-    const hitAt = pt => {
-      const pad = 8;
-      const fs = map.queryRenderedFeatures(
-        [[pt.x-pad,pt.y-pad],[pt.x+pad,pt.y+pad]], {layers:['places-dots','places-approx']});
-      return fs[0];
-    };
-    map.on('mousemove', e=>{
-      const f = hitAt(e.point);
-      map.getCanvas().style.cursor = f ? 'pointer' : '';
-      if(hoverPopup){ hoverPopup.remove(); hoverPopup=null; }
-      if(f && !clickPopup){
-        hoverPopup = new maplibregl.Popup({offset:8, closeButton:false, closeOnClick:false})
-          .setLngLat(f.geometry.coordinates)
-          .setHTML(`<strong style="font-size:13px">${esc(f.properties.name)}</strong><br><span style="color:#5E5852;font-size:11.5px">${esc(f.properties.category)}</span>`)
-          .addTo(map);
-      }
-    });
-    map.on('click', e=>{
-      const f = hitAt(e.point);
-      if(hoverPopup){ hoverPopup.remove(); hoverPopup=null; }
-      if(clickPopup){ clickPopup.remove(); clickPopup=null; }
-      if(f){
-        clickPopup = new maplibregl.Popup({offset:10, maxWidth:'240px'})
-          .setLngLat(f.geometry.coordinates).setHTML(popupCard(f)).addTo(map);
-        clickPopup.on('close', ()=>{ clickPopup=null; });
-      }
-    });
-    syncMapFilter();
+  const photoOf = (id, cat) => {
+    const p = byId.get(id);
+    const img = p && p.image;
+    return (img && img.kind === 'real' && img.src) ? img.src : phOf(id, cat);
+  };
+  // Stale remote photos (expired Google refs) fall back to the category card.
+  window.addEventListener('error', e => {
+    const t = e.target;
+    if (t && t.tagName === 'IMG' && t.dataset.ph && !t.src.endsWith(t.dataset.ph)) t.src = t.dataset.ph;
+  }, true);
+  const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const imgTag = (id, cat) =>
+    `<img loading="lazy" data-ph="${esc(phOf(id,cat))}" src="${esc(photoOf(id,cat))}" alt="">`;
+  // placeholder painted UNDER the photo: slow/hung remotes never leave a blank box
+  const phBg = (id, cat) => `style="background:url('${esc(phOf(id,cat))}') center/cover"`;
+
+  /* ---------- intro ---------- */
+  $('i-count').textContent =
+    `${places.length.toLocaleString()} places · ${upcoming.length} happenings this week`;
+  let introGone = sessionStorage.getItem('atlas-intro') === '1';
+  const intro = $('intro');
+  function dropIntro(){
+    if (introGone) return;
+    introGone = true;
+    sessionStorage.setItem('atlas-intro','1');
+    if (RM) intro.style.display = 'none';
+    else { intro.classList.add('lift'); setTimeout(() => intro.style.display = 'none', 800); }
+    document.body.classList.add('ready');
+    descend();
+  }
+  if (introGone){ intro.style.display = 'none'; document.body.classList.add('ready'); }
+  intro.addEventListener('click', dropIntro);
+  setTimeout(dropIntro, 2600);
+
+  /* ---------- map ---------- */
+  const COUNTY = [[-121.36, 38.98],[-120.00, 39.56]];   // Truckee is in-county; keep the east edge wide
+  const padFor = () => MOBILE()
+    ? {left:24, right:24, top:84, bottom: Math.round(innerHeight * .5)}
+    : {left: 374 + 48, right: $('drawer').classList.contains('open') ? 416 + 48 : 48, top:48, bottom:48};
+
+  const map = new maplibregl.Map({
+    container:'map',
+    style:'https://tiles.openfreemap.org/styles/liberty',
+    center:[-120.9, 39.27], zoom:8.1, minZoom:7.4, maxZoom:17.5,
+    attributionControl:{compact:true}
   });
-  function syncMapFilter(){
-    if(!map.getLayer || !map.getLayer('places-dots')) return;
-    const tierSolid = ['==',['get','tier'],'map-ready'];
-    const tierApprox = ['!=',['get','tier'],'map-ready'];
-    if(!dirCat && !dirQ){
-      map.setFilter('places-dots', tierSolid);
-      map.setFilter('places-approx', tierApprox);
+  window.__map = map; // prototype-only debug handle
+  let descended = false;
+  function descend(){
+    if (descended || !styleReady) return;
+    descended = true;
+    map.fitBounds(COUNTY, {padding: padFor(), duration: RM ? 0 : 2400, essential:true});
+  }
+
+  const feats = places.filter(p => p.lat != null && p.lng != null).map(p => ({
+    type:'Feature', id:p.id,
+    properties:{ id:p.id, name:p.name, category:p.category || '', city:p.city || '',
+                 tier:p.markerTier || 'candidate', anchor: anchorSet.has(p.id) },
+    geometry:{ type:'Point', coordinates:[p.lng, p.lat] }
+  }));
+
+  const F_ANCHOR = ['==', ['get','anchor'], true];
+  const F_DOTS   = ['all', ['==',['get','tier'],'map-ready'], ['==',['get','anchor'], false]];
+  const F_APPROX = ['!=', ['get','tier'], 'map-ready'];
+  const OP_DOTS   = ['interpolate',['linear'],['zoom'], 10.4, 0, 11.3, .88];
+  const OP_APPROX = ['interpolate',['linear'],['zoom'], 12.2, 0, 13.1, .5];
+
+  let styleReady = false;
+  map.on('load', () => {
+    map.addSource('places', {type:'geojson', promoteId:'id',
+      data:{type:'FeatureCollection', features:feats}});
+
+    // Stage 3 — approximate places as faint hollow rings (closest zoom only)
+    map.addLayer({id:'places-approx', type:'circle', source:'places', filter:F_APPROX, paint:{
+      'circle-radius':['interpolate',['linear'],['zoom'], 11, 2.5, 14, 5, 16, 6.5],
+      'circle-color':'rgba(0,0,0,0)',
+      'circle-stroke-width':1.1,
+      'circle-stroke-color':'#5E5852',
+      'circle-stroke-opacity':OP_APPROX
+    }});
+    // Stage 2 — verified (map-ready) places as quiet ink dots
+    map.addLayer({id:'places-dots', type:'circle', source:'places', filter:F_DOTS, paint:{
+      'circle-radius':['interpolate',['linear'],['zoom'],
+        10, ['case',['boolean',['feature-state','hover'],false], 4.6, 2.6],
+        13, ['case',['boolean',['feature-state','hover'],false], 7.6, 5.0],
+        16, ['case',['boolean',['feature-state','hover'],false], 11,  7.6]],
+      'circle-color':['case',
+        ['boolean',['feature-state','sel'],false], '#FF2E00',
+        ['boolean',['feature-state','hover'],false], '#000000', '#1A1A1A'],
+      'circle-opacity':OP_DOTS,
+      'circle-stroke-width':1.2,
+      'circle-stroke-color':'#FAF6EC'
+    }});
+    // Stage 1 — the anchors: always present, labeled, larger
+    map.addLayer({id:'anchor-dots', type:'circle', source:'places', filter:F_ANCHOR, paint:{
+      'circle-radius':['interpolate',['linear'],['zoom'],
+        8.5, ['case',['boolean',['feature-state','hover'],false], 7.5, 5],
+        13,  ['case',['boolean',['feature-state','hover'],false], 11.5, 8.5]],
+      'circle-color':['case',
+        ['boolean',['feature-state','sel'],false], '#FF2E00',
+        ['boolean',['feature-state','hover'],false], '#000000', '#1A1A1A'],
+      'circle-stroke-width':1.8,
+      'circle-stroke-color':'#FAF6EC'
+    }});
+    map.addLayer({id:'anchor-labels', type:'symbol', source:'places', filter:F_ANCHOR, layout:{
+      'text-field':['get','name'],
+      'text-font':['Noto Sans Bold'],
+      'text-size':['interpolate',['linear'],['zoom'], 9, 10.5, 13, 12.5],
+      'text-offset':[0, 1.05],
+      'text-anchor':'top',
+      'text-max-width':9
+    }, paint:{
+      'text-color':'#1A1A1A',
+      'text-halo-color':'#FAF6EC',
+      'text-halo-width':1.6
+    }});
+
+    // happening-this-week = small red markers (red is the live signal)
+    upcoming.forEach(e => {
+      if (e.lat == null) return;
+      const d = document.createElement('div');
+      d.className = 'evdot';
+      d.title = e.title;
+      new maplibregl.Marker({element:d}).setLngLat([e.lng, e.lat])
+        .setPopup(new maplibregl.Popup({offset:12, className:'atlas-pop'}).setHTML(
+          `<div class="cp-bd"><h3>${esc(e.title)}</h3>
+           <div class="m">${esc(e.placeName || '')} · ${esc(fmtDay(e.date))}</div>
+           ${e.url ? `<div class="cp-acts"><a href="${esc(e.url)}" target="_blank" rel="noopener">Details ↗</a></div>` : ''}</div>`))
+        .addTo(map);
+    });
+
+    styleReady = true;
+    if (introGone) descend();
+    syncFilters();
+    refreshInView();
+  });
+
+  /* ---------- progressive-disclosure readout ---------- */
+  function stageText(z){
+    if (z < 11)   return 'County view — the anchors';
+    if (z < 12.6) return 'Verified places on the canvas';
+    return 'Everything — rings are approximate';
+  }
+  map.on('zoom', () => { $('stagehint').textContent = stageText(map.getZoom()); });
+  let inviewT = null;
+  function refreshInView(){
+    if (!styleReady) return;
+    clearTimeout(inviewT);
+    inviewT = setTimeout(() => {
+      // count only what the current disclosure stage actually shows
+      const fs = map.queryRenderedFeatures({layers: hitLayers()});
+      $('inview').textContent = new Set(fs.map(f => f.id)).size.toLocaleString();
+    }, 80);
+  }
+  map.on('idle', refreshInView);
+
+  /* ---------- hover: cursor + name label + dot emphasis ---------- */
+  const hitLayers = () => {
+    const z = map.getZoom();
+    const l = ['anchor-dots'];
+    if (z >= 10.6) l.push('places-dots');
+    if (z >= 12.4) l.push('places-approx');
+    return l;
+  };
+  const hitAt = pt => {
+    const pad = 8;
+    const fs = map.queryRenderedFeatures(
+      [[pt.x-pad, pt.y-pad],[pt.x+pad, pt.y+pad]], {layers: hitLayers()});
+    return fs[0];
+  };
+  const hoverlab = $('hoverlab');
+  let hoverId = null;
+  function setHover(id, on){
+    if (id == null) return;
+    map.setFeatureState({source:'places', id}, {hover:on});
+  }
+  map.on('mousemove', e => {
+    if (!styleReady) return;
+    const f = hitAt(e.point);
+    map.getCanvas().style.cursor = f ? 'pointer' : '';
+    if (hoverId !== (f && f.id)){ setHover(hoverId, false); hoverId = f ? f.id : null; setHover(hoverId, true); }
+    if (f && f.id !== selId){
+      hoverlab.innerHTML = `<b>${esc(f.properties.name)}</b><span>${esc(f.properties.category)}${f.properties.city ? ' · ' + esc(f.properties.city) : ''}</span>`;
+      hoverlab.style.display = 'block';
+      const r = map.getContainer().getBoundingClientRect();
+      hoverlab.style.left = (r.left + e.point.x + 14) + 'px';
+      hoverlab.style.top  = (r.top  + e.point.y - 10) + 'px';
+    } else hoverlab.style.display = 'none';
+  });
+  map.getContainer().addEventListener('mouseleave', () => {
+    hoverlab.style.display = 'none';
+    setHover(hoverId, false); hoverId = null;
+  });
+
+  /* ---------- selection: pulse + card, then dossier ---------- */
+  let selId = null, pulseMk = null, cardPopup = null;
+  function clearSel(){
+    if (selId != null) map.setFeatureState({source:'places', id:selId}, {sel:false});
+    selId = null;
+    if (pulseMk){ pulseMk.remove(); pulseMk = null; }
+    if (cardPopup){ cardPopup.remove(); cardPopup = null; }
+  }
+  function cardHTML(p){
+    const approx = (p.markerTier || 'candidate') !== 'map-ready'
+      ? `<div class="approx">Location approximate — pending review</div>` : '';
+    return `<div class="cp-ph" ${phBg(p.id, p.category)}>${imgTag(p.id, p.category)}<button class="cp-x" data-x>✕</button></div>
+      <div class="cp-bd">
+        <h3>${esc(p.name)}</h3>
+        <div class="m">${esc(p.category || '')}${p.city ? ' · ' + esc(p.city) : ''}</div>${approx}
+        <div class="cp-acts">
+          <button class="go" data-go>Open dossier →</button>
+          ${p.website ? `<a href="${esc(p.website)}" target="_blank" rel="noopener">Website ↗</a>` : ''}
+        </div>
+      </div>`;
+  }
+  function select(p, opts = {}){
+    if (!p || p.lat == null) return;
+    clearSel();
+    selId = p.id;
+    map.setFeatureState({source:'places', id:p.id}, {sel:true});
+    const el = document.createElement('div'); el.className = 'pulse';
+    pulseMk = new maplibregl.Marker({element:el}).setLngLat([p.lng, p.lat]).addTo(map);
+
+    const openCard = () => {
+      if (selId !== p.id) return;
+      cardPopup = new maplibregl.Popup({className:'atlas-pop', offset:16, maxWidth:'260px', closeButton:false})
+        .setLngLat([p.lng, p.lat]).setHTML(cardHTML(p)).addTo(map);
+      const node = cardPopup.getElement();
+      node.querySelector('[data-x]').addEventListener('click', clearSel);
+      node.querySelector('[data-go]').addEventListener('click', () => openDrawer(p));
+      cardPopup.on('close', () => { cardPopup = null; });
+      if (opts.drawer) openDrawer(p);
+    };
+    const z = map.getZoom();
+    const target = Math.max(z, opts.zoom || 13.6);
+    map.once('moveend', openCard);
+    if (RM){ map.jumpTo({center:[p.lng, p.lat], zoom:target}); }
+    else if (opts.fly === false || z >= 13){
+      map.easeTo({center:[p.lng, p.lat], zoom:target, padding:padFor(), duration:650, essential:true});
+    } else {
+      map.flyTo({center:[p.lng, p.lat], zoom:target, padding:padFor(), speed:1.05, curve:1.42, essential:true});
+    }
+  }
+  map.on('click', e => {
+    if (!styleReady) return;
+    const f = hitAt(e.point);
+    if (f){ select(byId.get(f.properties.id), {fly:false}); }
+    else { clearSel(); }
+  });
+
+  /* ---------- dossier drawer ---------- */
+  const drawer = $('drawer');
+  function openDrawer(p){
+    const tierLabel = (p.markerTier || 'candidate') === 'map-ready'
+      ? 'Verified — building-accurate'
+      : (p.markerTier === 'directory-only' ? 'Directory listing — not yet mapped' : 'Approximate — under review');
+    const desc = p.description || '';
+    const boiler = !desc || /alpha review/i.test(desc);
+    $('dr-ph').style.background = `url('${phOf(p.id, p.category)}') center/cover`;
+    $('dr-ph').innerHTML = `${imgTag(p.id, p.category)}
+      <div class="cap">${esc(p.category || 'Place')}</div>
+      <button class="dr-x" id="dr-x" aria-label="Close">✕</button>`;
+    $('dr-bd').innerHTML = `
+      <div><h2>${esc(p.name)}</h2><div class="sub">${esc(p.city || 'Nevada County')}</div></div>
+      <div class="desc ${boiler ? 'placeholder' : ''}">${boiler
+        ? 'No write-up yet. This listing comes straight from the county’s open data set — a proper story is on its way.'
+        : esc(desc)}</div>
+      <div class="meta">
+        ${p.address ? `<div class="mr"><b>Address</b><span>${esc(p.address)}${p.city ? ', ' + esc(p.city) : ''}</span></div>` : ''}
+        <div class="mr"><b>Category</b><span>${esc(p.category || '—')}</span></div>
+        <div class="mr"><b>Pin status</b><span>${tierLabel}</span></div>
+      </div>
+      <div class="dr-acts">
+        ${p.website ? `<a href="${esc(p.website)}" target="_blank" rel="noopener">Website ↗</a>` : ''}
+        ${p.lat != null ? `<a class="quiet" href="https://www.google.com/maps/search/?api=1&query=${p.lat}%2C${p.lng}" target="_blank" rel="noopener">Directions ↗</a>` : ''}
+      </div>
+      ${p.locationCaveat ? `<div class="caveat">${esc(p.locationCaveat)}</div>` : ''}`;
+    drawer.classList.add('open');
+    $('dr-x').addEventListener('click', closeDrawer);
+  }
+  function closeDrawer(){ drawer.classList.remove('open'); }
+
+  /* ---------- search + pills → list + map, one brain ---------- */
+  const cats = [...new Set(places.map(p => p.category).filter(Boolean))].sort();
+  let cat = null, q = '', shown = 24, userLoc = null;
+  const norm = s => String(s || '').toLowerCase();
+  const matches = () => places.filter(p =>
+    (!cat || p.category === cat) &&
+    (!q || norm(p.name).includes(q) || norm(p.city).includes(q) || norm(p.category).includes(q)));
+
+  $('pills').innerHTML =
+    `<button class="pill on" data-cat="">Everything</button>` +
+    cats.map(c => `<button class="pill" data-cat="${esc(c)}">${esc(c)}</button>`).join('');
+  $('pills').addEventListener('click', e => {
+    const b = e.target.closest('.pill'); if (!b) return;
+    cat = b.dataset.cat || null; shown = 24;
+    document.querySelectorAll('.pill').forEach(x => x.classList.toggle('on', x === b));
+    apply({fit: !!cat});
+  });
+
+  let qT = null;
+  $('q').addEventListener('input', e => {
+    clearTimeout(qT);
+    qT = setTimeout(() => { q = norm(e.target.value.trim()); shown = 24; apply({}); }, 130);
+  });
+  $('q').addEventListener('keydown', e => {
+    if (e.key === 'Enter'){
+      const hits = matches();
+      if (hits.length === 1 && hits[0].lat != null) select(hits[0]);
+      else apply({fit:true});
+    }
+  });
+  $('clearbtn').addEventListener('click', () => {
+    cat = null; q = ''; shown = 24; $('q').value = '';
+    document.querySelectorAll('.pill').forEach(x => x.classList.toggle('on', !x.dataset.cat));
+    apply({});
+    map.fitBounds(COUNTY, {padding: padFor(), duration: RM ? 0 : 1100, essential:true});
+  });
+
+  const distMi = (a, b) => {
+    const R = 3958.8, dLa = (b.lat-a.lat)*Math.PI/180, dLn = (b.lng-a.lng)*Math.PI/180;
+    const la1 = a.lat*Math.PI/180, la2 = b.lat*Math.PI/180;
+    const h = Math.sin(dLa/2)**2 + Math.cos(la1)*Math.cos(la2)*Math.sin(dLn/2)**2;
+    return 2*R*Math.asin(Math.sqrt(h));
+  };
+  const fmtMi = m => m < 9.5 ? m.toFixed(1) + ' mi' : Math.round(m) + ' mi';
+
+  function sortHits(hits){
+    if (userLoc) return hits.slice().sort((a,b) =>
+      ((a.lat!=null ? distMi(userLoc,a) : 1e9)) - ((b.lat!=null ? distMi(userLoc,b) : 1e9)));
+    return hits.slice().sort((a,b) =>
+      (anchorSet.has(b.id) - anchorSet.has(a.id)) ||
+      (((b.image||{}).kind==='real') - ((a.image||{}).kind==='real')) ||
+      a.name.localeCompare(b.name));
+  }
+
+  /* count tween — quiet, fast */
+  let countAnim = null;
+  function tweenCount(el, to){
+    const from = parseInt(String(el.textContent).replace(/\D/g,'')) || 0;
+    if (RM || from === to){ el.textContent = to.toLocaleString(); return; }
+    cancelAnimationFrame(countAnim);
+    const t0 = performance.now();
+    (function step(t){
+      const k = Math.min(1, (t - t0) / 260);
+      el.textContent = Math.round(from + (to - from) * (1 - (1-k)*(1-k))).toLocaleString();
+      if (k < 1) countAnim = requestAnimationFrame(step);
+    })(t0);
+  }
+
+  function renderList(){
+    const hits = sortHits(matches());
+    tweenCount($('count'), hits.length);
+    if (!hits.length){
+      $('list').innerHTML = `<div class="empty">Nothing out here by that name. Try “gallery”, “Truckee”, or “historic”.
+        <br><button id="emptyclear">Clear the search</button></div>`;
+      $('more').style.display = 'none';
+      const ec = $('emptyclear'); if (ec) ec.addEventListener('click', () => $('clearbtn').click());
       return;
     }
-    const ids = ['literal', dirMatches().map(p=>p.id)];
-    map.setFilter('places-dots', ['all', tierSolid, ['in',['get','id'],ids]]);
-    map.setFilter('places-approx', ['all', tierApprox, ['in',['get','id'],ids]]);
+    $('list').innerHTML = hits.slice(0, shown).map(p => `
+      <div class="row" data-id="${esc(p.id)}">
+        <div class="th" ${phBg(p.id, p.category)}>${imgTag(p.id, p.category)}</div>
+        <div><h4>${esc(p.name)}</h4><div class="m">${esc(p.category || '')}${p.city ? ' · ' + esc(p.city) : ''}</div></div>
+        ${userLoc && p.lat != null ? `<div class="dist">${fmtMi(distMi(userLoc, p))}</div>` : '<div></div>'}
+      </div>`).join('');
+    $('more').style.display = hits.length > shown ? 'block' : 'none';
+    $('more').textContent = `Show more (${(hits.length - shown).toLocaleString()} left)`;
   }
-  upcoming.forEach(e=>{
-    if(e.lat==null) return;
-    const d=document.createElement('div');
-    d.style.cssText='width:11px;height:11px;border-radius:50%;background:#FF2E00;border:1.5px solid #FAF6EC;box-shadow:0 0 0 1px #1A1A1A;cursor:pointer';
-    new maplibregl.Marker({element:d}).setLngLat([e.lng,e.lat])
-      .setPopup(new maplibregl.Popup({offset:12}).setHTML(`<strong>${esc(e.title)}</strong><br><span style="color:#5E5852;font-size:12px">${esc(e.placeName||'')} · ${esc(fmtDay(e.date))}</span>`))
-      .addTo(map);
+  $('more').addEventListener('click', () => { shown += 48; renderList(); });
+  $('list').addEventListener('click', e => {
+    const r = e.target.closest('.row'); if (!r) return;
+    const p = byId.get(r.dataset.id);
+    if (p && p.lat != null) select(p);
+    else if (p){ toast(`${p.name} isn’t mapped yet — directory listing only.`); openDrawer(p); }
+    if (MOBILE()) $('panel').classList.remove('tall');
   });
-  renderDir();
+  // hovering an index row lights its dot on the map
+  $('list').addEventListener('mouseover', e => {
+    const r = e.target.closest('.row'); if (!r) return;
+    setHover(hoverId, false); hoverId = r.dataset.id; setHover(hoverId, true);
+  });
+  $('list').addEventListener('mouseout', () => { setHover(hoverId, false); hoverId = null; });
+
+  function syncFilters(){
+    if (!styleReady) return;
+    const active = cat || q;
+    const dim = active && matches().length === 0;
+    map.setPaintProperty('places-dots', 'circle-opacity', dim ? 0.12 : OP_DOTS);
+    map.setPaintProperty('anchor-dots', 'circle-opacity', dim ? 0.12 : 1);
+    if (!active){
+      map.setFilter('places-dots', F_DOTS);
+      map.setFilter('places-approx', F_APPROX);
+      map.setFilter('anchor-dots', F_ANCHOR);
+      map.setFilter('anchor-labels', F_ANCHOR);
+      return;
+    }
+    const ids = ['literal', matches().map(p => p.id)];
+    const inIds = ['in', ['get','id'], ids];
+    map.setFilter('places-dots',   ['all', F_DOTS, inIds]);
+    map.setFilter('places-approx', ['all', F_APPROX, inIds]);
+    map.setFilter('anchor-dots',   ['all', F_ANCHOR, inIds]);
+    map.setFilter('anchor-labels', ['all', F_ANCHOR, inIds]);
+  }
+  function fitToMatches(){
+    const pts = matches().filter(p => p.lat != null);
+    if (!pts.length) return;
+    let w = 180, e = -180, s = 90, n = -90;
+    pts.forEach(p => { w = Math.min(w,p.lng); e = Math.max(e,p.lng); s = Math.min(s,p.lat); n = Math.max(n,p.lat); });
+    map.fitBounds([[w,s],[e,n]], {padding: padFor(), maxZoom:13.6, duration: RM ? 0 : 950, essential:true});
+  }
+  function apply(opts){
+    renderList();
+    syncFilters();
+    if (opts.fit) fitToMatches();
+  }
+
+  /* ---------- expeditions: drawn routes + guided tour ---------- */
+  $('xplist').innerHTML = paths.map((p,i) => `
+    <div class="xp" data-i="${i}">
+      <div class="no">${String(i+1).padStart(2,'0')}</div>
+      <div><h3>${esc(p.title)}</h3><p>${esc(p.dek || '')}</p></div>
+      <div class="n">${p.stops.length} stops</div>
+    </div>`).join('');
+
+  let tour = null, stopMks = [];
+  function endTour(){
+    if (!tour) return;
+    tour = null;
+    $('tour').classList.remove('open');
+    stopMks.forEach(m => m.remove()); stopMks = [];
+    if (map.getLayer('route-line')) map.removeLayer('route-line');
+    if (map.getSource('route')) map.removeSource('route');
+    document.querySelectorAll('.xp').forEach(x => x.classList.remove('on'));
+    clearSel();
+  }
+  function startTour(i){
+    endTour();
+    const path = paths[i];
+    const stops = path.stops.filter(s => s.lat != null);
+    if (!stops.length) return;
+    tour = {path, stops, i:-1};
+    document.querySelectorAll('.xp').forEach((x,xi) => x.classList.toggle('on', xi === i));
+
+    map.addSource('route', {type:'geojson', data:{type:'Feature', properties:{},
+      geometry:{type:'LineString', coordinates: stops.map(s => [s.lng, s.lat])}}});
+    map.addLayer({id:'route-line', type:'line', source:'route', paint:{
+      'line-color':'#FF2E00', 'line-width':2.4, 'line-dasharray':[1.8, 1.6]
+    }}, 'places-approx');
+
+    stops.forEach((s, si) => {
+      const el = document.createElement('div');
+      el.className = 'stopmk'; el.textContent = si + 1;
+      el.addEventListener('click', ev => { ev.stopPropagation(); goStop(si); });
+      stopMks.push(new maplibregl.Marker({element:el}).setLngLat([s.lng, s.lat]).addTo(map));
+    });
+
+    $('tb-route').textContent = path.title;
+    $('tb-stop').textContent = `${stops.length} stops — press → to begin`;
+    $('tour').classList.add('open');
+    let w = 180, e2 = -180, s2 = 90, n = -90;
+    stops.forEach(s => { w=Math.min(w,s.lng); e2=Math.max(e2,s.lng); s2=Math.min(s2,s.lat); n=Math.max(n,s.lat); });
+    map.fitBounds([[w,s2],[e2,n]], {padding: padFor(), maxZoom:14, duration: RM ? 0 : 1100, essential:true});
+    if (MOBILE()) $('panel').classList.remove('tall');
+  }
+  function goStop(si){
+    if (!tour) return;
+    tour.i = Math.max(0, Math.min(tour.stops.length - 1, si));
+    const s = tour.stops[tour.i];
+    stopMks.forEach((m, mi) => m.getElement().classList.toggle('on', mi === tour.i));
+    $('tb-stop').textContent = `Stop ${tour.i + 1} of ${tour.stops.length} · ${s.name}`;
+    const p = byId.get(s.placeId) || {id:s.placeId, name:s.name, category:s.category, city:s.city, lat:s.lat, lng:s.lng};
+    select(p, {zoom:15});
+  }
+  $('xplist').addEventListener('click', e => {
+    const x = e.target.closest('.xp'); if (!x) return;
+    const i = +x.dataset.i;
+    if (tour && tour.path === paths[i]) endTour(); else startTour(i);
+  });
+  $('tb-next').addEventListener('click', () => goStop(tour ? tour.i + 1 : 0));
+  $('tb-prev').addEventListener('click', () => goStop(tour ? tour.i - 1 : 0));
+  $('tb-end').addEventListener('click', endTour);
+
+  /* ---------- HUD ---------- */
+  $('z-in').addEventListener('click', () => map.zoomIn({duration:280}));
+  $('z-out').addEventListener('click', () => map.zoomOut({duration:280}));
+  $('home').addEventListener('click', () => {
+    clearSel();
+    map.fitBounds(COUNTY, {padding: padFor(), duration: RM ? 0 : 1300, essential:true});
+  });
+  $('lucky').addEventListener('click', e => {
+    const b = e.currentTarget;
+    b.classList.remove('spun'); void b.offsetWidth; b.classList.add('spun');
+    const pool = places.filter(p => p.lat != null && p.markerTier === 'map-ready' && (p.image||{}).kind === 'real');
+    const p = pool[Math.floor(Math.random() * pool.length)];
+    if (p) select(p, {zoom:15});
+  });
+  let locMk = null;
+  $('locate').addEventListener('click', () => {
+    if (!navigator.geolocation) return toast('No geolocation available here.');
+    toast('Finding you…');
+    navigator.geolocation.getCurrentPosition(pos => {
+      userLoc = {lat: pos.coords.latitude, lng: pos.coords.longitude};
+      if (locMk) locMk.remove();
+      const el = document.createElement('div');
+      el.style.cssText = 'width:12px;height:12px;border-radius:50%;background:#1A1A1A;border:2.5px solid #fff;box-shadow:0 0 0 1px #1A1A1A';
+      locMk = new maplibregl.Marker({element:el}).setLngLat([userLoc.lng, userLoc.lat]).addTo(map);
+      map.flyTo({center:[userLoc.lng, userLoc.lat], zoom:13, padding:padFor(), speed:1.1, essential:true});
+      renderList();
+      toast('Index sorted nearest-first.');
+    }, () => toast('Couldn’t get a location — staying countywide.'), {timeout:8000});
+  });
+
+  /* ---------- chrome: toast, keys, sheet, counts ---------- */
+  let toastT = null;
+  function toast(msg){
+    const t = $('toast');
+    t.textContent = msg; t.classList.add('show');
+    clearTimeout(toastT);
+    toastT = setTimeout(() => t.classList.remove('show'), 2400);
+  }
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape'){
+      if (drawer.classList.contains('open')) closeDrawer();
+      else if (cardPopup) clearSel();
+      else if (tour) endTour();
+    }
+    if (e.key === '/' && document.activeElement !== $('q')){
+      e.preventDefault(); $('q').focus();
+    }
+  });
+  $('grip').addEventListener('click', () => $('panel').classList.toggle('tall'));
+  $('livecount').textContent = upcoming.length ? `· ${upcoming.length} happening` : '';
+
+  renderList();
 })();
 </script>
 </body>

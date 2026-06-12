@@ -48,6 +48,13 @@ Do not use serif display fonts for V1. Avoid Playfair, Iowan, Charter, Georgia, 
 - First-load card: highest-priority featured anchor with image, hook, and `View on map` action. Do not return to a generic instructional empty state while anchor data exists.
 - Path view: numbered markers, clickable stop list, anchor icons/hooks for anchor stops, and only a faint helper connector.
 
+New on `sandbox/rail-and-muse` (pending owner review/merge, 2026-06-10):
+
+- Discovery Rail: bottom horizontal snap-scroll card rail on first load (events, sampler places, one MUSE story card, one path card). Rail Follow: debounced scroll-settle eases the camera with no zoom change and highlights the marker; full fly-and-zoom only on card tap. Rail chips (`Everything` / `Events` / `Places`) filter the stream. While the rail shows, the left panel collapses to a compact search/filter toolbar; search or filtering expands the full browser and retires the rail. Mobile uses the rail as the bottom-drawer card surface.
+- MUSE story-card kicker: exact credential form "In the pages of MUSE Magazine". Place-card kickers use the place category.
+- MUSE Picks chip: "MUSE Picks only" filter in Places mode, AND-composed with outing-type chips.
+- MUSE directory badge: "Listed in the MUSE {year} directory" + the directory's own category label on flagged place cards, deep-linking to the listing's Heyzine flip-book page. MUSE naming on these surfaces is pre-Council; treat the labels as proposals, not settled brand.
+
 ## Imagery
 
 Real place photos are preferred. Category watercolors and logos are not acceptable V1 place-proof placeholders.

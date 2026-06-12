@@ -28,6 +28,14 @@ _Avoid_: Narrating UI behavior, justifying framing decisions, slide-caption feat
 The Arts Council source workbook supplied by Diana Arbex for V1 data engineering, represented in canonical source work as `diana-workbook.xlsx` and `diana-workbook.numbers`. It is the canonical name for this artifact in conversation and documentation.
 _Avoid_: Source of truth, magical source, spreadsheet, workbook, Diana dataset
 
+**Featured in MUSE**:
+A place that an actual MUSE Magazine article was written about (or directly mentions), evidenced by an exact place link in `data/muse-stories.json` (33 articles, exact place IDs, never theme/fuzzy guesses). This is the only meaning the MUSE badge may carry, and the badge must point to the article. (Owner ruling, 2026-06-11.)
+_Avoid_: MUSE pick, MUSE Picks category, directory-listing-derived flags
+
+**Listed in MUSE**:
+A business whose name appears in the MUSE Magazine back-pages business directory (the OCR-parsed listings, ~1,000 across the 2024–2026 issues). NCAC-curated but low-signal: membership in a printed list, not editorial coverage. Never rendered as a badge or endorsement in the product. (Owner ruling, 2026-06-11: the staged 466-place musePick flags encoded this weak meaning and were rejected; the 186 category re-homes from the same reconcile remain good.)
+_Avoid_: MUSE pick, featured, endorsement
+
 **ArcGIS Cultural Asset Export**:
 The older Arts Council ArcGIS cultural asset map export used as the most explainable coordinate fallback when matched confidently to Diana Workbook rows. It is a coordinate reference, not the full V1 identity source.
 _Avoid_: Old data dump, 686 file, source of truth, full V1 dataset

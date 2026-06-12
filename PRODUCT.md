@@ -10,6 +10,8 @@ The V1 Discovery Map is an internal approval-stage MapLibre alpha for Nevada Cou
 
 The map is the product argument. V1 should help stakeholders react to a concrete cultural discovery experience before the project expands into larger platform, Arts Hub, tourism, or AI-planning debates.
 
+Scope ruling (owner, 2026-06-10): the project is the assets map only. The April 24 meeting docs are the complete direction record; pre-April-24 asks are lineage, not requirements. The near-term goal is the overdue Eliza/Diana feedback session, with the Discovery Rail and the MUSE directory layer (sandbox branch) as the demo artifacts.
+
 ## Audience
 
 - Primary: Arts Council stakeholders reviewing whether the direction is culturally credible and ownable.
@@ -32,6 +34,7 @@ The map is the product argument. V1 should help stakeholders react to a concrete
 - Not an AI trip planner.
 - Not a full calendar/sidebar product.
 - Not a public submission or correction workflow.
+- Not a Trumba/calendar-centerpiece product, hub pages, or AI itineraries (superseded asks; do not revive).
 
 ## Success Criteria
 
