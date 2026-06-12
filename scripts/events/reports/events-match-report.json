@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-06-11T11:21:39.297408+00:00",
+  "generated_at": "2026-06-12T11:00:11.663378+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 272,
-    "matched_events": 200,
+    "total_events": 277,
+    "matched_events": 205,
     "unmatched_events": 72,
     "matched_by_pid": 0,
-    "matched_by_alias": 25,
-    "matched_by_name_city": 65,
+    "matched_by_alias": 26,
+    "matched_by_name_city": 69,
     "matched_by_name_city_fuzzy": 110,
-    "upcoming_14d": 117
+    "upcoming_14d": 122
   },
   "unmatched_venues": [
     {
@@ -28,7 +28,7 @@
       "venue_name": "Eric Rood Center",
       "venue_city": "Nevada City",
       "count": 11,
-      "sample_event_id": "trumba-202909233",
+      "sample_event_id": "trumba-202909234",
       "sample_title": "Lavender Glow | Queer Art & Our Shared History",
       "candidate_assets": []
     },
@@ -114,15 +114,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "therhythmden|grassvalley",
-      "venue_name": "The Rhythm Den",
-      "venue_city": "Grass Valley",
-      "count": 2,
-      "sample_event_id": "trumba-204519375",
-      "sample_title": "Beginners Hand Drum Class - No Experience Required!",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "suttercreektheatre|nevadacounty",
       "venue_name": "Sutter Creek Theatre",
       "venue_city": "Nevada County",
@@ -201,6 +192,24 @@
       "count": 1,
       "sample_event_id": "trumba-116325476",
       "sample_title": "Word Jam",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "therhythmden|grassvalley",
+      "venue_name": "The Rhythm Den",
+      "venue_city": "Grass Valley",
+      "count": 1,
+      "sample_event_id": "trumba-204519378",
+      "sample_title": "Beginners Hand Drum Class - No Experience Required!",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "bannergrange|grassvalley",
+      "venue_name": "Banner Grange",
+      "venue_city": "Grass Valley",
+      "count": 1,
+      "sample_event_id": "trumba-204486349",
+      "sample_title": "Community conversation on following your calling",
       "candidate_assets": []
     }
   ],
