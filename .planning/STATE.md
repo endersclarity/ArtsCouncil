@@ -9,6 +9,105 @@ See: .planning/PROJECT.md (updated 2026-02-14)
 
 ## Current Position
 
+## Sandbox: Impeccable design-pass effort — DONE 2026-06-11, EXIT GATE PASSED (branch sandbox/rail-and-muse, NOT pushed, never push)
+
+Seven-pass plan (.planning/impeccable-pass-plan-2026-06-10.md, in the app checkout) executed
+end to end against the Discovery Rail + MUSE build at http://127.0.0.1:8014:
+
+- Pass 0 (3fb1f7b): token reconciliation — 4 drifted hexes to canonical NCAC values.
+- Pass 1 (fd6b7e9): baseline critique snapshot — **25/40, 0 P0, 5 P1**, 30 in-page detector
+  findings (`.impeccable/critique/2026-06-11T05-45-23Z__...md`).
+- Pass 2 (0df641f): layout — uniform rail card grid, poster fields, chip/legend stacking,
+  scrollbar treatment, Explore panel chrome.
+- Pass 3 (6d17d55): typeset — eyebrows killed, 34px/12px card type jumps, contrast fixes.
+- Pass 4 (1f70a21): polish — states sweep, copy, MUSE chip above the fold.
+- Pass 5 (0534e4a): animate — motion tokens, eased toggles, drawer entrance, reduced-motion.
+- Pass 6 (this commit, read-only): re-critique — **29/40, 0 P0, 0 P1. Exit gate PASS**
+  (beat baseline, zero P0s, no banned patterns: in-page detector 30 findings → 0 real
+  findings, only the two pre-ruled false positives `single-font`/`cream-palette` remain;
+  no visible rail/panel scrollbars; legend/chips 181px apart; uniform 250×190 / ×168
+  cards read as NCAC poster moments at 1440 and 390). All five baseline P1s verified
+  resolved with measurements in the snapshot
+  `.impeccable/critique/2026-06-11T09-16-38Z__ap-redesign-stitch-lab-v1-discovery-map-index-html.md`.
+
+Brand levers from NCAC-V1-BRAND.md now in use: one red framing device per composition,
+knockout type on poster fields and marker selection, poster-field stand-ins for photo-less
+event cards, big type jumps, photography with knockout caption bars.
+
+Backlog left for a possible later pass (logged in the pass-6 snapshot, deliberately NOT
+fixed): drawer default scrollbar (P2), dual chip vocabularies (P2), legend color-only
+encoding (P2), no rail keyboard path (P2), all-caps source-data titles (P3), app.js
+ink-navy marker drift #1a1a2e (re-run marker contract if touched).
+
+Design-pass effort complete. Owner compares 8014 (sandbox) vs 8013 (main) and decides
+merge/demo. Do not push.
+
+## Sandbox: MUSE business directory layer (Stream 2) — DONE 2026-06-11 (branch sandbox/rail-and-muse, NOT pushed, never push)
+
+Built per .planning/muse-directory-layer-PRD-2026-06-10.md, three commits on top of Stream 1:
+
+1. **Reconciliation pass (8a8e43c, data-only).** scripts/muse-directory-parse.js parses the
+   MUSE Business Directory OCR (2024 pp.66–71, 2025 pp.96–105, 2026 pp.95–105) into 1,003
+   structured listings (column-aware state-machine parser — the OCR interleaves columns, so
+   blank lines are NOT listing separators after column slicing). Matching: website domain
+   first, then name+city, then name-only, with a token-overlap tie-break for shared domains.
+   Results: 817 listings matched (453 distinct places; 2026 alone parsed 445 listings vs the
+   magazine's "more than 450"), 48 ambiguous, 138 unmatched. Review doc
+   scripts/muse-directory-reconcile.md: 41 matched-but-unflagged candidates, 54 flagged
+   places never matched in any issue, 96 flagged places absent from the 2026 parse,
+   full re-home plan for the 186. **OWNER SIGN-OFF GATE: review this doc before merging
+   the next commit.**
+2. **Staged data commit (1a88076, clearly named "STAGED PENDING OWNER SIGN-OFF", droppable).**
+   scripts/muse-directory-apply.js enriches the 412 matched flagged places with museCategory
+   (directory's own label, latest issue), museIssues (years list), musePage (print page,
+   latest issue); re-homes the 186 "MUSE Picks"-category places (Shops & Makers 114,
+   Eat Drink & Stay 56, Galleries & Studios 16); retires the "MUSE Picks" category from the
+   renderers (placeholder map, Art outing type, marker color group). musePick flags
+   untouched (466 before and after); marker visibility asserted unchanged
+   (175 candidate-rendered / 10 directory-only-hidden / 1 map-ready). Also fixes the
+   Discovery Rail's "MUSE Picks" kickers (cards now show real categories).
+3. **UI (005dd8f).** "MUSE Picks only" chip in Places mode (open outing list + compact
+   active bar), AND-composed with outing-type filters; card badge "Listed in the MUSE
+   {year} directory" (honest latest year from museIssues) with museCategory ride-along;
+   badge deep-links to the Heyzine flip-book page via museDirectoryUrl() (same #page/N
+   mechanism as Story Lens; per-issue offset seam = 0 for all three issues, same one-page
+   drift caveat). Cache-bust cla-55-muse-chip-badge.
+
+Verified at http://127.0.0.1:8014 (agent-browser session "sandbox"): zero console errors;
+marker-hierarchy contract allPass; chip 1351→466 places, +Local Shops AND→337; badge link
+https://heyzine.com/flip-book/MUSE26#page/101 on a re-homed Shops & Makers place.
+
+Both streams are now done — sandbox effort complete. Owner reviews 8014 vs main 8013,
+signs off scripts/muse-directory-reconcile.md (or drops commit 1a88076+005dd8f), and
+decides on merge. Do not push.
+
+## Sandbox: Discovery Rail (Stream 1) — DONE 2026-06-10 (branch sandbox/rail-and-muse, NOT pushed, never push)
+
+Built in the sandbox worktree per handoff-sandbox-rail-and-muse-2026-06-10.md. ADR 0002
+variant B implemented: the map opens with a horizontal snap-scrolling Discovery Rail along
+the bottom (upcoming events first per the Event Freshness Guarantee, then MUSE-Grounded
+Sampler places, one MUSE story card with the exact "In the pages of MUSE Magazine" kicker,
+one path card, interleaved). Rail Follow per ruling: debounced scroll-settle easeTo with
+NO zoom change + marker highlight via the existing place-hover-ring setFilter seam
+(railFocusPlaceId beside previewPlaceId); full fly-and-zoom only on explicit card tap.
+Rail chips (Everything / Events / Places) filter the stream; mode tabs survive. The left
+panel collapses to a compact search/filter toolbar in the Browse Starting View (body
+.rail-browse) and expands on search/filter/Local Reveal. Mobile: rail rides above the
+collapsed bottom panel. Incidental: the historic NUL byte in app.js was normalized to a
+space (the hover-ring filter sentinel) — app.js is a normal text file again; a ?contract=
+URL param now exposes window.__map for contract suites (replaces the constructor-wrap
+init script).
+
+Verified at http://127.0.0.1:8014 (agent-browser session "sandbox"): zero console errors,
+marker-hierarchy contract 10/10 allPass, Rail Follow ease-no-zoom + highlight + tap
+fly-and-zoom + chips + search collapse/expand all exercised. Prototype date-stamped
+(prototypes/discovery-feed-variants.2026-06-10.html, A/C kept as labeled Concept Mockups);
+ADR 0002 status → Implemented; changelog entry added; ?v= bumped to cla-53-discovery-rail.
+
+Next in sandbox: Stream 2 (MUSE business directory layer) per
+.planning/muse-directory-layer-PRD-2026-06-10.md — reconciliation pass first.
+Owner reviews sandbox at 8014 vs main at 8013 and decides on merge; do not push.
+
 ## Data-cleanliness pass — DONE 2026-06-10 (5 commits e7bb84d..623de8b, NOT pushed)
 
 1. og:image full sweep: 103 more venue photos self-hosted (581 checked); 266 total

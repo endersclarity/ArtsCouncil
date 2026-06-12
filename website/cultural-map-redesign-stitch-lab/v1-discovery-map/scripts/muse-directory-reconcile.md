@@ -1,0 +1,958 @@
+# MUSE Business Directory reconciliation — review doc
+
+Generated 2026-06-11 by scripts/muse-directory-parse.js.
+
+This is the human review gate from the PRD (.planning/muse-directory-layer-PRD-2026-06-10.md §4.1).
+Nothing here has changed places.json. The staged data commit that follows applies only the
+matched-place enrichments (museCategory / museIssues / musePage) and the MUSE-Picks category
+re-home — it is a separate, clearly-named commit the owner can drop before merge.
+
+## Headline numbers
+
+| Metric | Count |
+|---|---|
+| OCR listings parsed (3 issues, directory pages only) | 1003 |
+| … 2024 issue (pp. 66–71) | 206 |
+| … 2025 issue (pp. 96–105) | 352 |
+| … 2026 issue (pp. 95–105) | 445 |
+| Listings matched to a place | 817 |
+| … by website domain | 702 |
+| … by name + city | 102 |
+| … by name only (weaker — spot-check) | 13 |
+| Ambiguous (multiple candidate places) | 48 |
+| Unmatched listings (no place found) | 138 |
+| Distinct places matched | 453 |
+| Places flagged musePick today | 466 |
+| Flagged places NOT in the 2026 directory parse | 96 |
+| Flagged places never matched in ANY issue | 54 |
+| Matched places NOT currently flagged | 41 |
+
+OCR caveat: the directory pages are multi-column scans; the parser profiles
+whitespace to split columns and blank lines to split listings. A small tail of
+listings is mangled (merged blocks, lost handles); they surface below as
+unmatched or with parse notes rather than being silently guessed.
+
+## 1. Unmatched listings (review: candidate adds or match fixes — PRD §6: no auto-adds)
+
+### 2026 (37)
+
+- **Doris Foley Library for Historical Research Archival Library** — (no category parsed) · 211 N Pine St, Nevada City · 530 265 4606 _(MUSE 2026, p.95, section "CENTERS")_
+- **Clarky's BBQ, Smoke & More Mobile Caterer** — (no category parsed) · 17487 Penn Valley Dr, Penn Val · clarkysbbq _(MUSE 2026, p.95, section "EATERIES / DRINKS")_
+- **Heartwood Eatery & Annex** — Restaurant · 237 Commercial St, Nevada Cit · 530 470 6161 _(MUSE 2026, p.96)_
+- **Lika’s Quarter Café** — Restaurant · 401 Commercial St, Nevada C · /likasquartercafe _(MUSE 2026, p.96, section "96 MUSE '26 | ISSUE 03")_
+- **Lola at The National** — Exchange Hotel Restaurant · 211 Broad St, Nevada City · thenationalexchangehotel.co _(MUSE 2026, p.96, section "96 MUSE '26 | ISSUE 03")_
+- **Nevada City Classic Café** — Restaurant · 216 Broad St, Nevada City · 530 265 9440 _(MUSE 2026, p.96, section "96 MUSE '26 | ISSUE 03")_
+- **ncclassiccafe Nevada Club** — Bar · 108 W Main St, Grass Valley · 530 274 0947 _(MUSE 2026, p.96, section "96 MUSE '26 | ISSUE 03")_
+- **Tack Room** — Restaurant and Bar Restaurant / Bar · 17356 Penn Valley Dr, Penn Valle · /tackroompennvalley _(MUSE 2026, p.96, section "96 MUSE '26 | ISSUE 03")_
+- **the-iron-door Mine Shaft Saloon** — Bar · 222 Broad St, Nevada City · themineshaftsaloon _(MUSE 2026, p.96, section "96 MUSE '26 | ISSUE 03")_
+- **harmonybooks_nevadacityca Nevada County Library, Bear River Branch** — Public Library · 11010 Combie Rd, Auburn · 530 265 7052 _(MUSE 2026, p.98, section "BOOKS / MUSIC")_
+- **nevadacountyca.gov/377/ bear-river-library Nevada County Library, Madelyn Helling Branch** — Public Library · 980 Helling Way, Nevada Cit · 530 265 7050 _(MUSE 2026, p.98, section "BOOKS / MUSIC")_
+- **nevadacountyca.gov/367/ penn-valley-library Nevada County Library, Royce Branch** — Public Library · 207 Mill St, Grass Valley · (no contact) _(MUSE 2026, p.98, section "BOOKS / MUSIC")_
+- **Toad Hall Book Shop** — Bookstore · 108 N Pine St, Nevada City · 530 264 7183 _(MUSE 2026, p.98, section "BOOKS / MUSIC")_
+- **Mama Madrones Eco-Emporium** — Apparel / Home Goods · 307 Broad St, Nevada City · 530 478 1700 _(MUSE 2026, p.99)_
+- **mama-madrones-eco-emporium.** — (no category parsed) · (no address) · myshopify.com _(MUSE 2026, p.99)_
+- **GIFTS / JEWELRY / Kitkitdizzi** — Gifts / Appa · HANDMADE          231 Broad St · (no contact) _(MUSE 2026, p.99)_
+- **Atra Nova Jewelry / Apparel / Home Goods** — (no category parsed) · 219 Broad St, Nevada City · atranovashop.com _(MUSE 2026, p.99)_
+- **La Cache Jewelry** — Fine Jewelry · 218 Broad St, Nevada City · 530 265 8104 _(MUSE 2026, p.99)_
+- **Nevada City Crystal** — & Glass Shop Art Glass / Glassware / Gifts · 320 Broad St, Nevada City · 530 265 3325 _(MUSE 2026, p.99)_
+- **Nevada City Picture** — Framing & Events Custom Framing / Art Gallery / Events · 571 Searls Ave, #B, Nevada City · 530 478 1990 _(MUSE 2026, p.100, section "100 MUSE '26 | ISSUE 03")_
+- **Sound Check Music Center** — Musical Instruments / Rentals / Repairs / Lessons · 671 Maltman Dr, #5, Grass Valley · 530 272 7236 _(MUSE 2026, p.100, section "100 MUSE '26 | ISSUE 03")_
+- **KNCO Star 94.1 FM Radio** — (no category parsed) · 1255 E Main St, Grass Valley · (no contact) _(MUSE 2026, p.100, section "MEDIA / PUBLISHING")_
+- **Downtown Association Business Development** — (no category parsed) · 128 E Main St, Ste 2, Grass V · /historicgrassvalley _(MUSE 2026, p.100, section "SERVICES")_
+- **Nevada County Arts Council and Grass Valley-Nevada City Cultural District Arts and Culture Service Organization** — (no category parsed) · 100 N Pine St, Ste C, Nevada · nevadacountyarts.orggvncculturaldistrict.org _(MUSE 2026, p.101)_
+- **Lotus Lab** — Audio Production / Events / Talent Agency · (no address) · lotuslab.com _(MUSE 2026, p.101, section "COMPANIES")_
+- **Yinne Boma Animation** — Studios Company Animation Studio · 300 Broad St, Nevada City · (no contact) _(MUSE 2026, p.101, section "COMPANIES")_
+- **yinnebomaanimationstudios.** — (no category parsed) · (no address) · godaddysites.com _(MUSE 2026, p.101, section "COMPANIES")_
+- **Community Recreation Center, North Hall** — Public Art Installations · 10981 Truckee Way, Truckee · 530 582 7720 _(MUSE 2026, p.101, section "ART GALLERIES / STUDIOS / MAKERSPACES")_
+- **ORGANIZATIONS / Museum** — Museum of Truckee · VENUES / CINEMA 10065 Donner Pass · (no contact) _(MUSE 2026, p.101, section "ARTS")_
+- **Donner Memorial** — State Park Museum Museum · 12593 Donner Pass Rd, Truckee · 530 582 7892 _(MUSE 2026, p.101, section "CENTERS")_
+- **rnosu-springhill-suites-truck** — Tahoe Star Hotel Hotel · 10015 W River St, Truckee · tahoestarhotel.com _(MUSE 2026, p.102, section "LODGING")_
+- **La Bamba Mexican** — Restaurant Restaurant · 11760 Donner Pass Rd, Truckee · labambatruckee _(MUSE 2026, p.102, section "EATERIES / DRINKS")_
+- **Bar / Restaurant /** — Recreation Equipment · 10292 Donner Pass Rd, Truckee · rmutruckee _(MUSE 2026, p.102, section "RMU")_
+- **coffeebar.square.site Cornerstone** — Bakery & Kitchen Bakery / Restaurant · 10087 W River St, Truckee · 530 563 5322 _(MUSE 2026, p.103, section "COFFEE SHOPS / BAKERIES")_
+- **Whole Treats Bakery** — & Coffee House Bakery / Coffee · 10015 Palisades Dr, #A3, Truckee · 530 563 5096 _(MUSE 2026, p.103, section "COFFEE SHOPS / BAKERIES")_
+- **dressed_boutique Echo Blue** — Women’s Apparel / Consignment / Gifts · 11429 Donner Pass Rd, Ste 5, Truckee · (no contact) _(MUSE 2026, p.104, section "APPAREL")_
+- **Nevada County Arts Council and Truckee Cultural District Arts and Culture Service Organization** — (no category parsed) · 10266 Truckee Airport Rd, Ste C, Truckee · nevadacountyarts.orgtruckeeculturaldistrict.org _(MUSE 2026, p.105, section "SERVICES")_
+
+### 2025 (62)
+
+- **Antiques/ Vintage Shops Back in the Day** — Vintage Store · 120 Mill St, Grass Valley · 530 263 8288 _(MUSE 2025, p.96, section "DISTRICT")_
+- **Lost and Found** — Vintage Vintage Clothing · 227 Broad St, Ste 101 · 510 316 2192 _(MUSE 2025, p.96, section "96 | MUSE ISSUE 02 / 2025")_
+- **linktr.ee/lostandfoundvinta The Magic Carpet Antique and New Oriental Rugs** — (no category parsed) · 408 Broad St, Nevada City · themagiccarpet.biz _(MUSE 2025, p.96, section "96 | MUSE ISSUE 02 / 2025")_
+- **Main Street** — Antiques and Books Used and Rare Books / Toys · 214 1/2 Main St, Nevada Cit · 530 277 7949 _(MUSE 2025, p.96, section "96 | MUSE ISSUE 02 / 2025")_
+- **members/harmony-books/ Nevada County Library Bear River Branch** — Public Library · 11010 Combie Rd, Auburn · 530 265 7052 _(MUSE 2025, p.96, section "96 | MUSE ISSUE 02 / 2025")_
+- **nevadacountyca.gov/377/ Bear-River-Library Nevada County Library Doris Foley Library for Historical Research** — Public Library · 211 N Pine St, Nevada City · 530 265 4606 _(MUSE 2025, p.96, section "96 | MUSE ISSUE 02 / 2025")_
+- **nevadacountyca.gov/ 3455/Library Nevada County Library Madelyn Helling Branch** — Public Library · 980 Helling Way, Nevada City · 530 265 7050 _(MUSE 2025, p.97)_
+- **nevadacountyca.gov/3455/ Library Nevada County Library Penn Valley Branch** — Public Library · 11252 Pleasant Valley Rd, Penn Valley · 530 432 5764 _(MUSE 2025, p.97)_
+- **nevadacountyca.gov/367/ Penn-Valley-Library Ron’s Real Records Rare & AffordabIe Records, Tapes, Discs** — (no category parsed) · 233A Mill St, Grass Valley · 530 272 5028 _(MUSE 2025, p.97)_
+- **Toadhall Books** — Bookstore · 108 N Pine St, Nevada City · 530 264 7183 _(MUSE 2025, p.97)_
+- **Bistro 221** — Restaurant · 221 Broad St, Nevada City · 530 265 0221 _(MUSE 2025, p.97)_
+- **Bullmastiff Brewing** — Brewery · 10183 Commercial Ave, Penn Valley · bullmastiffbrews.com _(MUSE 2025, p.97)_
+- **Heartwood Eatery & Annex** — Restaurant · 237 Commercial St, Nevada City · 530 470 6161 _(MUSE 2025, p.97)_
+- **LikasQuarterCafe Lola at the National** — Exchange Hotel American Restaurant · 211 Broad St, Nevada City · thenationalexchangehotel.co _(MUSE 2025, p.97)_
+- **Marshall's Pasties Cornish Pasties** — (no category parsed) · 203 Mill St, Grass Valley · 530 272 2844 _(MUSE 2025, p.97)_
+- **Classic Cafe** — Breakfast Restaurant · 216 Broad St, Nevada City · ncclassiccafe.com _(MUSE 2025, p.98)_
+- **Ribald Brewery** — Brewery · 400 Providence Mine Rd, Nevada City · ribaldbrewing.com _(MUSE 2025, p.98)_
+- **Business Development** — (no category parsed) · Grass Valley · (no contact) _(MUSE 2025, p.98, section "98 | MUSE ISSUE 02 / 2025")_
+- **Clothing/ Accessories Abstrakt** — Women's Clothing Boutique · 228 Broad St, Nevada City · 530 470 6031 _(MUSE 2025, p.98, section "98 | MUSE ISSUE 02 / 2025")_
+- **Bamboo Home Store Bamboo Clothing** — (no category parsed) · 114 E Main St, Ste B, Grass Valley · bamboogv.com _(MUSE 2025, p.98, section "98 | MUSE ISSUE 02 / 2025")_
+- **J. Breuer Clothing Men’s and Women's Clothin** — (no category parsed) · 141 Mill St, Grass Valley · 530 205 9287 _(MUSE 2025, p.98, section "98 | MUSE ISSUE 02 / 2025")_
+- **Mama Madrones Eco-Emporium** — (no category parsed) · 307 Broad St, Nevada City · mamamadrones.com _(MUSE 2025, p.99)_
+- **Rose Market** — Vintage / Pre-Loved Clothing · 246 Commercial St, Nevada C · rosemarket.com _(MUSE 2025, p.99)_
+- **SoulCrafts Alternative Clothing for Women and Men** — (no category parsed) · 236 Commercial St, Nevada C · soulcraftsshop.com _(MUSE 2025, p.99)_
+- **Gifts/Jewelry/ Handmade Asylum Down** — Natural Fiber Clothing / International Gifts · 300 Broad St, Nevada City · 530 265 9666 _(MUSE 2025, p.99)_
+- **Atra Nova Clothing/Jewelry/Vintage/ Homeware** — (no category parsed) · 219 Broad St, Nevada City · atranovashop.com _(MUSE 2025, p.99)_
+- **Crystal Rainbow Rock Shop Rock Shop** — (no category parsed) · 310 Commercial St, Nevada City · 530 687 2323 _(MUSE 2025, p.99)_
+- **The Fates** — Fine Jewelry · 211 Broad St, Nevada City · preciousghost.com _(MUSE 2025, p.99)_
+- **Nevada City Crystal** — & Glass Shop New and Vintage Art Glass / Gifts · 110 N Pine St, Nevada City · 530 265 3325 _(MUSE 2025, p.100)_
+- **ShivaMoon** — Textiles / Gifts / Art Gallery · 206 Main St, Nevada City · 530 264 7377 _(MUSE 2025, p.100)_
+- **Radio Station** — (no category parsed) · 1255 E Main St, Grass Vall · (no contact) _(MUSE 2025, p.100, section "KNCO 830AM")_
+- **Radio 1255 E Main, Ste #A, Grass Va** — (no category parsed) · (no address) · mystarradio.com _(MUSE 2025, p.100, section "STAR 94FM")_
+- **Lodging** — (no category parsed) · Alta Sierra · (no contact) _(MUSE 2025, p.100, section "STAR 94FM")_
+- **Village Inn** — Motel · 11858 Tammy Way, Grass Valley · hotelsone.com/grass- _(MUSE 2025, p.100, section "STAR 94FM")_
+- **Flume’s End Bed & Breakfast** — (no category parsed) · 317 S Pine St, Nevada City · flumesend.com _(MUSE 2025, p.100, section "STAR 94FM")_
+- **National** — Exchange Hotel Hotel · 211 Broad St, Nevada City · thenationalexchangehotel.co _(MUSE 2025, p.100, section "STAR 94FM")_
+- **Holt Ballet Conservatory Classical Ballet Training** — (no category parsed) · 400 Providence Mine Rd, Building N2, Nevada City · holtballetconservatory.or _(MUSE 2025, p.101)_
+- **North Columbia Schoolhouse Cultural Center Cultural Center** — (no category parsed) · 17894 Tyler Foote Rd, Nevada City · northcolumbiaschoolhouse.o _(MUSE 2025, p.101)_
+- **Production Companies** — Bobbiemoon Video Video Production · (no address) · 408 694 8345 _(MUSE 2025, p.101)_
+- **Lotus Lab Production Company & Talent Agency** — (no category parsed) · (no address) · lotuslab.com _(MUSE 2025, p.101)_
+- **Mountain Event** — Productions Video Production / AV Rental / DJ Services · 12626 Dobbins Dr, Nevada C · 530 272 6293 _(MUSE 2025, p.101)_
+- **Recreation Aerialution Aerial and Movement Stud** — (no category parsed) · 819 Whispering Pines Ln, Ste D, Grass Valley · aerialution.net _(MUSE 2025, p.101)_
+- **Sierra E-Bike** — E-Bike Sales and Service · 11282 Pleasant Valley Rd, Penn Valley · sierraebike.com _(MUSE 2025, p.101)_
+- **Tour of** — (no category parsed) · Nevada City · (no contact) _(MUSE 2025, p.101)_
+- **Bicycle Shop** — (no category parsed) · 457 Sacramento St, Nevada City · tourofnevadacity.com _(MUSE 2025, p.101)_
+- **Chocolate Shoppe Handmade Chocolates and Sweets** — (no category parsed) · 236 Broad St, Nevada City · 530 265 3448 _(MUSE 2025, p.102)_
+- **nevadacitychocolate** — (no category parsed) · (no address) · shoppe.com _(MUSE 2025, p.102)_
+- **Supplies/Services Beads Galore** — Jewelry Supply / Artisan Gallery · 989 Sutton Way, Grass Valley · beadsrus.com _(MUSE 2025, p.102, section "102 | MUSE ISSUE 02 / 2025")_
+- **Foggy Mountain** — Music Instruments / Lessons · 104 W Main St, Grass Valley · 530 273 6676 _(MUSE 2025, p.102, section "102 | MUSE ISSUE 02 / 2025")_
+- **Heart & Soul** — Spinnery Craft Supply · 18939 Julisa Ct, Grass Valle · 530 327 9276 _(MUSE 2025, p.102, section "102 | MUSE ISSUE 02 / 2025")_
+- **Miner’s Harmony Music Store New & Used Instruments,** — Lessons, Studio Rental · 10055 Wolf Rd, Ste B1, Grass Valley · minersharmonymusic.com _(MUSE 2025, p.102, section "102 | MUSE ISSUE 02 / 2025")_
+- **Nevada City Picture** — Framing and Gallery Custom Framing · 571 Searls Ave, #B, Nevada C · 530 478 1990 _(MUSE 2025, p.102, section "102 | MUSE ISSUE 02 / 2025")_
+- **Soundcheck Music New and Used Equipment/ Rentals** — (no category parsed) · 671 Maltman Drive, #5, Grass Valley · cyrusmusicfoundation.com _(MUSE 2025, p.102, section "102 | MUSE ISSUE 02 / 2025")_
+- **Yabobo Rhythm Instruments** — (no category parsed) · 107 N Pine St, Nevada City · 530 478 9114 _(MUSE 2025, p.102, section "102 | MUSE ISSUE 02 / 2025")_
+- **Wineries &** — Tasting Rooms · Alta Sierra · (no contact) _(MUSE 2025, p.103)_
+- **Bar/Restaurant/** — Ski & Bike Shop · 10292 Donner Pass Rd, Truckee · rmuoutdoors.com _(MUSE 2025, p.103, section "RMU")_
+- **Restaurant** — (no category parsed) · 10948 Brockway Rd, Truckee · 530 562 4670 _(MUSE 2025, p.103, section "RMU")_
+- **Coffeehouses/ Bakeries** — Coffeebar Bakery Coffeehouse / Restaurant / Art Gallery · 10120 Jibboom St, Truckee · coffeebar.com _(MUSE 2025, p.103, section "RMU")_
+- **Tahoe Star Lodge** — Lodging · 10015 W River St, Truckee · tahoestarhotel.com _(MUSE 2025, p.104, section "104 | MUSE ISSUE 02 / 2025")_
+- **Makerspaces** — (no category parsed) · Truckee · (no contact) _(MUSE 2025, p.104, section "104 | MUSE ISSUE 02 / 2025")_
+- **9848.Gallery at** — Truckee Artist Lofts Art Gallery / Studio · 9848 Donner Pass Rd, Truckee · truckeeartistlofts.com _(MUSE 2025, p.105)_
+- **Truckee River** — Winery Winery / Tasting Room · 10061 S River St, Truckee · truckeeriverwinery.com _(MUSE 2025, p.105)_
+
+### 2024 (39)
+
+- **Business Directory** — Art Gallery, Art Studio Alpenglow Gallery Art Gallery · 9940 Donner Pass Road, Truckee · thealpenglowgallery.com _(MUSE 2024, p.66)_
+- **Brothers Arts** — & Antiques Art Gallery · 319 Broad Street, Nevada City · 530 559 2346 _(MUSE 2024, p.66)_
+- **Nancy O Gallery** — and Glass Gallery / Classes · 21547 Donner Pass Road, Soda Springs · nancyoglass.com _(MUSE 2024, p.66, section "66 | MUSE ISSUE 01 / 2024")_
+- **Nevada City Picture** — Framing & Gallery Picture Framing · 571 Searls Avenue, Suite B, Nevada City · 530 478 1990 _(MUSE 2024, p.66, section "66 | MUSE ISSUE 01 / 2024")_
+- **Golden Road Radio and Television Media** — (no category parsed) · 578 Sutton Way, Grass Valley · goldenroadradiohour.com _(MUSE 2024, p.66, section "66 | MUSE ISSUE 01 / 2024")_
+- **KNCO / Star Radio Media** — (no category parsed) · 1255 E Main Street, Grass Va · (no contact) _(MUSE 2024, p.66, section "66 | MUSE ISSUE 01 / 2024")_
+- **Neighborhood Center of the Arts Creatives maker space serving individuals with** — (no category parsed) · 200 Litton Drive, Suite 212, Grass Valley · disabilitiesncagrassvalley.org _(MUSE 2024, p.66, section "KYRR 93.3 FM")_
+- **Wild and Scenic** — Film Festival Film · 313 Railroad Ave, Suite101, Nevada City · 530 265 5961 _(MUSE 2024, p.67)_
+- **Destination / Museum, Library Cultural Center Ananda Crystal Hermitage Gardens Destination** — (no category parsed) · 14618 Tyler Foote Road, Nevada City · anandavillage.org/crystal- _(MUSE 2024, p.67)_
+- **Grass Valley Library Royce Branch Library** — (no category parsed) · 207 Mill Street, Grass Valley · 530 273 4117 _(MUSE 2024, p.67)_
+- **searls-historical-library St. Joseph's Cultural Center Cultural Center** — (no category parsed) · 410 S Church Street, Grass Valley · saintjosephsculturalcenter.or _(MUSE 2024, p.67)_
+- **Truckee Railroad** — Museum Museum · 10075 Donner Pass Road, Truckee · truckeedonnerrailroadsociety _(MUSE 2024, p.67)_
+- **com/museum/museum.html Truckee-Donner Recreation & Park District** — (no category parsed) · Steve Randall Community · (no contact) _(MUSE 2024, p.67)_
+- **Bullmastiff Brewing** — Brewery · 10183 Commercial Avenue, Penn Valley · bullmastiffbrews.com _(MUSE 2024, p.67)_
+- **Fawn Ridge Winery** — Wine Tasting · 10024 Linnet Lane, Grass Valley · fawnridgewine.com _(MUSE 2024, p.67)_
+- **Lotus Lab** — Music / Events · 13321 Grass Valley Avenue, Suite 7, Grass Valley · lotuslab.com _(MUSE 2024, p.68)_
+- **Ribald Brewery** — Brewery / Live Music · 124 Argall Way, Nevada City · ribaldbrewing.com _(MUSE 2024, p.68)_
+- **Truckee River** — Winery Winery / Tasting Room · 10061 S River Street, Truckee · truckeeriverwinery.com _(MUSE 2024, p.68, section "68 | MUSE ISSUE 01 / 2024")_
+- **Movie Theatre** — (no category parsed) · 165 Mill Street &, 399 Sutton Way, Grass Valley · sierratheatres.com _(MUSE 2024, p.68, section "68 | MUSE ISSUE 01 / 2024")_
+- **truckee-public-house Bistro 221** — Restaurant · 221 Broad Street, Nevada City · bistro221nevadacity.com _(MUSE 2024, p.68, section "68 | MUSE ISSUE 01 / 2024")_
+- **Coffeebar** — Coffeehouse / Restaurant / Art Gallery · 10120 Jibboom Street, Truckee · coffeebar.com _(MUSE 2024, p.68, section "68 | MUSE ISSUE 01 / 2024")_
+- **Classic Café** — Restaurant / Live Music · 216 W Broad Street, Nevada City · ncclassiccafe.com _(MUSE 2024, p.69)_
+- **Lodging A Victorian Rose** — Lodging · 120 Winchester Street, Grass Valley, Alta Sierra · a-victorian-rose.com _(MUSE 2024, p.69)_
+- **Village Inn** — Lodging · 11858 Tammy Way, Grass Valley · altasierravillageinn.com _(MUSE 2024, p.69)_
+- **Tahoe Star Lodge** — Lodging · 10015 W River Street, Truckee · tahoestarhotel.com _(MUSE 2024, p.70, section "70 | MUSE ISSUE 01 / 2024")_
+- **Non-Profit, Education, Business Development** — (no category parsed) · Grass Valley · (no contact) _(MUSE 2024, p.70, section "70 | MUSE ISSUE 01 / 2024")_
+- **Retail Atelier** — Art Supply / Craft Supply · 10098 Donner Pass Road, Truckee · ateliertruckee.com _(MUSE 2024, p.70, section "70 | MUSE ISSUE 01 / 2024")_
+- **Atra Nova Retail** — (no category parsed) · 219 Broad Street, Nevada Cit · atranovashop.com _(MUSE 2024, p.70, section "70 | MUSE ISSUE 01 / 2024")_
+- **Bijou Bijou Retail** — (no category parsed) · 217 W Main Street, Grass Valley · shopbijoubijou.com _(MUSE 2024, p.70, section "70 | MUSE ISSUE 01 / 2024")_
+- **Earth Central Retail** — (no category parsed) · 417 Broad Street, Suite A, Nevada City · shopearthcentral.com _(MUSE 2024, p.71)_
+- **Enid and Edgar Vintage Retail** — (no category parsed) · 754 Zion Street, Nevada City · 530 265 2812 _(MUSE 2024, p.71)_
+- **Gray Goose Retail** — (no category parsed) · 230 Broad Street, Nevada City · 530 265 5909 _(MUSE 2024, p.71)_
+- **members/harmony-books** — Heart & Soul Spinnery Craft Supply · 18939 Julisa Court, Grass Valle · 530 327 9276 _(MUSE 2024, p.71)_
+- **Heathered Yarn Company** — Craft Supply · 109 W Main Street, Grass Valley · 530 205 9523 _(MUSE 2024, p.71)_
+- **Nevada City Arts Artistic Handicrafts 13076 Eaglepine Place,** — (no category parsed) · Nevada City · nevadacityarts.com _(MUSE 2024, p.71)_
+- **Nevada City Crystal & Glass Shop Retail** — (no category parsed) · 110 N Pine Street, Nevada Cit · 530 265 3325 _(MUSE 2024, p.71)_
+- **ShivaMoon** — Retail / Art Gallery · 206 Main Street, Nevada City · 530 264 7377 _(MUSE 2024, p.71)_
+- **shop crotta Retail** — (no category parsed) · 107 S Church Street, Grass Valley · shopcrotta.com _(MUSE 2024, p.71)_
+- **Split Rock** — Music Co. Music Instruments / Lessons / Repairs · 10320 Donner Pass Road, Truckee · splitrockmusic.com _(MUSE 2024, p.71)_
+
+## 2. Ambiguous matches (multiple candidate places — owner picks)
+
+- **Crush Gallery** — Art Gallery / Retail · 225 Broad Street, Nevada City · crushnevadacity.com _(MUSE 2024, p.66)_
+  - candidate: The Vault @ Crush (the-vault-crush-nevada-city, Nevada City, category Galleries & Studios)
+  - candidate: Crush (crush-nevada-city, Nevada City, category MUSE Picks)
+- **Business Line 530 272 3424 Listener Line 530 477 5626** — (no category parsed) · (no address) · knco.com _(MUSE 2024, p.66, section "66 | MUSE ISSUE 01 / 2024")_
+  - candidate: KNCO / Star Radio (knco-star-radio-grass-valley, Grass Valley, category Cultural Resources)
+  - candidate: KNCO Star 94.1 FM (knco-star-94-1-fm-grass-valley, Grass Valley, category Cultural Resources)
+- **KTKE Radio Media** — (no category parsed) · 11890 Donner Pass Road, Suite 2, Truckee · truckeetahoeradio.com _(MUSE 2024, p.66, section "66 | MUSE ISSUE 01 / 2024")_
+  - candidate: KTKE Radio 101.5 FM (ktke-radio-101-5-fm-truckee, Truckee, category Cultural Resources)
+  - candidate: Truckee Tahoe Radio - 101.5 KTKE (truckee-tahoe-radio-101-5-ktke-truckee, Truckee, category Cultural Resources)
+- **Media** — (no category parsed) · 120 Bridge Street, Nevada Ci · kvmr.org _(MUSE 2024, p.66, section "KVMR 89.5FM / 105.7FM")_
+  - candidate: KVMR (kvmr-nevada-city, Nevada City, category Cultural Resources)
+  - candidate: KVMR 89.5FM (kvmr-89-5fm-nevada-city, Nevada City, category Cultural Resources)
+  - candidate: Dew Drop Inn (dew-drop-inn-grass-valley, Grass Valley, category Eat, Drink & Stay)
+- **Roundhouse** — Makerspace Makerspace · 12116 Chandelle Way, Suite E3, Truckee · truckeeroundhouse.org _(MUSE 2024, p.67)_
+  - candidate: Truckee Roundhouse Makerspace (truckee-roundhouse-makerspace-truckee, Truckee, category Shops & Makers)
+  - candidate: Truckee Roundhouse Annual Makers Show (truckee-roundhouse-annual-makers-show-truckee, Truckee, category Fairs & Festivals)
+- **nevadacountyca.gov/307/ grass-valley-library Miners Foundry Cultural Center Performing Arts & Cultural Center** — (no category parsed) · 325 Spring Street, Nevada Cit · minersfoundry.org _(MUSE 2024, p.67)_
+  - candidate: Nevada County Cultural Preservation Trust (nevada-county-cultural-preservation-trust-nevada-city, Nevada City, category Cultural Resources)
+  - candidate: Nevada City Craft Fair (nevada-city-craft-fair-nevada-city, Nevada City, category Fairs & Festivals)
+  - candidate: Miners Foundry Cultural Center (miners-foundry-cultural-center-nevada-city, Nevada City, category Performing Arts)
+- **Dew Drop Inn** — Bar / Live Music · 19729 Cerrito Road, Grass Valley · facebook.com/dewdropinn49 _(MUSE 2024, p.67)_
+  - candidate: Air Aligned Aerial Arts Academy (air-aligned-aerial-arts-academy-grass-valley, Grass Valley, category Arts Organizations)
+  - candidate: Foothill Country Dancers/Country Dance & Song Society (foothill-country-dancers-country-dance-and-song-society-nevada-city, Nevada City, category Arts Organizations)
+  - candidate: Headquarters (headquarters-nevada-city, Nevada City, category Performing Arts)
+  - candidate: Ivy Photography (ivy-photography-grass-valley, Grass Valley, category Arts Organizations)
+  - candidate: Nevada County Performing Arts Guild (nevada-county-performing-arts-guild-grass-valley, Grass Valley, category Arts Organizations)
+  - candidate: Sierra Dance Institute (sierra-dance-institute-grass-valley, Grass Valley, category Arts Organizations)
+  - candidate: Nevada City Picture Framing & Gallery (nevada-city-picture-framing-and-gallery-nevada-city, Nevada City, category MUSE Picks)
+  - candidate: Brew Bakers Coffee and Tea House (brew-bakers-coffee-and-tea-house-grass-valley, Grass Valley, category Eat, Drink & Stay)
+  - candidate: Bubba's Bagels (bubba-s-bagels-grass-valley, Grass Valley, category Eat, Drink & Stay)
+  - candidate: Dedrick's Cheese (dedrick-s-cheese-nevada-city, Nevada City, category MUSE Picks)
+  - candidate: Lamb’s Victorian Inn (lamb-s-victorian-inn-grass-valley, Grass Valley, category Eat, Drink & Stay)
+  - candidate: Lika’s Quarter Cafe (lika-s-quarter-cafe-nevada-city, Nevada City, category Eat, Drink & Stay)
+  - candidate: Pepe's Cafe (pepe-s-cafe-grass-valley, Grass Valley, category Eat, Drink & Stay)
+  - candidate: Wyld Tiger (wyld-tiger-grass-valley, Grass Valley, category MUSE Picks)
+  - candidate: Craft Guild Winterfair (craft-guild-winterfair-grass-valley, Grass Valley, category Fairs & Festivals)
+  - candidate: Humbug Day (humbug-day-nevada-city, Nevada City, category Fairs & Festivals)
+  - candidate: Higgins Lions Community Center (higgins-lions-community-center-grass-valley, Grass Valley, category Galleries & Studios)
+  - candidate: West Wind (west-wind-grass-valley, Grass Valley, category Galleries & Studios)
+  - candidate: Crystal Empire Gems (crystal-empire-gems-grass-valley, Grass Valley, category MUSE Picks)
+  - candidate: Crystal Rainbow Rock Shop (crystal-rainbow-rock-shop-nevada-city, Nevada City, category MUSE Picks)
+  - candidate: La Cache (la-cache-nevada-city, Nevada City, category MUSE Picks)
+  - candidate: Nevada City Crystal & Glass Shop (nevada-city-crystal-and-glass-shop-nevada-city, Nevada City, category MUSE Picks)
+  - candidate: Novak's Menswear (novak-s-menswear-nevada-city, Nevada City, category MUSE Picks)
+  - candidate: Tribal Weaver (tribal-weaver-grass-valley, Grass Valley, category MUSE Picks)
+  - candidate: Off Center Stage (off-center-stage-grass-valley, Grass Valley, category Performing Arts)
+  - candidate: Lake Wildwood Theatre (lake-wildwood-theatre-penn-valley, Penn Valley, category Arts Organizations)
+  - candidate: Truckee Arts Alliance (truckee-arts-alliance-truckee, Truckee, category Arts Organizations)
+  - candidate: Truckee Public Arts Commission (truckee-public-arts-commission-truckee, Truckee, category Arts Organizations)
+  - candidate: Truckee Tahoe Arts Alliance (truckee-tahoe-arts-alliance-truckee, Truckee, category Galleries & Studios)
+  - candidate: Clarky's BBQ, Smoke & More (clarky-s-bbq-smoke-and-more-penn-valley, Penn Valley, category Eat, Drink & Stay)
+  - candidate: Daybreak Cafe (daybreak-cafe-penn-valley, Penn Valley, category Eat, Drink & Stay)
+  - candidate: Good Wolf Brewing (good-wolf-brewing-truckee, Truckee, category Eat, Drink & Stay)
+  - candidate: Summit Swirl (summit-swirl-truckee, Truckee, category MUSE Picks)
+  - candidate: Tack Room Restaurant and Bar (tack-room-restaurant-and-bar-penn-valley, Penn Valley, category Eat, Drink & Stay)
+  - candidate: The Grind (the-grind-auburn, Auburn, category Eat, Drink & Stay)
+  - candidate: Truckee Certified Farmers Market (truckee-certified-farmers-market-truckee, Truckee, category Fairs & Festivals)
+- **Entertainment / Movie Theater, Theater, Music, Performing Arts Center , Dance Company InConcert Sierra Classical Music 333 Crown Point Circle,** — (no category parsed) · Suite125, Grass Valley · inconcertsierra.org _(MUSE 2024, p.68, section "68 | MUSE ISSUE 01 / 2024")_
+  - candidate: InConcert Sierra (inconcert-sierra-grass-valley, Grass Valley, category Performing Arts)
+  - candidate: Sierra Master Chorale/InConcert Sierra-Twin Cities Concert Association (sierra-master-chorale-inconcert-sierra-twin-cities-concert-association-grass-valley, Grass Valley, category Arts Organizations)
+- **Truckee Community** — Arts Center Performing Arts Center · 10046 Church Street, Truckee · tdrpd.org/158/community- _(MUSE 2024, p.68, section "68 | MUSE ISSUE 01 / 2024")_
+  - candidate: Music in the Park Truckee (music-in-the-park-truckee-truckee, Truckee, category Fairs & Festivals)
+  - candidate: Summer Music Series (summer-music-series-truckee, Truckee, category Fairs & Festivals)
+  - candidate: Truckee Winter Carnival (truckee-winter-carnival-truckee, Truckee, category Fairs & Festivals)
+  - candidate: Steve Randall Community Recreation Center (steve-randall-community-recreation-center-truckee, Truckee, category Galleries & Studios)
+  - candidate: Community Arts Center (community-arts-center-truckee, Truckee, category Performing Arts)
+  - candidate: McIver Arena (mciver-arena-truckee, Truckee, category Performing Arts)
+  - candidate: Salty Gebhardt Amphitheater -Truckee River Park (salty-gebhardt-amphitheater-truckee-river-park-truckee, Truckee, category Performing Arts)
+  - candidate: Shoreline Park (shoreline-park-truckee, Truckee, category Walks & Trails)
+  - candidate: Truckee River Regional Park (truckee-river-regional-park-truckee, Truckee, category Walks & Trails)
+  - candidate: West End Beach (west-end-beach-truckee, Truckee, category Walks & Trails)
+- **Donner Lake Kitchen** — Restaurant · 13710 Donner Pass Road, Truckee · facebook.com/44DLK _(MUSE 2024, p.69)_
+  - candidate: Air Aligned Aerial Arts Academy (air-aligned-aerial-arts-academy-grass-valley, Grass Valley, category Arts Organizations)
+  - candidate: Foothill Country Dancers/Country Dance & Song Society (foothill-country-dancers-country-dance-and-song-society-nevada-city, Nevada City, category Arts Organizations)
+  - candidate: Headquarters (headquarters-nevada-city, Nevada City, category Performing Arts)
+  - candidate: Ivy Photography (ivy-photography-grass-valley, Grass Valley, category Arts Organizations)
+  - candidate: Nevada County Performing Arts Guild (nevada-county-performing-arts-guild-grass-valley, Grass Valley, category Arts Organizations)
+  - candidate: Sierra Dance Institute (sierra-dance-institute-grass-valley, Grass Valley, category Arts Organizations)
+  - candidate: Nevada City Picture Framing & Gallery (nevada-city-picture-framing-and-gallery-nevada-city, Nevada City, category MUSE Picks)
+  - candidate: Brew Bakers Coffee and Tea House (brew-bakers-coffee-and-tea-house-grass-valley, Grass Valley, category Eat, Drink & Stay)
+  - candidate: Bubba's Bagels (bubba-s-bagels-grass-valley, Grass Valley, category Eat, Drink & Stay)
+  - candidate: Dedrick's Cheese (dedrick-s-cheese-nevada-city, Nevada City, category MUSE Picks)
+  - candidate: Lamb’s Victorian Inn (lamb-s-victorian-inn-grass-valley, Grass Valley, category Eat, Drink & Stay)
+  - candidate: Lika’s Quarter Cafe (lika-s-quarter-cafe-nevada-city, Nevada City, category Eat, Drink & Stay)
+  - candidate: Pepe's Cafe (pepe-s-cafe-grass-valley, Grass Valley, category Eat, Drink & Stay)
+  - candidate: Wyld Tiger (wyld-tiger-grass-valley, Grass Valley, category MUSE Picks)
+  - candidate: Craft Guild Winterfair (craft-guild-winterfair-grass-valley, Grass Valley, category Fairs & Festivals)
+  - candidate: Humbug Day (humbug-day-nevada-city, Nevada City, category Fairs & Festivals)
+  - candidate: Higgins Lions Community Center (higgins-lions-community-center-grass-valley, Grass Valley, category Galleries & Studios)
+  - candidate: West Wind (west-wind-grass-valley, Grass Valley, category Galleries & Studios)
+  - candidate: Crystal Empire Gems (crystal-empire-gems-grass-valley, Grass Valley, category MUSE Picks)
+  - candidate: Crystal Rainbow Rock Shop (crystal-rainbow-rock-shop-nevada-city, Nevada City, category MUSE Picks)
+  - candidate: La Cache (la-cache-nevada-city, Nevada City, category MUSE Picks)
+  - candidate: Nevada City Crystal & Glass Shop (nevada-city-crystal-and-glass-shop-nevada-city, Nevada City, category MUSE Picks)
+  - candidate: Novak's Menswear (novak-s-menswear-nevada-city, Nevada City, category MUSE Picks)
+  - candidate: Tribal Weaver (tribal-weaver-grass-valley, Grass Valley, category MUSE Picks)
+  - candidate: Off Center Stage (off-center-stage-grass-valley, Grass Valley, category Performing Arts)
+  - candidate: Lake Wildwood Theatre (lake-wildwood-theatre-penn-valley, Penn Valley, category Arts Organizations)
+  - candidate: Truckee Arts Alliance (truckee-arts-alliance-truckee, Truckee, category Arts Organizations)
+  - candidate: Truckee Public Arts Commission (truckee-public-arts-commission-truckee, Truckee, category Arts Organizations)
+  - candidate: Truckee Tahoe Arts Alliance (truckee-tahoe-arts-alliance-truckee, Truckee, category Galleries & Studios)
+  - candidate: Clarky's BBQ, Smoke & More (clarky-s-bbq-smoke-and-more-penn-valley, Penn Valley, category Eat, Drink & Stay)
+  - candidate: Daybreak Cafe (daybreak-cafe-penn-valley, Penn Valley, category Eat, Drink & Stay)
+  - candidate: Good Wolf Brewing (good-wolf-brewing-truckee, Truckee, category Eat, Drink & Stay)
+  - candidate: Summit Swirl (summit-swirl-truckee, Truckee, category MUSE Picks)
+  - candidate: Tack Room Restaurant and Bar (tack-room-restaurant-and-bar-penn-valley, Penn Valley, category Eat, Drink & Stay)
+  - candidate: The Grind (the-grind-auburn, Auburn, category Eat, Drink & Stay)
+  - candidate: Truckee Certified Farmers Market (truckee-certified-farmers-market-truckee, Truckee, category Fairs & Festivals)
+- **Courtyard Suites** — Lodging / Art Gallery · 210 N Auburn Street, Grass Valley · gvcourtyardsuites.com _(MUSE 2024, p.70)_
+  - candidate: Courtyard Inn & Suites (courtyard-inn-and-suites-grass-valley, Grass Valley, category Eat, Drink & Stay)
+  - candidate: Grass Valley Courtyard Suites (grass-valley-courtyard-suites-grass-valley, Grass Valley, category Eat, Drink & Stay)
+- **gravity-haus-truckee-tahoe** — Holbrooke Hotel Lodging · 212 W Main Street, Grass Vall · holbrooke.com _(MUSE 2024, p.70)_
+  - candidate: Golden Gate Saloon (golden-gate-saloon-grass-valley, Grass Valley, category Eat, Drink & Stay)
+  - candidate: Holbrooke Hotel (holbrooke-hotel-grass-valley, Grass Valley, category Historic Places)
+- **Booktown Books** — Books · 107 Bank Street, Grass Valley · facebook.com/booktownbooks _(MUSE 2024, p.70, section "70 | MUSE ISSUE 01 / 2024")_
+  - candidate: Air Aligned Aerial Arts Academy (air-aligned-aerial-arts-academy-grass-valley, Grass Valley, category Arts Organizations)
+  - candidate: Foothill Country Dancers/Country Dance & Song Society (foothill-country-dancers-country-dance-and-song-society-nevada-city, Nevada City, category Arts Organizations)
+  - candidate: Headquarters (headquarters-nevada-city, Nevada City, category Performing Arts)
+  - candidate: Ivy Photography (ivy-photography-grass-valley, Grass Valley, category Arts Organizations)
+  - candidate: Nevada County Performing Arts Guild (nevada-county-performing-arts-guild-grass-valley, Grass Valley, category Arts Organizations)
+  - candidate: Sierra Dance Institute (sierra-dance-institute-grass-valley, Grass Valley, category Arts Organizations)
+  - candidate: Nevada City Picture Framing & Gallery (nevada-city-picture-framing-and-gallery-nevada-city, Nevada City, category MUSE Picks)
+  - candidate: Brew Bakers Coffee and Tea House (brew-bakers-coffee-and-tea-house-grass-valley, Grass Valley, category Eat, Drink & Stay)
+  - candidate: Bubba's Bagels (bubba-s-bagels-grass-valley, Grass Valley, category Eat, Drink & Stay)
+  - candidate: Dedrick's Cheese (dedrick-s-cheese-nevada-city, Nevada City, category MUSE Picks)
+  - candidate: Lamb’s Victorian Inn (lamb-s-victorian-inn-grass-valley, Grass Valley, category Eat, Drink & Stay)
+  - candidate: Lika’s Quarter Cafe (lika-s-quarter-cafe-nevada-city, Nevada City, category Eat, Drink & Stay)
+  - candidate: Pepe's Cafe (pepe-s-cafe-grass-valley, Grass Valley, category Eat, Drink & Stay)
+  - candidate: Wyld Tiger (wyld-tiger-grass-valley, Grass Valley, category MUSE Picks)
+  - candidate: Craft Guild Winterfair (craft-guild-winterfair-grass-valley, Grass Valley, category Fairs & Festivals)
+  - candidate: Humbug Day (humbug-day-nevada-city, Nevada City, category Fairs & Festivals)
+  - candidate: Higgins Lions Community Center (higgins-lions-community-center-grass-valley, Grass Valley, category Galleries & Studios)
+  - candidate: West Wind (west-wind-grass-valley, Grass Valley, category Galleries & Studios)
+  - candidate: Crystal Empire Gems (crystal-empire-gems-grass-valley, Grass Valley, category MUSE Picks)
+  - candidate: Crystal Rainbow Rock Shop (crystal-rainbow-rock-shop-nevada-city, Nevada City, category MUSE Picks)
+  - candidate: La Cache (la-cache-nevada-city, Nevada City, category MUSE Picks)
+  - candidate: Nevada City Crystal & Glass Shop (nevada-city-crystal-and-glass-shop-nevada-city, Nevada City, category MUSE Picks)
+  - candidate: Novak's Menswear (novak-s-menswear-nevada-city, Nevada City, category MUSE Picks)
+  - candidate: Tribal Weaver (tribal-weaver-grass-valley, Grass Valley, category MUSE Picks)
+  - candidate: Off Center Stage (off-center-stage-grass-valley, Grass Valley, category Performing Arts)
+  - candidate: Lake Wildwood Theatre (lake-wildwood-theatre-penn-valley, Penn Valley, category Arts Organizations)
+  - candidate: Truckee Arts Alliance (truckee-arts-alliance-truckee, Truckee, category Arts Organizations)
+  - candidate: Truckee Public Arts Commission (truckee-public-arts-commission-truckee, Truckee, category Arts Organizations)
+  - candidate: Truckee Tahoe Arts Alliance (truckee-tahoe-arts-alliance-truckee, Truckee, category Galleries & Studios)
+  - candidate: Clarky's BBQ, Smoke & More (clarky-s-bbq-smoke-and-more-penn-valley, Penn Valley, category Eat, Drink & Stay)
+  - candidate: Daybreak Cafe (daybreak-cafe-penn-valley, Penn Valley, category Eat, Drink & Stay)
+  - candidate: Good Wolf Brewing (good-wolf-brewing-truckee, Truckee, category Eat, Drink & Stay)
+  - candidate: Summit Swirl (summit-swirl-truckee, Truckee, category MUSE Picks)
+  - candidate: Tack Room Restaurant and Bar (tack-room-restaurant-and-bar-penn-valley, Penn Valley, category Eat, Drink & Stay)
+  - candidate: The Grind (the-grind-auburn, Auburn, category Eat, Drink & Stay)
+  - candidate: Truckee Certified Farmers Market (truckee-certified-farmers-market-truckee, Truckee, category Fairs & Festivals)
+- **Crush Gallery** — Art Gallery / Retail · 225 Broad Street, Nevada City · crushnevadacity.com _(MUSE 2024, p.70, section "70 | MUSE ISSUE 01 / 2024")_
+  - candidate: The Vault @ Crush (the-vault-crush-nevada-city, Nevada City, category Galleries & Studios)
+  - candidate: Crush (crush-nevada-city, Nevada City, category MUSE Picks)
+- **Harmony Books** — Books · 130 Main Street, Nevada City · nevadacitychamber.com/ _(MUSE 2024, p.71)_
+  - candidate: Nevada City Chamber of Commerce (nevada-city-chamber-of-commerce-nevada-city, Nevada City, category Cultural Resources)
+  - candidate: Constitution Day Parade (constitution-day-parade-nevada-city, Nevada City, category Fairs & Festivals)
+  - candidate: Earth Fest Street Fair (earth-fest-street-fair-nevada-city, Nevada City, category Fairs & Festivals)
+  - candidate: First Friday Art Walk (first-friday-art-walk-nevada-city, Nevada City, category Fairs & Festivals)
+  - candidate: Mardis Gras Parade (mardis-gras-parade-nevada-city, Nevada City, category Fairs & Festivals)
+  - candidate: Nevada City Summer Nights (nevada-city-summer-nights-nevada-city, Nevada City, category Fairs & Festivals)
+  - candidate: Victorian Christmas (victorian-christmas-nevada-city, Nevada City, category Fairs & Festivals)
+  - candidate: Fall Colors in Nevada City:self guided tour (fall-colors-in-nevada-city-self-guided-tour-nevada-city, Nevada City, category Walks & Trails)
+  - candidate: Walking Tour of Nevada City Trees (walking-tour-of-nevada-city-trees-nevada-city, Nevada City, category Walks & Trails)
+- **The Louvre Framing** — Art Restoration and Gallery · 124 E Main Street, Grass Valley · thelouvregallery.com _(MUSE 2024, p.71)_
+  - candidate: Louvre Gallery (louvre-gallery-grass-valley, Grass Valley, category MUSE Picks)
+  - candidate: The Louvre Framing, Restoration and Gallery (the-louvre-framing-restoration-and-gallery-grass-valley, Grass Valley, category Galleries & Studios)
+- **Booktown Books** — New and Used Books · 107 Bank St, Grass Valley · facebook.com/booktownbooks _(MUSE 2025, p.96, section "96 | MUSE ISSUE 02 / 2025")_
+  - candidate: Air Aligned Aerial Arts Academy (air-aligned-aerial-arts-academy-grass-valley, Grass Valley, category Arts Organizations)
+  - candidate: Foothill Country Dancers/Country Dance & Song Society (foothill-country-dancers-country-dance-and-song-society-nevada-city, Nevada City, category Arts Organizations)
+  - candidate: Headquarters (headquarters-nevada-city, Nevada City, category Performing Arts)
+  - candidate: Ivy Photography (ivy-photography-grass-valley, Grass Valley, category Arts Organizations)
+  - candidate: Nevada County Performing Arts Guild (nevada-county-performing-arts-guild-grass-valley, Grass Valley, category Arts Organizations)
+  - candidate: Sierra Dance Institute (sierra-dance-institute-grass-valley, Grass Valley, category Arts Organizations)
+  - candidate: Nevada City Picture Framing & Gallery (nevada-city-picture-framing-and-gallery-nevada-city, Nevada City, category MUSE Picks)
+  - candidate: Brew Bakers Coffee and Tea House (brew-bakers-coffee-and-tea-house-grass-valley, Grass Valley, category Eat, Drink & Stay)
+  - candidate: Bubba's Bagels (bubba-s-bagels-grass-valley, Grass Valley, category Eat, Drink & Stay)
+  - candidate: Dedrick's Cheese (dedrick-s-cheese-nevada-city, Nevada City, category MUSE Picks)
+  - candidate: Lamb’s Victorian Inn (lamb-s-victorian-inn-grass-valley, Grass Valley, category Eat, Drink & Stay)
+  - candidate: Lika’s Quarter Cafe (lika-s-quarter-cafe-nevada-city, Nevada City, category Eat, Drink & Stay)
+  - candidate: Pepe's Cafe (pepe-s-cafe-grass-valley, Grass Valley, category Eat, Drink & Stay)
+  - candidate: Wyld Tiger (wyld-tiger-grass-valley, Grass Valley, category MUSE Picks)
+  - candidate: Craft Guild Winterfair (craft-guild-winterfair-grass-valley, Grass Valley, category Fairs & Festivals)
+  - candidate: Humbug Day (humbug-day-nevada-city, Nevada City, category Fairs & Festivals)
+  - candidate: Higgins Lions Community Center (higgins-lions-community-center-grass-valley, Grass Valley, category Galleries & Studios)
+  - candidate: West Wind (west-wind-grass-valley, Grass Valley, category Galleries & Studios)
+  - candidate: Crystal Empire Gems (crystal-empire-gems-grass-valley, Grass Valley, category MUSE Picks)
+  - candidate: Crystal Rainbow Rock Shop (crystal-rainbow-rock-shop-nevada-city, Nevada City, category MUSE Picks)
+  - candidate: La Cache (la-cache-nevada-city, Nevada City, category MUSE Picks)
+  - candidate: Nevada City Crystal & Glass Shop (nevada-city-crystal-and-glass-shop-nevada-city, Nevada City, category MUSE Picks)
+  - candidate: Novak's Menswear (novak-s-menswear-nevada-city, Nevada City, category MUSE Picks)
+  - candidate: Tribal Weaver (tribal-weaver-grass-valley, Grass Valley, category MUSE Picks)
+  - candidate: Off Center Stage (off-center-stage-grass-valley, Grass Valley, category Performing Arts)
+  - candidate: Lake Wildwood Theatre (lake-wildwood-theatre-penn-valley, Penn Valley, category Arts Organizations)
+  - candidate: Truckee Arts Alliance (truckee-arts-alliance-truckee, Truckee, category Arts Organizations)
+  - candidate: Truckee Public Arts Commission (truckee-public-arts-commission-truckee, Truckee, category Arts Organizations)
+  - candidate: Truckee Tahoe Arts Alliance (truckee-tahoe-arts-alliance-truckee, Truckee, category Galleries & Studios)
+  - candidate: Clarky's BBQ, Smoke & More (clarky-s-bbq-smoke-and-more-penn-valley, Penn Valley, category Eat, Drink & Stay)
+  - candidate: Daybreak Cafe (daybreak-cafe-penn-valley, Penn Valley, category Eat, Drink & Stay)
+  - candidate: Good Wolf Brewing (good-wolf-brewing-truckee, Truckee, category Eat, Drink & Stay)
+  - candidate: Summit Swirl (summit-swirl-truckee, Truckee, category MUSE Picks)
+  - candidate: Tack Room Restaurant and Bar (tack-room-restaurant-and-bar-penn-valley, Penn Valley, category Eat, Drink & Stay)
+  - candidate: The Grind (the-grind-auburn, Auburn, category Eat, Drink & Stay)
+  - candidate: Truckee Certified Farmers Market (truckee-certified-farmers-market-truckee, Truckee, category Fairs & Festivals)
+- **Harmony Books** — Bookstore · 130 Main St, Nevada City · nevadacitychamber.com/ _(MUSE 2025, p.96, section "96 | MUSE ISSUE 02 / 2025")_
+  - candidate: Nevada City Chamber of Commerce (nevada-city-chamber-of-commerce-nevada-city, Nevada City, category Cultural Resources)
+  - candidate: Constitution Day Parade (constitution-day-parade-nevada-city, Nevada City, category Fairs & Festivals)
+  - candidate: Earth Fest Street Fair (earth-fest-street-fair-nevada-city, Nevada City, category Fairs & Festivals)
+  - candidate: First Friday Art Walk (first-friday-art-walk-nevada-city, Nevada City, category Fairs & Festivals)
+  - candidate: Mardis Gras Parade (mardis-gras-parade-nevada-city, Nevada City, category Fairs & Festivals)
+  - candidate: Nevada City Summer Nights (nevada-city-summer-nights-nevada-city, Nevada City, category Fairs & Festivals)
+  - candidate: Victorian Christmas (victorian-christmas-nevada-city, Nevada City, category Fairs & Festivals)
+  - candidate: Fall Colors in Nevada City:self guided tour (fall-colors-in-nevada-city-self-guided-tour-nevada-city, Nevada City, category Walks & Trails)
+  - candidate: Walking Tour of Nevada City Trees (walking-tour-of-nevada-city-trees-nevada-city, Nevada City, category Walks & Trails)
+- **Iron Door Speakeasy** — Libations / Events · 212 W Main St, Grass Valley · holbrooke.com/dining/ _(MUSE 2025, p.97)_
+  - candidate: Golden Gate Saloon (golden-gate-saloon-grass-valley, Grass Valley, category Eat, Drink & Stay)
+  - candidate: Holbrooke Hotel (holbrooke-hotel-grass-valley, Grass Valley, category Historic Places)
+- **Sopa Thai Cuisine** — Thai Restaurant · 312 Commercial St, Nevada C · facebook.com/ _(MUSE 2025, p.98)_
+  - candidate: Air Aligned Aerial Arts Academy (air-aligned-aerial-arts-academy-grass-valley, Grass Valley, category Arts Organizations)
+  - candidate: Foothill Country Dancers/Country Dance & Song Society (foothill-country-dancers-country-dance-and-song-society-nevada-city, Nevada City, category Arts Organizations)
+  - candidate: Headquarters (headquarters-nevada-city, Nevada City, category Performing Arts)
+  - candidate: Ivy Photography (ivy-photography-grass-valley, Grass Valley, category Arts Organizations)
+  - candidate: Nevada County Performing Arts Guild (nevada-county-performing-arts-guild-grass-valley, Grass Valley, category Arts Organizations)
+  - candidate: Sierra Dance Institute (sierra-dance-institute-grass-valley, Grass Valley, category Arts Organizations)
+  - candidate: Nevada City Picture Framing & Gallery (nevada-city-picture-framing-and-gallery-nevada-city, Nevada City, category MUSE Picks)
+  - candidate: Brew Bakers Coffee and Tea House (brew-bakers-coffee-and-tea-house-grass-valley, Grass Valley, category Eat, Drink & Stay)
+  - candidate: Bubba's Bagels (bubba-s-bagels-grass-valley, Grass Valley, category Eat, Drink & Stay)
+  - candidate: Dedrick's Cheese (dedrick-s-cheese-nevada-city, Nevada City, category MUSE Picks)
+  - candidate: Lamb’s Victorian Inn (lamb-s-victorian-inn-grass-valley, Grass Valley, category Eat, Drink & Stay)
+  - candidate: Lika’s Quarter Cafe (lika-s-quarter-cafe-nevada-city, Nevada City, category Eat, Drink & Stay)
+  - candidate: Pepe's Cafe (pepe-s-cafe-grass-valley, Grass Valley, category Eat, Drink & Stay)
+  - candidate: Wyld Tiger (wyld-tiger-grass-valley, Grass Valley, category MUSE Picks)
+  - candidate: Craft Guild Winterfair (craft-guild-winterfair-grass-valley, Grass Valley, category Fairs & Festivals)
+  - candidate: Humbug Day (humbug-day-nevada-city, Nevada City, category Fairs & Festivals)
+  - candidate: Higgins Lions Community Center (higgins-lions-community-center-grass-valley, Grass Valley, category Galleries & Studios)
+  - candidate: West Wind (west-wind-grass-valley, Grass Valley, category Galleries & Studios)
+  - candidate: Crystal Empire Gems (crystal-empire-gems-grass-valley, Grass Valley, category MUSE Picks)
+  - candidate: Crystal Rainbow Rock Shop (crystal-rainbow-rock-shop-nevada-city, Nevada City, category MUSE Picks)
+  - candidate: La Cache (la-cache-nevada-city, Nevada City, category MUSE Picks)
+  - candidate: Nevada City Crystal & Glass Shop (nevada-city-crystal-and-glass-shop-nevada-city, Nevada City, category MUSE Picks)
+  - candidate: Novak's Menswear (novak-s-menswear-nevada-city, Nevada City, category MUSE Picks)
+  - candidate: Tribal Weaver (tribal-weaver-grass-valley, Grass Valley, category MUSE Picks)
+  - candidate: Off Center Stage (off-center-stage-grass-valley, Grass Valley, category Performing Arts)
+  - candidate: Lake Wildwood Theatre (lake-wildwood-theatre-penn-valley, Penn Valley, category Arts Organizations)
+  - candidate: Truckee Arts Alliance (truckee-arts-alliance-truckee, Truckee, category Arts Organizations)
+  - candidate: Truckee Public Arts Commission (truckee-public-arts-commission-truckee, Truckee, category Arts Organizations)
+  - candidate: Truckee Tahoe Arts Alliance (truckee-tahoe-arts-alliance-truckee, Truckee, category Galleries & Studios)
+  - candidate: Clarky's BBQ, Smoke & More (clarky-s-bbq-smoke-and-more-penn-valley, Penn Valley, category Eat, Drink & Stay)
+  - candidate: Daybreak Cafe (daybreak-cafe-penn-valley, Penn Valley, category Eat, Drink & Stay)
+  - candidate: Good Wolf Brewing (good-wolf-brewing-truckee, Truckee, category Eat, Drink & Stay)
+  - candidate: Summit Swirl (summit-swirl-truckee, Truckee, category MUSE Picks)
+  - candidate: Tack Room Restaurant and Bar (tack-room-restaurant-and-bar-penn-valley, Penn Valley, category Eat, Drink & Stay)
+  - candidate: The Grind (the-grind-auburn, Auburn, category Eat, Drink & Stay)
+  - candidate: Truckee Certified Farmers Market (truckee-certified-farmers-market-truckee, Truckee, category Fairs & Festivals)
+- **Independent Movie Theater** — (no category parsed) · 165 Mill St, Grass Valley, & 399 Sutton Way, Grass Val · prime-cinemas.com _(MUSE 2025, p.99)_
+  - candidate: Prime Cinemas (prime-cinemas-grass-valley, Grass Valley, category Arts Organizations)
+  - candidate: Prime Cinemas Del Oro Theatre (prime-cinemas-del-oro-theatre-grass-valley, Grass Valley, category Cultural Resources)
+  - candidate: Del Oro Theater (del-oro-theater-grass-valley, Grass Valley, category Performing Arts)
+  - candidate: Prime Cinemas Sutton (prime-cinemas-sutton-grass-valley, Grass Valley, category Performing Arts)
+- **Listener Line 530 477 5626 Business Line 530 272 3424** — (no category parsed) · (no address) · knco.com _(MUSE 2025, p.100, section "KNCO 830AM")_
+  - candidate: KNCO / Star Radio (knco-star-radio-grass-valley, Grass Valley, category Cultural Resources)
+  - candidate: KNCO Star 94.1 FM (knco-star-94-1-fm-grass-valley, Grass Valley, category Cultural Resources)
+- **Radio Station** — (no category parsed) · 120 Bridge St, Nevada City · kvmr.org _(MUSE 2025, p.100, section "KVMR 89.5FM")_
+  - candidate: KVMR (kvmr-nevada-city, Nevada City, category Cultural Resources)
+  - candidate: KVMR 89.5FM (kvmr-89-5fm-nevada-city, Nevada City, category Cultural Resources)
+  - candidate: Dew Drop Inn (dew-drop-inn-grass-valley, Grass Valley, category Eat, Drink & Stay)
+- **KVMRx 105.7FM Radio Station** — (no category parsed) · 120 Bridge St, Nevada City · kvmr.org _(MUSE 2025, p.100, section "KVMR 89.5FM")_
+  - candidate: KVMR (kvmr-nevada-city, Nevada City, category Cultural Resources)
+  - candidate: KVMR 89.5FM (kvmr-89-5fm-nevada-city, Nevada City, category Cultural Resources)
+  - candidate: Dew Drop Inn (dew-drop-inn-grass-valley, Grass Valley, category Eat, Drink & Stay)
+- **Courtyard Suites** — Luxury Boutique Hotel · 210 N Auburn St, Grass Valley · gvcourtyardsuites.com _(MUSE 2025, p.100, section "STAR 94FM")_
+  - candidate: Courtyard Inn & Suites (courtyard-inn-and-suites-grass-valley, Grass Valley, category Eat, Drink & Stay)
+  - candidate: Grass Valley Courtyard Suites (grass-valley-courtyard-suites-grass-valley, Grass Valley, category Eat, Drink & Stay)
+- **Museums Firehouse** — No. 1 Museum Museum · 214 Main St, Nevada City · nevadacountyhistory.org/ _(MUSE 2025, p.101)_
+  - candidate: Nevada County Historical Society (nevada-county-historical-society-nevada-city, Nevada City, category Cultural Resources)
+  - candidate: Searls Historical Library (searls-historical-library-nevada-city, Nevada City, category Cultural Resources)
+  - candidate: Firehouse No. 1 Museum (firehouse-no-1-museum-nevada-city, Nevada City, category Galleries & Studios)
+  - candidate: North Star Mining Museum (north-star-mining-museum-grass-valley, Grass Valley, category Galleries & Studios)
+  - candidate: North Star Power House & Pelton Wheel Museum (north-star-power-house-and-pelton-wheel-museum-grass-valley, Grass Valley, category Galleries & Studios)
+- **north-star-mining-museum Searls Historical Library Archive** — (no category parsed) · 161 Nevada City Hwy, Nevada City · nevadacountyhistory.org _(MUSE 2025, p.101)_
+  - candidate: Nevada County Historical Society (nevada-county-historical-society-nevada-city, Nevada City, category Cultural Resources)
+  - candidate: Searls Historical Library (searls-historical-library-nevada-city, Nevada City, category Cultural Resources)
+  - candidate: Firehouse No. 1 Museum (firehouse-no-1-museum-nevada-city, Nevada City, category Galleries & Studios)
+  - candidate: North Star Mining Museum (north-star-mining-museum-grass-valley, Grass Valley, category Galleries & Studios)
+  - candidate: North Star Power House & Pelton Wheel Museum (north-star-power-house-and-pelton-wheel-museum-grass-valley, Grass Valley, category Galleries & Studios)
+- **InConcert Sierra Classical/Choral Music 333 Crown Point Cir,** — (no category parsed) · #125, Grass Valley · inconcertsierra.org _(MUSE 2025, p.101)_
+  - candidate: InConcert Sierra (inconcert-sierra-grass-valley, Grass Valley, category Performing Arts)
+  - candidate: Sierra Master Chorale/InConcert Sierra-Twin Cities Concert Association (sierra-master-chorale-inconcert-sierra-twin-cities-concert-association-grass-valley, Grass Valley, category Arts Organizations)
+- **Performing Arts Venues/Cultural Centers The Center for** — the Arts Event Venue / Gallery · 314 W Main St, Grass Va · thecenterforthearts.org _(MUSE 2025, p.101)_
+  - candidate: Center for the Arts (the-center-for-the-arts-grass-valley, Grass Valley, category Performing Arts)
+  - candidate: Fall Colors Open Studio Tour (host:Center for the Arts) (fall-colors-open-studio-tour-host-center-for-the-arts-grass-valley, Grass Valley, category Fairs & Festivals)
+  - candidate: Granucci Gallery (granucci-gallery-grass-valley, Grass Valley, category Galleries & Studios)
+- **The Louvre Framing** — Custom Framing / Art Restoration / Gallery · 124 E Main St, Grass Valley · thelouvregallery.com _(MUSE 2025, p.102, section "102 | MUSE ISSUE 02 / 2025")_
+  - candidate: Louvre Gallery (louvre-gallery-grass-valley, Grass Valley, category MUSE Picks)
+  - candidate: The Louvre Framing, Restoration and Gallery (the-louvre-framing-restoration-and-gallery-grass-valley, Grass Valley, category Galleries & Studios)
+- **Lodging Clair Tappaan Lodge** — Lodging · 19940 Donner Pass Rd, Norden · clairtappaanlodge.com _(MUSE 2025, p.104, section "104 | MUSE ISSUE 02 / 2025")_
+  - candidate: Clair Tappaan Lodge (clair-tappaan-lodge-truckee, Truckee, category Eat, Drink & Stay)
+  - candidate: Clair Tappan Lodge (clair-tappan-lodge-norden, Norden, category Eat, Drink & Stay)
+- **InnerRhythms** — Dance Theater Performing Arts Center · 12047 Donner Pass Rd, Ste B5, Truckee · innerrhythms.org _(MUSE 2025, p.104, section "104 | MUSE ISSUE 02 / 2025")_
+  - candidate: Inner Rhythms (inner-rhythms-truckee, Truckee, category Arts Organizations)
+  - candidate: InnerRhythms Dance Theater (innerrhythms-dance-theater-truckee, Truckee, category Performing Arts)
+- **Roundhouse** — Makerspace · 12116 Chandelle Way, Ste E3, Truckee · truckeeroundhouse.org _(MUSE 2025, p.104, section "104 | MUSE ISSUE 02 / 2025")_
+  - candidate: Truckee Roundhouse Makerspace (truckee-roundhouse-makerspace-truckee, Truckee, category Shops & Makers)
+  - candidate: Truckee Roundhouse Annual Makers Show (truckee-roundhouse-annual-makers-show-truckee, Truckee, category Fairs & Festivals)
+- **Radio** — (no category parsed) · (no address) · truckeetahoeradio.com _(MUSE 2025, p.104, section "KTKE 101.5FM")_
+  - candidate: KTKE Radio 101.5 FM (ktke-radio-101-5-fm-truckee, Truckee, category Cultural Resources)
+  - candidate: Truckee Tahoe Radio - 101.5 KTKE (truckee-tahoe-radio-101-5-ktke-truckee, Truckee, category Cultural Resources)
+- **Community** — Recreation Center Public Art Exhibitions · 10981 Truckee Way, Truckee · tdrpd.org _(MUSE 2025, p.105)_
+  - candidate: Music in the Park Truckee (music-in-the-park-truckee-truckee, Truckee, category Fairs & Festivals)
+  - candidate: Summer Music Series (summer-music-series-truckee, Truckee, category Fairs & Festivals)
+  - candidate: Truckee Winter Carnival (truckee-winter-carnival-truckee, Truckee, category Fairs & Festivals)
+  - candidate: Steve Randall Community Recreation Center (steve-randall-community-recreation-center-truckee, Truckee, category Galleries & Studios)
+  - candidate: Community Arts Center (community-arts-center-truckee, Truckee, category Performing Arts)
+  - candidate: McIver Arena (mciver-arena-truckee, Truckee, category Performing Arts)
+  - candidate: Salty Gebhardt Amphitheater -Truckee River Park (salty-gebhardt-amphitheater-truckee-river-park-truckee, Truckee, category Performing Arts)
+  - candidate: Shoreline Park (shoreline-park-truckee, Truckee, category Walks & Trails)
+  - candidate: Truckee River Regional Park (truckee-river-regional-park-truckee, Truckee, category Walks & Trails)
+  - candidate: West End Beach (west-end-beach-truckee, Truckee, category Walks & Trails)
+- **Mi Pueblito Market** — Neighborhood Mexican Market · 11430 Deerfield Dr, Truckee · facebook.com/pueblitomarket _(MUSE 2025, p.105)_
+  - candidate: Air Aligned Aerial Arts Academy (air-aligned-aerial-arts-academy-grass-valley, Grass Valley, category Arts Organizations)
+  - candidate: Foothill Country Dancers/Country Dance & Song Society (foothill-country-dancers-country-dance-and-song-society-nevada-city, Nevada City, category Arts Organizations)
+  - candidate: Headquarters (headquarters-nevada-city, Nevada City, category Performing Arts)
+  - candidate: Ivy Photography (ivy-photography-grass-valley, Grass Valley, category Arts Organizations)
+  - candidate: Nevada County Performing Arts Guild (nevada-county-performing-arts-guild-grass-valley, Grass Valley, category Arts Organizations)
+  - candidate: Sierra Dance Institute (sierra-dance-institute-grass-valley, Grass Valley, category Arts Organizations)
+  - candidate: Nevada City Picture Framing & Gallery (nevada-city-picture-framing-and-gallery-nevada-city, Nevada City, category MUSE Picks)
+  - candidate: Brew Bakers Coffee and Tea House (brew-bakers-coffee-and-tea-house-grass-valley, Grass Valley, category Eat, Drink & Stay)
+  - candidate: Bubba's Bagels (bubba-s-bagels-grass-valley, Grass Valley, category Eat, Drink & Stay)
+  - candidate: Dedrick's Cheese (dedrick-s-cheese-nevada-city, Nevada City, category MUSE Picks)
+  - candidate: Lamb’s Victorian Inn (lamb-s-victorian-inn-grass-valley, Grass Valley, category Eat, Drink & Stay)
+  - candidate: Lika’s Quarter Cafe (lika-s-quarter-cafe-nevada-city, Nevada City, category Eat, Drink & Stay)
+  - candidate: Pepe's Cafe (pepe-s-cafe-grass-valley, Grass Valley, category Eat, Drink & Stay)
+  - candidate: Wyld Tiger (wyld-tiger-grass-valley, Grass Valley, category MUSE Picks)
+  - candidate: Craft Guild Winterfair (craft-guild-winterfair-grass-valley, Grass Valley, category Fairs & Festivals)
+  - candidate: Humbug Day (humbug-day-nevada-city, Nevada City, category Fairs & Festivals)
+  - candidate: Higgins Lions Community Center (higgins-lions-community-center-grass-valley, Grass Valley, category Galleries & Studios)
+  - candidate: West Wind (west-wind-grass-valley, Grass Valley, category Galleries & Studios)
+  - candidate: Crystal Empire Gems (crystal-empire-gems-grass-valley, Grass Valley, category MUSE Picks)
+  - candidate: Crystal Rainbow Rock Shop (crystal-rainbow-rock-shop-nevada-city, Nevada City, category MUSE Picks)
+  - candidate: La Cache (la-cache-nevada-city, Nevada City, category MUSE Picks)
+  - candidate: Nevada City Crystal & Glass Shop (nevada-city-crystal-and-glass-shop-nevada-city, Nevada City, category MUSE Picks)
+  - candidate: Novak's Menswear (novak-s-menswear-nevada-city, Nevada City, category MUSE Picks)
+  - candidate: Tribal Weaver (tribal-weaver-grass-valley, Grass Valley, category MUSE Picks)
+  - candidate: Off Center Stage (off-center-stage-grass-valley, Grass Valley, category Performing Arts)
+  - candidate: Lake Wildwood Theatre (lake-wildwood-theatre-penn-valley, Penn Valley, category Arts Organizations)
+  - candidate: Truckee Arts Alliance (truckee-arts-alliance-truckee, Truckee, category Arts Organizations)
+  - candidate: Truckee Public Arts Commission (truckee-public-arts-commission-truckee, Truckee, category Arts Organizations)
+  - candidate: Truckee Tahoe Arts Alliance (truckee-tahoe-arts-alliance-truckee, Truckee, category Galleries & Studios)
+  - candidate: Clarky's BBQ, Smoke & More (clarky-s-bbq-smoke-and-more-penn-valley, Penn Valley, category Eat, Drink & Stay)
+  - candidate: Daybreak Cafe (daybreak-cafe-penn-valley, Penn Valley, category Eat, Drink & Stay)
+  - candidate: Good Wolf Brewing (good-wolf-brewing-truckee, Truckee, category Eat, Drink & Stay)
+  - candidate: Summit Swirl (summit-swirl-truckee, Truckee, category MUSE Picks)
+  - candidate: Tack Room Restaurant and Bar (tack-room-restaurant-and-bar-penn-valley, Penn Valley, category Eat, Drink & Stay)
+  - candidate: The Grind (the-grind-auburn, Auburn, category Eat, Drink & Stay)
+  - candidate: Truckee Certified Farmers Market (truckee-certified-farmers-market-truckee, Truckee, category Fairs & Festivals)
+- **nevadacountyca.gov/337/doris- foley-library-for-historical-r** — Firehouse No. 1 Museum Museum · 214 Main St, Nevada City · nevadacountyhistory.org/ _(MUSE 2026, p.95, section "CENTERS")_
+  - candidate: Nevada County Historical Society (nevada-county-historical-society-nevada-city, Nevada City, category Cultural Resources)
+  - candidate: Searls Historical Library (searls-historical-library-nevada-city, Nevada City, category Cultural Resources)
+  - candidate: Firehouse No. 1 Museum (firehouse-no-1-museum-nevada-city, Nevada City, category Galleries & Studios)
+  - candidate: North Star Mining Museum (north-star-mining-museum-grass-valley, Grass Valley, category Galleries & Studios)
+  - candidate: North Star Power House & Pelton Wheel Museum (north-star-power-house-and-pelton-wheel-museum-grass-valley, Grass Valley, category Galleries & Studios)
+- **north-star-mining-museum Searls Historical Library Archival Library** — (no category parsed) · 161 Nevada City Hwy, Nevada City · nevadacountyhistory.org/ _(MUSE 2026, p.95, section "CENTERS")_
+  - candidate: Nevada County Historical Society (nevada-county-historical-society-nevada-city, Nevada City, category Cultural Resources)
+  - candidate: Searls Historical Library (searls-historical-library-nevada-city, Nevada City, category Cultural Resources)
+  - candidate: Firehouse No. 1 Museum (firehouse-no-1-museum-nevada-city, Nevada City, category Galleries & Studios)
+  - candidate: North Star Mining Museum (north-star-mining-museum-grass-valley, Grass Valley, category Galleries & Studios)
+  - candidate: North Star Power House & Pelton Wheel Museum (north-star-power-house-and-pelton-wheel-museum-grass-valley, Grass Valley, category Galleries & Studios)
+- **Courtyard Suites** — Hotel / Event Space · 210 N Auburn St, Grass Valley · gvcourtyardsuites.com _(MUSE 2026, p.95, section "LODGING")_
+  - candidate: Courtyard Inn & Suites (courtyard-inn-and-suites-grass-valley, Grass Valley, category Eat, Drink & Stay)
+  - candidate: Grass Valley Courtyard Suites (grass-valley-courtyard-suites-grass-valley, Grass Valley, category Eat, Drink & Stay)
+- **The Iron Door** — Speakeasy / Events · 212 W Main St, Grass Valley · holbrooke.com/dining/ _(MUSE 2026, p.96, section "96 MUSE '26 | ISSUE 03")_
+  - candidate: Golden Gate Saloon (golden-gate-saloon-grass-valley, Grass Valley, category Eat, Drink & Stay)
+  - candidate: Holbrooke Hotel (holbrooke-hotel-grass-valley, Grass Valley, category Historic Places)
+- **nevadacountyca.gov/307/ grass-valley-library Ron's Real Records** — Music / Records · 233A Mill St, Grass Valley · downtowngrassvalley.com/ _(MUSE 2026, p.98, section "BOOKS / MUSIC")_
+  - candidate: Grass Valley Downtown Association (grass-valley-downtown-association-grass-valley, Grass Valley, category Cultural Resources)
+  - candidate: Ron's Real Records (ron-s-real-records-grass-valley, Grass Valley, category Performing Arts)
+  - candidate: Cork 49 (cork-49-grass-valley, Grass Valley, category Eat, Drink & Stay)
+  - candidate: Cornish Christmas (cornish-christmas-grass-valley, Grass Valley, category Fairs & Festivals)
+  - candidate: Foothills Celebration (foothills-celebration-grass-valley, Grass Valley, category Fairs & Festivals)
+  - candidate: Grass Valley Car Show (grass-valley-car-show-grass-valley, Grass Valley, category Fairs & Festivals)
+  - candidate: Grass Valley Farmers Market (grass-valley-farmers-market-grass-valley, Grass Valley, category Fairs & Festivals)
+  - candidate: St. Piran's Day Festival (st-piran-s-day-festival-grass-valley, Grass Valley, category Fairs & Festivals)
+  - candidate: Thursday Night Markets (thursday-night-markets-grass-valley, Grass Valley, category Fairs & Festivals)
+  - candidate: Bamboo Home Store (bamboo-home-store-grass-valley, Grass Valley, category MUSE Picks)
+  - candidate: J. Breuer Clothing (j-breuer-clothing-grass-valley, Grass Valley, category MUSE Picks)
+  - candidate: Wild Side (wild-side-grass-valley, Grass Valley, category MUSE Picks)
+  - candidate: Booktown Books (booktown-books-grass-valley, Grass Valley, category Shops & Makers)
+  - candidate: Vintage on Mill (vintage-on-mill-grass-valley, Grass Valley, category Shops & Makers)
+- **Listener Line 530 477 5626 Business Line 530 272 3424** — (no category parsed) · (no address) · knco.com _(MUSE 2026, p.100, section "MEDIA / PUBLISHING")_
+  - candidate: KNCO / Star Radio (knco-star-radio-grass-valley, Grass Valley, category Cultural Resources)
+  - candidate: KNCO Star 94.1 FM (knco-star-94-1-fm-grass-valley, Grass Valley, category Cultural Resources)
+- **Radio** — (no category parsed) · 120 Bridge St, Nevada City · kvmr.org _(MUSE 2026, p.100, section "KVMR 89.5 FM")_
+  - candidate: KVMR (kvmr-nevada-city, Nevada City, category Cultural Resources)
+  - candidate: KVMR 89.5FM (kvmr-89-5fm-nevada-city, Nevada City, category Cultural Resources)
+  - candidate: Dew Drop Inn (dew-drop-inn-grass-valley, Grass Valley, category Eat, Drink & Stay)
+- **9848.Gallery at** — Truckee Artist Lofts Art Gallery · 9848 Donner Pass Rd, Truckee · sites.google.com/view/9848galler _(MUSE 2026, p.101, section "ART GALLERIES / STUDIOS / MAKERSPACES")_
+  - candidate: Nevada Union Art Guild (nevada-union-art-guild-nevada-city, Nevada City, category Arts Organizations)
+  - candidate: Nevada Union Theatrical Society (nevada-union-theatrical-society-grass-valley, Grass Valley, category Arts Organizations)
+  - candidate: A Victorian Rose (a-victorian-rose-grass-valley, Grass Valley, category Eat, Drink & Stay)
+  - candidate: 9848 Gallery at Truckee Artist Lofts (9848-gallery-at-truckee-artist-lofts-truckee, Truckee, category Galleries & Studios)
+  - candidate: 9848.Gallery Truckee Artist Lofts (9848-gallery-truckee-artist-lofts-truckee, Truckee, category Galleries & Studios)
+- **InnerRhythms** — Performing Arts Organization · 12047 Donner Pass Rd, Ste B5, Truckee · innerrhythms.org _(MUSE 2026, p.101, section "ARTS")_
+  - candidate: Inner Rhythms (inner-rhythms-truckee, Truckee, category Arts Organizations)
+  - candidate: InnerRhythms Dance Theater (innerrhythms-dance-theater-truckee, Truckee, category Performing Arts)
+- **Trails & Vistas** — Performing Arts Organization · (no address) · trailsandvistas.org _(MUSE 2026, p.101, section "ARTS")_
+  - candidate: Trails & Vistas (trails-and-vistas, no city, category Performing Arts)
+  - candidate: Trails and Vistas (trails-and-vistas-truckee, Truckee, category Arts Organizations)
+  - candidate: Art Hike (art-hike-soda-springs, Soda Springs, category Fairs & Festivals)
+  - candidate: Trails & Vistas Art Hikes (trails-and-vistas-art-hikes-truckee, Truckee, category Fairs & Festivals)
+- **Radio** — (no category parsed) · 11890 Donner Pass Rd, Ste 2, Truckee · truckeetahoeradio.com _(MUSE 2026, p.104, section "KTKE 101.5 FM")_
+  - candidate: KTKE Radio 101.5 FM (ktke-radio-101-5-fm-truckee, Truckee, category Cultural Resources)
+  - candidate: Truckee Tahoe Radio - 101.5 KTKE (truckee-tahoe-radio-101-5-ktke-truckee, Truckee, category Cultural Resources)
+- **Your membership supports the Business Directory** — (no category parsed) · (no address) · nevadacountyarts.org/membership _(MUSE 2026, p.105, section "BECOME A MEMBER")_
+  - candidate: Nevada County Arts Council (nevada-county-arts-council-nevada-city, Nevada City, category MUSE Picks)
+  - candidate: Sierra Poetry Festival (sierra-poetry-festival-grass-valley, Grass Valley, category Fairs & Festivals)
+  - candidate: Eric Rood Administration Center Lobby (eric-rood-administration-center-lobby-nevada-city, Nevada City, category Galleries & Studios)
+
+## 3. Flagged places absent from the 2026 directory (stale flags? annotate, don't unflag — PRD §9 Q6)
+
+### 3a. Found only in older issues (42) — badge will say the honest year
+
+- Headquarters (headquarters-nevada-city, Nevada City) — issues: 2024
+- Music in the Mountains (music-in-the-mountains-grass-valley, Grass Valley) — issues: 2024, 2025
+- Neighborhood Center of the Arts (neighborhood-center-of-the-arts-grass-valley, Grass Valley) — issues: 2025
+- Nevada County Arts Council (nevada-county-arts-council-nevada-city, Nevada City) — issues: 2024, 2025
+- Off Broadstreet (off-broadstreet-nevada-city, Nevada City) — issues: 2025
+- The Curious Forge (the-curious-forge-nevada-city, Nevada City) — issues: 2024, 2025
+- Waking Crow Studio (waking-crow-studio-nevada-city, Nevada City) — issues: 2024
+- Full Circle Press (full-circle-press-grass-valley, Grass Valley) — issues: 2024, 2025
+- Grass Valley Downtown Association (grass-valley-downtown-association-grass-valley, Grass Valley) — issues: 2024, 2025
+- Hour Nevada County (hour-nevada-county-nevada-city, Nevada City) — issues: 2024, 2025
+- Nevada County Library Grass Valley Royce Branch (nevada-county-library-grass-valley-royce-branch-grass-valley, Grass Valley) — issues: 2025
+- Searls Historical Library (searls-historical-library-nevada-city, Nevada City) — issues: 2024
+- Lika’s Quarter Cafe (lika-s-quarter-cafe-nevada-city, Nevada City) — issues: 2024, 2025
+- Lola at the National Exchange Hotel (lola-at-the-national-exchange-hotel-nevada-city, Nevada City) — issues: 2024
+- MAK's BBQ (mak-s-bbq-grass-valley, Grass Valley) — issues: 2025
+- McGee’s Annex (mcgee-s-annex-nevada-city, Nevada City) — issues: 2024, 2025
+- Nevada Club (nevada-club-grass-valley, Grass Valley) — issues: 2025
+- The Place on South Pine (the-place-on-south-pine-nevada-city, Nevada City) — issues: 2024, 2025
+- ASiF Studios (asif-studios-grass-valley, Grass Valley) — issues: 2024, 2025
+- Art Works Gallery (art-works-gallery-grass-valley, Grass Valley) — issues: 2024, 2025
+- Firehouse No. 1 Museum (firehouse-no-1-museum-nevada-city, Nevada City) — issues: 2024, 2025
+- Granucci Gallery (granucci-gallery-grass-valley, Grass Valley) — issues: 2024, 2025
+- Juxtartstudios (juxtartstudios-nevada-city, Nevada City) — issues: 2024
+- Seven Stars Gallery (seven-stars-gallery-nevada-city, Nevada City) — issues: 2024, 2025
+- The Chambers Project (the-chambers-project-grass-valley, Grass Valley) — issues: 2024, 2025
+- UBA SEO: Nisenan Arts and Culture (uba-seo-nisenan-arts-and-culture-nevada-city, Nevada City) — issues: 2024, 2025
+- Wolf Craft School (wolf-craft-school-nevada-city, Nevada City) — issues: 2025
+- Earth Central (earth-central-nevada-city, Nevada City) — issues: 2025
+- Foothill Flowers (foothill-flowers-grass-valley, Grass Valley) — issues: 2025
+- Wild Side (wild-side-grass-valley, Grass Valley) — issues: 2025
+- LeGacy Presents (legacy-presents-nevada-city, Nevada City) — issues: 2025
+- Miners Foundry Cultural Center (miners-foundry-cultural-center-nevada-city, Nevada City) — issues: 2024, 2025
+- Mystic Theater (mystic-theater-nevada-city, Nevada City) — issues: 2024, 2025
+- Paul Emery Presents (paul-emery-presents-nevada-city, Nevada City) — issues: 2025
+- InnerRhythms Dance Theater (innerrhythms-dance-theater-truckee, Truckee) — issues: 2024
+- Truckee Community Theater (truckee-community-theater-truckee, Truckee) — issues: 2024, 2025
+- Mountain Gazette (mountain-gazette-truckee, Truckee) — issues: 2025
+- Tahoe Guide (tahoe-guide-truckee, Truckee) — issues: 2025
+- Como (como-truckee, Truckee) — issues: 2024, 2025
+- Stella (stella-truckee, Truckee) — issues: 2024
+- Indian Springs Art and Ceramic Center (indian-springs-art-and-ceramic-center-penn-valley, Penn Valley) — issues: 2025
+- Steve Randall Community Recreation Center (steve-randall-community-recreation-center-truckee, Truckee) — issues: 2024
+
+### 3b. Never matched in any issue parse (54) — flag provenance unknown; owner review
+
+These keep musePick (nothing silently unflagged) but get no museCategory/museIssues.
+Likely mix of: OCR misses, name drift, editorial picks outside the business directory.
+
+- Holt Ballet Conservatory (holt-ballet-conservatory-nevada-city, Nevada City, category Galleries & Studios)
+- House of Fates (house-of-fates-nevada-city, Nevada City, category Performing Arts)
+- InConcert Sierra (inconcert-sierra-grass-valley, Grass Valley, category Performing Arts)
+- Nevada Theater (nevada-theater-nevada-city, Nevada City, category Performing Arts)
+- Sierra Stages (sierra-stages-nevada-city, Nevada City, category Performing Arts)
+- The Cauldron @ Loot and Lore (the-cauldron-loot-and-lore-grass-valley, Grass Valley, category Performing Arts)
+- Heart & Soul Spinnery (heart-and-soul-spinnery-grass-valley, Grass Valley, category MUSE Picks)
+- Myrtle Tree Arts (myrtle-tree-arts-nevada-city, Nevada City, category MUSE Picks)
+- Nevada City Picture Framing & Gallery (nevada-city-picture-framing-and-gallery-nevada-city, Nevada City, category MUSE Picks)
+- Yinne Boma Animation Studios Company (yinne-boma-animation-studios-company-nevada-city, Nevada City, category MUSE Picks)
+- Yinnebowma (yinnebowma-nevada-city, Nevada City, category MUSE Picks)
+- Golden Road Radio and Television (golden-road-radio-and-television-nevada-city, Nevada City, category Cultural Resources)
+- KNCO Star 94.1 FM (knco-star-94-1-fm-grass-valley, Grass Valley, category Cultural Resources)
+- KVMR 89.5FM (kvmr-89-5fm-nevada-city, Nevada City, category Cultural Resources)
+- Nevada County Doris Foley Library for Historical Research (nevada-county-doris-foley-library-for-historical-research-nevada-city, Nevada City, category Performing Arts)
+- Nevada County Library Madelyn Helling Branch (nevada-county-library-madelyn-helling-branch-nevada-city, Nevada City, category Performing Arts)
+- Ron's Real Records (ron-s-real-records-grass-valley, Grass Valley, category Performing Arts)
+- Sound Check Music (sound-check-music-grass-valley, Grass Valley, category Performing Arts)
+- Toad Hall Books (toad-hall-books-nevada-city, Nevada City, category Performing Arts)
+- Grass Valley Courtyard Suites (grass-valley-courtyard-suites-grass-valley, Grass Valley, category Eat, Drink & Stay)
+- Iron Door Speakeasy (iron-door-speakeasy-grass-valley, Grass Valley, category Eat, Drink & Stay)
+- Naggiar Vineyards and Winery (naggiar-vineyards-and-winery-grass-valley, Grass Valley, category Eat, Drink & Stay)
+- National Exchange Hotel (national-exchange-hotel-nevada-city, Nevada City, category Historic Places)
+- Nevada City Classic Cafe (nevada-city-classic-cafe-nevada-city, Nevada City, category Eat, Drink & Stay)
+- Art Space (art-space-grass-valley, Grass Valley, category Galleries & Studios)
+- Bear River Glassworks (bear-river-glassworks-grass-valley, Grass Valley, category Galleries & Studios)
+- C.H.A.M.P. Gallery at City Hall (c-h-a-m-p-gallery-at-city-hall-nevada-city, Nevada City, category Galleries & Studios)
+- Eric Rood Administration Center Lobby (eric-rood-administration-center-lobby-nevada-city, Nevada City, category Galleries & Studios)
+- MIX decor + design (mix-decor-design-nevada-city, Nevada City, category Galleries & Studios)
+- The Vault @ Crush (the-vault-crush-nevada-city, Nevada City, category Galleries & Studios)
+- Wonder Docent (wonder-docent-nevada-city, Nevada City, category MUSE Picks)
+- Atra Nova (atra-nova-nevada-city, Nevada City, category MUSE Picks)
+- La Cache (la-cache-nevada-city, Nevada City, category MUSE Picks)
+- Mama Madrones (mama-madrones-nevada-city, Nevada City, category MUSE Picks)
+- Nevada City Crystal & Glass Shop (nevada-city-crystal-and-glass-shop-nevada-city, Nevada City, category MUSE Picks)
+- 107 Argall Way (107-argall-way-nevada-city, Nevada City, category Performing Arts)
+- Trails & Vistas (trails-and-vistas, no city, category Performing Arts)
+- Truckee Roundhouse Makerspace (truckee-roundhouse-makerspace-truckee, Truckee, category Shops & Makers)
+- Filmprojects (filmprojects-penn-valley, Penn Valley, category MUSE Picks)
+- Nevada County Arts Council and Truckee Cultural District (nevada-county-arts-council-and-truckee-cultural-district-truckee, Truckee, category MUSE Picks)
+- Truckee Tahoe Radio - 101.5 KTKE (truckee-tahoe-radio-101-5-ktke-truckee, Truckee, category Cultural Resources)
+- Blue Coyote Bar & Grill (blue-coyote-bar-and-grill-truckee, Truckee, category Eat, Drink & Stay)
+- Clarky's BBQ, Smoke & More (clarky-s-bbq-smoke-and-more-penn-valley, Penn Valley, category Eat, Drink & Stay)
+- Cornerstone Bakery & Kitchen (cornerstone-bakery-and-kitchen-truckee, Truckee, category MUSE Picks)
+- La Bamba Mexican Restaurant (la-bamba-mexican-restaurant-truckee, Truckee, category Eat, Drink & Stay)
+- PJ’s at Grays Crossing (pj-s-at-grays-crossing-truckee, Truckee, category Eat, Drink & Stay)
+- RMU (rmu-truckee, Truckee, category Eat, Drink & Stay)
+- Tack Room Restaurant and Bar (tack-room-restaurant-and-bar-penn-valley, Penn Valley, category Eat, Drink & Stay)
+- Tahoe Star Hotel (tahoe-star-hotel-truckee, Truckee, category Eat, Drink & Stay)
+- Whole Treats Bakery & Coffee House (whole-treats-bakery-and-coffee-house-truckee, Truckee, category MUSE Picks)
+- 9848.Gallery Truckee Artist Lofts (9848-gallery-truckee-artist-lofts-truckee, Truckee, category Galleries & Studios)
+- Donner Memorial State Park Museum (donner-memorial-state-park-museum-truckee, Truckee, category Galleries & Studios)
+- Buoy & Trap Seafood Market (buoy-and-trap-seafood-market-truckee, Truckee, category MUSE Picks)
+- Liberty Bell Smart Home (liberty-bell-smart-home-truckee, Truckee, category Performing Arts)
+
+## 4. Matched but not currently flagged (candidate flag adds — owner sign-off required)
+
+- Grant Kaye Photography (grant-kaye-photography-truckee, category Cultural Resources) — in MUSE 2024
+- Nevada City Film Festival (nevada-city-film-festival-nevada-city, category Fairs & Festivals) — in MUSE 2024
+- Madelyn Helling Library (madelyn-helling-library-nevada-city, category Cultural Resources) — in MUSE 2024
+- Avanguardia Winery (avanguardia-winery-nevada-city, category Eat, Drink & Stay) — in MUSE 2024, 2025
+- Lucchesi Vineyards Winery (lucchesi-vineyards-winery-grass-valley, category Eat, Drink & Stay) — in MUSE 2024, 2025, 2026
+- Naggiar Vineyards (naggiar-vineyards-grass-valley, category Eat, Drink & Stay) — in MUSE 2024, 2025, 2026
+- The Mine Shaft (the-mine-shaft-nevada-city, category Eat, Drink & Stay) — in MUSE 2024, 2025
+- The Pour House (the-pour-house-truckee, category Eat, Drink & Stay) — in MUSE 2024, 2025, 2026
+- Nevada Theatre (nevada-theatre-nevada-city, category Historic Places) — in MUSE 2024, 2025
+- Prime Cinemas (prime-cinemas-grass-valley, category Arts Organizations) — in MUSE 2024, 2025
+- The Onyx Theater (the-onyx-theater-nevada-city, category Performing Arts) — in MUSE 2024, 2025, 2026
+- Heartwood Eatery (heartwood-eatery-nevada-city, category Eat, Drink & Stay) — in MUSE 2024
+- The Thirsty Barrel Taphouse (the-thirsty-barrel-taphouse-grass-valley, category Eat, Drink & Stay) — in MUSE 2024, 2025, 2026
+- Truckee Tavern (truckee-tavern-truckee, category Eat, Drink & Stay) — in MUSE 2024, 2025, 2026
+- Wild Cherries Coffee House (wild-cherries-coffee-house-truckee, category Eat, Drink & Stay) — in MUSE 2024, 2025, 2026
+- Inn Town Campground (inn-town-campground-nevada-city, category Eat, Drink & Stay) — in MUSE 2024, 2025, 2026
+- Sierra Harvest (sierra-harvest-nevada-city, category Cultural Resources) — in MUSE 2024
+- Truckee Downtown Merchants Association (truckee-downtown-merchants-association-truckee, category Cultural Resources) — in MUSE 2024, 2025, 2026
+- Fudenjuce (fudenjuce-nevada-city, category Eat, Drink & Stay) — in MUSE 2025, 2026
+- Garnish (garnish-nevada-city, category Eat, Drink & Stay) — in MUSE 2025
+- Community Asian Theatre of the Sierra (CATS) (community-asian-theatre-of-the-sierra-cats-grass-valley, category Arts Organizations) — in MUSE 2025
+- Sierra Stages Community Theater (sierra-stages-community-theater-grass-valley, category Arts Organizations) — in MUSE 2025
+- Crown Point Venues (crown-point-venues-grass-valley, category Arts Organizations) — in MUSE 2025
+- North Star Historic Conservancy (north-star-historic-conservancy-grass-valley, category Cultural Resources) — in MUSE 2025
+- BriarPatch Food Co-op (briarpatch-food-co-op-grass-valley, category Eat, Drink & Stay) — in MUSE 2025, 2026
+- California Organics Restaurant & Gallery (california-organics-restaurant-and-gallery-nevada-city, category Eat, Drink & Stay) — in MUSE 2025, 2026
+- Front Street Station Pizza (front-street-station-pizza-truckee, category Eat, Drink & Stay) — in MUSE 2025
+- LIFT Workspace (lift-workspace-truckee, category Galleries & Studios) — in MUSE 2025
+- Pacific Crest Coffee (pacific-crest-coffee-truckee, category Eat, Drink & Stay) — in MUSE 2025, 2026
+- Truckee Tahoe Community Television (truckee-tahoe-community-television-truckee, category Cultural Resources) — in MUSE 2025
+- Truckee Tahoe Airport District (Art at the Airport) (truckee-tahoe-airport-district-art-at-the-airport-truckee, category Galleries & Studios) — in MUSE 2025
+- Jerky Junction (jerky-junction-truckee, category Eat, Drink & Stay) — in MUSE 2025
+- Sierra Theatre Company (sierra-theatre-company-grass-valley, category Arts Organizations) — in MUSE 2026
+- The Cauldron (the-cauldron-grass-valley, category Arts Organizations) — in MUSE 2026
+- Northridge Penn Valley (northridge-penn-valley-penn-valley, category Eat, Drink & Stay) — in MUSE 2026
+- Petra (petra-nevada-city, category Eat, Drink & Stay) — in MUSE 2026
+- Tahoe Music Alive (tahoe-music-alive-truckee, category Arts Organizations) — in MUSE 2026
+- Truckee Brewing Company (truckee-brewing-company-truckee, category Eat, Drink & Stay) — in MUSE 2026
+- Buoy & Trap (buoy-and-trap-truckee, category Eat, Drink & Stay) — in MUSE 2026
+- Mountain Valley Meats, Inc (mountain-valley-meats-inc-truckee, category Eat, Drink & Stay) — in MUSE 2026
+- Encompass Films (encompass-films-truckee, category Arts Organizations) — in MUSE 2026
+
+## 5. MUSE-Picks category re-home plan (the 186)
+
+Proposed mapping museCategory → map category (PRD §5). Visibility unchanged
+(markerTier/publicMarker untouched; PRD §9 Q3).
+
+| Target category | Count |
+|---|---|
+| Shops & Makers | 114 |
+| Eat, Drink & Stay | 56 |
+| Galleries & Studios | 16 |
+
+- Nevada County Arts Council (nevada-county-arts-council-nevada-city) — museCategory "Arts Service Organization" → **Galleries & Studios**
+- A Serious Production (a-serious-production-grass-valley) — museCategory "Audio / Video Production" → **Shops & Makers**
+- Auric Adornments (auric-adornments-grass-valley) — museCategory "Body Piercing / Tattoo" → **Galleries & Studios**
+- Beads Galore (beads-galore-grass-valley) — museCategory "Jewelry Supply / Minerals / Gifts" → **Shops & Makers**
+- Ben Franklin (ben-franklin-grass-valley) — museCategory "Crafts & Frames Art Supply / Custom Framing" → **Galleries & Studios**
+- Black Bart Ornamental Iron Works (black-bart-ornamental-iron-works-nevada-city) — museCategory "—" → **Shops & Makers**
+- Country Copy (country-copy-grass-valley) — museCategory "Print Shop" → **Shops & Makers**
+- Gold Crush (gold-crush-grass-valley) — museCategory "—" → **Shops & Makers**
+- Grass Valley Sign (grass-valley-sign-grass-valley) — museCategory "—" → **Shops & Makers**
+- Grateful Ink (grateful-ink-nevada-city) — museCategory "Tattoo" → **Galleries & Studios**
+- Heart & Soul Spinnery (heart-and-soul-spinnery-grass-valley) — museCategory "—" → **Shops & Makers**
+- Heathered Yarn Co. (heathered-yarn-co-grass-valley) — museCategory "Yarn Supply / Workshops" → **Shops & Makers**
+- House of Print and Copy (house-of-print-and-copy-grass-valley) — museCategory "Print Shop" → **Shops & Makers**
+- Louvre Gallery (louvre-gallery-grass-valley) — museCategory "Custom Framing / Restoration / Art Gallery" → **Galleries & Studios**
+- Mountain Event Productions (mountain-event-productions-nevada-city) — museCategory "Productions Audio / Video Production" → **Shops & Makers**
+- Mountain Recreation (mountain-recreation-grass-valley) — museCategory "Recreation Equipment / Apparel / Rentals" → **Shops & Makers**
+- Myrtle Tree Arts (myrtle-tree-arts-nevada-city) — museCategory "—" → **Shops & Makers**
+- Nevada City Picture Framing & Gallery (nevada-city-picture-framing-and-gallery-nevada-city) — museCategory "—" → **Shops & Makers**
+- Punk and Bunny Tattoo (punk-and-bunny-tattoo-grass-valley) — museCategory "Punk and Bunny Tattoo Tattoo" → **Galleries & Studios**
+- Real Graphic Source (real-graphic-source-grass-valley) — museCategory "Print Shop" → **Shops & Makers**
+- Riparian Studios (riparian-studios-nevada-city) — museCategory "Video Production / Copywriting / Branding" → **Shops & Makers**
+- SRC Event Rentals (src-event-rentals-grass-valley) — museCategory "SRC Event Rentals Rentals / Party Supply" → **Galleries & Studios**
+- Sierra Custom Ink (sierra-custom-ink-grass-valley) — museCategory "Screen Printing / Embroidery / Graphic Design" → **Shops & Makers**
+- Sierra Rose Alpacas (sierra-rose-alpacas-grass-valley) — museCategory "Yarn Supply / Local Art / Tours" → **Galleries & Studios**
+- Someone Said Yes DJ and Photo Booth (someone-said-yes-dj-and-photo-booth-grass-valley) — museCategory "Event Services" → **Shops & Makers**
+- Sweet Spirit Tattoo (sweet-spirit-tattoo-nevada-city) — museCategory "Tattoo" → **Galleries & Studios**
+- Waking Crow Studio (waking-crow-studio-nevada-city) — museCategory "Studios Photography" → **Galleries & Studios**
+- Yinne Boma Animation Studios Company (yinne-boma-animation-studios-company-nevada-city) — museCategory "—" → **Shops & Makers**
+- Yinnebowma (yinnebowma-nevada-city) — museCategory "—" → **Shops & Makers**
+- You Bet! Bicycle Sales & Service (you-bet-bicycle-sales-and-service-nevada-city) — museCategory "& Service Bicycle Shop / Rentals / Repairs" → **Shops & Makers**
+- Fieldmouse Press (fieldmouse-press-grass-valley) — museCategory "Publisher" → **Eat, Drink & Stay**
+- Full Circle Press (full-circle-press-grass-valley) — museCategory "—" → **Shops & Makers**
+- Greater Grass Valley Chamber of Commerce (greater-grass-valley-chamber-of-commerce-grass-valley) — museCategory "—" → **Shops & Makers**
+- Sibylline Press (sibylline-press-grass-valley) — museCategory "Publisher" → **Eat, Drink & Stay**
+- BackPorch Market (backporch-market-grass-valley) — museCategory "Grocery / Deli" → **Eat, Drink & Stay**
+- Cake Bakery & Cafe (cake-bakery-and-cafe-grass-valley) — museCategory "Bakery / Coffee" → **Eat, Drink & Stay**
+- Caroline's Coffee Roasters (caroline-s-coffee-roasters-grass-valley) — museCategory "Coffee / Roastery" → **Eat, Drink & Stay**
+- Choquiero Cacao Cafe (choquiero-cacao-cafe-nevada-city) — museCategory "Chocolate / Beverages" → **Eat, Drink & Stay**
+- Coco's Candy and Creamery (coco-s-candy-and-creamery-grass-valley) — museCategory "Candies / Ice Cream" → **Eat, Drink & Stay**
+- Communal Cafe (communal-cafe-nevada-city) — museCategory "Coffee / Restaurant" → **Eat, Drink & Stay**
+- Corvus Bakery (corvus-bakery-grass-valley) — museCategory "Gluten-Free Bakery" → **Eat, Drink & Stay**
+- Dedrick's Cheese (dedrick-s-cheese-nevada-city) — museCategory "Cheese Shop" → **Eat, Drink & Stay**
+- Deer Creek Bakehouse (deer-creek-bakehouse-nevada-city) — museCategory "Bakery" → **Eat, Drink & Stay**
+- Flour Garden Bakery (flour-garden-bakery-grass-valley) — museCategory "Coffee / Bakery" → **Eat, Drink & Stay**
+- Java Johns (java-johns-nevada-city) — museCategory "Coffee" → **Eat, Drink & Stay**
+- Lazy Dog Chocolateria (lazy-dog-chocolateria-grass-valley) — museCategory "Chocolate / Candies / Ice Cream" → **Eat, Drink & Stay**
+- Nevada City Chocolate Shoppe (nevada-city-chocolate-shoppe-nevada-city) — museCategory "Chocolate" → **Eat, Drink & Stay**
+- Outer Heaven Espresso (outer-heaven-espresso-nevada-city) — museCategory "Espresso / Roastery" → **Eat, Drink & Stay**
+- Panadería Matilija (panader-a-matilija-nevada-city) — museCategory "Bakery" → **Eat, Drink & Stay**
+- SPD Markets (spd-markets-nevada-city) — museCategory "Grocery" → **Eat, Drink & Stay**
+- Soulspace Collective (soulspace-collective-grass-valley) — museCategory "Coffee / Yoga / Events" → **Eat, Drink & Stay**
+- The Ham Stand (the-ham-stand-nevada-city) — museCategory "Salumeria / Deli" → **Eat, Drink & Stay**
+- The Truffle Shop (the-truffle-shop-nevada-city) — museCategory "Chocolate / Cakes" → **Eat, Drink & Stay**
+- Treats (treats-nevada-city) — museCategory "Ice Cream" → **Eat, Drink & Stay**
+- Wyld Tiger (wyld-tiger-grass-valley) — museCategory "Sourdough Bakery Bakery" → **Eat, Drink & Stay**
+- Wonder Docent (wonder-docent-nevada-city) — museCategory "—" → **Shops & Makers**
+- Abstrakt (abstrakt-nevada-city) — museCategory "Women's Apparel" → **Shops & Makers**
+- Asylum Down (asylum-down-nevada-city) — museCategory "Gifts / Apparel" → **Shops & Makers**
+- Atra Nova (atra-nova-nevada-city) — museCategory "—" → **Shops & Makers**
+- Bamboo Home Store (bamboo-home-store-grass-valley) — museCategory "Apparel / Home Goods" → **Shops & Makers**
+- Cosmic Shark Clothing (cosmic-shark-clothing-grass-valley) — museCategory "Apparel / Custom Screen Printing" → **Shops & Makers**
+- Crush (crush-nevada-city) — museCategory "Custom Roller Skates / Apparel / Home Goods" → **Shops & Makers**
+- Crystal Empire Gems (crystal-empire-gems-grass-valley) — museCategory "Gems / Minerals / Jewelry" → **Shops & Makers**
+- Crystal Rainbow Rock Shop (crystal-rainbow-rock-shop-nevada-city) — museCategory "Gems / Minerals" → **Shops & Makers**
+- Earth Central (earth-central-nevada-city) — museCategory "Clothing / Gifts / Jewelry" → **Shops & Makers**
+- Earthdrop (earthdrop-nevada-city) — museCategory "Gifts / Home Goods" → **Shops & Makers**
+- El Barrio Mexican Market (el-barrio-mexican-market-grass-valley) — museCategory "Mexican Market / Restaurant" → **Eat, Drink & Stay**
+- Elevate Athleisure (elevate-athleisure-grass-valley) — museCategory "Women’s Apparel" → **Shops & Makers**
+- Elevation 2477' (elevation-2477-nevada-city) — museCategory "Cannabis Dispensary" → **Eat, Drink & Stay**
+- Empire Shoes (empire-shoes-grass-valley) — museCategory "—" → **Shops & Makers**
+- Field Day Apparel (field-day-apparel-nevada-city) — museCategory "Apparel" → **Shops & Makers**
+- Foothill Flowers (foothill-flowers-grass-valley) — museCategory "Florist" → **Shops & Makers**
+- Foothill Mercantile (foothill-mercantile-grass-valley) — museCategory "Gifts / Novelty / Home Goods" → **Shops & Makers**
+- Fur Traders (fur-traders-nevada-city) — museCategory "Apparel / Shoes" → **Shops & Makers**
+- Gather & Mill (gather-and-mill-grass-valley) — museCategory "Gifts" → **Shops & Makers**
+- Gold Mountain (gold-mountain-nevada-city) — museCategory "Gifts / Tea / Decor" → **Eat, Drink & Stay**
+- GoodTimes Boardstore (goodtimes-boardstore-grass-valley) — museCategory "Skate Shop / Apparel" → **Shops & Makers**
+- Grass Valley Games (grass-valley-games-grass-valley) — museCategory "—" → **Shops & Makers**
+- Grass Valley Provisions (grass-valley-provisions-grass-valley) — museCategory "Cannabis Dispensary" → **Eat, Drink & Stay**
+- Heart and Home (heart-and-home-grass-valley) — museCategory "Gifts" → **Shops & Makers**
+- Hola! Tortilla (hola-tortilla-nevada-city) — museCategory "Tortilleria" → **Eat, Drink & Stay**
+- Inner Path (inner-path-nevada-city) — museCategory "Yoga / Meditation / Wellness / Home Goods" → **Shops & Makers**
+- J. Breuer Clothing (j-breuer-clothing-grass-valley) — museCategory "Apparel" → **Shops & Makers**
+- J.J. Jackson's (j-j-jackson-s-nevada-city) — museCategory "Gifts / Travel / Home Goods" → **Shops & Makers**
+- Kiya’s Naturals (kiya-s-naturals-nevada-city) — museCategory "Children’s Boutique / Gifts" → **Shops & Makers**
+- La Cache (la-cache-nevada-city) — museCategory "—" → **Shops & Makers**
+- LaTeDa (lateda-grass-valley) — museCategory "Women's Apparel" → **Shops & Makers**
+- Lola and Jack (lola-and-jack-grass-valley) — museCategory "Gifts / Home Goods" → **Shops & Makers**
+- Long's Bottle Shop (long-s-bottle-shop-grass-valley) — museCategory "Specialty Beverages" → **Eat, Drink & Stay**
+- Main Street Kids (main-street-kids-nevada-city) — museCategory "Children's Boutique / Consignment / Toys" → **Shops & Makers**
+- Make Local Habit (make-local-habit-grass-valley) — museCategory "Local Gifts / Local Art" → **Galleries & Studios**
+- Mama Madrones (mama-madrones-nevada-city) — museCategory "—" → **Shops & Makers**
+- Marley Lane (marley-lane-grass-valley) — museCategory "Apparel / Consignment / Gif" → **Shops & Makers**
+- Mint (mint-grass-valley) — museCategory "Women’s Apparel" → **Shops & Makers**
+- Moms & Minis (moms-and-minis-grass-valley) — museCategory "Children’s Boutique / Maternit" → **Shops & Makers**
+- Mountain Pastimes (mountain-pastimes-nevada-city) — museCategory "Toys / Games" → **Shops & Makers**
+- Native Wren (native-wren-grass-valley) — museCategory "Women's Apparel" → **Shops & Makers**
+- Nevada City Crystal & Glass Shop (nevada-city-crystal-and-glass-shop-nevada-city) — museCategory "—" → **Shops & Makers**
+- Nightingale Farms (nightingale-farms-grass-valley) — museCategory "Health / Bath and Body" → **Shops & Makers**
+- Novak's Menswear (novak-s-menswear-nevada-city) — museCategory "Men’s Apparel / Tuxedo Rental" → **Shops & Makers**
+- Of Earth and Salt (of-earth-and-salt-nevada-city) — museCategory "Women’s Apparel" → **Shops & Makers**
+- Remedy Garden (remedy-garden-nevada-city) — museCategory "Apothecary / Herbal Medicine" → **Eat, Drink & Stay**
+- Shiva Moon (shiva-moon-nevada-city) — museCategory "Jewelry / Apparel / Decor / Gifts" → **Shops & Makers**
+- SoulCrafts (soulcrafts-nevada-city) — museCategory "Apparel" → **Shops & Makers**
+- Stucki Jewelers Inc. (stucki-jewelers-inc-grass-valley) — museCategory "Fine Jewelry / Custom Jeweler" → **Shops & Makers**
+- Sugar and Spice (sugar-and-spice-grass-valley) — museCategory "—" → **Shops & Makers**
+- Tess' Kitchen and Culinary (tess-kitchen-and-culinary-grass-valley) — museCategory "Kitchen Supply" → **Shops & Makers**
+- The Earth Store (the-earth-store-nevada-city) — museCategory "Gifts" → **Shops & Makers**
+- The Fates Fine Jewelry (the-fates-fine-jewelry-nevada-city) — museCategory "Fine Jewelry / Custom Jeweler" → **Shops & Makers**
+- The Hat Store (the-hat-store-nevada-city) — museCategory "—" → **Shops & Makers**
+- The Melo Plant Shop (the-melo-plant-shop-nevada-city) — museCategory "Plants / Gifts / Home Goods" → **Shops & Makers**
+- The Olive Groove (the-olive-groove-grass-valley) — museCategory "Olive Oil / Balsamic Vinegar" → **Eat, Drink & Stay**
+- The Outpost (the-outpost-nevada-city) — museCategory "Organic Grocery" → **Eat, Drink & Stay**
+- The Phoenix Rose (the-phoenix-rose-nevada-city) — museCategory "Apparel" → **Shops & Makers**
+- Tour of Nevada City Bicycle Shop (tour-of-nevada-city-bicycle-shop-nevada-city) — museCategory "Bicycle Shop / Rentals / Repairs" → **Shops & Makers**
+- Tribal Weaver (tribal-weaver-grass-valley) — museCategory "Apparel / Gifts" → **Shops & Makers**
+- Two Little Birds (two-little-birds-nevada-city) — museCategory "Children's Boutique" → **Shops & Makers**
+- Wild Side (wild-side-grass-valley) — museCategory "Clothing Boutique" → **Shops & Makers**
+- Winnie Superette (winnie-superette-nevada-city) — museCategory "Asian Market" → **Eat, Drink & Stay**
+- Yabobo (yabobo-nevada-city) — museCategory "Gifts / Rhythm Instruments" → **Shops & Makers**
+- Yuba Blue (yuba-blue-grass-valley) — museCategory "—" → **Shops & Makers**
+- Tahoe Truckee Pride Foundation (tahoe-truckee-pride-foundation-truckee) — museCategory "—" → **Galleries & Studios**
+- BobbieMoon Video (bobbiemoon-video) — museCategory "Video Production" → **Shops & Makers**
+- Filmprojects (filmprojects-penn-valley) — museCategory "—" → **Shops & Makers**
+- Gratitudes Gifts & Home Decor (gratitudes-gifts-and-home-decor-truckee) — museCategory "& Home Decor Design Services / Home Goods / Gifts" → **Shops & Makers**
+- Love and Lupines Floral Design (love-and-lupines-floral-design-truckee) — museCategory "Floral Design Floral Design" → **Shops & Makers**
+- Mountain Forge Inc. (mountain-forge-inc-truckee) — museCategory "—" → **Shops & Makers**
+- Nevada County Arts Council and Truckee Cultural District (nevada-county-arts-council-and-truckee-cultural-district-truckee) — museCategory "—" → **Shops & Makers**
+- Snowy Mountain Tattoo Co. (snowy-mountain-tattoo-co-truckee) — museCategory "Tattoo Co. Tattoo" → **Galleries & Studios**
+- Swazzle Inc. (swazzle-inc) — museCategory "Puppet Company" → **Shops & Makers**
+- TIP Printing & Graphics (tip-printing-and-graphics-truckee) — museCategory "—" → **Shops & Makers**
+- Tahoe Print Shop (tahoe-print-shop-truckee) — museCategory "Print Shop / Graphic Design" → **Shops & Makers**
+- Technical Equipment Cleaners (technical-equipment-cleaners-truckee) — museCategory "Gear Repair" → **Shops & Makers**
+- The Office Boss (the-office-boss-truckee) — museCategory "Print Shop / Graphic Design / Office and Art Supply" → **Galleries & Studios**
+- Truth Tattoo (truth-tattoo-truckee) — museCategory "Tattoo" → **Galleries & Studios**
+- W&T Graphix (wandt-graphix-truckee) — museCategory "Screen Printing / Embroidery" → **Shops & Makers**
+- Lift Cowork, Conference & Wellness Center (lift-cowork-conference-and-wellness-center-truckee) — museCategory "Cowork Space / Conference Center / Gym" → **Shops & Makers**
+- Sierra Commons (sierra-commons) — museCategory "—" → **Shops & Makers**
+- Café Lupine (caf-lupine-truckee) — museCategory "Coffee / Bakery / Restaurant" → **Eat, Drink & Stay**
+- Coffeebar Bakery (coffeebar-bakery-truckee) — museCategory "Coffee / Bakery / Local Art" → **Eat, Drink & Stay**
+- Cornerstone Bakery & Kitchen (cornerstone-bakery-and-kitchen-truckee) — museCategory "—" → **Shops & Makers**
+- Crazy 4 Yogurt (crazy-4-yogurt-penn-valley) — museCategory "Frozen Yogurt" → **Eat, Drink & Stay**
+- Dark Horse Coffee Roasters Truckee (dark-horse-coffee-roasters-truckee-truckee) — museCategory "Coffee / Roastery / Books / Records" → **Eat, Drink & Stay**
+- Dorinda’s Chocolates (dorinda-s-chocolates-truckee) — museCategory "Chocolate" → **Eat, Drink & Stay**
+- Drink Coffee Do Stuff (drink-coffee-do-stuff-truckee) — museCategory "Coffee / Restaurant" → **Eat, Drink & Stay**
+- Java Dream Coffee Roasters (java-dream-coffee-roasters-penn-valley) — museCategory "Coffee Roasters Coffee / Bakery / Roastery" → **Eat, Drink & Stay**
+- Mi Pueblito Market (mi-pueblito-market-truckee) — museCategory "Mexican Market" → **Eat, Drink & Stay**
+- Mountain Brew (mountain-brew-truckee) — museCategory "Coffee / Restaurant" → **Eat, Drink & Stay**
+- New Moon Natural Foods (new-moon-natural-foods-truckee) — museCategory "Grocery" → **Eat, Drink & Stay**
+- Sierra Bakehouse (sierra-bakehouse-truckee) — museCategory "Bakery" → **Eat, Drink & Stay**
+- Summit Swirl (summit-swirl-truckee) — museCategory "Frozen Yogurt" → **Eat, Drink & Stay**
+- Sweets Handmade Candies (sweets-handmade-candies-truckee) — museCategory "Candies / Chocolate" → **Eat, Drink & Stay**
+- The Truckee Food Shop (the-truckee-food-shop-truckee) — museCategory "Market / Deli" → **Eat, Drink & Stay**
+- Truckee Cookies (truckee-cookies-truckee) — museCategory "—" → **Eat, Drink & Stay**
+- Whole Treats Bakery & Coffee House (whole-treats-bakery-and-coffee-house-truckee) — museCategory "—" → **Shops & Makers**
+- Zander's The BottleShop (zander-s-the-bottleshop-truckee) — museCategory "—" → **Eat, Drink & Stay**
+- Zuri Coffee Co. (zuri-coffee-co-truckee) — museCategory "Coffee Shop / Restaurant" → **Eat, Drink & Stay**
+- Bespoke & Atelier (bespoke-and-atelier-truckee) — museCategory "Local Gifts / Local Art / Yarn Supply" → **Galleries & Studios**
+- Bluestone Jewelry & Wine (bluestone-jewelry-and-wine-truckee) — museCategory "Fine Jewelry / Wine" → **Eat, Drink & Stay**
+- Buoy & Trap Seafood Market (buoy-and-trap-seafood-market-truckee) — museCategory "—" → **Shops & Makers**
+- Cabona’s (cabona-s-truckee) — museCategory "Apparel" → **Shops & Makers**
+- California 89 (california-89-truckee) — museCategory "Apparel" → **Shops & Makers**
+- Cultural Threads (cultural-threads-truckee) — museCategory "Gifts / Home Goods / Jewelry" → **Shops & Makers**
+- Dressed Boutique (dressed-boutique-truckee) — museCategory "Apparel" → **Shops & Makers**
+- Echo Blue (echo-blue-truckee) — museCategory "—" → **Shops & Makers**
+- Good Anya Plant Shop (good-anya-plant-shop-truckee) — museCategory "Plants / Gifts / Home Goods" → **Shops & Makers**
+- Hello Clogs (hello-clogs) — museCategory "—" → **Shops & Makers**
+- Juniper Boutique (juniper-boutique-truckee) — museCategory "Women’s Apparel / Accessories" → **Shops & Makers**
+- Kalifornia Jean Bar (kalifornia-jean-bar-truckee) — museCategory "Apparel" → **Shops & Makers**
+- Marilyn’s Catwalk (marilyn-s-catwalk-truckee) — museCategory "Women’s Apparel" → **Shops & Makers**
+- Mo, Jo & Zoe (mo-jo-and-zoe-truckee) — museCategory "Apparel" → **Shops & Makers**
+- Nomad Boutique (nomad-boutique-truckee) — museCategory "Women’s Apparel" → **Shops & Makers**
+- Sticks Market (sticks-market-truckee) — museCategory "Grocery / Deli" → **Eat, Drink & Stay**
+- Tahoe Mountain Life (tahoe-mountain-life-truckee) — museCategory "Apparel" → **Shops & Makers**
+- Tahoe Oil & Spice (tahoe-oil-and-spice) — museCategory "Olive Oil / Balsamic Vinegar" → **Eat, Drink & Stay**
+- Tahoe Truckee Jerky (tahoe-truckee-jerky-truckee) — museCategory "—" → **Eat, Drink & Stay**
+- Tahoe-Truckee T-Shirtery (tahoe-truckee-t-shirtery-truckee) — museCategory "Apparel" → **Shops & Makers**
+- The Cooking Gallery (the-cooking-gallery-truckee) — museCategory "Kitchen Supply" → **Shops & Makers**
+- The Farmacy (the-farmacy-truckee) — museCategory "Grocery" → **Eat, Drink & Stay**
+- The Sock Parlour (the-sock-parlour-truckee) — museCategory "Apparel" → **Shops & Makers**
+- Whim Be Beautiful (whim-be-beautiful-penn-valley) — museCategory "—" → **Shops & Makers**
+- White Buffalo (white-buffalo-truckee) — museCategory "Jewelry / Home Goods / Gifts" → **Shops & Makers**
+- Wildflower Nursery (wildflower-nursery-penn-valley) — museCategory "Garden & Gift Shoppe Nursery / Garden Supply / Gifts" → **Shops & Makers**
+- Z Market Place (z-market-place-truckee) — museCategory "Grocery / Deli" → **Eat, Drink & Stay**
+- ela chapman (ela-chapman-truckee) — museCategory "Women’s Apparel" → **Shops & Makers**
+- truckee love. (truckee-love-truckee) — museCategory "Apparel" → **Shops & Makers**
+
+## 6. Parse notes (lines the parser could not classify — transparency)
+
+- Headquarters (MUSE 2024 p.68): extra phone: 530 264 6740
+- Tuscany Gardens (MUSE 2026 p.97): extra phone: 530 271 1300
+- SPD Markets (MUSE 2026 p.97): extra phone: 530 272 5000
+- Truckee Dance Factory (MUSE 2026 p.101): extra phone: 530 582 4007
+- Truckee Brewing Company Brewery / Restaurant / Taproom (MUSE 2026 p.103): extra phone: 530 214 8001

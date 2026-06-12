@@ -18,11 +18,12 @@
   };
 
   const MARKERS = {
-    place: "#1a1a2e",
+    // Canonical NCAC ink (#1A1A1A) — was a navy drift (#1a1a2e).
+    place: "#1a1a1a",
     quiet: "#5d625b",
     red: "#ff2e00",
     paper: "#ffffff",
-    ink: "#1a1a2e",
+    ink: "#1a1a1a",
   };
   // CLA-34: color place dots by outing group (derived from category). The mapping
   // and the MapLibre match expression live in marker-category-color.js (unit-tested,
@@ -46,37 +47,44 @@
   };
 
   // CLA-27: active basemap is the OpenFreeMap "Liberty" street style (free, no API key).
-  // The QUIET_BASEMAP palette + applyCustomBasemapStyling() below are retained for the
-  // legacy Positron quiet base but are NOT applied to the street basemap.
   const STREET_BASEMAP_STYLE = "https://tiles.openfreemap.org/styles/liberty";
 
-  const QUIET_BASEMAP = {
-    standard: {
-      background: "#f4f5f1",
-      water: "#e1e7e3",
-      waterLine: "#d4ddd8",
-      landcover: "#eef1ec",
-      landuse: "#f0f2ee",
-      residential: "#f5f6f3",
-      park: "#e7eee5",
-      building: "#e7e8e2",
-      buildingTop: "#eff0eb",
-      roadCaseOpacity: 0.1,
-      roadFillOpacity: 0.34,
-    },
-    twilight: {
-      background: "#eff1ed",
-      water: "#dbe3de",
-      waterLine: "#cfd9d3",
-      landcover: "#e8ede7",
-      landuse: "#ecefeb",
-      residential: "#f1f3f0",
-      park: "#dde8dd",
-      building: "#dedfd8",
-      buildingTop: "#e8e9e4",
-      roadCaseOpacity: 0.08,
-      roadFillOpacity: 0.22,
-    },
+  // Warmth pass 4 (cla-65): the stock Liberty palette (cool greys, saturated
+  // greens, blue water, orange motorways) reads stock-Google next to the brand's
+  // warm paper surfaces. WARM_BASEMAP retints every tile layer at runtime via
+  // setPaintProperty after style load (NOT a CSS canvas filter — that muddies
+  // water and labels). Direction owner-validated 2026-06-11 with a live
+  // saturate(.45)+sepia(.22) experiment. All values are plain color strings, so
+  // no paint-expression validity risk; layers are matched from the loaded
+  // style's own layer list by source-layer + id pattern, never hardcoded blind.
+  const WARM_BASEMAP = {
+    background: "#f2ecdc", // paper-warm ground, a step deeper than --paper so panels still lift
+    water: "#a9b6b3", // single muted slate for lakes, rivers, and waterway lines
+    parkFill: "#e2e3c9", // warm paper-sage range for everything green
+    parkOutline: "#cdd0ae",
+    wood: "#dcdec4",
+    grass: "#e7e7cd",
+    wetland: "#e4e7d2",
+    ice: "#f0eee2",
+    sand: "#eee5cb",
+    residential: "#efe8d6",
+    landuse: "#e9e5d0",
+    building: "#e6decb",
+    buildingOutline: "#d8cdb6",
+    aeroway: "#ece6d4",
+    rail: "#cfc5b2",
+    roadCasing: "#dcd3c0", // quiet warm neutrals; ink hierarchy comes from value steps
+    majorCasing: "#c8bba1",
+    motorway: "#ebdab6",
+    trunkPrimary: "#f1e8d0",
+    secondaryTertiary: "#f8f3e5",
+    minor: "#fbf8ee",
+    path: "#d8d0c6",
+    boundary: "#b5ab9b",
+    placeLabel: "#3e3a33", // town names: near-ink, still the loudest tile text
+    roadLabel: "#8a8174", // street names: muted so app content stays the loud layer
+    waterLabel: "#5e7378",
+    labelHalo: "#faf6ec",
   };
 
   const ANCHOR_ICON_TEXT = {
@@ -96,7 +104,6 @@
     "Fairs & Festivals": "assets/category-placeholders-ncac/fairs-festivals.png",
     "Galleries & Studios": "assets/category-placeholders-ncac/galleries-studios.png",
     "Historic Places": "assets/category-placeholders-ncac/historic-places.png",
-    "MUSE Picks": "assets/category-placeholders-ncac/muse-picks.png",
     "Performing Arts": "assets/category-placeholders-ncac/performing-arts.png",
     "Public Art": "assets/category-placeholders-ncac/public-art.png",
     "Shops & Makers": "assets/category-placeholders-ncac/shops-makers.png",
@@ -106,7 +113,7 @@
   const OUTING_TYPES = [
     {
       label: "Art",
-      matchCategories: ["Arts Organizations", "Creative Services", "Galleries & Studios", "MUSE Picks", "Public Art"],
+      matchCategories: ["Arts Organizations", "Creative Services", "Galleries & Studios", "Public Art"],
       matchIntents: ["Galleries & Studios"],
     },
     {
@@ -153,7 +160,16 @@
     selectedPath: null,
     selectedPlaceId: "",
     selectedEventId: "",
+    // Flight sequence counter (drift mining, 2026-06-12): a new selection
+    // flight invalidates the previous one's moveend, so a superseded flight
+    // never deals a stale card on arrival.
+    flightSeq: 0,
     eventLens: "all",
+    // "Featured in MUSE" (owner ruling 2026-06-11): membership is derived at
+    // runtime from muse-stories.json exact placeIds — a place is featured only
+    // if a real article links it. Directory listing alone never qualifies.
+    featuredInMuseOnly: false,
+    museFeaturedIds: new Set(),
     surprisePlaceIds: [],
     searchQuery: "",
     localReveal: null,
@@ -162,6 +178,14 @@
     map: null,
     markerPreviewPopup: null,
     previewPlaceId: "",
+    // Discovery Rail (ADR 0002, variant B). railFocusPlaceId carries the
+    // Rail Follow marker highlight through the same hover-ring filter seam
+    // as previewPlaceId — no new paint expressions, no new layers.
+    railItems: [],
+    railFilter: "all",
+    railFocusPlaceId: "",
+    railLastFollowIndex: -1,
+    railSuppressFollow: false,
     pathMarkers: [],
     smartLabels: [],
     labelsActive: false,
@@ -176,6 +200,9 @@
     hint: document.getElementById("featured-hint"),
     search: document.getElementById("place-search"),
     placesList: document.getElementById("places-list"),
+    rail: document.getElementById("discovery-rail"),
+    railTrack: document.getElementById("rail-track"),
+    railResetChip: document.getElementById("rail-reset-chip"),
   };
 
   // CLA-42: when the OS requests reduced motion, swap MapLibre's animated camera
@@ -229,7 +256,7 @@
         category: place.category,
         intent: place.intent,
         featured: Boolean(place.featured),
-        musePick: Boolean(place.musePick),
+        featuredInMuse: state.museFeaturedIds.has(place.id),
         anchor: Boolean(place.anchor),
         markerTier: place.markerTier || "map-ready",
         candidate: place.markerTier === "candidate",
@@ -293,14 +320,25 @@
     refreshHoverState(previousPreviewId);
   }
 
+  // The hover ring is the existing lightweight highlight seam (setFilter, no
+  // source rebuild). It now serves two states: marker hover (previewPlaceId)
+  // and Rail Follow focus (railFocusPlaceId). The filter stays a plain
+  // top-level expression - no zoom-in-case anywhere near marker paint.
+  function applyHoverRingFilter() {
+    if (!state.map || !state.map.getLayer("place-hover-ring")) return;
+    state.map.setFilter("place-hover-ring", [
+      "all", ["!", ["has", "point_count"]],
+      ["any",
+        ["==", ["get", "id"], state.previewPlaceId || " "],
+        ["==", ["get", "id"], state.railFocusPlaceId || " "],
+      ],
+    ]);
+  }
+
   // Repaint the hovered dot red (lightweight setFilter, no source rebuild) and
   // refresh smart labels so the previewed place gets a label.
   function refreshHoverState(previousPreviewId) {
-    if (state.map && state.map.getLayer("place-hover-ring")) {
-      state.map.setFilter("place-hover-ring", [
-        "all", ["!", ["has", "point_count"]], ["==", ["get", "id"], state.previewPlaceId || " "],
-      ]);
-    }
+    applyHoverRingFilter();
     if (previousPreviewId !== state.previewPlaceId) updateSmartLabels();
   }
 
@@ -431,9 +469,11 @@
   }
 
   function filteredPlaces() {
-    if (!state.activeIntents.size) return state.places;
+    // "Featured in MUSE" ANDs with the outing-type filters (PRD §9 Q2).
+    const base = state.featuredInMuseOnly ? state.places.filter((place) => state.museFeaturedIds.has(place.id)) : state.places;
+    if (!state.activeIntents.size) return base;
     const activeOutingTypes = [...state.activeIntents].map(outingTypeFor).filter(Boolean);
-    return state.places.filter((place) => activeOutingTypes.some((outingType) => placeMatchesOutingType(place, outingType)));
+    return base.filter((place) => activeOutingTypes.some((outingType) => placeMatchesOutingType(place, outingType)));
   }
 
   function distanceMiles(a, b) {
@@ -500,7 +540,7 @@
   }
 
   function isBrowseStartingView() {
-    return state.mode === "places" && !state.searchQuery.trim() && !state.activeIntents.size;
+    return state.mode === "places" && !state.searchQuery.trim() && !state.activeIntents.size && !state.featuredInMuseOnly;
   }
 
   function isMobileViewport() {
@@ -564,6 +604,7 @@
   }
 
   function renderPlacesList() {
+    syncBrowseChrome();
     if (!els.placesList) return;
     const query = state.searchQuery.trim();
     const places = listedPlaces();
@@ -577,16 +618,12 @@
       els.placesList.innerHTML = `
         <div class="places-list-empty">
           <p>No places match ${query ? `"${escapeHtml(query)}"` : "this filter"}.</p>
-          ${state.activeIntents.size ? `<button class="filter-chip" type="button" id="clear-place-filters">Clear filters</button>` : ""}
+          ${state.activeIntents.size || state.featuredInMuseOnly ? `<button class="filter-chip" type="button" id="clear-place-filters">Clear filters</button>` : ""}
         </div>
       `;
-      els.placesList.querySelector("#clear-place-filters")?.addEventListener("click", () => {
-        state.activeIntents.clear();
-        renderFilters();
-        setSourceData();
-        renderFeaturedAnchor();
-        updateReviewUrl();
-      });
+      // Mode is already places here — delegate to the shared reset so search
+      // and local reveal clear too, exactly like the rail reset chip.
+      els.placesList.querySelector("#clear-place-filters")?.addEventListener("click", resetToBrowseStartingView);
       return;
     }
     const shown = places.slice(0, limit);
@@ -715,7 +752,7 @@
     if (f.previewed) return 1;
     if (f.isAnchor) return 2;
     if (f.featured) return 3;
-    if (f.musePick) return 4;
+    if (f.featuredInMuse) return 4;
     if (f.sampler || f.currentContext) return 5;
     return 6;
   }
@@ -770,7 +807,7 @@
         const nearbyDensity = nearbyPlaceDensity(place, mapReadyPlaces);
         const isAnchor = Boolean(place.anchor);
         const featured = Boolean(place.featured);
-        const musePick = Boolean(place.musePick);
+        const featuredInMuse = state.museFeaturedIds.has(place.id);
         const selected = place.id === state.selectedPlaceId;
         const previewed = place.id === state.previewPlaceId;
         const sampler = state.browseSamplerPlaceIds.includes(place.id);
@@ -783,12 +820,12 @@
           isAnchor,
           anchorPriority: (isAnchor && Number.isFinite(place.anchor.priority)) ? place.anchor.priority : 99,
           featured,
-          musePick,
+          featuredInMuse,
           sampler,
           currentContext,
           selected,
           previewed,
-          importanceTier: importanceTier({ selected, previewed, isAnchor, featured, musePick, sampler, currentContext }),
+          importanceTier: importanceTier({ selected, previewed, isAnchor, featured, featuredInMuse, sampler, currentContext }),
           centerDistance,
           nearbyDensity,
           screenPos,
@@ -956,6 +993,14 @@
     openSelectionDrawer();
   }
 
+  // "Featured in MUSE" chip (owner ruling 2026-06-11): filters to places with
+  // at least one exact MUSE article link (muse-stories.json). The old
+  // directory-derived "MUSE Picks" flag is retired — provenance, not a badge.
+  function featuredInMuseChip() {
+    const count = state.places.filter((place) => state.museFeaturedIds.has(place.id)).length;
+    return `<button class="featured-muse-chip${state.featuredInMuseOnly ? " active" : ""}" type="button" data-featured-muse aria-pressed="${state.featuredInMuseOnly ? "true" : "false"}">Featured in MUSE <span class="featured-muse-chip-count">${escapeHtml(count)}</span></button>`;
+  }
+
   function renderFilters() {
     // CLA-20: lead with an Outing Type browse list (a way in); once a lane is
     // chosen, collapse to a compact active-filter bar. The full list re-opens
@@ -980,6 +1025,7 @@
             <span class="outing-browse-title">What are you in the mood for?</span>
             ${hasActive ? `<button class="outing-done" type="button" data-outing-done>Done</button>` : ""}
           </div>
+          ${featuredInMuseChip()}
           <div class="outing-list" role="group" aria-label="Outing types">${rows}</div>
           <button class="surprise-button" type="button" data-surprise>Surprise me nearby</button>
           <button class="surprise-button story-lens-button" type="button" data-muse-stories>Stories from MUSE</button>
@@ -992,6 +1038,7 @@
       els.filters.innerHTML = `
         <div class="outing-active-bar">
           ${pills}
+          ${featuredInMuseChip()}
           <button class="outing-change" type="button" data-outing-change aria-expanded="false">Change ▾</button>
         </div>`;
     }
@@ -1015,6 +1062,10 @@
       refreshAfterChange();
     };
 
+    els.filters.querySelector("[data-featured-muse]")?.addEventListener("click", () => {
+      state.featuredInMuseOnly = !state.featuredInMuseOnly;
+      refreshAfterChange();
+    });
     els.filters.querySelector("[data-surprise]")?.addEventListener("click", renderSurprise);
     els.filters.querySelector("[data-muse-stories]")?.addEventListener("click", renderStoryList);
     els.filters.querySelectorAll(".outing-row").forEach((button) => {
@@ -1076,9 +1127,9 @@
   }
 
   function setDetailCardMode(mode) {
-    els.detail.classList.toggle("primary-anchor-card", mode === "primary-anchor");
-    els.detail.classList.toggle("supporting-stop-card", mode === "supporting-stop");
+    els.detail.classList.toggle("place-feature-card", mode === "place");
     els.detail.classList.toggle("path-detail-card", mode === "path");
+    els.detail.classList.toggle("event-feature-card", mode === "event");
   }
 
   function resolvePlaceImage(place) {
@@ -1089,16 +1140,78 @@
     });
   }
 
+  // ONE image-fallback mechanism (warmth-fixes C2): markup builders emit
+  // data-img-fallback="placeholder|remove|event|poster" (plus a data-fallback
+  // src where a stand-in image exists) and this single delegated capture-phase
+  // listener handles every broken image. No JS-in-HTML onerror strings.
+  function handleImageFallback(errorEvent) {
+    const img = errorEvent.target;
+    if (!(img instanceof HTMLImageElement)) return;
+    const mode = img.dataset.imgFallback;
+    if (!mode) return;
+    delete img.dataset.imgFallback; // each image gets exactly one fallback attempt
+    if (mode === "remove") {
+      // Hint feature image: the copy block stands alone without it.
+      img.remove();
+      return;
+    }
+    if (mode === "placeholder") {
+      // Place photo (renderImage): swap to the category placeholder. The
+      // photographer credit belongs to the failed photo, not the stand-in, so
+      // it goes; the name/city caption bar stays; the standard "not yet
+      // sourced" label appears (CSS lifts it above the caption bar).
+      img.src = img.dataset.fallback || "assets/placeholders/gallery-studio.webp";
+      img.classList.add("placeholder-image");
+      img.alt = "NCAC category placeholder image";
+      const figure = img.closest("figure");
+      if (!figure) return;
+      figure.querySelector(".place-photo-caption small")?.remove();
+      figure.querySelector("figcaption:not(.place-photo-caption)")?.remove(); // corner credit chip
+      if (!figure.querySelector(".placeholder-label")) {
+        const label = document.createElement("span");
+        label.className = "placeholder-label";
+        label.textContent = "Photo not yet sourced";
+        figure.appendChild(label);
+      }
+      return;
+    }
+    if (mode === "event") {
+      // Event photo: keep the figure — its figcaption names the venue/city —
+      // and swap the image for the venue's category placeholder.
+      img.src = img.dataset.fallback || "assets/placeholders/gallery-studio.webp";
+      img.classList.add("placeholder-image");
+      img.alt = "";
+      return;
+    }
+    if (mode === "poster") {
+      // Rail card: a dead image becomes the designed imageless poster card
+      // instead of a bare paper card.
+      const card = img.closest(".rail-card");
+      img.remove();
+      if (!card || card.classList.contains("rail-card-poster")) return;
+      const type = (card.className.match(/rail-card-(event|place|story|path)/) || [])[1] || "event";
+      const index = Number(card.dataset.railIndex) || 0;
+      railPosterClasses(type, index).forEach((cls) => card.classList.add(cls));
+    }
+  }
+  document.addEventListener("error", handleImageFallback, true);
+
   function renderImage(place, options = {}) {
     const imageLabel = options.imageLabel || options.proofLabel || "";
     const proofLabel = imageLabel ? `<span class="image-proof-label">${escapeHtml(imageLabel)}</span>` : "";
     const resolved = resolvePlaceImage(place);
     if (resolved.isRealImage) {
+      // Warmth-pass 2 (mockup B): when a caption is supplied the photo carries
+      // a full-width ink caption bar (name/city), with the credit tucked in
+      // small; otherwise the old corner credit chip renders.
+      const caption = options.caption
+        ? `<figcaption class="place-photo-caption"><span>${escapeHtml(options.caption)}</span>${resolved.credit ? `<small>${escapeHtml(resolved.credit)}</small>` : ""}</figcaption>`
+        : resolved.credit ? `<figcaption>${escapeHtml(resolved.credit)}</figcaption>` : "";
       return `
         <figure class="place-image-frame">
           ${proofLabel}
-          <img class="place-image" src="${escapeHtml(resolved.src)}" alt="${escapeHtml(resolved.alt || place.name)}" width="640" height="360" loading="lazy" decoding="async">
-          ${resolved.credit ? `<figcaption>${escapeHtml(resolved.credit)}</figcaption>` : ""}
+          <img class="place-image" src="${escapeHtml(resolved.src)}" alt="${escapeHtml(resolved.alt || place.name)}" width="640" height="360" loading="lazy" decoding="async" data-fallback="${escapeHtml(categoryPlaceholderFor(place.category) || "assets/placeholders/gallery-studio.webp")}" data-img-fallback="placeholder">
+          ${caption}
         </figure>
       `;
     }
@@ -1135,6 +1248,16 @@
   function firstSentence(text) {
     const match = String(text || "").match(/^.*?[.!?](?=\s|$)/);
     return (match ? match[0] : String(text || "")).slice(0, 160);
+  }
+
+  // Some venue feeds prefix event copy with SHOUTING boilerplate
+  // ("GET YOUR TICKETS Soul Brass Band is…"). Display-only normalization —
+  // the source data in data/events.json stays untouched. Place descriptions
+  // are NOT run through this: all-caps there can be the venue's own brand
+  // voice ("DRINK COFFEE DO STUFF") — those offenders are logged in
+  // data/source-text-review.md for a human pass instead.
+  function displayEventDescription(text) {
+    return String(text || "").replace(/^GET YOUR TICKETS\s+/, "");
   }
 
   function rollSurprise() {
@@ -1348,6 +1471,56 @@
     `;
   }
 
+  // MUSE Business Directory flip-book deep link. Same mechanism as
+  // museArticleUrl(): Heyzine's #page/N. Per-issue page offsets between the
+  // printed page number (stored as musePage by the reconciliation pass) and
+  // the flip-book's page index — 0 for all three issues today (the flip-books
+  // are page-faithful exports of the print PDFs; same one-page drift caveat
+  // as the Story Lens applies).
+  const MUSE_DIRECTORY_PAGE_OFFSETS = { 2024: 0, 2025: 0, 2026: 0 };
+
+  function museDirectoryUrl(place) {
+    const latestIssue = Array.isArray(place.museIssues) && place.museIssues.length
+      ? place.museIssues[place.museIssues.length - 1]
+      : null;
+    const base = latestIssue ? MUSE_ISSUE_URLS[latestIssue] : "";
+    if (!base) return "";
+    const page = Number(place.musePage) + (MUSE_DIRECTORY_PAGE_OFFSETS[latestIssue] || 0);
+    return Number.isFinite(page) && page > 0 ? `${base}#page/${page}` : base;
+  }
+
+  // Card badge for the MUSE directory layer (PRD §4.3/§4.4): honest issue
+  // year (latest appearance), the directory's own category label riding
+  // along (never replacing the map category), and the flip-book deep link.
+  function museDirectoryBadge(place) {
+    if (!Array.isArray(place.museIssues) || !place.museIssues.length) return "";
+    const latestIssue = place.museIssues[place.museIssues.length - 1];
+    const url = museDirectoryUrl(place);
+    const label = `Listed in the MUSE ${latestIssue} directory`;
+    return `
+      <div class="muse-directory-badge" aria-label="MUSE Business Directory listing">
+        ${url
+          ? `<a class="muse-directory-badge-link" href="${escapeHtml(url)}" target="_blank" rel="noopener">${escapeHtml(label)} ›</a>`
+          : `<span class="muse-directory-badge-link">${escapeHtml(label)}</span>`}
+        ${place.museCategory ? `<span class="muse-directory-category">${escapeHtml(place.museCategory)}</span>` : ""}
+      </div>
+    `;
+  }
+
+  // "Featured in MUSE" card badge (owner ruling 2026-06-11): earned only by an
+  // exact article link in muse-stories.json; opens the story on the map (the
+  // story card carries the flip-book link to the article itself).
+  function featuredInMuseBadge(place) {
+    const stories = storiesForPlace(place.id);
+    if (!stories.length) return "";
+    const story = stories[0];
+    return `
+      <div class="featured-muse-badge" aria-label="Featured in MUSE Magazine">
+        <button class="featured-muse-badge-link" type="button" data-place-story="${escapeHtml(story.id)}">Featured in MUSE — ${escapeHtml(story.title)} ›</button>
+      </div>
+    `;
+  }
+
   function directoryRecordMeta(place) {
     const rows = [
       place.address ? ["Address", escapeHtml(place.address)] : null,
@@ -1436,23 +1609,34 @@
     const places = filteredPlaces();
     const place = places[0];
     const filterLabel = [...state.activeIntents].sort().join(", ");
-    setDetailCardMode("");
     if (!place) {
+      setDetailCardMode("");
       els.hint.innerHTML = `<p class="hint-title">No places match this Outing Type</p><p>Try another broad outing lane to bring places back onto the map.</p>`;
       els.detail.innerHTML = `<p class="empty-title">No matching places</p><p class="empty-copy">The active filter does not currently match any mapped places.</p>`;
       return;
     }
     els.hint.innerHTML = `<p class="hint-title">Outing Type selected</p><p>${escapeHtml(places.length)} places match ${escapeHtml(filterLabel)}.</p>`;
+    // The first match rides the same place-feature card language showPlace
+    // uses (photo + caption, meta column, title block) — no orphaned
+    // anchor-card markup.
+    setDetailCardMode("place");
     els.detail.innerHTML = `
       <button class="selected-place-close" type="button" aria-label="Close selected place">Close</button>
-      ${renderImage(place)}
-      <div class="anchor-card-heading">
-        <p class="detail-eyebrow">First match</p>
-        <h2>${escapeHtml(place.name)}</h2>
-        <p class="detail-location">${escapeHtml(place.category)} / ${escapeHtml(place.city || "Nevada County")}</p>
+      ${renderImage(place, { caption: [place.name, place.city].filter(Boolean).join(", ") })}
+      <div class="place-feature-body">
+        <p class="place-feature-flag">First match</p>
+        <div class="place-feature-head">
+          <div class="place-meta-block">
+            <span class="place-meta-primary">${escapeHtml(place.category || "Cultural place")}</span>
+            <span class="place-meta-secondary">${escapeHtml(place.city || "Nevada County")}</span>
+          </div>
+          <div class="place-feature-title">
+            <h2>${escapeHtml(place.name)}</h2>
+          </div>
+        </div>
+        <p class="detail-description">Select a point or choose another Outing Type to refine the map.</p>
+        <div class="detail-actions"><button type="button" class="anchor-map-action">View on map</button></div>
       </div>
-      <p class="empty-copy">Select a point or choose another Outing Type to refine the map.</p>
-      <div class="detail-actions"><button type="button" class="anchor-map-action">View on map</button></div>
     `;
     els.detail.querySelector(".anchor-map-action")?.addEventListener("click", () => showPlace(place));
     els.detail.querySelector(".selected-place-close")?.addEventListener("click", closeSelectionDrawer);
@@ -1470,14 +1654,14 @@
       els.detail.innerHTML = `<p class="empty-title">Select a place</p><p class="empty-copy">Pick a place to see what makes it worth a visit.</p>`;
       return;
     }
-    setDetailCardMode("primary-anchor");
+    setDetailCardMode("place");
     // Flow-upgrade Stage 2 ("First 30 Seconds" board): the panel opens with a
     // visual host card for the top anchor — photo, its hook, and a direct way
     // in — instead of a text-only hint.
     const hintImage = resolvePlaceImage(place).src || categoryPlaceholderFor(place.category);
     els.hint.innerHTML = `
       <div class="hint-feature">
-        ${hintImage ? `<img class="hint-feature-img" src="${escapeHtml(hintImage)}" alt="${escapeHtml(place.name)}" loading="lazy">` : ""}
+        ${hintImage ? `<img class="hint-feature-img" src="${escapeHtml(hintImage)}" alt="${escapeHtml(place.name)}" loading="lazy" data-img-fallback="remove">` : ""}
         <div class="hint-feature-copy">
           <p class="hint-title">Start here</p>
           <p class="hint-feature-name">${escapeHtml(place.name)}</p>
@@ -1488,16 +1672,23 @@
     els.hint.querySelector(".hint-feature-action")?.addEventListener("click", () => showPlace(place));
     els.detail.innerHTML = `
       <button class="selected-place-close" type="button" aria-label="Close selected place">Close</button>
-      ${renderImage(place)}
-      <div class="anchor-card-heading">
-        <p class="detail-eyebrow">Start here</p>
-        ${anchorBadge(place)}
-        <h2>${escapeHtml(place.name)}</h2>
-        <p class="detail-location">${escapeHtml(place.category)} / ${escapeHtml(place.city || "Nevada County")}</p>
+      ${renderImage(place, { caption: [place.name, place.city].filter(Boolean).join(", ") })}
+      <div class="place-feature-body">
+        <p class="place-feature-flag">Start here</p>
+        <div class="place-feature-head">
+          <div class="place-meta-block">
+            <span class="place-meta-primary">${escapeHtml(place.category || "Cultural place")}</span>
+            <span class="place-meta-secondary">${escapeHtml(place.city || "Nevada County")}</span>
+          </div>
+          <div class="place-feature-title">
+            ${anchorBadge(place)}
+            <h2>${escapeHtml(place.name)}</h2>
+            ${place.anchorCard ? `<p class="anchor-hook">${escapeHtml(place.anchorCard.hook)}</p>` : ""}
+          </div>
+        </div>
+        ${anchorCardMeta(place)}
+        <div class="detail-actions"><button type="button" class="anchor-map-action">View on map</button></div>
       </div>
-      ${place.anchorCard ? `<p class="anchor-hook">${escapeHtml(place.anchorCard.hook)}</p>` : ""}
-      ${anchorCardMeta(place)}
-      <div class="detail-actions"><button type="button" class="anchor-map-action">View on map</button></div>
     `;
     els.detail.querySelector(".anchor-map-action")?.addEventListener("click", () => showPlace(place));
     els.detail.querySelector(".selected-place-close")?.addEventListener("click", closeSelectionDrawer);
@@ -1515,7 +1706,10 @@
     const action = place.website && place.websiteStatus !== "dead" ? `<a href="${escapeHtml(place.website)}" target="_blank" rel="noopener">${escapeHtml(actionLabel)}</a>` : "";
     const isPrimaryAnchor = Boolean(anchor && place.anchorCard);
     const isSupportingStop = Boolean(!anchor && place.anchorCard);
-    setDetailCardMode(isPrimaryAnchor ? "primary-anchor" : isSupportingStop ? "supporting-stop" : "");
+    // Warmth-pass 2 ("warm magazine page", mockup B): every place — anchor or
+    // not — gets the same calm paper feature card. The old primary-anchor /
+    // supporting-stop card chrome (red top borders, gradients) is retired.
+    setDetailCardMode("place");
     const imageLabel = isSupportingStop && place.image?.status === "candidate"
       ? "Candidate image"
       : isSupportingStop && (!place.image?.src || place.image?.status === "missing")
@@ -1556,27 +1750,38 @@
     const provenance = place.descriptionSource?.kind === "venue-website"
       ? `<p class="description-provenance">In their own words — from <a href="${escapeHtml(place.descriptionSource.url)}" target="_blank" rel="noopener">their website</a></p>`
       : "";
+    const hook = place.anchorCard?.hook || anchor?.hook || "";
+    // The card is dealt on touchdown (moveend), not at departure — content
+    // appearing as the camera lands is most of the perceived flight quality.
+    const dealCard = () => {
     els.detail.innerHTML = `
       <button class="selected-place-close" type="button" aria-label="Close selected place">Close</button>
-      ${renderImage(place, imageLabel ? { imageLabel } : {})}
-      <p class="section-label">Place details</p>
-      <div class="${isPrimaryAnchor ? "anchor-card-heading" : "detail-heading"}">
-        <p class="detail-eyebrow">${escapeHtml(place.category || "Cultural place")}</p>
-        ${anchorBadge(place)}
-        <h2>${escapeHtml(place.name)}</h2>
-        <p class="detail-location">${escapeHtml(place.category)} / ${escapeHtml(place.city || "Nevada County")}</p>
+      ${renderImage(place, { caption: [place.name, place.city].filter(Boolean).join(", "), ...(imageLabel ? { imageLabel } : {}) })}
+      <div class="place-feature-body">
+        <div class="place-feature-head">
+          <div class="place-meta-block">
+            <span class="place-meta-primary">${escapeHtml(place.category || "Cultural place")}</span>
+            <span class="place-meta-secondary">${escapeHtml(place.city || "Nevada County")}</span>
+          </div>
+          <div class="place-feature-title">
+            ${anchorBadge(place)}
+            <h2>${escapeHtml(place.name)}</h2>
+            ${hook ? `<p class="anchor-hook">${escapeHtml(hook)}</p>` : ""}
+          </div>
+        </div>
+        ${renderLocationCaveat(place)}
+        ${anchorCardMeta(place)}
+        <p class="detail-description">${escapeHtml(place.anchorCard?.supportingDescription || place.description)}</p>
+        ${provenance}
+        ${featuredInMuseBadge(place)}
+        ${museDirectoryBadge(place)}
+        ${directoryRecordMeta(place)}
+        ${action ? `<div class="detail-actions">${action}</div>` : ""}
+        ${eventHtml}
+        ${renderSeenInMuse(place)}
+        ${pathHtml}
+        ${nearbyHtml}
       </div>
-      ${place.anchorCard ? `<p class="anchor-hook">${escapeHtml(place.anchorCard.hook)}</p>` : anchor ? `<p class="anchor-hook">${escapeHtml(anchor.hook)}</p>` : ""}
-      ${renderLocationCaveat(place)}
-      ${anchorCardMeta(place)}
-      <p class="detail-description">${escapeHtml(place.anchorCard?.supportingDescription || place.description)}</p>
-      ${provenance}
-      ${directoryRecordMeta(place)}
-      ${action ? `<div class="detail-actions">${action}</div>` : ""}
-      ${eventHtml}
-      ${renderSeenInMuse(place)}
-      ${pathHtml}
-      ${nearbyHtml}
     `;
     els.detail.querySelector(".selected-place-close")?.addEventListener("click", closeSelectionDrawer);
     els.detail.querySelectorAll("[data-related-event]").forEach((button) => {
@@ -1606,38 +1811,66 @@
         if (story) renderStory(story);
       });
     });
+    revealDetailCard();
+    };
     if (isPlaceMapReady(place)) {
-      const targetZoom = Math.max(state.map.getZoom(), 13.5);
+      // Selection flight (drift mining, owner zoom ruling): street level so
+      // cross streets resolve; Math.max never zooms OUT a user already deeper.
+      // Brisk high-arc profile from fable-drift's steered hops.
+      const seq = ++state.flightSeq;
+      const targetZoom = Math.max(state.map.getZoom(), 16);
       if (prefersReducedMotion()) {
         state.map.jumpTo({ center: [place.lng, place.lat], zoom: targetZoom });
+        dealCard();
       } else {
-        state.map.flyTo({ center: [place.lng, place.lat], zoom: targetZoom, speed: 0.8 });
+        state.map.flyTo({ center: [place.lng, place.lat], zoom: targetZoom, speed: 1.7, curve: 1.35, maxDuration: 2600, essential: true });
+        state.map.once("moveend", () => { if (seq === state.flightSeq) dealCard(); });
       }
+    } else {
+      dealCard();
     }
-    revealDetailCard();
     updateReviewUrl();
   }
 
+  // Warmth-pass 1 ("charcoal feature", mockup A): the event detail is a dark
+  // editorial surface — ink card, white knockout title, red weighted kicker
+  // for the date ("Tonight" / "Fri, Jun 12"), photo with an ink caption bar
+  // carrying venue + city, red primary action, muted-outline secondary.
   function showEvent(event) {
     expandDrawer();
-    setDetailCardMode("");
+    setDetailCardMode("event");
     state.selectedEventId = event.id;
     state.selectedPlaceId = "";
     state.selectedPath = null;
     setSourceData();
     const place = placeById(event.placeId);
+    const venueLine = [event.placeName, event.city].filter(Boolean).join(", ");
+    const kicker = event.date === todayISO() ? "Tonight" : niceEventDate(event.date);
+    const blurb = displayEventDescription(event.description);
+    // Same media resolution as the rail (buildRailItems), so relative paths
+    // load identically on both surfaces; on a 404 the delegated fallback swaps
+    // in the venue's category placeholder and the figcaption keeps naming the
+    // venue/city — the card never loses its venue.
+    const eventImage = resolveMedia(event.image || "");
+    const eventFallback = categoryPlaceholderFor(place?.category) || "assets/placeholders/gallery-studio.webp";
     els.detail.innerHTML = `
       <button class="selected-place-close" type="button" aria-label="Close selected event">Close</button>
-      ${event.image ? `<img class="place-image" src="${escapeHtml(event.image)}" alt="${escapeHtml(event.title)}" width="640" height="360" loading="lazy" decoding="async">` : ""}
-      <p class="detail-eyebrow">Upcoming event</p>
-      <h2>${escapeHtml(event.title)}</h2>
-      <p>${escapeHtml(event.date)} at ${escapeHtml(event.placeName)}</p>
-      <p>${escapeHtml(event.description)}</p>
-      <div class="detail-actions">
-        ${event.url ? `<a href="${escapeHtml(event.url)}" target="_blank" rel="noopener">Event link</a>` : ""}
-        ${place ? `<button class="filter-chip" type="button" id="event-place-jump">Show place</button>` : ""}
+      ${eventImage ? `
+        <figure class="event-feature-photo">
+          <img class="place-image" src="${escapeHtml(eventImage)}" alt="${escapeHtml(event.title)}" width="640" height="360" loading="lazy" decoding="async" data-fallback="${escapeHtml(eventFallback)}" data-img-fallback="event">
+          ${venueLine ? `<figcaption>${escapeHtml(venueLine)}</figcaption>` : ""}
+        </figure>` : ""}
+      <div class="event-feature-body">
+        <p class="event-feature-kicker">${escapeHtml(kicker)}</p>
+        <h2>${escapeHtml(event.title)}</h2>
+        ${!eventImage && venueLine ? `<p class="event-feature-venue">${escapeHtml(venueLine)}</p>` : ""}
+        ${blurb ? `<p class="event-feature-blurb">${escapeHtml(blurb)}</p>` : ""}
+        <div class="detail-actions event-feature-actions">
+          ${event.url ? `<a href="${escapeHtml(event.url)}" target="_blank" rel="noopener">Event details</a>` : ""}
+          ${place ? `<button type="button" id="event-place-jump">Show place</button>` : ""}
+        </div>
+        ${renderBeforeOrAfter(place)}
       </div>
-      ${renderBeforeOrAfter(place)}
     `;
     const jump = document.getElementById("event-place-jump");
     if (jump && place) jump.addEventListener("click", () => showPlace(place));
@@ -1818,6 +2051,354 @@
     revealDetailCard();
   }
 
+  // ---------------------------------------------------------------------------
+  // Discovery Rail (ADR 0002, variant B) — the first-load Browse Starting View
+  // in rail form. Sampler doctrine order: upcoming events first (Event
+  // Freshness Guarantee — state.events is already today-or-later), then
+  // MUSE-Grounded Sampler places, one MUSE story card, one path card,
+  // interleaved. Rail Follow ruling: on scroll-settle the map eases to the
+  // centered card WITHOUT changing zoom; full fly-and-zoom only on tap. The
+  // camera never moves while cards are still moving (debounced settle).
+  // ---------------------------------------------------------------------------
+
+  function niceEventDate(date) {
+    return new Date(`${date}T12:00:00`).toLocaleDateString(undefined, {
+      weekday: "short", month: "short", day: "numeric",
+    });
+  }
+
+  function buildRailItems() {
+    const items = [];
+    const today = todayISO();
+    const events = [...state.events].sort((a, b) => a.date.localeCompare(b.date));
+    const samplerPlaces = state.browseSamplerPlaceIds
+      .map(placeById)
+      .filter((place) => place && isPlaceMapReady(place));
+    const eventCard = (event) => ({
+      type: "event",
+      // Pass-3 typeset: the banned eyebrow row is gone. The date/recency signal
+      // lives in the meta line as a weighted lead word ("Tonight" / "Sat, Jun 13"),
+      // not a kicker above every card.
+      when: event.date === today ? "Tonight" : niceEventDate(event.date),
+      title: event.title,
+      meta: event.placeName,
+      desc: displayEventDescription(event.description || ""),
+      image: resolveMedia(event.image || ""),
+      lat: event.lat,
+      lng: event.lng,
+      event,
+    });
+    const placeCard = (place) => ({
+      type: "place",
+      // Place category moves into the meta line (voice rule: category stays
+      // the place card's classifier — just no longer an eyebrow row).
+      title: place.name,
+      meta: `${placeKindLabel(place)} · ${place.city || "Nevada County"}`,
+      desc: firstSentence(place.description || ""),
+      image: resolvePlaceImage(place).src || "",
+      lat: place.lat,
+      lng: place.lng,
+      place,
+    });
+    events.slice(0, 4).forEach((event) => items.push(eventCard(event)));
+    samplerPlaces.slice(0, 3).forEach((place) => items.push(placeCard(place)));
+    const story = state.museStories[0];
+    if (story) {
+      const storyPlaces = (story.placeIds || []).map(placeById).filter((place) => place && isPlaceMapReady(place));
+      items.push({
+        type: "story",
+        kicker: "In the pages of MUSE Magazine",
+        title: story.title,
+        meta: story.issue,
+        desc: "See everywhere this story touches the map.",
+        image: "",
+        lat: storyPlaces[0]?.lat,
+        lng: storyPlaces[0]?.lng,
+        story,
+      });
+    }
+    const path = state.paths[0];
+    if (path?.stops?.length) {
+      items.push({
+        type: "path",
+        title: path.title,
+        meta: `A path to walk · ${path.stops.length} stops`,
+        desc: path.dek || "",
+        image: "",
+        lat: path.stops[0].lat,
+        lng: path.stops[0].lng,
+        path,
+      });
+    }
+    events.slice(4, 8).forEach((event) => items.push(eventCard(event)));
+    samplerPlaces.slice(3).forEach((place) => items.push(placeCard(place)));
+    return items;
+  }
+
+  // Poster fields (brand secondaries) stand in for missing imagery on the
+  // campaign-style cards only: events, the MUSE story, the path. Imageless
+  // PLACE cards stay quiet paper — they are directory entries, not campaigns.
+  const RAIL_POSTER_CYCLE = ["blue", "green", "pink", "teal"];
+  // Poster field for a card: the MUSE story is always ink, the path is always
+  // teal, everything else cycles the brand secondaries by rail index. Shared
+  // by the render-time class pick and the delegated dead-image fallback.
+  function railPosterClasses(type, index) {
+    const field = type === "story" ? "ink" : type === "path" ? "teal" : RAIL_POSTER_CYCLE[index % RAIL_POSTER_CYCLE.length];
+    return ["rail-card-poster", `rail-card-poster-${field}`];
+  }
+  function railPosterClass(item, index) {
+    if (item.image || item.type === "place") return "";
+    return ` ${railPosterClasses(item.type, index).join(" ")}`;
+  }
+
+  function railCardHtml(item, index) {
+    // Accessible name is title + venue/date only — never the full description
+    // essay (screen readers read the whole name per card).
+    const accessibleName = `${item.title} — ${item.when ? `${item.when} · ` : ""}${item.meta}`;
+    // ONE deliberate kicker across the surface: the MUSE story card's
+    // credential line ("In the pages of MUSE Magazine"). Everything else
+    // carries its signal in the title and meta line.
+    const metaLine = `${item.when ? `<strong class="rail-card-when${item.when === "Tonight" ? " is-tonight" : ""}">${escapeHtml(item.when)}</strong> · ` : ""}${escapeHtml(item.meta)}`;
+    return `
+      <button class="rail-card rail-card-${escapeHtml(item.type)}${railPosterClass(item, index)}" type="button" data-rail-index="${index}" aria-label="${escapeHtml(accessibleName)}">
+        ${item.image ? `<img class="rail-card-img" src="${escapeHtml(item.image)}" alt="" loading="lazy" decoding="async" data-img-fallback="poster">` : ""}
+        <span class="rail-card-body">
+          ${item.kicker ? `<span class="rail-card-kicker">${escapeHtml(item.kicker)}</span>` : ""}
+          <span class="rail-card-title">${escapeHtml(item.title)}</span>
+          ${item.desc ? `<span class="rail-card-desc">${escapeHtml(item.desc)}</span>` : ""}
+          <span class="rail-card-meta">${metaLine}</span>
+        </span>
+      </button>`;
+  }
+
+  // The rail is visible exactly when the Browse Starting View is: Places mode,
+  // no search, no Outing Type filter, no Local Reveal. Searching or filtering
+  // expands the full Directory Browser and retires the rail until cleared.
+  function railVisible() {
+    return state.mode === "places" && isBrowseStartingView() && !state.localReveal;
+  }
+
+  // The pristine Places starting view: nothing searched, filtered, revealed,
+  // selected, or surprise-ringed — the state the rail expects.
+  function isPristineBrowseStartingView() {
+    return isBrowseStartingView()
+      && !state.localReveal
+      && !state.selectedPlaceId
+      && !state.surprisePlaceIds.length;
+  }
+
+  // State half of the reset: clears every refinement that suppresses the rail
+  // (search, Outing Type chips, Featured in MUSE, local reveal) plus any lingering
+  // selection or surprise/story rings, re-syncs the search input, and closes
+  // the selection drawer the same way setMode does — the pristine view never
+  // shows a selection. No re-renders here, so callers that immediately run
+  // setMode (the mode tabs) get exactly one render pipeline.
+  function clearBrowseRefinements() {
+    state.searchQuery = "";
+    state.activeIntents.clear();
+    state.featuredInMuseOnly = false;
+    state.localReveal = null;
+    state.localRevealPreviousContext = null;
+    state.selectedPlaceId = "";
+    state.surprisePlaceIds = [];
+    if (els.search) els.search.value = "";
+    state.filterListOpen = true;
+    els.selectionDrawer?.classList.remove("open");
+  }
+
+  // Single source of truth for "return to the pristine Places starting view":
+  // clears state via clearBrowseRefinements, then re-renders so the rail comes
+  // back (markers, labels, list, detail card, and URL all reflect the pristine
+  // view). Used by the visible "Show tonight's rail" reset chip and the
+  // empty-state "Clear filters" button. Camera/zoom untouched.
+  function resetToBrowseStartingView() {
+    if (isPristineBrowseStartingView()) {
+      // Nothing to clear — skip the re-renders, just keep the rail chrome
+      // (body class + reset chip visibility) honest.
+      els.selectionDrawer?.classList.remove("open");
+      syncBrowseChrome();
+      return;
+    }
+    clearBrowseRefinements();
+    renderFilters();
+    setSourceData();
+    renderFeaturedAnchor();
+    updateReviewUrl();
+  }
+
+  // One body class drives both halves of the first-load layout: the rail shows
+  // and the left panel collapses to a compact search/filter toolbar.
+  function syncBrowseChrome() {
+    const visible = railVisible();
+    document.body.classList.toggle("rail-browse", visible);
+    if (!visible) {
+      setRailFocus("");
+      state.railLastFollowIndex = -1;
+    }
+    // The reset chip is the one-click path back to the rail: shown only when
+    // we're in Places but refinements have retired the rail; hidden whenever the
+    // rail is actually visible, and in every non-Places mode.
+    if (els.railResetChip) {
+      els.railResetChip.hidden = !(state.mode === "places" && !visible);
+    }
+  }
+
+  function setRailFocus(placeId) {
+    if (state.railFocusPlaceId === placeId) return;
+    state.railFocusPlaceId = placeId;
+    applyHoverRingFilter();
+  }
+
+  function markActiveRailCard(activeCard) {
+    els.railTrack?.querySelectorAll(".rail-card").forEach((card) => {
+      card.classList.toggle("active", card === activeCard);
+    });
+  }
+
+  // Rail Follow: ease to the centered card's place, highlight its marker, no
+  // zoom change. Runs only after scrolling settles, never mid-scroll.
+  function handleRailScrollSettle() {
+    if (!railVisible() || !state.map || !els.railTrack) return;
+    if (state.railSuppressFollow) {
+      state.railSuppressFollow = false;
+      return;
+    }
+    const track = els.railTrack;
+    const mid = track.scrollLeft + track.clientWidth / 2;
+    let best = null;
+    let bestDistance = Infinity;
+    track.querySelectorAll(".rail-card").forEach((card) => {
+      const distance = Math.abs(card.offsetLeft + card.offsetWidth / 2 - mid);
+      if (distance < bestDistance) {
+        bestDistance = distance;
+        best = card;
+      }
+    });
+    if (!best) return;
+    const index = Number(best.dataset.railIndex);
+    if (index === state.railLastFollowIndex) return;
+    state.railLastFollowIndex = index;
+    markActiveRailCard(best);
+    const item = state.railItems[index];
+    if (!item || !Number.isFinite(item.lng) || !Number.isFinite(item.lat)) return;
+    if (prefersReducedMotion()) {
+      state.map.jumpTo({ center: [item.lng, item.lat] });
+    } else {
+      state.map.easeTo({ center: [item.lng, item.lat], duration: 650 });
+    }
+    setRailFocus(item.type === "place" ? item.place.id : "");
+  }
+
+  // Explicit card tap = the full fly-and-zoom plus the real selection flow.
+  function activateRailCard(index, cardEl) {
+    const item = state.railItems[index];
+    if (!item) return;
+    state.railLastFollowIndex = index;
+    markActiveRailCard(cardEl);
+    if (cardEl && els.railTrack) {
+      // Suppress only when centering will actually scroll; an already-centered
+      // card fires no scroll event, and a stale flag would eat the next settle.
+      const track = els.railTrack;
+      const target = Math.max(0, Math.min(
+        cardEl.offsetLeft + cardEl.offsetWidth / 2 - track.clientWidth / 2,
+        track.scrollWidth - track.clientWidth
+      ));
+      if (Math.abs(target - track.scrollLeft) > 1) state.railSuppressFollow = true;
+      cardEl.scrollIntoView({ inline: "center", block: "nearest", behavior: prefersReducedMotion() ? "auto" : "smooth" });
+    }
+    if (item.type === "place") {
+      showPlace(item.place);
+    } else if (item.type === "event") {
+      if (Number.isFinite(item.lng) && Number.isFinite(item.lat)) {
+        // Same selection-flight profile as showPlace: street level, high arc,
+        // card dealt on touchdown.
+        const seq = ++state.flightSeq;
+        const targetZoom = Math.max(state.map.getZoom(), 16);
+        if (prefersReducedMotion()) {
+          state.map.jumpTo({ center: [item.lng, item.lat], zoom: targetZoom });
+          showEvent(item.event);
+        } else {
+          state.map.flyTo({ center: [item.lng, item.lat], zoom: targetZoom, speed: 1.7, curve: 1.35, maxDuration: 2600, essential: true });
+          state.map.once("moveend", () => { if (seq === state.flightSeq) showEvent(item.event); });
+        }
+      } else {
+        showEvent(item.event);
+      }
+    } else if (item.type === "story") {
+      renderStory(item.story);
+    } else if (item.type === "path") {
+      setMode("paths");
+      showPath(item.path);
+    }
+  }
+
+  function renderDiscoveryRail() {
+    if (!els.railTrack) return;
+    const filter = state.railFilter;
+    const visibleItems = state.railItems
+      .map((item, index) => ({ item, index }))
+      .filter(({ item }) => filter === "all" || item.type === filter);
+    if (els.railTrack.scrollLeft !== 0) {
+      // Rebuilding the track resets scroll and fires a settle; that move is
+      // ours, not the user's. Flag it before the innerHTML swap clamps scroll.
+      state.railSuppressFollow = true;
+    }
+    if (!visibleItems.length) {
+      // Empty Events State pattern: invite a return, never expose machinery.
+      const copy = filter === "event"
+        ? "No events listed here this week — check back soon."
+        : "Nothing to browse here yet — check back soon.";
+      els.railTrack.innerHTML = `<div class="rail-empty">${escapeHtml(copy)}</div>`;
+    } else {
+      els.railTrack.innerHTML = visibleItems.map(({ item, index }) => railCardHtml(item, index)).join("");
+    }
+    els.railTrack.scrollLeft = 0;
+    state.railLastFollowIndex = -1;
+    els.railTrack.querySelectorAll("[data-rail-index]").forEach((card) => {
+      card.addEventListener("click", () => activateRailCard(Number(card.dataset.railIndex), card));
+    });
+  }
+
+  function initDiscoveryRail() {
+    if (!els.rail || !els.railTrack) return;
+    state.railItems = buildRailItems();
+    renderDiscoveryRail();
+    // Keyboard path (P2 carry-along): Left/Right arrows walk the rail without
+    // leaving the keyboard. Focus moves to the card button itself, so the
+    // existing focus ring shows and the card's aria-label is announced for
+    // free; Enter/Space then activates it like a click. Tab order untouched.
+    els.railTrack.addEventListener("keydown", (event) => {
+      if (event.key !== "ArrowRight" && event.key !== "ArrowLeft") return;
+      const cards = Array.from(els.railTrack.querySelectorAll(".rail-card"));
+      if (!cards.length) return;
+      event.preventDefault();
+      const current = cards.indexOf(document.activeElement);
+      const next = current === -1
+        ? (event.key === "ArrowRight" ? 0 : cards.length - 1)
+        : Math.max(0, Math.min(cards.length - 1, current + (event.key === "ArrowRight" ? 1 : -1)));
+      const card = cards[next];
+      card.focus({ preventScroll: true });
+      // Centering scrolls the track; the existing settle handler then runs the
+      // Rail Follow (active card + map ease) exactly as it does for touch.
+      card.scrollIntoView({ inline: "center", block: "nearest", behavior: prefersReducedMotion() ? "auto" : "smooth" });
+    });
+    let settleTimer;
+    els.railTrack.addEventListener("scroll", () => {
+      clearTimeout(settleTimer);
+      settleTimer = setTimeout(handleRailScrollSettle, 180);
+    }, { passive: true });
+    els.rail.querySelectorAll("[data-rail-filter]").forEach((chip) => {
+      chip.addEventListener("click", () => {
+        state.railFilter = chip.dataset.railFilter;
+        els.rail.querySelectorAll("[data-rail-filter]").forEach((other) => {
+          other.classList.toggle("on", other === chip);
+        });
+        renderDiscoveryRail();
+      });
+    });
+    syncBrowseChrome();
+  }
+
   function setMode(mode) {
     state.mode = mode;
     document.body.dataset.mapMode = mode;
@@ -1881,40 +2462,126 @@
     updateReviewUrl();
   }
 
-  function applyCustomBasemapStyling() {
-    if (!state.map) return;
-
-    const urlParams = new URLSearchParams(window.location.search);
-    const twilightParam = urlParams.get("twilight");
-    const isTwilight = twilightParam === "true";
-    document.body.classList.toggle("twilight-mode", isTwilight);
-
-    const palette = isTwilight ? QUIET_BASEMAP.twilight : QUIET_BASEMAP.standard;
-    const paintOverrides = [
-      { layerId: "background", property: "background-color", value: palette.background },
-      { layerId: "water", property: "fill-color", value: palette.water },
-      { layerId: "waterway", property: "line-color", value: palette.waterLine },
-      { layerId: "landcover", property: "fill-color", value: palette.landcover },
-      { layerId: "landuse", property: "fill-color", value: palette.landuse },
-      { layerId: "landuse_residential", property: "fill-color", value: palette.residential },
-      { layerId: "park_nature_reserve", property: "fill-color", value: palette.park },
-      { layerId: "park_national_park", property: "fill-color", value: palette.park },
-      { layerId: "building", property: "fill-color", value: palette.building },
-      { layerId: "building-top", property: "fill-color", value: palette.buildingTop },
-    ];
-
-    paintOverrides.forEach(({ layerId, property, value }) => {
-      if (state.map.getLayer(layerId)) state.map.setPaintProperty(layerId, property, value);
+  // Warmth pass 4 (cla-65): retint the Liberty basemap to the brand's warm
+  // paper world. Iterates a style's actual layer list and matches by
+  // source-layer + id pattern (Liberty ids like road_minor / bridge_motorway_casing /
+  // landcover_wood), so a tile-style update can't strand a hardcoded id. Only
+  // plain color strings are written — no new expressions, so nothing here can
+  // invalidate a layer's paint and silently drop it. App-owned layers (places,
+  // events, paths sources) are added after this runs and are never touched.
+  //
+  // F10 (cla-71): the palette + matching logic lives here once, decoupled from
+  // HOW the edits land. `ops.paint(layer, prop, value)` / `ops.layout(...)`
+  // either mutate a raw style object before the Map is constructed (happy
+  // path: warm first paint, no stock-Liberty flash) or drive
+  // setPaintProperty/setLayoutProperty on a live map (degraded path when the
+  // style fetch fails). Same values either way — only WHEN they apply differs.
+  function warmBasemapEdits(layers, ops) {
+    const W = WARM_BASEMAP;
+    (layers || []).forEach((layer) => {
+      const id = layer.id;
+      const sourceLayer = layer["source-layer"] || "";
+      const paint = (property, value) => ops.paint(layer, property, value);
+      if (layer.type === "background") {
+        paint("background-color", W.background);
+        return;
+      }
+      if (layer.type === "fill") {
+        if (sourceLayer === "water") paint("fill-color", W.water);
+        else if (sourceLayer === "park") {
+          paint("fill-color", W.parkFill);
+          // Liberty draws a saturated green outline on the park fill itself.
+          paint("fill-outline-color", W.parkOutline);
+        }
+        else if (sourceLayer === "landcover") {
+          const tone = id.includes("wood") ? W.wood
+            : id.includes("wetland") ? W.wetland
+            : id.includes("ice") ? W.ice
+            : id.includes("sand") ? W.sand
+            : W.grass;
+          paint("fill-color", tone);
+        } else if (sourceLayer === "landuse") {
+          paint("fill-color", id.includes("residential") ? W.residential : W.landuse);
+        } else if (sourceLayer === "building") {
+          paint("fill-color", W.building);
+          paint("fill-outline-color", W.buildingOutline);
+        } else if (sourceLayer === "aeroway") {
+          paint("fill-color", W.aeroway);
+        }
+        return;
+      }
+      if (layer.type === "fill-extrusion" && sourceLayer === "building") {
+        paint("fill-extrusion-color", W.building);
+        return;
+      }
+      if (layer.type === "line") {
+        if (sourceLayer === "waterway") paint("line-color", W.water);
+        else if (sourceLayer === "boundary") paint("line-color", W.boundary);
+        else if (sourceLayer === "park") {
+          // Park outlines tile the whole county at low zoom; keep them barely-there.
+          paint("line-color", W.parkOutline);
+          paint("line-opacity", 0.5);
+        }
+        else if (sourceLayer === "aeroway") paint("line-color", W.roadCasing);
+        else if (sourceLayer === "transportation") {
+          // Quiet warm road ramp; hierarchy survives as value steps, not hue.
+          const tone = /rail/.test(id) ? W.rail
+            : /path|pedestrian/.test(id) ? (id.includes("casing") ? W.roadCasing : W.path)
+            : /casing/.test(id) ? (/motorway|trunk_primary/.test(id) ? W.majorCasing : W.roadCasing)
+            : /motorway/.test(id) ? W.motorway
+            : /trunk_primary/.test(id) ? W.trunkPrimary
+            : /secondary_tertiary/.test(id) ? W.secondaryTertiary
+            : W.minor;
+          paint("line-color", tone);
+        }
+        return;
+      }
+      if (layer.type === "symbol") {
+        // Density cut: footpath names and one-way arrows are tile noise here.
+        // (Business POIs are already hidden by hideBasemapPoiLayers.)
+        if (id === "highway-name-path" || id.startsWith("road_one_way")) {
+          ops.layout(layer, "visibility", "none");
+          return;
+        }
+        if (sourceLayer === "place") {
+          paint("text-color", W.placeLabel);
+          paint("text-halo-color", W.labelHalo);
+        } else if (sourceLayer === "transportation_name" && !id.includes("shield")) {
+          paint("text-color", W.roadLabel);
+          paint("text-halo-color", W.labelHalo);
+        } else if (sourceLayer === "water_name" || sourceLayer === "waterway") {
+          paint("text-color", W.waterLabel);
+          paint("text-halo-color", W.labelHalo);
+        } else if (sourceLayer === "aerodrome_label") {
+          paint("text-color", W.roadLabel);
+          paint("text-halo-color", W.labelHalo);
+        }
+      }
     });
+  }
 
-    [
-      "road_service_case", "road_minor_case", "road_path", "road_service_fill", "road_minor_fill",
-      "tunnel_service_case", "tunnel_minor_case", "tunnel_path", "tunnel_service_fill", "tunnel_minor_fill",
-      "bridge_service_case", "bridge_minor_case", "bridge_path", "bridge_service_fill", "bridge_minor_fill",
-    ].forEach((layerId) => {
-      if (!state.map.getLayer(layerId)) return;
-      const isCase = layerId.includes("case");
-      state.map.setPaintProperty(layerId, "line-opacity", isCase ? palette.roadCaseOpacity : palette.roadFillOpacity);
+  // Happy path: mutate the fetched Liberty style JSON in place, before the
+  // Map constructor ever sees it — the first painted frame is already warm.
+  function warmStyleObject(style) {
+    warmBasemapEdits(style.layers, {
+      paint: (layer, property, value) => {
+        (layer.paint || (layer.paint = {}))[property] = value;
+      },
+      layout: (layer, property, value) => {
+        (layer.layout || (layer.layout = {}))[property] = value;
+      },
+    });
+    return style;
+  }
+
+  // Degraded path (style fetch failed, Map constructed from the URL): retint
+  // the live map on "load" — the pre-F10 behavior, kept as the fallback.
+  function applyWarmBasemap() {
+    if (!state.map) return;
+    const map = state.map;
+    warmBasemapEdits(map.getStyle().layers, {
+      paint: (layer, property, value) => map.setPaintProperty(layer.id, property, value),
+      layout: (layer, property, value) => map.setLayoutProperty(layer.id, property, value),
     });
   }
 
@@ -2223,7 +2890,7 @@
   }
 
   async function init() {
-    const [places, events, paths, anchorCards, museEvidence, museSampler, museStories] = await Promise.all([
+    const [places, events, paths, anchorCards, museEvidence, museSampler, museStories, warmStyle] = await Promise.all([
       fetch(DATA.places).then((r) => r.json()),
       fetch(DATA.events).then((r) => r.json()),
       fetch(DATA.paths).then((r) => r.json()),
@@ -2231,9 +2898,19 @@
       fetch(DATA.museEvidence).then((r) => r.json()).catch(() => ({ links: [] })),
       fetch(DATA.museSampler).then((r) => r.json()).catch(() => ({ showcaseSampler: [] })),
       fetch(DATA.museStories).then((r) => r.json()).catch(() => ({ stories: [] })),
+      // F10: pre-fetch the Liberty style and retint it BEFORE the Map is
+      // constructed, so the first painted frame is already warm paper — no
+      // stock-Liberty flash, no ~200-call setPaintProperty burst on load.
+      // Any failure degrades to the pre-F10 path: URL style + retint on load.
+      fetch(STREET_BASEMAP_STYLE)
+        .then((r) => (r.ok ? r.json() : Promise.reject(new Error(`style fetch ${r.status}`))))
+        .then((style) => warmStyleObject(style))
+        .catch(() => null),
     ]);
     state.anchorCards = Array.isArray(anchorCards) ? anchorCards : [];
     state.museStories = museStories.stories || [];
+    // Featured-in-MUSE membership: exact article links only (owner ruling).
+    state.museFeaturedIds = new Set(state.museStories.flatMap((story) => story.placeIds || []));
     state.museEvidenceByPlace = buildDirectMuseEvidenceByPlace(museEvidence);
     state.browseSamplerPlaceIds = (museSampler.showcaseSampler || museSampler.recommendedSampler || [])
       .map((place) => place.id)
@@ -2261,28 +2938,64 @@
     }
 
     renderFilters();
+    state.basemapPretinted = Boolean(warmStyle);
+    if (!state.basemapPretinted) {
+      console.warn("[basemap] style fetch failed — constructing from URL, retint deferred to load");
+    }
     state.map = new maplibregl.Map({
       container: "map",
-      style: STREET_BASEMAP_STYLE,
+      style: warmStyle || STREET_BASEMAP_STYLE,
       center: isMobileViewport() ? MOBILE_INITIAL_MAP_VIEW.center : DESKTOP_INITIAL_MAP_VIEW.center,
       zoom: isMobileViewport() ? MOBILE_INITIAL_MAP_VIEW.zoom : DESKTOP_INITIAL_MAP_VIEW.zoom,
       // Attribution sits bottom-left so the legend (bottom-right) never clips it.
       attributionControl: false,
     });
+    // Contract/debug seam: with any ?contract= param the map instance is
+    // reachable for the CDP contract suites (marker-hierarchy, CLA-33)
+    // without the fragile constructor-wrap init script.
+    if (new URLSearchParams(window.location.search).has("contract")) {
+      window.__map = state.map;
+      // F10 contract seam: lets the verifier confirm the constructor received
+      // a pre-tinted style OBJECT (true) vs the degraded URL path (false).
+      window.__basemapPretinted = state.basemapPretinted;
+    }
     state.map.addControl(new maplibregl.AttributionControl(), "bottom-left");
     state.map.addControl(new maplibregl.NavigationControl({ showCompass: false }), "bottom-right");
     state.map.on("load", () => {
+      // Happy path: the style object was retinted before construction, so the
+      // load-time setPaintProperty burst is skipped entirely.
+      if (!state.basemapPretinted) applyWarmBasemap();
       hideBasemapPoiLayers();
       addMapLayers();
       setSourceData();
       applyInitialReviewState();
+      initDiscoveryRail();
     });
 
     state.map.on("moveend", updateSmartLabels);
     state.map.on("zoomend", updateSmartLabels);
 
     document.querySelectorAll(".mode-tab").forEach((tab) => {
-      tab.addEventListener("click", () => setMode(tab.dataset.mode));
+      tab.addEventListener("click", () => {
+        const mode = tab.dataset.mode;
+        // Re-entering Places — whether refined-in-place or arriving from
+        // another mode — resets to the pristine starting view so the rail
+        // returns. Refinements are cleared *before* the single setMode call so
+        // the render pipeline (filters, anchor, source data, URL) runs exactly
+        // once per click; an already-pristine Places click is a no-op.
+        if (mode === "places") {
+          if (state.mode === "places" && isPristineBrowseStartingView()) {
+            syncBrowseChrome();
+            return;
+          }
+          clearBrowseRefinements();
+        }
+        setMode(mode);
+      });
+    });
+
+    els.railResetChip?.addEventListener("click", () => {
+      resetToBrowseStartingView();
     });
 
     const navToggle = document.querySelector(".nav-toggle");

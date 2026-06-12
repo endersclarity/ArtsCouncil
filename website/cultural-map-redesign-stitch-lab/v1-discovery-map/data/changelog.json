@@ -1,176 +1,302 @@
 {
- "_readme": "Site changelog, rendered by changelog.html. Newest entry FIRST. Every meaningful commit to v1-discovery-map gets an entry (the pre-commit hook enforces this). Write 'summary' in plain language for the Arts Council — what changed for a visitor, not implementation detail. 'commit' is the short hash; the page links it to GitHub.",
- "entries": [
-  {
-   "date": "2026-06-10",
-   "title": "MUSE stories now link to the real magazine online",
-   "summary": "Every story in the MUSE story lens now has a 'Read the article in MUSE' link that opens the official e-magazine (the flip-book editions on the Arts Council site) right at the article's page. Visitors can jump from a place on the map to the actual published pages about it.",
-   "kind": "improvement"
-  },
-  {
-   "date": "2026-06-10",
-   "title": "New: browse the map through MUSE Magazine stories",
-   "summary": "A new 'Stories from MUSE' button opens the story lens: 33 real articles from the three MUSE issues, each linked to the places it actually mentions (only confirmed, exact mentions are used — 167 places appear across the stories). Pick an article and the map highlights everywhere it touches, with the issue and page numbers cited. Place cards now also offer 'See this story on the map' under their MUSE mentions.",
-   "kind": "feature"
-  },
-  {
-   "date": "2026-06-10",
-   "title": "'Surprise me nearby' now actually means nearby",
-   "summary": "The surprise button used to pick from the whole county, so browsing Nevada City could land you in Truckee. It now draws from the places closest to wherever the map is currently looking.",
-   "kind": "fix"
-  },
-  {
-   "date": "2026-06-10",
-   "title": "A one-command health check for all map data",
-   "summary": "All the data checks built this year (photo links, website links, pin accuracy, descriptions, event freshness) are now bundled into a single script that prints a one-page health report. Anyone maintaining the map can run it monthly and see exactly what has rotted and which repair tool to use. This makes the cleanup work repeatable instead of a one-time effort.",
-   "kind": "improvement"
-  },
-  {
-   "date": "2026-06-10",
-   "title": "Second location check using the county's own parcel maps",
-   "summary": "The 127 places the US Census check could not verify were re-checked against Nevada County's own parcel address system. 33 were confirmed accurate. Two pins that were 4-14 km from their real address (Banner Mountain Artisans and the Sierra Storytelling Festival) now sit on the correct parcel. Fifteen pins that disagree by 150-400 meters are now honestly marked as approximate until reviewed. One place where the listed address and the pin tell different stories (Broad Street Inn) is held for human review rather than guessed at.",
-   "kind": "fix"
-  },
-  {
-   "date": "2026-06-10",
-   "title": "8 more places described in their own words",
-   "summary": "We retried the venue websites that could not be reached in the first description pass. Eight more places (including Gray Pine Winery, Jax at the Tracks, River Street Inn, and Nomad Boutique) now carry descriptions taken word-for-word from their own websites instead of a generic placeholder sentence. One venue's old website turned out to be hijacked by spam, so its link was removed for visitor safety.",
-   "kind": "improvement"
-  },
-  {
-   "date": "2026-06-10",
-   "title": "Every website link checked: 13 repaired, 65 dead links retired",
-   "summary": "All 831 venue website links were tested. 646 work fine. 13 had small address problems (a missing www or an outdated link) that we repaired automatically. 65 led to vanished pages or domains that no longer exist; place cards no longer offer those links, so visitors stop landing on error pages. 55 borderline cases (sites that block automated checks or have certificate problems) are held in a review list rather than being removed.",
-   "kind": "fix"
-  },
-  {
-   "date": "2026-06-10",
-   "title": "103 more places switched to photos from their own websites",
-   "summary": "Hundreds of place photos were still borrowed from Google links that expire over time. We checked all 581 places that have both a Google-linked photo and their own website, and for 103 of them the venue's own site offered a usable photo. Those are now stored with the map permanently and credited to the venue. That brings self-hosted, never-expiring photos to 117 places, and every one is the image the venue chose to represent itself.",
-   "kind": "improvement"
-  },
-  {
-   "date": "2026-06-10",
-   "title": "Two contentless map pins retired pending real information",
-   "summary": "A sweep for places with nothing to show a visitor (template description, no photo, no website, no events) found only four. Two unverified ones no longer get a map pin (they remain findable in the directory and are easy to restore once real content arrives). The other two are public-art entries held for the Arts Council to decide. Nearly everything on the map has at least one piece of real content, which is better than expected.",
-   "kind": "improvement"
-  },
-  {
-   "date": "2026-06-10",
-   "title": "14 places now show photos from the venues' own websites",
-   "summary": "For places that lost their photo, we checked the venue's own website for the picture it chooses to represent itself (the image a site declares for social sharing). 159 venue sites were checked; 14 yielded a usable photo, now stored with the map itself so it can never expire, each credited to the venue's website. Logos and graphics were filtered out automatically. Most small venue sites simply don't publish a share photo, which is why the long-term plan is a community photo drive.",
-   "kind": "improvement"
-  },
-  {
-   "date": "2026-06-10",
-   "title": "Broken photos replaced with honest placeholders",
-   "summary": "Many place photos were hot-linked from Google and those links expire. We checked all 1,065 of them: 856 still work, 209 had quietly died and were showing as broken images. Those 209 places now show a clean category placeholder with a 'photo not yet sourced' note instead of a broken picture. Next step: pulling real photos from the venues' own websites.",
-   "kind": "fix"
-  },
-  {
-   "date": "2026-06-10",
-   "title": "Map accuracy audit: 6 misplaced pins corrected, 48 relabeled as approximate",
-   "summary": "Every public place with a street address (946 of them) was cross-checked against the US Census geocoder. 764 matched within 150 meters. Six pins that were 2-25 km from their real address (including Art Hike and the Gold Country Celtic Society) now sit at the correct location. Forty-eight pins we could not verify keep their spot but are honestly marked as approximate until reviewed. The check is a repeatable script, so we can re-audit any time the data changes.",
-   "kind": "fix"
-  },
-  {
-   "date": "2026-06-10",
-   "title": "Two small delights: Surprise me nearby, and Before-or-after stops on events",
-   "summary": "A 'Surprise me nearby' button in Places mode pulls up a handful of under-the-radar stops described in their own words, with a re-roll. Event cards now list the closest eat/drink/shop stops so an event can become an evening. Both are plain distance and real venue text — no invented curation.",
-   "kind": "improvement"
-  },
-  {
-   "date": "2026-06-10",
-   "title": "Events mode gets a time lens: Today, This weekend, Next 7 days",
-   "summary": "A chip row in Events mode narrows both the list and the map markers to the window you care about. Events-only by design: the map has no opening-hours data yet, so there is deliberately no Open Now filter.",
-   "kind": "improvement"
-  },
-  {
-   "date": "2026-06-10",
-   "title": "Place cards now connect everything: events, MUSE, paths, and what is nearby",
-   "summary": "Selecting a place now shows its upcoming events (tap to open), the MUSE Magazine stories it appears in, the curated paths it belongs to (tap to walk the route), and the closest cultural stops around it. Venue descriptions sourced from the venue itself now say so, with a link.",
-   "kind": "improvement"
-  },
-  {
-   "date": "2026-06-10",
-   "title": "The map now greets you like a host, not a database",
-   "summary": "The panel opens with a featured cultural anchor — photo, its story hook, and a one-tap way in — followed by a 'What are you in the mood for?' browse list. Search is still there, just no longer the front door.",
-   "kind": "improvement"
-  },
-  {
-   "date": "2026-06-10",
-   "title": "Map markers redesigned: named anchors first, calmer dots, live-event halos",
-   "summary": "At county zoom the map now leads with named cultural anchors instead of ~700 equal dots; ordinary places fade in as you zoom into town. Dot colors moved to a muted ink-leaning palette so red is reserved for what is live or selected, and any place with an upcoming event now carries a soft red halo in every mode.",
-   "kind": "improvement"
-  },
-  {
-   "date": "2026-06-10",
-   "title": "219 places now describe themselves in their own words",
-   "summary": "We visited the websites of 452 places that still had placeholder text and copied how each business describes itself — verbatim, from their own homepage or About page. 219 cards now carry the venue's own voice (the Holbrooke's \"We've been building character since 1852,\" for example). Every quote was machine-verified against the source page; nothing was reworded or invented. A side benefit: we found 88 broken venue links and one hijacked website, now logged for follow-up.",
-   "commit": ""
-  },
-  {
-   "date": "2026-06-10",
-   "title": "This page — a public update log",
-   "summary": "The site now has this “What's New” page (linked in the top menu) so the Arts Council and community can see every update at a glance. Each entry links to the exact code change for anyone who wants the technical detail.",
-   "commit": ""
-  },
-  {
-   "date": "2026-06-10",
-   "title": "Usability fix round 1 — 11 issues from a full site audit",
-   "summary": "We tested the whole site like a first-time visitor (on a computer and a phone) and fixed everything we found. Phone users get a proper menu button now, and a bug that could trap phone users on the map is gone.",
-   "details": [
-    "New: menu button on phones — MUSE Magazine, Culture Forward, Current Map, and Proposed Flows are reachable on mobile",
-    "New: the Events tab now shows a browsable, date-sorted list of all upcoming events",
-    "Improved: place search moved to the top of the panel, with results right under the box",
-    "Improved: routes now have a back button, and route copy says four routes (there are four)",
-    "Fixed: on phones, the detail card could cover the whole screen with no way to close it",
-    "Fixed: detail cards opened mid-scroll instead of at the top",
-    "Fixed: map labels no longer draw on top of the detail card; map credits no longer hidden"
-   ],
-   "commit": "9ea0fea"
-  },
-  {
-   "date": "2026-05-30",
-   "title": "Site goes live + Proposed Flows gallery",
-   "summary": "The map got its own public web address (v1-discovery-map.vercel.app) and a new Proposed Flows page showing design directions for where the project could go next.",
-   "commit": "5491e5c"
-  },
-  {
-   "date": "2026-05-30",
-   "title": "Live community events, refreshed daily",
-   "summary": "Events on the map are now real and current — pulled automatically every day from nine community calendars (Arts Council, library, county, KVMR, GVDA, and local venues including Crazy Horse, Golden Era, and Bodhi Hive).",
-   "commit": "f568d18"
-  },
-  {
-   "date": "2026-05-30",
-   "title": "Friendlier wording across the site",
-   "summary": "All on-screen text was rewritten in a warmer, citizen voice — less database jargon, more like a local pointing you somewhere good.",
-   "commit": "fc74ca7"
-  },
-  {
-   "date": "2026-05-29",
-   "title": "Cleaner place data",
-   "summary": "Duplicate place entries were merged and the map's data tooling was reworked, so each venue appears once with its best information.",
-   "commit": "8f2394c"
-  },
-  {
-   "date": "2026-05-28",
-   "title": "Real street map + places snapped to rooftops",
-   "summary": "The background map switched to a clear street map, and 411 places whose locations were only estimates were moved onto their actual buildings.",
-   "commit": "2180ae2"
-  },
-  {
-   "date": "2026-05-27",
-   "title": "Browse by Outing Type",
-   "summary": "A new way in: pick a lane like Art, History, or Local Shops and the map narrows to match, with counts shown for each.",
-   "commit": "607469b"
-  },
-  {
-   "date": "2026-05-26",
-   "title": "One trustworthy place dataset",
-   "summary": "All place lists were combined into a single canonical dataset with honest confidence tiers — solid markers for verified locations, hollow for estimates.",
-   "commit": "eaa7156"
-  }
- ]
+  "_readme": "Site changelog, rendered by changelog.html. Newest entry FIRST. Every meaningful commit to v1-discovery-map gets an entry (the pre-commit hook enforces this). Write 'summary' in plain language for the Arts Council — what changed for a visitor, not implementation detail. 'commit' is the short hash; the page links it to GitHub.",
+  "entries": [
+    {
+      "date": "2026-06-12",
+      "title": "\"Featured in MUSE\" now means a real article, and the map flies you closer",
+      "summary": "The MUSE badge earned a stricter meaning. A place is now marked \"Featured in MUSE\" only when a real MUSE Magazine article actually writes about it — the badge on its card names the article and takes you to that story on the map. The old \"MUSE Picks\" label, which lit up every business listed in the magazine's back-page directory, is gone; being in the directory still shows on a place's card as a quiet \"Listed in the MUSE directory\" line with a link to the right page. The filter chip in the Places browser was renamed to match and now counts only story-featured places. Selecting a place or event also flies you in much closer than before — down to street level, where cross streets are readable and the highlighted marker stands apart — and the detail card now appears just as the camera lands, so the arrival feels like turning to the right page.",
+      "kind": "improvement"
+    },
+    {
+      "date": "2026-06-11",
+      "title": "The map now speaks in the Arts Council's own typeface",
+      "summary": "Polymath, the brand's typeface, was named in our styles all along but never actually delivered to the browser, so every visitor has been seeing a stand-in font. The real Polymath now loads with the page, in every weight, and the whole map is set in it.",
+      "kind": "improvement"
+    },
+    {
+      "date": "2026-06-11",
+      "title": "The map opens warm — no more stock-map flash",
+      "summary": "Until now, the page opened with a split second of the stock online map — grey roads, bright green parks, blue water — before our warm cream-and-sage palette painted over it. The warm colors are now applied before the map ever draws, so the very first thing you see is the finished look. (If the map style can't be fetched ahead of time, the old paint-over still kicks in as a safety net.) Behind the scenes we also tidied the stylesheet: the matching scrollbars and photo caption bars are now defined once and shared, and the translucent cream used for map labels and overlays comes from a single named color instead of five hand-typed copies. Nothing about the look changed — it just arrives instantly and is easier to keep consistent.",
+      "kind": "improvement"
+    },
+    {
+      "date": "2026-06-11",
+      "title": "Photos that fail to load now bow out gracefully",
+      "summary": "When a photo can't be fetched — a venue moved its image, a link went stale — every card now recovers the same considered way. A place card swaps in its labeled stand-in artwork, keeps the name-and-city caption bar, and drops the photographer credit (which belonged to the missing photo, not the stand-in); the \"photo not yet sourced\" tag now sits neatly above the caption bar instead of on top of it. An event card keeps its venue and town visible under the stand-in image rather than losing them with the photo. And a card in the bottom rail turns into one of the colorful poster cards the rail already uses for imageless items, instead of going blank. Event photos also now load by the same rules everywhere, so an image that worked in the rail can't break on the big card.",
+      "kind": "fix"
+    },
+    {
+      "date": "2026-06-11",
+      "title": "A cleaner reset, and friendlier button hovers",
+      "summary": "Returning to the fresh Places view now truly starts fresh: if you had a place selected, tapping the Places tab or the \"Show tonight's rail\" button clears that selection too — the web address, the highlighted dot on the map, and the open detail card all reset together instead of lingering. The \"Clear filters\" button on the no-results screen now clears your search as well as your filters, so results always come back. Behind the scenes the reset also stopped doing its work twice, so it feels snappier. And hovering over small buttons like \"Surprise me again\" or \"All stories\" no longer flashes hard-to-read white-on-red text — the hover is now a calm, high-contrast flip. The \"first match\" card you see after picking an Outing Type was also restyled to match the regular place cards, photo and all.",
+      "kind": "improvement"
+    },
+    {
+      "date": "2026-06-11",
+      "title": "Bringing back the \"tonight\" rail",
+      "summary": "The scrolling card rail along the bottom of the map shows what's happening tonight and a few places worth a stop. It only appears on the fresh Places view, so as soon as you searched or picked a filter it would slide away — and there was no obvious way to get it back. Now there is. Whenever a search or filter has hidden the rail, a small \"Show tonight's rail\" button appears in the browse panel; one tap clears your search and filters and the rail returns. And simply tapping the Places tab again — from anywhere — now resets to that fresh starting view too, so the rail always comes back.",
+      "kind": "improvement"
+    },
+    {
+      "date": "2026-06-11",
+      "title": "Easier-to-read buttons and better-behaved photos",
+      "summary": "Three small repairs from the final review. The red \"Event details\" and \"View on map\" buttons on the detail cards now use larger, bolder lettering — at the old small size, white text on the brand red was hard to read for people with low vision; the new size meets the accessibility contrast standard. Photos on detail cards now always crop neatly to the same wide frame — the stand-in artwork used when a place has no photo was spilling out of its box. And if a place's photo ever fails to load, the card now quietly shows the labeled stand-in artwork instead of a broken-image icon.",
+      "kind": "fix"
+    },
+    {
+      "date": "2026-06-11",
+      "title": "Small fixes: keyboard browsing, quieter details",
+      "summary": "A round of small finishing touches. You can now browse the card rail at the bottom of the map with the left and right arrow keys, not just by swiping or dragging. The detail panel’s scrollbar now matches the rest of the page instead of the chunky default one. In the map key, the Events swatch is now a small red diamond — the same shape events have on the map — so the difference no longer relies on color alone. And one place description that was written entirely in capital letters (Zumo Wine) has been retyped in normal sentence case so it no longer reads as shouting.",
+      "kind": "improvement"
+    },
+    {
+      "date": "2026-06-11",
+      "title": "The map itself joins the warm-up",
+      "summary": "Until now the street map underneath everything still looked like a stock online map — grey roads, bright green parks, blue water. The map now wears the same warm palette as the rest of the page: the ground is soft cream, parks and woods are a gentle sage, water is a single calm slate, and roads are quiet warm tones that still show which streets matter. Street names are softer so the places and events we add stay the loudest thing on the map, and footpath names and one-way arrows no longer clutter the view. The small name tags on the map match the new card look, and the little preview card now fades in gently when you hover over a dot.",
+      "kind": "improvement"
+    },
+    {
+      "date": "2026-06-11",
+      "title": "The whole map warms up — no more stark white panels",
+      "summary": "Every panel and card on the map now sits on the same warm cream paper as the rest of the brand — the explore panel, the browse list, the search box, the filter chips, the bottom card rail, the legend, and the small pop-ups on the map. The hard black outlines that boxed everything in are gone too: panels and cards now rest on soft shadows and thin warm dividers instead. Search fields and the tab strip sit in a slightly deeper cream so they still read as places to act. Nothing moved and nothing works differently — it just stopped feeling cold.",
+      "kind": "improvement"
+    },
+    {
+      "date": "2026-06-11",
+      "title": "Place details warm up like a magazine page",
+      "summary": "Tapping any place on the map or in the browse list now opens a warm, cream-colored feature card instead of a white box with black borders. The photo leads, with a dark caption bar naming the place and its town. Beside the title, a small column topped with a thin red rule shows the category and town at a glance. The description reads in a softer, easier tone, and the main button (usually the place's website) is now red with white text, with quieter outlined buttons beside it. Event cards keep their new dark look — this update is all about the 1,351 places.",
+      "kind": "improvement"
+    },
+    {
+      "date": "2026-06-11",
+      "title": "Event details get a bold new look",
+      "summary": "Tapping an event on the map or in the bottom rail now opens a dark, magazine-style feature card instead of a plain white box. The date leads in red — \"Tonight\" when it's happening today — the event name is big and white, and the photo (when a venue provides one) carries a caption bar with the venue and town. A red button takes you to the event page and a quieter outlined one shows the place on the map. Place cards are unchanged for now; their warm-up comes next.",
+      "kind": "improvement"
+    },
+    {
+      "date": "2026-06-11",
+      "title": "Smoother feel: buttons, cards, and panels now ease instead of snap",
+      "summary": "A light touch of motion across the map. Cards along the bottom rail lift gently when you hover and the red highlight on the centered card now fades in instead of blinking on. Filter chips, tabs, and toggles ease between their on and off looks and give a tiny press when tapped. The place detail panel slides in softly and slips away a little quicker when closed. Everything stays quick and quiet — and if your device is set to reduce motion, all of it simply appears instantly instead.",
+      "kind": "improvement"
+    },
+    {
+      "date": "2026-06-11",
+      "title": "Final tidy-up: easier taps, clearer labels, MUSE Picks up front",
+      "summary": "A sweep of small finishing touches. The \"MUSE Picks only\" switch now sits at the top of the explore panel instead of hiding below the fold. Event descriptions copied from venue websites no longer start by shouting GET YOUR TICKETS. Buttons and toggles all show a visible outline when you move through the page with a keyboard, chips and tabs respond when you hover them, and on phones the small filter chips grew to a comfortable thumb size. A couple of labels that were typed in all capitals now read in normal bold text.",
+      "kind": "improvement"
+    },
+    {
+      "date": "2026-06-11",
+      "title": "Clearer, bolder text everywhere",
+      "summary": "Cards and panels now read at a glance. The little all-caps labels that sat above every card (TONIGHT, COMING UP, category names) are gone — when an event happens now leads the venue line in bold, and a place's category sits right beside its town. Card names are bigger and bolder, the colored poster cards got confident headline type, and several spots where small red text was hard to read against white now use solid dark text instead. Selected tabs and filters switched from a red fill to a dark fill with a red underline so their labels stay easy to read.",
+      "kind": "improvement"
+    },
+    {
+      "date": "2026-06-11",
+      "title": "A tidier map: matching cards, no stray scrollbars",
+      "summary": "The card rail along the bottom of the map got a proper cleanup. Every card is now the same size, and events without a photo get a bold colored poster look instead of sitting as plain white boxes. The raw gray scrollbars under the rail and inside the side panel are gone (everything still scrolls the same way), the browse chips no longer sit on top of the map legend, and on phones the chips moved down within easy thumb reach. The side panel itself is lighter and airier - fewer boxes inside boxes, more breathing room.",
+      "kind": "improvement"
+    },
+    {
+      "date": "2026-06-10",
+      "title": "Warmer, truer brand colors",
+      "summary": "Updated the site's base colors to match the official Nevada County Arts & Culture brand guide: the background is now the brand's warm cream instead of a plain off-white, and text, dividers, and shadows use the guide's exact charcoal and warm-gray tones. Nothing moved -- the whole map just looks a touch warmer and more on-brand.",
+      "kind": "improvement"
+    },
+    {
+      "date": "2026-06-11",
+      "title": "Smoother Discovery Rail scrolling",
+      "summary": "Fixed two small hiccups in the new card rail at the bottom of the map: tapping a card that was already in front of you no longer makes the map ignore your next scroll, and switching between the rail's filter chips (All, Events, Places...) while scrolled partway along no longer nudges the map unexpectedly.",
+      "kind": "fix"
+    },
+    {
+      "date": "2026-06-11",
+      "title": "New: browse the map through the MUSE business directory",
+      "summary": "In Places mode there is now a MUSE Picks only switch - tap it and the map shows just the places listed in MUSE Magazine's business directory, and it combines with the outing-type filters you already use. Each of those places now carries a badge on its card saying which issue's directory it appears in (for example, Listed in the MUSE 2026 directory), shows the directory's own label for the business (like Coffee / Roastery), and the badge links straight to that listing's page in the published MUSE e-magazine.",
+      "kind": "feature"
+    },
+    {
+      "date": "2026-06-11",
+      "title": "MUSE Picks places now live in real categories",
+      "summary": "The 186 places that were filed under the catch-all MUSE Picks category have been moved into the real category that fits them (most into Shops & Makers, Eat Drink & Stay, or Galleries & Studios), guided by how the MUSE Magazine business directory itself describes each one. Every place listed in the MUSE directory now also remembers which issues it appeared in and on what page. No markers appeared or disappeared - this is a filing fix, not a map change.",
+      "kind": "improvement"
+    },
+    {
+      "date": "2026-06-10",
+      "title": "New: the Discovery Rail — browse from the map itself",
+      "summary": "The map now opens with a scrollable rail of cards along the bottom: upcoming events first, then standout places, a story from MUSE Magazine, and a walkable path. As you scroll the rail, the map gently glides to whatever card is in front of you and lights up its marker — tap a card to fly in and see the full details. The side panel starts compact (just search and browse filters) and expands into the full place list whenever you search.",
+      "kind": "feature"
+    },
+    {
+      "date": "2026-06-10",
+      "title": "MUSE stories now link to the real magazine online",
+      "summary": "Every story in the MUSE story lens now has a 'Read the article in MUSE' link that opens the official e-magazine (the flip-book editions on the Arts Council site) right at the article's page. Visitors can jump from a place on the map to the actual published pages about it.",
+      "kind": "improvement"
+    },
+    {
+      "date": "2026-06-10",
+      "title": "New: browse the map through MUSE Magazine stories",
+      "summary": "A new 'Stories from MUSE' button opens the story lens: 33 real articles from the three MUSE issues, each linked to the places it actually mentions (only confirmed, exact mentions are used — 167 places appear across the stories). Pick an article and the map highlights everywhere it touches, with the issue and page numbers cited. Place cards now also offer 'See this story on the map' under their MUSE mentions.",
+      "kind": "feature"
+    },
+    {
+      "date": "2026-06-10",
+      "title": "'Surprise me nearby' now actually means nearby",
+      "summary": "The surprise button used to pick from the whole county, so browsing Nevada City could land you in Truckee. It now draws from the places closest to wherever the map is currently looking.",
+      "kind": "fix"
+    },
+    {
+      "date": "2026-06-10",
+      "title": "A one-command health check for all map data",
+      "summary": "All the data checks built this year (photo links, website links, pin accuracy, descriptions, event freshness) are now bundled into a single script that prints a one-page health report. Anyone maintaining the map can run it monthly and see exactly what has rotted and which repair tool to use. This makes the cleanup work repeatable instead of a one-time effort.",
+      "kind": "improvement"
+    },
+    {
+      "date": "2026-06-10",
+      "title": "Second location check using the county's own parcel maps",
+      "summary": "The 127 places the US Census check could not verify were re-checked against Nevada County's own parcel address system. 33 were confirmed accurate. Two pins that were 4-14 km from their real address (Banner Mountain Artisans and the Sierra Storytelling Festival) now sit on the correct parcel. Fifteen pins that disagree by 150-400 meters are now honestly marked as approximate until reviewed. One place where the listed address and the pin tell different stories (Broad Street Inn) is held for human review rather than guessed at.",
+      "kind": "fix"
+    },
+    {
+      "date": "2026-06-10",
+      "title": "8 more places described in their own words",
+      "summary": "We retried the venue websites that could not be reached in the first description pass. Eight more places (including Gray Pine Winery, Jax at the Tracks, River Street Inn, and Nomad Boutique) now carry descriptions taken word-for-word from their own websites instead of a generic placeholder sentence. One venue's old website turned out to be hijacked by spam, so its link was removed for visitor safety.",
+      "kind": "improvement"
+    },
+    {
+      "date": "2026-06-10",
+      "title": "Every website link checked: 13 repaired, 65 dead links retired",
+      "summary": "All 831 venue website links were tested. 646 work fine. 13 had small address problems (a missing www or an outdated link) that we repaired automatically. 65 led to vanished pages or domains that no longer exist; place cards no longer offer those links, so visitors stop landing on error pages. 55 borderline cases (sites that block automated checks or have certificate problems) are held in a review list rather than being removed.",
+      "kind": "fix"
+    },
+    {
+      "date": "2026-06-10",
+      "title": "103 more places switched to photos from their own websites",
+      "summary": "Hundreds of place photos were still borrowed from Google links that expire over time. We checked all 581 places that have both a Google-linked photo and their own website, and for 103 of them the venue's own site offered a usable photo. Those are now stored with the map permanently and credited to the venue. That brings self-hosted, never-expiring photos to 117 places, and every one is the image the venue chose to represent itself.",
+      "kind": "improvement"
+    },
+    {
+      "date": "2026-06-10",
+      "title": "Two contentless map pins retired pending real information",
+      "summary": "A sweep for places with nothing to show a visitor (template description, no photo, no website, no events) found only four. Two unverified ones no longer get a map pin (they remain findable in the directory and are easy to restore once real content arrives). The other two are public-art entries held for the Arts Council to decide. Nearly everything on the map has at least one piece of real content, which is better than expected.",
+      "kind": "improvement"
+    },
+    {
+      "date": "2026-06-10",
+      "title": "14 places now show photos from the venues' own websites",
+      "summary": "For places that lost their photo, we checked the venue's own website for the picture it chooses to represent itself (the image a site declares for social sharing). 159 venue sites were checked; 14 yielded a usable photo, now stored with the map itself so it can never expire, each credited to the venue's website. Logos and graphics were filtered out automatically. Most small venue sites simply don't publish a share photo, which is why the long-term plan is a community photo drive.",
+      "kind": "improvement"
+    },
+    {
+      "date": "2026-06-10",
+      "title": "Broken photos replaced with honest placeholders",
+      "summary": "Many place photos were hot-linked from Google and those links expire. We checked all 1,065 of them: 856 still work, 209 had quietly died and were showing as broken images. Those 209 places now show a clean category placeholder with a 'photo not yet sourced' note instead of a broken picture. Next step: pulling real photos from the venues' own websites.",
+      "kind": "fix"
+    },
+    {
+      "date": "2026-06-10",
+      "title": "Map accuracy audit: 6 misplaced pins corrected, 48 relabeled as approximate",
+      "summary": "Every public place with a street address (946 of them) was cross-checked against the US Census geocoder. 764 matched within 150 meters. Six pins that were 2-25 km from their real address (including Art Hike and the Gold Country Celtic Society) now sit at the correct location. Forty-eight pins we could not verify keep their spot but are honestly marked as approximate until reviewed. The check is a repeatable script, so we can re-audit any time the data changes.",
+      "kind": "fix"
+    },
+    {
+      "date": "2026-06-10",
+      "title": "Two small delights: Surprise me nearby, and Before-or-after stops on events",
+      "summary": "A 'Surprise me nearby' button in Places mode pulls up a handful of under-the-radar stops described in their own words, with a re-roll. Event cards now list the closest eat/drink/shop stops so an event can become an evening. Both are plain distance and real venue text — no invented curation.",
+      "kind": "improvement"
+    },
+    {
+      "date": "2026-06-10",
+      "title": "Events mode gets a time lens: Today, This weekend, Next 7 days",
+      "summary": "A chip row in Events mode narrows both the list and the map markers to the window you care about. Events-only by design: the map has no opening-hours data yet, so there is deliberately no Open Now filter.",
+      "kind": "improvement"
+    },
+    {
+      "date": "2026-06-10",
+      "title": "Place cards now connect everything: events, MUSE, paths, and what is nearby",
+      "summary": "Selecting a place now shows its upcoming events (tap to open), the MUSE Magazine stories it appears in, the curated paths it belongs to (tap to walk the route), and the closest cultural stops around it. Venue descriptions sourced from the venue itself now say so, with a link.",
+      "kind": "improvement"
+    },
+    {
+      "date": "2026-06-10",
+      "title": "The map now greets you like a host, not a database",
+      "summary": "The panel opens with a featured cultural anchor — photo, its story hook, and a one-tap way in — followed by a 'What are you in the mood for?' browse list. Search is still there, just no longer the front door.",
+      "kind": "improvement"
+    },
+    {
+      "date": "2026-06-10",
+      "title": "Map markers redesigned: named anchors first, calmer dots, live-event halos",
+      "summary": "At county zoom the map now leads with named cultural anchors instead of ~700 equal dots; ordinary places fade in as you zoom into town. Dot colors moved to a muted ink-leaning palette so red is reserved for what is live or selected, and any place with an upcoming event now carries a soft red halo in every mode.",
+      "kind": "improvement"
+    },
+    {
+      "date": "2026-06-10",
+      "title": "219 places now describe themselves in their own words",
+      "summary": "We visited the websites of 452 places that still had placeholder text and copied how each business describes itself — verbatim, from their own homepage or About page. 219 cards now carry the venue's own voice (the Holbrooke's \"We've been building character since 1852,\" for example). Every quote was machine-verified against the source page; nothing was reworded or invented. A side benefit: we found 88 broken venue links and one hijacked website, now logged for follow-up.",
+      "commit": ""
+    },
+    {
+      "date": "2026-06-10",
+      "title": "This page — a public update log",
+      "summary": "The site now has this “What's New” page (linked in the top menu) so the Arts Council and community can see every update at a glance. Each entry links to the exact code change for anyone who wants the technical detail.",
+      "commit": ""
+    },
+    {
+      "date": "2026-06-10",
+      "title": "Usability fix round 1 — 11 issues from a full site audit",
+      "summary": "We tested the whole site like a first-time visitor (on a computer and a phone) and fixed everything we found. Phone users get a proper menu button now, and a bug that could trap phone users on the map is gone.",
+      "details": [
+        "New: menu button on phones — MUSE Magazine, Culture Forward, Current Map, and Proposed Flows are reachable on mobile",
+        "New: the Events tab now shows a browsable, date-sorted list of all upcoming events",
+        "Improved: place search moved to the top of the panel, with results right under the box",
+        "Improved: routes now have a back button, and route copy says four routes (there are four)",
+        "Fixed: on phones, the detail card could cover the whole screen with no way to close it",
+        "Fixed: detail cards opened mid-scroll instead of at the top",
+        "Fixed: map labels no longer draw on top of the detail card; map credits no longer hidden"
+      ],
+      "commit": "9ea0fea"
+    },
+    {
+      "date": "2026-05-30",
+      "title": "Site goes live + Proposed Flows gallery",
+      "summary": "The map got its own public web address (v1-discovery-map.vercel.app) and a new Proposed Flows page showing design directions for where the project could go next.",
+      "commit": "5491e5c"
+    },
+    {
+      "date": "2026-05-30",
+      "title": "Live community events, refreshed daily",
+      "summary": "Events on the map are now real and current — pulled automatically every day from nine community calendars (Arts Council, library, county, KVMR, GVDA, and local venues including Crazy Horse, Golden Era, and Bodhi Hive).",
+      "commit": "f568d18"
+    },
+    {
+      "date": "2026-05-30",
+      "title": "Friendlier wording across the site",
+      "summary": "All on-screen text was rewritten in a warmer, citizen voice — less database jargon, more like a local pointing you somewhere good.",
+      "commit": "fc74ca7"
+    },
+    {
+      "date": "2026-05-29",
+      "title": "Cleaner place data",
+      "summary": "Duplicate place entries were merged and the map's data tooling was reworked, so each venue appears once with its best information.",
+      "commit": "8f2394c"
+    },
+    {
+      "date": "2026-05-28",
+      "title": "Real street map + places snapped to rooftops",
+      "summary": "The background map switched to a clear street map, and 411 places whose locations were only estimates were moved onto their actual buildings.",
+      "commit": "2180ae2"
+    },
+    {
+      "date": "2026-05-27",
+      "title": "Browse by Outing Type",
+      "summary": "A new way in: pick a lane like Art, History, or Local Shops and the map narrows to match, with counts shown for each.",
+      "commit": "607469b"
+    },
+    {
+      "date": "2026-05-26",
+      "title": "One trustworthy place dataset",
+      "summary": "All place lists were combined into a single canonical dataset with honest confidence tiers — solid markers for verified locations, hollow for estimates.",
+      "commit": "eaa7156"
+    }
+  ]
 }

@@ -5,17 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Nevada County Cultural Map</title>
   <meta name="description" content="Browse cultural places, stories, and events across Grass Valley and Nevada City.">
-  <meta name="theme-color" content="#f7f7f4">
-  <link rel="preconnect" href="https://use.typekit.net">
+  <meta name="theme-color" content="#FAF6EC">
   <link rel="preconnect" href="https://unpkg.com" crossorigin>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="assets/fonts/polymath-variable.woff2" as="font" type="font/woff2" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <script src="https://use.typekit.net/ik/QpZL-jTAx8VcE7iBVv7r5tSVTAEaLdPXUwSgW14405GfelJgfFHN4UJLFRbh52jhWD9tZcjow2MaFQSoZcJD5Q48w2yKwR4cZsGMJ6Nyjaml-AtlSY4zOWiTZe9KIA4kjAoqdhtlZa4ziemDSWm8Jysyjaml-AtlSY4zOAFzdcs8d1F8ZfGHf5dOMsMMeMb6MKG4fOZbIMIjgfMfH6qJz8MbMs6BJMJ7f6Kbk3IbMy6IJMJ7f6KAk3IbMy6BJMJ7f6Kjk3IbMy6eJMJ7f6K5k3IbMy6YJMJ7f6Ksk3IbMy65JMJ7f6KVk3IbMy6sJMHbM-K0oCte.js"></script>
-  <script>try{Typekit.load({async:true});}catch(e){}</script>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23ff2500'/%3E%3Cpath d='M7 24V8h4l10 9V8h4v16h-4L11 15v9z' fill='%23faf8f4'/%3E%3C/svg%3E">
   <link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
-  <link rel="stylesheet" href="styles.css?v=cla-52-muse-read-links">
+  <link rel="stylesheet" href="styles.css?v=cla-73-polymath">
 </head>
 <body>
   <a class="skip-link" href="#map">Skip to map</a>
@@ -58,7 +56,6 @@
         </button>
         <div class="panel-topline">
           <div class="panel-map-copy">
-            <p class="panel-label">Explore</p>
             <h1>Nevada County Cultural Map</h1>
             <p>Browse cultural places, stories, and events across Grass Valley and Nevada City.</p>
           </div>
@@ -80,6 +77,7 @@
 
         <div class="review-tools" id="review-tools" aria-label="Review navigation">
           <h2 class="browse-heading">Places to explore</h2>
+          <button type="button" class="rail-reset-chip" id="rail-reset-chip" hidden aria-label="Clear filters and show tonight's Discovery Rail">Show tonight's rail</button>
           <label class="review-search-label" for="place-search">
             <span>Search places</span>
             <input id="place-search" class="review-search-input" type="search" name="place-search" autocomplete="off" placeholder="Search places, e.g. theatre…">
@@ -96,6 +94,15 @@
         </div>
       </div>
 
+      <div class="discovery-rail" id="discovery-rail" aria-label="Browse what's happening and worth a stop">
+        <div class="rail-chips" id="rail-chips" role="group" aria-label="Choose what to browse">
+          <button class="rail-chip on" type="button" data-rail-filter="all">Everything</button>
+          <button class="rail-chip" type="button" data-rail-filter="event">Events</button>
+          <button class="rail-chip" type="button" data-rail-filter="place">Places</button>
+        </div>
+        <div class="rail-track" id="rail-track" tabindex="0" aria-label="Scroll through events, places, stories, and paths"></div>
+      </div>
+
       <div class="map-legend" aria-label="Map legend">
         <span><i class="legend-dot place"></i>Places</span>
         <span><i class="legend-dot event"></i>Events</span>
@@ -107,7 +114,7 @@
   <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
   <script src="review-state.js"></script>
   <script src="place-data.js"></script>
-  <script src="marker-category-color.js?v=cla-52-muse-read-links"></script>
-  <script src="app.js?v=cla-52-muse-read-links"></script>
+  <script src="marker-category-color.js?v=cla-73-polymath"></script>
+  <script src="app.js?v=cla-73-polymath"></script>
 </body>
 </html>

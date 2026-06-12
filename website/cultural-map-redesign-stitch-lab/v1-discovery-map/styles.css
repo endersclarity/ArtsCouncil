@@ -1,50 +1,55 @@
+/* Polymath (NCAC brand face) self-hosted: the family name matches the
+   Squarespace upload the brand doc references, but the face itself was
+   never loaded here — without this block everything falls back to DM Sans. */
+@font-face {
+  font-family: "polymath-variable-2th9nk";
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url("assets/fonts/polymath-variable.woff2") format("woff2");
+}
+
 :root {
   --ncac-red: #ff2e00;
   --ncac-red-soft: rgba(255, 46, 0, 0.08);
   --ncac-red-ring: rgba(255, 46, 0, 0.28);
-  --ink: #141414;
-  --ink-soft: #4f4f4a;
-  --paper: #f7f7f4;
-  --paper-warm: #ecece6;
-  --field: #ffffff;
-  --surface: #ffffff;
-  --line: #d7d7d0;
-  --line-strong: #141414;
-  --panel: #ffffff;
+  --ink: #1A1A1A;
+  --ink-soft: #5E5852;
+  --paper: #FAF6EC;
+  /* --paper as raw channels, for translucent paper veils via
+     rgb(var(--paper-rgb) / <alpha>) — keep in sync with --paper. */
+  --paper-rgb: 250 246 236;
+  /* Warmth pass 3: the whole app sits on warm paper. Wells (recessed fields,
+     chip wells, placeholders) step down to --paper-warm. Pure white survives
+     ONLY as knockout inside red/ink fields — never as a panel surface. */
+  --paper-warm: #F5F0E8;
+  --field: #FAF6EC;
+  --surface: #FAF6EC;
+  --line: #D8D0C6;
+  --line-strong: #1A1A1A;
+  --panel: #FAF6EC;
   --map-quiet-field: #f4f5f1;
-  --map-quiet-line: #d8ddd5;
-  --map-quiet-label: #73766f;
-  --shadow: 8px 8px 0 rgba(20, 20, 20, 0.12);
-  --shadow-float: 0 18px 42px rgba(20, 20, 20, 0.14);
-  --shadow-low: 0 4px 10px rgba(20, 20, 20, 0.18);
-  --caption-scrim: rgba(20, 20, 20, 0.78);
+  --shadow: 8px 8px 0 rgba(26, 26, 26, 0.12);
+  --shadow-float: 0 18px 42px rgba(26, 26, 26, 0.14);
+  --shadow-low: 0 4px 10px rgba(26, 26, 26, 0.18);
+  --caption-scrim: rgba(26, 26, 26, 0.78);
   --focus-ring: 0 0 0 3px var(--ncac-red-ring);
+  /* Brand secondaries — poster/campaign fields ONLY (NCAC-V1-BRAND.md).
+     Full-bleed behind knockout type on featured/campaign cards; never
+     buttons, markers, chips, or any functional UI signal. */
+  --poster-blue: #1d49c9;
+  --poster-green: #0c6b38;
+  --poster-teal: #0b6e78;
+  --poster-pink: #c2186b;
+  /* Pass-5 motion tokens: two durations, one curve (ease-out quint — confident
+     deceleration, no bounce). Feedback = fast; state changes = base. Every
+     animated property is covered by the prefers-reduced-motion block below. */
+  --motion-fast: 120ms;
+  --motion-base: 200ms;
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --font-brand: "polymath-variable-2th9nk", "DM Sans", "Inter", system-ui, sans-serif;
   --font-body: "polymath-variable-2th9nk", "DM Sans", "Inter", system-ui, sans-serif;
   --font-ui: var(--font-brand);
-}
-
-body.twilight-mode {
-  --ncac-red: #ff2e00;
-  --ncac-red-soft: rgba(255, 46, 0, 0.1);
-  --ncac-red-ring: rgba(255, 46, 0, 0.34);
-  --ink: #101010;
-  --ink-soft: #454541;
-  --paper: #f2f2ee;
-  --paper-warm: #e5e5df;
-  --field: #ffffff;
-  --surface: #ffffff;
-  --line: #cecec7;
-  --line-strong: #101010;
-  --panel: #ffffff;
-  --map-quiet-field: #eff1ed;
-  --map-quiet-line: #d0d6cf;
-  --map-quiet-label: #686c66;
-  --shadow: 8px 8px 0 rgba(16, 16, 16, 0.14);
-  --shadow-float: 0 18px 42px rgba(16, 16, 16, 0.16);
-  --shadow-low: 0 4px 10px rgba(16, 16, 16, 0.2);
-  --caption-scrim: rgba(16, 16, 16, 0.8);
-  --focus-ring: 0 0 0 3px var(--ncac-red-ring);
 }
 
 * {
@@ -94,7 +99,6 @@ button {
   padding: 11px clamp(18px, 4vw, 54px) 10px;
   border-bottom: 6px solid var(--ncac-red);
   background: var(--field);
-  box-shadow: 0 1px 0 var(--line-strong);
 }
 
 .brand {
@@ -187,11 +191,10 @@ button {
   display: none;
 }
 
-.intro-strip .kicker,
-.panel-label {
+.intro-strip .kicker {
   margin: 0;
   font-family: var(--font-brand);
-  color: var(--ncac-red);
+  color: var(--ink);
   font-weight: 800;
   text-transform: uppercase;
   font-size: 11px;
@@ -230,8 +233,8 @@ button {
   inset: 0;
   z-index: 2;
   pointer-events: none;
-  border: 1px solid var(--line-strong);
-  box-shadow: inset 0 0 0 7px rgba(255, 255, 255, 0.74);
+  border: 1px solid var(--line);
+  box-shadow: inset 0 0 0 7px rgb(var(--paper-rgb) / 0.74);
 }
 
 .map-canvas {
@@ -247,6 +250,30 @@ button {
   display: none;
 }
 
+/* Quiet, in-system scrollbar instead of the raw OS one — one recipe shared by
+   every scrolling surface (control panel, selection drawer, places list). */
+.control-panel,
+.selection-drawer,
+.places-list-items {
+  scrollbar-width: thin;
+  scrollbar-color: var(--line) transparent;
+}
+
+.control-panel::-webkit-scrollbar,
+.selection-drawer::-webkit-scrollbar {
+  width: 8px;
+}
+
+.control-panel::-webkit-scrollbar-thumb,
+.selection-drawer::-webkit-scrollbar-thumb {
+  background: var(--line);
+}
+
+.control-panel::-webkit-scrollbar-track,
+.selection-drawer::-webkit-scrollbar-track {
+  background: transparent;
+}
+
 .control-panel {
   position: absolute;
   z-index: 4;
@@ -257,17 +284,23 @@ button {
   overflow: auto;
   overscroll-behavior: contain;
   background: var(--panel);
-  border: 2px solid var(--line-strong);
-  box-shadow: var(--shadow-float);
-  padding: 13px;
+  /* Warmth pass 3: the panel is a warm paper sheet held by its shadow —
+     no black frame. */
+  border: 0;
+  box-shadow: var(--shadow-low);
+  padding: 16px;
 }
 
-.control-panel::before {
+/* Bottom fade: a clipped row reads as "more below", not a broken edge. */
+.control-panel::after {
   content: "";
+  position: sticky;
+  bottom: -16px;
   display: block;
-  height: 6px;
-  margin: -13px -13px 12px;
-  background: var(--ncac-red);
+  height: 26px;
+  margin: 0 -16px -16px;
+  background: linear-gradient(to bottom, rgb(var(--paper-rgb) / 0), var(--panel));
+  pointer-events: none;
 }
 
 .selection-drawer {
@@ -284,13 +317,17 @@ button {
   opacity: 0;
   pointer-events: none;
   transform: translateX(18px);
-  transition: opacity 0.18s ease, transform 0.18s ease;
+  /* Closed state carries the exit duration (fast); .open overrides with the
+     entrance duration (base) — exits faster than entrances. */
+  transition: opacity var(--motion-fast) var(--ease-out), transform var(--motion-fast) var(--ease-out);
 }
+
 
 .selection-drawer.open {
   opacity: 1;
   pointer-events: auto;
   transform: translateX(0);
+  transition-duration: var(--motion-base), var(--motion-base);
 }
 
 .panel-topline {
@@ -301,29 +338,34 @@ button {
   justify-content: space-between;
   align-items: flex-start;
   gap: 6px 16px;
-  padding-bottom: 10px;
-  margin-bottom: 12px;
-  border-bottom: 2px solid var(--line-strong);
+  padding-bottom: 12px;
+  margin-bottom: 14px;
+  border-bottom: 1px solid var(--line);
 }
 
 .panel-map-copy {
   min-width: 0;
 }
 
+/* Explore panel hierarchy: h1 24/800 over 13px body over 11px labels —
+   three sizes, big jumps; no kicker above the h1. */
 .panel-map-copy h1 {
-  margin: 3px 0 4px;
+  margin: 0 0 5px;
   font-family: var(--font-brand);
-  font-size: 20px;
-  line-height: 1;
-  letter-spacing: 0;
+  font-size: 24px;
+  font-weight: 800;
+  line-height: 1.02;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
 }
 
 .panel-map-copy p:last-child {
   margin: 0;
-  max-width: 30ch;
-  font-size: 12px;
-  line-height: 1.25;
+  max-width: 32ch;
+  font-size: 13px;
+  line-height: 1.45;
   color: var(--ink-soft);
+  text-wrap: pretty;
 }
 
 #visible-count {
@@ -331,24 +373,24 @@ button {
   color: var(--ink-soft);
   font-weight: 700;
   font-variant-numeric: tabular-nums;
-  text-transform: uppercase;
-  letter-spacing: 0.03em;
   flex: 1 0 100%;
   margin-top: 2px;
   text-align: left;
 }
 
+/* Warmth pass 3: the segmented control sits in a recessed warm well with
+   hairline structure; the ink-fill active tab carries the contrast. */
 .mode-tabs {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  border: 2px solid var(--ink);
-  margin-bottom: 12px;
-  background: var(--surface);
+  border: 1px solid var(--line);
+  margin-bottom: 14px;
+  background: var(--paper-warm);
 }
 
 .mode-tab {
   border: 0;
-  border-right: 1px solid var(--ink);
+  border-right: 1px solid var(--line);
   background: transparent;
   padding: 8px 7px 7px;
   cursor: pointer;
@@ -373,17 +415,23 @@ button {
   border-right: 0;
 }
 
+/* Active = ink knockout with the red signal as an inset rule. Red FILLS with
+   13px text fail contrast (white on #FF2E00 is 3.7:1, paper 3.4:1); ink/white
+   is 16.9:1 and red still marks the active state. */
 .mode-tab.active {
-  background: var(--ncac-red);
-  color: var(--paper);
+  background: var(--ink);
+  color: #ffffff;
+  box-shadow: inset 0 -3px 0 var(--ncac-red);
 }
 
+/* Section on the panel's own surface — no box-in-box, no side stripe.
+   A hairline above + breathing room does the grouping. */
 .featured-hint {
-  border: 1px solid var(--line-strong);
-  background: var(--surface);
-  padding: 10px;
+  border: 0;
+  border-top: 1px solid var(--line);
+  background: none;
+  padding: 12px 0 2px;
   margin-bottom: 12px;
-  box-shadow: inset 4px 0 0 var(--ncac-red);
 }
 
 .hint-title {
@@ -417,7 +465,7 @@ button {
   width: 100%;
   height: 96px;
   object-fit: cover;
-  border: 1px solid var(--line-strong);
+  border: 1px solid var(--line);
 }
 
 .hint-feature-name {
@@ -436,8 +484,9 @@ button {
 .hint-feature-action {
   appearance: none;
   border: 2px solid var(--ink);
-  background: var(--ncac-red);
-  color: var(--paper);
+  background: var(--ink);
+  box-shadow: inset 0 -3px 0 var(--ncac-red);
+  color: #ffffff;
   font-family: var(--font-brand);
   font-weight: 800;
   font-size: 13px;
@@ -449,18 +498,19 @@ button {
   background: var(--ink);
 }
 
-/* CLA-20: Outing Type browse list (the way in) + compact active-filter bar */
+/* CLA-20: Outing Type browse list (the way in) + compact active-filter bar.
+   Lives directly on the panel surface — list rows with hairlines, not a box. */
 .outing-browse {
-  border: 1px solid var(--line-strong);
-  background: var(--surface);
+  border: 0;
+  background: none;
 }
 
 .outing-browse-head {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 10px;
-  border-bottom: 1px solid var(--line-strong);
+  padding: 0 0 8px;
+  border-bottom: 1px solid var(--line);
 }
 
 .outing-browse-title {
@@ -474,9 +524,12 @@ button {
 .outing-done {
   border: 0;
   background: transparent;
-  color: var(--ncac-red);
+  color: var(--ink);
   font-size: 12px;
-  font-weight: 700;
+  font-weight: 800;
+  text-decoration: underline;
+  text-decoration-color: var(--ncac-red);
+  text-underline-offset: 3px;
   cursor: pointer;
   padding: 0;
 }
@@ -508,7 +561,7 @@ button {
 }
 
 .outing-row:hover {
-  background: rgba(20, 20, 20, 0.05);
+  background: rgba(26, 26, 26, 0.05);
 }
 
 .outing-row-count {
@@ -526,13 +579,13 @@ button {
 }
 
 .outing-row.active {
-  background: var(--ncac-red);
+  background: var(--ink);
   color: var(--field);
-  box-shadow: inset 3px 0 0 var(--ink);
+  box-shadow: inset 0 -3px 0 var(--ncac-red);
 }
 
 .outing-row.active:hover {
-  background: var(--ncac-red);
+  background: var(--ink);
 }
 
 .outing-row.active .outing-row-count,
@@ -552,7 +605,8 @@ button {
   align-items: center;
   gap: 6px;
   border: 1px solid var(--ink);
-  background: var(--ncac-red);
+  background: var(--ink);
+  box-shadow: inset 0 -3px 0 var(--ncac-red);
   color: var(--field);
   padding: 6px 10px;
   font-size: 12px;
@@ -566,8 +620,8 @@ button {
 }
 
 .outing-change {
-  border: 1px solid var(--line-strong);
-  background: var(--surface);
+  border: 1px solid var(--line);
+  background: transparent;
   color: var(--ink);
   padding: 6px 10px;
   font-size: 12px;
@@ -584,7 +638,7 @@ button {
 }
 
 .filter-chip {
-  border: 1px solid var(--line-strong);
+  border: 1px solid var(--line);
   background: var(--surface);
   color: var(--ink);
   display: grid;
@@ -604,13 +658,52 @@ button {
 
 .filter-chip.active {
   border-color: var(--ink);
-  background: var(--ncac-red);
+  background: var(--ink);
   color: var(--field);
-  box-shadow: inset 0 -3px 0 var(--ink);
+  box-shadow: inset 0 -3px 0 var(--ncac-red);
 }
 
 .filter-chip.active small {
   color: var(--field);
+}
+
+/* Rail-recovery chip: the visible one-click path back to the Discovery Rail
+   when refinements have retired it. Hairline ink chip in the filter-chip
+   language — paper surface, --line border, ink text; red only on hover/active
+   (one-red-device rule). Hidden via [hidden] whenever the rail is showing. */
+.rail-reset-chip {
+  align-self: flex-start;
+  margin-bottom: 8px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+  padding: 7px 11px;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: border-color var(--motion-fast) var(--ease-out),
+    color var(--motion-fast) var(--ease-out),
+    box-shadow var(--motion-base) var(--ease-out);
+}
+
+.rail-reset-chip[hidden] {
+  display: none;
+}
+
+.rail-reset-chip:hover {
+  border-color: var(--ncac-red);
+  color: var(--ncac-red);
+}
+
+.rail-reset-chip:active {
+  border-color: var(--ncac-red);
+  color: var(--ncac-red);
+  box-shadow: inset 0 -3px 0 var(--ncac-red);
+}
+
+.rail-reset-chip:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
 }
 
 body[data-map-mode="paths"] .filter-wrap {
@@ -622,11 +715,11 @@ body:not([data-map-mode="places"]) .review-tools {
 }
 
 .review-tools {
-  border: 1px solid var(--line-strong);
-  background: rgba(255, 255, 255, 0.82);
+  border: 0;
+  border-top: 1px solid var(--line);
+  background: none;
   margin-bottom: 12px;
-  padding: 9px;
-  box-shadow: inset 4px 0 0 var(--ncac-red);
+  padding: 12px 0 0;
 }
 
 .browse-heading {
@@ -648,8 +741,8 @@ body:not([data-map-mode="places"]) .review-tools {
 
 .review-search-input {
   width: 100%;
-  border: 1px solid var(--line-strong);
-  background: var(--surface);
+  border: 1px solid var(--line);
+  background: var(--paper-warm);
   color: var(--ink);
   font: inherit;
   font-size: 13px;
@@ -681,17 +774,17 @@ body:not([data-map-mode="places"]) .review-tools {
   justify-content: space-between;
   gap: 8px;
   margin-bottom: 7px;
-  border: 1px solid var(--line-strong);
-  background: var(--paper);
+  border: 1px solid var(--line);
+  background: var(--paper-warm);
   color: var(--ink);
   font-size: 12px;
   font-weight: 800;
-  line-height: 1.25;
+  line-height: 1.35;
   padding: 7px 8px;
 }
 
 .local-reveal-back {
-  border: 1px solid var(--ink);
+  border: 1px solid var(--line);
   background: var(--surface);
   color: var(--ink);
   cursor: pointer;
@@ -732,14 +825,16 @@ body:not([data-map-mode="places"]) .review-tools {
   text-align: left;
 }
 
-.place-list-item.active,
 .place-list-item:hover {
   border-color: var(--ink);
-  box-shadow: inset 5px 0 0 var(--ncac-red);
+}
+
+.place-list-item.active {
+  border-color: var(--ncac-red);
 }
 
 .place-list-item.local-reveal-item {
-  border-color: var(--line-strong);
+  border-color: var(--line);
 }
 
 .place-list-title {
@@ -755,13 +850,13 @@ body:not([data-map-mode="places"]) .review-tools {
 }
 
 .place-list-badge {
-  color: var(--ncac-red);
+  color: var(--ink);
   font-weight: 800;
   text-transform: uppercase;
 }
 
 .marker-preview-popup .maplibregl-popup-content {
-  border: 2px solid var(--ink);
+  border: 0;
   border-radius: 0;
   background: var(--paper);
   box-shadow: var(--shadow);
@@ -770,8 +865,8 @@ body:not([data-map-mode="places"]) .review-tools {
 }
 
 .marker-preview-popup .maplibregl-popup-tip {
-  border-top-color: var(--ink);
-  border-bottom-color: var(--ink);
+  border-top-color: var(--paper);
+  border-bottom-color: var(--paper);
 }
 
 .marker-preview {
@@ -788,7 +883,7 @@ body:not([data-map-mode="places"]) .review-tools {
 }
 
 .marker-preview-kicker {
-  color: var(--ncac-red);
+  color: var(--ink);
   font-size: 9px;
   font-weight: 900;
   letter-spacing: 0.04em;
@@ -809,16 +904,18 @@ body:not([data-map-mode="places"]) .review-tools {
   line-height: 1.2;
 }
 
+/* Warmth pass 2: the detail surface is warm paper, structured by spacing and
+   the drawer's hard-offset shadow — no black card borders. */
 .detail-card {
-  border: 1px solid var(--line-strong);
-  border-top: 5px solid var(--ink);
-  background: var(--surface);
+  border: 0;
+  background: var(--paper);
   padding: 12px;
 }
 
 .selection-drawer .detail-card {
   position: relative;
-  box-shadow: var(--shadow-float);
+  /* Brand hard-offset shadow — not the thin-border + wide-blur float. */
+  box-shadow: var(--shadow);
 }
 
 .selected-place-close {
@@ -826,8 +923,8 @@ body:not([data-map-mode="places"]) .review-tools {
   z-index: 2;
   top: 20px;
   right: 20px;
-  border: 1px solid var(--line-strong);
-  background: var(--surface);
+  border: 1px solid var(--line);
+  background: var(--paper);
   color: var(--ink);
   font: inherit;
   font-size: 11px;
@@ -844,17 +941,373 @@ body:not([data-map-mode="places"]) .review-tools {
   color: var(--surface);
 }
 
-.detail-card.primary-anchor-card {
-  border-color: var(--line-strong);
-  border-top: 6px solid var(--ncac-red);
-  background: linear-gradient(180deg, var(--ncac-red-soft), rgba(255, 255, 255, 0) 132px), var(--surface);
-  padding: 12px;
+/* Warmth pass 2 — place "warm magazine page" (approved mockup B). Every place
+   detail (1,351 of them) is a calm paper feature: photo-led with a full-width
+   ink caption bar carrying name/city, a date-block-style meta column (3px red
+   top rule — the ONE red framing device on this card — category + city
+   stacked), 22px/800 title, blurb in muted ink, red primary action with a
+   hairline outline secondary. No black borders anywhere on this surface;
+   structure comes from spacing, the caption bar, and hairlines. */
+.detail-card.place-feature-card,
+.selection-drawer .detail-card.place-feature-card {
+  background: var(--paper);
+  color: var(--ink);
+  padding: 0;
 }
 
-.detail-card.supporting-stop-card {
-  border-color: var(--line-strong);
-  border-top: 5px solid var(--line-strong);
-  background: linear-gradient(180deg, rgba(20, 20, 20, 0.05), rgba(255, 255, 255, 0) 118px), var(--surface);
+.place-feature-body {
+  padding: 16px 20px 18px;
+}
+
+.place-feature-flag {
+  margin: 0 0 10px;
+  font-family: var(--font-brand);
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ink-soft);
+}
+
+.place-feature-head {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.place-meta-block {
+  flex: 0 0 auto;
+  display: grid;
+  gap: 3px;
+  min-width: 64px;
+  max-width: 96px;
+  border-top: 3px solid var(--ncac-red);
+  padding-top: 7px;
+}
+
+.place-meta-primary {
+  font-family: var(--font-brand);
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--ink);
+}
+
+.place-meta-secondary {
+  font-size: 11px;
+  font-weight: 700;
+  line-height: 1.25;
+  color: var(--ink-soft);
+}
+
+.place-feature-title {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+
+.detail-card.place-feature-card h2 {
+  margin: 0 0 8px;
+  font-size: 22px;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.place-feature-card .anchor-hook {
+  border: 0;
+  padding: 0;
+  margin: 0 0 6px;
+  color: var(--ink);
+  font-size: 14px;
+  font-weight: 750;
+  line-height: 1.45;
+}
+
+.place-feature-card .detail-description {
+  font-size: 13.5px;
+  line-height: 1.5;
+  color: var(--ink-soft);
+  max-width: 62ch;
+}
+
+/* Photo treatment: full-bleed at the top of the card, ink caption bar with
+   name/city (credit rides along, small and muted). */
+.place-feature-card .place-image-frame,
+.place-feature-card .placeholder-image-wrap {
+  margin: 0;
+}
+
+.place-feature-card .place-image {
+  border: 0;
+}
+
+.place-feature-card .placeholder-image-wrap {
+  border: 0;
+  padding: 0;
+  box-shadow: none;
+  background: var(--paper-warm);
+}
+
+.place-feature-card .placeholder-label {
+  border-color: var(--line);
+  box-shadow: none;
+  background: var(--paper);
+}
+
+/* Shared ink caption bar pinned to the photo's bottom edge — one recipe for
+   the place feature card and the event feature photo; only the background
+   tone differs per surface. */
+.place-feature-card .place-photo-caption,
+.event-feature-photo figcaption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  color: #fff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+  padding: 6px 20px;
+}
+
+.place-feature-card .place-photo-caption {
+  max-width: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+  background: var(--ink);
+}
+
+.place-feature-card .place-photo-caption small {
+  flex: 0 1 auto;
+  color: var(--line);
+  font-size: 10px;
+  font-weight: 400;
+  text-align: right;
+}
+
+/* Anchor badge calms down on paper: ink-ringed token, no red ring/border. */
+.place-feature-card .anchor-token {
+  border-color: var(--ink);
+  background: transparent;
+}
+
+.place-feature-card .anchor-demo-badge {
+  border-color: var(--line);
+  background: transparent;
+}
+
+/* Shared feature-action recipe — the ONE place the red primary lives for both
+   detail cards (place + event). Red fill at 19px/800 = WCAG large text, so
+   white-on-red (3.72:1) clears AA-large; knockout-on-red stays display-size
+   only, per the brand rule. Secondary actions are quiet hairline outlines.
+   Per-card hover/colour differences are small overrides further down. */
+.place-feature-card .detail-actions a,
+.place-feature-card .detail-actions .anchor-map-action,
+.event-feature-card .event-feature-actions a {
+  border: 1px solid var(--ncac-red);
+  background: var(--ncac-red);
+  color: #fff;
+  font-size: 19px;
+  line-height: 1.1;
+  font-weight: 800;
+  padding: 8px 16px;
+}
+
+.place-feature-card .detail-actions a:hover,
+.place-feature-card .detail-actions a:focus-visible,
+.place-feature-card .detail-actions .anchor-map-action:hover,
+.place-feature-card .detail-actions .anchor-map-action:focus-visible {
+  border-color: var(--ink);
+  background: var(--ink);
+  color: #fff;
+}
+
+.place-feature-card .detail-actions button:not(.anchor-map-action),
+.event-feature-card .event-feature-actions button {
+  border: 1px solid var(--line);
+  background: transparent;
+  color: var(--ink);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 9px 15px;
+}
+
+.place-feature-card .detail-actions button:not(.anchor-map-action):hover,
+.place-feature-card .detail-actions button:not(.anchor-map-action):focus-visible {
+  border-color: var(--ink);
+  background: transparent;
+}
+
+/* De-iced supporting pieces: hairlines and warm wells, never black borders. */
+.place-feature-card .location-caveat {
+  border: 1px solid var(--line);
+  background: var(--paper-warm);
+}
+
+.place-feature-card .directory-record-meta {
+  border-top: 1px solid var(--line);
+}
+
+.place-feature-card .seen-in-muse,
+.place-feature-card .muse-directory-badge {
+  border-top-color: var(--line);
+}
+
+.place-feature-card .event-mini,
+.place-feature-card .place-path-link,
+.place-feature-card .place-nearby-link {
+  border: 1px solid var(--line);
+  background: transparent;
+}
+
+.place-feature-card .anchor-context-chips span {
+  border: 1px solid var(--line);
+  background: transparent;
+}
+
+/* Warmth pass 1 — event "charcoal feature" (approved mockup A). Events are
+   campaign surfaces: the drawer becomes a dark editorial feature on ink.
+   White knockout title, red weighted kicker for date, photo with full-width
+   ink caption bar, red primary action, muted-outline secondary.
+   Contrast: #fff on #1A1A1A 17.4:1; --line (#D8D0C6) body ~10.9:1 — both AA.
+   Red appears only as the weighted kicker + the primary fill (one red device;
+   structural, never decorative — no red rules or borders here). */
+.detail-card.event-feature-card,
+.selection-drawer .detail-card.event-feature-card {
+  border: 0;
+  background: var(--ink);
+  color: var(--line);
+  padding: 0;
+}
+
+.event-feature-card .selected-place-close {
+  top: 14px;
+  right: 14px;
+  border-color: var(--ink-soft);
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.event-feature-card .selected-place-close:hover,
+.event-feature-card .selected-place-close:focus-visible {
+  background: var(--paper);
+  border-color: var(--paper);
+  color: var(--ink);
+}
+
+.event-feature-photo {
+  position: relative;
+  margin: 0;
+}
+
+.event-feature-photo .place-image {
+  border: 0;
+  aspect-ratio: 16 / 9;
+}
+
+/* Caption-bar geometry/type shared with .place-photo-caption above; only the
+   per-surface background lives here. */
+.event-feature-photo figcaption {
+  background: var(--caption-scrim);
+}
+
+.event-feature-body {
+  padding: 18px 20px 20px;
+}
+
+.event-feature-kicker {
+  margin: 0 0 6px;
+  color: var(--ncac-red);
+  font-family: var(--font-brand);
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+}
+
+.detail-card.event-feature-card h2 {
+  margin: 0 0 10px;
+  padding-right: 52px; /* clear the Close button on photo-less cards */
+  color: #fff;
+  font-size: 26px;
+  font-weight: 800;
+  line-height: 1.08;
+}
+
+.event-feature-card .event-feature-photo + .event-feature-body h2 {
+  padding-right: 0;
+}
+
+.event-feature-venue {
+  margin: -4px 0 10px;
+  color: var(--line);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.event-feature-blurb {
+  margin: 0;
+  color: var(--line);
+  font-size: 14px;
+  line-height: 1.5;
+  max-width: 62ch;
+}
+
+.event-feature-actions {
+  margin-top: 16px;
+  gap: 10px;
+}
+
+/* On-ink overrides to the shared feature-action recipe above: the dark card
+   hovers flip to paper, and the secondary outline reads in paper, not ink. */
+.event-feature-card .event-feature-actions a:hover,
+.event-feature-card .event-feature-actions a:focus-visible {
+  border-color: var(--paper);
+  background: var(--paper);
+  color: var(--ink);
+}
+
+.event-feature-card .event-feature-actions button {
+  border-color: var(--ink-soft);
+  color: var(--paper);
+  padding: 10px 16px 9px;
+}
+
+.event-feature-card .event-feature-actions button:hover,
+.event-feature-card .event-feature-actions button:focus-visible {
+  border-color: var(--paper);
+  color: #fff;
+}
+
+/* "Before or after" stops inside the charcoal feature: same ink surface,
+   hairline separation instead of boxed white cards. */
+.event-feature-card .section-label {
+  color: var(--line);
+}
+
+.event-feature-card .place-nearby {
+  margin-top: 16px;
+  border-top: 1px solid var(--ink-soft);
+  padding-top: 12px;
+}
+
+.event-feature-card .place-nearby-link {
+  border: 1px solid var(--ink-soft);
+  background: transparent;
+  color: var(--paper);
+}
+
+.event-feature-card .place-nearby-link:hover,
+.event-feature-card .place-nearby-link:focus-visible {
+  border-color: var(--paper);
+}
+
+.event-feature-card .place-nearby-link span {
+  color: var(--line);
 }
 
 .detail-card:has(.empty-title) {
@@ -877,42 +1330,25 @@ body:not([data-map-mode="places"]) .review-tools {
   font-weight: 800;
 }
 
+/* In-system photo treatment: a grid crop with the knockout caption bar —
+   not a bordered box inside the card (nested-cards ban). */
 .place-image-frame {
   position: relative;
   margin: 0 0 12px;
-  border: 1px solid var(--line-strong);
-  background: var(--field);
-}
-
-.primary-anchor-card .place-image-frame,
-.primary-anchor-card .placeholder-image-wrap {
-  margin: 0 0 10px;
-  border-bottom: 4px solid var(--ncac-red);
-}
-
-.supporting-stop-card .place-image-frame,
-.supporting-stop-card .placeholder-image-wrap {
-  margin-bottom: 10px;
-  border-bottom: 3px solid var(--line-strong);
 }
 
 .place-image {
   position: relative;
   width: 100%;
+  /* height:auto lets aspect-ratio win over the HTML height="360" attribute;
+     without it every card image renders 360px tall and placeholders spill
+     out of the 16:9 frame. */
+  height: auto;
   aspect-ratio: 16 / 9;
   object-fit: cover;
   display: block;
   background: var(--paper-warm);
   border: 1px solid var(--line);
-}
-
-.primary-anchor-card .place-image {
-  aspect-ratio: 16 / 10;
-  border: 0;
-}
-
-.supporting-stop-card .place-image {
-  aspect-ratio: 16 / 9;
 }
 
 .place-image-frame figcaption {
@@ -944,16 +1380,11 @@ body:not([data-map-mode="places"]) .review-tools {
   letter-spacing: 0.04em;
 }
 
-.primary-anchor-card .image-proof-label {
-  background: var(--ncac-red);
-  border-color: var(--ncac-red);
-}
-
 .placeholder-image-wrap {
   position: relative;
   margin-bottom: 10px;
-  border: 2px solid var(--line-strong);
-  background: var(--field);
+  border: 0;
+  background: var(--paper-warm);
   padding: 6px;
   box-shadow: inset 0 -6px 0 var(--ncac-red);
 }
@@ -968,7 +1399,7 @@ body:not([data-map-mode="places"]) .review-tools {
   right: 6px;
   bottom: 6px;
   max-width: calc(100% - 12px);
-  border: 1px solid var(--line-strong);
+  border: 1px solid var(--line);
   background: var(--field);
   color: var(--ink);
   padding: 5px 7px 4px;
@@ -980,25 +1411,22 @@ body:not([data-map-mode="places"]) .review-tools {
   box-shadow: inset 0 -3px 0 var(--ncac-red);
 }
 
+/* Broken-photo fallback inside a captioned frame: the full-width ink caption
+   bar owns the bottom edge, so the "not yet sourced" label rides above it. */
+.place-image-frame:has(.place-photo-caption) .placeholder-label {
+  bottom: 34px;
+}
+
+/* Small red text on white is 3.7:1 — below AA for these sizes. Small labels
+   are ink; red stays for display sizes, fills, and rules. */
 .detail-eyebrow {
   margin: 0 0 6px;
-  color: var(--ncac-red);
+  color: var(--ink);
   font-family: var(--font-brand);
   font-weight: 800;
   font-size: 11px;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-}
-
-.anchor-card-heading {
-  position: relative;
-  padding: 0 0 8px;
-  border-bottom: 1px solid var(--line-strong);
-}
-
-.primary-anchor-card .anchor-card-heading {
-  padding: 0 0 11px;
-  margin-bottom: 10px;
 }
 
 .anchor-label {
@@ -1008,10 +1436,12 @@ body:not([data-map-mode="places"]) .review-tools {
   gap: 7px;
   margin: 0 0 8px;
   color: var(--ink);
+  /* Bold ink label without an all-caps run — labels this long ("Founding
+     cultural landmark") shout when uppercased (pass-3 no-kicker system:
+     weight carries the emphasis). */
   font-size: 12px;
   font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
+  letter-spacing: 0.02em;
 }
 
 .anchor-label-copy {
@@ -1030,7 +1460,7 @@ body:not([data-map-mode="places"]) .review-tools {
   margin-top: -2px;
   border: 1px solid var(--ncac-red);
   background: var(--surface);
-  color: var(--ncac-red);
+  color: var(--ink);
   padding: 3px 5px 2px;
   font-size: 9px;
   font-weight: 900;
@@ -1061,9 +1491,22 @@ body:not([data-map-mode="places"]) .review-tools {
   line-height: 0.98;
 }
 
-.primary-anchor-card h2 {
-  font-size: 34px;
-  line-height: 0.94;
+/* Even line lengths on headings; fewer orphans in prose (progressive). */
+.detail-card h2,
+.empty-title,
+.events-empty-title,
+.hint-title,
+.browse-heading,
+.path-card-heading h2 {
+  text-wrap: balance;
+}
+
+.detail-description,
+.anchor-hook,
+.empty-copy,
+.featured-hint p:last-child,
+.path-card-heading .path-copy {
+  text-wrap: pretty;
 }
 
 .detail-card p {
@@ -1081,13 +1524,13 @@ body:not([data-map-mode="places"]) .review-tools {
 
 .location-caveat {
   margin: 10px 0 12px;
-  border: 1px solid var(--line-strong);
-  background: var(--field);
+  border: 1px solid var(--line);
+  background: var(--paper-warm);
   color: var(--ink);
   padding: 9px 10px;
   font-size: 12px;
   font-weight: 800;
-  line-height: 1.25;
+  line-height: 1.4;
 }
 
 .detail-description {
@@ -1098,7 +1541,7 @@ body:not([data-map-mode="places"]) .review-tools {
 .directory-record-meta {
   display: grid;
   gap: 7px;
-  border-top: 2px solid var(--line-strong);
+  border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
   margin: 11px 0 10px;
   padding: 9px 0;
@@ -1123,7 +1566,7 @@ body:not([data-map-mode="places"]) .review-tools {
   margin: 0;
   color: var(--ink);
   font-size: 13px;
-  line-height: 1.25;
+  line-height: 1.4;
 }
 
 .directory-record-meta a {
@@ -1134,11 +1577,10 @@ body:not([data-map-mode="places"]) .review-tools {
 }
 
 .seen-in-muse {
-  border: 1px solid var(--line-strong);
-  background: var(--surface);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
   margin: 10px 0 12px;
-  padding: 10px;
-  box-shadow: inset 5px 0 0 var(--ncac-red);
+  padding: 10px 0;
 }
 
 .seen-in-muse-list {
@@ -1163,7 +1605,7 @@ body:not([data-map-mode="places"]) .review-tools {
 .seen-in-muse-more {
   color: var(--ink-soft);
   font-size: 11px;
-  line-height: 1.25;
+  line-height: 1.35;
 }
 
 .seen-in-muse-item small {
@@ -1177,28 +1619,11 @@ body:not([data-map-mode="places"]) .review-tools {
 }
 
 .anchor-hook {
-  border-top: 1px solid var(--line-strong);
+  border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
   padding: 10px 0 11px;
   margin: 9px 0 10px;
   color: var(--ink);
-  font-weight: 750;
-}
-
-.primary-anchor-card .anchor-hook {
-  border-top: 0;
-  border-bottom: 2px solid var(--ncac-red);
-  padding: 0 0 12px;
-  margin: 0 0 12px;
-  font-size: 16px;
-  font-weight: 850;
-  line-height: 1.28;
-}
-
-.supporting-stop-card .anchor-hook {
-  border-top-color: var(--line);
-  border-bottom-color: var(--line);
-  color: var(--ink-soft);
   font-weight: 750;
 }
 
@@ -1208,39 +1633,14 @@ body:not([data-map-mode="places"]) .review-tools {
   margin: 10px 0 13px;
 }
 
-.primary-anchor-card .anchor-card-meta {
-  gap: 10px;
-  margin: 0 0 12px;
-}
-
 .anchor-card-meta p {
   margin: 0;
   color: var(--ink-soft);
-  font-size: 12px;
-}
-
-.primary-anchor-card .anchor-card-meta p {
-  border-left: 4px solid var(--ncac-red);
-  padding: 0 0 0 10px;
-  color: var(--ink);
   font-size: 13px;
-}
-
-.supporting-stop-card .anchor-card-meta p {
-  border-left: 3px solid var(--line-strong);
-  padding-left: 9px;
-}
-
-.supporting-stop-card .anchor-card-meta .visible-incomplete-note {
-  border-left-color: var(--ncac-red);
 }
 
 .anchor-card-meta p span {
   display: block;
-}
-
-.primary-anchor-card .anchor-card-meta p span {
-  line-height: 1.34;
 }
 
 .anchor-card-meta strong {
@@ -1252,14 +1652,6 @@ body:not([data-map-mode="places"]) .review-tools {
   letter-spacing: 0.05em;
 }
 
-.primary-anchor-card .anchor-card-meta strong {
-  color: var(--ncac-red);
-}
-
-.supporting-stop-card .anchor-card-meta strong {
-  color: var(--ink-soft);
-}
-
 .anchor-context-chips {
   display: flex;
   flex-wrap: wrap;
@@ -1267,13 +1659,9 @@ body:not([data-map-mode="places"]) .review-tools {
   margin-top: 2px;
 }
 
-.primary-anchor-card .anchor-context-chips {
-  margin-top: 0;
-}
-
 .anchor-context-chips span {
-  border: 1px solid var(--line-strong);
-  background: var(--surface);
+  border: 1px solid var(--line);
+  background: var(--paper-warm);
   color: var(--ink);
   padding: 5px 7px 4px;
   font-size: 10px;
@@ -1283,33 +1671,11 @@ body:not([data-map-mode="places"]) .review-tools {
   letter-spacing: 0.03em;
 }
 
-.primary-anchor-card .anchor-context-chips span {
-  background: var(--paper);
-  border-color: var(--ncac-red);
-}
-
-.supporting-stop-card .anchor-context-chips span {
-  border-color: var(--line);
-  background: var(--paper-warm);
-}
-
 .detail-actions {
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
   margin-top: 10px;
-}
-
-.primary-anchor-card .detail-actions {
-  border-top: 1px solid var(--line);
-  padding-top: 10px;
-}
-
-.primary-anchor-card .detail-actions a,
-.primary-anchor-card .detail-actions button {
-  background: var(--paper);
-  color: var(--ink);
-  box-shadow: inset 0 -3px 0 var(--ncac-red);
 }
 
 .detail-actions a,
@@ -1327,11 +1693,15 @@ body:not([data-map-mode="places"]) .review-tools {
   cursor: pointer;
 }
 
+/* Hover inverts the ink fill to paper — never red. White-on-red below the
+   19px/800 large-text recipe fails AA, and these base actions are 12px
+   (surprise-reroll, story-back, the plain anchor-map-action, small links).
+   The feature cards layer their own AA-safe hovers on top. */
 .detail-actions a:hover,
 .detail-actions button:hover,
 .small-link:hover {
-  background: var(--ncac-red);
-  color: var(--field);
+  background: var(--paper);
+  color: var(--ink);
 }
 
 .related-events {
@@ -1351,10 +1721,9 @@ body:not([data-map-mode="places"]) .review-tools {
 }
 
 .event-mini {
-  border: 1px solid var(--line-strong);
+  border: 1px solid var(--line);
   background: var(--surface);
   padding: 9px;
-  box-shadow: inset 4px 0 0 var(--ncac-red);
 }
 
 .event-mini strong {
@@ -1367,8 +1736,8 @@ body:not([data-map-mode="places"]) .review-tools {
   width: 100%;
   margin-top: 10px;
   appearance: none;
-  border: 2px dashed var(--ink);
-  background: var(--surface);
+  border: 1px dashed var(--ink-soft);
+  background: var(--paper-warm);
   color: var(--ink);
   font-family: var(--font-brand);
   font-weight: 800;
@@ -1379,7 +1748,6 @@ body:not([data-map-mode="places"]) .review-tools {
 
 .surprise-button:hover {
   border-color: var(--ncac-red);
-  color: var(--ncac-red);
 }
 
 .story-lens-button {
@@ -1434,8 +1802,10 @@ body:not([data-map-mode="places"]) .review-tools {
   display: inline-block;
   margin: 0 0 8px;
   font-size: 12px;
-  font-weight: 700;
-  color: var(--ncac-red);
+  font-weight: 800;
+  color: var(--ink);
+  text-decoration-color: var(--ncac-red);
+  text-underline-offset: 3px;
 }
 
 button.seen-in-muse-story {
@@ -1457,7 +1827,8 @@ button.seen-in-muse-story em {
   margin-top: 3px;
   font-size: 11px;
   font-style: normal;
-  color: var(--ncac-red);
+  font-weight: 700;
+  color: var(--ink-soft);
 }
 
 .surprise-list .place-nearby-link em {
@@ -1471,7 +1842,7 @@ button.seen-in-muse-story em {
 
 .surprise-reroll {
   appearance: none;
-  border: 2px solid var(--ink);
+  border: 1px solid var(--line);
   background: var(--paper);
   font-family: var(--font-brand);
   font-weight: 800;
@@ -1495,7 +1866,7 @@ button.seen-in-muse-story em {
 
 .time-lens-chip {
   appearance: none;
-  border: 1px solid var(--line-strong);
+  border: 1px solid var(--line);
   background: var(--surface);
   color: var(--ink);
   font-family: var(--font-brand);
@@ -1506,9 +1877,10 @@ button.seen-in-muse-story em {
 }
 
 .time-lens-chip.active {
-  background: var(--ncac-red);
+  background: var(--ink);
   border-color: var(--ink);
-  color: var(--paper);
+  color: #ffffff;
+  box-shadow: inset 0 -3px 0 var(--ncac-red);
 }
 
 .time-lens-chip:hover:not(.active) {
@@ -1542,7 +1914,7 @@ button.event-mini:hover {
   text-align: left;
   font: inherit;
   color: inherit;
-  border: 1px solid var(--line-strong);
+  border: 1px solid var(--line);
   background: var(--surface);
   padding: 9px;
   cursor: pointer;
@@ -1550,7 +1922,6 @@ button.event-mini:hover {
 }
 
 .place-path-link {
-  box-shadow: inset 4px 0 0 var(--ink);
   font-weight: 700;
 }
 
@@ -1586,7 +1957,7 @@ button.event-mini:hover {
 
 .path-button {
   text-align: left;
-  border: 1px solid var(--line-strong);
+  border: 1px solid var(--line);
   background: var(--surface);
   padding: 11px;
   cursor: pointer;
@@ -1656,7 +2027,7 @@ button.event-mini:hover {
   gap: 9px;
   text-align: left;
   align-items: start;
-  border: 1px solid var(--line-strong);
+  border: 1px solid var(--line);
   background: var(--surface);
   color: var(--ink);
   padding: 7px;
@@ -1669,11 +2040,11 @@ button.event-mini:hover {
 
 .path-stop-list button.supporting-path-stop {
   background: var(--paper-warm);
-  border-color: var(--line-strong);
+  border-color: var(--line);
 }
 
 .path-stop-list button.supporting-path-stop .path-stop-icon {
-  border-color: var(--line-strong);
+  border-color: var(--line);
   color: var(--ink-soft);
 }
 
@@ -1691,7 +2062,7 @@ button.event-mini:hover {
 
 .path-stop-icon {
   grid-column: 2;
-  border-color: var(--line-strong);
+  border-color: var(--line);
 }
 
 .path-stop-copy {
@@ -1733,7 +2104,7 @@ button.event-mini:hover {
   color: var(--paper);
   font: 800 13px/1 var(--font-brand);
   cursor: pointer;
-  box-shadow: 0 2px 0 rgba(20, 20, 20, 0.24);
+  box-shadow: 0 2px 0 rgba(26, 26, 26, 0.24);
 }
 
 .path-number-marker::after {
@@ -1765,10 +2136,13 @@ button.event-mini:hover {
   align-items: center;
   gap: 12px;
   background: var(--panel);
-  border: 2px solid var(--line-strong);
+  border: 0;
+  box-shadow: var(--shadow-low);
   padding: 9px 10px;
   font-size: 12px;
   color: var(--ink-soft);
+  /* Eases the legend's hand-off when the drawer claims the corner. */
+  transition: opacity var(--motion-fast) var(--ease-out);
 }
 
 /* Events-mode browse list (mirrors the outing-row look). */
@@ -1798,9 +2172,9 @@ button.event-mini:hover {
 .event-list-date {
   flex: 0 0 auto;
   font-size: 11px;
-  font-weight: 700;
+  font-weight: 800;
   font-variant-numeric: tabular-nums;
-  color: var(--ncac-red);
+  color: var(--ink);
 }
 
 .event-list-copy {
@@ -1810,7 +2184,7 @@ button.event-mini:hover {
 
 .event-list-copy strong {
   font-size: 13px;
-  line-height: 1.25;
+  line-height: 1.35;
 }
 
 .event-list-copy em {
@@ -1841,6 +2215,10 @@ button.event-mini:hover {
 
 .legend-dot.event {
   background: var(--ncac-red);
+  /* Mirror the marker shapes: events render as red diamonds on the map, so
+     the legend swatch is a diamond too — color is no longer the only signal. */
+  border-radius: 0;
+  transform: rotate(45deg) scale(0.86);
 }
 
 .legend-line {
@@ -1856,8 +2234,26 @@ button.event-mini:hover {
 .maplibregl-popup-content {
   border-radius: 0;
   font-family: var(--font-body);
-  border: 1px solid var(--ink);
+  border: 0;
+  background: var(--paper);
   box-shadow: var(--shadow);
+}
+
+/* Warmth pass 3: MapLibre's default chrome ships pure white — the zoom
+   control and the attribution pill join the warm paper system. */
+.maplibregl-ctrl.maplibregl-ctrl-group {
+  background: var(--paper);
+  border-radius: 0;
+  box-shadow: var(--shadow-low);
+}
+
+.maplibregl-ctrl.maplibregl-ctrl-group button + button {
+  border-top: 1px solid var(--line);
+}
+
+.maplibregl-ctrl.maplibregl-ctrl-attrib,
+.maplibregl-ctrl-attrib.maplibregl-compact {
+  background: rgb(var(--paper-rgb) / 0.8);
 }
 
 .maplibregl-popup-content strong {
@@ -1893,7 +2289,7 @@ button.event-mini:hover {
     gap: 0;
     background: var(--field);
     border-bottom: 3px solid var(--ncac-red);
-    box-shadow: 0 10px 24px rgba(20, 20, 20, 0.18);
+    box-shadow: 0 10px 24px rgba(26, 26, 26, 0.18);
   }
 
   .site-header.nav-open .site-nav {
@@ -1937,11 +2333,9 @@ button.event-mini:hover {
     padding: 11px;
     overflow-y: auto;
     scrollbar-width: none;
-    transition: max-height 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-  }
-
-  .control-panel:has(.primary-anchor-card) {
-    max-height: 76%;
+    /* No max-height transition: animating layout properties janks the map
+       behind the panel (detector: layout-transition). Pass 5 ruling: the
+       expand/collapse stays instant — deliberate, not an oversight. */
   }
 
   .selection-drawer {
@@ -1956,11 +2350,6 @@ button.event-mini:hover {
 
   .selection-drawer.open {
     transform: translateY(0);
-  }
-
-  .selection-drawer .detail-card {
-    border-width: 1px;
-    border-top-width: 5px;
   }
 
   .control-panel::-webkit-scrollbar {
@@ -2027,16 +2416,19 @@ button.event-mini:hover {
   }
 }
 
+/* Warmth pass 4 (cla-65): smart-label pills speak the card language — paper
+   surface, hairline --line border, soft warm shadow. Red stays reserved for
+   featured (anchor pins) and the selected state; hover is ink emphasis only. */
 .map-smart-label {
   max-width: 220px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
-  border: 1px solid rgba(20, 20, 20, 0.18);
+  border: 1px solid var(--line);
   border-radius: 4px;
-  background: rgba(250, 248, 244, 0.94);
+  background: rgb(var(--paper-rgb) / 0.96);
   color: var(--ink);
-  box-shadow: 0 3px 12px rgba(20, 20, 20, 0.16);
+  box-shadow: 0 2px 10px rgba(58, 48, 32, 0.16);
   padding: 5px 8px;
   font-family: inherit;
   font-size: 12px;
@@ -2063,12 +2455,22 @@ button.event-mini:hover {
   opacity: 0.45;
 }
 
+/* Hover/focus = subtle ink emphasis (brand: red is reserved for featured and
+   selected, never a broad hover wash). Lift runs on the pass-5 motion tokens. */
 .map-smart-label:hover,
 .map-smart-label:focus-visible {
-  background: var(--ncac-red);
-  border-color: var(--ncac-red);
-  color: var(--paper);
+  border-color: var(--ink);
+  box-shadow: 0 4px 14px rgba(58, 48, 32, 0.24);
   outline: none;
+}
+
+.map-smart-label.selected:hover,
+.map-smart-label.selected:focus-visible {
+  border-color: var(--ncac-red);
+}
+
+.map-smart-label:focus-visible {
+  box-shadow: var(--focus-ring, 0 0 0 3px rgba(255, 46, 0, 0.34)), 0 4px 14px rgba(58, 48, 32, 0.24);
 }
 
 @media (max-width: 520px) {
@@ -2095,8 +2497,8 @@ button.event-mini:hover {
     position: absolute;
     z-index: 3;
     padding: 3px 6px 2px;
-    border: 1px solid rgba(20, 20, 20, 0.28);
-    background: rgba(255, 255, 255, 0.82);
+    border: 1px solid rgba(26, 26, 26, 0.28);
+    background: rgb(var(--paper-rgb) / 0.86);
     color: var(--ink);
     font-size: 11px;
     font-weight: 800;
@@ -2127,12 +2529,8 @@ button.event-mini:hover {
     width: 100vw;
     max-width: 100vw;
     max-height: 44%;
-    border-left: 1px solid var(--line-strong);
-    border-right: 1px solid var(--line-strong);
-  }
-
-  .control-panel:has(.primary-anchor-card) {
-    max-height: 58%;
+    border-left: 0;
+    border-right: 0;
   }
 
   .selection-drawer {
@@ -2142,19 +2540,6 @@ button.event-mini:hover {
     width: 100vw;
     max-width: 100vw;
     max-height: 48%;
-  }
-
-  .selection-drawer .detail-card {
-    border-left: 1px solid var(--line-strong);
-    border-right: 1px solid var(--line-strong);
-  }
-
-  .primary-anchor-card h2 {
-    font-size: 28px;
-  }
-
-  .primary-anchor-card .anchor-hook {
-    font-size: 15px;
   }
 
   .mode-tab {
@@ -2183,6 +2568,346 @@ button.event-mini:hover {
   cursor: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='28'%20height='28'%20viewBox='0%200%2028%2028'%3E%20%3Cdefs%3E%3Cfilter%20id='s'%20x='-30%25'%20y='-30%25'%20width='160%25'%20height='160%25'%3E%3CfeDropShadow%20dx='0'%20dy='1'%20stdDeviation='0.8'%20flood-color='%23000'%20flood-opacity='0.4'/%3E%3C/filter%3E%3C/defs%3E%20%3Cg%20filter='url(%23s)'%20fill='%23fff'%20stroke='%23333'%20stroke-width='1.4'%20stroke-linejoin='round'%3E%20%3Crect%20x='3.0'%20y='12.4'%20width='4.3'%20height='5.2'%20rx='2.1'/%3E%20%3Crect%20x='6.0'%20y='7.2'%20width='3.7'%20height='6'%20rx='1.85'/%3E%20%3Crect%20x='9.8'%20y='6.4'%20width='3.7'%20height='6.8'%20rx='1.85'/%3E%20%3Crect%20x='13.6'%20y='7.2'%20width='3.7'%20height='6'%20rx='1.85'/%3E%20%3Crect%20x='17.0'%20y='8.2'%20width='3.3'%20height='5'%20rx='1.65'/%3E%20%3Crect%20x='4.6'%20y='9.5'%20width='17'%20height='14'%20rx='6.5'/%3E%20%3C/g%3E%20%3C/svg%3E") 13 14, grabbing;
 }
 
+/* --- Discovery Rail (ADR 0002, variant B) ---------------------------------
+   The first-load browsing surface: a horizontal snap-scrolling card rail along
+   the bottom of the map. Shown only in the Browse Starting View (body gets
+   .rail-browse); searching or filtering retires the rail and expands the full
+   Directory Browser. The same body class collapses the left panel to a compact
+   search/filter toolbar. */
+.discovery-rail {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 5;
+  display: none;
+  flex-direction: column;
+  gap: 8px;
+  padding: 0 0 14px;
+  pointer-events: none;
+}
+
+body.rail-browse .discovery-rail {
+  display: flex;
+}
+
+.rail-chips {
+  display: flex;
+  gap: 8px;
+  padding: 0 24px;
+  pointer-events: auto;
+  /* Right-aligned so the chips never collide with the toolbar panel or the
+     attribution, which both live on the left. */
+  align-self: flex-end;
+}
+
+.rail-chip {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 99px;
+  padding: 6px 13px;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--ink);
+  cursor: pointer;
+  box-shadow: var(--shadow-low);
+}
+
+.rail-chip.on {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.rail-chip:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+.rail-track {
+  display: flex;
+  /* One card height for the whole rail — the grid, not the copy, sets the
+     crop. Imageless campaign cards fill the same slab with a poster field. */
+  align-items: stretch;
+  gap: 12px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 8px 24px 6px;
+  pointer-events: auto;
+  /* Scrollable, but no raw OS scrollbar; the cut-off card at the right edge
+     plus the fade is the scroll affordance. */
+  scrollbar-width: none;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 16px, #000 calc(100% - 56px), transparent);
+  mask-image: linear-gradient(to right, transparent, #000 16px, #000 calc(100% - 56px), transparent);
+}
+
+.rail-track::-webkit-scrollbar {
+  display: none;
+}
+
+.rail-card {
+  flex: 0 0 250px;
+  height: 190px;
+  overflow: hidden;
+  scroll-snap-align: center;
+  display: flex;
+  flex-direction: column;
+  background: var(--panel);
+  /* Warmth pass 3: the card floats on its shadow — no black frame. The
+     red outline (active) and focus ring still paint via outline. */
+  border: 0;
+  box-shadow: var(--shadow-low);
+  padding: 0;
+  text-align: left;
+  font: inherit;
+  cursor: pointer;
+  /* Hover = lift (fast feedback); active = the red ring easing in on
+     scroll-settle (base — a state change, so it eases rather than snaps).
+     outline-color is paint-only; it cannot fight the Rail Follow camera. */
+  outline: 2px solid transparent;
+  outline-offset: -1px;
+  transition:
+    transform var(--motion-fast) var(--ease-out),
+    box-shadow var(--motion-fast) var(--ease-out),
+    outline-color var(--motion-base) var(--ease-out);
+}
+
+.rail-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 18px rgba(26, 26, 26, 0.2);
+}
+
+/* Press: the card sets back down before the selection fires. */
+.rail-card:active {
+  transform: translateY(0);
+  box-shadow: var(--shadow-low);
+}
+
+.rail-card.active {
+  outline-color: var(--ncac-red);
+}
+
+.rail-card:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring), var(--shadow-low);
+}
+
+.rail-card-img {
+  width: 100%;
+  height: 92px;
+  flex: 0 0 auto;
+  object-fit: cover;
+  display: block;
+  background: var(--paper-warm);
+  border-bottom: 1px solid var(--line);
+}
+
+.rail-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  flex: 1;
+  min-height: 0;
+  padding: 10px 12px 11px;
+}
+
+/* Photo cards: the image is the hook; title + meta carry the rest. */
+.rail-card-img ~ .rail-card-body .rail-card-desc {
+  display: none;
+}
+
+/* Poster field cards (brand secondaries, campaign surfaces only): full-bleed
+   color + knockout type stands in for missing imagery on event/story/path
+   cards. Never on chips, buttons, or markers. */
+.rail-card-poster .rail-card-body {
+  padding: 12px 13px;
+}
+
+/* Poster-field hover refinement: a saturated slab swallows the 2px lift, so
+   the field itself brightens a touch. Bounded to one 250×190 solid card. */
+.rail-card-poster {
+  transition:
+    transform var(--motion-fast) var(--ease-out),
+    box-shadow var(--motion-fast) var(--ease-out),
+    outline-color var(--motion-base) var(--ease-out),
+    filter var(--motion-fast) var(--ease-out);
+}
+
+.rail-card-poster:hover {
+  filter: brightness(1.06);
+}
+
+.rail-card-poster-blue { background: var(--poster-blue); }
+.rail-card-poster-green { background: var(--poster-green); }
+.rail-card-poster-teal { background: var(--poster-teal); }
+.rail-card-poster-pink { background: var(--poster-pink); }
+.rail-card-poster-ink { background: var(--ink); }
+
+.rail-card-poster .rail-card-kicker {
+  color: rgba(255, 255, 255, 0.92);
+}
+
+/* Poster knockout type: real display confidence — big, bold, tight (>= -0.04em
+   floor), clamped to 3 lines so the 190/168px slab never overflows. */
+.rail-card-poster .rail-card-title {
+  color: #ffffff;
+  font-size: 22px;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  -webkit-line-clamp: 3;
+}
+
+.rail-card-poster .rail-card-desc,
+.rail-card-poster .rail-card-meta {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.rail-card-poster .rail-card-when {
+  color: #ffffff;
+}
+
+/* The ONE deliberate kicker on the rail: the MUSE story credential line. */
+.rail-card-kicker {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--ink-soft);
+}
+
+/* Rail surface hierarchy: TWO sizes with a real jump — name (17/800 brand)
+   over meta (12/regular muted). Emphasis inside the meta line is weight. */
+.rail-card-title {
+  font-family: var(--font-brand);
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1.18;
+  color: var(--ink);
+  text-wrap: balance;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.rail-card-desc {
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--ink-soft);
+  text-wrap: pretty;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.rail-card-meta {
+  font-size: 12px;
+  color: var(--ink-soft);
+  margin-top: auto;
+  padding-top: 4px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* The recast date signal: a weighted lead word in the meta line, ink not
+   small-red (red below display sizes fails contrast on white). */
+.rail-card-when {
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.rail-empty {
+  background: var(--panel);
+  border: 0;
+  box-shadow: var(--shadow-low);
+  padding: 16px 18px;
+  font-size: 13px;
+  color: var(--ink-soft);
+}
+
+/* Compact search/filter toolbar: the deep browse furniture steps back while
+   the rail is the browsing front door. */
+body.rail-browse .featured-hint {
+  display: none;
+}
+
+/* Keep the toolbar clear of the rail along the bottom edge. */
+body.rail-browse .control-panel {
+  max-height: calc(100% - 300px);
+}
+
+body.rail-browse .places-list {
+  display: none;
+}
+
+/* Lift the map chrome that shares the bottom edge with the rail. One stacking
+   plan for the bottom-right column: track (to 220px) → chips (to ~260px) →
+   legend (bottom 276px) → zoom controls (bottom 332px). Card height is fixed
+   at 190px, so these clearances are deterministic, not accidental. */
+body.rail-browse .map-legend {
+  bottom: 276px;
+}
+
+body.rail-browse .map-canvas .maplibregl-ctrl-bottom-right {
+  bottom: 332px;
+}
+
+body.rail-browse .map-canvas .maplibregl-ctrl-bottom-left {
+  bottom: 226px;
+}
+
+@media (max-width: 880px) {
+  /* Mobile converges on the rail: bottom drawer cards above the collapsed
+     control panel. */
+  body.rail-browse .control-panel {
+    max-height: 132px;
+    overflow: hidden;
+  }
+
+  body.rail-browse .discovery-rail {
+    bottom: 144px;
+    padding-bottom: 0;
+    gap: 6px;
+  }
+
+  /* Chips drop BELOW the track on mobile — into the thumb zone just above
+     the collapsed toolbar, instead of floating mid-map above the cards. */
+  .rail-chips {
+    order: 2;
+  }
+
+  .rail-card {
+    flex-basis: 220px;
+    height: 168px;
+  }
+
+  .rail-card-img {
+    height: 72px;
+  }
+
+  .rail-chips,
+  .rail-track {
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  body.rail-browse .map-legend {
+    display: none;
+  }
+
+  body.rail-browse .map-canvas .maplibregl-ctrl-bottom-left,
+  body.rail-browse .map-canvas .maplibregl-ctrl-bottom-right {
+    bottom: 0;
+  }
+
+  /* The selected-place bottom sheet needs the whole bottom edge. */
+  .map-stage:has(.selection-drawer.open) .discovery-rail {
+    display: none;
+  }
+}
+
 /* CLA-42: honor prefers-reduced-motion. Kills the infinite path-marker pulse and
    collapses panel/drawer transitions to near-instant; a scoped belt-and-suspenders
    global rule covers any other animated property. MapLibre camera moves are
@@ -2201,3 +2926,272 @@ button.event-mini:hover {
     scroll-behavior: auto !important;
   }
 }
+
+/* Featured-in-MUSE layer (owner ruling 2026-06-11): Places-mode chip + card badge */
+.featured-muse-chip {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: 10px;
+  min-height: 32px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+  font-family: var(--font-brand);
+  font-weight: 700;
+  font-size: 12px;
+  padding: 6px 10px;
+  cursor: pointer;
+}
+
+.featured-muse-chip:hover:not(.active) {
+  border-color: var(--ncac-red);
+}
+
+.featured-muse-chip.active {
+  background: var(--ink);
+  border-color: var(--ink);
+  color: #ffffff;
+  box-shadow: inset 0 -3px 0 var(--ncac-red);
+}
+
+.featured-muse-chip-count {
+  font-weight: 800;
+  opacity: 0.75;
+}
+
+.outing-active-bar .featured-muse-chip {
+  margin-top: 0;
+}
+
+/* In the open browse list the chip sits ABOVE the mood rows so the demo's
+   marquee layer is visible at the default fold (it was clipped mid-row
+   below the list before). */
+.outing-browse > .featured-muse-chip {
+  margin: 2px 0 11px;
+}
+
+.muse-directory-badge {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  margin: 10px 0 12px;
+  padding: 8px 0;
+}
+
+.muse-directory-badge-link {
+  font-family: var(--font-brand);
+  font-weight: 800;
+  font-size: 12px;
+  color: var(--ink);
+  text-decoration: none;
+}
+
+a.muse-directory-badge-link:hover {
+  color: var(--ncac-red);
+}
+
+.muse-directory-category {
+  font-size: 12px;
+  color: var(--ink-soft, var(--ink));
+  opacity: 0.85;
+}
+
+/* "Featured in MUSE" badge (owner ruling 2026-06-11): earned by an exact
+   article link only; reads as the louder sibling of the directory line —
+   same quiet ruled band, red brand emphasis, opens the story on the map. */
+.featured-muse-badge {
+  border-top: 1px solid var(--line);
+  margin: 10px 0 0;
+  padding: 8px 0 0;
+}
+
+.featured-muse-badge + .muse-directory-badge {
+  border-top: 0;
+  margin-top: 0;
+}
+
+.featured-muse-badge-link {
+  appearance: none;
+  border: 0;
+  background: none;
+  padding: 0;
+  text-align: left;
+  cursor: pointer;
+  font-family: var(--font-brand);
+  font-weight: 800;
+  font-size: 12px;
+  color: var(--ncac-red);
+}
+
+.featured-muse-badge-link:hover {
+  color: var(--ink);
+}
+
+.featured-muse-badge-link:focus-visible {
+  outline: 0;
+  box-shadow: var(--focus-ring), inset 0 -3px 0 var(--ncac-red);
+}
+
+/* ---------------------------------------------------------------------------
+   Pass 4 polish — interaction-state coverage sweep (2026-06-11).
+   Every interactive element gets the same visible keyboard focus treatment
+   as the pass-3 grouped rule; these were the stragglers. Hovers stay quiet
+   (ink emphasis), actives stay ink-fill + red inset rule — no new patterns.
+--------------------------------------------------------------------------- */
+
+.surprise-button:focus-visible,
+.surprise-reroll:focus-visible,
+.time-lens-chip:focus-visible,
+button.event-mini:focus-visible,
+.story-row:focus-visible,
+button.seen-in-muse-story:focus-visible,
+.place-path-link:focus-visible,
+.place-nearby-link:focus-visible,
+.event-list-row:focus-visible,
+.featured-muse-chip:focus-visible,
+.hint-feature-action:focus-visible,
+.site-nav a:focus-visible,
+a.muse-directory-badge-link:focus-visible {
+  outline: 0;
+  box-shadow: var(--focus-ring), inset 0 -3px 0 var(--ncac-red);
+}
+
+/* Hover feedback parity for the toggles that only had active states. */
+.rail-chip:hover:not(.on) {
+  border-color: var(--ink);
+  background: var(--paper);
+}
+
+.mode-tab:hover:not(.active) {
+  background: var(--paper-warm);
+}
+
+.filter-chip:hover:not(.active) {
+  border-color: var(--ink);
+}
+
+/* Touch targets: the floating map chips and panel toggles reach 44px on
+   coarse pointers (they are 31-33px tall with a mouse). */
+@media (pointer: coarse) {
+  .rail-chip,
+  .featured-muse-chip,
+  .mode-tab,
+  .filter-chip,
+  .time-lens-chip,
+  .outing-done,
+  .outing-change,
+  .outing-pill {
+    min-height: 44px;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+   Pass 5 animate (2026-06-11). Two durations, one curve — see the motion
+   tokens in :root. Feedback (hover, press) runs --motion-fast; state changes
+   (toggle on/off, selection, drawer) run --motion-base. Paint-only properties
+   (background, color, border, box-shadow, opacity) so nothing reflows and
+   nothing fights MapLibre's JS-driven camera. The global
+   prefers-reduced-motion block above collapses all of it to instant.
+--------------------------------------------------------------------------- */
+
+/* Toggles and tabs: the ink fill + red inset rule eases in instead of
+   snapping; hover border/background feedback gets the same treatment. */
+.rail-chip,
+.mode-tab,
+.filter-chip,
+.time-lens-chip,
+.featured-muse-chip,
+.outing-row,
+.outing-pill,
+.outing-change,
+.path-button,
+.event-list-row,
+.hint-feature-action {
+  transition:
+    background-color var(--motion-base) var(--ease-out),
+    color var(--motion-base) var(--ease-out),
+    border-color var(--motion-fast) var(--ease-out),
+    box-shadow var(--motion-base) var(--ease-out),
+    transform var(--motion-fast) var(--ease-out);
+}
+
+/* Pressed state: a 1px set-down acknowledges the tap before the toggle lands. */
+.rail-chip:active,
+.mode-tab:active,
+.filter-chip:active,
+.time-lens-chip:active,
+.featured-muse-chip:active,
+.outing-pill:active,
+.outing-change:active,
+.hint-feature-action:active {
+  transform: translateY(1px);
+}
+
+/* Panel rows, action buttons, and small links: hover border/background
+   changes ease at feedback speed (these only had instant hovers). */
+.place-list-item,
+.story-row,
+button.event-mini,
+button.seen-in-muse-story,
+.place-path-link,
+.place-nearby-link,
+.surprise-button,
+.surprise-reroll,
+.local-reveal-back,
+.selected-place-close,
+.detail-actions a,
+.detail-actions button,
+.small-link {
+  transition:
+    background-color var(--motion-fast) var(--ease-out),
+    color var(--motion-fast) var(--ease-out),
+    border-color var(--motion-fast) var(--ease-out),
+    box-shadow var(--motion-fast) var(--ease-out);
+}
+
+/* Map smart labels: hover ink emphasis + selected red fill ease (paint-only;
+   the label's position is MapLibre-managed and untouched). */
+.map-smart-label {
+  transition:
+    background-color var(--motion-fast) var(--ease-out),
+    color var(--motion-fast) var(--ease-out),
+    border-color var(--motion-fast) var(--ease-out),
+    box-shadow var(--motion-fast) var(--ease-out),
+    opacity var(--motion-base) var(--ease-out);
+}
+
+/* Warmth pass 4: the marker hover preview card fades up on the same tokens.
+   The GL dot's own hover ring is filter-driven (instant by design — camera and
+   marker snappiness are a strength); the DOM card carries the felt feedback.
+   Reduced motion: the global prefers-reduced-motion rule above collapses the
+   keyframe to 0.01ms, so it simply appears.
+   (Animation lives on the inner content node, NOT the popup root — MapLibre
+   positions the root with an inline transform that a keyframe would clobber.) */
+.marker-preview-popup .maplibregl-popup-content {
+  animation: markerPreviewIn var(--motion-fast) var(--ease-out) both;
+}
+
+@keyframes markerPreviewIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Deliberately NOT animated in this pass:
+   - Mobile control-panel expand/collapse (max-height): pass 4 removed the
+     layout transition because it janks the map repaint behind the panel;
+     instant remains the better feel, so it stays instant.
+   - Rail track scrolling: native scroll-snap + scrollIntoView own that motion.
+   - Map camera (easeTo/flyTo): JS-driven per the Rail Follow ruling.
+   - Page/panel load: product register — no entrance choreography. */

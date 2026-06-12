@@ -1,7 +1,9 @@
 # 0002 — Discovery Rail over feed panel for the first-load discovery surface
 
-**Status:** Proposed (agent self-grill 2026-06-10; owner picked variant B from the
-`v1-discovery-map/prototypes/discovery-feed-variants.html` prototype — awaiting Eliza/Diana review)
+**Status:** Implemented (sandbox slice, branch `sandbox/rail-and-muse`, 2026-06-10 — awaiting
+Eliza/Diana review and owner merge decision; owner picked variant B from the
+`v1-discovery-map/prototypes/discovery-feed-variants.2026-06-10.html` prototype, kept as a
+dated artifact with A and C as labeled Concept Mockups)
 
 ## Context
 
