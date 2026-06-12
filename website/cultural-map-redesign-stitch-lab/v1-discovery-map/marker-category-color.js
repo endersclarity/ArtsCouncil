@@ -32,7 +32,8 @@
 
   // Each of the 10 real categories maps to exactly one group (deterministic).
   // ("MUSE Picks" retired 2026-06: provenance bucket, not a kind of place —
-  //  its members were re-homed into real categories; musePick flag remains.)
+  //  its members were re-homed into real categories. The musePick flag was
+  //  removed too; "Featured in MUSE" now derives from muse-stories.json.)
   const CATEGORY_TO_GROUP = {
     "Arts Organizations": "Art",
     "Galleries & Studios": "Art",

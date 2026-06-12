@@ -2927,8 +2927,8 @@ body.rail-browse .map-canvas .maplibregl-ctrl-bottom-left {
   }
 }
 
-/* MUSE business directory layer (PRD 2026-06-10): Places-mode chip + card badge */
-.muse-picks-chip {
+/* Featured-in-MUSE layer (owner ruling 2026-06-11): Places-mode chip + card badge */
+.featured-muse-chip {
   appearance: none;
   display: inline-flex;
   align-items: center;
@@ -2945,30 +2945,30 @@ body.rail-browse .map-canvas .maplibregl-ctrl-bottom-left {
   cursor: pointer;
 }
 
-.muse-picks-chip:hover:not(.active) {
+.featured-muse-chip:hover:not(.active) {
   border-color: var(--ncac-red);
 }
 
-.muse-picks-chip.active {
+.featured-muse-chip.active {
   background: var(--ink);
   border-color: var(--ink);
   color: #ffffff;
   box-shadow: inset 0 -3px 0 var(--ncac-red);
 }
 
-.muse-picks-chip-count {
+.featured-muse-chip-count {
   font-weight: 800;
   opacity: 0.75;
 }
 
-.outing-active-bar .muse-picks-chip {
+.outing-active-bar .featured-muse-chip {
   margin-top: 0;
 }
 
 /* In the open browse list the chip sits ABOVE the mood rows so the demo's
    marquee layer is visible at the default fold (it was clipped mid-row
    below the list before). */
-.outing-browse > .muse-picks-chip {
+.outing-browse > .featured-muse-chip {
   margin: 2px 0 11px;
 }
 
@@ -3001,6 +3001,42 @@ a.muse-directory-badge-link:hover {
   opacity: 0.85;
 }
 
+/* "Featured in MUSE" badge (owner ruling 2026-06-11): earned by an exact
+   article link only; reads as the louder sibling of the directory line —
+   same quiet ruled band, red brand emphasis, opens the story on the map. */
+.featured-muse-badge {
+  border-top: 1px solid var(--line);
+  margin: 10px 0 0;
+  padding: 8px 0 0;
+}
+
+.featured-muse-badge + .muse-directory-badge {
+  border-top: 0;
+  margin-top: 0;
+}
+
+.featured-muse-badge-link {
+  appearance: none;
+  border: 0;
+  background: none;
+  padding: 0;
+  text-align: left;
+  cursor: pointer;
+  font-family: var(--font-brand);
+  font-weight: 800;
+  font-size: 12px;
+  color: var(--ncac-red);
+}
+
+.featured-muse-badge-link:hover {
+  color: var(--ink);
+}
+
+.featured-muse-badge-link:focus-visible {
+  outline: 0;
+  box-shadow: var(--focus-ring), inset 0 -3px 0 var(--ncac-red);
+}
+
 /* ---------------------------------------------------------------------------
    Pass 4 polish — interaction-state coverage sweep (2026-06-11).
    Every interactive element gets the same visible keyboard focus treatment
@@ -3017,7 +3053,7 @@ button.seen-in-muse-story:focus-visible,
 .place-path-link:focus-visible,
 .place-nearby-link:focus-visible,
 .event-list-row:focus-visible,
-.muse-picks-chip:focus-visible,
+.featured-muse-chip:focus-visible,
 .hint-feature-action:focus-visible,
 .site-nav a:focus-visible,
 a.muse-directory-badge-link:focus-visible {
@@ -3043,7 +3079,7 @@ a.muse-directory-badge-link:focus-visible {
    coarse pointers (they are 31-33px tall with a mouse). */
 @media (pointer: coarse) {
   .rail-chip,
-  .muse-picks-chip,
+  .featured-muse-chip,
   .mode-tab,
   .filter-chip,
   .time-lens-chip,
@@ -3069,7 +3105,7 @@ a.muse-directory-badge-link:focus-visible {
 .mode-tab,
 .filter-chip,
 .time-lens-chip,
-.muse-picks-chip,
+.featured-muse-chip,
 .outing-row,
 .outing-pill,
 .outing-change,
@@ -3089,7 +3125,7 @@ a.muse-directory-badge-link:focus-visible {
 .mode-tab:active,
 .filter-chip:active,
 .time-lens-chip:active,
-.muse-picks-chip:active,
+.featured-muse-chip:active,
 .outing-pill:active,
 .outing-change:active,
 .hint-feature-action:active {

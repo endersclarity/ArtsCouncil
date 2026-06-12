@@ -160,10 +160,16 @@
     selectedPath: null,
     selectedPlaceId: "",
     selectedEventId: "",
+    // Flight sequence counter (drift mining, 2026-06-12): a new selection
+    // flight invalidates the previous one's moveend, so a superseded flight
+    // never deals a stale card on arrival.
+    flightSeq: 0,
     eventLens: "all",
-    // MUSE directory layer (PRD 2026-06-10): Places-mode chip filtering on
-    // the musePick flag, AND-composed with the outing-type filters.
-    musePicksOnly: false,
+    // "Featured in MUSE" (owner ruling 2026-06-11): membership is derived at
+    // runtime from muse-stories.json exact placeIds — a place is featured only
+    // if a real article links it. Directory listing alone never qualifies.
+    featuredInMuseOnly: false,
+    museFeaturedIds: new Set(),
     surprisePlaceIds: [],
     searchQuery: "",
     localReveal: null,
@@ -250,7 +256,7 @@
         category: place.category,
         intent: place.intent,
         featured: Boolean(place.featured),
-        musePick: Boolean(place.musePick),
+        featuredInMuse: state.museFeaturedIds.has(place.id),
         anchor: Boolean(place.anchor),
         markerTier: place.markerTier || "map-ready",
         candidate: place.markerTier === "candidate",
@@ -463,8 +469,8 @@
   }
 
   function filteredPlaces() {
-    // "MUSE Picks only" ANDs with the outing-type filters (PRD §9 Q2).
-    const base = state.musePicksOnly ? state.places.filter((place) => place.musePick) : state.places;
+    // "Featured in MUSE" ANDs with the outing-type filters (PRD §9 Q2).
+    const base = state.featuredInMuseOnly ? state.places.filter((place) => state.museFeaturedIds.has(place.id)) : state.places;
     if (!state.activeIntents.size) return base;
     const activeOutingTypes = [...state.activeIntents].map(outingTypeFor).filter(Boolean);
     return base.filter((place) => activeOutingTypes.some((outingType) => placeMatchesOutingType(place, outingType)));
@@ -534,7 +540,7 @@
   }
 
   function isBrowseStartingView() {
-    return state.mode === "places" && !state.searchQuery.trim() && !state.activeIntents.size && !state.musePicksOnly;
+    return state.mode === "places" && !state.searchQuery.trim() && !state.activeIntents.size && !state.featuredInMuseOnly;
   }
 
   function isMobileViewport() {
@@ -612,7 +618,7 @@
       els.placesList.innerHTML = `
         <div class="places-list-empty">
           <p>No places match ${query ? `"${escapeHtml(query)}"` : "this filter"}.</p>
-          ${state.activeIntents.size || state.musePicksOnly ? `<button class="filter-chip" type="button" id="clear-place-filters">Clear filters</button>` : ""}
+          ${state.activeIntents.size || state.featuredInMuseOnly ? `<button class="filter-chip" type="button" id="clear-place-filters">Clear filters</button>` : ""}
         </div>
       `;
       // Mode is already places here — delegate to the shared reset so search
@@ -746,7 +752,7 @@
     if (f.previewed) return 1;
     if (f.isAnchor) return 2;
     if (f.featured) return 3;
-    if (f.musePick) return 4;
+    if (f.featuredInMuse) return 4;
     if (f.sampler || f.currentContext) return 5;
     return 6;
   }
@@ -801,7 +807,7 @@
         const nearbyDensity = nearbyPlaceDensity(place, mapReadyPlaces);
         const isAnchor = Boolean(place.anchor);
         const featured = Boolean(place.featured);
-        const musePick = Boolean(place.musePick);
+        const featuredInMuse = state.museFeaturedIds.has(place.id);
         const selected = place.id === state.selectedPlaceId;
         const previewed = place.id === state.previewPlaceId;
         const sampler = state.browseSamplerPlaceIds.includes(place.id);
@@ -814,12 +820,12 @@
           isAnchor,
           anchorPriority: (isAnchor && Number.isFinite(place.anchor.priority)) ? place.anchor.priority : 99,
           featured,
-          musePick,
+          featuredInMuse,
           sampler,
           currentContext,
           selected,
           previewed,
-          importanceTier: importanceTier({ selected, previewed, isAnchor, featured, musePick, sampler, currentContext }),
+          importanceTier: importanceTier({ selected, previewed, isAnchor, featured, featuredInMuse, sampler, currentContext }),
           centerDistance,
           nearbyDensity,
           screenPos,
@@ -987,12 +993,12 @@
     openSelectionDrawer();
   }
 
-  // "MUSE Picks only" chip (MUSE directory layer, PRD §9 Q2). The name
-  // "MUSE Picks" is already public on the site; "MUSE Directory" as a named
-  // layer waits for Council blessing (PRD §9 Q1).
-  function musePicksChip() {
-    const count = state.places.filter((place) => place.musePick).length;
-    return `<button class="muse-picks-chip${state.musePicksOnly ? " active" : ""}" type="button" data-muse-picks aria-pressed="${state.musePicksOnly ? "true" : "false"}">MUSE Picks only <span class="muse-picks-chip-count">${escapeHtml(count)}</span></button>`;
+  // "Featured in MUSE" chip (owner ruling 2026-06-11): filters to places with
+  // at least one exact MUSE article link (muse-stories.json). The old
+  // directory-derived "MUSE Picks" flag is retired — provenance, not a badge.
+  function featuredInMuseChip() {
+    const count = state.places.filter((place) => state.museFeaturedIds.has(place.id)).length;
+    return `<button class="featured-muse-chip${state.featuredInMuseOnly ? " active" : ""}" type="button" data-featured-muse aria-pressed="${state.featuredInMuseOnly ? "true" : "false"}">Featured in MUSE <span class="featured-muse-chip-count">${escapeHtml(count)}</span></button>`;
   }
 
   function renderFilters() {
@@ -1019,7 +1025,7 @@
             <span class="outing-browse-title">What are you in the mood for?</span>
             ${hasActive ? `<button class="outing-done" type="button" data-outing-done>Done</button>` : ""}
           </div>
-          ${musePicksChip()}
+          ${featuredInMuseChip()}
           <div class="outing-list" role="group" aria-label="Outing types">${rows}</div>
           <button class="surprise-button" type="button" data-surprise>Surprise me nearby</button>
           <button class="surprise-button story-lens-button" type="button" data-muse-stories>Stories from MUSE</button>
@@ -1032,7 +1038,7 @@
       els.filters.innerHTML = `
         <div class="outing-active-bar">
           ${pills}
-          ${musePicksChip()}
+          ${featuredInMuseChip()}
           <button class="outing-change" type="button" data-outing-change aria-expanded="false">Change ▾</button>
         </div>`;
     }
@@ -1056,8 +1062,8 @@
       refreshAfterChange();
     };
 
-    els.filters.querySelector("[data-muse-picks]")?.addEventListener("click", () => {
-      state.musePicksOnly = !state.musePicksOnly;
+    els.filters.querySelector("[data-featured-muse]")?.addEventListener("click", () => {
+      state.featuredInMuseOnly = !state.featuredInMuseOnly;
       refreshAfterChange();
     });
     els.filters.querySelector("[data-surprise]")?.addEventListener("click", renderSurprise);
@@ -1501,6 +1507,20 @@
     `;
   }
 
+  // "Featured in MUSE" card badge (owner ruling 2026-06-11): earned only by an
+  // exact article link in muse-stories.json; opens the story on the map (the
+  // story card carries the flip-book link to the article itself).
+  function featuredInMuseBadge(place) {
+    const stories = storiesForPlace(place.id);
+    if (!stories.length) return "";
+    const story = stories[0];
+    return `
+      <div class="featured-muse-badge" aria-label="Featured in MUSE Magazine">
+        <button class="featured-muse-badge-link" type="button" data-place-story="${escapeHtml(story.id)}">Featured in MUSE — ${escapeHtml(story.title)} ›</button>
+      </div>
+    `;
+  }
+
   function directoryRecordMeta(place) {
     const rows = [
       place.address ? ["Address", escapeHtml(place.address)] : null,
@@ -1731,6 +1751,9 @@
       ? `<p class="description-provenance">In their own words — from <a href="${escapeHtml(place.descriptionSource.url)}" target="_blank" rel="noopener">their website</a></p>`
       : "";
     const hook = place.anchorCard?.hook || anchor?.hook || "";
+    // The card is dealt on touchdown (moveend), not at departure — content
+    // appearing as the camera lands is most of the perceived flight quality.
+    const dealCard = () => {
     els.detail.innerHTML = `
       <button class="selected-place-close" type="button" aria-label="Close selected place">Close</button>
       ${renderImage(place, { caption: [place.name, place.city].filter(Boolean).join(", "), ...(imageLabel ? { imageLabel } : {}) })}
@@ -1750,6 +1773,7 @@
         ${anchorCardMeta(place)}
         <p class="detail-description">${escapeHtml(place.anchorCard?.supportingDescription || place.description)}</p>
         ${provenance}
+        ${featuredInMuseBadge(place)}
         ${museDirectoryBadge(place)}
         ${directoryRecordMeta(place)}
         ${action ? `<div class="detail-actions">${action}</div>` : ""}
@@ -1787,15 +1811,24 @@
         if (story) renderStory(story);
       });
     });
+    revealDetailCard();
+    };
     if (isPlaceMapReady(place)) {
-      const targetZoom = Math.max(state.map.getZoom(), 13.5);
+      // Selection flight (drift mining, owner zoom ruling): street level so
+      // cross streets resolve; Math.max never zooms OUT a user already deeper.
+      // Brisk high-arc profile from fable-drift's steered hops.
+      const seq = ++state.flightSeq;
+      const targetZoom = Math.max(state.map.getZoom(), 16);
       if (prefersReducedMotion()) {
         state.map.jumpTo({ center: [place.lng, place.lat], zoom: targetZoom });
+        dealCard();
       } else {
-        state.map.flyTo({ center: [place.lng, place.lat], zoom: targetZoom, speed: 0.8 });
+        state.map.flyTo({ center: [place.lng, place.lat], zoom: targetZoom, speed: 1.7, curve: 1.35, maxDuration: 2600, essential: true });
+        state.map.once("moveend", () => { if (seq === state.flightSeq) dealCard(); });
       }
+    } else {
+      dealCard();
     }
-    revealDetailCard();
     updateReviewUrl();
   }
 
@@ -2155,7 +2188,7 @@
   }
 
   // State half of the reset: clears every refinement that suppresses the rail
-  // (search, Outing Type chips, MUSE Picks, local reveal) plus any lingering
+  // (search, Outing Type chips, Featured in MUSE, local reveal) plus any lingering
   // selection or surprise/story rings, re-syncs the search input, and closes
   // the selection drawer the same way setMode does — the pristine view never
   // shows a selection. No re-renders here, so callers that immediately run
@@ -2163,7 +2196,7 @@
   function clearBrowseRefinements() {
     state.searchQuery = "";
     state.activeIntents.clear();
-    state.musePicksOnly = false;
+    state.featuredInMuseOnly = false;
     state.localReveal = null;
     state.localRevealPreviousContext = null;
     state.selectedPlaceId = "";
@@ -2277,14 +2310,20 @@
       showPlace(item.place);
     } else if (item.type === "event") {
       if (Number.isFinite(item.lng) && Number.isFinite(item.lat)) {
-        const targetZoom = Math.max(state.map.getZoom(), 13.5);
+        // Same selection-flight profile as showPlace: street level, high arc,
+        // card dealt on touchdown.
+        const seq = ++state.flightSeq;
+        const targetZoom = Math.max(state.map.getZoom(), 16);
         if (prefersReducedMotion()) {
           state.map.jumpTo({ center: [item.lng, item.lat], zoom: targetZoom });
+          showEvent(item.event);
         } else {
-          state.map.flyTo({ center: [item.lng, item.lat], zoom: targetZoom, speed: 0.8 });
+          state.map.flyTo({ center: [item.lng, item.lat], zoom: targetZoom, speed: 1.7, curve: 1.35, maxDuration: 2600, essential: true });
+          state.map.once("moveend", () => { if (seq === state.flightSeq) showEvent(item.event); });
         }
+      } else {
+        showEvent(item.event);
       }
-      showEvent(item.event);
     } else if (item.type === "story") {
       renderStory(item.story);
     } else if (item.type === "path") {
@@ -2870,6 +2909,8 @@
     ]);
     state.anchorCards = Array.isArray(anchorCards) ? anchorCards : [];
     state.museStories = museStories.stories || [];
+    // Featured-in-MUSE membership: exact article links only (owner ruling).
+    state.museFeaturedIds = new Set(state.museStories.flatMap((story) => story.placeIds || []));
     state.museEvidenceByPlace = buildDirectMuseEvidenceByPlace(museEvidence);
     state.browseSamplerPlaceIds = (museSampler.showcaseSampler || museSampler.recommendedSampler || [])
       .map((place) => place.id)

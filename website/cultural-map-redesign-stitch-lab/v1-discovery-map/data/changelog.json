@@ -2,6 +2,12 @@
   "_readme": "Site changelog, rendered by changelog.html. Newest entry FIRST. Every meaningful commit to v1-discovery-map gets an entry (the pre-commit hook enforces this). Write 'summary' in plain language for the Arts Council — what changed for a visitor, not implementation detail. 'commit' is the short hash; the page links it to GitHub.",
   "entries": [
     {
+      "date": "2026-06-12",
+      "title": "\"Featured in MUSE\" now means a real article, and the map flies you closer",
+      "summary": "The MUSE badge earned a stricter meaning. A place is now marked \"Featured in MUSE\" only when a real MUSE Magazine article actually writes about it — the badge on its card names the article and takes you to that story on the map. The old \"MUSE Picks\" label, which lit up every business listed in the magazine's back-page directory, is gone; being in the directory still shows on a place's card as a quiet \"Listed in the MUSE directory\" line with a link to the right page. The filter chip in the Places browser was renamed to match and now counts only story-featured places. Selecting a place or event also flies you in much closer than before — down to street level, where cross streets are readable and the highlighted marker stands apart — and the detail card now appears just as the camera lands, so the arrival feels like turning to the right page.",
+      "kind": "improvement"
+    },
+    {
       "date": "2026-06-11",
       "title": "The map now speaks in the Arts Council's own typeface",
       "summary": "Polymath, the brand's typeface, was named in our styles all along but never actually delivered to the browser, so every visitor has been seeing a stand-in font. The real Polymath now loads with the page, in every weight, and the whole map is set in it.",
