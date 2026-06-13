@@ -2241,6 +2241,8 @@ button.event-mini:hover {
   border: 2.4px solid var(--ncac-red);
 }
 
+/* Plum must match MARKERS.plum in app.js (the live event halo on the map) —
+   CSS can't read that constant, so change both together. */
 .legend-dot.halo {
   background: rgba(84, 70, 107, 0.35);
   box-shadow: 0 0 5px 2px rgba(84, 70, 107, 0.35);

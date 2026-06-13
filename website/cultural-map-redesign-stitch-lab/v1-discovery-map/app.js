@@ -24,6 +24,10 @@
     red: "#ff2e00",
     paper: "#ffffff",
     ink: "#1a1a1a",
+    // Muted plum = "event coming up" (cla-76 red ruling). The legend swatch in
+    // styles.css (.legend-dot.halo) hand-copies this hue — change both together.
+    plum: "#54466b",
+    plumHalo: "rgba(84,70,107,0.16)",
   };
   // CLA-34: color place dots by outing group (derived from category). The mapping
   // and the MapLibre match expression live in marker-category-color.js (unit-tested,
@@ -213,6 +217,43 @@
     return typeof window !== "undefined" && window.matchMedia
       ? window.matchMedia("(prefers-reduced-motion: reduce)").matches
       : false;
+  }
+
+  // Coordinate validity for mixed items (events, rail cards, reveal origins).
+  // Places that should appear on the map go through isPlaceMapReady instead,
+  // which also honors the publicMarker opt-out.
+  function hasCoords(item) {
+    return Number.isFinite(item?.lng) && Number.isFinite(item?.lat);
+  }
+
+  // Selection flight (drift mining, owner zoom ruling): street level so cross
+  // streets resolve; Math.max never zooms OUT a user already deeper. Brisk
+  // high-arc profile from fable-drift's steered hops. Shared by place and
+  // event selection; onArrival fires on touchdown unless a newer flight has
+  // superseded this one (flightSeq guard). Reduced motion lands instantly.
+  const SELECTION_FLIGHT = { speed: 1.7, curve: 1.35, maxDuration: 2600 };
+  function flyToSelection(center, onArrival) {
+    const seq = ++state.flightSeq;
+    const targetZoom = Math.max(state.map.getZoom(), 16);
+    if (prefersReducedMotion()) {
+      state.map.jumpTo({ center, zoom: targetZoom });
+      onArrival();
+    } else {
+      state.map.flyTo({ center, zoom: targetZoom, ...SELECTION_FLIGHT, essential: true });
+      state.map.once("moveend", () => { if (seq === state.flightSeq) onArrival(); });
+    }
+  }
+
+  // Frame a set of located points (surprise picks, story members, path stops):
+  // shared padding and reduced-motion handling; callers override per framing
+  // (e.g. maxZoom) through options.
+  function fitToPoints(points, options = {}) {
+    if (!points.length || !state.map) return;
+    const bounds = points.reduce(
+      (box, point) => box.extend([point.lng, point.lat]),
+      new maplibregl.LngLatBounds([points[0].lng, points[0].lat], [points[0].lng, points[0].lat]),
+    );
+    state.map.fitBounds(bounds, { padding: 90, duration: prefersReducedMotion() ? 0 : 800, ...options });
   }
 
   function escapeHtml(value) {
@@ -492,8 +533,7 @@
 
   function nearbyPlaceCount(origin, places, radiusMiles) {
     return places.filter((candidate) => (
-      Number.isFinite(candidate.lng) &&
-      Number.isFinite(candidate.lat) &&
+      hasCoords(candidate) &&
       distanceMiles(origin, { lng: candidate.lng, lat: candidate.lat }) <= radiusMiles
     )).length;
   }
@@ -689,7 +729,7 @@
   function startLocalReveal(lngLat) {
     if (!lngLat) return;
     const origin = { lng: Number(lngLat.lng), lat: Number(lngLat.lat) };
-    if (!Number.isFinite(origin.lng) || !Number.isFinite(origin.lat)) return;
+    if (!hasCoords(origin)) return;
     if (!state.localRevealPreviousContext) {
       state.localRevealPreviousContext = {
         searchQuery: state.searchQuery,
@@ -698,7 +738,7 @@
       };
     }
     const places = filteredPlaces()
-      .filter((place) => Number.isFinite(place.lng) && Number.isFinite(place.lat))
+      .filter(hasCoords)
       .map((place) => ({
         place,
         distance: distanceMiles(origin, { lng: place.lng, lat: place.lat }),
@@ -1307,14 +1347,7 @@
     if (!picks.length) return;
     // Critique P1-7: show the picks you just rolled — fit the camera to their
     // rings instead of leaving it parked on the previous selection.
-    const located = picks.filter((place) => Number.isFinite(place.lng) && Number.isFinite(place.lat));
-    if (located.length && state.map) {
-      const bounds = located.reduce(
-        (box, place) => box.extend([place.lng, place.lat]),
-        new maplibregl.LngLatBounds([located[0].lng, located[0].lat], [located[0].lng, located[0].lat]),
-      );
-      state.map.fitBounds(bounds, { padding: 90, maxZoom: 15, duration: prefersReducedMotion() ? 0 : 800 });
-    }
+    fitToPoints(picks.filter(hasCoords), { maxZoom: 15 });
     els.detail.innerHTML = `
       <button class="selected-place-close" type="button" aria-label="Close surprises">Close</button>
       <p class="section-label">Surprise me nearby</p>
@@ -1403,11 +1436,7 @@
     state.surprisePlaceIds = members.map((place) => place.id);
     setSourceData();
     setDetailCardMode("");
-    const bounds = members.reduce(
-      (box, place) => box.extend([place.lng, place.lat]),
-      new maplibregl.LngLatBounds([members[0].lng, members[0].lat], [members[0].lng, members[0].lat]),
-    );
-    state.map.fitBounds(bounds, { padding: 90, maxZoom: 15, duration: prefersReducedMotion() ? 0 : 800 });
+    fitToPoints(members, { maxZoom: 15 });
     els.detail.innerHTML = `
       <button class="selected-place-close" type="button" aria-label="Close story">Close</button>
       <p class="section-label">From the pages of MUSE</p>
@@ -1850,18 +1879,7 @@
     revealDetailCard();
     };
     if (isPlaceMapReady(place)) {
-      // Selection flight (drift mining, owner zoom ruling): street level so
-      // cross streets resolve; Math.max never zooms OUT a user already deeper.
-      // Brisk high-arc profile from fable-drift's steered hops.
-      const seq = ++state.flightSeq;
-      const targetZoom = Math.max(state.map.getZoom(), 16);
-      if (prefersReducedMotion()) {
-        state.map.jumpTo({ center: [place.lng, place.lat], zoom: targetZoom });
-        dealCard();
-      } else {
-        state.map.flyTo({ center: [place.lng, place.lat], zoom: targetZoom, speed: 1.7, curve: 1.35, maxDuration: 2600, essential: true });
-        state.map.once("moveend", () => { if (seq === state.flightSeq) dealCard(); });
-      }
+      flyToSelection([place.lng, place.lat], dealCard);
     } else {
       dealCard();
     }
@@ -1928,16 +1946,8 @@
     };
     // Critique P2-8: picking an event must also show WHERE it is — fly to the
     // venue at street level, exactly like selecting a place.
-    if (place && Number.isFinite(place.lng) && Number.isFinite(place.lat) && state.map) {
-      const seq = ++state.flightSeq;
-      const targetZoom = Math.max(state.map.getZoom(), 16);
-      if (prefersReducedMotion()) {
-        state.map.jumpTo({ center: [place.lng, place.lat], zoom: targetZoom });
-        dealCard();
-      } else {
-        state.map.flyTo({ center: [place.lng, place.lat], zoom: targetZoom, speed: 1.7, curve: 1.35, maxDuration: 2600, essential: true });
-        state.map.once("moveend", () => { if (seq === state.flightSeq) dealCard(); });
-      }
+    if (place && hasCoords(place) && state.map) {
+      flyToSelection([place.lng, place.lat], dealCard);
     } else {
       dealCard();
     }
@@ -2031,8 +2041,8 @@
       marker.getElement().setAttribute("aria-label", `Stop ${index + 1}: ${stop.name}`);
       state.pathMarkers.push(marker);
     });
-    const bounds = path.stops.reduce((acc, stop) => acc.extend([stop.lng, stop.lat]), new maplibregl.LngLatBounds([path.stops[0].lng, path.stops[0].lat], [path.stops[0].lng, path.stops[0].lat]));
-    state.map.fitBounds(bounds, { padding: 90, duration: prefersReducedMotion() ? 0 : 800 });
+    // Paths keep the un-capped zoom: a tight two-stop walk should fill the view.
+    fitToPoints(path.stops);
     renderPathPanel(path);
     updateReviewUrl();
   }
@@ -2346,7 +2356,7 @@
     state.railLastFollowIndex = index;
     markActiveRailCard(best);
     const item = state.railItems[index];
-    if (!item || !Number.isFinite(item.lng) || !Number.isFinite(item.lat)) return;
+    if (!item || !hasCoords(item)) return;
     if (prefersReducedMotion()) {
       state.map.jumpTo({ center: [item.lng, item.lat] });
     } else {
@@ -2498,7 +2508,7 @@
     if (mode !== "paths") state.selectedPath = null;
     if (mode !== "events") state.selectedEventId = "";
     if (els.search) els.search.value = state.searchQuery;
-    document.querySelectorAll(".mode-tab").forEach((tab) => tab.classList.toggle("active", tab.dataset.mode === mode));
+    syncModeTabs(mode);
     // Switching modes always closes the drawer — it must never auto-open
     // without a user selection (on mobile it covers the whole control panel).
     els.selectionDrawer?.classList.remove("open");
@@ -2536,9 +2546,9 @@
   function ensureModeContentVisible(mode) {
     if (!state.map) return;
     const points = mode === "events"
-      ? state.events.map((event) => placeById(event.placeId)).filter((place) => place && Number.isFinite(place.lng) && Number.isFinite(place.lat))
+      ? state.events.map((event) => placeById(event.placeId)).filter((place) => place && hasCoords(place))
       : mode === "paths"
-        ? state.paths.flatMap((path) => path.stops || []).filter((stop) => Number.isFinite(stop.lng) && Number.isFinite(stop.lat))
+        ? state.paths.flatMap((path) => path.stops || []).filter(hasCoords)
         : state.places.filter(isPlaceMapReady);
     if (!points.length) return;
     const bounds = state.map.getBounds();
@@ -2848,9 +2858,9 @@
       filter: ["all", ["!", ["has", "point_count"]], ["get", "hasEvent"]],
       paint: {
         "circle-radius": ["interpolate", ["linear"], ["zoom"], 8, 9, 13, 13],
-        "circle-color": "rgba(84,70,107,0.16)",
+        "circle-color": MARKERS.plumHalo,
         "circle-blur": 0.45,
-        "circle-stroke-color": "#54466b",
+        "circle-stroke-color": MARKERS.plum,
         "circle-stroke-width": 1.1,
         "circle-stroke-opacity": 0.55,
       },
