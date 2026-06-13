@@ -2752,18 +2752,19 @@
           5.5
         ],
         // CLA-34: fill encodes outing group (category color), for anchors/featured
-        // and the selected place alike. Selection is signaled by the surrounding red
-        // rings (anchor-rings / place-selection-ring / halo) plus a thicker white
-        // stroke below — red is reserved for that, not used as a category color.
+        // and the selected place alike. Selection is signaled by the red
+        // place-selection-ring plus a thicker white stroke below — red means
+        // "your pick" and nothing else (anchors wear quiet ink, halos plum).
         "circle-color": CATEGORY_COLOR,
         "circle-opacity": 1,
         "circle-stroke-color": MARKERS.paper,
         "circle-stroke-width": ["case", ["get", "selected"], 3, 1.4],
       },
     });
-    // Flow-upgrade Stage 1: places with an upcoming event carry a soft red
-    // "live" halo in every mode (Events-01 board) — the map signals now-ness
-    // without the visitor having to open Events mode.
+    // Flow-upgrade Stage 1: places with an upcoming event carry a soft "live"
+    // halo in every mode — the map signals now-ness without the visitor having
+    // to open Events mode. Plum (the Events group color), NOT red: red means
+    // "you selected this" and nothing else (critique P0-1 ruling).
     state.map.addLayer({
       id: "place-live-halo",
       type: "circle",
@@ -2771,9 +2772,9 @@
       filter: ["all", ["!", ["has", "point_count"]], ["get", "hasEvent"]],
       paint: {
         "circle-radius": ["interpolate", ["linear"], ["zoom"], 8, 9, 13, 13],
-        "circle-color": "rgba(255,46,0,0.16)",
+        "circle-color": "rgba(84,70,107,0.16)",
         "circle-blur": 0.45,
-        "circle-stroke-color": MARKERS.red,
+        "circle-stroke-color": "#54466b",
         "circle-stroke-width": 1.1,
         "circle-stroke-opacity": 0.55,
       },
@@ -2806,17 +2807,20 @@
         "circle-opacity": 1,
       },
     });
+    // Critique P0-1 red ruling (2026-06-12): red belongs to the user's click.
+    // The curated-anchor Soft Ring is now quiet ink — editorial emphasis reads
+    // as size + persistent label + this hairline, never as "did I select that?"
     state.map.addLayer({
       id: "anchor-rings",
       type: "circle",
       source: "places",
       filter: ["all", ["!", ["has", "point_count"]], ["any", ["get", "anchor"], ["get", "featured"]]],
       paint: {
-        "circle-radius": ["case", ["get", "selected"], 14, ["get", "anchor"], 12, 10],
+        "circle-radius": ["case", ["get", "anchor"], 12, 10],
         "circle-color": "rgba(255,255,255,0)",
-        "circle-stroke-color": MARKERS.red,
-        "circle-stroke-width": ["case", ["get", "selected"], 3, 2],
-        "circle-opacity": ["case", ["get", "selected"], 1, 0.88],
+        "circle-stroke-color": MARKERS.ink,
+        "circle-stroke-width": 1.4,
+        "circle-stroke-opacity": 0.55,
       },
     });
     state.map.addLayer({

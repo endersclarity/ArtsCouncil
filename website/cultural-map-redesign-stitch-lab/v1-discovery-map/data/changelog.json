@@ -3,6 +3,12 @@
   "entries": [
     {
       "date": "2026-06-12",
+      "title": "Red now means one thing: the place you picked",
+      "summary": "First-time visitors kept asking the same fair question: \"why are these places ringed in red — did I select something?\" Until now red marked three different things at once: places our editors feature, places hosting an upcoming event, and the place you actually clicked. From this build, red belongs to you alone. Featured places wear a quiet ink ring (they're also the ones that stay named at every zoom), places with an upcoming event glow a soft plum, and a red ring appears only around your own pick. The little legend in the corner finally tells the whole story too — it now explains the dot colors, the rings, the glow, the event diamonds, and the route line, instead of just three of the six marks on the map.",
+      "kind": "improvement"
+    },
+    {
+      "date": "2026-06-12",
       "title": "The camera stops getting lost",
       "summary": "Two map-camera fixes from the visitor review. First: switching to Events or Paths could leave you staring at empty forest or Lake Tahoe if an earlier story or selection had carried the camera away — now, if none of that mode's content is on screen, the map glides home to the county view, so a tab always opens looking at its subject. Second: picking an event from the list used to describe the venue without showing it; the map now flies to the venue at street level and the event card lands with the camera, the same way picking a place works.",
       "kind": "fix"
