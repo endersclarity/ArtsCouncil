@@ -42,4 +42,22 @@ Spatial snapping for unnamed trails; USFS Tahoe NF OHV (~45); BYLT licensing OK.
   Mountain) correctly KEEP BYLT (fuller). Coyote View Loop stays its BYLT 0.23 km stub (OSM unnamed)
   — expected; context layer (Part 2) is its mitigation. `verify-trail-data.py` → PASS.
 - OSM_FLOOR fixed at 30 (contract's optimistic 40 corrected to the honest 36 − margin).
-- Remaining: Part 2 (always-on OSM path-network context layer in both worktrees).
+- Committed on `trail-data-base` as **a3b343c** (with a plain-language changelog entry).
+
+### Pass 2 — UI context layer (PASS)
+- Merged `trail-data-base` (a3b343c) into both worktrees (clean, no conflicts; also brought MUSE).
+- Added the always-on context layer by restyling the Liberty basemap's own `transportation`
+  path/track layers (no new data): dashed `[2,2]`, zoom-gated opacity (0 below z10.5 → 0.55 by
+  z15) and width, kept under the place dots and the selected `trail-line`. Marker `osm-path-context`.
+  Identical edit in both worktrees (Structure A app.js ~L2872, Structure B ~L3048).
+- Committed: **trail-ui-category aa4b294**, **trail-ui-lens 0f07524** (SKIP_CHANGELOG — comparison
+  candidates; the changelog entry lands with the eventual structure-pick merge).
+
+### EXIT: done (verifier passes)
+- `verify-trail-data.py` PASS · OSM-line 36 ≥ floor 30 · `node --check` OK both worktrees ·
+  `osm-path-context` present in both · servers 4174/4175 → 200, serving the updated app.js + the
+  159-trail / 36-OSM-geom `data/trails.json`.
+- NOT deterministically verifiable here (WebGL stalls in the in-tool preview): the actual map
+  PAINT — fuller red lines + the faint dashed network. User confirms in real Chrome at the URLs.
+- Still OPEN (user's call, not the loop's): pick Structure A vs B; the winner merges to master and
+  carries the changelog entry. Deferred as before: spatial snapping, USFS OHV (~45), BYLT licensing.
