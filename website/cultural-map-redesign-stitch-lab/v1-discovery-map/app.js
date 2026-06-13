@@ -203,6 +203,8 @@
     rail: document.getElementById("discovery-rail"),
     railTrack: document.getElementById("rail-track"),
     railResetChip: document.getElementById("rail-reset-chip"),
+    railArrowPrev: document.getElementById("rail-arrow-prev"),
+    railArrowNext: document.getElementById("rail-arrow-next"),
   };
 
   // CLA-42: when the OS requests reduced motion, swap MapLibre's animated camera
@@ -979,11 +981,20 @@
     if (els.selectionDrawer) els.selectionDrawer.scrollTop = 0;
   }
 
+  // The mode tabs reflect what the visitor is LOOKING AT (critique P2-9): an
+  // event card opened from the rail lights the Events tab even though the
+  // browse mode underneath is unchanged; closing the card restores the truth.
+  function syncModeTabs(kind) {
+    const active = kind || state.mode;
+    document.querySelectorAll(".mode-tab").forEach((tab) => tab.classList.toggle("active", tab.dataset.mode === active));
+  }
+
   function closeSelectionDrawer() {
     els.selectionDrawer?.classList.remove("open");
     state.selectedPlaceId = "";
     state.selectedEventId = "";
     setDetailCardMode("");
+    syncModeTabs();
     els.detail.innerHTML = `<p class="empty-title">Select a place</p><p class="empty-copy">Choose another place from the Directory Browser to reopen details.</p>`;
     if (state.map) setSourceData();
     updateReviewUrl();
@@ -1247,7 +1258,12 @@
 
   function firstSentence(text) {
     const match = String(text || "").match(/^.*?[.!?](?=\s|$)/);
-    return (match ? match[0] : String(text || "")).slice(0, 160);
+    const sentence = match ? match[0] : String(text || "");
+    if (sentence.length <= 160) return sentence;
+    // Truncate on a word boundary with an ellipsis — never mid-word
+    // ("Retro-coo", critique P2-10).
+    const cut = sentence.slice(0, 160);
+    return cut.slice(0, Math.max(cut.lastIndexOf(" "), 120)).trimEnd() + "…";
   }
 
   // Some venue feeds prefix event copy with SHOUTING boilerplate
@@ -1289,10 +1305,20 @@
     setSourceData();
     setDetailCardMode("");
     if (!picks.length) return;
+    // Critique P1-7: show the picks you just rolled — fit the camera to their
+    // rings instead of leaving it parked on the previous selection.
+    const located = picks.filter((place) => Number.isFinite(place.lng) && Number.isFinite(place.lat));
+    if (located.length && state.map) {
+      const bounds = located.reduce(
+        (box, place) => box.extend([place.lng, place.lat]),
+        new maplibregl.LngLatBounds([located[0].lng, located[0].lat], [located[0].lng, located[0].lat]),
+      );
+      state.map.fitBounds(bounds, { padding: 90, maxZoom: 15, duration: prefersReducedMotion() ? 0 : 800 });
+    }
     els.detail.innerHTML = `
       <button class="selected-place-close" type="button" aria-label="Close surprises">Close</button>
       <p class="section-label">Surprise me nearby</p>
-      <p class="empty-copy">A few cultural stops you might have missed — in their own words.</p>
+      <p class="empty-copy">Four stops near the current view that you might have missed — ringed on the map, described in their own words.</p>
       <div class="surprise-list">
         ${picks.map((place) => `
           <button class="place-nearby-link" type="button" data-nearby-place="${escapeHtml(place.id)}">
@@ -1348,8 +1374,8 @@
     if (!state.museStories.length) return;
     els.detail.innerHTML = `
       <button class="selected-place-close" type="button" aria-label="Close stories">Close</button>
-      <p class="section-label">MUSE story lens</p>
-      <p class="empty-copy">Real articles from MUSE Magazine — pick one to see everywhere it touches the map.</p>
+      <p class="section-label">Stories from MUSE</p>
+      <p class="empty-copy">Real articles from MUSE, the Arts Council's magazine — pick one to see everywhere it touches the map.</p>
       <div class="story-list">
         ${state.museStories.map((story) => `
           <button class="story-row" type="button" data-muse-story="${escapeHtml(story.id)}">
@@ -1540,9 +1566,18 @@
     `;
   }
 
+  // Location caveats arrive in data-audit voice ("Tier downgraded by audit:
+  // 155m from exact address geocode") — provenance for the data team, not
+  // visitor copy. Translate to plain language here; the audit detail stays in
+  // the data where it belongs.
+  function locationCaveatCopy(caveat) {
+    if (/coming soon/i.test(caveat)) return caveat;
+    return "Map pin is approximate — double-check the address before you go.";
+  }
+
   function renderLocationCaveat(place) {
     if (!place.locationCaveat) return "";
-    return `<p class="location-caveat">${escapeHtml(place.locationCaveat)}</p>`;
+    return `<p class="location-caveat">${escapeHtml(locationCaveatCopy(place.locationCaveat))}</p>`;
   }
 
   function buildDirectMuseEvidenceByPlace(evidence) {
@@ -1710,6 +1745,7 @@
     // not — gets the same calm paper feature card. The old primary-anchor /
     // supporting-stop card chrome (red top borders, gradients) is retired.
     setDetailCardMode("place");
+    syncModeTabs("places");
     const imageLabel = isSupportingStop && place.image?.status === "candidate"
       ? "Candidate image"
       : isSupportingStop && (!place.image?.src || place.image?.status === "missing")
@@ -1839,6 +1875,7 @@
   function showEvent(event) {
     expandDrawer();
     setDetailCardMode("event");
+    syncModeTabs("events");
     state.selectedEventId = event.id;
     state.selectedPlaceId = "";
     state.selectedPath = null;
@@ -1853,6 +1890,9 @@
     // venue/city — the card never loses its venue.
     const eventImage = resolveMedia(event.image || "");
     const eventFallback = categoryPlaceholderFor(place?.category) || "assets/placeholders/gallery-studio.webp";
+    // Same deal-on-touchdown pattern as showPlace: the event card appears as
+    // the camera lands on the venue, never while it is still in flight.
+    const dealCard = () => {
     els.detail.innerHTML = `
       <button class="selected-place-close" type="button" aria-label="Close selected event">Close</button>
       ${eventImage ? `
@@ -1885,6 +1925,22 @@
       if (state.mode === "events") renderEventsList();
     });
     revealDetailCard();
+    };
+    // Critique P2-8: picking an event must also show WHERE it is — fly to the
+    // venue at street level, exactly like selecting a place.
+    if (place && Number.isFinite(place.lng) && Number.isFinite(place.lat) && state.map) {
+      const seq = ++state.flightSeq;
+      const targetZoom = Math.max(state.map.getZoom(), 16);
+      if (prefersReducedMotion()) {
+        state.map.jumpTo({ center: [place.lng, place.lat], zoom: targetZoom });
+        dealCard();
+      } else {
+        state.map.flyTo({ center: [place.lng, place.lat], zoom: targetZoom, speed: 1.7, curve: 1.35, maxDuration: 2600, essential: true });
+        state.map.once("moveend", () => { if (seq === state.flightSeq) dealCard(); });
+      }
+    } else {
+      dealCard();
+    }
     updateReviewUrl();
   }
 
@@ -2001,7 +2057,7 @@
           const card = place?.anchorCard || null;
           const icon = anchor ? anchorIconText(anchor) : card ? ANCHOR_ICON_TEXT[card.iconKey] || "" : "";
           const hook = anchor?.hook || card?.hook || stop.note;
-          const role = anchor ? "Primary anchor" : card ? "Supporting stop" : "";
+          const role = anchor ? "Don't miss" : "";
           return `<li><button class="${icon ? "has-path-icon" : "no-path-icon"}${card && !anchor ? " supporting-path-stop" : ""}" type="button" data-place="${escapeHtml(stop.placeId)}">${icon ? `<span class="path-stop-icon">${escapeHtml(icon)}</span>` : ""}<span class="path-stop-copy"><strong>${escapeHtml(stop.name)}</strong><em>${escapeHtml([role, `${stop.category} / ${stop.city}`].filter(Boolean).join(" / "))}</em><small>${escapeHtml(hook)}</small></span></button></li>`;
         }).join("")}
       </ol>
@@ -2019,8 +2075,8 @@
     });
     revealDetailCard();
     els.hint.innerHTML = `
-      <p class="hint-title">Stop sequence selected</p>
-      <p>${escapeHtml(activePath.stops.length)} numbered stops. The markers carry the route; the connector stays quiet.</p>
+      <p class="hint-title">Route selected</p>
+      <p>${escapeHtml(activePath.stops.length)} numbered stops — walk them in order, or tap any stop to jump ahead.</p>
     `;
   }
 
@@ -2082,7 +2138,9 @@
       when: event.date === today ? "Tonight" : niceEventDate(event.date),
       title: event.title,
       meta: event.placeName,
-      desc: displayEventDescription(event.description || ""),
+      // Rail cards are teasers: first sentence only. The full description
+      // (fees, times, sign-up detail) stays on the event card (critique P2-10).
+      desc: firstSentence(displayEventDescription(event.description || "")),
       image: resolveMedia(event.image || ""),
       lat: event.lat,
       lng: event.lng,
@@ -2107,7 +2165,6 @@
       const storyPlaces = (story.placeIds || []).map(placeById).filter((place) => place && isPlaceMapReady(place));
       items.push({
         type: "story",
-        kicker: "In the pages of MUSE Magazine",
         title: story.title,
         meta: story.issue,
         desc: "See everywhere this story touches the map.",
@@ -2151,19 +2208,28 @@
     return ` ${railPosterClasses(item.type, index).join(" ")}`;
   }
 
+  // Rail delineation (P1-6): every card names its kind in one quiet chip, so
+  // the mixed editorial run (events / picks / story / path) reads curated.
+  // This supersedes the pass-3 "one kicker" rule for the rail surface only —
+  // a pill chip, not a typeset eyebrow row.
+  const RAIL_CHIP_LABELS = {
+    event: "Event",
+    place: "Worth a stop",
+    story: "From MUSE Magazine",
+    path: "A walk to take",
+  };
+
   function railCardHtml(item, index) {
     // Accessible name is title + venue/date only — never the full description
     // essay (screen readers read the whole name per card).
     const accessibleName = `${item.title} — ${item.when ? `${item.when} · ` : ""}${item.meta}`;
-    // ONE deliberate kicker across the surface: the MUSE story card's
-    // credential line ("In the pages of MUSE Magazine"). Everything else
-    // carries its signal in the title and meta line.
     const metaLine = `${item.when ? `<strong class="rail-card-when${item.when === "Tonight" ? " is-tonight" : ""}">${escapeHtml(item.when)}</strong> · ` : ""}${escapeHtml(item.meta)}`;
+    const chip = RAIL_CHIP_LABELS[item.type];
     return `
       <button class="rail-card rail-card-${escapeHtml(item.type)}${railPosterClass(item, index)}" type="button" data-rail-index="${index}" aria-label="${escapeHtml(accessibleName)}">
         ${item.image ? `<img class="rail-card-img" src="${escapeHtml(item.image)}" alt="" loading="lazy" decoding="async" data-img-fallback="poster">` : ""}
         <span class="rail-card-body">
-          ${item.kicker ? `<span class="rail-card-kicker">${escapeHtml(item.kicker)}</span>` : ""}
+          ${chip ? `<span class="rail-card-chip rail-card-chip-${escapeHtml(item.type)}">${escapeHtml(chip)}</span>` : ""}
           <span class="rail-card-title">${escapeHtml(item.title)}</span>
           ${item.desc ? `<span class="rail-card-desc">${escapeHtml(item.desc)}</span>` : ""}
           <span class="rail-card-meta">${metaLine}</span>
@@ -2309,27 +2375,28 @@
     if (item.type === "place") {
       showPlace(item.place);
     } else if (item.type === "event") {
-      if (Number.isFinite(item.lng) && Number.isFinite(item.lat)) {
-        // Same selection-flight profile as showPlace: street level, high arc,
-        // card dealt on touchdown.
-        const seq = ++state.flightSeq;
-        const targetZoom = Math.max(state.map.getZoom(), 16);
-        if (prefersReducedMotion()) {
-          state.map.jumpTo({ center: [item.lng, item.lat], zoom: targetZoom });
-          showEvent(item.event);
-        } else {
-          state.map.flyTo({ center: [item.lng, item.lat], zoom: targetZoom, speed: 1.7, curve: 1.35, maxDuration: 2600, essential: true });
-          state.map.once("moveend", () => { if (seq === state.flightSeq) showEvent(item.event); });
-        }
-      } else {
-        showEvent(item.event);
-      }
+      // showEvent owns the selection flight (street level, card on touchdown).
+      showEvent(item.event);
     } else if (item.type === "story") {
       renderStory(item.story);
     } else if (item.type === "path") {
       setMode("paths");
       showPath(item.path);
     }
+  }
+
+  // Arrows live only where they help: fine pointers (CSS hides them on touch),
+  // and only while the track actually overflows. Ends fade as they're reached.
+  function syncRailArrows() {
+    const track = els.railTrack;
+    if (!track || !els.railArrowPrev || !els.railArrowNext) return;
+    const overflowing = track.scrollWidth > track.clientWidth + 1;
+    els.railArrowPrev.hidden = !overflowing;
+    els.railArrowNext.hidden = !overflowing;
+    if (!overflowing) return;
+    const maxScroll = track.scrollWidth - track.clientWidth - 1;
+    els.railArrowPrev.classList.toggle("is-end", track.scrollLeft <= 1);
+    els.railArrowNext.classList.toggle("is-end", track.scrollLeft >= maxScroll);
   }
 
   function renderDiscoveryRail() {
@@ -2357,6 +2424,7 @@
     els.railTrack.querySelectorAll("[data-rail-index]").forEach((card) => {
       card.addEventListener("click", () => activateRailCard(Number(card.dataset.railIndex), card));
     });
+    syncRailArrows();
   }
 
   function initDiscoveryRail() {
@@ -2382,11 +2450,34 @@
       // Rail Follow (active card + map ease) exactly as it does for touch.
       card.scrollIntoView({ inline: "center", block: "nearest", behavior: prefersReducedMotion() ? "auto" : "smooth" });
     });
+    // Mouse path (P1-6): the OS scrollbar is hidden by design, so a vertical
+    // wheel is the only scroll gesture most mouse users will try. Translate it
+    // to horizontal travel; trackpads keep their native horizontal swipe
+    // (skipped when deltaX dominates).
+    els.railTrack.addEventListener("wheel", (event) => {
+      if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
+      const track = els.railTrack;
+      if (track.scrollWidth <= track.clientWidth) return;
+      // deltaMode 1 = lines (Firefox wheel); normalize to ~pixels.
+      track.scrollLeft += event.deltaMode === 1 ? event.deltaY * 40 : event.deltaY;
+      event.preventDefault();
+    }, { passive: false });
     let settleTimer;
     els.railTrack.addEventListener("scroll", () => {
       clearTimeout(settleTimer);
       settleTimer = setTimeout(handleRailScrollSettle, 180);
+      syncRailArrows();
     }, { passive: true });
+    [[els.railArrowPrev, -1], [els.railArrowNext, 1]].forEach(([arrow, direction]) => {
+      arrow?.addEventListener("click", () => {
+        const track = els.railTrack;
+        track.scrollBy({
+          left: direction * track.clientWidth * 0.8,
+          behavior: prefersReducedMotion() ? "auto" : "smooth",
+        });
+      });
+    });
+    window.addEventListener("resize", syncRailArrows);
     els.rail.querySelectorAll("[data-rail-filter]").forEach((chip) => {
       chip.addEventListener("click", () => {
         state.railFilter = chip.dataset.railFilter;
@@ -2434,7 +2525,27 @@
       renderFeaturedAnchor();
     }
     setSourceData();
+    ensureModeContentVisible(mode);
     updateReviewUrl();
+  }
+
+  // Critique P0-2 ("the stranded viewport"): a story lens or selection can
+  // leave the camera over Tahoe or empty forest. On mode change, if none of
+  // the new mode's content is in view, bring the camera home to the initial
+  // county view — a mode must never open looking at nothing.
+  function ensureModeContentVisible(mode) {
+    if (!state.map) return;
+    const points = mode === "events"
+      ? state.events.map((event) => placeById(event.placeId)).filter((place) => place && Number.isFinite(place.lng) && Number.isFinite(place.lat))
+      : mode === "paths"
+        ? state.paths.flatMap((path) => path.stops || []).filter((stop) => Number.isFinite(stop.lng) && Number.isFinite(stop.lat))
+        : state.places.filter(isPlaceMapReady);
+    if (!points.length) return;
+    const bounds = state.map.getBounds();
+    if (points.some((point) => bounds.contains([point.lng, point.lat]))) return;
+    const view = isMobileViewport() ? MOBILE_INITIAL_MAP_VIEW : DESKTOP_INITIAL_MAP_VIEW;
+    if (prefersReducedMotion()) state.map.jumpTo(view);
+    else state.map.easeTo({ ...view, duration: 800 });
   }
 
   function applyInitialReviewState() {
@@ -2717,18 +2828,19 @@
           5.5
         ],
         // CLA-34: fill encodes outing group (category color), for anchors/featured
-        // and the selected place alike. Selection is signaled by the surrounding red
-        // rings (anchor-rings / place-selection-ring / halo) plus a thicker white
-        // stroke below — red is reserved for that, not used as a category color.
+        // and the selected place alike. Selection is signaled by the red
+        // place-selection-ring plus a thicker white stroke below — red means
+        // "your pick" and nothing else (anchors wear quiet ink, halos plum).
         "circle-color": CATEGORY_COLOR,
         "circle-opacity": 1,
         "circle-stroke-color": MARKERS.paper,
         "circle-stroke-width": ["case", ["get", "selected"], 3, 1.4],
       },
     });
-    // Flow-upgrade Stage 1: places with an upcoming event carry a soft red
-    // "live" halo in every mode (Events-01 board) — the map signals now-ness
-    // without the visitor having to open Events mode.
+    // Flow-upgrade Stage 1: places with an upcoming event carry a soft "live"
+    // halo in every mode — the map signals now-ness without the visitor having
+    // to open Events mode. Plum (the Events group color), NOT red: red means
+    // "you selected this" and nothing else (critique P0-1 ruling).
     state.map.addLayer({
       id: "place-live-halo",
       type: "circle",
@@ -2736,9 +2848,9 @@
       filter: ["all", ["!", ["has", "point_count"]], ["get", "hasEvent"]],
       paint: {
         "circle-radius": ["interpolate", ["linear"], ["zoom"], 8, 9, 13, 13],
-        "circle-color": "rgba(255,46,0,0.16)",
+        "circle-color": "rgba(84,70,107,0.16)",
         "circle-blur": 0.45,
-        "circle-stroke-color": MARKERS.red,
+        "circle-stroke-color": "#54466b",
         "circle-stroke-width": 1.1,
         "circle-stroke-opacity": 0.55,
       },
@@ -2771,17 +2883,20 @@
         "circle-opacity": 1,
       },
     });
+    // Critique P0-1 red ruling (2026-06-12): red belongs to the user's click.
+    // The curated-anchor Soft Ring is now quiet ink — editorial emphasis reads
+    // as size + persistent label + this hairline, never as "did I select that?"
     state.map.addLayer({
       id: "anchor-rings",
       type: "circle",
       source: "places",
       filter: ["all", ["!", ["has", "point_count"]], ["any", ["get", "anchor"], ["get", "featured"]]],
       paint: {
-        "circle-radius": ["case", ["get", "selected"], 14, ["get", "anchor"], 12, 10],
+        "circle-radius": ["case", ["get", "anchor"], 12, 10],
         "circle-color": "rgba(255,255,255,0)",
-        "circle-stroke-color": MARKERS.red,
-        "circle-stroke-width": ["case", ["get", "selected"], 3, 2],
-        "circle-opacity": ["case", ["get", "selected"], 1, 0.88],
+        "circle-stroke-color": MARKERS.ink,
+        "circle-stroke-width": 1.4,
+        "circle-stroke-opacity": 0.55,
       },
     });
     state.map.addLayer({

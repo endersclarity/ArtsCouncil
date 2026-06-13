@@ -3,6 +3,36 @@
   "entries": [
     {
       "date": "2026-06-12",
+      "title": "The bottom rail learns to share: scroll it with any mouse, and every card says what it is",
+      "summary": "The strip of cards along the bottom of the map was quietly broken for anyone with a regular mouse: the scrollbar is hidden by design, and a mouse wheel did nothing, so most desktop visitors could only ever see the first three cards. Now the wheel scrolls the rail, and a pair of soft arrow buttons sits at its edges (on mouse setups only — phones and trackpads already scrolled fine and stay unchanged). The rail's mix also explains itself: each card wears a small tag — \"Event\", \"Worth a stop\", \"From MUSE Magazine\", \"A walk to take\" — so the lineup reads as a curated mix instead of a random shuffle.",
+      "kind": "improvement"
+    },
+    {
+      "date": "2026-06-12",
+      "title": "Smaller comforts: clearer words, steadier tabs, kinder buttons",
+      "summary": "A sweep of small fixes from the visitor review. The story panel now opens with \"Stories from MUSE\" and a line explaining that MUSE is the Arts Council's magazine, so newcomers aren't left guessing at the name. \"Surprise me\" now pulls the camera back to frame all four of its picks instead of leaving you zoomed into wherever you were. Opening an event from the rail lights up the Events tab (and closing it hands the highlight back), so the tabs always tell the truth about what you're looking at. Card descriptions no longer cut off mid-word — they end cleanly at a word boundary with an ellipsis. And on phones and tablets, the small chips and tabs grew to a comfortable fingertip size.",
+      "kind": "improvement"
+    },
+    {
+      "date": "2026-06-12",
+      "title": "Red now means one thing: the place you picked",
+      "summary": "First-time visitors kept asking the same fair question: \"why are these places ringed in red — did I select something?\" Until now red marked three different things at once: places our editors feature, places hosting an upcoming event, and the place you actually clicked. From this build, red belongs to you alone. Featured places wear a quiet ink ring (they're also the ones that stay named at every zoom), places with an upcoming event glow a soft plum, and a red ring appears only around your own pick. The little legend in the corner finally tells the whole story too — it now explains the dot colors, the rings, the glow, the event diamonds, and the route line, instead of just three of the six marks on the map.",
+      "kind": "improvement"
+    },
+    {
+      "date": "2026-06-12",
+      "title": "The camera stops getting lost",
+      "summary": "Two map-camera fixes from the visitor review. First: switching to Events or Paths could leave you staring at empty forest or Lake Tahoe if an earlier story or selection had carried the camera away — now, if none of that mode's content is on screen, the map glides home to the county view, so a tab always opens looking at its subject. Second: picking an event from the list used to describe the venue without showing it; the map now flies to the venue at street level and the event card lands with the camera, the same way picking a place works.",
+      "kind": "fix"
+    },
+    {
+      "date": "2026-06-12",
+      "title": "The map stops talking shop",
+      "summary": "A first-time-visitor review caught the map speaking its internal language out loud. Place cards could say things like \"Tier downgraded by audit: 155m from exact address geocode\" — true, but written for the data team, not for you. Those notes now read simply: \"Map pin is approximate — double-check the address before you go.\" The quiet fourth path got a real name (\"Pond, Ridge & Schoolhouse\") and a description written for walkers instead of designers, and the route panel now tells you what to do (\"walk them in order, or tap any stop to jump ahead\") instead of explaining its own design.",
+      "kind": "improvement"
+    },
+    {
+      "date": "2026-06-12",
       "title": "\"Featured in MUSE\" now means a real article, and the map flies you closer",
       "summary": "The MUSE badge earned a stricter meaning. A place is now marked \"Featured in MUSE\" only when a real MUSE Magazine article actually writes about it — the badge on its card names the article and takes you to that story on the map. The old \"MUSE Picks\" label, which lit up every business listed in the magazine's back-page directory, is gone; being in the directory still shows on a place's card as a quiet \"Listed in the MUSE directory\" line with a link to the right page. The filter chip in the Places browser was renamed to match and now counts only story-featured places. Selecting a place or event also flies you in much closer than before — down to street level, where cross streets are readable and the highlighted marker stands apart — and the detail card now appears just as the camera lands, so the arrival feels like turning to the right page.",
       "kind": "improvement"
