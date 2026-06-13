@@ -9,12 +9,20 @@
 
   const DATA = {
     places: "data/places.json",
-    events: "data/events.json?v=cla-43-events",
+    // No manual ?v= token: it freezes (was stuck at cla-43, hiding the cla-81
+    // flyers + cla-82 calendar from anyone with the old file cached). Let
+    // events.json revalidate normally like places/paths — the index.html asset
+    // ?v= bump already busts app.js, and a deploy re-validates the data file.
+    events: "data/events.json",
     paths: "data/paths.json",
     anchorCards: "data/anchor_cards.json",
     museEvidence: "data/muse_evidence_links.json",
     museSampler: "data/muse_grounded_sampler.json",
     museStories: "data/muse-stories.json",
+    // Thumbnail sidecar: { "<story-id>": "assets/muse-thumbs/<id>.jpg" }. Kept
+    // OUT of muse-stories.json because that file is rebuilt from scratch by
+    // scripts/build-muse-stories.py (any inline image field is clobbered).
+    museStoryThumbs: "data/muse-story-thumbs.json",
   };
 
   const MARKERS = {
@@ -1413,9 +1421,12 @@
       <p class="empty-copy">Real articles from MUSE, the Arts Council's magazine — pick one to see everywhere it touches the map.</p>
       <div class="story-list">
         ${state.museStories.map((story) => `
-          <button class="story-row" type="button" data-muse-story="${escapeHtml(story.id)}">
-            <strong>${escapeHtml(story.title)}</strong>
-            <span>${escapeHtml(story.issue)} · ${escapeHtml(story.placeIds.length)} places</span>
+          <button class="story-row${story.image ? " has-thumb" : ""}" type="button" data-muse-story="${escapeHtml(story.id)}">
+            ${story.image ? `<img class="story-row-thumb" src="${escapeHtml(resolveMedia(story.image))}" alt="" loading="lazy" decoding="async" data-img-fallback="remove">` : ""}
+            <span class="story-row-body">
+              <strong>${escapeHtml(story.title)}</strong>
+              <span class="story-row-meta">${escapeHtml(story.issue)} · ${escapeHtml(story.placeIds.length)} places</span>
+            </span>
           </button>
         `).join("")}
       </div>
@@ -1442,6 +1453,7 @@
     els.detail.innerHTML = `
       <button class="selected-place-close" type="button" aria-label="Close story">Close</button>
       <p class="section-label">From the pages of MUSE</p>
+      ${story.image ? `<span class="story-hero"><img src="${escapeHtml(resolveMedia(story.image))}" alt="" loading="lazy" decoding="async" data-img-fallback="remove"></span>` : ""}
       <h2 class="story-title">${escapeHtml(story.title)}</h2>
       <p class="story-issue">${escapeHtml(story.issue)}${story.pages?.[0] ? ` · pages ${escapeHtml(story.pages[0])}–${escapeHtml(story.pages[1] || story.pages[0])}` : ""}</p>
       ${museArticleUrl(story) ? `<a class="story-read-link" href="${escapeHtml(museArticleUrl(story))}" target="_blank" rel="noopener">Read the article in MUSE ›</a>` : ""}
@@ -2263,7 +2275,7 @@
         title: story.title,
         meta: story.issue,
         desc: "See everywhere this story touches the map.",
-        image: "",
+        image: resolveMedia(story.image || ""),
         lat: storyPlaces[0]?.lat,
         lng: storyPlaces[0]?.lng,
         story,
@@ -2326,8 +2338,8 @@
     const open = `<button class="rail-card`;
     const attrs = `type="button" data-rail-index="${index}" aria-label="${escapeHtml(accessibleName)}"`;
 
-    // Variant A — framed key-art poster + caption below. Today only photo'd
-    // places reach this; events join once the flyer scraper fills their images.
+    // Variant A — framed key-art poster + caption below. Reached by photo'd
+    // places, events (Trumba flyers), and MUSE stories carrying a corpus thumb.
     if (item.image) {
       return `
       ${open} is-photo rail-card-${escapeHtml(item.type)}" ${attrs}>
@@ -3136,7 +3148,7 @@
   }
 
   async function init() {
-    const [places, events, paths, anchorCards, museEvidence, museSampler, museStories, warmStyle] = await Promise.all([
+    const [places, events, paths, anchorCards, museEvidence, museSampler, museStories, museStoryThumbs, warmStyle] = await Promise.all([
       fetch(DATA.places).then((r) => r.json()),
       fetch(DATA.events).then((r) => r.json()),
       fetch(DATA.paths).then((r) => r.json()),
@@ -3144,6 +3156,7 @@
       fetch(DATA.museEvidence).then((r) => r.json()).catch(() => ({ links: [] })),
       fetch(DATA.museSampler).then((r) => r.json()).catch(() => ({ showcaseSampler: [] })),
       fetch(DATA.museStories).then((r) => r.json()).catch(() => ({ stories: [] })),
+      fetch(DATA.museStoryThumbs).then((r) => r.json()).catch(() => ({})),
       // F10: pre-fetch the Liberty style and retint it BEFORE the Map is
       // constructed, so the first painted frame is already warm paper — no
       // stock-Liberty flash, no ~200-call setPaintProperty burst on load.
@@ -3155,6 +3168,13 @@
     ]);
     state.anchorCards = Array.isArray(anchorCards) ? anchorCards : [];
     state.museStories = museStories.stories || [];
+    // Join hero thumbnails from the regen-safe sidecar (keyed by stable article
+    // id). Cropped from the local MUSE corpus (docs/muse-corpus). A story with a
+    // thumb routes to the framed-photo rail card; the rest stay the ink poster.
+    const storyThumbs = museStoryThumbs && typeof museStoryThumbs === "object" ? museStoryThumbs : {};
+    state.museStories.forEach((story) => {
+      if (storyThumbs[story.id]) story.image = storyThumbs[story.id];
+    });
     // Featured-in-MUSE membership: exact article links only (owner ruling).
     state.museFeaturedIds = new Set(state.museStories.flatMap((story) => story.placeIds || []));
     state.museEvidenceByPlace = buildDirectMuseEvidenceByPlace(museEvidence);

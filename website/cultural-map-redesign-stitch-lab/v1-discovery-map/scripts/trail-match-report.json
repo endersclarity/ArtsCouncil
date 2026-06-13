@@ -1,0 +1,6053 @@
+{
+  "generated_from": {
+    "bylt_trails": 342,
+    "bylt_trailheads": 74,
+    "osm_named": 561
+  },
+  "thresholds": {
+    "bylt": 0.78,
+    "osm": 0.84
+  },
+  "summary": {
+    "targets": 233,
+    "matched": 135,
+    "matched_bylt": 131,
+    "matched_osm": 4,
+    "with_line_geometry": 131,
+    "with_trailhead": 135,
+    "unmatched": 98
+  },
+  "entries": [
+    {
+      "id": "ananda-village-crystal-hermitage-gardens-nevada-city",
+      "name": "Ananda Village: Crystal Hermitage Gardens",
+      "city": "Nevada City",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Spenceville Wildlife Area Trails",
+          0.431
+        ],
+        "osm": [
+          "Native Pollinator Garden",
+          0.438
+        ]
+      }
+    },
+    {
+      "id": "bear-river-historic-bridge-grass-valley",
+      "name": "Bear River Historic Bridge",
+      "city": "Grass Valley",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Beaver Pond Route",
+          0.486
+        ],
+        "osm": [
+          "Native Pollinator Garden",
+          0.52
+        ]
+      }
+    },
+    {
+      "id": "cascade-canal-trail-banner-mountain-nevada-city",
+      "name": "Cascade Canal Trail:Banner Mountain",
+      "city": "Nevada City",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Cascade Canal Trail",
+      "score": 0.9,
+      "has_line": true,
+      "trailhead": [
+        -120.975351,
+        39.259223
+      ],
+      "fields": {
+        "Desc_": "This popular forested trail on Banner Mountain offers an almost level walk along a peaceful canal lined with Douglas firs and dogwoods.  Along the route, views open up to distant scenes of Nevada City.",
+        "Length": 4.56139,
+        "Length_txt": "4.5",
+        "Difficulty": "Easy",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Foot and bike only. No motorized vehicles. Dogs on leash. Stay on the trail; respect private property. Hikers and cyclists watch for each other and pass safely",
+        "Access": "Wheelchair Accessible, hiking, biking",
+        "Location": "Nevada City",
+        "URL": "https://www.bylt.org/trail/cascade-canal-trail/",
+        "Photo_URL": "https://www.bylt.org/wp-content/uploads/2015/05/cascade-canal-500x380.jpg",
+        "Altitude": "90",
+        "Manager": "BYLT"
+      },
+      "ref": 3
+    },
+    {
+      "id": "hirschman-trail-nevada-city",
+      "name": "Hirschman Trail",
+      "city": "Nevada City",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Hirschman Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -121.046491,
+        39.268093
+      ],
+      "fields": {
+        "Desc_": "Only a mile from the heart of downtown Nevada City, this trail is wheelchair accessible up to Hirschman’s Pond. West of the pond, the trail narrows and meanders through oak woodlands, pines, and grasslands.",
+        "Length": 2.37832,
+        "Length_txt": "2.4",
+        "Difficulty": "Easy",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "No horses or motorized vehicles. No smoking. Dogs on leash. Please stay on the trails and respect private property. Hikers and mountain bikers watch for each other and pass safely.",
+        "Access": "Wheelchair Accessible",
+        "Location": "Nevada City",
+        "URL": "https://www.bylt.org/trail/hirschman-trail/",
+        "Photo_URL": "https://www.bylt.org/wp-content/uploads/2015/05/hirschman1-500x260.jpg",
+        "Altitude": "150",
+        "Manager": "BYLT"
+      },
+      "ref": 5
+    },
+    {
+      "id": "kenny-ranch-trails-grass-valley",
+      "name": "Kenny Ranch Trails",
+      "city": "Grass Valley",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Marten Ranch Trail",
+          0.696
+        ],
+        "osm": [
+          "Clark Ranch",
+          0.636
+        ]
+      }
+    },
+    {
+      "id": "nevada-city-airport-trails-nevada-city",
+      "name": "Nevada City Airport Trails",
+      "city": "Nevada City",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Nevada County Government Center Trails",
+          0.52
+        ],
+        "osm": [
+          "Windy Point Trail",
+          0.467
+        ]
+      }
+    },
+    {
+      "id": "scotts-flat-lake-and-trails-nevada-city",
+      "name": "Scotts Flat Lake and Trails",
+      "city": "Nevada City",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Scotts Flat Trail",
+      "score": 0.9,
+      "has_line": true,
+      "trailhead": [
+        -120.93043,
+        39.299208
+      ],
+      "fields": {
+        "Desc_": "This is a popular mountain biking and hiking trail that descends from Highway 20 to Scott's Flat Resevoir.",
+        "Length": 7.1,
+        "Length_txt": "7.1",
+        "Difficulty": "Challenging",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Dogs on leash. No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking",
+        "Location": "Nevada City",
+        "URL": "https://www.nidwater.com/activities-at-scotts-flat-lake-area",
+        "Photo_URL": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/ScottsFlatLakeCalifornia.jpg/1200px-ScottsFlatLakeCalifornia.jpg",
+        "Altitude": " ",
+        "Manager": "Tahoe National Forest"
+      },
+      "ref": 63
+    },
+    {
+      "id": "spaulding-reservoir-nevada-city",
+      "name": "Spaulding Reservoir",
+      "city": "Nevada City",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Spaulding Lake Trail",
+          0.667
+        ],
+        "osm": [
+          "Big Reservoir Road",
+          0.649
+        ]
+      }
+    },
+    {
+      "id": "alan-thiesen-trail-alta-sierra",
+      "name": "Alan Thiesen Trail",
+      "city": "Alta Sierra",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Alan Theisen Trail",
+      "score": 0.917,
+      "has_line": true,
+      "trailhead": [
+        -121.035934,
+        39.150016
+      ],
+      "fields": {
+        "Desc_": "Well known and loved by locals around Alta Sierra, this trail loops through Adam Ryan Preserve, on a hill with a park-like forest, small meadows, and stunning views.",
+        "Length": 1.34559,
+        "Length_txt": "1.3",
+        "Difficulty": "Easy",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Foot and bike only. Dogs on leash. No motorized vehicles.",
+        "Access": "Hiking, biking",
+        "Location": "Grass Valley",
+        "URL": "https://www.bylt.org/trail/alan-thiesen-trail/",
+        "Photo_URL": "https://www.bylt.org/wp-content/uploads/2015/05/alan-thiesen-500x380.jpg",
+        "Altitude": "160",
+        "Manager": "BYLT"
+      },
+      "ref": 1
+    },
+    {
+      "id": "andesite-west-ohv-trail-soda-springs",
+      "name": "Andesite West OHV Trail",
+      "city": "Soda Springs",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Independence Trail East",
+          0.533
+        ],
+        "osm": [
+          "Independence Trail West",
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "baltimore-trail-truckee",
+      "name": "Baltimore Trail",
+      "city": "Truckee",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Baltimore Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.530129,
+        39.389483
+      ],
+      "fields": {
+        "Desc_": "This trail connects to the Beyers Lake Trail",
+        "Length": 0.326754,
+        "Length_txt": "0.3",
+        "Difficulty": "Challenging",
+        "Trail_Surf": "Natural Eath",
+        "Perm_Use": "No motorized vehicles. Stay on trail.",
+        "Access": "Hiking",
+        "Location": "Nevada City",
+        "URL": "https://www.fs.usda.gov/recarea/tahoe/recarea/?recid=56054",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Tahoe National Forest"
+      },
+      "ref": 101
+    },
+    {
+      "id": "beaver-pond-route-trail-truckee",
+      "name": "Beaver Pond Route Trail",
+      "city": "Truckee",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Beaver Pond Route",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.296787,
+        39.322142
+      ],
+      "fields": {
+        "Desc_": "This is a short trail but can be combined with local trails for a larger loop.",
+        "Length": 0.34453,
+        "Length_txt": "0.3",
+        "Difficulty": "Easy",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking",
+        "Location": "Truckee",
+        "URL": "https://www.parks.ca.gov/?page_id=503",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Tahoe National Forest / Truckee Donner Land Trust"
+      },
+      "ref": 136
+    },
+    {
+      "id": "betsy-mine-trail",
+      "name": "Betsy Mine Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Betsy Mine Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -121.045728,
+        39.207182
+      ],
+      "fields": {
+        "Desc_": "This trail is part of the popular Empire Mine State Historic Park trail network.",
+        "Length": 0.12215,
+        "Length_txt": "0.1",
+        "Difficulty": "Easy",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Dogs on leash. No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking, horseback riding",
+        "Location": "Grass Valley",
+        "URL": "https://www.parks.ca.gov/?page_id=499",
+        "Photo_URL": "https://www.parks.ca.gov/pages/499/images/mineshaft.jpg",
+        "Altitude": " ",
+        "Manager": "Empire Mine State Park"
+      },
+      "ref": 43
+    },
+    {
+      "id": "beyers-lake-trail",
+      "name": "Beyers Lake Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Beyers Lake Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.555647,
+        39.381991
+      ],
+      "fields": {
+        "Desc_": "The Beyers Lake trail is 6 1/4 miles long. It begins at Grouse Ridge Trail and ends at Forest Road 0843-018 At Mine.",
+        "Length": 6.25,
+        "Length_txt": "6.25",
+        "Difficulty": "Challenging",
+        "Trail_Surf": "Natural Eath",
+        "Perm_Use": "No motorized vehicles. Stay on trail.",
+        "Access": "Hiking",
+        "Location": "Nevada City",
+        "URL": "https://www.fs.usda.gov/recarea/tahoe/recarea/?recid=56054",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Tahoe National Forest Private"
+      },
+      "ref": 100
+    },
+    {
+      "id": "big-boca-ohv-tie-trail",
+      "name": "Big Boca OHV Tie Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Boca Townsite Trail",
+          0.64
+        ],
+        "osm": [
+          "five oaks nature trail",
+          0.5
+        ]
+      }
+    },
+    {
+      "id": "big-boca-ohv-trail",
+      "name": "Big Boca OHV Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Boca Dam Trail",
+          0.5
+        ],
+        "osm": [
+          "Guy Blue Road",
+          0.476
+        ]
+      }
+    },
+    {
+      "id": "big-sagehen-ohv-trail",
+      "name": "Big Sagehen OHV Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Black Swan Trail",
+          0.476
+        ],
+        "osm": [
+          "Big Spring Drive",
+          0.519
+        ]
+      }
+    },
+    {
+      "id": "billy-hills-ohv-trail",
+      "name": "Billy Hills OHV Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Osborne Hill Loop Trail",
+          0.522
+        ],
+        "osm": [
+          "Osborne Hill Loop Trail",
+          0.522
+        ]
+      }
+    },
+    {
+      "id": "black-swan-trail-smartsville",
+      "name": "Black Swan Trail",
+      "city": "Smartsville",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Black Swan Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -121.278156,
+        39.209109
+      ],
+      "fields": {
+        "Desc_": "Completed in the summer of 2014, the trail is located in far Western Nevada County on CDFW’s Black Swan Preserve, near the town of Smartsville. This trail weaves through blue oak and gray pine woodlands and leads to Black Swan Pond.",
+        "Length": 1.97332,
+        "Length_txt": "1.9",
+        "Difficulty": "Moderate",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Dogs on leash. No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking",
+        "Location": "Smartsville",
+        "URL": "https://www.bylt.org/trail/black-swan-trail/",
+        "Photo_URL": "https://www.bylt.org/wp-content/uploads/2015/06/black-swan-500x380.jpg",
+        "Altitude": "200",
+        "Manager": "California Department of Fish & Wildlife"
+      },
+      "ref": 60
+    },
+    {
+      "id": "blair-trail",
+      "name": "Blair Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Blair Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.897901,
+        39.370453
+      ],
+      "fields": {
+        "Desc_": "This trail is part of the popular Malakoff Diggins State Historic Park trail network. Malakoff Diggins is the site of California's largest \"hydraulic\" mine. Visitors can see huge cliffs carved by mighty streams of water, results of hydraulic mining.",
+        "Length": 1.33996,
+        "Length_txt": "1.3",
+        "Difficulty": "Easy",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Dogs on leash. No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking, horseback riding",
+        "Location": "Nevada City",
+        "URL": "https://www.parks.ca.gov/?page_id=494",
+        "Photo_URL": "https://www.parks.ca.gov/pages/734/images/MalakoffDiggins_SHP.png",
+        "Altitude": " ",
+        "Manager": "Malakoff Diggins State Historic Park"
+      },
+      "ref": 51
+    },
+    {
+      "id": "blue-lake-trail",
+      "name": "Blue Lake Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Blue Lake Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.61446,
+        39.367063
+      ],
+      "fields": {
+        "Desc_": "The Blue Lake trail begins at Rucker Lake (Forest Road 18-06), and intersects with the Grouse Ridge Trail and the Byers Lake Trail. This is a very steep trail.",
+        "Length": 1.70712,
+        "Length_txt": "1.7",
+        "Difficulty": "Challenging",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "No motorized vehicles. Stay on trail.",
+        "Access": "Hiking",
+        "Location": "Nevada City",
+        "URL": "https://www.fs.usda.gov/recarea/tahoe/recarea/?recid=56032",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Tahoe National Forest / Sierra Pacific Industries"
+      },
+      "ref": 126
+    },
+    {
+      "id": "boca-atv-connector",
+      "name": "Boca ATV Connector",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Hoyt Connector",
+          0.75
+        ],
+        "osm": [
+          "Penn Gate Connector Trail",
+          0.703
+        ]
+      }
+    },
+    {
+      "id": "boca-break-ohv-trail",
+      "name": "Boca Break OHV Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Boca Dam Trail",
+          0.667
+        ],
+        "osm": [
+          "Canal Road",
+          0.5
+        ]
+      }
+    },
+    {
+      "id": "boca-dam-trail-truckee",
+      "name": "Boca Dam Trail",
+      "city": "Truckee",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Boca Dam Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.092256,
+        39.392325
+      ],
+      "fields": {
+        "Desc_": "This trail leads to the Boca Dam",
+        "Length": 0.0899121,
+        "Length_txt": "0.1",
+        "Difficulty": "Easy",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "No motorized vehicles. Stay on trail.",
+        "Access": "Hiking",
+        "Location": "Truckee",
+        "URL": "https://www.fs.usda.gov/recmain/tahoe/recreation",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Tahoe National Forest"
+      },
+      "ref": 84
+    },
+    {
+      "id": "boca-hill-ohv-trail",
+      "name": "Boca Hill OHV Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Osborne Hill Loop Trail",
+          0.667
+        ],
+        "osm": [
+          "Osborne Hill Loop Trail",
+          0.667
+        ]
+      }
+    },
+    {
+      "id": "boca-historic-townsite-interpretive-trail",
+      "name": "Boca Historic Townsite Interpretive Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Boca Townsite Trail",
+      "score": 0.9,
+      "has_line": true,
+      "trailhead": [
+        -120.091569,
+        39.387387
+      ],
+      "fields": {
+        "Desc_": "This trail meanders up a hill where the small town\r\nof Boca once stood. Signing along the trail\r\ndiscusses the history of this bygone town. At the\r\ntop of the hill is a small cemetery.",
+        "Length": 0.5,
+        "Length_txt": "0.5",
+        "Difficulty": "Easy",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "No motorized vehicles. Stay on trail.",
+        "Access": "Hiking",
+        "Location": "Truckee",
+        "URL": "https://www.fs.usda.gov/Internet/FSE_DOCUMENTS/stelprdb5353792.pdf",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Tahoe National Forest"
+      },
+      "ref": 83
+    },
+    {
+      "id": "boca-ohv-tie-trail",
+      "name": "Boca OHV Tie Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Boca Townsite Trail",
+          0.762
+        ],
+        "osm": [
+          "Bailey Trail",
+          0.571
+        ]
+      }
+    },
+    {
+      "id": "boca-wye-ohv-trail",
+      "name": "Boca Wye OHV Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Boca Townsite Trail",
+          0.667
+        ],
+        "osm": [
+          "Capra Way",
+          0.588
+        ]
+      }
+    },
+    {
+      "id": "boca-too-ohv-trail",
+      "name": "Boca too OHV Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Boca Townsite Trail",
+          0.667
+        ],
+        "osm": [
+          "Cranston Road",
+          0.476
+        ]
+      }
+    },
+    {
+      "id": "borrow-pit-2-ohv-trail",
+      "name": "Borrow Pit 2 OHV Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Boca Townsite Trail",
+          0.48
+        ],
+        "osm": [
+          "Windy Point Trail",
+          0.435
+        ]
+      }
+    },
+    {
+      "id": "bowman-mountain-trail",
+      "name": "Bowman Mountain Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Bowman Mountain Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.628716,
+        39.436743
+      ],
+      "fields": {
+        "Desc_": "The Bowman Mountain trail begins at Forest Road 18-20 and ends at Lindsey Lake Trail.",
+        "Length": 1.7,
+        "Length_txt": "1.7",
+        "Difficulty": "Moderate",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "No motorized vehicles. Stay on trail.",
+        "Access": "Hiking",
+        "Location": "Nevada City",
+        "URL": "https://www.fs.usda.gov/recarea/tahoe/recarea/?recid=56026",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Tahoe National Forest"
+      },
+      "ref": 102
+    },
+    {
+      "id": "brockway-road-trail",
+      "name": "Brockway Road Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Brockway Road Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.155368,
+        39.328308
+      ],
+      "fields": {
+        "Desc_": "This trail is part of the Town of Truckee's trail system.",
+        "Length": 0.627765,
+        "Length_txt": "0.6",
+        "Difficulty": "Easy",
+        "Trail_Surf": "Paved",
+        "Perm_Use": "No motorized vehicles.",
+        "Access": "Wheelchair Accessible",
+        "Location": "Truckee",
+        "URL": "https://business.truckee.com/list/member/truckee-river-legacy-trail-5536",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Town of Truckee"
+      },
+      "ref": 155
+    },
+    {
+      "id": "bullpen-trail",
+      "name": "Bullpen Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Bullpen Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.640736,
+        39.423193
+      ],
+      "fields": {
+        "Desc_": "The Bullpen trail is 1.7 miles long. It begins at Lindsey Lake Trail and ends at Loney Meadows Trail.\r\n\r\n",
+        "Length": 1.7,
+        "Length_txt": "1.7",
+        "Difficulty": "Moderate",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "No motorized vehicles. Stay on trail.",
+        "Access": "Hiking",
+        "Location": "Nevada City",
+        "URL": "https://www.fs.usda.gov/recarea/tahoe/recarea/?recid=56020",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Tahoe National Forest"
+      },
+      "ref": 123
+    },
+    {
+      "id": "campfire-center-trail",
+      "name": "Campfire Center Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Pioneer Commerce Center Trails",
+          0.579
+        ],
+        "osm": [
+          "Empire Street Trail",
+          0.571
+        ]
+      }
+    },
+    {
+      "id": "castle-valley-east-ohv-trail",
+      "name": "Castle Valley East OHV Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Castle Valley Access Trail",
+      "score": 0.842,
+      "has_line": true,
+      "trailhead": [
+        -120.347709,
+        39.340711
+      ],
+      "fields": {
+        "Desc_": "This trail can be used to access the Donner Lake Rim Trail",
+        "Length": 0.625082,
+        "Length_txt": "0.6",
+        "Difficulty": "Easy",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking, horseback riding",
+        "Location": "Truckee",
+        "URL": "https://www.truckeedonnerlandtrust.org/donner-lake-rim-trail",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Lake Tahoe Basin Management Unit Office"
+      },
+      "ref": 77
+    },
+    {
+      "id": "cemetery-loop-trail",
+      "name": "Cemetery Loop Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Meyer Trail",
+          0.615
+        ],
+        "osm": [
+          "Sweetwater Trail",
+          0.556
+        ]
+      }
+    },
+    {
+      "id": "china-cove-trail",
+      "name": "China Cove Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "China Cove Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.237712,
+        39.325393
+      ],
+      "fields": {
+        "Desc_": "This trail is found on the east side of Donner Lake and can be combined with nearby trails for a longer loop.",
+        "Length": 1.71135,
+        "Length_txt": "1.7",
+        "Difficulty": "Easy",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "No motorized vehicles. Stay on trail. Dogs on leash.",
+        "Access": "Hiking",
+        "Location": "Truckee",
+        "URL": "https://www.parks.ca.gov/?page_id=503",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Donner Memorial State Park"
+      },
+      "ref": 129
+    },
+    {
+      "id": "church-trail",
+      "name": "Church Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Church Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.897901,
+        39.370453
+      ],
+      "fields": {
+        "Desc_": "This trail is part of the popular Malakoff Diggins State Historic Park trail network. Malakoff Diggins is the site of California's largest \"hydraulic\" mine. Visitors can see huge cliffs carved by mighty streams of water, results of hydraulic mining.",
+        "Length": 0.235015,
+        "Length_txt": "0.2",
+        "Difficulty": "Easy",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Dogs on leash. No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking, horseback riding",
+        "Location": "Nevada City",
+        "URL": "https://www.parks.ca.gov/?page_id=494",
+        "Photo_URL": "https://www.parks.ca.gov/pages/734/images/MalakoffDiggins_SHP.png",
+        "Altitude": " ",
+        "Manager": "Malakoff Diggins State Historic Park"
+      },
+      "ref": 49
+    },
+    {
+      "id": "coldstream-trail",
+      "name": "Coldstream Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Orleans Trail",
+          0.471
+        ],
+        "osm": [
+          "Boulder Street",
+          0.583
+        ]
+      }
+    },
+    {
+      "id": "comstock-dive-bike-path",
+      "name": "Comstock Dive Bike Path",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Comstock Drive Bike Path",
+      "score": 0.973,
+      "has_line": true,
+      "trailhead": [
+        -120.18529,
+        39.327743
+      ],
+      "fields": {
+        "Desc_": "This trail is part of the Town of Truckee's trail system. It follows Comstock Drive.",
+        "Length": 0.820658,
+        "Length_txt": "0.8",
+        "Difficulty": "Easy",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking",
+        "Location": "Truckee",
+        "URL": "https://www.townoftruckee.com/home/showpublisheddocument/13202/635857041059070000",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Town of Truckee"
+      },
+      "ref": 150
+    },
+    {
+      "id": "condon-park-service-roads",
+      "name": "Condon Park Service Roads",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Condon Park Trails",
+      "score": 0.9,
+      "has_line": true,
+      "trailhead": [
+        -121.07609,
+        39.217395
+      ],
+      "fields": {
+        "Desc_": "Runners, walkers and bicyclists get heavy use of this maze of urban trails in the wooded western part of Condon Park.",
+        "Length": 5.54403,
+        "Length_txt": "1",
+        "Difficulty": "Easy",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Dogs on leash. No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking",
+        "Location": "Grass Valley",
+        "URL": "https://www.bylt.org/trail/condon-park-trails/",
+        "Photo_URL": "https://www.bylt.org/wp-content/uploads/2015/05/condon-park-500x380.jpg",
+        "Altitude": " ",
+        "Manager": "City of Grass Valley"
+      },
+      "ref": 28
+    },
+    {
+      "id": "conlon-mine-trail",
+      "name": "Conlon Mine Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Conlon Mine Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -121.045728,
+        39.207182
+      ],
+      "fields": {
+        "Desc_": "This trail is part of the popular Empire Mine State Historic Park trail network.",
+        "Length": 0.423276,
+        "Length_txt": "0.4",
+        "Difficulty": "Easy",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Dogs on leash. No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking, horseback riding",
+        "Location": "Grass Valley",
+        "URL": "https://www.parks.ca.gov/?page_id=499",
+        "Photo_URL": "https://www.parks.ca.gov/pages/499/images/mineshaft.jpg",
+        "Altitude": " ",
+        "Manager": "Empire Mine State Park"
+      },
+      "ref": 40
+    },
+    {
+      "id": "coyote-ledge-trail",
+      "name": "Coyote Ledge Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Coyote Ledge Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.997336,
+        39.315686
+      ],
+      "fields": {
+        "Desc_": "This is a popular with mountain biking trail and part of the Round Mountain Loop.",
+        "Length": 0.436693,
+        "Length_txt": "0.4",
+        "Difficulty": "Moderate",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Dogs on leash. No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking, horseback riding",
+        "Location": "Nevada City",
+        "URL": "https://www.blm.gov/visit/south-yuba-recreation-area",
+        "Photo_URL": "https://live.staticflickr.com/4499/24120287758_6e99744852_z.jpg",
+        "Altitude": " ",
+        "Manager": "Bureau of Land Management"
+      },
+      "ref": 113
+    },
+    {
+      "id": "coyote-view-loop-trail",
+      "name": "Coyote View Loop Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Coyote View Loop",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.997336,
+        39.315686
+      ],
+      "fields": {
+        "Desc_": "This is a popular with mountain biking trail and part of the Round Mountain Loop.",
+        "Length": 0.14495,
+        "Length_txt": "0.15",
+        "Difficulty": "Moderate",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Dogs on leash. No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking, horseback riding",
+        "Location": "Nevada City",
+        "URL": "https://www.blm.gov/visit/south-yuba-recreation-area",
+        "Photo_URL": "https://live.staticflickr.com/4499/24120287758_6e99744852_z.jpg",
+        "Altitude": " ",
+        "Manager": "Bureau of Land Management"
+      },
+      "ref": 114
+    },
+    {
+      "id": "crooked-lakes-trail",
+      "name": "Crooked Lakes Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Crooked Lakes Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.612712,
+        39.421376
+      ],
+      "fields": {
+        "Desc_": "The Crooked Lakes Trail extends north from Island lake, past Penner lake, and up to Upper Rock lake. Note: The trail does not have a drive up trailhead, it is only accessible from other hiking trails. (Round Lake trail, Bowman",
+        "Length": 3.21634,
+        "Length_txt": "3.2",
+        "Difficulty": "Moderate",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "No motorized vehicles. Stay on trail.",
+        "Access": "Hiking",
+        "Location": "Nevada City",
+        "URL": "https://www.fs.usda.gov/recarea/tahoe/recarea/?recid=56022",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Tahoe National Forest"
+      },
+      "ref": 92
+    },
+    {
+      "id": "cross-trail",
+      "name": "Cross Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Cross Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -121.045728,
+        39.207182
+      ],
+      "fields": {
+        "Desc_": "This trail is part of the popular Empire Mine State Historic Park trail network.",
+        "Length": 0.234765,
+        "Length_txt": "0.2",
+        "Difficulty": "Easy",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Dogs on leash. No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking, horseback riding",
+        "Location": "Grass Valley",
+        "URL": "https://www.bylt.org/trail/union-hill-trail-area/",
+        "Photo_URL": "https://www.parks.ca.gov/pages/499/images/mineshaft.jpg",
+        "Altitude": " ",
+        "Manager": "Empire Mine State Park"
+      },
+      "ref": 32
+    },
+    {
+      "id": "cut-thru-trail",
+      "name": "Cut Thru Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "South Yuba Trail",
+          0.444
+        ],
+        "osm": [
+          "Hutto Road",
+          0.444
+        ]
+      }
+    },
+    {
+      "id": "dewbeyumuwe-park-at-west-river-street-truckee",
+      "name": "DEWBEYUMUWE PARK at West River Street",
+      "city": "Truckee",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Western Gateway Park Fitness Trail",
+          0.4
+        ],
+        "osm": [
+          "Beale Lake Nature Trail",
+          0.407
+        ]
+      }
+    },
+    {
+      "id": "dascomb-trail",
+      "name": "Dascomb Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Dascombe Trail",
+      "score": 0.933,
+      "has_line": true,
+      "trailhead": [
+        -120.912518,
+        39.310089
+      ],
+      "fields": {
+        "Desc_": "This trail is part of the network of popular trails along the Hwy 20 corridor.",
+        "Length": 1.96079,
+        "Length_txt": "1.9",
+        "Difficulty": "Challenging",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Dogs on leash. No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking",
+        "Location": "Nevada City",
+        "URL": "https://www.fs.usda.gov/recarea/tahoe/recarea/?recid=55454",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Tahoe National Forest"
+      },
+      "ref": 106
+    },
+    {
+      "id": "deer-creek-tribute-trail",
+      "name": "Deer Creek Tribute Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Deer Creek Tribute Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -121.018251,
+        39.261782
+      ],
+      "fields": {
+        "Desc_": "TRAIL CLOSURE FOR TREE WORK: from Jordan St. to the loop, reopening May 12th. This community supported trail links Nevada City with Deer Creek and memorializes the early contributions of native Nisenan and Chinese people to the history of this place.",
+        "Length": 9.32317,
+        "Length_txt": "9.3",
+        "Difficulty": "Easy",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "No horses or motorized vehicles. No smoking. Dogs on leash. Please stay on the trails and respect private property. Hikers and mountain bikers watch for each other and pass safely.",
+        "Access": "Wheelchair Accessible",
+        "Location": "Nevada City",
+        "URL": "https://www.bylt.org/trail/deer-creek-tribute-trail-system/",
+        "Photo_URL": "https://www.bylt.org/wp-content/uploads/2020/07/dctt-465x380.jpg",
+        "Altitude": "150",
+        "Manager": "BYLT; City of Nevada City; Bureau of Land Management"
+      },
+      "ref": 4
+    },
+    {
+      "id": "deer-creek-motorcycle-trail",
+      "name": "Deer creek Motorcycle Trail",
+      "city": "",
+      "matched": true,
+      "source": "osm",
+      "matched_name": "Deer Creek Motorcycle Trail",
+      "score": 1.0,
+      "has_line": false,
+      "trailhead": [
+        -120.780218,
+        39.297304
+      ],
+      "fields": {
+        "highway": "track",
+        "osm_id": 10463765
+      },
+      "ref": 10463765
+    },
+    {
+      "id": "deerfield-trail",
+      "name": "Deerfield Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Deerfield Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.210536,
+        39.32112
+      ],
+      "fields": {
+        "Desc_": "This trail is part of the Town of Truckee's trail system.",
+        "Length": 0.123364,
+        "Length_txt": "0.1",
+        "Difficulty": "Easy",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "No motorized vehicles. Dogs on leash.",
+        "Access": "Hiking, biking",
+        "Location": "Truckee",
+        "URL": "https://www.townoftruckee.com/home/showpublisheddocument/13202/635857041059070000",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Town of Truckee"
+      },
+      "ref": 143
+    },
+    {
+      "id": "diggins-loop-connector-trail",
+      "name": "Diggins Loop Connector Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Meyers Connector",
+          0.667
+        ],
+        "osm": [
+          "Penn Gate Connector Trail",
+          0.611
+        ]
+      }
+    },
+    {
+      "id": "diggins-loop-trail",
+      "name": "Diggins Loop Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Diggins Loop Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.923377,
+        39.365286
+      ],
+      "fields": {
+        "Desc_": "This trail is part of the popular Malakoff Diggins State Historic Park trail network. Malakoff Diggins is the site of California's largest \"hydraulic\" mine. Visitors can see huge cliffs carved by mighty streams of water, results of hydraulic mining.",
+        "Length": 3.07296,
+        "Length_txt": "3",
+        "Difficulty": "Moderate",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Dogs on leash. No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking, horseback riding",
+        "Location": "Nevada City",
+        "URL": "https://www.parks.ca.gov/?page_id=494",
+        "Photo_URL": "https://www.parks.ca.gov/pages/734/images/MalakoffDiggins_SHP.png",
+        "Altitude": " ",
+        "Manager": "Malakoff Diggins State Historic Park"
+      },
+      "ref": 54
+    },
+    {
+      "id": "diggins-overlook-trail",
+      "name": "Diggins Overlook Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Diggins Loop Trail",
+          0.609
+        ],
+        "osm": [
+          "Diggings Road",
+          0.621
+        ]
+      }
+    },
+    {
+      "id": "dog-valley-west-ohv-trail",
+      "name": "Dog Valley West OHV Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Penn Valley Bike Trail",
+          0.581
+        ],
+        "osm": [
+          "Green Valley Trail",
+          0.593
+        ]
+      }
+    },
+    {
+      "id": "eagle-lakes-ohv-spur-a-trail",
+      "name": "Eagle Lakes OHV Spur A Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Glacier Lakes Basin Trail",
+          0.595
+        ],
+        "osm": [
+          "Beale Lake Nature Trail",
+          0.686
+        ]
+      }
+    },
+    {
+      "id": "eagle-lakes-ohv-trail",
+      "name": "Eagle Lakes OHV Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Feeley Lake Trail",
+          0.727
+        ],
+        "osm": [
+          "Beale Lake Nature Trail",
+          0.643
+        ]
+      }
+    },
+    {
+      "id": "east-beach-way-trail",
+      "name": "East Beach Way Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Black Swan Trail",
+          0.5
+        ],
+        "osm": [
+          "Natoma Way",
+          0.583
+        ]
+      }
+    },
+    {
+      "id": "empire-street-trail",
+      "name": "Empire Street Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Empire Street Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -121.045728,
+        39.207182
+      ],
+      "fields": {
+        "Desc_": "This trail is part of the popular Empire Mine State Historic Park trail network.",
+        "Length": 0.673719,
+        "Length_txt": "0.7",
+        "Difficulty": "Easy",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Dogs on leash. No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking, horseback riding",
+        "Location": "Grass Valley",
+        "URL": "https://www.parks.ca.gov/?page_id=499",
+        "Photo_URL": "https://www.parks.ca.gov/pages/499/images/mineshaft.jpg",
+        "Altitude": " ",
+        "Manager": "Empire Mine State Park"
+      },
+      "ref": 38
+    },
+    {
+      "id": "excelsior-mine-spur-trail",
+      "name": "Excelsior Mine Spur Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Conlon Mine Trail",
+          0.533
+        ],
+        "osm": [
+          "East Excelsior Point Spur",
+          0.773
+        ]
+      }
+    },
+    {
+      "id": "excelsior-trail",
+      "name": "Excelsior Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Bailey Trail Extension",
+          0.48
+        ],
+        "osm": [
+          "Excelsior Motorcycle Trail",
+          0.621
+        ]
+      }
+    },
+    {
+      "id": "fave-lakes-basin-trail",
+      "name": "Fave Lakes Basin Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Five Lakes Basin Trail",
+      "score": 0.938,
+      "has_line": true,
+      "trailhead": [
+        -120.561994,
+        39.402749
+      ],
+      "fields": {
+        "Desc_": "The Five Lakes Basin trail begins at 13e13 Glacier Lakes Trail and ends at Five Lakes Basin.",
+        "Length": 1.17548,
+        "Length_txt": "1.2",
+        "Difficulty": "Moderate",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "No motorized vehicles. Stay on trail.",
+        "Access": "Hiking",
+        "Location": "Nevada City",
+        "URL": "https://www.fs.usda.gov/recarea/tahoe/recarea/?recid=56066",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Tahoe National Forest"
+      },
+      "ref": 98
+    },
+    {
+      "id": "feeley-lake-trail",
+      "name": "Feeley Lake Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Feeley Lake Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.643339,
+        39.402168
+      ],
+      "fields": {
+        "Desc_": "This trail travels by Carr and Feely Lakes and connects with the Round Lake Trail.",
+        "Length": 1.18022,
+        "Length_txt": "1.2",
+        "Difficulty": "Moderate",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "No motorized vehicles. Stay on trail.",
+        "Access": "Hiking",
+        "Location": "Nevada City",
+        "URL": "https://www.fs.usda.gov/recarea/tahoe/recarea/?recid=56028",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Tahoe National Forest"
+      },
+      "ref": 91
+    },
+    {
+      "id": "fordyce-dam-ohv-trail",
+      "name": "Fordyce Dam OHV Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Boca Dam Trail",
+          0.632
+        ],
+        "osm": [
+          "Forest Route 33",
+          0.5
+        ]
+      }
+    },
+    {
+      "id": "fordyce-jeep-trail",
+      "name": "Fordyce Jeep Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Coyote Ledge Trail",
+          0.5
+        ],
+        "osm": [
+          "Forest Route 33",
+          0.476
+        ]
+      }
+    },
+    {
+      "id": "fordyce-spur-ohv-trail",
+      "name": "Fordyce Spur OHV Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Stockrest Springs Trail",
+          0.483
+        ],
+        "osm": [
+          "Ridge Spur",
+          0.727
+        ]
+      }
+    },
+    {
+      "id": "frishman-hollow-trails",
+      "name": "Frishman Hollow Trails",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Frishman Hollow Trails",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.171945,
+        39.334505
+      ],
+      "fields": {
+        "Desc_": "This trail is part of the Town of Truckee's trail system.",
+        "Length": 0.24845,
+        "Length_txt": "0.2",
+        "Difficulty": "Easy",
+        "Trail_Surf": "Paved",
+        "Perm_Use": "No motorized vehicles. Dogs on leash.",
+        "Access": "Wheelchair Accessible",
+        "Location": "Truckee",
+        "URL": "https://www.townoftruckee.com/home/showpublisheddocument/13202/635857041059070000",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Town of Truckee"
+      },
+      "ref": 151
+    },
+    {
+      "id": "glacier-lake-trail",
+      "name": "Glacier Lake Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Glacier Lake Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.573948,
+        39.402911
+      ],
+      "fields": {
+        "Desc_": "This trail leads to Glacier Lake.",
+        "Length": 3.7,
+        "Length_txt": "3.7",
+        "Difficulty": "Challenging",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "No motorized vehicles. Stay on trail.",
+        "Access": "Hiking",
+        "Location": "Nevada City",
+        "URL": "https://www.fs.usda.gov/recarea/tahoe/recreation/recarea/?recid=56052&actid=50",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Tahoe National Forest"
+      },
+      "ref": 97
+    },
+    {
+      "id": "gray-s-crossing-trail-network",
+      "name": "Gray's Crossing Trail Network",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Rice's Crossing Access Trail",
+          0.622
+        ],
+        "osm": [
+          "Rices Crossing Road",
+          0.619
+        ]
+      }
+    },
+    {
+      "id": "grouse-ridge-trail",
+      "name": "Grouse Ridge Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Grouse Ridge Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.579008,
+        39.354838
+      ],
+      "fields": {
+        "Desc_": "The Grouse Ridge trail at Eagle Lakes and ends at Sawmill Lake.",
+        "Length": 8,
+        "Length_txt": "8",
+        "Difficulty": "Challenging",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "No motorized vehicles. Stay on trail.",
+        "Access": "Hiking",
+        "Location": "Nevada City",
+        "URL": "https://www.fs.usda.gov/recarea/tahoe/recarea/?recid=56062",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Tahoe National Forest"
+      },
+      "ref": 95
+    },
+    {
+      "id": "hardrock-trail",
+      "name": "Hardrock Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Hardrock Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -121.057122,
+        39.209617
+      ],
+      "fields": {
+        "Desc_": "This trail is part of the popular Empire Mine State Historic Park trail network.",
+        "Length": 1.68444,
+        "Length_txt": "1.7",
+        "Difficulty": "Moderate",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Dogs on leash. No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking, horseback riding",
+        "Location": "Grass Valley",
+        "URL": "https://www.parks.ca.gov/?page_id=499",
+        "Photo_URL": "https://www.parks.ca.gov/pages/499/images/mineshaft.jpg",
+        "Altitude": " ",
+        "Manager": "Empire Mine State Park"
+      },
+      "ref": 41
+    },
+    {
+      "id": "hiller-trail",
+      "name": "Hiller Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Hiller Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.923377,
+        39.365286
+      ],
+      "fields": {
+        "Desc_": "This trail is part of the popular Malakoff Diggins State Historic Park trail network. Malakoff Diggins is the site of California's largest \"hydraulic\" mine. Visitors can see huge cliffs carved by mighty streams of water, results of hydraulic mining.",
+        "Length": 0.188631,
+        "Length_txt": "0.2",
+        "Difficulty": "Easy",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Dogs on leash. No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking, horseback riding",
+        "Location": "Nevada City",
+        "URL": "https://www.parks.ca.gov/?page_id=494",
+        "Photo_URL": "https://www.parks.ca.gov/pages/734/images/MalakoffDiggins_SHP.png",
+        "Altitude": " ",
+        "Manager": "Malakoff Diggins State Historic Park"
+      },
+      "ref": 53
+    },
+    {
+      "id": "hobart-2-ohv-trail",
+      "name": "Hobart 2 OHV Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Hoyt Trail",
+          0.5
+        ],
+        "osm": [
+          "Short Road",
+          0.556
+        ]
+      }
+    },
+    {
+      "id": "hoot-trail",
+      "name": "Hoot Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Hoot trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.93043,
+        39.299208
+      ],
+      "fields": {
+        "Desc_": "This trail is part of the network of popular trails along the Hwy 20 corridor.",
+        "Length": 1.37435,
+        "Length_txt": "1.4",
+        "Difficulty": "Challenging",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Dogs on leash. No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking",
+        "Location": "Nevada City",
+        "URL": "https://www.fs.usda.gov/recarea/tahoe/recarea/?recid=55454",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Tahoe National Forest"
+      },
+      "ref": 156
+    },
+    {
+      "id": "humbug-creek-trail",
+      "name": "Humbug Creek Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Humbug Creek Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.923377,
+        39.365286
+      ],
+      "fields": {
+        "Desc_": "This trail is part of the popular Malakoff Diggins State Historic Park trail network. Malakoff Diggins is the site of California's largest \"hydraulic\" mine. Visitors can see huge cliffs carved by mighty streams of water, results of hydraulic mining.",
+        "Length": 2.33299,
+        "Length_txt": "2.3",
+        "Difficulty": "Moderate",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Dogs on leash. No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking, horseback riding",
+        "Location": "Nevada City",
+        "URL": "https://www.parks.ca.gov/?page_id=494",
+        "Photo_URL": "https://www.parks.ca.gov/pages/734/images/MalakoffDiggins_SHP.png",
+        "Altitude": " ",
+        "Manager": "Malakoff Diggins State Historic Park"
+      },
+      "ref": 55
+    },
+    {
+      "id": "illinios-crossing-trail",
+      "name": "Illinios Crossing Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Illinois Crossing Trail",
+      "score": 0.941,
+      "has_line": true,
+      "trailhead": [
+        -120.971112,
+        39.340526
+      ],
+      "fields": {
+        "Desc_": "This trail connects to the South Yuba Trail.",
+        "Length": 0.307524,
+        "Length_txt": "0.3",
+        "Difficulty": "Challenging",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "No motorized vehicles. Dogs on leash.",
+        "Access": "Hiking, biking",
+        "Location": "Nevada City",
+        "URL": "https://www.blm.gov/",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Bureau of Land Management"
+      },
+      "ref": 144
+    },
+    {
+      "id": "independence-trail-east",
+      "name": "Independence Trail East",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Independence Trail East",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -121.089196,
+        39.297362
+      ],
+      "fields": {
+        "Desc_": "Wheelchair accessible Independence Trail East follows the gentle gradient of an old mining ditch and offers occasional views of the South Yuba River canyon and passes seasonal side streams and bogs.",
+        "Length": 2.00335,
+        "Length_txt": "2",
+        "Difficulty": "Moderate",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Dogs on leash. No bicycles or motorized vehicles. No smoking or fires. No camping.",
+        "Access": "Wheelchair Accessible",
+        "Location": "Nevada City",
+        "URL": "https://www.bylt.org/trail/independence-trail-east/",
+        "Photo_URL": "https://www.bylt.org/wp-content/uploads/2015/06/indep-east.jpg",
+        "Altitude": "60",
+        "Manager": "South Yuba River State Parks"
+      },
+      "ref": 8
+    },
+    {
+      "id": "independence-trail-west",
+      "name": "Independence Trail West",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Independence Trail East",
+      "score": 0.941,
+      "has_line": true,
+      "trailhead": [
+        -121.089196,
+        39.297362
+      ],
+      "fields": {
+        "Desc_": "Wheelchair accessible Independence Trail East follows the gentle gradient of an old mining ditch and offers occasional views of the South Yuba River canyon and passes seasonal side streams and bogs.",
+        "Length": 2.00335,
+        "Length_txt": "2",
+        "Difficulty": "Moderate",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Dogs on leash. No bicycles or motorized vehicles. No smoking or fires. No camping.",
+        "Access": "Wheelchair Accessible",
+        "Location": "Nevada City",
+        "URL": "https://www.bylt.org/trail/independence-trail-east/",
+        "Photo_URL": "https://www.bylt.org/wp-content/uploads/2015/06/indep-east.jpg",
+        "Altitude": "60",
+        "Manager": "South Yuba River State Parks"
+      },
+      "ref": 8
+    },
+    {
+      "id": "jones-bar-trails",
+      "name": "Jones Bar Trails",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Jones Bar Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -121.097236,
+        39.291787
+      ],
+      "fields": {
+        "Desc_": "This trial is accessed from Independence Trail West and follows switchbacks down to the South Yuba River.",
+        "Length": 2,
+        "Length_txt": "2",
+        "Difficulty": "Moderate",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Dogs on leash; no bicycles or motorized vehicles; no smoking or fires; no camping",
+        "Access": "Hiking, biking",
+        "Location": "Nevada City",
+        "URL": "https://www.bylt.org/trail/jones-bar-trail/",
+        "Photo_URL": "https://www.bylt.org/wp-content/uploads/2024/06/Jones-Bar-Trail-1-500x380.png",
+        "Altitude": "500",
+        "Manager": "South Yuba River State Park"
+      },
+      "ref": 341
+    },
+    {
+      "id": "kessler-picnic-area-trail",
+      "name": "Kessler Picnic Area Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Kessler Picnic Area Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.296787,
+        39.322142
+      ],
+      "fields": {
+        "Desc_": "This trail connects to the Kessler Picnic Area.",
+        "Length": 0.178602,
+        "Length_txt": "0.2",
+        "Difficulty": "Easy",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "No motorized vehicles. Dogs on leash. Stay on trail.",
+        "Access": "Hiking",
+        "Location": "Truckee",
+        "URL": "https://www.fs.usda.gov/recmain/tahoe/recreation",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Tahoe National Forest / Truckee Donner Land Trust"
+      },
+      "ref": 134
+    },
+    {
+      "id": "kneebone-beach-trail",
+      "name": "Kneebone Beach Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Jones Bar Trail",
+          0.522
+        ],
+        "osm": [
+          "Olive Branch Trail",
+          0.538
+        ]
+      }
+    },
+    {
+      "id": "lake-side-interpretive-ada-trail",
+      "name": "Lake Side Interpretive ADA Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Museum Interpretive Trail",
+          0.622
+        ],
+        "osm": [
+          "Little Deer Creek Trail",
+          0.465
+        ]
+      }
+    },
+    {
+      "id": "lakefront-ohv-trail",
+      "name": "Lakefront OHV Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Beaver Pond Route",
+          0.5
+        ],
+        "osm": [
+          "Baker Road",
+          0.526
+        ]
+      }
+    },
+    {
+      "id": "last-chance-motorcycle-trail",
+      "name": "Last Chance Motorcycle Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Hoyt Connector",
+          0.444
+        ],
+        "osm": [
+          "Stanton Motorcycle Trail",
+          0.75
+        ]
+      }
+    },
+    {
+      "id": "last-chance-tie-trail",
+      "name": "Last Chance Tie Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Alan Theisen Trail",
+          0.519
+        ],
+        "osm": [
+          "La Place Lane",
+          0.571
+        ]
+      }
+    },
+    {
+      "id": "lindsay-lake-trail",
+      "name": "Lindsay Lake Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Lindsey Lake Trail",
+      "score": 0.917,
+      "has_line": true,
+      "trailhead": [
+        -120.610152,
+        39.432627
+      ],
+      "fields": {
+        "Desc_": "The Lindsey Lake trail is 3 1/4 miles long. It is located within the Grouse Ridge Non-Motorized Area. The trail begins at Lindsey Lakes and ends at the intersection with the Grouse Ridge Trail.",
+        "Length": 3.25,
+        "Length_txt": "3.25",
+        "Difficulty": "Moderate",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "No motorized vehicles. Stay on trail.",
+        "Access": "Hiking",
+        "Location": "Nevada City",
+        "URL": "https://www.fs.usda.gov/recarea/tahoe/recarea/?recid=56024",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Tahoe National Forest"
+      },
+      "ref": 94
+    },
+    {
+      "id": "little-boca-loop-trail",
+      "name": "Little Boca Loop Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Doolittle Trail",
+          0.6
+        ],
+        "osm": [
+          "Litton Trail",
+          0.588
+        ]
+      }
+    },
+    {
+      "id": "lloyd-s-trail",
+      "name": "Lloyd's Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Lost Loop Trail",
+          0.545
+        ],
+        "osm": [
+          "Kelly Road",
+          0.471
+        ]
+      }
+    },
+    {
+      "id": "lola-montez-ohv-trail",
+      "name": "Lola Montez OHV Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Lower Lola Montez Trail",
+      "score": 0.9,
+      "has_line": true,
+      "trailhead": [
+        -120.40912,
+        39.349524
+      ],
+      "fields": {
+        "Desc_": "This trail follows gravel roads and single track and passes through private property and leads to Lola Montez Lake.",
+        "Length": 3,
+        "Length_txt": "3",
+        "Difficulty": "Challenging",
+        "Trail_Surf": "Natural Earth, Gravel",
+        "Perm_Use": "Dogs on leash. No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking",
+        "Location": "Truckee",
+        "URL": "https://www.fs.usda.gov/recarea/tahoe/recarea/?recid=56114",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Tahoe National Forest"
+      },
+      "ref": 80
+    },
+    {
+      "id": "lonely-meadow-trail",
+      "name": "Lonely Meadow Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Loney Meadows Trail",
+      "score": 0.923,
+      "has_line": true,
+      "trailhead": [
+        -120.65296,
+        39.421489
+      ],
+      "fields": {
+        "Desc_": "The Loney Meadows trail begins at Forest Road 18-9 and is best accessed with a high clearance vehicle. There is limited parking at the trail head.",
+        "Length": 0.741479,
+        "Length_txt": "0.7",
+        "Difficulty": "Moderate",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "No motorized vehicles. Stay on trail.",
+        "Access": "Hiking",
+        "Location": "Nevada City",
+        "URL": "https://www.fs.usda.gov/recarea/tahoe/recarea/?recid=55874",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Tahoe National Forest"
+      },
+      "ref": 122
+    },
+    {
+      "id": "lost-loop-trail",
+      "name": "Lost Loop Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Lost Loop Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -121.045728,
+        39.207182
+      ],
+      "fields": {
+        "Desc_": "This trail is part of the popular Empire Mine State Historic Park trail network.",
+        "Length": 0.160491,
+        "Length_txt": "0.2",
+        "Difficulty": "Easy",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Dogs on leash. No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking, horseback riding",
+        "Location": "Grass Valley",
+        "URL": "https://www.bylt.org/trail/union-hill-trail-area/",
+        "Photo_URL": "https://www.parks.ca.gov/pages/499/images/mineshaft.jpg",
+        "Altitude": " ",
+        "Manager": "Empire Mine State Park"
+      },
+      "ref": 34
+    },
+    {
+      "id": "lower-hudson-way-trail",
+      "name": "Lower Hudson Way Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Lower Hudson Way Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -121.016417,
+        39.320749
+      ],
+      "fields": {
+        "Desc_": "This is a popular with mountain biking trail and part of the Round Mountain Loop.",
+        "Length": 1.22268,
+        "Length_txt": "1.2",
+        "Difficulty": "Moderate",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Dogs on leash. No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking, horseback riding",
+        "Location": "Nevada City",
+        "URL": "https://www.blm.gov/visit/south-yuba-recreation-area",
+        "Photo_URL": "https://live.staticflickr.com/4499/24120287758_6e99744852_z.jpg",
+        "Altitude": " ",
+        "Manager": "Bureau of Land Management"
+      },
+      "ref": 110
+    },
+    {
+      "id": "lower-lola-montez-trail",
+      "name": "Lower Lola Montez Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Lower Lola Montez Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.40912,
+        39.349524
+      ],
+      "fields": {
+        "Desc_": "This trail follows gravel roads and single track and passes through private property and leads to Lola Montez Lake.",
+        "Length": 3,
+        "Length_txt": "3",
+        "Difficulty": "Challenging",
+        "Trail_Surf": "Natural Earth, Gravel",
+        "Perm_Use": "Dogs on leash. No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking",
+        "Location": "Truckee",
+        "URL": "https://www.fs.usda.gov/recarea/tahoe/recarea/?recid=56114",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Tahoe National Forest"
+      },
+      "ref": 80
+    },
+    {
+      "id": "lower-sagehen-ohv-loop-trail",
+      "name": "Lower Sagehen OHV Loop Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Wildflower Ridge Trail",
+          0.552
+        ],
+        "osm": [
+          "Wilflower Ridge Trail",
+          0.571
+        ]
+      }
+    },
+    {
+      "id": "lower-union-hill-connecctor-trail",
+      "name": "Lower Union Hill Connecctor Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Lower Union Hill Trail",
+      "score": 0.9,
+      "has_line": true,
+      "trailhead": [
+        -121.045728,
+        39.207182
+      ],
+      "fields": {
+        "Desc_": "This trail is part of the popular Empire Mine State Historic Park trail network.",
+        "Length": 0.574816,
+        "Length_txt": "0.6",
+        "Difficulty": "Easy",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Dogs on leash. No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking, horseback riding",
+        "Location": "Grass Valley",
+        "URL": "https://www.bylt.org/trail/union-hill-trail-area/",
+        "Photo_URL": "https://www.parks.ca.gov/pages/499/images/mineshaft.jpg",
+        "Altitude": " ",
+        "Manager": "Empire Mine State Park"
+      },
+      "ref": 30
+    },
+    {
+      "id": "lower-union-hill-trail",
+      "name": "Lower Union Hill Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Lower Union Hill Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -121.045728,
+        39.207182
+      ],
+      "fields": {
+        "Desc_": "This trail is part of the popular Empire Mine State Historic Park trail network.",
+        "Length": 0.574816,
+        "Length_txt": "0.6",
+        "Difficulty": "Easy",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Dogs on leash. No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking, horseback riding",
+        "Location": "Grass Valley",
+        "URL": "https://www.bylt.org/trail/union-hill-trail-area/",
+        "Photo_URL": "https://www.parks.ca.gov/pages/499/images/mineshaft.jpg",
+        "Altitude": " ",
+        "Manager": "Empire Mine State Park"
+      },
+      "ref": 30
+    },
+    {
+      "id": "magnolia-school-trail",
+      "name": "Magnolia School Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Magnolia School Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -121.075512,
+        39.045589
+      ],
+      "fields": {
+        "Desc_": "This trail follows Magnolia Road and ends at the elementary school.",
+        "Length": 0.873151,
+        "Length_txt": "0.873151",
+        "Difficulty": "Easy",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking",
+        "Location": "Lake of the Pines",
+        "URL": " ",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Unkown"
+      },
+      "ref": 116
+    },
+    {
+      "id": "marten-ranch-trail",
+      "name": "Marten Ranch Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Marten Ranch Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.893108,
+        39.359518
+      ],
+      "fields": {
+        "Desc_": "This trail is part of the popular Malakoff Diggins State Historic Park trail network. Malakoff Diggins is the site of California's largest \"hydraulic\" mine. Visitors can see huge cliffs carved by mighty streams of water, results of hydraulic mining.",
+        "Length": 0.332715,
+        "Length_txt": "0.3",
+        "Difficulty": "Easy",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Dogs on leash. No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking, horseback riding",
+        "Location": "Nevada City",
+        "URL": "https://www.parks.ca.gov/?page_id=494",
+        "Photo_URL": "https://www.parks.ca.gov/pages/734/images/MalakoffDiggins_SHP.png",
+        "Altitude": " ",
+        "Manager": "Malakoff Diggins State Historic Park"
+      },
+      "ref": 57
+    },
+    {
+      "id": "mautino-park-trail",
+      "name": "Mautino Park Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Mautino Park Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -121.069613,
+        39.229475
+      ],
+      "fields": {
+        "Desc_": "This trail loops around Dee Mautino Park, named after DeVere “Dee” Mautino (1927 - 2018), Grass Valley’s first female Mayor. She was always a proponent of parks and outdoor recreation.",
+        "Length": 0.457635,
+        "Length_txt": "0.5",
+        "Difficulty": "Easy",
+        "Trail_Surf": "Paved, Natural Earth",
+        "Perm_Use": "Dogs on leash. No motorized vehicles. Stay on trail.",
+        "Access": "Wheelchair Accessible",
+        "Location": "Grass Valley",
+        "URL": "https://www.cityofgrassvalley.com/pod/devere-dee-mautino-park",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "City of Grass Valley"
+      },
+      "ref": 26
+    },
+    {
+      "id": "mccloud-ohv-loop-trail",
+      "name": "McCloud OHV Loop Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Trabucco Trail",
+          0.4
+        ],
+        "osm": [
+          "McCourtney Road",
+          0.545
+        ]
+      }
+    },
+    {
+      "id": "mccloud-south-ohv-trail",
+      "name": "McCloud South OHV Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Round Mountain Trail",
+          0.519
+        ],
+        "osm": [
+          "Round Mountain Trail",
+          0.519
+        ]
+      }
+    },
+    {
+      "id": "meyer-trail",
+      "name": "Meyer Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Meyer Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.912518,
+        39.310089
+      ],
+      "fields": {
+        "Desc_": "This trail is part of the network of popular trails along the Hwy 20 corridor.",
+        "Length": 0.445647,
+        "Length_txt": "0.4",
+        "Difficulty": "Challenging",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Dogs on leash. No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking",
+        "Location": "Nevada City",
+        "URL": "https://www.fs.usda.gov/recarea/tahoe/recarea/?recid=55454",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Tahoe National Forest"
+      },
+      "ref": 67
+    },
+    {
+      "id": "meyers-connector-trail",
+      "name": "Meyers Connector Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Meyers Connector",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.912518,
+        39.310089
+      ],
+      "fields": {
+        "Desc_": "This trail is part of the network of popular trails along the Hwy 20 corridor.",
+        "Length": 0.430221,
+        "Length_txt": "0.4",
+        "Difficulty": "Challenging",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Dogs on leash. No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking",
+        "Location": "Nevada City",
+        "URL": "https://www.fs.usda.gov/recarea/tahoe/recarea/?recid=55454",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Tahoe National Forest"
+      },
+      "ref": 107
+    },
+    {
+      "id": "milk-lake-access-trail",
+      "name": "Milk Lake Access Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Milk Lake Access Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.61009,
+        39.38849
+      ],
+      "fields": {
+        "Desc_": "This trail connects the Round Lake Trail to Milk Lake.",
+        "Length": 0.0861419,
+        "Length_txt": "0.1",
+        "Difficulty": "Moderate",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "No motorized vehicles. Stay on trail.",
+        "Access": "Hiking",
+        "Location": "Nevada City",
+        "URL": "https://www.fs.usda.gov/recmain/tahoe/recreation",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Tahoe National Forest"
+      },
+      "ref": 125
+    },
+    {
+      "id": "miners-trail",
+      "name": "Miners Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Miners Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.980385,
+        39.283616
+      ],
+      "fields": {
+        "Desc_": "The Miners Trail follows the old Emigrant Trail and Hwy 20.",
+        "Length": 1.80888,
+        "Length_txt": "1.8",
+        "Difficulty": "Moderate",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Dogs on leash. No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking, horseback riding",
+        "Location": "Nevada City",
+        "URL": "https://www.fs.usda.gov/recarea/tahoe/recarea/?recid=56012",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Tahoe National Forest"
+      },
+      "ref": 157
+    },
+    {
+      "id": "missouri-bar-trail",
+      "name": "Missouri Bar Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Missouri Bar Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.893108,
+        39.359518
+      ],
+      "fields": {
+        "Desc_": "This trail is a popular hiking and mountain biking trail.",
+        "Length": 1.36403,
+        "Length_txt": "1.4",
+        "Difficulty": "Challenging",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Dogs on leash. No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking, horseback riding",
+        "Location": "Nevada City",
+        "URL": "https://www.fs.usda.gov/recarea/tahoe/recreation/recarea/?recid=56016&actid=24",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Tahoe National Forest / Private"
+      },
+      "ref": 66
+    },
+    {
+      "id": "monument-trail",
+      "name": "Monument Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Mount Lola Trail",
+          0.556
+        ],
+        "osm": [
+          "Moonlight Trail",
+          0.471
+        ]
+      }
+    },
+    {
+      "id": "mossy-pond-east-trail",
+      "name": "Mossy Pond East Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Mossy Pond East Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.472125,
+        39.371748
+      ],
+      "fields": {
+        "Desc_": "This trail connects with the Glacier Lakes Basin Trail and can be combined with that trail for a longer loop.",
+        "Length": 0.742282,
+        "Length_txt": "0.7",
+        "Difficulty": "Moderate",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "No motorized vehicles. Stay on trail.",
+        "Access": "Hiking",
+        "Location": "Nevada City",
+        "URL": "https://www.fs.usda.gov/recarea/tahoe/recarea/?recid=56038",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Tahoe National Forest"
+      },
+      "ref": 89
+    },
+    {
+      "id": "mossy-pond-oh-trail",
+      "name": "Mossy Pond OH Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Mossy Pond East Trail",
+      "score": 0.786,
+      "has_line": true,
+      "trailhead": [
+        -120.472125,
+        39.371748
+      ],
+      "fields": {
+        "Desc_": "This trail connects with the Glacier Lakes Basin Trail and can be combined with that trail for a longer loop.",
+        "Length": 0.742282,
+        "Length_txt": "0.7",
+        "Difficulty": "Moderate",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "No motorized vehicles. Stay on trail.",
+        "Access": "Hiking",
+        "Location": "Nevada City",
+        "URL": "https://www.fs.usda.gov/recarea/tahoe/recarea/?recid=56038",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Tahoe National Forest"
+      },
+      "ref": 89
+    },
+    {
+      "id": "mossy-pond-west-trail",
+      "name": "Mossy Pond West Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Mossy Pond West Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.478442,
+        39.37414
+      ],
+      "fields": {
+        "Desc_": "This trail connects with the Glacier Lakes Basin Trail and can be combined with that trail for a longer loop.",
+        "Length": 0.622808,
+        "Length_txt": "0.6",
+        "Difficulty": "Moderate",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "No motorized vehicles. Stay on trail.",
+        "Access": "Hiking",
+        "Location": "Nevada City",
+        "URL": "https://www.fs.usda.gov/recarea/tahoe/recarea/?recid=56038",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Tahoe National Forest"
+      },
+      "ref": 90
+    },
+    {
+      "id": "mount-lola-trail",
+      "name": "Mount Lola Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Mount Lola Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.368522,
+        39.428134
+      ],
+      "fields": {
+        "Desc_": "This trail climbs moderately upward through thick coniferous forests, through open meadows, along Cold Stream, to the top of Mt. Lola (the highest peak on the Tahoe National Forest).",
+        "Length": 4.42187,
+        "Length_txt": "4.4",
+        "Difficulty": "Challenging",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "No motorized vehicles. Stay on trail.",
+        "Access": "Hiking",
+        "Location": "Truckee",
+        "URL": "https://www.fs.usda.gov/recarea/tahoe/recarea/?recid=56086",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Tahoe National Forest"
+      },
+      "ref": 85
+    },
+    {
+      "id": "mount-olive-park-and-walk-trail",
+      "name": "Mount Olive Park and Walk Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Park and Walk Trail",
+      "score": 0.9,
+      "has_line": true,
+      "trailhead": [
+        -120.969109,
+        39.16472
+      ],
+      "fields": {
+        "Desc_": "Community built, the trail allows families to walk to school along a pretty stretch alongside Mt. Olive Rd.",
+        "Length": 0.629488,
+        "Length_txt": "0.6",
+        "Difficulty": "Easy",
+        "Trail_Surf": "Paved",
+        "Perm_Use": "Dogs on leash. No motorized vehicles. Stay on trail.",
+        "Access": "Wheelchair Accessible",
+        "Location": "Grass Valley",
+        "URL": "https://www.bylt.org/trail/park-and-walk-trail/",
+        "Photo_URL": "https://www.bylt.org/wp-content/uploads/2015/05/park-walk-500x380.jpg",
+        "Altitude": " ",
+        "Manager": "Chicago Park residents and trail users"
+      },
+      "ref": 59
+    },
+    {
+      "id": "museum-interpretive-trail",
+      "name": "Museum Interpretive Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Museum Interpretive Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.237712,
+        39.325393
+      ],
+      "fields": {
+        "Desc_": "This trail is part of the system of trails at Donner Memorial State Park.",
+        "Length": 0.375185,
+        "Length_txt": "0.4",
+        "Difficulty": "Easy",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "No motorized vehicles. Dogs on leash. Stay on trail.",
+        "Access": "Hiking",
+        "Location": "Truckee",
+        "URL": "https://www.parks.ca.gov/?page_id=503",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Donner Memorial State Park"
+      },
+      "ref": 132
+    },
+    {
+      "id": "museum-lakeside-trail-connector",
+      "name": "Museum Lakeside Trail Connector",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Penner Lake Connector",
+          0.696
+        ],
+        "osm": [
+          "Ousley Bar Connector",
+          0.667
+        ]
+      }
+    },
+    {
+      "id": "north-bloomfield-trail",
+      "name": "North Bloomfield Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "North Bloomfield Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.897901,
+        39.370453
+      ],
+      "fields": {
+        "Desc_": "This trail is part of the popular Malakoff Diggins State Historic Park trail network. Malakoff Diggins is the site of California's largest \"hydraulic\" mine. Visitors can see huge cliffs carved by mighty streams of water, results of hydraulic mining.",
+        "Length": 0.618232,
+        "Length_txt": "0.6",
+        "Difficulty": "Easy",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Dogs on leash. No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking, horseback riding",
+        "Location": "Nevada City",
+        "URL": "https://www.parks.ca.gov/?page_id=494",
+        "Photo_URL": "https://www.parks.ca.gov/pages/734/images/MalakoffDiggins_SHP.png",
+        "Altitude": " ",
+        "Manager": "Malakoff Diggins State Historic Park"
+      },
+      "ref": 52
+    },
+    {
+      "id": "north-canyon-trail",
+      "name": "North Canyon Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Donner Summit Canyon Trail",
+          0.625
+        ],
+        "osm": [
+          "North Canal Road",
+          0.714
+        ]
+      }
+    },
+    {
+      "id": "north-purdon-trail",
+      "name": "North Purdon Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Pioneer Northspur 1 Trail",
+          0.516
+        ],
+        "osm": [
+          "North Canal Road",
+          0.571
+        ]
+      }
+    },
+    {
+      "id": "north-verdi-ohv-spur-trail",
+      "name": "North Verdi OHV Spur Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Pioneer Northspur 1 Trail",
+          0.514
+        ],
+        "osm": [
+          "North Burlington Spur",
+          0.703
+        ]
+      }
+    },
+    {
+      "id": "old-flume-trail",
+      "name": "Old Flume Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Old Flume Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -121.044892,
+        39.326902
+      ],
+      "fields": {
+        "Desc_": "Follow the South Yuba River as it traverses through a historic river canyon. There are many spots along the trail to hang out and cool off for the day.",
+        "Length": 0.60981,
+        "Length_txt": "0.6",
+        "Difficulty": "Moderate",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Dogs on leash. No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking, horseback riding",
+        "Location": "Nevada City",
+        "URL": "https://www.parks.ca.gov/?page_id=25632",
+        "Photo_URL": "https://www.parks.ca.gov/?page_id=496",
+        "Altitude": " ",
+        "Manager": "South Yuba River State Park / Private"
+      },
+      "ref": 65
+    },
+    {
+      "id": "old-greenwood-trail-connector",
+      "name": "Old Greenwood Trail Connector",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Old Greenwood Trail Connector",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.155368,
+        39.328308
+      ],
+      "fields": {
+        "Desc_": "This trial is part of the Town of Truckee's trail network.",
+        "Length": 0.136911,
+        "Length_txt": "0.1",
+        "Difficulty": "Easy",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking",
+        "Location": "Truckee",
+        "URL": "https://www.townoftruckee.com/home/showpublisheddocument/13202/635857041059070000",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Town of Truckee"
+      },
+      "ref": 154
+    },
+    {
+      "id": "old-reno-ohv-trail",
+      "name": "Old Reno OHV Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Old Flume Trail",
+          0.588
+        ],
+        "osm": [
+          "Old Toll Road",
+          0.571
+        ]
+      }
+    },
+    {
+      "id": "omega-mc-trail",
+      "name": "Omega MC Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Loma Rica Trail",
+          0.588
+        ],
+        "osm": [
+          "Omega Motorcycle Trail",
+          0.667
+        ]
+      }
+    },
+    {
+      "id": "omega-overlook-motorcycle-trail",
+      "name": "Omega Overlook Motorcycle Trail",
+      "city": "",
+      "matched": true,
+      "source": "osm",
+      "matched_name": "Omega Overlook Motorcycle Trail",
+      "score": 1.0,
+      "has_line": false,
+      "trailhead": [
+        -120.745504,
+        39.319971
+      ],
+      "fields": {
+        "highway": "track",
+        "osm_id": 10465801
+      },
+      "ref": 10465801
+    },
+    {
+      "id": "orene-wetherall-trail",
+      "name": "Orene Wetherall Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Orene Wetherall Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.998695,
+        39.241011
+      ],
+      "fields": {
+        "Desc_": "A refreshing out-and-back side trip with some great views, branching off the popular Cascade Canal trail on Banner Mountain east of Nevada City.",
+        "Length": 0.817884,
+        "Length_txt": "0.8",
+        "Difficulty": "Moderate",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Foot and bike only. Dogs on leash. No motorized vehicles. Stay on the trail and respect private property.  Hikers and mountain bikers watch for each other and pass safely.",
+        "Access": "Hiking, biking",
+        "Location": "Nevada City",
+        "URL": "https://www.bylt.org/trail/orene-wetherall-trail/",
+        "Photo_URL": "https://www.bylt.org/wp-content/uploads/2015/05/orene-wetherall-500x380.jpg",
+        "Altitude": "280",
+        "Manager": "BYLT"
+      },
+      "ref": 13
+    },
+    {
+      "id": "orleans-trail",
+      "name": "Orleans Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Orleans Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -121.045728,
+        39.207182
+      ],
+      "fields": {
+        "Desc_": "This trail is part of the popular Empire Mine State Historic Park trail network.",
+        "Length": 0.476116,
+        "Length_txt": "0.5",
+        "Difficulty": "Easy",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Dogs on leash. No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking, horseback riding",
+        "Location": "Grass Valley",
+        "URL": "https://www.parks.ca.gov/?page_id=499",
+        "Photo_URL": "https://www.parks.ca.gov/pages/499/images/mineshaft.jpg",
+        "Altitude": " ",
+        "Manager": "Empire Mine State Park"
+      },
+      "ref": 39
+    },
+    {
+      "id": "osborne-hill-loop-trail",
+      "name": "Osborne Hill Loop Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Osborne Hill Loop Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -121.045728,
+        39.207182
+      ],
+      "fields": {
+        "Desc_": "This trail is part of the popular Empire Mine State Historic Park trail network.",
+        "Length": 2.14917,
+        "Length_txt": "2.2",
+        "Difficulty": "Moderate",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Dogs on leash. No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking, horseback riding",
+        "Location": "Grass Valley",
+        "URL": "https://www.parks.ca.gov/?page_id=499",
+        "Photo_URL": "https://www.parks.ca.gov/pages/499/images/mineshaft.jpg",
+        "Altitude": " ",
+        "Manager": "Empire Mine State Park"
+      },
+      "ref": 42
+    },
+    {
+      "id": "osborne-loop-cross-trail",
+      "name": "Osborne Loop Cross Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Osborne Loop Cross",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -121.045728,
+        39.207182
+      ],
+      "fields": {
+        "Desc_": "This trail is part of the popular Empire Mine State Historic Park trail network.",
+        "Length": 0.474256,
+        "Length_txt": "0.5",
+        "Difficulty": "Moderate",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Dogs on leash. No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking, horseback riding",
+        "Location": "Grass Valley",
+        "URL": "https://www.parks.ca.gov/?page_id=499",
+        "Photo_URL": "https://www.parks.ca.gov/pages/499/images/mineshaft.jpg",
+        "Altitude": " ",
+        "Manager": "Empire Mine State Park"
+      },
+      "ref": 45
+    },
+    {
+      "id": "overland-emmigrant-commemorative-trail",
+      "name": "Overland Emmigrant Commemorative Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Overland Emigrant Commemorative Trail",
+      "score": 0.984,
+      "has_line": true,
+      "trailhead": [
+        -120.181036,
+        39.375685
+      ],
+      "fields": {
+        "Desc_": "This very popular trail offers rolling, not-rocky, wide single-track through high desert scenery. The trail winds through sagebrush, seasonally wet meadows, and Jeffrey Pine forests.",
+        "Length": 15,
+        "Length_txt": "15",
+        "Difficulty": "Moderate",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking",
+        "Location": "Truckee",
+        "URL": "https://truckeetrails.org/trails/commemorative-overland-emigrant-trail/",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Various"
+      },
+      "ref": 82
+    },
+    {
+      "id": "overland-emmigrant-connector-trail",
+      "name": "Overland Emmigrant Connector Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Overland Emigrant Commemorative Trail",
+          0.78
+        ],
+        "osm": [
+          "Penn Gate Connector Trail",
+          0.553
+        ]
+      }
+    },
+    {
+      "id": "overland-low-water-trail",
+      "name": "Overland Low Water Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Overland Emigrant Commemorative Trail",
+          0.531
+        ],
+        "osm": [
+          "Cumberland Lane",
+          0.606
+        ]
+      }
+    },
+    {
+      "id": "overlook-loop-trail",
+      "name": "Overlook Loop Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Up and Over Trail",
+          0.533
+        ],
+        "osm": [
+          "Lower Doloros",
+          0.571
+        ]
+      }
+    },
+    {
+      "id": "park-and-walk-trail-chicago-park-chicago-park",
+      "name": "Park and Walk Trail: Chicago Park",
+      "city": "Chicago Park",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Park and Walk Trail",
+      "score": 0.9,
+      "has_line": true,
+      "trailhead": [
+        -120.969109,
+        39.16472
+      ],
+      "fields": {
+        "Desc_": "Community built, the trail allows families to walk to school along a pretty stretch alongside Mt. Olive Rd.",
+        "Length": 0.629488,
+        "Length_txt": "0.6",
+        "Difficulty": "Easy",
+        "Trail_Surf": "Paved",
+        "Perm_Use": "Dogs on leash. No motorized vehicles. Stay on trail.",
+        "Access": "Wheelchair Accessible",
+        "Location": "Grass Valley",
+        "URL": "https://www.bylt.org/trail/park-and-walk-trail/",
+        "Photo_URL": "https://www.bylt.org/wp-content/uploads/2015/05/park-walk-500x380.jpg",
+        "Altitude": " ",
+        "Manager": "Chicago Park residents and trail users"
+      },
+      "ref": 59
+    },
+    {
+      "id": "penner-lake-connector-trail",
+      "name": "Penner Lake Connector Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Penner Lake Connector",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.613745,
+        39.417377
+      ],
+      "fields": {
+        "Desc_": "This trail connects to the Crooked Lakes Trail and leads to Penner Lake.",
+        "Length": 0.0918741,
+        "Length_txt": "0.1",
+        "Difficulty": "Moderate",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "No motorized vehicles. Stay on trail.",
+        "Access": "Hiking",
+        "Location": "Nevada City",
+        "URL": "https://www.fs.usda.gov/recarea/tahoe/recarea/?recid=56022",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Tahoe National Forest"
+      },
+      "ref": 93
+    },
+    {
+      "id": "pierce-creek-campground-trail",
+      "name": "Pierce Creek Campground Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Rock Creek Road Trail",
+          0.632
+        ],
+        "osm": [
+          "Deer Creek Spur",
+          0.579
+        ]
+      }
+    },
+    {
+      "id": "pierce-ohv-connector-trail",
+      "name": "Pierce OHV Connector Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Penner Lake Connector",
+          0.757
+        ],
+        "osm": [
+          "Penn Gate Connector Trail",
+          0.743
+        ]
+      }
+    },
+    {
+      "id": "pierce-ohv-spur-a-trail",
+      "name": "Pierce OHV Spur A Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Pioneer Northspur 1 Trail",
+          0.625
+        ],
+        "osm": [
+          "Deer Creek Spur",
+          0.643
+        ]
+      }
+    },
+    {
+      "id": "pierce-ohv-spur-b-trail",
+      "name": "Pierce OHV Spur B Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Pioneer Northspur 1 Trail",
+          0.625
+        ],
+        "osm": [
+          "Deer Creek Spur",
+          0.643
+        ]
+      }
+    },
+    {
+      "id": "pioneer-bike-path",
+      "name": "Pioneer Bike Path",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Pioneer Bike Path",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.18529,
+        39.327743
+      ],
+      "fields": {
+        "Desc_": "This trail is part of the Town of Truckee's trail system. It is a paved connector trail.",
+        "Length": 0.677296,
+        "Length_txt": "0.7",
+        "Difficulty": "Moderate",
+        "Trail_Surf": "Paved",
+        "Perm_Use": "No motorized vehicles. Stay on trail.",
+        "Access": "Wheelchair Accessible",
+        "Location": "Truckee",
+        "URL": "https://www.townoftruckee.com/home/showpublisheddocument/13202/635857041059070000",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Town of Truckee"
+      },
+      "ref": 149
+    },
+    {
+      "id": "pioneer-commerce-center-trails",
+      "name": "Pioneer Commerce Center Trails",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Pioneer Commerce Center Trails",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.18529,
+        39.327743
+      ],
+      "fields": {
+        "Desc_": "This trail is part of the Town of Truckee's trail system.",
+        "Length": 0.164808,
+        "Length_txt": "0.2",
+        "Difficulty": "Easy",
+        "Trail_Surf": "Paved",
+        "Perm_Use": "No motorized vehicles.",
+        "Access": "Hiking, biking",
+        "Location": "Truckee",
+        "URL": "https://www.townoftruckee.com/home/showpublisheddocument/13202/635857041059070000",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Town of Truckee"
+      },
+      "ref": 153
+    },
+    {
+      "id": "pioneer-northspur-1-trail",
+      "name": "Pioneer Northspur 1 Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Pioneer Northspur 1 Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.912518,
+        39.310089
+      ],
+      "fields": {
+        "Desc_": "This trail is part of the network of popular trails along the Hwy 20 corridor.",
+        "Length": 0.276228,
+        "Length_txt": "0.3",
+        "Difficulty": "Challenging",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Dogs on leash. No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking",
+        "Location": "Nevada City",
+        "URL": "https://www.fs.usda.gov/recarea/tahoe/recarea/?recid=55454",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Tahoe National Forest"
+      },
+      "ref": 108
+    },
+    {
+      "id": "pioneer-northspur-2-trail",
+      "name": "Pioneer Northspur 2 Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Pioneer Northspur 2 Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.912518,
+        39.310089
+      ],
+      "fields": {
+        "Desc_": "This trail is part of the network of popular trails along the Hwy 20 corridor.",
+        "Length": 0.684318,
+        "Length_txt": "0.7",
+        "Difficulty": "Challenging",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Dogs on leash. No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking",
+        "Location": "Nevada City",
+        "URL": "https://www.fs.usda.gov/recarea/tahoe/recarea/?recid=55454",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Tahoe National Forest"
+      },
+      "ref": 128
+    },
+    {
+      "id": "pioneer-trail",
+      "name": "Pioneer Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Pioneer Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.781554,
+        39.313441
+      ],
+      "fields": {
+        "Desc_": "The Pioneer Trail follows the old Emigrant Trail and begins at Hwy 20 near 5 Mile House and ends at Spaulding Lake Trail.",
+        "Length": 27.8598,
+        "Length_txt": "28",
+        "Difficulty": "Moderate",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Dogs on leash. No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking, horseback riding",
+        "Location": "Nevada City",
+        "URL": "https://www.fs.usda.gov/recarea/tahoe/recarea/?recid=56012",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Tahoe National Forest"
+      },
+      "ref": 70
+    },
+    {
+      "id": "pioneer-trail-south",
+      "name": "Pioneer Trail South",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Pioneer Trail",
+          0.7
+        ],
+        "osm": [
+          "Pioneer Trail",
+          0.7
+        ]
+      }
+    },
+    {
+      "id": "pipeline-trail",
+      "name": "Pipeline Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "PipeLine Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -121.045728,
+        39.207182
+      ],
+      "fields": {
+        "Desc_": "This trail is part of the popular Empire Mine State Historic Park trail network.",
+        "Length": 0.628547,
+        "Length_txt": "0.6",
+        "Difficulty": "Easy",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Dogs on leash. No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking, horseback riding",
+        "Location": "Grass Valley",
+        "URL": "https://www.bylt.org/trail/union-hill-trail-area/",
+        "Photo_URL": "https://www.parks.ca.gov/pages/499/images/mineshaft.jpg",
+        "Altitude": " ",
+        "Manager": "Empire Mine State Park"
+      },
+      "ref": 31
+    },
+    {
+      "id": "plumbago-trail",
+      "name": "Plumbago Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Upper Humbug Trail",
+          0.5
+        ],
+        "osm": [
+          "Plumbago Road",
+          0.762
+        ]
+      }
+    },
+    {
+      "id": "pond-trail",
+      "name": "Pond Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Pioneer Trail",
+          0.545
+        ],
+        "osm": [
+          "ground",
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "preiffer-trail",
+      "name": "Preiffer Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Preiffer Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.912518,
+        39.310089
+      ],
+      "fields": {
+        "Desc_": "This trail is part of the network of popular trails along the Hwy 20 corridor.",
+        "Length": 1.44532,
+        "Length_txt": "1.4",
+        "Difficulty": "Challenging",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Dogs on leash. No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking",
+        "Location": "Nevada City",
+        "URL": "https://www.fs.usda.gov/recarea/tahoe/recarea/?recid=55454",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Tahoe National Forest"
+      },
+      "ref": 68
+    },
+    {
+      "id": "prescott-hill-cross-trail",
+      "name": "Prescott Hill Cross Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Prescott Hill Cross Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -121.045728,
+        39.207182
+      ],
+      "fields": {
+        "Desc_": "This trail is part of the popular Empire Mine State Historic Park trail network.",
+        "Length": 0.369737,
+        "Length_txt": "0.4",
+        "Difficulty": "Easy",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Dogs on leash. No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking, horseback riding",
+        "Location": "Grass Valley",
+        "URL": "https://www.parks.ca.gov/?page_id=499",
+        "Photo_URL": "https://www.parks.ca.gov/pages/499/images/mineshaft.jpg",
+        "Altitude": " ",
+        "Manager": "Empire Mine State Park"
+      },
+      "ref": 44
+    },
+    {
+      "id": "prescott-mine-trail",
+      "name": "Prescott Mine Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Prescott Mine Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -121.045728,
+        39.207182
+      ],
+      "fields": {
+        "Desc_": "This trail is part of the popular Empire Mine State Historic Park trail network.",
+        "Length": 0.31264,
+        "Length_txt": "0.3",
+        "Difficulty": "Easy",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Dogs on leash. No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking, horseback riding",
+        "Location": "Grass Valley",
+        "URL": "https://www.parks.ca.gov/?page_id=499",
+        "Photo_URL": "https://www.parks.ca.gov/pages/499/images/mineshaft.jpg",
+        "Altitude": " ",
+        "Manager": "Empire Mine State Park"
+      },
+      "ref": 46
+    },
+    {
+      "id": "prosser-creek-east-ohv-loop-trail",
+      "name": "Prosser Creek East OHV Loop Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Rock Creek Road Trail",
+          0.606
+        ],
+        "osm": [
+          "Deer Creek Spur",
+          0.606
+        ]
+      }
+    },
+    {
+      "id": "prosser-creek-ohv-loop-trail",
+      "name": "Prosser Creek OHV Loop Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Slide Creek Trail",
+          0.667
+        ],
+        "osm": [
+          "Slide Creek Trail",
+          0.667
+        ]
+      }
+    },
+    {
+      "id": "prosser-creek-west-ohv-trail",
+      "name": "Prosser Creek West OHV Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Rock Creek Flume Trail",
+          0.588
+        ],
+        "osm": [
+          "Deer Creek Spur",
+          0.606
+        ]
+      }
+    },
+    {
+      "id": "prosser-hill-connector-1-trail",
+      "name": "Prosser Hill Connector 1 Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Penner Lake Connector",
+          0.667
+        ],
+        "osm": [
+          "Penn Gate Connector Trail",
+          0.605
+        ]
+      }
+    },
+    {
+      "id": "prosser-hill-connector-3-trail",
+      "name": "Prosser Hill Connector 3 Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Penner Lake Connector",
+          0.667
+        ],
+        "osm": [
+          "Penn Gate Connector Trail",
+          0.605
+        ]
+      }
+    },
+    {
+      "id": "prosser-hill-jeep-trail",
+      "name": "Prosser Hill Jeep Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Osborne Hill Loop Trail",
+          0.552
+        ],
+        "osm": [
+          "Prescott Hill Mine Trail",
+          0.571
+        ]
+      }
+    },
+    {
+      "id": "prosser-hill-motorcycle-trail",
+      "name": "Prosser Hill Motorcycle Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Lower Lola Montez Trail",
+          0.55
+        ],
+        "osm": [
+          "Omega Motorcycle Trail",
+          0.667
+        ]
+      }
+    },
+    {
+      "id": "prosser-neighborhood-access-trail",
+      "name": "Prosser Neighborhood Access Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Rice's Crossing Access Trail",
+          0.531
+        ],
+        "osm": [
+          "Illinois Crossing Access",
+          0.51
+        ]
+      }
+    },
+    {
+      "id": "prosser-north-ohv-trail",
+      "name": "Prosser North OHV Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Pioneer Northspur 1 Trail",
+          0.625
+        ],
+        "osm": [
+          "Ousley Bar Connector",
+          0.485
+        ]
+      }
+    },
+    {
+      "id": "prosser-pit-access-trail",
+      "name": "Prosser Pit Access Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Donner PCT Access",
+          0.743
+        ],
+        "osm": [
+          "Illinois Crossing Access",
+          0.571
+        ]
+      }
+    },
+    {
+      "id": "rambler-trail-clover-valley-preserve-alta-sierra",
+      "name": "Rambler Trail: Clover Valley Preserve",
+      "city": "Alta Sierra",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Castle Valley Access Trail",
+          0.52
+        ],
+        "osm": [
+          "Green Valley Trail",
+          0.476
+        ]
+      }
+    },
+    {
+      "id": "ridge-to-lakeside-ada-trail",
+      "name": "Ridge to Lakeside ADA Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Sandridge Lake Trail",
+          0.571
+        ],
+        "osm": [
+          "Bridgeport Covered Bridge",
+          0.478
+        ]
+      }
+    },
+    {
+      "id": "rim-trail",
+      "name": "Rim Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Rim Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.92554,
+        39.366696
+      ],
+      "fields": {
+        "Desc_": "This trail is part of the popular Malakoff Diggins State Historic Park trail network. Malakoff Diggins is the site of California's largest \"hydraulic\" mine. Visitors can see huge cliffs carved by mighty streams of water, results of hydraulic mining.",
+        "Length": 3.25485,
+        "Length_txt": "3.2",
+        "Difficulty": "Moderate",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Dogs on leash. No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking, horseback riding",
+        "Location": "Nevada City",
+        "URL": "https://www.parks.ca.gov/?page_id=494",
+        "Photo_URL": "https://www.parks.ca.gov/pages/734/images/MalakoffDiggins_SHP.png",
+        "Altitude": " ",
+        "Manager": "Malakoff Diggins State Historic Park"
+      },
+      "ref": 50
+    },
+    {
+      "id": "rim-trail-access",
+      "name": "Rim Trail Access",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Rim Trail Access",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.283876,
+        39.345546
+      ],
+      "fields": {
+        "Desc_": "This trail can be used to access the Donner Lake Rim Trail",
+        "Length": 1.19921,
+        "Length_txt": "1.2",
+        "Difficulty": "Easy",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking, horseback riding",
+        "Location": "Truckee",
+        "URL": "https://www.truckeedonnerlandtrust.org/donner-lake-rim-trail",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Lake Tahoe Basin Management Unit Office"
+      },
+      "ref": 75
+    },
+    {
+      "id": "rock-creek-flume-trail",
+      "name": "Rock Creek Flume Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Rock Creek Flume Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -121.028134,
+        39.305725
+      ],
+      "fields": {
+        "Desc_": "This is a popular with mountain biking trail and part of the Round Mountain Loop.",
+        "Length": 1.20537,
+        "Length_txt": "1.2",
+        "Difficulty": "Moderate",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Dogs on leash. No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking, horseback riding",
+        "Location": "Nevada City",
+        "URL": "https://www.blm.gov/visit/south-yuba-recreation-area",
+        "Photo_URL": "https://live.staticflickr.com/4499/24120287758_6e99744852_z.jpg",
+        "Altitude": " ",
+        "Manager": "Bureau of Land Management"
+      },
+      "ref": 111
+    },
+    {
+      "id": "rock-creek-nature-trail",
+      "name": "Rock Creek Nature Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Rock Creek Nature Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.93043,
+        39.299208
+      ],
+      "fields": {
+        "Desc_": "The Rock Creek Nature trail is 0.8 miles long. It begins at Forest Road 20-3 and ends at Loop Trail",
+        "Length": 0.8,
+        "Length_txt": "0.8",
+        "Difficulty": "Easy",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Dogs on leash. No motorized vehicles. Stay on trail.",
+        "Access": "Hiking",
+        "Location": "Nevada City",
+        "URL": "https://www.fs.usda.gov/recarea/tahoe/null/recarea/?recid=56010&actid=50",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Tahoe National Forest"
+      },
+      "ref": 62
+    },
+    {
+      "id": "rock-creek-road-trail",
+      "name": "Rock Creek Road Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Rock Creek Road Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.997336,
+        39.315686
+      ],
+      "fields": {
+        "Desc_": "This is a popular with mountain biking trail and part of the Round Mountain Loop.",
+        "Length": 0.510864,
+        "Length_txt": "0.5",
+        "Difficulty": "Moderate",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Dogs on leash. No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking, horseback riding",
+        "Location": "Nevada City",
+        "URL": "https://www.blm.gov/visit/south-yuba-recreation-area",
+        "Photo_URL": "https://live.staticflickr.com/4499/24120287758_6e99744852_z.jpg",
+        "Altitude": " ",
+        "Manager": "Bureau of Land Management"
+      },
+      "ref": 118
+    },
+    {
+      "id": "rock-creek-switchback-trail",
+      "name": "Rock Creek Switchback Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Rock Creek Switchback",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.93043,
+        39.299208
+      ],
+      "fields": {
+        "Desc_": "This trail is part of the network of popular trails along the Hwy 20 corridor.",
+        "Length": 1.22962,
+        "Length_txt": "1.2",
+        "Difficulty": "Challenging",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Dogs on leash. No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking",
+        "Location": "Nevada City",
+        "URL": "https://www.fs.usda.gov/recarea/tahoe/recarea/?recid=55454",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Tahoe National Forest"
+      },
+      "ref": 109
+    },
+    {
+      "id": "rood-center-path",
+      "name": "Rood Center Path",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Rock Creek Nature Trail",
+          0.571
+        ],
+        "osm": [
+          "Rock Creek Nature Trail",
+          0.571
+        ]
+      }
+    },
+    {
+      "id": "rood-zcenter-connerctor-path",
+      "name": "Rood ZCenter Connerctor Path",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Meyers Connector",
+          0.667
+        ],
+        "osm": [
+          "Penn Gate Connector Trail",
+          0.667
+        ]
+      }
+    },
+    {
+      "id": "rotary-club-trail",
+      "name": "Rotary Club Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "South Yuba Trail",
+          0.476
+        ],
+        "osm": [
+          "Mark Court",
+          0.476
+        ]
+      }
+    },
+    {
+      "id": "rough-and-ready-ditch-trail",
+      "name": "Rough and Ready Ditch Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Rough & Ready Ditch Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -121.090396,
+        39.229995
+      ],
+      "fields": {
+        "Desc_": "Hidden away on a peaceful wooded slope within Wildflower Ridge Preserve, the Rough & Ready Ditch Trail follows the historic canal quietly shuttling water from Nevada City to Rough & Ready — as it has been doing since 1854. ",
+        "Length": 1.4094,
+        "Length_txt": "1.4",
+        "Difficulty": "Easy",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "No motorized vehicles. Dogs on leash.",
+        "Access": "Hiking, biking",
+        "Location": "Grass Valley",
+        "URL": "https://www.bylt.org/trail/rough-ready-ditch-trail/",
+        "Photo_URL": "https://www.bylt.org/wp-content/uploads/2023/08/IMG_8580-500x380.jpg",
+        "Altitude": "36",
+        "Manager": "BYLT"
+      },
+      "ref": 16
+    },
+    {
+      "id": "round-lake-trail",
+      "name": "Round Lake Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Round Lake Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.61009,
+        39.38849
+      ],
+      "fields": {
+        "Desc_": "The Round Lake trail begins at Grouse Ridge Trail and ends at Carr-Feely Campground.",
+        "Length": 1.29879,
+        "Length_txt": "1.3",
+        "Difficulty": "Moderate",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, horseback riding",
+        "Location": "Nevada City",
+        "URL": "https://www.fs.usda.gov/recarea/tahoe/null/recarea/?recid=56028&actid=104",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Tahoe National Forest"
+      },
+      "ref": 121
+    },
+    {
+      "id": "round-mountain-trail",
+      "name": "Round Mountain Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Round Mountain Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -121.016417,
+        39.320749
+      ],
+      "fields": {
+        "Desc_": "Maintained by BONC, this is a fun sweeping singletrack with a couple of tight switchbacks going from Round Mountain to the South Yuba Trail.",
+        "Length": 1.46025,
+        "Length_txt": "1.5",
+        "Difficulty": "Moderate",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Dogs on leash. No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking, horseback riding",
+        "Location": "Nevada City",
+        "URL": "https://www.blm.gov/visit/south-yuba-recreation-area",
+        "Photo_URL": "https://live.staticflickr.com/4499/24120287758_6e99744852_z.jpg",
+        "Altitude": " ",
+        "Manager": "Bureau of Land Management"
+      },
+      "ref": 64
+    },
+    {
+      "id": "russel-valley-ohv-connector-trail",
+      "name": "Russel Valley OHV Connector Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Ridge Camp Connector",
+          0.651
+        ],
+        "osm": [
+          "Ousley Bar Connector",
+          0.698
+        ]
+      }
+    },
+    {
+      "id": "russel-valley-south-ohv-trail",
+      "name": "Russel Valley South OHV Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Castle Valley Access Trail",
+          0.564
+        ],
+        "osm": [
+          "Garden Valley Road",
+          0.595
+        ]
+      }
+    },
+    {
+      "id": "sagehen-hill-tie-trail",
+      "name": "Sagehen Hill Tie Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Penn Valley Bike Trail",
+          0.5
+        ],
+        "osm": [
+          "Shake Hill Road",
+          0.581
+        ]
+      }
+    },
+    {
+      "id": "sagehen-ohv-loop-trail-1",
+      "name": "Sagehen OHV Loop Trail 1",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Slaughterhouse Trail",
+          0.522
+        ],
+        "osm": [
+          "Athens Way",
+          0.526
+        ]
+      }
+    },
+    {
+      "id": "sagehen-ohv-loop-trail-2",
+      "name": "Sagehen OHV Loop Trail 2",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Slaughterhouse Trail",
+          0.522
+        ],
+        "osm": [
+          "Athens Way",
+          0.526
+        ]
+      }
+    },
+    {
+      "id": "sagehen-ohv-tie-1-trail",
+      "name": "Sagehen OHV Tie 1 Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Alan Theisen Trail",
+          0.48
+        ],
+        "osm": [
+          "Fair Haven Drive",
+          0.483
+        ]
+      }
+    },
+    {
+      "id": "sagehen-ohv-tie-2-trail",
+      "name": "Sagehen OHV Tie 2 Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Alan Theisen Trail",
+          0.48
+        ],
+        "osm": [
+          "Fair Haven Drive",
+          0.483
+        ]
+      }
+    },
+    {
+      "id": "sagehen-powerline",
+      "name": "Sagehen Powerline",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Stevens Lane Trail",
+          0.552
+        ],
+        "osm": [
+          "Powerline Trail",
+          0.692
+        ]
+      }
+    },
+    {
+      "id": "sagehen-prosser-ohv-tie-trail",
+      "name": "Sagehen Prosser OHV Tie Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Slaughterhouse Trail",
+          0.485
+        ],
+        "osm": [
+          "Stacey Lane Crosscut Trail",
+          0.513
+        ]
+      }
+    },
+    {
+      "id": "sand-ridge-trail",
+      "name": "Sand Ridge Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Sand Ridge Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.584812,
+        39.406745
+      ],
+      "fields": {
+        "Desc_": "This is a difficult trail that follows the San Ridge.",
+        "Length": 1.89312,
+        "Length_txt": "1.9",
+        "Difficulty": "Challenging",
+        "Trail_Surf": "Natural Eath",
+        "Perm_Use": "No motorized vehicles. Stay on trail.",
+        "Access": "Hiking",
+        "Location": "Nevada City",
+        "URL": "https://www.fs.usda.gov/recmain/tahoe/recreation",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Tahoe National Forest"
+      },
+      "ref": 99
+    },
+    {
+      "id": "sandridge-lake-trail",
+      "name": "Sandridge lake trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Sandridge Lake Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.3702,
+        39.370623
+      ],
+      "fields": {
+        "Desc_": "This hidden gem can be accessed from the Hole in the Ground trail or by foot using the PCT over Castle pass down into Round Valley.",
+        "Length": 0.45386,
+        "Length_txt": "0.4",
+        "Difficulty": "Moderate",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Dogs on leash. No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking",
+        "Location": "Truckee",
+        "URL": "https://truckeetrails.org/trails/sandridgelaketrail/",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Tahoe National Forest"
+      },
+      "ref": 81
+    },
+    {
+      "id": "sanford-lake-trail",
+      "name": "Sanford Lake Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Sanford Lake Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.61009,
+        39.38849
+      ],
+      "fields": {
+        "Desc_": "This trail leads to Sanford Lake.",
+        "Length": 0.278194,
+        "Length_txt": "0.3",
+        "Difficulty": "Easy",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "No motorized vehicles. Stay on trail.",
+        "Access": "Hiking",
+        "Location": "Nevada City",
+        "URL": "https://www.fs.usda.gov/recmain/tahoe/recreation",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Tahoe National Forest"
+      },
+      "ref": 96
+    },
+    {
+      "id": "sawtooth-trailhead-truckee",
+      "name": "Sawtooth Trailhead",
+      "city": "Truckee",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "South Yuba Ridge Trail",
+          0.471
+        ],
+        "osm": [
+          "Missouri Bar Trailhead",
+          0.6
+        ]
+      }
+    },
+    {
+      "id": "scenic-overlook-road",
+      "name": "Scenic Overlook Road",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Rock Creek Road Trail",
+          0.514
+        ],
+        "osm": [
+          "Nicholls Road",
+          0.606
+        ]
+      }
+    },
+    {
+      "id": "scenic-overlook-trail",
+      "name": "Scenic Overlook Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "China Cove Trail",
+          0.48
+        ],
+        "osm": [
+          "Omega Overlook Motorcycle Trail",
+          0.5
+        ]
+      }
+    },
+    {
+      "id": "scenic-overlook-and-picnic-trail",
+      "name": "Scenic Overlook and Picnic Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Kessler Picnic Area Trail",
+          0.488
+        ],
+        "osm": [
+          "Omega Overlook Motorcycle Trail",
+          0.553
+        ]
+      }
+    },
+    {
+      "id": "scotts-flat-resevoir-trail",
+      "name": "Scotts Flat Resevoir Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Scotts Flat Trail",
+      "score": 0.9,
+      "has_line": true,
+      "trailhead": [
+        -120.93043,
+        39.299208
+      ],
+      "fields": {
+        "Desc_": "This is a popular mountain biking and hiking trail that descends from Highway 20 to Scott's Flat Resevoir.",
+        "Length": 7.1,
+        "Length_txt": "7.1",
+        "Difficulty": "Challenging",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Dogs on leash. No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking",
+        "Location": "Nevada City",
+        "URL": "https://www.nidwater.com/activities-at-scotts-flat-lake-area",
+        "Photo_URL": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/ScottsFlatLakeCalifornia.jpg/1200px-ScottsFlatLakeCalifornia.jpg",
+        "Altitude": " ",
+        "Manager": "Tahoe National Forest"
+      },
+      "ref": 63
+    },
+    {
+      "id": "scotts-flat-trail",
+      "name": "Scotts Flat Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Scotts Flat Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.93043,
+        39.299208
+      ],
+      "fields": {
+        "Desc_": "This is a popular mountain biking and hiking trail that descends from Highway 20 to Scott's Flat Resevoir.",
+        "Length": 7.1,
+        "Length_txt": "7.1",
+        "Difficulty": "Challenging",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Dogs on leash. No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking",
+        "Location": "Nevada City",
+        "URL": "https://www.nidwater.com/activities-at-scotts-flat-lake-area",
+        "Photo_URL": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/45/ScottsFlatLakeCalifornia.jpg/1200px-ScottsFlatLakeCalifornia.jpg",
+        "Altitude": " ",
+        "Manager": "Tahoe National Forest"
+      },
+      "ref": 63
+    },
+    {
+      "id": "sierra-college-mciver-hill-trail",
+      "name": "Sierra College McIver Hill Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Sierra College Trails",
+      "score": 0.9,
+      "has_line": true,
+      "trailhead": [
+        -120.18529,
+        39.327743
+      ],
+      "fields": {
+        "Desc_": "This trail system is on Sierra College",
+        "Length": 0.892655,
+        "Length_txt": "0.8",
+        "Difficulty": "Easy",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "No motorized vehicles.",
+        "Access": "Hiking, biking",
+        "Location": "Truckee",
+        "URL": "https://www.sierracollege.edu/visit-sierra-college/tahoe-truckee-campus/",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Sierra College"
+      },
+      "ref": 139
+    },
+    {
+      "id": "sierra-college-trail",
+      "name": "Sierra College Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Sierra College Trails",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.18529,
+        39.327743
+      ],
+      "fields": {
+        "Desc_": "This trail system is on Sierra College",
+        "Length": 0.892655,
+        "Length_txt": "0.8",
+        "Difficulty": "Easy",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "No motorized vehicles.",
+        "Access": "Hiking, biking",
+        "Location": "Truckee",
+        "URL": "https://www.sierracollege.edu/visit-sierra-college/tahoe-truckee-campus/",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Sierra College"
+      },
+      "ref": 139
+    },
+    {
+      "id": "sierra-discovery-trail",
+      "name": "Sierra Discovery Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Sierra Discovery Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.665849,
+        39.309034
+      ],
+      "fields": {
+        "Desc_": "The Sierra Discovery Trail loop is an interesting and easy interpretive trail, explaining the geology and ecology of the Bear Valley and the Sierra Nevada. Picnic tables and restrooms can also be found here.",
+        "Length": 0.624932,
+        "Length_txt": "0.6",
+        "Difficulty": "Easy",
+        "Trail_Surf": "Paved, Natural Earth",
+        "Perm_Use": "Dogs on leash. No motorized vehicles. Stay on trail.",
+        "Access": "Wheelchair Accessible",
+        "Location": "Nevada City",
+        "URL": "http://www.nevadacountythingstodo.com/hiking/sierradiscovery/",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Pacific Gas & Electric"
+      },
+      "ref": 24
+    },
+    {
+      "id": "signal-peak-lookout-loop-trail",
+      "name": "Signal Peak Lookout Loop Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Memorial Park Trail",
+          0.438
+        ],
+        "osm": [
+          "Lookout Trail",
+          0.538
+        ]
+      }
+    },
+    {
+      "id": "signal-peak-trail",
+      "name": "Signal Peak Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Memorial Park Trail",
+          0.583
+        ],
+        "osm": [
+          "Memorial Park Trail",
+          0.583
+        ]
+      }
+    },
+    {
+      "id": "slaughterhouse-trail",
+      "name": "Slaughterhouse Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Slaughterhouse Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.897901,
+        39.370453
+      ],
+      "fields": {
+        "Desc_": "This trail is part of the popular Malakoff Diggins State Historic Park trail network. Malakoff Diggins is the site of California's largest \"hydraulic\" mine. Visitors can see huge cliffs carved by mighty streams of water, results of hydraulic mining.",
+        "Length": 0.671184,
+        "Length_txt": "0.7",
+        "Difficulty": "Easy",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Dogs on leash. No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking, horseback riding",
+        "Location": "Nevada City",
+        "URL": "https://www.parks.ca.gov/?page_id=494",
+        "Photo_URL": "https://www.parks.ca.gov/pages/734/images/MalakoffDiggins_SHP.png",
+        "Altitude": " ",
+        "Manager": "Malakoff Diggins State Historic Park"
+      },
+      "ref": 48
+    },
+    {
+      "id": "south-yuba-ridge-trail",
+      "name": "South Yuba Ridge Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "South Yuba Ridge Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.739195,
+        39.360183
+      ],
+      "fields": {
+        "Desc_": "The South Yuba Ridge Trail begins at Golden Quartz Picnic Area-Maybert Road and ends at Ridge Trail.",
+        "Length": 1.98167,
+        "Length_txt": "1.9",
+        "Difficulty": "Challenging",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "No motorized vehicles. Stay on trail.",
+        "Access": "Hiking",
+        "Location": "Nevada City",
+        "URL": "https://www.fs.usda.gov/recarea/tahoe/recarea/?recid=55852",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Tahoe National Forest"
+      },
+      "ref": 105
+    },
+    {
+      "id": "south-yuba-trail",
+      "name": "South Yuba Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "South Yuba Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.893108,
+        39.359518
+      ],
+      "fields": {
+        "Desc_": "Follow the South Yuba River as it traverses through a historic river canyon. There are many spots along the trail to hang out and cool off for the day.",
+        "Length": 19.349,
+        "Length_txt": "19",
+        "Difficulty": "Moderate",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Dogs on leash. No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking, horseback riding",
+        "Location": "Nevada City",
+        "URL": "https://www.parks.ca.gov/?page_id=25632",
+        "Photo_URL": "https://www.southyubariverstatepark.org/RespImages/LoweBroadsideTest.jpg",
+        "Altitude": " ",
+        "Manager": "State Parks / BLM / TNF"
+      },
+      "ref": 23
+    },
+    {
+      "id": "spaulding-lake-trail",
+      "name": "Spaulding Lake Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Spaulding Lake Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.618296,
+        39.354229
+      ],
+      "fields": {
+        "Desc_": "The Spaulding Lake trail begins at Bowman Road and ends at Grouse Ridge Trail.",
+        "Length": 5.1381,
+        "Length_txt": "5.1",
+        "Difficulty": "Moderate",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "No motorized vehicles. Stay on trail.",
+        "Access": "Hiking",
+        "Location": "Nevada City",
+        "URL": "https://www.fs.usda.gov/recarea/tahoe/recreation/recarea/?recid=56030&actid=50",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Tahoe National Forest"
+      },
+      "ref": 120
+    },
+    {
+      "id": "splitrock-camp-connector-trail",
+      "name": "Splitrock Camp Connector Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Splitrock Camp Connector",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.237712,
+        39.325393
+      ],
+      "fields": {
+        "Desc_": "This trail connects Splitrock Campground to South Shore Drive.",
+        "Length": 0.0949771,
+        "Length_txt": "0.1",
+        "Difficulty": "Easy",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "No motorized vehicles. Stay on trail. Dogs on leash.",
+        "Access": "Hiking",
+        "Location": "Truckee",
+        "URL": "https://www.parks.ca.gov/?page_id=503",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Donner Memorial State Park"
+      },
+      "ref": 130
+    },
+    {
+      "id": "splitrock-campground-connector-trail",
+      "name": "Splitrock Campground Connector Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Splitrock Camp Connector",
+      "score": 0.889,
+      "has_line": true,
+      "trailhead": [
+        -120.237712,
+        39.325393
+      ],
+      "fields": {
+        "Desc_": "This trail connects Splitrock Campground to South Shore Drive.",
+        "Length": 0.0949771,
+        "Length_txt": "0.1",
+        "Difficulty": "Easy",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "No motorized vehicles. Stay on trail. Dogs on leash.",
+        "Access": "Hiking",
+        "Location": "Truckee",
+        "URL": "https://www.parks.ca.gov/?page_id=503",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Donner Memorial State Park"
+      },
+      "ref": 130
+    },
+    {
+      "id": "spring-creek-trail",
+      "name": "Spring Creek Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Spring Creek Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.983581,
+        39.329808
+      ],
+      "fields": {
+        "Desc_": "This short mostly level hike to Spring Creek is a beautiful place to picnic",
+        "Length": 0.335195,
+        "Length_txt": "0.3",
+        "Difficulty": "Easy",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking",
+        "Location": "Nevada City",
+        "URL": "https://www.nevadacitychamber.com/nevada-city-things-to-do/outdoor-recreation/hiking-trails/spring-creek-trail/",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Bureau of Land Management"
+      },
+      "ref": 119
+    },
+    {
+      "id": "stacy-lane-crosscut-trail",
+      "name": "Stacy Lane Crosscut Trail",
+      "city": "",
+      "matched": true,
+      "source": "osm",
+      "matched_name": "Stacey Lane Crosscut Trail",
+      "score": 0.974,
+      "has_line": false,
+      "trailhead": [
+        -121.055695,
+        39.205299
+      ],
+      "fields": {
+        "highway": "path",
+        "osm_id": 316165316
+      },
+      "ref": 316165316
+    },
+    {
+      "id": "stacy-lane-trail",
+      "name": "Stacy Lane Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Stacey Lane Trail",
+      "score": 0.952,
+      "has_line": true,
+      "trailhead": [
+        -121.057122,
+        39.209617
+      ],
+      "fields": {
+        "Desc_": "This trail is part of the popular Empire Mine State Historic Park trail network.",
+        "Length": 0.515777,
+        "Length_txt": "0.5",
+        "Difficulty": "Easy",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Dogs on leash. No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking, horseback riding",
+        "Location": "Grass Valley",
+        "URL": "https://www.parks.ca.gov/?page_id=499",
+        "Photo_URL": "https://www.parks.ca.gov/pages/499/images/mineshaft.jpg",
+        "Altitude": " ",
+        "Manager": "Empire Mine State Park"
+      },
+      "ref": 47
+    },
+    {
+      "id": "stanton-trail",
+      "name": "Stanton Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Stanton Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.785311,
+        39.305847
+      ],
+      "fields": {
+        "Desc_": "This trail is part of the network of popular trails along the Hwy 20 corridor.",
+        "Length": 2.86444,
+        "Length_txt": "2.8",
+        "Difficulty": "Challenging",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Dogs on leash. No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking, horseback riding",
+        "Location": "Nevada City",
+        "URL": "https://www.fs.usda.gov/recmain/tahoe/recreation",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Tahoe National Forest"
+      },
+      "ref": 127
+    },
+    {
+      "id": "state-route-89-south-mousehole-trail",
+      "name": "State Route 89 South/Mousehole Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "State Route 89 South/Mousehole Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.20727,
+        39.323845
+      ],
+      "fields": {
+        "Desc_": "This trail is part of the Town of Truckee's trail system.",
+        "Length": 1.18222,
+        "Length_txt": "1.2",
+        "Difficulty": "Easy",
+        "Trail_Surf": "Paved",
+        "Perm_Use": "No motorized vehicles.",
+        "Access": "Wheelchair Accessible",
+        "Location": "Truckee",
+        "URL": "https://biketahoe.org/truckee-bike-trails/",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Town of Truckee"
+      },
+      "ref": 152
+    },
+    {
+      "id": "stevens-lane-trail",
+      "name": "Stevens Lane Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Stevens Lane Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.171945,
+        39.334505
+      ],
+      "fields": {
+        "Desc_": "This trail is part of the Town of Truckee's trail system.",
+        "Length": 0.206347,
+        "Length_txt": "0.2",
+        "Difficulty": "Easy",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "No motorized vehicles. Dogs on leash.",
+        "Access": "Hiking, biking",
+        "Location": "Truckee",
+        "URL": "https://www.townoftruckee.com/home/showpublisheddocument/13202/635857041059070000",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Town of Truckee"
+      },
+      "ref": 141
+    },
+    {
+      "id": "stockrest-springs-trail",
+      "name": "Stockrest Springs Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Stockrest Springs Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.171945,
+        39.334505
+      ],
+      "fields": {
+        "Desc_": "This trail is part of the Town of Truckee's trail system.",
+        "Length": 0.120627,
+        "Length_txt": "0.1",
+        "Difficulty": "Easy",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "No motorized vehicles. Dogs on leash.",
+        "Access": "Hiking, biking",
+        "Location": "Truckee",
+        "URL": "https://www.townoftruckee.com/home/showpublisheddocument/13202/635857041059070000",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Town of Truckee"
+      },
+      "ref": 142
+    },
+    {
+      "id": "sugarloaf-mountains-trails",
+      "name": "Sugarloaf Mountains Trails",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Sugarloaf Mountain Trail",
+      "score": 0.973,
+      "has_line": true,
+      "trailhead": [
+        -121.016227,
+        39.272388
+      ],
+      "fields": {
+        "Desc_": "The iconic landmark just north of town is now an open space preserve easily accessible from town. An excellent trail to the top, following the grade of an old road, is open for community enjoyment.",
+        "Length": 0.543361,
+        "Length_txt": "0.5",
+        "Difficulty": "Easy",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Day use only. Dogs on leash. No smoking, fires or camping. No alcohol or firearms. Motorized vehicles prohibited. The trail gate is a short way up a residential driveway off Coyote Street. Please stay on driveway and do not disturb the residents.",
+        "Access": "Hiking, biking",
+        "Location": "Nevada City",
+        "URL": "https://www.bylt.org/trail/sugarloaf-mountain-trail/",
+        "Photo_URL": "https://www.bylt.org/wp-content/uploads/2015/05/sugarloaf-500x380.jpg",
+        "Altitude": "220'",
+        "Manager": "BYLT"
+      },
+      "ref": 17
+    },
+    {
+      "id": "summit-lake-ohv-trail",
+      "name": "Summit Lake OHV Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Summit Lake Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.342951,
+        39.339355
+      ],
+      "fields": {
+        "Desc_": "The Summit Lake trail is 1.5 miles long. It begins at I-80 Westbound Rest Area, Section 8 and ends at Summit Lake, Section 4. The trail is open for the following uses: Hiking",
+        "Length": 0.815673,
+        "Length_txt": "0.8",
+        "Difficulty": "Easy",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking, horseback riding",
+        "Location": "Truckee",
+        "URL": "https://www.alltrails.com/trail/us/california/summit-lake-trail",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Lake Tahoe Basin Management Unit Office"
+      },
+      "ref": 74
+    },
+    {
+      "id": "towle-mill-loop-motorcycle-trail",
+      "name": "Towle Mill Loop Motorcycle Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Gold Hill Drive Entrance",
+          0.489
+        ],
+        "osm": [
+          "Omega Motorcycle Trail",
+          0.703
+        ]
+      }
+    },
+    {
+      "id": "tribulation-connector-trail",
+      "name": "Tribulation Connector Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Ridge Camp Connector",
+          0.634
+        ],
+        "osm": [
+          "Tribulation Trail",
+          0.688
+        ]
+      }
+    },
+    {
+      "id": "trout-creek-trail",
+      "name": "Trout Creek Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Wolf Creek Trail",
+          0.667
+        ],
+        "osm": [
+          "Wolf Creek Trail",
+          0.667
+        ]
+      }
+    },
+    {
+      "id": "truckee-bike-earthen-trail",
+      "name": "Truckee Bike Earthen Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Truckee Bike Earthen Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.155368,
+        39.328308
+      ],
+      "fields": {
+        "Desc_": "This is a network of trails in Truckee",
+        "Length": 9.88737,
+        "Length_txt": "9.9",
+        "Difficulty": "Moderate",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking",
+        "Location": "Truckee",
+        "URL": "https://biketahoe.org/truckee-bike-trails/",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "City of Truckee"
+      },
+      "ref": 137
+    },
+    {
+      "id": "truckee-bike-path",
+      "name": "Truckee Bike Path",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Truckee Bike Path",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.171945,
+        39.334505
+      ],
+      "fields": {
+        "Desc_": "This trail is part of the Town of Truckee's trail system.",
+        "Length": 2.49889,
+        "Length_txt": "2.5",
+        "Difficulty": "Easy",
+        "Trail_Surf": "Paved",
+        "Perm_Use": "No motorized vehicles. Dogs on leash.",
+        "Access": "Wheelchair Accessible",
+        "Location": "Truckee",
+        "URL": "https://www.townoftruckee.com/home/showpublisheddocument/13202/635857041059070000",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Town of Truckee"
+      },
+      "ref": 138
+    },
+    {
+      "id": "turnpike-trail",
+      "name": "Turnpike Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Truckee Bike Path",
+          0.5
+        ],
+        "osm": [
+          "Burch Lane",
+          0.444
+        ]
+      }
+    },
+    {
+      "id": "up-and-over-trail",
+      "name": "Up and Over Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Up and Over Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -121.016417,
+        39.320749
+      ],
+      "fields": {
+        "Desc_": "This is a popular with mountain biking trail and part of the Round Mountain Loop.",
+        "Length": 0.467078,
+        "Length_txt": "0.5",
+        "Difficulty": "Moderate",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Dogs on leash. No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking, horseback riding",
+        "Location": "Nevada City",
+        "URL": "https://www.blm.gov/visit/south-yuba-recreation-area",
+        "Photo_URL": "https://live.staticflickr.com/4499/24120287758_6e99744852_z.jpg",
+        "Altitude": " ",
+        "Manager": "Bureau of Land Management"
+      },
+      "ref": 117
+    },
+    {
+      "id": "upper-hudson-way-trail",
+      "name": "Upper Hudson Way Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Upper Hudson Way Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -121.016417,
+        39.320749
+      ],
+      "fields": {
+        "Desc_": "This is a popular with mountain biking trail and part of the Round Mountain Loop.",
+        "Length": 1.25155,
+        "Length_txt": "1.2",
+        "Difficulty": "Moderate",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Dogs on leash. No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking, horseback riding",
+        "Location": "Nevada City",
+        "URL": "https://www.blm.gov/visit/south-yuba-recreation-area",
+        "Photo_URL": "https://live.staticflickr.com/4499/24120287758_6e99744852_z.jpg",
+        "Altitude": " ",
+        "Manager": "Bureau of Land Management"
+      },
+      "ref": 112
+    },
+    {
+      "id": "upper-humbug-trail",
+      "name": "Upper Humbug Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Upper Humbug Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.897901,
+        39.370453
+      ],
+      "fields": {
+        "Desc_": "This trail is part of the popular Malakoff Diggins State Historic Park trail network. Malakoff Diggins is the site of California's largest \"hydraulic\" mine. Visitors can see huge cliffs carved by mighty streams of water, results of hydraulic mining.",
+        "Length": 0.743761,
+        "Length_txt": "0.7",
+        "Difficulty": "Easy",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Dogs on leash. No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking, horseback riding",
+        "Location": "Nevada City",
+        "URL": "https://www.parks.ca.gov/?page_id=494",
+        "Photo_URL": "https://www.parks.ca.gov/pages/734/images/MalakoffDiggins_SHP.png",
+        "Altitude": " ",
+        "Manager": "Malakoff Diggins State Historic Park"
+      },
+      "ref": 56
+    },
+    {
+      "id": "upper-union-hill-trail",
+      "name": "Upper Union Hill Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Upper Union Hill Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -121.025955,
+        39.223937
+      ],
+      "fields": {
+        "Desc_": "This trail is part of the popular Empire Mine State Historic Park trail network.",
+        "Length": 1.02752,
+        "Length_txt": "1",
+        "Difficulty": "Easy",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Dogs on leash. No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking, horseback riding",
+        "Location": "Grass Valley",
+        "URL": "https://www.bylt.org/trail/union-hill-trail-area/",
+        "Photo_URL": "https://www.parks.ca.gov/pages/499/images/mineshaft.jpg",
+        "Altitude": " ",
+        "Manager": "Empire Mine State Park"
+      },
+      "ref": 33
+    },
+    {
+      "id": "verdi-ohv-trail",
+      "name": "Verdi OHV Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Rim Trail",
+          0.5
+        ],
+        "osm": [
+          "Rim Trail",
+          0.5
+        ]
+      }
+    },
+    {
+      "id": "warren-lake-trail",
+      "name": "Warren Lake Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Warren Lake Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.347219,
+        39.370949
+      ],
+      "fields": {
+        "Desc_": "This 7 mile trail will take you past the intersection of Summit Lake trail, Donner Lake Rim Trail, Frog Lake overlook, the backside of Castle Peak, and down to the hidden gem, Warren Lake.",
+        "Length": 8.02318,
+        "Length_txt": "8",
+        "Difficulty": "Challenging",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "No motorized vehicles. Stay on trail.",
+        "Access": "Hiking",
+        "Location": "Truckee",
+        "URL": "https://truckeetrails.org/trails/warren-lake-trail/",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Tahoe National Forest"
+      },
+      "ref": 87
+    },
+    {
+      "id": "wendin-way-trail",
+      "name": "Wendin Way Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Wendin Way Access Trail",
+      "score": 0.9,
+      "has_line": true,
+      "trailhead": [
+        -120.296787,
+        39.322142
+      ],
+      "fields": {
+        "Desc_": "This trail can be used to access the Donner Lake Rim Trail",
+        "Length": 1.09588,
+        "Length_txt": "1.1",
+        "Difficulty": "Easy",
+        "Trail_Surf": "Natural earth",
+        "Perm_Use": "No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking, horseback riding",
+        "Location": "Truckee",
+        "URL": "https://www.truckeedonnerlandtrust.org/donner-lake-rim-trail",
+        "Photo_URL": " ",
+        "Altitude": " ",
+        "Manager": "Lake Tahoe Basin Management Unit Office"
+      },
+      "ref": 76
+    },
+    {
+      "id": "western-gateway-park-penn-valley",
+      "name": "Western Gateway Park",
+      "city": "Penn Valley",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Western Gateway Park Fitness Trail",
+      "score": 0.9,
+      "has_line": true,
+      "trailhead": [
+        -121.204214,
+        39.205291
+      ],
+      "fields": {
+        "Desc_": "If you’re looking for a quiet loop walk, run or bike ride then be sure to check out the Fitness Trail in the woods west of the landscaped central area.",
+        "Length": 1.81619,
+        "Length_txt": "1.8",
+        "Difficulty": "Easy",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Dogs on leash. No horses on Fitness Trail. Clean up after dogs. Exit park by dusk.",
+        "Access": "Hiking, biking",
+        "Location": "Penn Valley",
+        "URL": "https://www.bylt.org/trail/western-gateway/",
+        "Photo_URL": "https://www.bylt.org/wp-content/uploads/2015/05/park-walk1-500x380.jpg",
+        "Altitude": "10",
+        "Manager": "Nevada County"
+      },
+      "ref": 25
+    },
+    {
+      "id": "western-gateway-park-creek-trail",
+      "name": "Western Gateway Park Creek Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Western Gateway Park Fitness Trail",
+      "score": 0.815,
+      "has_line": true,
+      "trailhead": [
+        -121.204214,
+        39.205291
+      ],
+      "fields": {
+        "Desc_": "If you’re looking for a quiet loop walk, run or bike ride then be sure to check out the Fitness Trail in the woods west of the landscaped central area.",
+        "Length": 1.81619,
+        "Length_txt": "1.8",
+        "Difficulty": "Easy",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Dogs on leash. No horses on Fitness Trail. Clean up after dogs. Exit park by dusk.",
+        "Access": "Hiking, biking",
+        "Location": "Penn Valley",
+        "URL": "https://www.bylt.org/trail/western-gateway/",
+        "Photo_URL": "https://www.bylt.org/wp-content/uploads/2015/05/park-walk1-500x380.jpg",
+        "Altitude": "10",
+        "Manager": "Nevada County"
+      },
+      "ref": 25
+    },
+    {
+      "id": "western-gateway-park-fitness-trail",
+      "name": "Western Gateway Park Fitness Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Western Gateway Park Fitness Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -121.204214,
+        39.205291
+      ],
+      "fields": {
+        "Desc_": "If you’re looking for a quiet loop walk, run or bike ride then be sure to check out the Fitness Trail in the woods west of the landscaped central area.",
+        "Length": 1.81619,
+        "Length_txt": "1.8",
+        "Difficulty": "Easy",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Dogs on leash. No horses on Fitness Trail. Clean up after dogs. Exit park by dusk.",
+        "Access": "Hiking, biking",
+        "Location": "Penn Valley",
+        "URL": "https://www.bylt.org/trail/western-gateway/",
+        "Photo_URL": "https://www.bylt.org/wp-content/uploads/2015/05/park-walk1-500x380.jpg",
+        "Altitude": "10",
+        "Manager": "Nevada County"
+      },
+      "ref": 25
+    },
+    {
+      "id": "white-rock-ohv-trail",
+      "name": "White Rock OHV Trail",
+      "city": "",
+      "matched": false,
+      "source": null,
+      "matched_name": null,
+      "score": 0.0,
+      "has_line": false,
+      "trailhead": null,
+      "fields": {},
+      "near_miss": {
+        "bylt": [
+          "Hardrock Trail",
+          0.556
+        ],
+        "osm": [
+          "Whitehead Road",
+          0.667
+        ]
+      }
+    },
+    {
+      "id": "wildflower-ridge-trail",
+      "name": "Wildflower Ridge Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Wildflower Ridge Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -121.090396,
+        39.229995
+      ],
+      "fields": {
+        "Desc_": "This trail is part of the Wildflower Ridge Preserve trail network. Wildflower Ridge Preserve is a large property west of Grass Valley. This area boasts open meadows and is on a forested hillside that drops down toward Deer Creek.",
+        "Length": 0.986918,
+        "Length_txt": "0.9",
+        "Difficulty": "Easy",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "No motorized vehicles. Dogs on leash.",
+        "Access": "Hiking, biking",
+        "Location": "Grass Valley",
+        "URL": "https://www.bylt.org/trail/wildflower-ridge-trail/",
+        "Photo_URL": "https://www.bylt.org/wp-content/uploads/2015/05/kenny-ranch-500x380.jpg",
+        "Altitude": "11",
+        "Manager": "BYLT"
+      },
+      "ref": 18
+    },
+    {
+      "id": "wolf-creek-trail",
+      "name": "Wolf Creek Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Wolf Creek Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -121.065025,
+        39.204498
+      ],
+      "fields": {
+        "Desc_": "The City of Grass Valley officially opened the Wolf Creek Trail in 2018. The trail passes by the North Star Mining Museum and Glenn Jones Park. Wolf Creek runs parallel to the trail and crosses Little Wolf Creek.",
+        "Length": 1.48649,
+        "Length_txt": "1.5",
+        "Difficulty": "Easy",
+        "Trail_Surf": "Paved",
+        "Perm_Use": "Dogs on leash. No motorized vehicles. Stay on trail.",
+        "Access": "Wheelchair Accessible",
+        "Location": "Grass Valley",
+        "URL": "https://www.bylt.org/trail/wolf-creek-trail/",
+        "Photo_URL": "https://www.bylt.org/wp-content/uploads/2020/07/IMG_20191114_155129980_2-500x380.jpg",
+        "Altitude": "180",
+        "Manager": "CIty of Grass Valley"
+      },
+      "ref": 19
+    },
+    {
+      "id": "woods-ravine-trail",
+      "name": "Woods Ravine Trail",
+      "city": "",
+      "matched": true,
+      "source": "osm",
+      "matched_name": "Woods Ravine Trail",
+      "score": 1.0,
+      "has_line": false,
+      "trailhead": [
+        -121.045112,
+        39.267338
+      ],
+      "fields": {
+        "highway": "path",
+        "osm_id": 533380937
+      },
+      "ref": 533380937
+    },
+    {
+      "id": "memorial-park-trail",
+      "name": "memorial Park Trail",
+      "city": "",
+      "matched": true,
+      "source": "bylt",
+      "matched_name": "Memorial Park Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -121.045728,
+        39.207182
+      ],
+      "fields": {
+        "Desc_": "This trail is part of the popular Empire Mine State Historic Park trail network.",
+        "Length": 0.786949,
+        "Length_txt": "0.8",
+        "Difficulty": "Easy",
+        "Trail_Surf": "Natural Earth",
+        "Perm_Use": "Dogs on leash. No motorized vehicles. Stay on trail.",
+        "Access": "Hiking, biking, horseback riding",
+        "Location": "Grass Valley",
+        "URL": "https://www.parks.ca.gov/?page_id=499",
+        "Photo_URL": "https://www.parks.ca.gov/pages/499/images/mineshaft.jpg",
+        "Altitude": " ",
+        "Manager": "Empire Mine State Park"
+      },
+      "ref": 37
+    }
+  ]
+}

@@ -19,3 +19,9 @@ scripts/.env
 scripts/og-fullsweep.json
 scripts/website-audit.json
 scripts/coord-parcel-report.json
+
+# Trail data-layer raw pulls — refetchable via fetch-bylt-trails.py / fetch-osm-trails.py
+# (bylt-trails.geojson is ~4 MB). The runtime product data/trails.json IS committed.
+scripts/bylt-trails.geojson
+scripts/bylt-trailheads.geojson
+scripts/osm-trails-raw.json
