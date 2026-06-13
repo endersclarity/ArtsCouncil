@@ -979,11 +979,20 @@
     if (els.selectionDrawer) els.selectionDrawer.scrollTop = 0;
   }
 
+  // The mode tabs reflect what the visitor is LOOKING AT (critique P2-9): an
+  // event card opened from the rail lights the Events tab even though the
+  // browse mode underneath is unchanged; closing the card restores the truth.
+  function syncModeTabs(kind) {
+    const active = kind || state.mode;
+    document.querySelectorAll(".mode-tab").forEach((tab) => tab.classList.toggle("active", tab.dataset.mode === active));
+  }
+
   function closeSelectionDrawer() {
     els.selectionDrawer?.classList.remove("open");
     state.selectedPlaceId = "";
     state.selectedEventId = "";
     setDetailCardMode("");
+    syncModeTabs();
     els.detail.innerHTML = `<p class="empty-title">Select a place</p><p class="empty-copy">Choose another place from the Directory Browser to reopen details.</p>`;
     if (state.map) setSourceData();
     updateReviewUrl();
@@ -1247,7 +1256,12 @@
 
   function firstSentence(text) {
     const match = String(text || "").match(/^.*?[.!?](?=\s|$)/);
-    return (match ? match[0] : String(text || "")).slice(0, 160);
+    const sentence = match ? match[0] : String(text || "");
+    if (sentence.length <= 160) return sentence;
+    // Truncate on a word boundary with an ellipsis — never mid-word
+    // ("Retro-coo", critique P2-10).
+    const cut = sentence.slice(0, 160);
+    return cut.slice(0, Math.max(cut.lastIndexOf(" "), 120)).trimEnd() + "…";
   }
 
   // Some venue feeds prefix event copy with SHOUTING boilerplate
@@ -1289,10 +1303,20 @@
     setSourceData();
     setDetailCardMode("");
     if (!picks.length) return;
+    // Critique P1-7: show the picks you just rolled — fit the camera to their
+    // rings instead of leaving it parked on the previous selection.
+    const located = picks.filter((place) => Number.isFinite(place.lng) && Number.isFinite(place.lat));
+    if (located.length && state.map) {
+      const bounds = located.reduce(
+        (box, place) => box.extend([place.lng, place.lat]),
+        new maplibregl.LngLatBounds([located[0].lng, located[0].lat], [located[0].lng, located[0].lat]),
+      );
+      state.map.fitBounds(bounds, { padding: 90, maxZoom: 15, duration: prefersReducedMotion() ? 0 : 800 });
+    }
     els.detail.innerHTML = `
       <button class="selected-place-close" type="button" aria-label="Close surprises">Close</button>
       <p class="section-label">Surprise me nearby</p>
-      <p class="empty-copy">A few cultural stops you might have missed — in their own words.</p>
+      <p class="empty-copy">Four stops near the current view that you might have missed — ringed on the map, described in their own words.</p>
       <div class="surprise-list">
         ${picks.map((place) => `
           <button class="place-nearby-link" type="button" data-nearby-place="${escapeHtml(place.id)}">
@@ -1348,8 +1372,8 @@
     if (!state.museStories.length) return;
     els.detail.innerHTML = `
       <button class="selected-place-close" type="button" aria-label="Close stories">Close</button>
-      <p class="section-label">MUSE story lens</p>
-      <p class="empty-copy">Real articles from MUSE Magazine — pick one to see everywhere it touches the map.</p>
+      <p class="section-label">Stories from MUSE</p>
+      <p class="empty-copy">Real articles from MUSE, the Arts Council's magazine — pick one to see everywhere it touches the map.</p>
       <div class="story-list">
         ${state.museStories.map((story) => `
           <button class="story-row" type="button" data-muse-story="${escapeHtml(story.id)}">
@@ -1719,6 +1743,7 @@
     // not — gets the same calm paper feature card. The old primary-anchor /
     // supporting-stop card chrome (red top borders, gradients) is retired.
     setDetailCardMode("place");
+    syncModeTabs("places");
     const imageLabel = isSupportingStop && place.image?.status === "candidate"
       ? "Candidate image"
       : isSupportingStop && (!place.image?.src || place.image?.status === "missing")
@@ -1848,6 +1873,7 @@
   function showEvent(event) {
     expandDrawer();
     setDetailCardMode("event");
+    syncModeTabs("events");
     state.selectedEventId = event.id;
     state.selectedPlaceId = "";
     state.selectedPath = null;
@@ -2110,7 +2136,9 @@
       when: event.date === today ? "Tonight" : niceEventDate(event.date),
       title: event.title,
       meta: event.placeName,
-      desc: displayEventDescription(event.description || ""),
+      // Rail cards are teasers: first sentence only. The full description
+      // (fees, times, sign-up detail) stays on the event card (critique P2-10).
+      desc: firstSentence(displayEventDescription(event.description || "")),
       image: resolveMedia(event.image || ""),
       lat: event.lat,
       lng: event.lng,

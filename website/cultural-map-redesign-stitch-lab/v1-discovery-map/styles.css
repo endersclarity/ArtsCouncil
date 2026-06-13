@@ -3220,3 +3220,13 @@ button.seen-in-muse-story,
    - Rail track scrolling: native scroll-snap + scrollIntoView own that motion.
    - Map camera (easeTo/flyTo): JS-driven per the Rail Follow ruling.
    - Page/panel load: product register — no entrance choreography. */
+
+/* Touch-target floor (critique P2, detector-measured: rail chips 31px, mode
+   tabs 33.5px). Coarse pointers get the 44px minimum; desktop keeps the
+   compact control register. */
+@media (pointer: coarse) {
+  .rail-chip,
+  .mode-tab {
+    min-height: 44px;
+  }
+}

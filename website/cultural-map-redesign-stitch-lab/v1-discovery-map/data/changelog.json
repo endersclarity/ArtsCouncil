@@ -3,6 +3,12 @@
   "entries": [
     {
       "date": "2026-06-12",
+      "title": "Smaller comforts: clearer words, steadier tabs, kinder buttons",
+      "summary": "A sweep of small fixes from the visitor review. The story panel now opens with \"Stories from MUSE\" and a line explaining that MUSE is the Arts Council's magazine, so newcomers aren't left guessing at the name. \"Surprise me\" now pulls the camera back to frame all four of its picks instead of leaving you zoomed into wherever you were. Opening an event from the rail lights up the Events tab (and closing it hands the highlight back), so the tabs always tell the truth about what you're looking at. Card descriptions no longer cut off mid-word — they end cleanly at a word boundary with an ellipsis. And on phones and tablets, the small chips and tabs grew to a comfortable fingertip size.",
+      "kind": "improvement"
+    },
+    {
+      "date": "2026-06-12",
       "title": "Red now means one thing: the place you picked",
       "summary": "First-time visitors kept asking the same fair question: \"why are these places ringed in red — did I select something?\" Until now red marked three different things at once: places our editors feature, places hosting an upcoming event, and the place you actually clicked. From this build, red belongs to you alone. Featured places wear a quiet ink ring (they're also the ones that stay named at every zoom), places with an upcoming event glow a soft plum, and a red ring appears only around your own pick. The little legend in the corner finally tells the whole story too — it now explains the dot colors, the rings, the glow, the event diamonds, and the route line, instead of just three of the six marks on the map.",
       "kind": "improvement"
