@@ -36,6 +36,7 @@ APP_ROOT = Path(__file__).resolve().parents[2]
 FIREHOSE = APP_ROOT / "website" / "cultural-map-redesign" / "events-merged-flat.json"
 PLACES = APP_ROOT / "website" / "cultural-map-redesign-stitch-lab" / "v1-discovery-map" / "data" / "places.json"
 ALIASES = APP_ROOT / "scripts" / "events" / "venue_aliases.json"
+EVENT_TAGS = APP_ROOT / "scripts" / "events" / "event_tags.json"
 OUT = APP_ROOT / "website" / "cultural-map-redesign-stitch-lab" / "v1-discovery-map" / "data" / "events.json"
 REPORT = APP_ROOT / "scripts" / "events" / "reports" / "build_v1_events_report.json"
 
@@ -128,16 +129,45 @@ def derive_category(event: dict, place: dict) -> str:
     return clean(place.get("category"))
 
 
-def to_v1_event(event: dict, place: dict) -> dict:
-    date = clean(event.get("start_iso"))[:10]
+def hhmm(iso: str) -> str:
+    """Venue-local wall-clock 'HH:MM' from an offset-carrying ISO string.
+
+    start_iso already encodes Pacific wall-clock time (e.g.
+    '2026-06-12T20:00:00-07:00'), so slicing avoids any viewer-timezone drift.
+    Returns '' for all-day/midnight starts so the card omits a bogus time.
+    """
+    t = clean(iso)[11:16]
+    return "" if t in ("", "00:00") else t
+
+
+def to_v1_event(event: dict, place: dict, tag_labels: dict) -> dict:
+    start_iso = clean(event.get("start_iso"))
+    date = start_iso[:10]
+    tags = event.get("event_tags") or []
+    # Program tab names the event's own intent via the first tag's human label
+    # ("Live Music", "Family & Kids"); no tag → no tab (the venue category is
+    # the place's type, not the event's). Labels come from event_tags.json.
+    program = tag_labels.get(tags[0], "") if tags else ""
+    # The Trumba RSS/GVDA ingests already harvest a per-event flyer (image_url,
+    # upscaled to w=900) and a per-event link (ticket_url); both survive the
+    # merge into the firehose. Pass them through. Prefer the per-event link
+    # over source_ref, which is only the feed URL. Events with no upstream
+    # image (Crazy Horse, Golden Era) keep image:"" and the card falls back to
+    # the brand gradient spray. start/end times, presenter, tags, and the
+    # family flag feed the enriched detail card (poster anatomy).
     return {
         "id": event.get("event_id"),
         "title": clean(event.get("title")),
         "date": date,
+        "startTime": hhmm(start_iso),
+        "endTime": hhmm(event.get("end_iso")),
         "category": derive_category(event, place),
+        "program": program,
+        "family": bool(event.get("is_family")),
+        "presenter": clean(event.get("source_label")),
         "description": clean(event.get("description")),
-        "url": clean(event.get("source_ref")),
-        "image": "",  # firehose carries none; card renders conditionally on image
+        "url": clean(event.get("ticket_url")) or clean(event.get("source_ref")),
+        "image": clean(event.get("image_url")),
         "placeId": place.get("id"),
         "placeName": place.get("name"),
         "city": place.get("city"),
@@ -157,6 +187,7 @@ def main() -> None:
     places = load_json(PLACES)
     alias_map = build_alias_map(load_json(ALIASES))
     strict, loose = build_place_index(places)
+    tag_labels = {slug: cfg.get("display", "") for slug, cfg in load_json(EVENT_TAGS).get("tags", {}).items()}
     today = pacific_today_iso()
 
     emitted: list[dict] = []
@@ -179,7 +210,7 @@ def main() -> None:
         if place.get("lat") is None or place.get("lng") is None:
             dropped_no_coords += 1
             continue
-        v1 = to_v1_event(event, place)
+        v1 = to_v1_event(event, place, tag_labels)
         if not args.keep_stale and v1["date"] < today:
             dropped_stale += 1
             continue

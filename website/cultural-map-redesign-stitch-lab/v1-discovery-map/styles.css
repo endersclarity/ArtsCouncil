@@ -1320,6 +1320,83 @@ body:not([data-map-mode="places"]) .review-tools {
   color: var(--line);
 }
 
+/* Poster anatomy fixtures (brand pages 11/24/25/40) on the dark event card. */
+
+/* Program tab — knocked into the top-left frame edge, red field / white type,
+   naming the event's own category. Square top-left flushes to the frame corner;
+   only the inner corner rounds, so it reads as a tab cut into the frame. */
+.event-feature-tab {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  max-width: 68%;
+  padding: 7px 12px 6px;
+  border-bottom-right-radius: 9px;
+  background: var(--ncac-red);
+  color: #fff;
+  font-family: var(--font-brand);
+  font-size: 11px;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Photo-less cards have no figure for the tab to overlay, so the body's first
+   line (the date kicker) needs clearance below the tab. */
+.event-feature-card:has(.event-feature-tab):not(:has(.event-feature-photo)) .event-feature-body {
+  padding-top: 40px;
+}
+
+/* Recurring-series + family markers, one quiet row under the title. */
+.event-feature-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 7px 12px;
+  margin: 0 0 12px;
+}
+
+.event-feature-recurring {
+  color: var(--line);
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.event-feature-pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 9px 2px;
+  border: 1px solid var(--ink-soft);
+  border-radius: 999px;
+  color: var(--paper);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+/* Presenter bar — bottom-edge frame fixture, full width to the frame, hairline
+   above. Carries who presents the event (the council feed; venue echoes are
+   suppressed in showEvent). */
+.event-feature-presenter {
+  margin: 0;
+  border-top: 1px solid var(--ink-soft);
+  padding: 11px 20px 13px;
+  color: var(--line);
+  font-family: var(--font-brand);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+.event-feature-presenter strong {
+  color: var(--paper);
+  font-weight: 800;
+}
+
 .detail-card:has(.empty-title) {
   display: none;
 }

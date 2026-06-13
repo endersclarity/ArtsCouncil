@@ -1886,10 +1886,73 @@
     updateReviewUrl();
   }
 
+  // ── Event poster anatomy (brand pages 11/24/25/40) ──────────────────────
+  // The detail card carries the brand's framed-poster fixtures: a program tab
+  // on the top edge, a date+location line, the key image, and a presenter bar
+  // on the bottom edge. These helpers shape the data the build now plumbs
+  // through (startTime/endTime, tags, family, presenter).
+
+  // Brand date/time copy rules (page 15): am/pm shown once when the range
+  // shares a meridiem ("5—7pm"), em dash for the range, no leading zero, ":mm"
+  // only when non-zero. Times are venue-local wall clock ("HH:MM" from build).
+  function clockLabel(hhmm, withMeridiem) {
+    const [h, m] = hhmm.split(":").map(Number);
+    let hour = h % 12;
+    if (hour === 0) hour = 12;
+    const body = m ? `${hour}:${String(m).padStart(2, "0")}` : `${hour}`;
+    return withMeridiem ? `${body}${h < 12 ? "am" : "pm"}` : body;
+  }
+
+  function eventTimeRange(start, end) {
+    if (!start) return "";
+    if (!end || end === start) return clockLabel(start, true);
+    const sameMeridiem = (Number(start.split(":")[0]) < 12) === (Number(end.split(":")[0]) < 12);
+    // Em dash per brand range rule; meridiem on the end always, on the start
+    // only when the two halves differ ("9am—12pm" vs "5—7pm").
+    return `${clockLabel(start, !sameMeridiem)}—${clockLabel(end, true)}`;
+  }
+
+  // Kicker line: "Tonight / 8—11pm" or "Sat, Jun 13 / 9am—12pm" ("/" joins a
+  // shared date+time line, brand page 15). Time omitted for all-day events.
+  function eventWhenLine(event) {
+    const day = event.date === todayISO() ? "Tonight" : niceEventDate(event.date);
+    const time = eventTimeRange(event.startTime, event.endTime);
+    return time ? `${day} / ${time}` : day;
+  }
+
+  // Program tab names the event's own intent — the build resolves the primary
+  // tag to its human label ("Live Music", "Family & Kids"). No tag → no tab.
+  function eventProgramTab(event) {
+    return event.program || "";
+  }
+
+  // Weekday-less date for the recurring list ("Jun 16"), so a run of dates
+  // doesn't drown in weekday commas. The kicker still carries the full weekday.
+  function shortEventDate(date) {
+    return new Date(`${date}T12:00:00`).toLocaleDateString(undefined, { month: "short", day: "numeric" });
+  }
+
+  // Other upcoming occurrences of the same titled event at the same venue, so a
+  // recurring series reads as one thing rather than repeating down the rail.
+  function eventOtherDates(event) {
+    const title = (event.title || "").toLowerCase();
+    const today = todayISO();
+    const dates = state.events
+      .filter((other) =>
+        other.id !== event.id &&
+        other.placeId === event.placeId &&
+        (other.title || "").toLowerCase() === title &&
+        other.date >= today)
+      .map((other) => other.date);
+    return [...new Set(dates)].sort();
+  }
+
   // Warmth-pass 1 ("charcoal feature", mockup A): the event detail is a dark
   // editorial surface — ink card, white knockout title, red weighted kicker
   // for the date ("Tonight" / "Fri, Jun 12"), photo with an ink caption bar
   // carrying venue + city, red primary action, muted-outline secondary.
+  // Pass-4 (poster anatomy): + program tab, date/time line, recurring series,
+  // family pill, presenter bar.
   function showEvent(event) {
     expandDrawer();
     setDetailCardMode("event");
@@ -1900,7 +1963,18 @@
     setSourceData();
     const place = placeById(event.placeId);
     const venueLine = [event.placeName, event.city].filter(Boolean).join(", ");
-    const kicker = event.date === todayISO() ? "Tonight" : niceEventDate(event.date);
+    const whenLine = eventWhenLine(event);
+    const programTab = eventProgramTab(event);
+    const otherDates = eventOtherDates(event);
+    const recurringLine = otherDates.length
+      ? `Also ${otherDates.slice(0, 3).map(shortEventDate).join(", ")}${otherDates.length > 3 ? ` +${otherDates.length - 3} more` : ""}`
+      : "";
+    // Presenter bar (brand bottom-edge fixture). Suppress when it would only
+    // echo the venue — Crazy Horse / Golden Era events are presented by their
+    // own venue, so the bar would repeat the caption. Shows for the council feed.
+    const presenter = event.presenter &&
+      event.presenter.toLowerCase() !== (event.placeName || "").toLowerCase()
+        ? event.presenter : "";
     const blurb = displayEventDescription(event.description);
     // Same media resolution as the rail (buildRailItems), so relative paths
     // load identically on both surfaces; on a 404 the delegated fallback swaps
@@ -1913,15 +1987,17 @@
     const dealCard = () => {
     els.detail.innerHTML = `
       <button class="selected-place-close" type="button" aria-label="Close selected event">Close</button>
+      ${programTab ? `<span class="event-feature-tab">${escapeHtml(programTab)}</span>` : ""}
       ${eventImage ? `
         <figure class="event-feature-photo">
           <img class="place-image" src="${escapeHtml(eventImage)}" alt="${escapeHtml(event.title)}" width="640" height="360" loading="lazy" decoding="async" data-fallback="${escapeHtml(eventFallback)}" data-img-fallback="event">
           ${venueLine ? `<figcaption>${escapeHtml(venueLine)}</figcaption>` : ""}
         </figure>` : ""}
       <div class="event-feature-body">
-        <p class="event-feature-kicker">${escapeHtml(kicker)}</p>
+        <p class="event-feature-kicker">${escapeHtml(whenLine)}</p>
         <h2>${escapeHtml(event.title)}</h2>
         ${!eventImage && venueLine ? `<p class="event-feature-venue">${escapeHtml(venueLine)}</p>` : ""}
+        ${recurringLine || event.family ? `<p class="event-feature-meta">${recurringLine ? `<span class="event-feature-recurring">${escapeHtml(recurringLine)}</span>` : ""}${event.family ? `<span class="event-feature-pill">Family friendly</span>` : ""}</p>` : ""}
         ${blurb ? `<p class="event-feature-blurb">${escapeHtml(blurb)}</p>` : ""}
         <div class="detail-actions event-feature-actions">
           ${event.url ? `<a href="${escapeHtml(event.url)}" target="_blank" rel="noopener">Event details</a>` : ""}
@@ -1929,6 +2005,7 @@
         </div>
         ${renderBeforeOrAfter(place)}
       </div>
+      ${presenter ? `<p class="event-feature-presenter">Presented by <strong>${escapeHtml(presenter)}</strong></p>` : ""}
     `;
     const jump = document.getElementById("event-place-jump");
     if (jump && place) jump.addEventListener("click", () => showPlace(place));
