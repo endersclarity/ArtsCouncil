@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-06-12T11:00:11.663378+00:00",
+  "generated_at": "2026-06-13T09:55:54.875894+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 277,
-    "matched_events": 205,
-    "unmatched_events": 72,
+    "total_events": 256,
+    "matched_events": 186,
+    "unmatched_events": 70,
     "matched_by_pid": 0,
-    "matched_by_alias": 26,
-    "matched_by_name_city": 69,
-    "matched_by_name_city_fuzzy": 110,
-    "upcoming_14d": 122
+    "matched_by_alias": 7,
+    "matched_by_name_city": 70,
+    "matched_by_name_city_fuzzy": 109,
+    "upcoming_14d": 103
   },
   "unmatched_venues": [
     {
@@ -27,8 +27,8 @@
       "venue_key": "ericroodcenter|nevadacity",
       "venue_name": "Eric Rood Center",
       "venue_city": "Nevada City",
-      "count": 11,
-      "sample_event_id": "trumba-202909234",
+      "count": 10,
+      "sample_event_id": "trumba-202909235",
       "sample_title": "Lavender Glow | Queer Art & Our Shared History",
       "candidate_assets": []
     },
@@ -174,15 +174,6 @@
       "count": 1,
       "sample_event_id": "gvda-198214906",
       "sample_title": "Decendants: The Musical",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "camptonvillecommunitycenter|southernsierracounty",
-      "venue_name": "Camptonville Community Center",
-      "venue_city": "Southern Sierra County",
-      "count": 1,
-      "sample_event_id": "trumba-204111392",
-      "sample_title": "From the Hip | Casual Photos of Contradictions & Conundrums",
       "candidate_assets": []
     },
     {
