@@ -6,6 +6,14 @@ assets/simplified-*.png
 assets/hero-*.png
 screenshots/
 
+# NCAC brand reference — kept local, too heavy for git. The canonical spec
+# (docs/brand/NCAC-V1-BRAND.md) IS tracked; these are the 14MB source PDF, the
+# 43 rendered pages, and the logo/font/old-brand binaries (~149MB total).
+# Regenerate the pages from the PDF with PyMuPDF if they're ever needed.
+docs/brand/NCAC-Style-Guide.pdf
+docs/brand/style-guide-pages/
+docs/brand/resources/
+
 # Local environment files
 .env
 .env.*
