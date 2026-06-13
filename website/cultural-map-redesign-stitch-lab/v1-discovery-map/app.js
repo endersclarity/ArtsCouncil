@@ -9,7 +9,11 @@
 
   const DATA = {
     places: "data/places.json",
-    events: "data/events.json?v=cla-43-events",
+    // No manual ?v= token: it freezes (was stuck at cla-43, hiding the cla-81
+    // flyers + cla-82 calendar from anyone with the old file cached). Let
+    // events.json revalidate normally like places/paths — the index.html asset
+    // ?v= bump already busts app.js, and a deploy re-validates the data file.
+    events: "data/events.json",
     paths: "data/paths.json",
     anchorCards: "data/anchor_cards.json",
     museEvidence: "data/muse_evidence_links.json",
