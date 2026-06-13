@@ -32,7 +32,12 @@ RAW = {
 
 # Floor lowered 150 -> 135 (user-sanctioned 2026-06-13): precise BYLT+OSM tops out
 # at 135; the remaining ~45 OHV routes need USFS Tahoe NF (a separate source).
+# (After the OSM `out geom` rework, matched rose to ~159; 135 stays as a regression floor.)
 FLOOR = 135
+
+# OSM `out geom` rework: trails whose drawn line now comes from OSM (fuller than the
+# BYLT stub, or BYLT-absent). Honest first count = 36; floor leaves margin.
+OSM_LINE_FLOOR = 30
 
 
 def fail(msg):
@@ -61,6 +66,16 @@ def main():
         print("  FAIL: no trail-match-report.json"); print("RESULT: FAIL"); sys.exit(1)
     report = json.load(open(REPORT, encoding="utf-8"))
     matched = [e for e in report["entries"] if e["matched"]]
+
+    # Geometry-source self-consistency + OSM-line floor (the point of this rework).
+    gs = {"osm": 0, "bylt": 0, "point": 0, None: 0}
+    for e in matched:
+        gs[e.get("geom_source")] = gs.get(e.get("geom_source"), 0) + 1
+    osm_line = gs.get("osm", 0)
+    print("  geometry source: OSM-line %d | BYLT-line %d | point %d"
+          % (osm_line, gs.get("bylt", 0), gs.get("point", 0)))
+    if osm_line < OSM_LINE_FLOOR:
+        ok = fail("OSM-line geometry %d < floor %d" % (osm_line, OSM_LINE_FLOOR))
 
     if not os.path.exists(TRAILS):
         print("  FAIL: no data/trails.json (apply not run)"); print("promoted: 0"); print("RESULT: FAIL"); sys.exit(1)

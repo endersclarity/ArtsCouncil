@@ -2,20 +2,24 @@
   "generated_from": {
     "bylt_trails": 342,
     "bylt_trailheads": 74,
-    "osm_named": 561
+    "osm_named": 2833
   },
   "thresholds": {
     "bylt": 0.78,
-    "osm": 0.84
+    "osm": 0.84,
+    "osm_line": 0.92
   },
   "summary": {
     "targets": 233,
-    "matched": 135,
+    "matched": 159,
     "matched_bylt": 131,
-    "matched_osm": 4,
-    "with_line_geometry": 131,
-    "with_trailhead": 135,
-    "unmatched": 98
+    "matched_osm": 28,
+    "with_line_geometry": 150,
+    "geom_osm_line": 36,
+    "geom_bylt_line": 114,
+    "geom_point": 9,
+    "with_trailhead": 159,
+    "unmatched": 74
   },
   "entries": [
     {
@@ -29,6 +33,9 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Spenceville Wildlife Area Trails",
@@ -51,14 +58,17 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Beaver Pond Route",
           0.486
         ],
         "osm": [
-          "Native Pollinator Garden",
-          0.52
+          "Bear River Canal Trail",
+          0.571
         ]
       }
     },
@@ -89,7 +99,15 @@
         "Altitude": "90",
         "Manager": "BYLT"
       },
-      "ref": 3
+      "geom_source": "bylt",
+      "geom_ref": 3,
+      "geom_vertices": 217,
+      "ref": 3,
+      "bylt_score": 0.9,
+      "osm_score": 0.9,
+      "geom_km": 7.336,
+      "bylt_km": 7.336,
+      "osm_km": 0.0
     },
     {
       "id": "hirschman-trail-nevada-city",
@@ -118,7 +136,15 @@
         "Altitude": "150",
         "Manager": "BYLT"
       },
-      "ref": 5
+      "geom_source": "bylt",
+      "geom_ref": 5,
+      "geom_vertices": 255,
+      "ref": 5,
+      "bylt_score": 1.0,
+      "osm_score": 0.9,
+      "geom_km": 3.825,
+      "bylt_km": 3.825,
+      "osm_km": 0.0
     },
     {
       "id": "kenny-ranch-trails-grass-valley",
@@ -131,6 +157,9 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Marten Ranch Trail",
@@ -153,14 +182,17 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Nevada County Government Center Trails",
           0.52
         ],
         "osm": [
-          "Windy Point Trail",
-          0.467
+          "Brandy City Road",
+          0.514
         ]
       }
     },
@@ -191,7 +223,15 @@
         "Altitude": " ",
         "Manager": "Tahoe National Forest"
       },
-      "ref": 63
+      "geom_source": "bylt",
+      "geom_ref": 63,
+      "geom_vertices": 478,
+      "ref": 63,
+      "bylt_score": 0.9,
+      "osm_score": 0.9,
+      "geom_km": 8.76,
+      "bylt_km": 8.76,
+      "osm_km": 0.0
     },
     {
       "id": "spaulding-reservoir-nevada-city",
@@ -204,14 +244,17 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Spaulding Lake Trail",
           0.667
         ],
         "osm": [
-          "Big Reservoir Road",
-          0.649
+          "Spaulding Lake Trail",
+          0.667
         ]
       }
     },
@@ -242,7 +285,15 @@
         "Altitude": "160",
         "Manager": "BYLT"
       },
-      "ref": 1
+      "geom_source": "bylt",
+      "geom_ref": 1,
+      "geom_vertices": 169,
+      "ref": 1,
+      "bylt_score": 0.917,
+      "osm_score": 0.917,
+      "geom_km": 2.164,
+      "bylt_km": 2.164,
+      "osm_km": 0.0
     },
     {
       "id": "andesite-west-ohv-trail-soda-springs",
@@ -255,6 +306,9 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Independence Trail East",
@@ -293,7 +347,15 @@
         "Altitude": " ",
         "Manager": "Tahoe National Forest"
       },
-      "ref": 101
+      "geom_source": "bylt",
+      "geom_ref": 101,
+      "geom_vertices": 18,
+      "ref": 101,
+      "bylt_score": 1.0,
+      "osm_score": 0.75,
+      "geom_km": 0.526,
+      "bylt_km": 0.526,
+      "osm_km": 0.0
     },
     {
       "id": "beaver-pond-route-trail-truckee",
@@ -322,7 +384,15 @@
         "Altitude": " ",
         "Manager": "Tahoe National Forest / Truckee Donner Land Trust"
       },
-      "ref": 136
+      "geom_source": "bylt",
+      "geom_ref": 136,
+      "geom_vertices": 16,
+      "ref": 136,
+      "bylt_score": 1.0,
+      "osm_score": 0.737,
+      "geom_km": 0.554,
+      "bylt_km": 0.554,
+      "osm_km": 0.0
     },
     {
       "id": "betsy-mine-trail",
@@ -351,7 +421,15 @@
         "Altitude": " ",
         "Manager": "Empire Mine State Park"
       },
-      "ref": 43
+      "geom_source": "osm",
+      "geom_ref": 316165321,
+      "geom_vertices": 18,
+      "ref": 43,
+      "bylt_score": 1.0,
+      "osm_score": 1.0,
+      "geom_km": 0.228,
+      "bylt_km": 0.197,
+      "osm_km": 0.228
     },
     {
       "id": "beyers-lake-trail",
@@ -380,51 +458,69 @@
         "Altitude": " ",
         "Manager": "Tahoe National Forest Private"
       },
-      "ref": 100
+      "geom_source": "bylt",
+      "geom_ref": 100,
+      "geom_vertices": 3239,
+      "ref": 100,
+      "bylt_score": 1.0,
+      "osm_score": 0.909,
+      "geom_km": 11.237,
+      "bylt_km": 11.237,
+      "osm_km": 0.0
     },
     {
       "id": "big-boca-ohv-tie-trail",
       "name": "Big Boca OHV Tie Trail",
       "city": "",
-      "matched": false,
-      "source": null,
-      "matched_name": null,
-      "score": 0.0,
+      "matched": true,
+      "source": "osm",
+      "matched_name": "Big Boca ATV Tie Trail",
+      "score": 0.9,
       "has_line": false,
-      "trailhead": null,
-      "fields": {},
-      "near_miss": {
-        "bylt": [
-          "Boca Townsite Trail",
-          0.64
-        ],
-        "osm": [
-          "five oaks nature trail",
-          0.5
-        ]
-      }
+      "trailhead": [
+        -120.127704,
+        39.412552
+      ],
+      "fields": {
+        "highway": "track",
+        "osm_id": 931110147
+      },
+      "geom_source": "point",
+      "geom_ref": null,
+      "geom_vertices": 1,
+      "ref": 931110147,
+      "bylt_score": 0.64,
+      "osm_score": 0.9,
+      "geom_km": 0.0,
+      "bylt_km": 0.0,
+      "osm_km": 0.0
     },
     {
       "id": "big-boca-ohv-trail",
       "name": "Big Boca OHV Trail",
       "city": "",
-      "matched": false,
-      "source": null,
-      "matched_name": null,
-      "score": 0.0,
+      "matched": true,
+      "source": "osm",
+      "matched_name": "Big Boca ATV Tie Trail",
+      "score": 0.9,
       "has_line": false,
-      "trailhead": null,
-      "fields": {},
-      "near_miss": {
-        "bylt": [
-          "Boca Dam Trail",
-          0.5
-        ],
-        "osm": [
-          "Guy Blue Road",
-          0.476
-        ]
-      }
+      "trailhead": [
+        -120.127704,
+        39.412552
+      ],
+      "fields": {
+        "highway": "track",
+        "osm_id": 931110147
+      },
+      "geom_source": "point",
+      "geom_ref": null,
+      "geom_vertices": 1,
+      "ref": 931110147,
+      "bylt_score": 0.5,
+      "osm_score": 0.9,
+      "geom_km": 0.0,
+      "bylt_km": 0.0,
+      "osm_km": 0.0
     },
     {
       "id": "big-sagehen-ohv-trail",
@@ -437,14 +533,17 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Black Swan Trail",
           0.476
         ],
         "osm": [
-          "Big Spring Drive",
-          0.519
+          "Sagehen Road",
+          0.609
         ]
       }
     },
@@ -459,14 +558,17 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Osborne Hill Loop Trail",
           0.522
         ],
         "osm": [
-          "Osborne Hill Loop Trail",
-          0.522
+          "Mill's Hill",
+          0.727
         ]
       }
     },
@@ -497,7 +599,15 @@
         "Altitude": "200",
         "Manager": "California Department of Fish & Wildlife"
       },
-      "ref": 60
+      "geom_source": "bylt",
+      "geom_ref": 60,
+      "geom_vertices": 260,
+      "ref": 60,
+      "bylt_score": 1.0,
+      "osm_score": 0.583,
+      "geom_km": 3.175,
+      "bylt_km": 3.175,
+      "osm_km": 0.0
     },
     {
       "id": "blair-trail",
@@ -526,7 +636,15 @@
         "Altitude": " ",
         "Manager": "Malakoff Diggins State Historic Park"
       },
-      "ref": 51
+      "geom_source": "bylt",
+      "geom_ref": 51,
+      "geom_vertices": 88,
+      "ref": 51,
+      "bylt_score": 1.0,
+      "osm_score": 1.0,
+      "geom_km": 2.156,
+      "bylt_km": 2.156,
+      "osm_km": 1.286
     },
     {
       "id": "blue-lake-trail",
@@ -555,7 +673,15 @@
         "Altitude": " ",
         "Manager": "Tahoe National Forest / Sierra Pacific Industries"
       },
-      "ref": 126
+      "geom_source": "bylt",
+      "geom_ref": 126,
+      "geom_vertices": 63,
+      "ref": 126,
+      "bylt_score": 1.0,
+      "osm_score": 1.0,
+      "geom_km": 2.745,
+      "bylt_km": 2.745,
+      "osm_km": 2.692
     },
     {
       "id": "boca-atv-connector",
@@ -568,14 +694,17 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Hoyt Connector",
           0.75
         ],
         "osm": [
-          "Penn Gate Connector Trail",
-          0.703
+          "Cena Lar Connector",
+          0.778
         ]
       }
     },
@@ -590,14 +719,17 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Boca Dam Trail",
           0.667
         ],
         "osm": [
-          "Canal Road",
-          0.5
+          "Brockway Road Trail",
+          0.609
         ]
       }
     },
@@ -628,7 +760,15 @@
         "Altitude": " ",
         "Manager": "Tahoe National Forest"
       },
-      "ref": 84
+      "geom_source": "bylt",
+      "geom_ref": 84,
+      "geom_vertices": 5,
+      "ref": 84,
+      "bylt_score": 1.0,
+      "osm_score": 0.667,
+      "geom_km": 0.145,
+      "bylt_km": 0.145,
+      "osm_km": 0.0
     },
     {
       "id": "boca-hill-ohv-trail",
@@ -641,14 +781,17 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Osborne Hill Loop Trail",
           0.667
         ],
         "osm": [
-          "Osborne Hill Loop Trail",
-          0.667
+          "Nob Hill Trail",
+          0.706
         ]
       }
     },
@@ -679,29 +822,42 @@
         "Altitude": " ",
         "Manager": "Tahoe National Forest"
       },
-      "ref": 83
+      "geom_source": "bylt",
+      "geom_ref": 83,
+      "geom_vertices": 81,
+      "ref": 83,
+      "bylt_score": 0.9,
+      "osm_score": 0.9,
+      "geom_km": 0.588,
+      "bylt_km": 0.588,
+      "osm_km": 0.0
     },
     {
       "id": "boca-ohv-tie-trail",
       "name": "Boca OHV Tie Trail",
       "city": "",
-      "matched": false,
-      "source": null,
-      "matched_name": null,
-      "score": 0.0,
+      "matched": true,
+      "source": "osm",
+      "matched_name": "Boca ATV Tie Trail",
+      "score": 0.9,
       "has_line": false,
-      "trailhead": null,
-      "fields": {},
-      "near_miss": {
-        "bylt": [
-          "Boca Townsite Trail",
-          0.762
-        ],
-        "osm": [
-          "Bailey Trail",
-          0.571
-        ]
-      }
+      "trailhead": [
+        -120.119703,
+        39.416858
+      ],
+      "fields": {
+        "highway": "track",
+        "osm_id": 498967772
+      },
+      "geom_source": "point",
+      "geom_ref": null,
+      "geom_vertices": 1,
+      "ref": 498967772,
+      "bylt_score": 0.762,
+      "osm_score": 0.9,
+      "geom_km": 0.0,
+      "bylt_km": 0.0,
+      "osm_km": 0.0
     },
     {
       "id": "boca-wye-ohv-trail",
@@ -714,14 +870,17 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Boca Townsite Trail",
           0.667
         ],
         "osm": [
-          "Capra Way",
-          0.588
+          "Boca Townsite Trail",
+          0.667
         ]
       }
     },
@@ -736,14 +895,17 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Boca Townsite Trail",
           0.667
         ],
         "osm": [
-          "Cranston Road",
-          0.476
+          "Boca Townsite Trail",
+          0.667
         ]
       }
     },
@@ -758,14 +920,17 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Boca Townsite Trail",
           0.48
         ],
         "osm": [
-          "Windy Point Trail",
-          0.435
+          "Whoop it Up",
+          0.522
         ]
       }
     },
@@ -796,7 +961,15 @@
         "Altitude": " ",
         "Manager": "Tahoe National Forest"
       },
-      "ref": 102
+      "geom_source": "bylt",
+      "geom_ref": 102,
+      "geom_vertices": 802,
+      "ref": 102,
+      "bylt_score": 1.0,
+      "osm_score": 1.0,
+      "geom_km": 2.327,
+      "bylt_km": 2.327,
+      "osm_km": 2.131
     },
     {
       "id": "brockway-road-trail",
@@ -825,7 +998,15 @@
         "Altitude": " ",
         "Manager": "Town of Truckee"
       },
-      "ref": 155
+      "geom_source": "bylt",
+      "geom_ref": 155,
+      "geom_vertices": 41,
+      "ref": 155,
+      "bylt_score": 1.0,
+      "osm_score": 1.0,
+      "geom_km": 1.009,
+      "bylt_km": 1.009,
+      "osm_km": 0.963
     },
     {
       "id": "bullpen-trail",
@@ -854,7 +1035,15 @@
         "Altitude": " ",
         "Manager": "Tahoe National Forest"
       },
-      "ref": 123
+      "geom_source": "bylt",
+      "geom_ref": 123,
+      "geom_vertices": 148,
+      "ref": 123,
+      "bylt_score": 1.0,
+      "osm_score": 1.0,
+      "geom_km": 2.178,
+      "bylt_km": 2.178,
+      "osm_km": 1.999
     },
     {
       "id": "campfire-center-trail",
@@ -867,6 +1056,9 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Pioneer Commerce Center Trails",
@@ -905,7 +1097,15 @@
         "Altitude": " ",
         "Manager": "Lake Tahoe Basin Management Unit Office"
       },
-      "ref": 77
+      "geom_source": "osm",
+      "geom_ref": 10466906,
+      "geom_vertices": 98,
+      "ref": 77,
+      "bylt_score": 0.842,
+      "osm_score": 1.0,
+      "geom_km": 1.681,
+      "bylt_km": 1.006,
+      "osm_km": 1.681
     },
     {
       "id": "cemetery-loop-trail",
@@ -918,14 +1118,17 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Meyer Trail",
           0.615
         ],
         "osm": [
-          "Sweetwater Trail",
-          0.556
+          "Perimeter Trail",
+          0.706
         ]
       }
     },
@@ -956,7 +1159,15 @@
         "Altitude": " ",
         "Manager": "Donner Memorial State Park"
       },
-      "ref": 129
+      "geom_source": "bylt",
+      "geom_ref": 129,
+      "geom_vertices": 61,
+      "ref": 129,
+      "bylt_score": 1.0,
+      "osm_score": 0.818,
+      "geom_km": 2.752,
+      "bylt_km": 2.752,
+      "osm_km": 0.0
     },
     {
       "id": "church-trail",
@@ -985,29 +1196,42 @@
         "Altitude": " ",
         "Manager": "Malakoff Diggins State Historic Park"
       },
-      "ref": 49
+      "geom_source": "bylt",
+      "geom_ref": 49,
+      "geom_vertices": 30,
+      "ref": 49,
+      "bylt_score": 1.0,
+      "osm_score": 0.545,
+      "geom_km": 0.378,
+      "bylt_km": 0.378,
+      "osm_km": 0.0
     },
     {
       "id": "coldstream-trail",
       "name": "Coldstream Trail",
       "city": "",
-      "matched": false,
-      "source": null,
-      "matched_name": null,
-      "score": 0.0,
-      "has_line": false,
-      "trailhead": null,
-      "fields": {},
-      "near_miss": {
-        "bylt": [
-          "Orleans Trail",
-          0.471
-        ],
-        "osm": [
-          "Boulder Street",
-          0.583
-        ]
-      }
+      "matched": true,
+      "source": "osm",
+      "matched_name": "Coldstream Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.280647,
+        39.265059
+      ],
+      "fields": {
+        "highway": "path",
+        "osm_id": 299566010
+      },
+      "geom_source": "osm",
+      "geom_ref": 299566010,
+      "geom_vertices": 175,
+      "ref": 299566010,
+      "bylt_score": 0.471,
+      "osm_score": 1.0,
+      "geom_km": 3.358,
+      "bylt_km": 0.0,
+      "osm_km": 3.358
     },
     {
       "id": "comstock-dive-bike-path",
@@ -1036,7 +1260,15 @@
         "Altitude": " ",
         "Manager": "Town of Truckee"
       },
-      "ref": 150
+      "geom_source": "bylt",
+      "geom_ref": 150,
+      "geom_vertices": 67,
+      "ref": 150,
+      "bylt_score": 0.973,
+      "osm_score": 0.812,
+      "geom_km": 1.321,
+      "bylt_km": 1.321,
+      "osm_km": 0.0
     },
     {
       "id": "condon-park-service-roads",
@@ -1065,7 +1297,15 @@
         "Altitude": " ",
         "Manager": "City of Grass Valley"
       },
-      "ref": 28
+      "geom_source": "bylt",
+      "geom_ref": 28,
+      "geom_vertices": 841,
+      "ref": 28,
+      "bylt_score": 0.9,
+      "osm_score": 0.682,
+      "geom_km": 8.919,
+      "bylt_km": 8.919,
+      "osm_km": 0.0
     },
     {
       "id": "conlon-mine-trail",
@@ -1094,7 +1334,15 @@
         "Altitude": " ",
         "Manager": "Empire Mine State Park"
       },
-      "ref": 40
+      "geom_source": "bylt",
+      "geom_ref": 40,
+      "geom_vertices": 86,
+      "ref": 40,
+      "bylt_score": 1.0,
+      "osm_score": 1.0,
+      "geom_km": 0.681,
+      "bylt_km": 0.681,
+      "osm_km": 0.671
     },
     {
       "id": "coyote-ledge-trail",
@@ -1123,7 +1371,15 @@
         "Altitude": " ",
         "Manager": "Bureau of Land Management"
       },
-      "ref": 113
+      "geom_source": "bylt",
+      "geom_ref": 113,
+      "geom_vertices": 27,
+      "ref": 113,
+      "bylt_score": 1.0,
+      "osm_score": 0.75,
+      "geom_km": 0.702,
+      "bylt_km": 0.702,
+      "osm_km": 0.0
     },
     {
       "id": "coyote-view-loop-trail",
@@ -1152,7 +1408,15 @@
         "Altitude": " ",
         "Manager": "Bureau of Land Management"
       },
-      "ref": 114
+      "geom_source": "bylt",
+      "geom_ref": 114,
+      "geom_vertices": 8,
+      "ref": 114,
+      "bylt_score": 1.0,
+      "osm_score": 0.696,
+      "geom_km": 0.233,
+      "bylt_km": 0.233,
+      "osm_km": 0.0
     },
     {
       "id": "crooked-lakes-trail",
@@ -1181,7 +1445,15 @@
         "Altitude": " ",
         "Manager": "Tahoe National Forest"
       },
-      "ref": 92
+      "geom_source": "bylt",
+      "geom_ref": 92,
+      "geom_vertices": 713,
+      "ref": 92,
+      "bylt_score": 1.0,
+      "osm_score": 0.96,
+      "geom_km": 5.176,
+      "bylt_km": 5.176,
+      "osm_km": 1.647
     },
     {
       "id": "cross-trail",
@@ -1210,29 +1482,42 @@
         "Altitude": " ",
         "Manager": "Empire Mine State Park"
       },
-      "ref": 32
+      "geom_source": "bylt",
+      "geom_ref": 32,
+      "geom_vertices": 74,
+      "ref": 32,
+      "bylt_score": 1.0,
+      "osm_score": 0.769,
+      "geom_km": 0.377,
+      "bylt_km": 0.377,
+      "osm_km": 0.0
     },
     {
       "id": "cut-thru-trail",
       "name": "Cut Thru Trail",
       "city": "",
-      "matched": false,
-      "source": null,
-      "matched_name": null,
-      "score": 0.0,
+      "matched": true,
+      "source": "osm",
+      "matched_name": "Cut Thru Road",
+      "score": 0.9,
       "has_line": false,
-      "trailhead": null,
-      "fields": {},
-      "near_miss": {
-        "bylt": [
-          "South Yuba Trail",
-          0.444
-        ],
-        "osm": [
-          "Hutto Road",
-          0.444
-        ]
-      }
+      "trailhead": [
+        -120.237712,
+        39.325393
+      ],
+      "fields": {
+        "highway": "track",
+        "osm_id": 552938173
+      },
+      "geom_source": "point",
+      "geom_ref": null,
+      "geom_vertices": 1,
+      "ref": 552938173,
+      "bylt_score": 0.444,
+      "osm_score": 0.9,
+      "geom_km": 0.0,
+      "bylt_km": 0.0,
+      "osm_km": 0.0
     },
     {
       "id": "dewbeyumuwe-park-at-west-river-street-truckee",
@@ -1245,14 +1530,17 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Western Gateway Park Fitness Trail",
           0.4
         ],
         "osm": [
-          "Beale Lake Nature Trail",
-          0.407
+          "Soda Springs Riverton Spur",
+          0.444
         ]
       }
     },
@@ -1283,7 +1571,15 @@
         "Altitude": " ",
         "Manager": "Tahoe National Forest"
       },
-      "ref": 106
+      "geom_source": "bylt",
+      "geom_ref": 106,
+      "geom_vertices": 151,
+      "ref": 106,
+      "bylt_score": 0.933,
+      "osm_score": 0.933,
+      "geom_km": 3.154,
+      "bylt_km": 3.154,
+      "osm_km": 0.925
     },
     {
       "id": "deer-creek-tribute-trail",
@@ -1312,7 +1608,15 @@
         "Altitude": "150",
         "Manager": "BYLT; City of Nevada City; Bureau of Land Management"
       },
-      "ref": 4
+      "geom_source": "bylt",
+      "geom_ref": 4,
+      "geom_vertices": 896,
+      "ref": 4,
+      "bylt_score": 1.0,
+      "osm_score": 1.0,
+      "geom_km": 14.996,
+      "bylt_km": 14.996,
+      "osm_km": 0.262
     },
     {
       "id": "deer-creek-motorcycle-trail",
@@ -1322,16 +1626,24 @@
       "source": "osm",
       "matched_name": "Deer Creek Motorcycle Trail",
       "score": 1.0,
-      "has_line": false,
+      "has_line": true,
       "trailhead": [
-        -120.780218,
-        39.297304
+        -120.779647,
+        39.297219
       ],
       "fields": {
         "highway": "track",
         "osm_id": 10463765
       },
-      "ref": 10463765
+      "geom_source": "osm",
+      "geom_ref": 10463765,
+      "geom_vertices": 33,
+      "ref": 10463765,
+      "bylt_score": 0.718,
+      "osm_score": 1.0,
+      "geom_km": 0.942,
+      "bylt_km": 0.0,
+      "osm_km": 0.942
     },
     {
       "id": "deerfield-trail",
@@ -1343,8 +1655,8 @@
       "score": 1.0,
       "has_line": true,
       "trailhead": [
-        -120.210536,
-        39.32112
+        -120.210555,
+        39.321088
       ],
       "fields": {
         "Desc_": "This trail is part of the Town of Truckee's trail system.",
@@ -1360,7 +1672,15 @@
         "Altitude": " ",
         "Manager": "Town of Truckee"
       },
-      "ref": 143
+      "geom_source": "osm",
+      "geom_ref": 350491930,
+      "geom_vertices": 26,
+      "ref": 143,
+      "bylt_score": 1.0,
+      "osm_score": 1.0,
+      "geom_km": 0.204,
+      "bylt_km": 0.198,
+      "osm_km": 0.204
     },
     {
       "id": "diggins-loop-connector-trail",
@@ -1373,14 +1693,17 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Meyers Connector",
           0.667
         ],
         "osm": [
-          "Penn Gate Connector Trail",
-          0.611
+          "Drifter Connector",
+          0.706
         ]
       }
     },
@@ -1411,7 +1734,15 @@
         "Altitude": " ",
         "Manager": "Malakoff Diggins State Historic Park"
       },
-      "ref": 54
+      "geom_source": "bylt",
+      "geom_ref": 54,
+      "geom_vertices": 216,
+      "ref": 54,
+      "bylt_score": 1.0,
+      "osm_score": 0.7,
+      "geom_km": 4.942,
+      "bylt_km": 4.942,
+      "osm_km": 0.0
     },
     {
       "id": "diggins-overlook-trail",
@@ -1424,14 +1755,17 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Diggins Loop Trail",
           0.609
         ],
         "osm": [
-          "Diggings Road",
-          0.621
+          "Incline Overlook",
+          0.688
         ]
       }
     },
@@ -1446,14 +1780,17 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Penn Valley Bike Trail",
           0.581
         ],
         "osm": [
-          "Green Valley Trail",
-          0.593
+          "Castle Valley East OHV Trail",
+          0.667
         ]
       }
     },
@@ -1461,45 +1798,55 @@
       "id": "eagle-lakes-ohv-spur-a-trail",
       "name": "Eagle Lakes OHV Spur A Trail",
       "city": "",
-      "matched": false,
-      "source": null,
-      "matched_name": null,
-      "score": 0.0,
-      "has_line": false,
-      "trailhead": null,
-      "fields": {},
-      "near_miss": {
-        "bylt": [
-          "Glacier Lakes Basin Trail",
-          0.595
-        ],
-        "osm": [
-          "Beale Lake Nature Trail",
-          0.686
-        ]
-      }
+      "matched": true,
+      "source": "osm",
+      "matched_name": "Eagle Lakes OHV Spur A",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.576432,
+        39.352166
+      ],
+      "fields": {
+        "highway": "path",
+        "osm_id": 937366701
+      },
+      "geom_source": "osm",
+      "geom_ref": 937366701,
+      "geom_vertices": 19,
+      "ref": 937366701,
+      "bylt_score": 0.595,
+      "osm_score": 1.0,
+      "geom_km": 0.301,
+      "bylt_km": 0.0,
+      "osm_km": 0.301
     },
     {
       "id": "eagle-lakes-ohv-trail",
       "name": "Eagle Lakes OHV Trail",
       "city": "",
-      "matched": false,
-      "source": null,
-      "matched_name": null,
-      "score": 0.0,
-      "has_line": false,
-      "trailhead": null,
-      "fields": {},
-      "near_miss": {
-        "bylt": [
-          "Feeley Lake Trail",
-          0.727
-        ],
-        "osm": [
-          "Beale Lake Nature Trail",
-          0.643
-        ]
-      }
+      "matched": true,
+      "source": "osm",
+      "matched_name": "Eagle Lakes OHV Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.57376,
+        39.351377
+      ],
+      "fields": {
+        "highway": "track",
+        "osm_id": 10474307
+      },
+      "geom_source": "osm",
+      "geom_ref": 10474307,
+      "geom_vertices": 44,
+      "ref": 10474307,
+      "bylt_score": 0.727,
+      "osm_score": 1.0,
+      "geom_km": 0.59,
+      "bylt_km": 0.0,
+      "osm_km": 0.59
     },
     {
       "id": "east-beach-way-trail",
@@ -1512,6 +1859,9 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Black Swan Trail",
@@ -1550,29 +1900,42 @@
         "Altitude": " ",
         "Manager": "Empire Mine State Park"
       },
-      "ref": 38
+      "geom_source": "bylt",
+      "geom_ref": 38,
+      "geom_vertices": 163,
+      "ref": 38,
+      "bylt_score": 1.0,
+      "osm_score": 1.0,
+      "geom_km": 1.083,
+      "bylt_km": 1.083,
+      "osm_km": 0.55
     },
     {
       "id": "excelsior-mine-spur-trail",
       "name": "Excelsior Mine Spur Trail",
       "city": "",
-      "matched": false,
-      "source": null,
-      "matched_name": null,
-      "score": 0.0,
-      "has_line": false,
-      "trailhead": null,
-      "fields": {},
-      "near_miss": {
-        "bylt": [
-          "Conlon Mine Trail",
-          0.533
-        ],
-        "osm": [
-          "East Excelsior Point Spur",
-          0.773
-        ]
-      }
+      "matched": true,
+      "source": "osm",
+      "matched_name": "Excelsior Mine Spur",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.502478,
+        39.395344
+      ],
+      "fields": {
+        "highway": "track",
+        "osm_id": 1083871443
+      },
+      "geom_source": "osm",
+      "geom_ref": 1083871443,
+      "geom_vertices": 48,
+      "ref": 1083871443,
+      "bylt_score": 0.533,
+      "osm_score": 1.0,
+      "geom_km": 0.812,
+      "bylt_km": 0.0,
+      "osm_km": 0.812
     },
     {
       "id": "excelsior-trail",
@@ -1585,14 +1948,17 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Bailey Trail Extension",
           0.48
         ],
         "osm": [
-          "Excelsior Motorcycle Trail",
-          0.621
+          "Excelsior Mine Spur",
+          0.643
         ]
       }
     },
@@ -1623,7 +1989,15 @@
         "Altitude": " ",
         "Manager": "Tahoe National Forest"
       },
-      "ref": 98
+      "geom_source": "bylt",
+      "geom_ref": 98,
+      "geom_vertices": 192,
+      "ref": 98,
+      "bylt_score": 0.938,
+      "osm_score": 0.938,
+      "geom_km": 1.891,
+      "bylt_km": 1.891,
+      "osm_km": 0.682
     },
     {
       "id": "feeley-lake-trail",
@@ -1652,7 +2026,15 @@
         "Altitude": " ",
         "Manager": "Tahoe National Forest"
       },
-      "ref": 91
+      "geom_source": "bylt",
+      "geom_ref": 91,
+      "geom_vertices": 75,
+      "ref": 91,
+      "bylt_score": 1.0,
+      "osm_score": 0.727,
+      "geom_km": 1.897,
+      "bylt_km": 1.897,
+      "osm_km": 0.0
     },
     {
       "id": "fordyce-dam-ohv-trail",
@@ -1665,14 +2047,17 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Boca Dam Trail",
           0.632
         ],
         "osm": [
-          "Forest Route 33",
-          0.5
+          "Fordyce Jeep Trail",
+          0.696
         ]
       }
     },
@@ -1680,45 +2065,55 @@
       "id": "fordyce-jeep-trail",
       "name": "Fordyce Jeep Trail",
       "city": "",
-      "matched": false,
-      "source": null,
-      "matched_name": null,
-      "score": 0.0,
-      "has_line": false,
-      "trailhead": null,
-      "fields": {},
-      "near_miss": {
-        "bylt": [
-          "Coyote Ledge Trail",
-          0.5
-        ],
-        "osm": [
-          "Forest Route 33",
-          0.476
-        ]
-      }
+      "matched": true,
+      "source": "osm",
+      "matched_name": "Fordyce Jeep Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.505356,
+        39.376026
+      ],
+      "fields": {
+        "highway": "track",
+        "osm_id": 10463729
+      },
+      "geom_source": "osm",
+      "geom_ref": 10463729,
+      "geom_vertices": 650,
+      "ref": 10463729,
+      "bylt_score": 0.5,
+      "osm_score": 1.0,
+      "geom_km": 11.747,
+      "bylt_km": 0.0,
+      "osm_km": 11.747
     },
     {
       "id": "fordyce-spur-ohv-trail",
       "name": "Fordyce Spur OHV Trail",
       "city": "",
-      "matched": false,
-      "source": null,
-      "matched_name": null,
-      "score": 0.0,
-      "has_line": false,
-      "trailhead": null,
-      "fields": {},
-      "near_miss": {
-        "bylt": [
-          "Stockrest Springs Trail",
-          0.483
-        ],
-        "osm": [
-          "Ridge Spur",
-          0.727
-        ]
-      }
+      "matched": true,
+      "source": "osm",
+      "matched_name": "Fordyce Spur OHV Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.500643,
+        39.37503
+      ],
+      "fields": {
+        "highway": "track",
+        "osm_id": 1083871444
+      },
+      "geom_source": "osm",
+      "geom_ref": 1083871444,
+      "geom_vertices": 29,
+      "ref": 1083871444,
+      "bylt_score": 0.483,
+      "osm_score": 1.0,
+      "geom_km": 0.808,
+      "bylt_km": 0.0,
+      "osm_km": 0.808
     },
     {
       "id": "frishman-hollow-trails",
@@ -1747,7 +2142,15 @@
         "Altitude": " ",
         "Manager": "Town of Truckee"
       },
-      "ref": 151
+      "geom_source": "bylt",
+      "geom_ref": 151,
+      "geom_vertices": 24,
+      "ref": 151,
+      "bylt_score": 1.0,
+      "osm_score": 1.0,
+      "geom_km": 0.399,
+      "bylt_km": 0.399,
+      "osm_km": 0.374
     },
     {
       "id": "glacier-lake-trail",
@@ -1776,7 +2179,15 @@
         "Altitude": " ",
         "Manager": "Tahoe National Forest"
       },
-      "ref": 97
+      "geom_source": "bylt",
+      "geom_ref": 97,
+      "geom_vertices": 316,
+      "ref": 97,
+      "bylt_score": 1.0,
+      "osm_score": 1.0,
+      "geom_km": 3.887,
+      "bylt_km": 3.887,
+      "osm_km": 3.776
     },
     {
       "id": "gray-s-crossing-trail-network",
@@ -1789,14 +2200,17 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Rice's Crossing Access Trail",
           0.622
         ],
         "osm": [
-          "Rices Crossing Road",
-          0.619
+          "South Gray's Crossing Loop",
+          0.682
         ]
       }
     },
@@ -1827,7 +2241,15 @@
         "Altitude": " ",
         "Manager": "Tahoe National Forest"
       },
-      "ref": 95
+      "geom_source": "bylt",
+      "geom_ref": 95,
+      "geom_vertices": 1501,
+      "ref": 95,
+      "bylt_score": 1.0,
+      "osm_score": 1.0,
+      "geom_km": 16.005,
+      "bylt_km": 16.005,
+      "osm_km": 6.326
     },
     {
       "id": "hardrock-trail",
@@ -1856,7 +2278,15 @@
         "Altitude": " ",
         "Manager": "Empire Mine State Park"
       },
-      "ref": 41
+      "geom_source": "bylt",
+      "geom_ref": 41,
+      "geom_vertices": 352,
+      "ref": 41,
+      "bylt_score": 1.0,
+      "osm_score": 1.0,
+      "geom_km": 2.71,
+      "bylt_km": 2.71,
+      "osm_km": 2.166
     },
     {
       "id": "hiller-trail",
@@ -1885,7 +2315,15 @@
         "Altitude": " ",
         "Manager": "Malakoff Diggins State Historic Park"
       },
-      "ref": 53
+      "geom_source": "bylt",
+      "geom_ref": 53,
+      "geom_vertices": 8,
+      "ref": 53,
+      "bylt_score": 1.0,
+      "osm_score": 0.615,
+      "geom_km": 0.304,
+      "bylt_km": 0.304,
+      "osm_km": 0.0
     },
     {
       "id": "hobart-2-ohv-trail",
@@ -1898,6 +2336,9 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Hoyt Trail",
@@ -1936,7 +2377,15 @@
         "Altitude": " ",
         "Manager": "Tahoe National Forest"
       },
-      "ref": 156
+      "geom_source": "osm",
+      "geom_ref": 549209219,
+      "geom_vertices": 267,
+      "ref": 156,
+      "bylt_score": 1.0,
+      "osm_score": 1.0,
+      "geom_km": 2.492,
+      "bylt_km": 2.21,
+      "osm_km": 2.492
     },
     {
       "id": "humbug-creek-trail",
@@ -1965,7 +2414,15 @@
         "Altitude": " ",
         "Manager": "Malakoff Diggins State Historic Park"
       },
-      "ref": 55
+      "geom_source": "bylt",
+      "geom_ref": 55,
+      "geom_vertices": 83,
+      "ref": 55,
+      "bylt_score": 1.0,
+      "osm_score": 0.667,
+      "geom_km": 3.754,
+      "bylt_km": 3.754,
+      "osm_km": 0.0
     },
     {
       "id": "illinios-crossing-trail",
@@ -1994,7 +2451,15 @@
         "Altitude": " ",
         "Manager": "Bureau of Land Management"
       },
-      "ref": 144
+      "geom_source": "bylt",
+      "geom_ref": 144,
+      "geom_vertices": 10,
+      "ref": 144,
+      "bylt_score": 0.941,
+      "osm_score": 0.78,
+      "geom_km": 0.495,
+      "bylt_km": 0.495,
+      "osm_km": 0.0
     },
     {
       "id": "independence-trail-east",
@@ -2023,7 +2488,15 @@
         "Altitude": "60",
         "Manager": "South Yuba River State Parks"
       },
-      "ref": 8
+      "geom_source": "bylt",
+      "geom_ref": 8,
+      "geom_vertices": 345,
+      "ref": 8,
+      "bylt_score": 1.0,
+      "osm_score": 1.0,
+      "geom_km": 3.222,
+      "bylt_km": 3.222,
+      "osm_km": 1.751
     },
     {
       "id": "independence-trail-west",
@@ -2052,7 +2525,15 @@
         "Altitude": "60",
         "Manager": "South Yuba River State Parks"
       },
-      "ref": 8
+      "geom_source": "bylt",
+      "geom_ref": 8,
+      "geom_vertices": 345,
+      "ref": 8,
+      "bylt_score": 0.941,
+      "osm_score": 1.0,
+      "geom_km": 3.222,
+      "bylt_km": 3.222,
+      "osm_km": 0.048
     },
     {
       "id": "jones-bar-trails",
@@ -2081,7 +2562,15 @@
         "Altitude": "500",
         "Manager": "South Yuba River State Park"
       },
-      "ref": 341
+      "geom_source": "osm",
+      "geom_ref": 477617662,
+      "geom_vertices": 79,
+      "ref": 341,
+      "bylt_score": 1.0,
+      "osm_score": 0.947,
+      "geom_km": 1.048,
+      "bylt_km": 0.604,
+      "osm_km": 1.048
     },
     {
       "id": "kessler-picnic-area-trail",
@@ -2110,7 +2599,15 @@
         "Altitude": " ",
         "Manager": "Tahoe National Forest / Truckee Donner Land Trust"
       },
-      "ref": 134
+      "geom_source": "bylt",
+      "geom_ref": 134,
+      "geom_vertices": 9,
+      "ref": 134,
+      "bylt_score": 1.0,
+      "osm_score": 0.533,
+      "geom_km": 0.287,
+      "bylt_km": 0.287,
+      "osm_km": 0.0
     },
     {
       "id": "kneebone-beach-trail",
@@ -2123,14 +2620,17 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Jones Bar Trail",
           0.522
         ],
         "osm": [
-          "Olive Branch Trail",
-          0.538
+          "Kings Beach Trail",
+          0.64
         ]
       }
     },
@@ -2145,14 +2645,17 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Museum Interpretive Trail",
           0.622
         ],
         "osm": [
-          "Little Deer Creek Trail",
-          0.465
+          "Lakefront Interpretive Trail",
+          0.708
         ]
       }
     },
@@ -2167,14 +2670,17 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Beaver Pond Route",
           0.5
         ],
         "osm": [
-          "Baker Road",
-          0.526
+          "Lakers Lane",
+          0.6
         ]
       }
     },
@@ -2182,23 +2688,28 @@
       "id": "last-chance-motorcycle-trail",
       "name": "Last Chance Motorcycle Trail",
       "city": "",
-      "matched": false,
-      "source": null,
-      "matched_name": null,
-      "score": 0.0,
-      "has_line": false,
-      "trailhead": null,
-      "fields": {},
-      "near_miss": {
-        "bylt": [
-          "Hoyt Connector",
-          0.444
-        ],
-        "osm": [
-          "Stanton Motorcycle Trail",
-          0.75
-        ]
-      }
+      "matched": true,
+      "source": "osm",
+      "matched_name": "Last Chance Motorcycle Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.700088,
+        39.314428
+      ],
+      "fields": {
+        "highway": "path",
+        "osm_id": 1078703837
+      },
+      "geom_source": "osm",
+      "geom_ref": 1078703837,
+      "geom_vertices": 1141,
+      "ref": 1078703837,
+      "bylt_score": 0.444,
+      "osm_score": 1.0,
+      "geom_km": 9.504,
+      "bylt_km": 0.0,
+      "osm_km": 9.504
     },
     {
       "id": "last-chance-tie-trail",
@@ -2211,14 +2722,17 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Alan Theisen Trail",
           0.519
         ],
         "osm": [
-          "La Place Lane",
-          0.571
+          "Last Chance Road",
+          0.774
         ]
       }
     },
@@ -2249,7 +2763,15 @@
         "Altitude": " ",
         "Manager": "Tahoe National Forest"
       },
-      "ref": 94
+      "geom_source": "bylt",
+      "geom_ref": 94,
+      "geom_vertices": 272,
+      "ref": 94,
+      "bylt_score": 0.917,
+      "osm_score": 0.917,
+      "geom_km": 4.584,
+      "bylt_km": 4.584,
+      "osm_km": 0.0
     },
     {
       "id": "little-boca-loop-trail",
@@ -2262,14 +2784,17 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Doolittle Trail",
           0.6
         ],
         "osm": [
-          "Litton Trail",
-          0.588
+          "Little Drop",
+          0.727
         ]
       }
     },
@@ -2277,23 +2802,28 @@
       "id": "lloyd-s-trail",
       "name": "Lloyd's Trail",
       "city": "",
-      "matched": false,
-      "source": null,
-      "matched_name": null,
-      "score": 0.0,
+      "matched": true,
+      "source": "osm",
+      "matched_name": "Lloyd's (Moto)",
+      "score": 0.9,
       "has_line": false,
-      "trailhead": null,
-      "fields": {},
-      "near_miss": {
-        "bylt": [
-          "Lost Loop Trail",
-          0.545
-        ],
-        "osm": [
-          "Kelly Road",
-          0.471
-        ]
-      }
+      "trailhead": [
+        -120.133337,
+        39.379016
+      ],
+      "fields": {
+        "highway": "path",
+        "osm_id": 1053093860
+      },
+      "geom_source": "point",
+      "geom_ref": null,
+      "geom_vertices": 1,
+      "ref": 1053093860,
+      "bylt_score": 0.545,
+      "osm_score": 0.9,
+      "geom_km": 0.0,
+      "bylt_km": 0.0,
+      "osm_km": 0.0
     },
     {
       "id": "lola-montez-ohv-trail",
@@ -2322,7 +2852,15 @@
         "Altitude": " ",
         "Manager": "Tahoe National Forest"
       },
-      "ref": 80
+      "geom_source": "bylt",
+      "geom_ref": 80,
+      "geom_vertices": 229,
+      "ref": 80,
+      "bylt_score": 0.9,
+      "osm_score": 0.9,
+      "geom_km": 2.834,
+      "bylt_km": 2.834,
+      "osm_km": 0.0
     },
     {
       "id": "lonely-meadow-trail",
@@ -2351,7 +2889,15 @@
         "Altitude": " ",
         "Manager": "Tahoe National Forest"
       },
-      "ref": 122
+      "geom_source": "bylt",
+      "geom_ref": 122,
+      "geom_vertices": 76,
+      "ref": 122,
+      "bylt_score": 0.923,
+      "osm_score": 0.923,
+      "geom_km": 1.193,
+      "bylt_km": 1.193,
+      "osm_km": 0.683
     },
     {
       "id": "lost-loop-trail",
@@ -2380,7 +2926,15 @@
         "Altitude": " ",
         "Manager": "Empire Mine State Park"
       },
-      "ref": 34
+      "geom_source": "bylt",
+      "geom_ref": 34,
+      "geom_vertices": 76,
+      "ref": 34,
+      "bylt_score": 1.0,
+      "osm_score": 0.615,
+      "geom_km": 0.258,
+      "bylt_km": 0.258,
+      "osm_km": 0.0
     },
     {
       "id": "lower-hudson-way-trail",
@@ -2409,7 +2963,15 @@
         "Altitude": " ",
         "Manager": "Bureau of Land Management"
       },
-      "ref": 110
+      "geom_source": "bylt",
+      "geom_ref": 110,
+      "geom_vertices": 119,
+      "ref": 110,
+      "bylt_score": 1.0,
+      "osm_score": 0.645,
+      "geom_km": 1.966,
+      "bylt_km": 1.966,
+      "osm_km": 0.0
     },
     {
       "id": "lower-lola-montez-trail",
@@ -2438,7 +3000,15 @@
         "Altitude": " ",
         "Manager": "Tahoe National Forest"
       },
-      "ref": 80
+      "geom_source": "bylt",
+      "geom_ref": 80,
+      "geom_vertices": 229,
+      "ref": 80,
+      "bylt_score": 1.0,
+      "osm_score": 1.0,
+      "geom_km": 2.834,
+      "bylt_km": 2.834,
+      "osm_km": 0.802
     },
     {
       "id": "lower-sagehen-ohv-loop-trail",
@@ -2451,14 +3021,17 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Wildflower Ridge Trail",
           0.552
         ],
         "osm": [
-          "Wilflower Ridge Trail",
-          0.571
+          "Lower Pond Trail",
+          0.609
         ]
       }
     },
@@ -2489,7 +3062,15 @@
         "Altitude": " ",
         "Manager": "Empire Mine State Park"
       },
-      "ref": 30
+      "geom_source": "bylt",
+      "geom_ref": 30,
+      "geom_vertices": 166,
+      "ref": 30,
+      "bylt_score": 0.9,
+      "osm_score": 0.9,
+      "geom_km": 0.925,
+      "bylt_km": 0.925,
+      "osm_km": 0.0
     },
     {
       "id": "lower-union-hill-trail",
@@ -2518,7 +3099,15 @@
         "Altitude": " ",
         "Manager": "Empire Mine State Park"
       },
-      "ref": 30
+      "geom_source": "bylt",
+      "geom_ref": 30,
+      "geom_vertices": 166,
+      "ref": 30,
+      "bylt_score": 1.0,
+      "osm_score": 1.0,
+      "geom_km": 0.925,
+      "bylt_km": 0.925,
+      "osm_km": 0.54
     },
     {
       "id": "magnolia-school-trail",
@@ -2547,7 +3136,15 @@
         "Altitude": " ",
         "Manager": "Unkown"
       },
-      "ref": 116
+      "geom_source": "bylt",
+      "geom_ref": 116,
+      "geom_vertices": 35,
+      "ref": 116,
+      "bylt_score": 1.0,
+      "osm_score": 0.538,
+      "geom_km": 1.404,
+      "bylt_km": 1.404,
+      "osm_km": 0.0
     },
     {
       "id": "marten-ranch-trail",
@@ -2576,7 +3173,15 @@
         "Altitude": " ",
         "Manager": "Malakoff Diggins State Historic Park"
       },
-      "ref": 57
+      "geom_source": "bylt",
+      "geom_ref": 57,
+      "geom_vertices": 8,
+      "ref": 57,
+      "bylt_score": 1.0,
+      "osm_score": 0.696,
+      "geom_km": 0.535,
+      "bylt_km": 0.535,
+      "osm_km": 0.0
     },
     {
       "id": "mautino-park-trail",
@@ -2605,7 +3210,15 @@
         "Altitude": " ",
         "Manager": "City of Grass Valley"
       },
-      "ref": 26
+      "geom_source": "bylt",
+      "geom_ref": 26,
+      "geom_vertices": 59,
+      "ref": 26,
+      "bylt_score": 1.0,
+      "osm_score": 0.609,
+      "geom_km": 0.736,
+      "bylt_km": 0.736,
+      "osm_km": 0.0
     },
     {
       "id": "mccloud-ohv-loop-trail",
@@ -2618,6 +3231,9 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Trabucco Trail",
@@ -2640,14 +3256,17 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Round Mountain Trail",
           0.519
         ],
         "osm": [
-          "Round Mountain Trail",
-          0.519
+          "Lloyd's (Moto)",
+          0.56
         ]
       }
     },
@@ -2678,7 +3297,15 @@
         "Altitude": " ",
         "Manager": "Tahoe National Forest"
       },
-      "ref": 67
+      "geom_source": "bylt",
+      "geom_ref": 67,
+      "geom_vertices": 21,
+      "ref": 67,
+      "bylt_score": 1.0,
+      "osm_score": 0.667,
+      "geom_km": 0.717,
+      "bylt_km": 0.717,
+      "osm_km": 0.0
     },
     {
       "id": "meyers-connector-trail",
@@ -2707,7 +3334,15 @@
         "Altitude": " ",
         "Manager": "Tahoe National Forest"
       },
-      "ref": 107
+      "geom_source": "bylt",
+      "geom_ref": 107,
+      "geom_vertices": 42,
+      "ref": 107,
+      "bylt_score": 1.0,
+      "osm_score": 0.765,
+      "geom_km": 0.692,
+      "bylt_km": 0.692,
+      "osm_km": 0.0
     },
     {
       "id": "milk-lake-access-trail",
@@ -2736,7 +3371,15 @@
         "Altitude": " ",
         "Manager": "Tahoe National Forest"
       },
-      "ref": 125
+      "geom_source": "bylt",
+      "geom_ref": 125,
+      "geom_vertices": 5,
+      "ref": 125,
+      "bylt_score": 1.0,
+      "osm_score": 0.667,
+      "geom_km": 0.139,
+      "bylt_km": 0.139,
+      "osm_km": 0.0
     },
     {
       "id": "miners-trail",
@@ -2748,8 +3391,8 @@
       "score": 1.0,
       "has_line": true,
       "trailhead": [
-        -120.980385,
-        39.283616
+        -120.982143,
+        39.283622
       ],
       "fields": {
         "Desc_": "The Miners Trail follows the old Emigrant Trail and Hwy 20.",
@@ -2765,7 +3408,15 @@
         "Altitude": " ",
         "Manager": "Tahoe National Forest"
       },
-      "ref": 157
+      "geom_source": "osm",
+      "geom_ref": 781981020,
+      "geom_vertices": 194,
+      "ref": 157,
+      "bylt_score": 1.0,
+      "osm_score": 1.0,
+      "geom_km": 3.026,
+      "bylt_km": 2.908,
+      "osm_km": 3.026
     },
     {
       "id": "missouri-bar-trail",
@@ -2777,8 +3428,8 @@
       "score": 1.0,
       "has_line": true,
       "trailhead": [
-        -120.893108,
-        39.359518
+        -120.880118,
+        39.340807
       ],
       "fields": {
         "Desc_": "This trail is a popular hiking and mountain biking trail.",
@@ -2794,7 +3445,15 @@
         "Altitude": " ",
         "Manager": "Tahoe National Forest / Private"
       },
-      "ref": 66
+      "geom_source": "osm",
+      "geom_ref": 10463861,
+      "geom_vertices": 81,
+      "ref": 66,
+      "bylt_score": 1.0,
+      "osm_score": 1.0,
+      "geom_km": 3.705,
+      "bylt_km": 2.195,
+      "osm_km": 3.705
     },
     {
       "id": "monument-trail",
@@ -2807,14 +3466,17 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Mount Lola Trail",
           0.556
         ],
         "osm": [
-          "Moonlight Trail",
-          0.471
+          "Mount Lola Trail",
+          0.556
         ]
       }
     },
@@ -2828,8 +3490,8 @@
       "score": 1.0,
       "has_line": true,
       "trailhead": [
-        -120.472125,
-        39.371748
+        -120.472763,
+        39.369819
       ],
       "fields": {
         "Desc_": "This trail connects with the Glacier Lakes Basin Trail and can be combined with that trail for a longer loop.",
@@ -2845,7 +3507,15 @@
         "Altitude": " ",
         "Manager": "Tahoe National Forest"
       },
-      "ref": 89
+      "geom_source": "osm",
+      "geom_ref": 737491759,
+      "geom_vertices": 56,
+      "ref": 89,
+      "bylt_score": 1.0,
+      "osm_score": 1.0,
+      "geom_km": 1.354,
+      "bylt_km": 1.195,
+      "osm_km": 1.354
     },
     {
       "id": "mossy-pond-oh-trail",
@@ -2874,7 +3544,15 @@
         "Altitude": " ",
         "Manager": "Tahoe National Forest"
       },
-      "ref": 89
+      "geom_source": "bylt",
+      "geom_ref": 89,
+      "geom_vertices": 27,
+      "ref": 89,
+      "bylt_score": 0.786,
+      "osm_score": 0.9,
+      "geom_km": 1.195,
+      "bylt_km": 1.195,
+      "osm_km": 0.0
     },
     {
       "id": "mossy-pond-west-trail",
@@ -2903,7 +3581,15 @@
         "Altitude": " ",
         "Manager": "Tahoe National Forest"
       },
-      "ref": 90
+      "geom_source": "bylt",
+      "geom_ref": 90,
+      "geom_vertices": 32,
+      "ref": 90,
+      "bylt_score": 1.0,
+      "osm_score": 1.0,
+      "geom_km": 1.002,
+      "bylt_km": 1.002,
+      "osm_km": 0.895
     },
     {
       "id": "mount-lola-trail",
@@ -2932,7 +3618,15 @@
         "Altitude": " ",
         "Manager": "Tahoe National Forest"
       },
-      "ref": 85
+      "geom_source": "bylt",
+      "geom_ref": 85,
+      "geom_vertices": 129,
+      "ref": 85,
+      "bylt_score": 1.0,
+      "osm_score": 1.0,
+      "geom_km": 7.113,
+      "bylt_km": 7.113,
+      "osm_km": 4.877
     },
     {
       "id": "mount-olive-park-and-walk-trail",
@@ -2961,7 +3655,15 @@
         "Altitude": " ",
         "Manager": "Chicago Park residents and trail users"
       },
-      "ref": 59
+      "geom_source": "bylt",
+      "geom_ref": 59,
+      "geom_vertices": 35,
+      "ref": 59,
+      "bylt_score": 0.9,
+      "osm_score": 0.9,
+      "geom_km": 1.012,
+      "bylt_km": 1.012,
+      "osm_km": 0.0
     },
     {
       "id": "museum-interpretive-trail",
@@ -2990,7 +3692,15 @@
         "Altitude": " ",
         "Manager": "Donner Memorial State Park"
       },
-      "ref": 132
+      "geom_source": "bylt",
+      "geom_ref": 132,
+      "geom_vertices": 20,
+      "ref": 132,
+      "bylt_score": 1.0,
+      "osm_score": 0.683,
+      "geom_km": 0.604,
+      "bylt_km": 0.604,
+      "osm_km": 0.0
     },
     {
       "id": "museum-lakeside-trail-connector",
@@ -3003,14 +3713,17 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Penner Lake Connector",
           0.696
         ],
         "osm": [
-          "Ousley Bar Connector",
-          0.667
+          "Upper Rocky Ridge Connector",
+          0.654
         ]
       }
     },
@@ -3041,7 +3754,15 @@
         "Altitude": " ",
         "Manager": "Malakoff Diggins State Historic Park"
       },
-      "ref": 52
+      "geom_source": "bylt",
+      "geom_ref": 52,
+      "geom_vertices": 94,
+      "ref": 52,
+      "bylt_score": 1.0,
+      "osm_score": 0.645,
+      "geom_km": 0.995,
+      "bylt_km": 0.995,
+      "osm_km": 0.0
     },
     {
       "id": "north-canyon-trail",
@@ -3054,14 +3775,17 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Donner Summit Canyon Trail",
           0.625
         ],
         "osm": [
-          "North Canal Road",
-          0.714
+          "North Boca OHV Trail",
+          0.727
         ]
       }
     },
@@ -3076,14 +3800,17 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Pioneer Northspur 1 Trail",
           0.516
         ],
         "osm": [
-          "North Canal Road",
-          0.571
+          "North Ridge Trail",
+          0.696
         ]
       }
     },
@@ -3098,6 +3825,9 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Pioneer Northspur 1 Trail",
@@ -3136,7 +3866,15 @@
         "Altitude": " ",
         "Manager": "South Yuba River State Park / Private"
       },
-      "ref": 65
+      "geom_source": "bylt",
+      "geom_ref": 65,
+      "geom_vertices": 21,
+      "ref": 65,
+      "bylt_score": 1.0,
+      "osm_score": 0.778,
+      "geom_km": 0.98,
+      "bylt_km": 0.98,
+      "osm_km": 0.0
     },
     {
       "id": "old-greenwood-trail-connector",
@@ -3165,29 +3903,42 @@
         "Altitude": " ",
         "Manager": "Town of Truckee"
       },
-      "ref": 154
+      "geom_source": "osm",
+      "geom_ref": 119512954,
+      "geom_vertices": 9,
+      "ref": 154,
+      "bylt_score": 1.0,
+      "osm_score": 1.0,
+      "geom_km": 0.262,
+      "bylt_km": 0.22,
+      "osm_km": 0.262
     },
     {
       "id": "old-reno-ohv-trail",
       "name": "Old Reno OHV Trail",
       "city": "",
-      "matched": false,
-      "source": null,
-      "matched_name": null,
-      "score": 0.0,
+      "matched": true,
+      "source": "osm",
+      "matched_name": "Old Reno Spur Road",
+      "score": 0.9,
       "has_line": false,
-      "trailhead": null,
-      "fields": {},
-      "near_miss": {
-        "bylt": [
-          "Old Flume Trail",
-          0.588
-        ],
-        "osm": [
-          "Old Toll Road",
-          0.571
-        ]
-      }
+      "trailhead": [
+        -120.125472,
+        39.417977
+      ],
+      "fields": {
+        "highway": "track",
+        "osm_id": 10465287
+      },
+      "geom_source": "point",
+      "geom_ref": null,
+      "geom_vertices": 1,
+      "ref": 10465287,
+      "bylt_score": 0.588,
+      "osm_score": 0.9,
+      "geom_km": 0.0,
+      "bylt_km": 0.0,
+      "osm_km": 0.0
     },
     {
       "id": "omega-mc-trail",
@@ -3200,13 +3951,16 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Loma Rica Trail",
           0.588
         ],
         "osm": [
-          "Omega Motorcycle Trail",
+          "Megan's Trail",
           0.667
         ]
       }
@@ -3219,16 +3973,24 @@
       "source": "osm",
       "matched_name": "Omega Overlook Motorcycle Trail",
       "score": 1.0,
-      "has_line": false,
+      "has_line": true,
       "trailhead": [
-        -120.745504,
-        39.319971
+        -120.745953,
+        39.320794
       ],
       "fields": {
         "highway": "track",
         "osm_id": 10465801
       },
-      "ref": 10465801
+      "geom_source": "osm",
+      "geom_ref": 10465801,
+      "geom_vertices": 52,
+      "ref": 10465801,
+      "bylt_score": 0.476,
+      "osm_score": 1.0,
+      "geom_km": 1.194,
+      "bylt_km": 0.0,
+      "osm_km": 1.194
     },
     {
       "id": "orene-wetherall-trail",
@@ -3257,7 +4019,15 @@
         "Altitude": "280",
         "Manager": "BYLT"
       },
-      "ref": 13
+      "geom_source": "osm",
+      "geom_ref": 1468111236,
+      "geom_vertices": 339,
+      "ref": 13,
+      "bylt_score": 1.0,
+      "osm_score": 1.0,
+      "geom_km": 1.533,
+      "bylt_km": 1.316,
+      "osm_km": 1.533
     },
     {
       "id": "orleans-trail",
@@ -3286,7 +4056,15 @@
         "Altitude": " ",
         "Manager": "Empire Mine State Park"
       },
-      "ref": 39
+      "geom_source": "bylt",
+      "geom_ref": 39,
+      "geom_vertices": 172,
+      "ref": 39,
+      "bylt_score": 1.0,
+      "osm_score": 1.0,
+      "geom_km": 0.766,
+      "bylt_km": 0.766,
+      "osm_km": 0.726
     },
     {
       "id": "osborne-hill-loop-trail",
@@ -3315,7 +4093,15 @@
         "Altitude": " ",
         "Manager": "Empire Mine State Park"
       },
-      "ref": 42
+      "geom_source": "bylt",
+      "geom_ref": 42,
+      "geom_vertices": 530,
+      "ref": 42,
+      "bylt_score": 1.0,
+      "osm_score": 1.0,
+      "geom_km": 3.458,
+      "bylt_km": 3.458,
+      "osm_km": 1.19
     },
     {
       "id": "osborne-loop-cross-trail",
@@ -3344,7 +4130,15 @@
         "Altitude": " ",
         "Manager": "Empire Mine State Park"
       },
-      "ref": 45
+      "geom_source": "bylt",
+      "geom_ref": 45,
+      "geom_vertices": 124,
+      "ref": 45,
+      "bylt_score": 1.0,
+      "osm_score": 0.897,
+      "geom_km": 0.763,
+      "bylt_km": 0.763,
+      "osm_km": 0.0
     },
     {
       "id": "overland-emmigrant-commemorative-trail",
@@ -3373,29 +4167,42 @@
         "Altitude": " ",
         "Manager": "Various"
       },
-      "ref": 82
+      "geom_source": "bylt",
+      "geom_ref": 82,
+      "geom_vertices": 800,
+      "ref": 82,
+      "bylt_score": 0.984,
+      "osm_score": 0.612,
+      "geom_km": 20.391,
+      "bylt_km": 20.391,
+      "osm_km": 0.0
     },
     {
       "id": "overland-emmigrant-connector-trail",
       "name": "Overland Emmigrant Connector Trail",
       "city": "",
-      "matched": false,
-      "source": null,
-      "matched_name": null,
-      "score": 0.0,
+      "matched": true,
+      "source": "osm",
+      "matched_name": "Overland Trail Connector",
+      "score": 0.9,
       "has_line": false,
-      "trailhead": null,
-      "fields": {},
-      "near_miss": {
-        "bylt": [
-          "Overland Emigrant Commemorative Trail",
-          0.78
-        ],
-        "osm": [
-          "Penn Gate Connector Trail",
-          0.553
-        ]
-      }
+      "trailhead": [
+        -120.151133,
+        39.354696
+      ],
+      "fields": {
+        "highway": "path",
+        "osm_id": 10470005
+      },
+      "geom_source": "point",
+      "geom_ref": null,
+      "geom_vertices": 1,
+      "ref": 10470005,
+      "bylt_score": 0.78,
+      "osm_score": 0.9,
+      "geom_km": 0.0,
+      "bylt_km": 0.0,
+      "osm_km": 0.0
     },
     {
       "id": "overland-low-water-trail",
@@ -3408,14 +4215,17 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Overland Emigrant Commemorative Trail",
           0.531
         ],
         "osm": [
-          "Cumberland Lane",
-          0.606
+          "Overland Trail Connector",
+          0.667
         ]
       }
     },
@@ -3430,14 +4240,17 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Up and Over Trail",
           0.533
         ],
         "osm": [
-          "Lower Doloros",
-          0.571
+          "Overload",
+          0.75
         ]
       }
     },
@@ -3468,7 +4281,15 @@
         "Altitude": " ",
         "Manager": "Chicago Park residents and trail users"
       },
-      "ref": 59
+      "geom_source": "bylt",
+      "geom_ref": 59,
+      "geom_vertices": 35,
+      "ref": 59,
+      "bylt_score": 0.9,
+      "osm_score": 0.9,
+      "geom_km": 1.012,
+      "bylt_km": 1.012,
+      "osm_km": 0.0
     },
     {
       "id": "penner-lake-connector-trail",
@@ -3497,7 +4318,15 @@
         "Altitude": " ",
         "Manager": "Tahoe National Forest"
       },
-      "ref": 93
+      "geom_source": "bylt",
+      "geom_ref": 93,
+      "geom_vertices": 16,
+      "ref": 93,
+      "bylt_score": 1.0,
+      "osm_score": 0.85,
+      "geom_km": 0.148,
+      "bylt_km": 0.148,
+      "osm_km": 0.0
     },
     {
       "id": "pierce-creek-campground-trail",
@@ -3510,14 +4339,17 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Rock Creek Road Trail",
           0.632
         ],
         "osm": [
-          "Deer Creek Spur",
-          0.579
+          "Juniper Creek Road",
+          0.634
         ]
       }
     },
@@ -3525,23 +4357,28 @@
       "id": "pierce-ohv-connector-trail",
       "name": "Pierce OHV Connector Trail",
       "city": "",
-      "matched": false,
-      "source": null,
-      "matched_name": null,
-      "score": 0.0,
-      "has_line": false,
-      "trailhead": null,
-      "fields": {},
-      "near_miss": {
-        "bylt": [
-          "Penner Lake Connector",
-          0.757
-        ],
-        "osm": [
-          "Penn Gate Connector Trail",
-          0.743
-        ]
-      }
+      "matched": true,
+      "source": "osm",
+      "matched_name": "Pierce OHV Connector",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.581008,
+        39.340562
+      ],
+      "fields": {
+        "highway": "track",
+        "osm_id": 1083871448
+      },
+      "geom_source": "osm",
+      "geom_ref": 1083871448,
+      "geom_vertices": 41,
+      "ref": 1083871448,
+      "bylt_score": 0.757,
+      "osm_score": 1.0,
+      "geom_km": 1.373,
+      "bylt_km": 0.0,
+      "osm_km": 1.373
     },
     {
       "id": "pierce-ohv-spur-a-trail",
@@ -3554,14 +4391,17 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Pioneer Northspur 1 Trail",
           0.625
         ],
         "osm": [
-          "Deer Creek Spur",
-          0.643
+          "Cinder Cone Spur",
+          0.69
         ]
       }
     },
@@ -3576,14 +4416,17 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Pioneer Northspur 1 Trail",
           0.625
         ],
         "osm": [
-          "Deer Creek Spur",
-          0.643
+          "Cinder Cone Spur",
+          0.69
         ]
       }
     },
@@ -3614,7 +4457,15 @@
         "Altitude": " ",
         "Manager": "Town of Truckee"
       },
-      "ref": 149
+      "geom_source": "bylt",
+      "geom_ref": 149,
+      "geom_vertices": 104,
+      "ref": 149,
+      "bylt_score": 1.0,
+      "osm_score": 0.737,
+      "geom_km": 1.089,
+      "bylt_km": 1.089,
+      "osm_km": 0.0
     },
     {
       "id": "pioneer-commerce-center-trails",
@@ -3643,7 +4494,15 @@
         "Altitude": " ",
         "Manager": "Town of Truckee"
       },
-      "ref": 153
+      "geom_source": "bylt",
+      "geom_ref": 153,
+      "geom_vertices": 45,
+      "ref": 153,
+      "bylt_score": 1.0,
+      "osm_score": 0.6,
+      "geom_km": 0.265,
+      "bylt_km": 0.265,
+      "osm_km": 0.0
     },
     {
       "id": "pioneer-northspur-1-trail",
@@ -3672,7 +4531,15 @@
         "Altitude": " ",
         "Manager": "Tahoe National Forest"
       },
-      "ref": 108
+      "geom_source": "bylt",
+      "geom_ref": 108,
+      "geom_vertices": 9,
+      "ref": 108,
+      "bylt_score": 1.0,
+      "osm_score": 0.647,
+      "geom_km": 0.444,
+      "bylt_km": 0.444,
+      "osm_km": 0.0
     },
     {
       "id": "pioneer-northspur-2-trail",
@@ -3701,7 +4568,15 @@
         "Altitude": " ",
         "Manager": "Tahoe National Forest"
       },
-      "ref": 128
+      "geom_source": "bylt",
+      "geom_ref": 128,
+      "geom_vertices": 54,
+      "ref": 128,
+      "bylt_score": 1.0,
+      "osm_score": 0.647,
+      "geom_km": 1.101,
+      "bylt_km": 1.101,
+      "osm_km": 0.0
     },
     {
       "id": "pioneer-trail",
@@ -3730,7 +4605,15 @@
         "Altitude": " ",
         "Manager": "Tahoe National Forest"
       },
-      "ref": 70
+      "geom_source": "bylt",
+      "geom_ref": 70,
+      "geom_vertices": 3490,
+      "ref": 70,
+      "bylt_score": 1.0,
+      "osm_score": 1.0,
+      "geom_km": 44.804,
+      "bylt_km": 44.804,
+      "osm_km": 2.777
     },
     {
       "id": "pioneer-trail-south",
@@ -3743,6 +4626,9 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Pioneer Trail",
@@ -3781,7 +4667,15 @@
         "Altitude": " ",
         "Manager": "Empire Mine State Park"
       },
-      "ref": 31
+      "geom_source": "osm",
+      "geom_ref": 316329444,
+      "geom_vertices": 35,
+      "ref": 31,
+      "bylt_score": 1.0,
+      "osm_score": 1.0,
+      "geom_km": 1.011,
+      "bylt_km": 1.011,
+      "osm_km": 1.011
     },
     {
       "id": "plumbago-trail",
@@ -3794,6 +4688,9 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Upper Humbug Trail",
@@ -3816,14 +4713,17 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Pioneer Trail",
           0.545
         ],
         "osm": [
-          "ground",
-          0.6
+          "Lily Pond Trail",
+          0.615
         ]
       }
     },
@@ -3854,7 +4754,15 @@
         "Altitude": " ",
         "Manager": "Tahoe National Forest"
       },
-      "ref": 68
+      "geom_source": "bylt",
+      "geom_ref": 68,
+      "geom_vertices": 47,
+      "ref": 68,
+      "bylt_score": 1.0,
+      "osm_score": 0.875,
+      "geom_km": 2.324,
+      "bylt_km": 2.324,
+      "osm_km": 0.0
     },
     {
       "id": "prescott-hill-cross-trail",
@@ -3883,7 +4791,15 @@
         "Altitude": " ",
         "Manager": "Empire Mine State Park"
       },
-      "ref": 44
+      "geom_source": "bylt",
+      "geom_ref": 44,
+      "geom_vertices": 97,
+      "ref": 44,
+      "bylt_score": 1.0,
+      "osm_score": 0.927,
+      "geom_km": 0.595,
+      "bylt_km": 0.595,
+      "osm_km": 0.542
     },
     {
       "id": "prescott-mine-trail",
@@ -3912,7 +4828,15 @@
         "Altitude": " ",
         "Manager": "Empire Mine State Park"
       },
-      "ref": 46
+      "geom_source": "bylt",
+      "geom_ref": 46,
+      "geom_vertices": 72,
+      "ref": 46,
+      "bylt_score": 1.0,
+      "osm_score": 0.9,
+      "geom_km": 0.503,
+      "bylt_km": 0.503,
+      "osm_km": 0.0
     },
     {
       "id": "prosser-creek-east-ohv-loop-trail",
@@ -3925,14 +4849,17 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Rock Creek Road Trail",
           0.606
         ],
         "osm": [
-          "Deer Creek Spur",
-          0.606
+          "Dry Creek East OHV Trail",
+          0.75
         ]
       }
     },
@@ -3940,23 +4867,28 @@
       "id": "prosser-creek-ohv-loop-trail",
       "name": "Prosser Creek OHV Loop Trail",
       "city": "",
-      "matched": false,
-      "source": null,
-      "matched_name": null,
-      "score": 0.0,
+      "matched": true,
+      "source": "osm",
+      "matched_name": "South Prosser Creek Spur",
+      "score": 0.9,
       "has_line": false,
-      "trailhead": null,
-      "fields": {},
-      "near_miss": {
-        "bylt": [
-          "Slide Creek Trail",
-          0.667
-        ],
-        "osm": [
-          "Slide Creek Trail",
-          0.667
-        ]
-      }
+      "trailhead": [
+        -120.181036,
+        39.375685
+      ],
+      "fields": {
+        "highway": "track",
+        "osm_id": 10466755
+      },
+      "geom_source": "point",
+      "geom_ref": null,
+      "geom_vertices": 1,
+      "ref": 10466755,
+      "bylt_score": 0.667,
+      "osm_score": 0.9,
+      "geom_km": 0.0,
+      "bylt_km": 0.0,
+      "osm_km": 0.0
     },
     {
       "id": "prosser-creek-west-ohv-trail",
@@ -3969,14 +4901,17 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Rock Creek Flume Trail",
           0.588
         ],
         "osm": [
-          "Deer Creek Spur",
-          0.606
+          "South Prosser Creek Spur",
+          0.714
         ]
       }
     },
@@ -3984,45 +4919,55 @@
       "id": "prosser-hill-connector-1-trail",
       "name": "Prosser Hill Connector 1 Trail",
       "city": "",
-      "matched": false,
-      "source": null,
-      "matched_name": null,
-      "score": 0.0,
-      "has_line": false,
-      "trailhead": null,
-      "fields": {},
-      "near_miss": {
-        "bylt": [
-          "Penner Lake Connector",
-          0.667
-        ],
-        "osm": [
-          "Penn Gate Connector Trail",
-          0.605
-        ]
-      }
+      "matched": true,
+      "source": "osm",
+      "matched_name": "Prosser Hills Connector",
+      "score": 0.936,
+      "has_line": true,
+      "trailhead": [
+        -120.20863,
+        39.378063
+      ],
+      "fields": {
+        "highway": "track",
+        "osm_id": 426154129
+      },
+      "geom_source": "osm",
+      "geom_ref": 426154129,
+      "geom_vertices": 16,
+      "ref": 426154129,
+      "bylt_score": 0.667,
+      "osm_score": 0.936,
+      "geom_km": 0.346,
+      "bylt_km": 0.0,
+      "osm_km": 0.346
     },
     {
       "id": "prosser-hill-connector-3-trail",
       "name": "Prosser Hill Connector 3 Trail",
       "city": "",
-      "matched": false,
-      "source": null,
-      "matched_name": null,
-      "score": 0.0,
-      "has_line": false,
-      "trailhead": null,
-      "fields": {},
-      "near_miss": {
-        "bylt": [
-          "Penner Lake Connector",
-          0.667
-        ],
-        "osm": [
-          "Penn Gate Connector Trail",
-          0.605
-        ]
-      }
+      "matched": true,
+      "source": "osm",
+      "matched_name": "Prosser Hills Connector",
+      "score": 0.936,
+      "has_line": true,
+      "trailhead": [
+        -120.20863,
+        39.378063
+      ],
+      "fields": {
+        "highway": "track",
+        "osm_id": 426154129
+      },
+      "geom_source": "osm",
+      "geom_ref": 426154129,
+      "geom_vertices": 16,
+      "ref": 426154129,
+      "bylt_score": 0.667,
+      "osm_score": 0.936,
+      "geom_km": 0.346,
+      "bylt_km": 0.0,
+      "osm_km": 0.346
     },
     {
       "id": "prosser-hill-jeep-trail",
@@ -4035,14 +4980,17 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Osborne Hill Loop Trail",
           0.552
         ],
         "osm": [
-          "Prescott Hill Mine Trail",
-          0.571
+          "Prosser Hills Connector",
+          0.7
         ]
       }
     },
@@ -4050,23 +4998,28 @@
       "id": "prosser-hill-motorcycle-trail",
       "name": "Prosser Hill Motorcycle Trail",
       "city": "",
-      "matched": false,
-      "source": null,
-      "matched_name": null,
-      "score": 0.0,
-      "has_line": false,
-      "trailhead": null,
-      "fields": {},
-      "near_miss": {
-        "bylt": [
-          "Lower Lola Montez Trail",
-          0.55
-        ],
-        "osm": [
-          "Omega Motorcycle Trail",
-          0.667
-        ]
-      }
+      "matched": true,
+      "source": "osm",
+      "matched_name": "Prosser Hill Motorcycle Loop",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.212774,
+        39.376528
+      ],
+      "fields": {
+        "highway": "path",
+        "osm_id": 483872583
+      },
+      "geom_source": "osm",
+      "geom_ref": 483872583,
+      "geom_vertices": 143,
+      "ref": 483872583,
+      "bylt_score": 0.55,
+      "osm_score": 1.0,
+      "geom_km": 1.929,
+      "bylt_km": 0.0,
+      "osm_km": 1.929
     },
     {
       "id": "prosser-neighborhood-access-trail",
@@ -4079,14 +5032,17 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Rice's Crossing Access Trail",
           0.531
         ],
         "osm": [
-          "Illinois Crossing Access",
-          0.51
+          "Prosser Access Road",
+          0.609
         ]
       }
     },
@@ -4101,14 +5057,17 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Pioneer Northspur 1 Trail",
           0.625
         ],
         "osm": [
-          "Ousley Bar Connector",
-          0.485
+          "Prosser Dam Trail",
+          0.667
         ]
       }
     },
@@ -4123,14 +5082,17 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Donner PCT Access",
           0.743
         ],
         "osm": [
-          "Illinois Crossing Access",
-          0.571
+          "Prosser Access Road",
+          0.757
         ]
       }
     },
@@ -4145,14 +5107,17 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Castle Valley Access Trail",
           0.52
         ],
         "osm": [
-          "Green Valley Trail",
-          0.476
+          "Castle Valley East OHV Trail",
+          0.542
         ]
       }
     },
@@ -4167,14 +5132,17 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Sandridge Lake Trail",
           0.571
         ],
         "osm": [
-          "Bridgeport Covered Bridge",
-          0.478
+          "Richardson Lake Road",
+          0.585
         ]
       }
     },
@@ -4205,7 +5173,15 @@
         "Altitude": " ",
         "Manager": "Malakoff Diggins State Historic Park"
       },
-      "ref": 50
+      "geom_source": "bylt",
+      "geom_ref": 50,
+      "geom_vertices": 813,
+      "ref": 50,
+      "bylt_score": 1.0,
+      "osm_score": 1.0,
+      "geom_km": 5.236,
+      "bylt_km": 5.236,
+      "osm_km": 5.016
     },
     {
       "id": "rim-trail-access",
@@ -4234,7 +5210,15 @@
         "Altitude": " ",
         "Manager": "Lake Tahoe Basin Management Unit Office"
       },
-      "ref": 75
+      "geom_source": "bylt",
+      "geom_ref": 75,
+      "geom_vertices": 474,
+      "ref": 75,
+      "bylt_score": 1.0,
+      "osm_score": 0.75,
+      "geom_km": 1.93,
+      "bylt_km": 1.93,
+      "osm_km": 0.0
     },
     {
       "id": "rock-creek-flume-trail",
@@ -4263,7 +5247,15 @@
         "Altitude": " ",
         "Manager": "Bureau of Land Management"
       },
-      "ref": 111
+      "geom_source": "bylt",
+      "geom_ref": 111,
+      "geom_vertices": 130,
+      "ref": 111,
+      "bylt_score": 1.0,
+      "osm_score": 0.788,
+      "geom_km": 1.939,
+      "bylt_km": 1.939,
+      "osm_km": 0.0
     },
     {
       "id": "rock-creek-nature-trail",
@@ -4292,7 +5284,15 @@
         "Altitude": " ",
         "Manager": "Tahoe National Forest"
       },
-      "ref": 62
+      "geom_source": "bylt",
+      "geom_ref": 62,
+      "geom_vertices": 28,
+      "ref": 62,
+      "bylt_score": 1.0,
+      "osm_score": 1.0,
+      "geom_km": 1.135,
+      "bylt_km": 1.135,
+      "osm_km": 0.918
     },
     {
       "id": "rock-creek-road-trail",
@@ -4321,7 +5321,15 @@
         "Altitude": " ",
         "Manager": "Bureau of Land Management"
       },
-      "ref": 118
+      "geom_source": "bylt",
+      "geom_ref": 118,
+      "geom_vertices": 64,
+      "ref": 118,
+      "bylt_score": 1.0,
+      "osm_score": 0.828,
+      "geom_km": 0.822,
+      "bylt_km": 0.822,
+      "osm_km": 0.0
     },
     {
       "id": "rock-creek-switchback-trail",
@@ -4350,7 +5358,15 @@
         "Altitude": " ",
         "Manager": "Tahoe National Forest"
       },
-      "ref": 109
+      "geom_source": "bylt",
+      "geom_ref": 109,
+      "geom_vertices": 262,
+      "ref": 109,
+      "bylt_score": 1.0,
+      "osm_score": 0.667,
+      "geom_km": 1.975,
+      "bylt_km": 1.975,
+      "osm_km": 0.0
     },
     {
       "id": "rood-center-path",
@@ -4363,14 +5379,17 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Rock Creek Nature Trail",
           0.571
         ],
         "osm": [
-          "Rock Creek Nature Trail",
-          0.571
+          "Frontier Trail",
+          0.632
         ]
       }
     },
@@ -4385,14 +5404,17 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Meyers Connector",
           0.667
         ],
         "osm": [
-          "Penn Gate Connector Trail",
-          0.667
+          "Old County Connector",
+          0.744
         ]
       }
     },
@@ -4407,14 +5429,17 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "South Yuba Trail",
           0.476
         ],
         "osm": [
-          "Mark Court",
-          0.476
+          "Royal Flush",
+          0.545
         ]
       }
     },
@@ -4445,7 +5470,15 @@
         "Altitude": "36",
         "Manager": "BYLT"
       },
-      "ref": 16
+      "geom_source": "osm",
+      "geom_ref": 1464074183,
+      "geom_vertices": 296,
+      "ref": 16,
+      "bylt_score": 1.0,
+      "osm_score": 1.0,
+      "geom_km": 2.618,
+      "bylt_km": 2.355,
+      "osm_km": 2.618
     },
     {
       "id": "round-lake-trail",
@@ -4474,7 +5507,15 @@
         "Altitude": " ",
         "Manager": "Tahoe National Forest"
       },
-      "ref": 121
+      "geom_source": "osm",
+      "geom_ref": 28636984,
+      "geom_vertices": 248,
+      "ref": 121,
+      "bylt_score": 1.0,
+      "osm_score": 1.0,
+      "geom_km": 3.473,
+      "bylt_km": 2.088,
+      "osm_km": 3.473
     },
     {
       "id": "round-mountain-trail",
@@ -4503,51 +5544,69 @@
         "Altitude": " ",
         "Manager": "Bureau of Land Management"
       },
-      "ref": 64
+      "geom_source": "bylt",
+      "geom_ref": 64,
+      "geom_vertices": 80,
+      "ref": 64,
+      "bylt_score": 1.0,
+      "osm_score": 1.0,
+      "geom_km": 2.349,
+      "bylt_km": 2.349,
+      "osm_km": 0.753
     },
     {
       "id": "russel-valley-ohv-connector-trail",
       "name": "Russel Valley OHV Connector Trail",
       "city": "",
-      "matched": false,
-      "source": null,
-      "matched_name": null,
-      "score": 0.0,
-      "has_line": false,
-      "trailhead": null,
-      "fields": {},
-      "near_miss": {
-        "bylt": [
-          "Ridge Camp Connector",
-          0.651
-        ],
-        "osm": [
-          "Ousley Bar Connector",
-          0.698
-        ]
-      }
+      "matched": true,
+      "source": "osm",
+      "matched_name": "Russel Valley ATV Connector Trail",
+      "score": 0.92,
+      "has_line": true,
+      "trailhead": [
+        -120.130295,
+        39.419233
+      ],
+      "fields": {
+        "highway": "track",
+        "osm_id": 931110146
+      },
+      "geom_source": "osm",
+      "geom_ref": 931110146,
+      "geom_vertices": 68,
+      "ref": 931110146,
+      "bylt_score": 0.651,
+      "osm_score": 0.92,
+      "geom_km": 1.356,
+      "bylt_km": 0.0,
+      "osm_km": 1.356
     },
     {
       "id": "russel-valley-south-ohv-trail",
       "name": "Russel Valley South OHV Trail",
       "city": "",
-      "matched": false,
-      "source": null,
-      "matched_name": null,
-      "score": 0.0,
-      "has_line": false,
-      "trailhead": null,
-      "fields": {},
-      "near_miss": {
-        "bylt": [
-          "Castle Valley Access Trail",
-          0.564
-        ],
-        "osm": [
-          "Garden Valley Road",
-          0.595
-        ]
-      }
+      "matched": true,
+      "source": "osm",
+      "matched_name": "Russel Valley South OHV Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.130879,
+        39.422851
+      ],
+      "fields": {
+        "highway": "track",
+        "osm_id": 10466160
+      },
+      "geom_source": "osm",
+      "geom_ref": 10466160,
+      "geom_vertices": 91,
+      "ref": 10466160,
+      "bylt_score": 0.564,
+      "osm_score": 1.0,
+      "geom_km": 2.279,
+      "bylt_km": 0.0,
+      "osm_km": 2.279
     },
     {
       "id": "sagehen-hill-tie-trail",
@@ -4560,6 +5619,9 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Penn Valley Bike Trail",
@@ -4582,14 +5644,17 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Slaughterhouse Trail",
           0.522
         ],
         "osm": [
-          "Athens Way",
-          0.526
+          "Sagehen Road",
+          0.762
         ]
       }
     },
@@ -4604,14 +5669,17 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Slaughterhouse Trail",
           0.522
         ],
         "osm": [
-          "Athens Way",
-          0.526
+          "Sagehen Road",
+          0.762
         ]
       }
     },
@@ -4626,14 +5694,17 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Alan Theisen Trail",
           0.48
         ],
         "osm": [
-          "Fair Haven Drive",
-          0.483
+          "Sagehen Creek Road",
+          0.645
         ]
       }
     },
@@ -4648,14 +5719,17 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Alan Theisen Trail",
           0.48
         ],
         "osm": [
-          "Fair Haven Drive",
-          0.483
+          "Sagehen Creek Road",
+          0.645
         ]
       }
     },
@@ -4670,13 +5744,16 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Stevens Lane Trail",
           0.552
         ],
         "osm": [
-          "Powerline Trail",
+          "Powerline",
           0.692
         ]
       }
@@ -4692,14 +5769,17 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Slaughterhouse Trail",
           0.485
         ],
         "osm": [
-          "Stacey Lane Crosscut Trail",
-          0.513
+          "Sagehen Road",
+          0.645
         ]
       }
     },
@@ -4713,8 +5793,8 @@
       "score": 1.0,
       "has_line": true,
       "trailhead": [
-        -120.584812,
-        39.406745
+        -120.578353,
+        39.406711
       ],
       "fields": {
         "Desc_": "This is a difficult trail that follows the San Ridge.",
@@ -4730,7 +5810,15 @@
         "Altitude": " ",
         "Manager": "Tahoe National Forest"
       },
-      "ref": 99
+      "geom_source": "osm",
+      "geom_ref": 308163733,
+      "geom_vertices": 180,
+      "ref": 99,
+      "bylt_score": 1.0,
+      "osm_score": 1.0,
+      "geom_km": 3.447,
+      "bylt_km": 3.044,
+      "osm_km": 3.447
     },
     {
       "id": "sandridge-lake-trail",
@@ -4759,7 +5847,15 @@
         "Altitude": " ",
         "Manager": "Tahoe National Forest"
       },
-      "ref": 81
+      "geom_source": "bylt",
+      "geom_ref": 81,
+      "geom_vertices": 35,
+      "ref": 81,
+      "bylt_score": 1.0,
+      "osm_score": 0.966,
+      "geom_km": 0.73,
+      "bylt_km": 0.73,
+      "osm_km": 0.715
     },
     {
       "id": "sanford-lake-trail",
@@ -4788,7 +5884,15 @@
         "Altitude": " ",
         "Manager": "Tahoe National Forest"
       },
-      "ref": 96
+      "geom_source": "osm",
+      "geom_ref": 696537494,
+      "geom_vertices": 57,
+      "ref": 96,
+      "bylt_score": 1.0,
+      "osm_score": 1.0,
+      "geom_km": 0.968,
+      "bylt_km": 0.447,
+      "osm_km": 0.968
     },
     {
       "id": "sawtooth-trailhead-truckee",
@@ -4801,14 +5905,17 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "South Yuba Ridge Trail",
           0.471
         ],
         "osm": [
-          "Missouri Bar Trailhead",
-          0.6
+          "Sawtooth Ridge Road",
+          0.757
         ]
       }
     },
@@ -4823,14 +5930,17 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Rock Creek Road Trail",
           0.514
         ],
         "osm": [
-          "Nicholls Road",
-          0.606
+          "Creek Overlook Road",
+          0.821
         ]
       }
     },
@@ -4845,14 +5955,17 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "China Cove Trail",
           0.48
         ],
         "osm": [
-          "Omega Overlook Motorcycle Trail",
-          0.5
+          "Incline Overlook",
+          0.71
         ]
       }
     },
@@ -4867,14 +5980,17 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Kessler Picnic Area Trail",
           0.488
         ],
         "osm": [
-          "Omega Overlook Motorcycle Trail",
-          0.553
+          "Creek Overlook Road",
+          0.585
         ]
       }
     },
@@ -4905,7 +6021,15 @@
         "Altitude": " ",
         "Manager": "Tahoe National Forest"
       },
-      "ref": 63
+      "geom_source": "bylt",
+      "geom_ref": 63,
+      "geom_vertices": 478,
+      "ref": 63,
+      "bylt_score": 0.9,
+      "osm_score": 0.9,
+      "geom_km": 8.76,
+      "bylt_km": 8.76,
+      "osm_km": 0.0
     },
     {
       "id": "scotts-flat-trail",
@@ -4934,7 +6058,15 @@
         "Altitude": " ",
         "Manager": "Tahoe National Forest"
       },
-      "ref": 63
+      "geom_source": "bylt",
+      "geom_ref": 63,
+      "geom_vertices": 478,
+      "ref": 63,
+      "bylt_score": 1.0,
+      "osm_score": 1.0,
+      "geom_km": 8.76,
+      "bylt_km": 8.76,
+      "osm_km": 5.396
     },
     {
       "id": "sierra-college-mciver-hill-trail",
@@ -4963,7 +6095,15 @@
         "Altitude": " ",
         "Manager": "Sierra College"
       },
-      "ref": 139
+      "geom_source": "bylt",
+      "geom_ref": 139,
+      "geom_vertices": 123,
+      "ref": 139,
+      "bylt_score": 0.9,
+      "osm_score": 0.571,
+      "geom_km": 1.435,
+      "bylt_km": 1.435,
+      "osm_km": 0.0
     },
     {
       "id": "sierra-college-trail",
@@ -4992,7 +6132,15 @@
         "Altitude": " ",
         "Manager": "Sierra College"
       },
-      "ref": 139
+      "geom_source": "bylt",
+      "geom_ref": 139,
+      "geom_vertices": 123,
+      "ref": 139,
+      "bylt_score": 1.0,
+      "osm_score": 0.667,
+      "geom_km": 1.435,
+      "bylt_km": 1.435,
+      "osm_km": 0.0
     },
     {
       "id": "sierra-discovery-trail",
@@ -5021,51 +6169,69 @@
         "Altitude": " ",
         "Manager": "Pacific Gas & Electric"
       },
-      "ref": 24
+      "geom_source": "bylt",
+      "geom_ref": 24,
+      "geom_vertices": 286,
+      "ref": 24,
+      "bylt_score": 1.0,
+      "osm_score": 1.0,
+      "geom_km": 1.005,
+      "bylt_km": 1.005,
+      "osm_km": 0.119
     },
     {
       "id": "signal-peak-lookout-loop-trail",
       "name": "Signal Peak Lookout Loop Trail",
       "city": "",
-      "matched": false,
-      "source": null,
-      "matched_name": null,
-      "score": 0.0,
-      "has_line": false,
-      "trailhead": null,
-      "fields": {},
-      "near_miss": {
-        "bylt": [
-          "Memorial Park Trail",
-          0.438
-        ],
-        "osm": [
-          "Lookout Trail",
-          0.538
-        ]
-      }
+      "matched": true,
+      "source": "osm",
+      "matched_name": "Signal Peak Lookout Loop",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.543922,
+        39.331363
+      ],
+      "fields": {
+        "highway": "track",
+        "osm_id": 301526363
+      },
+      "geom_source": "osm",
+      "geom_ref": 301526363,
+      "geom_vertices": 77,
+      "ref": 301526363,
+      "bylt_score": 0.438,
+      "osm_score": 1.0,
+      "geom_km": 0.537,
+      "bylt_km": 0.0,
+      "osm_km": 0.537
     },
     {
       "id": "signal-peak-trail",
       "name": "Signal Peak Trail",
       "city": "",
-      "matched": false,
-      "source": null,
-      "matched_name": null,
-      "score": 0.0,
+      "matched": true,
+      "source": "osm",
+      "matched_name": "Signal Peak Lookout Loop",
+      "score": 0.9,
       "has_line": false,
-      "trailhead": null,
-      "fields": {},
-      "near_miss": {
-        "bylt": [
-          "Memorial Park Trail",
-          0.583
-        ],
-        "osm": [
-          "Memorial Park Trail",
-          0.583
-        ]
-      }
+      "trailhead": [
+        -120.543922,
+        39.331363
+      ],
+      "fields": {
+        "highway": "track",
+        "osm_id": 301526363
+      },
+      "geom_source": "point",
+      "geom_ref": null,
+      "geom_vertices": 1,
+      "ref": 301526363,
+      "bylt_score": 0.583,
+      "osm_score": 0.9,
+      "geom_km": 0.0,
+      "bylt_km": 0.0,
+      "osm_km": 0.0
     },
     {
       "id": "slaughterhouse-trail",
@@ -5094,7 +6260,15 @@
         "Altitude": " ",
         "Manager": "Malakoff Diggins State Historic Park"
       },
-      "ref": 48
+      "geom_source": "bylt",
+      "geom_ref": 48,
+      "geom_vertices": 38,
+      "ref": 48,
+      "bylt_score": 1.0,
+      "osm_score": 0.966,
+      "geom_km": 1.08,
+      "bylt_km": 1.08,
+      "osm_km": 0.759
     },
     {
       "id": "south-yuba-ridge-trail",
@@ -5123,7 +6297,15 @@
         "Altitude": " ",
         "Manager": "Tahoe National Forest"
       },
-      "ref": 105
+      "geom_source": "bylt",
+      "geom_ref": 105,
+      "geom_vertices": 287,
+      "ref": 105,
+      "bylt_score": 1.0,
+      "osm_score": 1.0,
+      "geom_km": 3.188,
+      "bylt_km": 3.188,
+      "osm_km": 2.571
     },
     {
       "id": "south-yuba-trail",
@@ -5152,7 +6334,15 @@
         "Altitude": " ",
         "Manager": "State Parks / BLM / TNF"
       },
-      "ref": 23
+      "geom_source": "bylt",
+      "geom_ref": 23,
+      "geom_vertices": 4498,
+      "ref": 23,
+      "bylt_score": 1.0,
+      "osm_score": 1.0,
+      "geom_km": 31.121,
+      "bylt_km": 31.121,
+      "osm_km": 1.362
     },
     {
       "id": "spaulding-lake-trail",
@@ -5181,7 +6371,15 @@
         "Altitude": " ",
         "Manager": "Tahoe National Forest"
       },
-      "ref": 120
+      "geom_source": "bylt",
+      "geom_ref": 120,
+      "geom_vertices": 716,
+      "ref": 120,
+      "bylt_score": 1.0,
+      "osm_score": 1.0,
+      "geom_km": 8.264,
+      "bylt_km": 8.264,
+      "osm_km": 0.252
     },
     {
       "id": "splitrock-camp-connector-trail",
@@ -5210,7 +6408,15 @@
         "Altitude": " ",
         "Manager": "Donner Memorial State Park"
       },
-      "ref": 130
+      "geom_source": "bylt",
+      "geom_ref": 130,
+      "geom_vertices": 8,
+      "ref": 130,
+      "bylt_score": 1.0,
+      "osm_score": 0.7,
+      "geom_km": 0.153,
+      "bylt_km": 0.153,
+      "osm_km": 0.0
     },
     {
       "id": "splitrock-campground-connector-trail",
@@ -5239,7 +6445,15 @@
         "Altitude": " ",
         "Manager": "Donner Memorial State Park"
       },
-      "ref": 130
+      "geom_source": "bylt",
+      "geom_ref": 130,
+      "geom_vertices": 8,
+      "ref": 130,
+      "bylt_score": 0.889,
+      "osm_score": 0.64,
+      "geom_km": 0.153,
+      "bylt_km": 0.153,
+      "osm_km": 0.0
     },
     {
       "id": "spring-creek-trail",
@@ -5268,7 +6482,15 @@
         "Altitude": " ",
         "Manager": "Bureau of Land Management"
       },
-      "ref": 119
+      "geom_source": "osm",
+      "geom_ref": 230598509,
+      "geom_vertices": 30,
+      "ref": 119,
+      "bylt_score": 1.0,
+      "osm_score": 1.0,
+      "geom_km": 0.55,
+      "bylt_km": 0.539,
+      "osm_km": 0.55
     },
     {
       "id": "stacy-lane-crosscut-trail",
@@ -5278,16 +6500,24 @@
       "source": "osm",
       "matched_name": "Stacey Lane Crosscut Trail",
       "score": 0.974,
-      "has_line": false,
+      "has_line": true,
       "trailhead": [
-        -121.055695,
-        39.205299
+        -121.057122,
+        39.209617
       ],
       "fields": {
         "highway": "path",
         "osm_id": 316165316
       },
-      "ref": 316165316
+      "geom_source": "osm",
+      "geom_ref": 316165316,
+      "geom_vertices": 15,
+      "ref": 316165316,
+      "bylt_score": 0.667,
+      "osm_score": 0.974,
+      "geom_km": 0.275,
+      "bylt_km": 0.0,
+      "osm_km": 0.275
     },
     {
       "id": "stacy-lane-trail",
@@ -5316,7 +6546,15 @@
         "Altitude": " ",
         "Manager": "Empire Mine State Park"
       },
-      "ref": 47
+      "geom_source": "bylt",
+      "geom_ref": 47,
+      "geom_vertices": 139,
+      "ref": 47,
+      "bylt_score": 0.952,
+      "osm_score": 0.952,
+      "geom_km": 0.83,
+      "bylt_km": 0.83,
+      "osm_km": 0.571
     },
     {
       "id": "stanton-trail",
@@ -5345,7 +6583,15 @@
         "Altitude": " ",
         "Manager": "Tahoe National Forest"
       },
-      "ref": 127
+      "geom_source": "bylt",
+      "geom_ref": 127,
+      "geom_vertices": 696,
+      "ref": 127,
+      "bylt_score": 1.0,
+      "osm_score": 0.615,
+      "geom_km": 4.608,
+      "bylt_km": 4.608,
+      "osm_km": 0.0
     },
     {
       "id": "state-route-89-south-mousehole-trail",
@@ -5374,7 +6620,15 @@
         "Altitude": " ",
         "Manager": "Town of Truckee"
       },
-      "ref": 152
+      "geom_source": "bylt",
+      "geom_ref": 152,
+      "geom_vertices": 199,
+      "ref": 152,
+      "bylt_score": 1.0,
+      "osm_score": 0.524,
+      "geom_km": 1.903,
+      "bylt_km": 1.903,
+      "osm_km": 0.0
     },
     {
       "id": "stevens-lane-trail",
@@ -5403,7 +6657,15 @@
         "Altitude": " ",
         "Manager": "Town of Truckee"
       },
-      "ref": 141
+      "geom_source": "bylt",
+      "geom_ref": 141,
+      "geom_vertices": 41,
+      "ref": 141,
+      "bylt_score": 1.0,
+      "osm_score": 0.96,
+      "geom_km": 0.332,
+      "bylt_km": 0.332,
+      "osm_km": 0.331
     },
     {
       "id": "stockrest-springs-trail",
@@ -5415,8 +6677,8 @@
       "score": 1.0,
       "has_line": true,
       "trailhead": [
-        -120.171945,
-        39.334505
+        -120.155368,
+        39.328308
       ],
       "fields": {
         "Desc_": "This trail is part of the Town of Truckee's trail system.",
@@ -5432,7 +6694,15 @@
         "Altitude": " ",
         "Manager": "Town of Truckee"
       },
-      "ref": 142
+      "geom_source": "osm",
+      "geom_ref": 581731520,
+      "geom_vertices": 75,
+      "ref": 142,
+      "bylt_score": 1.0,
+      "osm_score": 1.0,
+      "geom_km": 0.759,
+      "bylt_km": 0.194,
+      "osm_km": 0.759
     },
     {
       "id": "sugarloaf-mountains-trails",
@@ -5461,7 +6731,15 @@
         "Altitude": "220'",
         "Manager": "BYLT"
       },
-      "ref": 17
+      "geom_source": "bylt",
+      "geom_ref": 17,
+      "geom_vertices": 37,
+      "ref": 17,
+      "bylt_score": 0.973,
+      "osm_score": 0.857,
+      "geom_km": 0.874,
+      "bylt_km": 0.874,
+      "osm_km": 0.0
     },
     {
       "id": "summit-lake-ohv-trail",
@@ -5490,7 +6768,15 @@
         "Altitude": " ",
         "Manager": "Lake Tahoe Basin Management Unit Office"
       },
-      "ref": 74
+      "geom_source": "bylt",
+      "geom_ref": 74,
+      "geom_vertices": 308,
+      "ref": 74,
+      "bylt_score": 1.0,
+      "osm_score": 1.0,
+      "geom_km": 1.312,
+      "bylt_km": 1.312,
+      "osm_km": 0.751
     },
     {
       "id": "towle-mill-loop-motorcycle-trail",
@@ -5503,14 +6789,17 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Gold Hill Drive Entrance",
           0.489
         ],
         "osm": [
-          "Omega Motorcycle Trail",
-          0.703
+          "Prosser Hill Motorcycle Loop",
+          0.773
         ]
       }
     },
@@ -5525,14 +6814,17 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Ridge Camp Connector",
           0.634
         ],
         "osm": [
-          "Tribulation Trail",
-          0.688
+          "Overland Trail Connector",
+          0.718
         ]
       }
     },
@@ -5540,23 +6832,28 @@
       "id": "trout-creek-trail",
       "name": "Trout Creek Trail",
       "city": "",
-      "matched": false,
-      "source": null,
-      "matched_name": null,
-      "score": 0.0,
-      "has_line": false,
-      "trailhead": null,
-      "fields": {},
-      "near_miss": {
-        "bylt": [
-          "Wolf Creek Trail",
-          0.667
-        ],
-        "osm": [
-          "Wolf Creek Trail",
-          0.667
-        ]
-      }
+      "matched": true,
+      "source": "osm",
+      "matched_name": "Trout Creek Trail",
+      "score": 1.0,
+      "has_line": true,
+      "trailhead": [
+        -120.20619,
+        39.336705
+      ],
+      "fields": {
+        "highway": "path",
+        "osm_id": 435582945
+      },
+      "geom_source": "osm",
+      "geom_ref": 435582945,
+      "geom_vertices": 43,
+      "ref": 435582945,
+      "bylt_score": 0.667,
+      "osm_score": 1.0,
+      "geom_km": 0.354,
+      "bylt_km": 0.0,
+      "osm_km": 0.354
     },
     {
       "id": "truckee-bike-earthen-trail",
@@ -5585,7 +6882,15 @@
         "Altitude": " ",
         "Manager": "City of Truckee"
       },
-      "ref": 137
+      "geom_source": "bylt",
+      "geom_ref": 137,
+      "geom_vertices": 1259,
+      "ref": 137,
+      "bylt_score": 1.0,
+      "osm_score": 0.65,
+      "geom_km": 15.905,
+      "bylt_km": 15.905,
+      "osm_km": 0.0
     },
     {
       "id": "truckee-bike-path",
@@ -5614,7 +6919,15 @@
         "Altitude": " ",
         "Manager": "Town of Truckee"
       },
-      "ref": 138
+      "geom_source": "bylt",
+      "geom_ref": 138,
+      "geom_vertices": 618,
+      "ref": 138,
+      "bylt_score": 1.0,
+      "osm_score": 0.9,
+      "geom_km": 4.02,
+      "bylt_km": 4.02,
+      "osm_km": 0.0
     },
     {
       "id": "turnpike-trail",
@@ -5627,14 +6940,17 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Truckee Bike Path",
           0.5
         ],
         "osm": [
-          "Burch Lane",
-          0.444
+          "Nature Trail",
+          0.571
         ]
       }
     },
@@ -5665,7 +6981,15 @@
         "Altitude": " ",
         "Manager": "Bureau of Land Management"
       },
-      "ref": 117
+      "geom_source": "bylt",
+      "geom_ref": 117,
+      "geom_vertices": 67,
+      "ref": 117,
+      "bylt_score": 1.0,
+      "osm_score": 0.571,
+      "geom_km": 0.752,
+      "bylt_km": 0.752,
+      "osm_km": 0.0
     },
     {
       "id": "upper-hudson-way-trail",
@@ -5694,7 +7018,15 @@
         "Altitude": " ",
         "Manager": "Bureau of Land Management"
       },
-      "ref": 112
+      "geom_source": "bylt",
+      "geom_ref": 112,
+      "geom_vertices": 123,
+      "ref": 112,
+      "bylt_score": 1.0,
+      "osm_score": 0.625,
+      "geom_km": 2.012,
+      "bylt_km": 2.012,
+      "osm_km": 0.0
     },
     {
       "id": "upper-humbug-trail",
@@ -5723,7 +7055,15 @@
         "Altitude": " ",
         "Manager": "Malakoff Diggins State Historic Park"
       },
-      "ref": 56
+      "geom_source": "bylt",
+      "geom_ref": 56,
+      "geom_vertices": 24,
+      "ref": 56,
+      "bylt_score": 1.0,
+      "osm_score": 0.667,
+      "geom_km": 1.197,
+      "bylt_km": 1.197,
+      "osm_km": 0.0
     },
     {
       "id": "upper-union-hill-trail",
@@ -5752,7 +7092,15 @@
         "Altitude": " ",
         "Manager": "Empire Mine State Park"
       },
-      "ref": 33
+      "geom_source": "bylt",
+      "geom_ref": 33,
+      "geom_vertices": 352,
+      "ref": 33,
+      "bylt_score": 1.0,
+      "osm_score": 1.0,
+      "geom_km": 1.652,
+      "bylt_km": 1.652,
+      "osm_km": 1.143
     },
     {
       "id": "verdi-ohv-trail",
@@ -5765,14 +7113,17 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Rim Trail",
           0.5
         ],
         "osm": [
-          "Rim Trail",
-          0.5
+          "VERDI PEAK OHV",
+          0.667
         ]
       }
     },
@@ -5803,7 +7154,15 @@
         "Altitude": " ",
         "Manager": "Tahoe National Forest"
       },
-      "ref": 87
+      "geom_source": "bylt",
+      "geom_ref": 87,
+      "geom_vertices": 2302,
+      "ref": 87,
+      "bylt_score": 1.0,
+      "osm_score": 1.0,
+      "geom_km": 12.908,
+      "bylt_km": 12.908,
+      "osm_km": 1.98
     },
     {
       "id": "wendin-way-trail",
@@ -5832,7 +7191,15 @@
         "Altitude": " ",
         "Manager": "Lake Tahoe Basin Management Unit Office"
       },
-      "ref": 76
+      "geom_source": "bylt",
+      "geom_ref": 76,
+      "geom_vertices": 201,
+      "ref": 76,
+      "bylt_score": 0.9,
+      "osm_score": 0.9,
+      "geom_km": 1.764,
+      "bylt_km": 1.764,
+      "osm_km": 0.0
     },
     {
       "id": "western-gateway-park-penn-valley",
@@ -5861,7 +7228,15 @@
         "Altitude": "10",
         "Manager": "Nevada County"
       },
-      "ref": 25
+      "geom_source": "bylt",
+      "geom_ref": 25,
+      "geom_vertices": 105,
+      "ref": 25,
+      "bylt_score": 0.9,
+      "osm_score": 0.647,
+      "geom_km": 2.921,
+      "bylt_km": 2.921,
+      "osm_km": 0.0
     },
     {
       "id": "western-gateway-park-creek-trail",
@@ -5890,7 +7265,15 @@
         "Altitude": "10",
         "Manager": "Nevada County"
       },
-      "ref": 25
+      "geom_source": "bylt",
+      "geom_ref": 25,
+      "geom_vertices": 105,
+      "ref": 25,
+      "bylt_score": 0.815,
+      "osm_score": 0.605,
+      "geom_km": 2.921,
+      "bylt_km": 2.921,
+      "osm_km": 0.0
     },
     {
       "id": "western-gateway-park-fitness-trail",
@@ -5919,7 +7302,15 @@
         "Altitude": "10",
         "Manager": "Nevada County"
       },
-      "ref": 25
+      "geom_source": "bylt",
+      "geom_ref": 25,
+      "geom_vertices": 105,
+      "ref": 25,
+      "bylt_score": 1.0,
+      "osm_score": 0.571,
+      "geom_km": 2.921,
+      "bylt_km": 2.921,
+      "osm_km": 0.0
     },
     {
       "id": "white-rock-ohv-trail",
@@ -5932,14 +7323,17 @@
       "has_line": false,
       "trailhead": null,
       "fields": {},
+      "geom_source": null,
+      "geom_ref": null,
+      "geom_vertices": 0,
       "near_miss": {
         "bylt": [
           "Hardrock Trail",
           0.556
         ],
         "osm": [
-          "Whitehead Road",
-          0.667
+          "White Fir",
+          0.737
         ]
       }
     },
@@ -5970,7 +7364,15 @@
         "Altitude": "11",
         "Manager": "BYLT"
       },
-      "ref": 18
+      "geom_source": "bylt",
+      "geom_ref": 18,
+      "geom_vertices": 76,
+      "ref": 18,
+      "bylt_score": 1.0,
+      "osm_score": 0.968,
+      "geom_km": 1.461,
+      "bylt_km": 1.461,
+      "osm_km": 0.792
     },
     {
       "id": "wolf-creek-trail",
@@ -5999,7 +7401,15 @@
         "Altitude": "180",
         "Manager": "CIty of Grass Valley"
       },
-      "ref": 19
+      "geom_source": "bylt",
+      "geom_ref": 19,
+      "geom_vertices": 379,
+      "ref": 19,
+      "bylt_score": 1.0,
+      "osm_score": 1.0,
+      "geom_km": 2.392,
+      "bylt_km": 2.392,
+      "osm_km": 1.913
     },
     {
       "id": "woods-ravine-trail",
@@ -6009,16 +7419,24 @@
       "source": "osm",
       "matched_name": "Woods Ravine Trail",
       "score": 1.0,
-      "has_line": false,
+      "has_line": true,
       "trailhead": [
-        -121.045112,
-        39.267338
+        -121.046491,
+        39.268093
       ],
       "fields": {
         "highway": "path",
         "osm_id": 533380937
       },
-      "ref": 533380937
+      "geom_source": "osm",
+      "geom_ref": 533380937,
+      "geom_vertices": 16,
+      "ref": 533380937,
+      "bylt_score": 0.522,
+      "osm_score": 1.0,
+      "geom_km": 0.336,
+      "bylt_km": 0.0,
+      "osm_km": 0.336
     },
     {
       "id": "memorial-park-trail",
@@ -6047,7 +7465,15 @@
         "Altitude": " ",
         "Manager": "Empire Mine State Park"
       },
-      "ref": 37
+      "geom_source": "bylt",
+      "geom_ref": 37,
+      "geom_vertices": 243,
+      "ref": 37,
+      "bylt_score": 1.0,
+      "osm_score": 1.0,
+      "geom_km": 1.266,
+      "bylt_km": 1.266,
+      "osm_km": 1.067
     }
   ]
 }

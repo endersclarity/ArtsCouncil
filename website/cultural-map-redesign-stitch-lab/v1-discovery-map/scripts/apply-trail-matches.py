@@ -61,12 +61,14 @@ def bylt_geom_by_fid():
     return out
 
 
-def osm_point_by_id():
+def osm_line_by_id():
+    """LineString per OSM way id, from an `out geom` pull (geometry = [{lat,lon},...])."""
     out = {}
     for e in load_json(OSM_RAW).get("elements", []):
-        c = e.get("center")
-        if c:
-            out[e["id"]] = {"type": "Point", "coordinates": [round(c["lon"], 6), round(c["lat"], 6)]}
+        g = e.get("geometry") or []
+        coords = [[round(p["lon"], 6), round(p["lat"], 6)] for p in g if "lat" in p and "lon" in p]
+        if len(coords) >= 2:
+            out[e["id"]] = {"type": "LineString", "coordinates": coords}
     return out
 
 
@@ -105,7 +107,7 @@ def main():
     by_id = {r["id"]: r for r in places}
 
     geom_bylt = bylt_geom_by_fid()
-    geom_osm = osm_point_by_id()
+    geom_osm = osm_line_by_id()
 
     sidecar = {}
     originals = []
@@ -119,10 +121,15 @@ def main():
         if not head:
             continue
 
-        if e["source"] == "bylt":
-            geom = geom_bylt.get(e.get("ref"))
+        # Geometry comes from whichever source the matcher chose as the FULLER line
+        # (geom_source/geom_ref), independent of the meta source (e["source"]).
+        gsrc = e.get("geom_source")
+        if gsrc == "osm":
+            geom = geom_osm.get(e.get("geom_ref"))
+        elif gsrc == "bylt":
+            geom = geom_bylt.get(e.get("geom_ref"))
         else:
-            geom = geom_osm.get(e.get("ref"))
+            geom = None
         if geom is None and head:
             geom = {"type": "Point", "coordinates": head}
 
@@ -142,6 +149,7 @@ def main():
             "geometry": geom,
             "trailhead": head,
             "source": e["source"],
+            "geomSource": e.get("geom_source"),  # provenance of the drawn line (ODbL if osm)
             "matchedName": e.get("matched_name"),
             "hasLine": geom.get("type") in ("LineString", "MultiLineString"),
         }

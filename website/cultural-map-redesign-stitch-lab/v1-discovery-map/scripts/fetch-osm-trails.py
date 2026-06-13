@@ -26,13 +26,20 @@ ENDPOINT = "https://overpass-api.de/api/interpreter"
 # Nevada County bounding box (S, W, N, E), generous to catch Truckee/OHV cluster.
 BBOX = "39.00,-121.30,39.62,-120.00"
 
+# `out tags geom;` returns the full polyline (a `geometry` array of {lat,lon} per
+# way), not just a centroid -- this is what lets OSM supply a real drawn line that
+# is far fuller than BYLT's stubs. We re-derive a representative point ourselves
+# from the geometry midpoint (the matcher's midpoint()), so no `center` is needed.
 QUERY = """
 [out:json][timeout:90];
 (
   way["highway"~"^(path|footway|track|bridleway|cycleway|steps)$"]["name"](%s);
 );
-out tags center;
+out tags geom;
 """ % BBOX
+
+# Overpass returns HTTP 403/406 for requests without a real User-Agent.
+HEADERS = {"User-Agent": "NCAC-cultural-map/1.0 (trail data; contact info@nevadacountyarts.org)"}
 
 
 def main():
@@ -40,22 +47,26 @@ def main():
     if os.path.exists(OUT) and not force:
         try:
             existing = json.load(open(OUT, encoding="utf-8"))
-            n = len(existing.get("elements", []))
-            if n > 50:
-                print("osm-trails-raw.json already has %d elements; skipping (use --force to refetch)." % n)
+            els = existing.get("elements", [])
+            # Treat a centroid-only pull as stale: we now require geometry.
+            if len(els) > 50 and any("geometry" in e for e in els[:50]):
+                print("osm-trails-raw.json already has %d geom elements; skipping (use --force)." % len(els))
                 return
         except Exception:
             pass
 
-    print("Querying Overpass for named trail ways in Nevada County ...")
+    print("Querying Overpass for named trail ways (full geometry) in Nevada County ...")
     data = urllib.parse.urlencode({"data": QUERY}).encode("utf-8")
-    req = urllib.request.Request(ENDPOINT, data=data)
-    with urllib.request.urlopen(req, timeout=120) as resp:
+    req = urllib.request.Request(ENDPOINT, data=data, headers=HEADERS)
+    with urllib.request.urlopen(req, timeout=180) as resp:
         payload = json.load(resp)
     with open(OUT, "w", encoding="utf-8") as fh:
         json.dump(payload, fh, ensure_ascii=False)
-    named = [e for e in payload.get("elements", []) if e.get("tags", {}).get("name")]
-    print("  -> osm-trails-raw.json  (%d elements, %d named)" % (len(payload.get("elements", [])), len(named)))
+    els = payload.get("elements", [])
+    named = [e for e in els if e.get("tags", {}).get("name")]
+    withgeom = [e for e in els if e.get("geometry")]
+    print("  -> osm-trails-raw.json  (%d elements, %d named, %d with geometry)"
+          % (len(els), len(named), len(withgeom)))
 
 
 if __name__ == "__main__":
