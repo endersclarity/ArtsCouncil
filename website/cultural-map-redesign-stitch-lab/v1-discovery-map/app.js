@@ -3046,6 +3046,16 @@
             : /secondary_tertiary/.test(id) ? W.secondaryTertiary
             : W.minor;
           paint("line-color", tone);
+          // osm-path-context: the Liberty basemap already carries the full OSM
+          // trail network (highway=path/track). Make those paths read as a faint,
+          // always-on trail layer — dashed and zoom-gated so the county view isn't
+          // a web of dashes, and left UNDER the place dots and the selected
+          // trail-line highlight. No new data; this is the tiles' own geometry.
+          if (/path|track/.test(id) && !/casing/.test(id)) {
+            paint("line-dasharray", [2, 2]);
+            paint("line-opacity", ["interpolate", ["linear"], ["zoom"], 10.5, 0, 12, 0.35, 15, 0.55]);
+            paint("line-width", ["interpolate", ["linear"], ["zoom"], 11, 0.6, 14, 1.1, 16, 1.7]);
+          }
         }
         return;
       }
