@@ -2,6 +2,12 @@
   "_readme": "Site changelog, rendered by changelog.html. Newest entry FIRST. Every meaningful commit to v1-discovery-map gets an entry (the pre-commit hook enforces this). Write 'summary' in plain language for the Arts Council — what changed for a visitor, not implementation detail. 'commit' is the short hash; the page links it to GitHub.",
   "entries": [
     {
+      "date": "2026-06-13",
+      "title": "A brand refresh: the map dresses in the Arts Council's real colors",
+      "summary": "The map now wears Nevada County Arts & Culture's real brand in place of the warm cream look it launched with. Surfaces are clean white on soft gray, text is black, and the red is the brand's true Nevada County Red. The cards along the bottom and the panel that opens when you pick a place now sit inside the brand's red frame — the same device the Arts Council uses on its posters and social cards — and the card you've picked lifts out with a bold red shadow. Events without a photo fill their frame with a bright color spray, the brand's stand-in for missing artwork, instead of a flat block. Photos get softly rounded corners, and the map itself is retinted to a cool palette so it sits quietly behind the content.",
+      "kind": "improvement"
+    },
+    {
       "date": "2026-06-12",
       "title": "Housekeeping under the hood",
       "summary": "No visible changes — this is tidying. The camera-flight move that plays when you pick a place or event, the camera framing used by Surprise me, MUSE stories, and walking paths, and a few smaller internal checks each existed as several separate copies in the code. They're now each defined once and shared, so future adjustments (like tuning how the flight feels) happen in one place and apply everywhere consistently.",

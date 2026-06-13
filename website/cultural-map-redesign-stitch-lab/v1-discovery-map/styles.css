@@ -10,37 +10,42 @@
 }
 
 :root {
-  --ncac-red: #ff2e00;
-  --ncac-red-soft: rgba(255, 46, 0, 0.08);
-  --ncac-red-ring: rgba(255, 46, 0, 0.28);
-  --ink: #1A1A1A;
-  --ink-soft: #5E5852;
-  --paper: #FAF6EC;
-  /* --paper as raw channels, for translucent paper veils via
+  /* Brand adoption (NCAC-V1-BRAND.md "Decided direction for the V1 map"): the
+     warm Gold-Country cream/charcoal system is retired for the guide's cool
+     ground — white surfaces, black text, gray #F7F7F7 wells — and the red
+     corrects to the canonical Nevada County Red #FF2500. */
+  --ncac-red: #ff2500;
+  --ncac-red-soft: rgba(255, 37, 0, 0.08);
+  --ncac-red-ring: rgba(255, 37, 0, 0.28);
+  --ink: #000000;
+  --ink-soft: #555555;
+  --paper: #ffffff;
+  /* --paper as raw channels, for translucent veils via
      rgb(var(--paper-rgb) / <alpha>) — keep in sync with --paper. */
-  --paper-rgb: 250 246 236;
-  /* Warmth pass 3: the whole app sits on warm paper. Wells (recessed fields,
-     chip wells, placeholders) step down to --paper-warm. Pure white survives
-     ONLY as knockout inside red/ink fields — never as a panel surface. */
-  --paper-warm: #F5F0E8;
-  --field: #FAF6EC;
-  --surface: #FAF6EC;
-  --line: #D8D0C6;
-  --line-strong: #1A1A1A;
-  --panel: #FAF6EC;
-  --map-quiet-field: #f4f5f1;
-  --shadow: 8px 8px 0 rgba(26, 26, 26, 0.12);
-  --shadow-float: 0 18px 42px rgba(26, 26, 26, 0.14);
-  --shadow-low: 0 4px 10px rgba(26, 26, 26, 0.18);
-  --caption-scrim: rgba(26, 26, 26, 0.78);
+  --paper-rgb: 255 255 255;
+  /* Wells (recessed fields, chip wells, placeholders) step down to the brand
+     gray; white stays the panel/card surface. */
+  --paper-warm: #f7f7f7;
+  --field: #ffffff;
+  --surface: #ffffff;
+  --line: #e4e4e4;
+  --line-strong: #000000;
+  --panel: #ffffff;
+  --map-quiet-field: #eef0f2;
+  --shadow: 8px 8px 0 rgba(0, 0, 0, 0.1);
+  --shadow-float: 0 18px 42px rgba(0, 0, 0, 0.12);
+  --shadow-low: 0 4px 10px rgba(0, 0, 0, 0.14);
+  --caption-scrim: rgba(0, 0, 0, 0.8);
   --focus-ring: 0 0 0 3px var(--ncac-red-ring);
-  /* Brand secondaries — poster/campaign fields ONLY (NCAC-V1-BRAND.md).
-     Full-bleed behind knockout type on featured/campaign cards; never
-     buttons, markers, chips, or any functional UI signal. */
-  --poster-blue: #1d49c9;
-  --poster-green: #0c6b38;
-  --poster-teal: #0b6e78;
-  --poster-pink: #c2186b;
+  /* Brand secondary palette (NCAC-V1-BRAND.md p.8) — the source colors for the
+     gradient sprays that fill imageless campaign cards when no key art exists
+     (pp.13,27-30,37). Real event photos replace the spray once the flyer
+     scraper lands; today every event is image-less, so the rail leans on sprays. */
+  --spray-blue: #109aff;
+  --spray-green: #00cd2d;
+  --spray-yellow: #ffcc00;
+  --spray-orange: #ff7705;
+  --spray-pink: #ff0090;
   /* Pass-5 motion tokens: two durations, one curve (ease-out quint — confident
      deceleration, no bounce). Feedback = fast; state changes = base. Every
      animated property is covered by the prefers-reduced-motion block below. */
@@ -466,6 +471,7 @@ button {
   height: 96px;
   object-fit: cover;
   border: 1px solid var(--line);
+  border-radius: 8px;
 }
 
 .hint-feature-name {
@@ -914,7 +920,8 @@ body:not([data-map-mode="places"]) .review-tools {
 
 .selection-drawer .detail-card {
   position: relative;
-  /* Brand hard-offset shadow — not the thin-border + wide-blur float. */
+  /* Brand adoption: the open selection card is a framed poster (Card = Poster). */
+  border: 3px solid var(--ncac-red);
   box-shadow: var(--shadow);
 }
 
@@ -1177,7 +1184,8 @@ body:not([data-map-mode="places"]) .review-tools {
    structural, never decorative — no red rules or borders here). */
 .detail-card.event-feature-card,
 .selection-drawer .detail-card.event-feature-card {
-  border: 0;
+  /* The dark event poster keeps the red frame (brand: red frame on a black field). */
+  border: 3px solid var(--ncac-red);
   background: var(--ink);
   color: var(--line);
   padding: 0;
@@ -1201,6 +1209,8 @@ body:not([data-map-mode="places"]) .review-tools {
 .event-feature-photo {
   position: relative;
   margin: 0;
+  border-radius: 12px;
+  overflow: hidden;
 }
 
 .event-feature-photo .place-image {
@@ -1335,6 +1345,10 @@ body:not([data-map-mode="places"]) .review-tools {
 .place-image-frame {
   position: relative;
   margin: 0 0 12px;
+  /* Brand key images are inset with rounded corners; clip the caption bar to
+     the same radius. */
+  border-radius: 12px;
+  overflow: hidden;
 }
 
 .place-image {
@@ -2473,7 +2487,7 @@ button.event-mini:hover {
   background: var(--ncac-red);
   border-color: var(--ncac-red);
   color: var(--paper);
-  box-shadow: 0 4px 16px rgba(255, 46, 0, 0.42);
+  box-shadow: 0 4px 16px rgba(255, 37, 0, 0.42);
   z-index: 6;
 }
 
@@ -2497,7 +2511,7 @@ button.event-mini:hover {
 }
 
 .map-smart-label:focus-visible {
-  box-shadow: var(--focus-ring, 0 0 0 3px rgba(255, 46, 0, 0.34)), 0 4px 14px rgba(58, 48, 32, 0.24);
+  box-shadow: var(--focus-ring, 0 0 0 3px rgba(255, 37, 0, 0.34)), 0 4px 14px rgba(58, 48, 32, 0.24);
 }
 
 @media (max-width: 520px) {
@@ -2723,9 +2737,10 @@ body.rail-browse .discovery-rail {
   display: flex;
   flex-direction: column;
   background: var(--panel);
-  /* Warmth pass 3: the card floats on its shadow — no black frame. The
-     red outline (active) and focus ring still paint via outline. */
-  border: 0;
+  /* Brand adoption: every rail card wears the red frame device (Card = Poster).
+     Uniform frames carry no per-card meaning — the SELECTED card differentiates
+     with a hard red offset (.rail-card.active below). */
+  border: 3px solid var(--ncac-red);
   box-shadow: var(--shadow-low);
   padding: 0;
   text-align: left;
@@ -2754,7 +2769,9 @@ body.rail-browse .discovery-rail {
 }
 
 .rail-card.active {
-  outline-color: var(--ncac-red);
+  /* Differentiated selection on a uniformly framed rail: the hard red offset
+     (brand shadow) lifts the picked card out of the row. */
+  box-shadow: 5px 5px 0 var(--ncac-red);
 }
 
 .rail-card:focus-visible {
@@ -2807,17 +2824,40 @@ body.rail-browse .discovery-rail {
   filter: brightness(1.06);
 }
 
-.rail-card-poster-blue { background: var(--poster-blue); }
-.rail-card-poster-green { background: var(--poster-green); }
-.rail-card-poster-teal { background: var(--poster-teal); }
-.rail-card-poster-pink { background: var(--poster-pink); }
-.rail-card-poster-ink { background: var(--ink); }
+/* Gradient sprays (NCAC-V1-BRAND.md pp.13,27-30,37): a bright multi-color bloom
+   from the secondary palette, lightened toward the top-left so the black chip +
+   title stay legible (the "Donate Today" recipe). One distinct pairing per slot. */
+.rail-card-poster-blue {
+  background:
+    radial-gradient(85% 68% at 16% 16%, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0) 58%),
+    radial-gradient(130% 135% at 100% 106%, var(--spray-blue), var(--spray-green) 90%);
+}
+.rail-card-poster-green {
+  background:
+    radial-gradient(85% 68% at 16% 16%, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0) 58%),
+    radial-gradient(130% 135% at 100% 106%, var(--spray-green), var(--spray-yellow) 90%);
+}
+.rail-card-poster-teal {
+  background:
+    radial-gradient(85% 68% at 16% 16%, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0) 58%),
+    radial-gradient(130% 135% at 100% 106%, var(--spray-orange), var(--spray-yellow) 90%);
+}
+.rail-card-poster-pink {
+  background:
+    radial-gradient(85% 68% at 16% 16%, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0) 58%),
+    radial-gradient(130% 135% at 100% 106%, var(--spray-pink), var(--spray-orange) 90%);
+}
+.rail-card-poster-ink {
+  background:
+    radial-gradient(85% 68% at 16% 16%, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0) 58%),
+    radial-gradient(130% 135% at 100% 106%, var(--spray-blue), var(--spray-pink) 90%);
+}
 
 
 /* Poster knockout type: real display confidence — big, bold, tight (>= -0.04em
    floor), clamped to 3 lines so the 190/168px slab never overflows. */
 .rail-card-poster .rail-card-title {
-  color: #ffffff;
+  color: #000000;
   font-size: 22px;
   line-height: 1.05;
   letter-spacing: -0.02em;
@@ -2826,11 +2866,11 @@ body.rail-browse .discovery-rail {
 
 .rail-card-poster .rail-card-desc,
 .rail-card-poster .rail-card-meta {
-  color: rgba(255, 255, 255, 0.9);
+  color: rgba(0, 0, 0, 0.82);
 }
 
 .rail-card-poster .rail-card-when {
-  color: #ffffff;
+  color: #000000;
 }
 
 /* Rail delineation chip (P1-6): every card names its kind — Event, Worth a
@@ -2850,8 +2890,8 @@ body.rail-browse .discovery-rail {
 }
 
 .rail-card-poster .rail-card-chip {
-  color: rgba(255, 255, 255, 0.92);
-  background: rgba(255, 255, 255, 0.16);
+  color: #000000;
+  background: rgba(255, 255, 255, 0.62);
 }
 
 /* Rail surface hierarchy: TWO sizes with a real jump — name (17/800 brand)
