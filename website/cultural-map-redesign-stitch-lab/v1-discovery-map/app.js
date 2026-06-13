@@ -15,6 +15,7 @@
     // ?v= bump already busts app.js, and a deploy re-validates the data file.
     events: "data/events.json",
     paths: "data/paths.json",
+    trails: "data/trails.json",
     anchorCards: "data/anchor_cards.json",
     museEvidence: "data/muse_evidence_links.json",
     museSampler: "data/muse_grounded_sampler.json",
@@ -166,6 +167,12 @@
     events: [],
     paths: [],
     anchorCards: [],
+    // Trail geometry sidecar (data/trails.json), keyed by place id == trailRef.
+    // Populated in init(); read by trailFor/drawSelectedTrail/fitTrail.
+    trails: {},
+    // Structure-B "Trails" lens filter/sort state. Lives on state so setMode can
+    // re-render the trail panel and setSourceData can filter the map dots from it.
+    trailFilters: { difficulty: "all", use: "all", surface: "all", town: "all", sort: "name" },
     museEvidenceByPlace: new Map(),
     museStories: [],
     browseSamplerPlaceIds: [],
@@ -264,12 +271,70 @@
     state.map.fitBounds(bounds, { padding: 90, duration: prefersReducedMotion() ? 0 : 800, ...options });
   }
 
+  // ── Trail geometry helpers (shared core) ────────────────────────────────
+  // A promoted trail place carries a `trailRef` into the trails.json sidecar
+  // (state.trails). The sidecar entry holds GeoJSON line/point geometry; these
+  // helpers flatten it for bounds, draw it on the dedicated trail-lines source,
+  // and frame it — reusing the same reduced-motion handling as flyToSelection.
+  function flattenTrailCoords(geom) {
+    if (!geom) return [];
+    if (geom.type === "LineString") return geom.coordinates;
+    if (geom.type === "MultiLineString") return geom.coordinates.flat();
+    if (geom.type === "Point") return [geom.coordinates];
+    if (geom.type === "MultiPoint") return geom.coordinates;
+    return [];
+  }
+  function trailFor(place) {
+    if (!place || !place.trailRef || !state.trails) return null;
+    const t = state.trails[place.trailRef];
+    return t && t.geometry ? t : null;
+  }
+  function drawSelectedTrail(place) {
+    const src = state.map && state.map.getSource("trail-lines");
+    if (!src) return false;
+    const t = trailFor(place);
+    if (!t || !t.hasLine) { src.setData({ type: "FeatureCollection", features: [] }); return false; }
+    src.setData({ type: "Feature", geometry: t.geometry, properties: { id: place.id } });
+    return true;
+  }
+  function clearTrailLine() {
+    const src = state.map && state.map.getSource("trail-lines");
+    if (src) src.setData({ type: "FeatureCollection", features: [] });
+  }
+  function fitTrail(place) {
+    const t = trailFor(place);
+    if (!t) return false;
+    const coords = flattenTrailCoords(t.geometry);
+    if (!coords.length) return false;
+    const b = coords.reduce((box, c) => box.extend(c), new maplibregl.LngLatBounds(coords[0], coords[0]));
+    state.map.fitBounds(b, { padding: 70, maxZoom: 16, duration: prefersReducedMotion() ? 0 : 800 });
+    return true;
+  }
+
   function escapeHtml(value) {
     return String(value || "")
       .replace(/&/g, "&amp;")
       .replace(/</g, "&lt;")
       .replace(/>/g, "&gt;")
       .replace(/"/g, "&quot;");
+  }
+
+  // Trail facts table for the detail card (shared core): difficulty / length /
+  // surface / uses from the place.trail meta, plus permitted-use copy and the
+  // BYLT source link. Returns "" for non-trail places so dealCard stays inert.
+  function renderTrailFacts(place) {
+    const t = place.trail;
+    if (!t) return "";
+    const rows = [];
+    if (t.difficulty) rows.push(["Difficulty", t.difficulty]);
+    if (t.length_txt) rows.push(["Length", t.length_txt + " mi"]);
+    if (t.surface) rows.push(["Surface", t.surface]);
+    if (t.uses) rows.push(["Uses", t.uses]);
+    if (!rows.length && !t.permitted) return "";
+    return `<dl class="trail-facts">${rows.map(([k, v]) =>
+      `<div><dt>${escapeHtml(k)}</dt><dd>${escapeHtml(v)}</dd></div>`).join("")}</dl>`
+      + (t.permitted ? `<p class="trail-permitted">${escapeHtml(t.permitted)}</p>` : "")
+      + (t.url ? `<p class="trail-source">Trail info: <a href="${escapeHtml(t.url)}" target="_blank" rel="noopener">${escapeHtml(t.manager || "BYLT")}</a></p>` : "");
   }
 
   function resolveMedia(src) {
@@ -527,6 +592,94 @@
     return base.filter((place) => activeOutingTypes.some((outingType) => placeMatchesOutingType(place, outingType)));
   }
 
+  // ── Structure-B "Trails" lens ────────────────────────────────────────────
+  // The trail set is the 135 map-ready "Walks & Trails" places that carry a
+  // trail meta object AND a trailRef resolving in the geometry sidecar — every
+  // one has coordinates and a public marker. Independent of the normal outing
+  // filters: the Trails lens always works from this full set.
+  function trailPlaces() {
+    return state.places.filter((place) =>
+      place.category === "Walks & Trails" &&
+      place.locationReviewStatus === "Map-Ready" &&
+      place.trail &&
+      trailFor(place));
+  }
+
+  // A trail's coarse difficulty bucket for the filter (Easy / Moderate /
+  // Difficult). BYLT labels "Challenging" as the hard tier — map it to
+  // "Difficult" so the chip copy matches the spec's vocabulary.
+  function trailDifficulty(place) {
+    const raw = (place.trail?.difficulty || "").trim();
+    if (/challeng|hard|difficult|strenuous/i.test(raw)) return "Difficult";
+    if (/moderate/i.test(raw)) return "Moderate";
+    if (/easy/i.test(raw)) return "Easy";
+    return raw || "";
+  }
+
+  const TRAIL_DIFFICULTY_ORDER = { Easy: 0, Moderate: 1, Difficult: 2 };
+
+  function trailLengthMi(place) {
+    const t = place.trail || {};
+    if (Number.isFinite(t.length_mi)) return t.length_mi;
+    const parsed = parseFloat(t.length_txt);
+    return Number.isFinite(parsed) ? parsed : NaN;
+  }
+
+  // Distinct, sorted filter values derived from the live trail data — never
+  // hardcoded, so a data refresh that adds a surface/use surfaces a new chip.
+  function trailFilterOptions() {
+    const trails = trailPlaces();
+    const distinct = (values) => [...new Set(values.filter(Boolean))];
+    const difficulties = distinct(trails.map(trailDifficulty))
+      .sort((a, b) => (TRAIL_DIFFICULTY_ORDER[a] ?? 99) - (TRAIL_DIFFICULTY_ORDER[b] ?? 99) || a.localeCompare(b));
+    const uses = distinct(trails.map((place) => place.trail?.uses)).sort((a, b) => a.localeCompare(b));
+    const surfaces = distinct(trails.map((place) => place.trail?.surface)).sort((a, b) => a.localeCompare(b));
+    const towns = distinct(trails.map((place) => place.city)).sort((a, b) => a.localeCompare(b));
+    return { difficulties, uses, surfaces, towns };
+  }
+
+  // Apply the active trail-lens filters, then sort. Drives both the map dots
+  // (via setSourceData's trails branch) and the panel list, so they always agree.
+  function filteredTrailPlaces() {
+    const f = state.trailFilters;
+    let list = trailPlaces().filter((place) => {
+      if (f.difficulty !== "all" && trailDifficulty(place) !== f.difficulty) return false;
+      if (f.use !== "all" && (place.trail?.uses || "") !== f.use) return false;
+      if (f.surface !== "all" && (place.trail?.surface || "") !== f.surface) return false;
+      if (f.town !== "all" && (place.city || "") !== f.town) return false;
+      return true;
+    });
+    list = list.slice();
+    if (f.sort === "length") {
+      list.sort((a, b) => {
+        const la = trailLengthMi(a);
+        const lb = trailLengthMi(b);
+        if (Number.isNaN(la) && Number.isNaN(lb)) return (a.name || "").localeCompare(b.name || "");
+        if (Number.isNaN(la)) return 1;
+        if (Number.isNaN(lb)) return -1;
+        return la - lb || (a.name || "").localeCompare(b.name || "");
+      });
+    } else if (f.sort === "difficulty") {
+      list.sort((a, b) => {
+        const da = TRAIL_DIFFICULTY_ORDER[trailDifficulty(a)] ?? 99;
+        const db = TRAIL_DIFFICULTY_ORDER[trailDifficulty(b)] ?? 99;
+        return da - db || (a.name || "").localeCompare(b.name || "");
+      });
+    } else {
+      list.sort((a, b) => (a.name || "").localeCompare(b.name || ""));
+    }
+    return list;
+  }
+
+  // "Easy · 1.3 mi" badge text for a trail row. Falls back gracefully when a
+  // field is missing (some trails have difficulty but no length, or vice versa).
+  function trailBadgeText(place) {
+    const diff = trailDifficulty(place);
+    const len = trailLengthMi(place);
+    const lenTxt = Number.isFinite(len) ? `${len.toFixed(1)} mi` : "";
+    return [diff, lenTxt].filter(Boolean).join(" · ");
+  }
+
   function distanceMiles(a, b) {
     const toRad = (value) => value * Math.PI / 180;
     const earthRadiusMiles = 3958.8;
@@ -627,6 +780,9 @@
       els.count.textContent = n === 1 ? "1 upcoming event" : `${n} upcoming events`;
     } else if (state.mode === "paths") {
       els.count.textContent = `${state.paths.length} curated paths`;
+    } else if (state.mode === "trails") {
+      const n = filteredTrailPlaces().length;
+      els.count.textContent = n === 1 ? "1 trail" : `${n} trails`;
     } else {
       els.count.textContent = `${filteredPlaces().length} places to explore`;
     }
@@ -711,7 +867,11 @@
   }
 
   function setSourceData() {
-    const mapReadyPlaces = filteredPlaces().filter(isPlaceMapReady);
+    // In the Trails lens the place dots are the filtered trail set, independent
+    // of the normal outing filters; otherwise they follow filteredPlaces().
+    const mapReadyPlaces = state.mode === "trails"
+      ? filteredTrailPlaces().filter(isPlaceMapReady)
+      : filteredPlaces().filter(isPlaceMapReady);
     const places = mapReadyPlaces.map((place) => placeToFeature(place, nearbyPlaceDensity(place, mapReadyPlaces)));
     const placeSource = state.map.getSource("places");
     if (placeSource) {
@@ -1044,7 +1204,10 @@
     setDetailCardMode("");
     syncModeTabs();
     els.detail.innerHTML = `<p class="empty-title">Select a place</p><p class="empty-copy">Choose another place from the Directory Browser to reopen details.</p>`;
+    clearTrailLine();
     if (state.map) setSourceData();
+    // In the Trails lens, drop the deselected row's active highlight.
+    if (state.mode === "trails") renderTrailPanel();
     updateReviewUrl();
   }
 
@@ -1182,6 +1345,84 @@
           renderEventsList();
         }
       });
+    });
+  }
+
+  // Structure-B "Trails" lens panel: a trail-specific filter/sort bar over a
+  // browsable trail list, rendered into the same els.filters container the
+  // other lenses use. Filtering/sorting re-renders the list AND the map dots
+  // (setSourceData reads the same filteredTrailPlaces()). Selecting a row calls
+  // showPlace(), which the shared core handles (draw line + fit + facts card).
+  function renderTrailPanel() {
+    if (!els.filters) return;
+    const options = trailFilterOptions();
+    const f = state.trailFilters;
+    const trails = filteredTrailPlaces();
+    const opt = (value, label, selected) =>
+      `<option value="${escapeHtml(value)}"${selected === value ? " selected" : ""}>${escapeHtml(label)}</option>`;
+    const selectControl = (key, label, values) => `
+      <label class="trail-control">
+        <span class="trail-control-label">${escapeHtml(label)}</span>
+        <select class="review-search-input trail-select" data-trail-filter="${escapeHtml(key)}">
+          ${opt("all", "All", f[key])}
+          ${values.map((value) => opt(value, value, f[key])).join("")}
+        </select>
+      </label>`;
+    const sortControl = `
+      <label class="trail-control">
+        <span class="trail-control-label">Sort</span>
+        <select class="review-search-input trail-select" data-trail-sort>
+          ${opt("name", "Name A–Z", f.sort)}
+          ${opt("length", "Length shortest→longest", f.sort)}
+          ${opt("difficulty", "Difficulty easy→hard", f.sort)}
+        </select>
+      </label>`;
+    const rows = trails.map((place) => {
+      const badge = trailBadgeText(place);
+      return `
+        <button class="trail-list-row${place.id === state.selectedPlaceId ? " active" : ""}" type="button" data-trail-place="${escapeHtml(place.id)}" aria-current="${place.id === state.selectedPlaceId ? "true" : "false"}">
+          <span class="trail-list-name">${escapeHtml(place.name)}</span>
+          ${badge ? `<span class="trail-list-badge">${escapeHtml(badge)}</span>` : ""}
+          <span class="trail-list-town">${escapeHtml(place.city || "Nevada County")}</span>
+        </button>`;
+    }).join("");
+    els.filters.innerHTML = `
+      <div class="outing-browse trail-panel">
+        <div class="trail-filter-grid" role="group" aria-label="Filter trails">
+          ${selectControl("difficulty", "Difficulty", options.difficulties)}
+          ${selectControl("use", "Use / access", options.uses)}
+          ${selectControl("surface", "Surface", options.surfaces)}
+          ${selectControl("town", "Town", options.towns)}
+          ${sortControl}
+        </div>
+        <div class="outing-browse-head">
+          <span class="outing-browse-title">${trails.length ? `Trails (${escapeHtml(trails.length)})` : "No trails match these filters"}</span>
+          ${f.difficulty !== "all" || f.use !== "all" || f.surface !== "all" || f.town !== "all"
+            ? `<button class="outing-done" type="button" data-trail-reset>Clear</button>`
+            : ""}
+        </div>
+        <div class="trail-browse-list" role="list" aria-label="Trails">${rows}</div>
+      </div>`;
+    const refresh = () => {
+      renderTrailPanel();
+      setSourceData();
+      updateReviewUrl();
+    };
+    els.filters.querySelectorAll("[data-trail-filter]").forEach((select) => {
+      select.addEventListener("change", () => {
+        state.trailFilters[select.dataset.trailFilter] = select.value;
+        refresh();
+      });
+    });
+    const sortSelect = els.filters.querySelector("[data-trail-sort]");
+    if (sortSelect) sortSelect.addEventListener("change", () => { state.trailFilters.sort = sortSelect.value; refresh(); });
+    els.filters.querySelector("[data-trail-reset]")?.addEventListener("click", () => {
+      state.trailFilters = { difficulty: "all", use: "all", surface: "all", town: "all", sort: state.trailFilters.sort };
+      refresh();
+    });
+    els.filters.querySelectorAll("[data-trail-place]").forEach((button) => {
+      const place = placeById(button.dataset.trailPlace);
+      if (place) button.addEventListener("click", () => showPlace(place));
     });
   }
 
@@ -1777,6 +2018,10 @@
     state.selectedPlaceId = place.id;
     state.selectedEventId = "";
     setSourceData();
+    const _trail = drawSelectedTrail(place);
+    // Trails lens: keep the list row highlight in sync with the selection
+    // whether it came from a row click or a map-dot click.
+    if (state.mode === "trails") renderTrailPanel();
     updateSmartLabels();
     const events = relatedEvents(place.id);
     const anchor = place.anchor || null;
@@ -1788,7 +2033,9 @@
     // not — gets the same calm paper feature card. The old primary-anchor /
     // supporting-stop card chrome (red top borders, gradients) is retired.
     setDetailCardMode("place");
-    syncModeTabs("places");
+    // In the Trails lens a selected trail is still a place card, but the lens
+    // (and its tab) stays Trails — don't flip the active tab to Places.
+    syncModeTabs(state.mode === "trails" ? "trails" : "places");
     const imageLabel = isSupportingStop && place.image?.status === "candidate"
       ? "Candidate image"
       : isSupportingStop && (!place.image?.src || place.image?.status === "missing")
@@ -1848,6 +2095,7 @@
             ${hook ? `<p class="anchor-hook">${escapeHtml(hook)}</p>` : ""}
           </div>
         </div>
+        ${renderTrailFacts(place)}
         ${renderLocationCaveat(place)}
         ${anchorCardMeta(place)}
         <p class="detail-description">${escapeHtml(place.anchorCard?.supportingDescription || place.description)}</p>
@@ -1892,7 +2140,11 @@
     });
     revealDetailCard();
     };
-    if (isPlaceMapReady(place)) {
+    if (_trail && trailFor(place).hasLine) {
+      fitTrail(place);
+      if (prefersReducedMotion()) dealCard();
+      else state.map.once("moveend", dealCard);
+    } else if (isPlaceMapReady(place)) {
       flyToSelection([place.lng, place.lat], dealCard);
     } else {
       dealCard();
@@ -2647,11 +2899,12 @@
     els.selectionDrawer?.classList.remove("open");
     clearPathMarkers();
     setMapSourceData("paths", []);
+    clearTrailLine();
     ["event-hit-target", "event-halo", "event-points"].forEach((layerId) => {
       setMapLayerVisibility(layerId, mode === "events" ? "visible" : "none");
     });
     const reviewTools = document.getElementById("review-tools");
-    if (reviewTools) reviewTools.style.display = mode === "events" ? "none" : "";
+    if (reviewTools) reviewTools.style.display = mode === "events" || mode === "trails" ? "none" : "";
     if (mode === "events") {
       if (state.events.length) {
         els.hint.innerHTML = `<p class="hint-title">Events on the map</p><p>Pick an event from the list, or tap a red diamond on the map.</p>`;
@@ -2660,6 +2913,10 @@
         els.hint.innerHTML = `<p class="hint-title">No events listed here this week</p><p>Check back soon — new happenings appear here as venues add them.</p>`;
         els.filters.innerHTML = "";
       }
+    } else if (mode === "trails") {
+      els.hint.innerHTML = `<p class="hint-title">Trails on the map</p><p>Filter by difficulty, use, surface, or town — pick a trail to trace its route.</p>`;
+      if (els.placesList) els.placesList.innerHTML = "";
+      renderTrailPanel();
     } else if (mode === "paths") {
       renderFilters();
       renderPathChooser();
@@ -2682,7 +2939,9 @@
       ? state.events.map((event) => placeById(event.placeId)).filter((place) => place && hasCoords(place))
       : mode === "paths"
         ? state.paths.flatMap((path) => path.stops || []).filter(hasCoords)
-        : state.places.filter(isPlaceMapReady);
+        : mode === "trails"
+          ? filteredTrailPlaces().filter(isPlaceMapReady)
+          : state.places.filter(isPlaceMapReady);
     if (!points.length) return;
     const bounds = state.map.getBounds();
     if (points.some((point) => bounds.contains([point.lng, point.lat]))) return;
@@ -3105,6 +3364,24 @@
       },
     });
 
+    // Trail line (shared core): a white casing under a brand-red line, both
+    // inserted before "place-density" so the line draws UNDER the place dots.
+    state.map.addSource("trail-lines", { type: "geojson", data: { type: "FeatureCollection", features: [] } });
+    state.map.addLayer({
+      id: "trail-line-casing", type: "line", source: "trail-lines",
+      layout: { "line-cap": "round", "line-join": "round" },
+      paint: { "line-color": "#ffffff",
+               "line-width": ["interpolate", ["linear"], ["zoom"], 10, 4, 16, 9],
+               "line-opacity": 0.85 },
+    }, "place-density");
+    state.map.addLayer({
+      id: "trail-line", type: "line", source: "trail-lines",
+      layout: { "line-cap": "round", "line-join": "round" },
+      paint: { "line-color": MARKERS.red,
+               "line-width": ["interpolate", ["linear"], ["zoom"], 10, 2.4, 16, 5.5],
+               "line-opacity": 0.95 },
+    }, "place-density");
+
     const showPlaceFromFeature = (event) => {
       hideMarkerPreview();
       const id = event.features[0].properties.id;
@@ -3148,7 +3425,7 @@
   }
 
   async function init() {
-    const [places, events, paths, anchorCards, museEvidence, museSampler, museStories, museStoryThumbs, warmStyle] = await Promise.all([
+    const [places, events, paths, anchorCards, museEvidence, museSampler, museStories, museStoryThumbs, warmStyle, trailsData] = await Promise.all([
       fetch(DATA.places).then((r) => r.json()),
       fetch(DATA.events).then((r) => r.json()),
       fetch(DATA.paths).then((r) => r.json()),
@@ -3165,7 +3442,9 @@
         .then((r) => (r.ok ? r.json() : Promise.reject(new Error(`style fetch ${r.status}`))))
         .then((style) => warmStyleObject(style))
         .catch(() => null),
+      fetch(DATA.trails).then((r) => r.json()).catch(() => ({ trails: {} })),
     ]);
+    state.trails = (trailsData && trailsData.trails) || {};
     state.anchorCards = Array.isArray(anchorCards) ? anchorCards : [];
     state.museStories = museStories.stories || [];
     // Join hero thumbnails from the regen-safe sidecar (keyed by stable article
