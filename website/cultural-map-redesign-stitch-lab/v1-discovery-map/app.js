@@ -1680,6 +1680,7 @@
       });
     });
     revealDetailCard();
+    animateStoryReveal(els.detail.querySelectorAll(".story-row"));
   }
 
   function renderStory(story) {
@@ -1722,6 +1723,7 @@
       });
     });
     revealDetailCard();
+    animateStoryReveal(els.detail.querySelectorAll(".story-hero, .story-title, .story-issue, .story-read-link, .place-nearby-link"));
   }
 
   // Flow-upgrade Stage 3 ("Place Pulse" board): the selected place is the
@@ -2794,6 +2796,66 @@
     els.railArrowNext.classList.toggle("is-end", track.scrollLeft >= maxScroll);
   }
 
+  // --- GSAP marketing motion (Task 2) ---------------------------------------
+  // GSAP rides the MARKETING surfaces only — the Discovery Rail "Happening Now"
+  // posters and the MUSE story cards. The functional map (MapLibre) stays
+  // CSS-quiet. GSAP is a plain <script> in index.html; window.gsap is undefined
+  // until it arrives and absent by design for reduced-motion users — both paths
+  // fall straight through to the static CSS layout, never a blank card.
+  function gsapMotionOn() {
+    return typeof window !== "undefined" && window.gsap && !prefersReducedMotion();
+  }
+
+  // "Poster paste-up" (owner pick, 2026-06-13): each card rises and scales from
+  // 0.94 with a back.out snap, then the red brand frame inks crisp a beat after
+  // the slab lands — like pinning flyers to a board. Mines the rise vocabulary of
+  // fable-drift.html. Re-fires on every rail rebuild (first load + chip switch);
+  // Rail Follow never rebuilds the track, so scroll-settle stays calm.
+  function animateRailEntrance() {
+    if (!els.railTrack || !gsapMotionOn()) return;
+    const cards = els.railTrack.querySelectorAll(".rail-card");
+    if (!cards.length) return;
+    const gsap = window.gsap;
+    gsap.killTweensOf(cards);
+    gsap.set(cards, { opacity: 0, y: 18, scale: 0.94, transformOrigin: "50% 70%" });
+    gsap.to(cards, {
+      opacity: 1, y: 0, scale: 1,
+      duration: 0.5,
+      ease: "back.out(1.4)",
+      stagger: 0.05,
+      // Hand transform/opacity back to CSS once settled so the hover lift works.
+      clearProps: "transform,opacity",
+    });
+    // The frame IS the poster: ink the red border last so it reads as the slab
+    // snapping crisp. Photo cards carry the 7px border on .rail-card-frame, poster
+    // cards on the card itself; quiet cards have no red frame, so they skip it.
+    cards.forEach((card, i) => {
+      const frame = card.classList.contains("is-poster") ? card : card.querySelector(".rail-card-frame");
+      if (!frame) return;
+      gsap.fromTo(frame,
+        { borderColor: "#f7c6bd" },
+        { borderColor: "#ff2500", duration: 0.26, ease: "power2.out", delay: 0.16 + i * 0.05, clearProps: "borderColor" });
+    });
+  }
+
+  // Quieter sibling of the paste-up for the MUSE story cards in the detail panel:
+  // a gentle staggered rise, no frame ink (the panel is closer to functional UI).
+  function animateStoryReveal(targets) {
+    if (!els.detail || !gsapMotionOn()) return;
+    const items = Array.from(targets || []);
+    if (!items.length) return;
+    const gsap = window.gsap;
+    gsap.killTweensOf(items);
+    gsap.set(items, { opacity: 0, y: 12 });
+    gsap.to(items, {
+      opacity: 1, y: 0,
+      duration: 0.42,
+      ease: "power3.out",
+      stagger: 0.045,
+      clearProps: "transform,opacity",
+    });
+  }
+
   function renderDiscoveryRail() {
     if (!els.railTrack) return;
     const filter = state.railFilter;
@@ -2820,6 +2882,7 @@
       card.addEventListener("click", () => activateRailCard(Number(card.dataset.railIndex), card));
     });
     syncRailArrows();
+    animateRailEntrance();
   }
 
   function initDiscoveryRail() {
