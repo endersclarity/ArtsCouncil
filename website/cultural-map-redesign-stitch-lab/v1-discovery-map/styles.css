@@ -1860,6 +1860,9 @@ body:not([data-map-mode="places"]) .review-tools {
 }
 
 .story-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
   appearance: none;
   text-align: left;
   border: 1px solid var(--line, #d8d4cb);
@@ -1869,20 +1872,54 @@ body:not([data-map-mode="places"]) .review-tools {
   font-family: inherit;
 }
 
+.story-row.has-thumb {
+  padding: 6px;
+}
+
 .story-row:hover {
   border-color: var(--ncac-red);
 }
 
+/* Leading hero crop from the MUSE corpus, in the brand red frame. */
+.story-row-thumb {
+  flex: 0 0 auto;
+  width: 96px;
+  height: 72px;
+  object-fit: cover;
+  border: 2px solid var(--ncac-red);
+  background: var(--ink);
+}
+
+.story-row-body {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
 .story-row strong {
-  display: block;
   font-size: 13px;
 }
 
-.story-row span {
-  display: block;
+.story-row-meta {
   margin-top: 2px;
   font-size: 11px;
   color: var(--ink-soft);
+}
+
+/* Detail-card hero: the article's key art in the brand red frame, full width
+   of the selection drawer. Sourced from the local MUSE corpus crop. */
+.story-hero {
+  display: block;
+  margin: 10px 0;
+  border: 3px solid var(--ncac-red);
+  background: var(--ink);
+  line-height: 0;
+}
+
+.story-hero img {
+  display: block;
+  width: 100%;
+  height: auto;
 }
 
 .story-title {
