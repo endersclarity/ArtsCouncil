@@ -21,7 +21,7 @@
     // Canonical NCAC ink (#1A1A1A) — was a navy drift (#1a1a2e).
     place: "#1a1a1a",
     quiet: "#5d625b",
-    red: "#ff2e00",
+    red: "#ff2500",
     paper: "#ffffff",
     ink: "#1a1a1a",
     // Muted plum = "event coming up" (cla-76 red ruling). The legend swatch in
@@ -53,42 +53,42 @@
   // CLA-27: active basemap is the OpenFreeMap "Liberty" street style (free, no API key).
   const STREET_BASEMAP_STYLE = "https://tiles.openfreemap.org/styles/liberty";
 
-  // Warmth pass 4 (cla-65): the stock Liberty palette (cool greys, saturated
-  // greens, blue water, orange motorways) reads stock-Google next to the brand's
-  // warm paper surfaces. WARM_BASEMAP retints every tile layer at runtime via
-  // setPaintProperty after style load (NOT a CSS canvas filter — that muddies
-  // water and labels). Direction owner-validated 2026-06-11 with a live
-  // saturate(.45)+sepia(.22) experiment. All values are plain color strings, so
-  // no paint-expression validity risk; layers are matched from the loaded
-  // style's own layer list by source-layer + id pattern, never hardcoded blind.
+  // Brand adoption (NCAC-V1-BRAND.md "Decided direction"): the basemap retunes
+  // COOL to sit under the guide's white/gray surfaces — the warm cream/sage
+  // tuning is retired. The const name is kept to avoid churn across the paint
+  // pipeline below; values are now a cool gray-green/slate set. Still retinted
+  // at runtime via setPaintProperty after style load (NOT a CSS canvas filter —
+  // that muddies water and labels), still plain color strings (no paint-
+  // expression risk); layers matched from the loaded Liberty style's own layer
+  // list by source-layer + id pattern, never hardcoded blind.
   const WARM_BASEMAP = {
-    background: "#f2ecdc", // paper-warm ground, a step deeper than --paper so panels still lift
-    water: "#a9b6b3", // single muted slate for lakes, rivers, and waterway lines
-    parkFill: "#e2e3c9", // warm paper-sage range for everything green
-    parkOutline: "#cdd0ae",
-    wood: "#dcdec4",
-    grass: "#e7e7cd",
-    wetland: "#e4e7d2",
-    ice: "#f0eee2",
-    sand: "#eee5cb",
-    residential: "#efe8d6",
-    landuse: "#e9e5d0",
-    building: "#e6decb",
-    buildingOutline: "#d8cdb6",
-    aeroway: "#ece6d4",
-    rail: "#cfc5b2",
-    roadCasing: "#dcd3c0", // quiet warm neutrals; ink hierarchy comes from value steps
-    majorCasing: "#c8bba1",
-    motorway: "#ebdab6",
-    trunkPrimary: "#f1e8d0",
-    secondaryTertiary: "#f8f3e5",
-    minor: "#fbf8ee",
-    path: "#d8d0c6",
-    boundary: "#b5ab9b",
-    placeLabel: "#3e3a33", // town names: near-ink, still the loudest tile text
-    roadLabel: "#8a8174", // street names: muted so app content stays the loud layer
-    waterLabel: "#5e7378",
-    labelHalo: "#faf6ec",
+    background: "#eef0f2", // cool gray ground, a step under --paper so panels still lift
+    water: "#b3bfc9", // single cool slate for lakes, rivers, and waterway lines
+    parkFill: "#dde6dd", // cool gray-sage range for everything green
+    parkOutline: "#c8d3c8",
+    wood: "#d6e0d6",
+    grass: "#e2eae2",
+    wetland: "#dbe5e5",
+    ice: "#eef1f3",
+    sand: "#e8e9ea",
+    residential: "#ebedf0",
+    landuse: "#e6e9ec",
+    building: "#e1e4e8",
+    buildingOutline: "#d0d5db",
+    aeroway: "#e8ebed",
+    rail: "#c6ccd2",
+    roadCasing: "#d4dade", // quiet cool neutrals; ink hierarchy comes from value steps
+    majorCasing: "#bfc6cd",
+    motorway: "#e7eaed",
+    trunkPrimary: "#eef1f4",
+    secondaryTertiary: "#f5f7f9",
+    minor: "#fafbfc",
+    path: "#d4d8dc",
+    boundary: "#aab2ba",
+    placeLabel: "#262a2e", // town names: near-ink, still the loudest tile text
+    roadLabel: "#868d95", // street names: muted so app content stays the loud layer
+    waterLabel: "#5f7177",
+    labelHalo: "#ffffff",
   };
 
   const ANCHOR_ICON_TEXT = {
