@@ -575,8 +575,14 @@ def main() -> int:
     civicengage_events = load_source_events(args.civicengage_file, "civicengage")
     kvmr_events = load_source_events(args.kvmr_file, "kvmr")
     gvda_events = load_source_events(args.gvda_file, "gvda")
-    crazyhorse_events = load_source_events(args.crazyhorse_file, "crazyhorse")
-    goldenera_events = load_source_events(args.goldenera_file, "goldenera")
+    # Crazy Horse Saloon and Golden Era Lounge are bar / live-music scrapes that
+    # are NOT on the official Nevada County Arts Council calendar (the Trumba
+    # feed). Owner ruling 2026-06-12: the NCAC-branded map mirrors the Arts
+    # Council's own calendar, so these two venue sources are excluded from the
+    # merge. The ingest scripts + source files stay in place; flip these back to
+    # load_source_events(...) to re-include them.
+    crazyhorse_events: list[dict[str, Any]] = []
+    goldenera_events: list[dict[str, Any]] = []
     bodhihive_events = load_source_events(args.bodhihive_file, "bodhihive")
     community_events = load_source_events(args.community_file, "community")
 

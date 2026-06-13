@@ -1235,14 +1235,16 @@
       return;
     }
     if (mode === "poster") {
-      // Rail card: a dead image becomes the designed imageless poster card
-      // instead of a bare paper card.
+      // Rail card: a dead photo fills its frame with the brand spray field so the
+      // card still reads as a designed poster; the caption below keeps title+meta.
       const card = img.closest(".rail-card");
+      const frame = img.closest(".rail-card-frame");
       img.remove();
-      if (!card || card.classList.contains("rail-card-poster")) return;
-      const type = (card.className.match(/rail-card-(event|place|story|path)/) || [])[1] || "event";
+      const type = (card?.className.match(/rail-card-(event|place|story|path)/) || [])[1] || "event";
+      // A place is a directory entry, not a campaign — leave its frame quiet paper.
+      if (!card || !frame || type === "place") return;
       const index = Number(card.dataset.railIndex) || 0;
-      railPosterClasses(type, index).forEach((cls) => card.classList.add(cls));
+      railPosterClasses(type, index).forEach((cls) => frame.classList.add(cls));
     }
   }
   document.addEventListener("error", handleImageFallback, true);
@@ -1921,9 +1923,10 @@
   }
 
   // Program tab names the event's own intent — the build resolves the primary
-  // tag to its human label ("Live Music", "Family & Kids"). No tag → no tab.
+  // tag to its human label ("Live Music", "Family & Kids"). The firehose carries
+  // `category` (a comma list), not `program`, so fall back to the first category.
   function eventProgramTab(event) {
-    return event.program || "";
+    return (event.program || (event.category || "").split(",")[0] || "").trim();
   }
 
   // Weekday-less date for the recurring list ("Jun 16"), so a run of dates
@@ -2223,6 +2226,9 @@
       // lives in the meta line as a weighted lead word ("Tonight" / "Sat, Jun 13"),
       // not a kicker above every card.
       when: event.date === today ? "Tonight" : niceEventDate(event.date),
+      // Program tab (poster anatomy): the event's own category names the field,
+      // mirroring the detail card's tab. Falls back to a generic "Event".
+      tab: eventProgramTab(event) || "Event",
       title: event.title,
       meta: event.placeName,
       // Rail cards are teasers: first sentence only. The full description
@@ -2237,6 +2243,7 @@
       type: "place",
       // Place category moves into the meta line (voice rule: category stays
       // the place card's classifier — just no longer an eyebrow row).
+      tab: placeKindLabel(place),
       title: place.name,
       meta: `${placeKindLabel(place)} · ${place.city || "Nevada County"}`,
       desc: firstSentence(place.description || ""),
@@ -2252,6 +2259,7 @@
       const storyPlaces = (story.placeIds || []).map(placeById).filter((place) => place && isPlaceMapReady(place));
       items.push({
         type: "story",
+        tab: "MUSE Magazine",
         title: story.title,
         meta: story.issue,
         desc: "See everywhere this story touches the map.",
@@ -2265,6 +2273,7 @@
     if (path?.stops?.length) {
       items.push({
         type: "path",
+        tab: "A walk to take",
         title: path.title,
         meta: `A path to walk · ${path.stops.length} stops`,
         desc: path.dek || "",
@@ -2290,15 +2299,9 @@
     const field = type === "story" ? "ink" : type === "path" ? "teal" : RAIL_POSTER_CYCLE[index % RAIL_POSTER_CYCLE.length];
     return ["rail-card-poster", `rail-card-poster-${field}`];
   }
-  function railPosterClass(item, index) {
-    if (item.image || item.type === "place") return "";
-    return ` ${railPosterClasses(item.type, index).join(" ")}`;
-  }
 
-  // Rail delineation (P1-6): every card names its kind in one quiet chip, so
-  // the mixed editorial run (events / picks / story / path) reads curated.
-  // This supersedes the pass-3 "one kicker" rule for the rail surface only —
-  // a pill chip, not a typeset eyebrow row.
+  // Tab fallback when a rail item carries no explicit program label. Events and
+  // places set their own (category / kind); story and path fall back here.
   const RAIL_CHIP_LABELS = {
     event: "Event",
     place: "Worth a stop",
@@ -2306,18 +2309,59 @@
     path: "A walk to take",
   };
 
+  // Three poster forms, all sharing a red program tab on the frame's top edge
+  // and a red frame — the brand framing device (NCAC-V1-BRAND.md pp.10/11/24).
+  // The color lives INSIDE, as the gradient-spray field. Replaces the old border:
+  //   is-photo  — framed key-art + black caption below   (the Lavender-Glow card)
+  //   is-poster — knockout title ON the brand spray field (the Mini-Grants card)
+  //   is-quiet  — calm directory entry, red corner flag   (imageless places)
   function railCardHtml(item, index) {
     // Accessible name is title + venue/date only — never the full description
     // essay (screen readers read the whole name per card).
     const accessibleName = `${item.title} — ${item.when ? `${item.when} · ` : ""}${item.meta}`;
     const metaLine = `${item.when ? `<strong class="rail-card-when${item.when === "Tonight" ? " is-tonight" : ""}">${escapeHtml(item.when)}</strong> · ` : ""}${escapeHtml(item.meta)}`;
-    const chip = RAIL_CHIP_LABELS[item.type];
-    return `
-      <button class="rail-card rail-card-${escapeHtml(item.type)}${railPosterClass(item, index)}" type="button" data-rail-index="${index}" aria-label="${escapeHtml(accessibleName)}">
-        ${item.image ? `<img class="rail-card-img" src="${escapeHtml(item.image)}" alt="" loading="lazy" decoding="async" data-img-fallback="poster">` : ""}
+    const tab = item.tab || RAIL_CHIP_LABELS[item.type] || "";
+    const tabHtml = tab ? `<span class="rail-card-tab">${escapeHtml(tab)}</span>` : "";
+    const titleHtml = `<span class="rail-card-title">${escapeHtml(item.title)}</span>`;
+    const open = `<button class="rail-card`;
+    const attrs = `type="button" data-rail-index="${index}" aria-label="${escapeHtml(accessibleName)}"`;
+
+    // Variant A — framed key-art poster + caption below. Today only photo'd
+    // places reach this; events join once the flyer scraper fills their images.
+    if (item.image) {
+      return `
+      ${open} is-photo rail-card-${escapeHtml(item.type)}" ${attrs}>
+        ${tabHtml}
+        <span class="rail-card-frame">
+          <img class="rail-card-img" src="${escapeHtml(item.image)}" alt="" loading="lazy" decoding="async" data-img-fallback="poster">
+        </span>
+        <span class="rail-card-caption">
+          ${titleHtml}
+          <span class="rail-card-meta">${metaLine}</span>
+        </span>
+      </button>`;
+    }
+
+    // Variant B — knockout poster: title on the spray field, frame follows it.
+    // Campaign cards only (events / MUSE story / path).
+    if (item.type !== "place") {
+      const posterClasses = railPosterClasses(item.type, index).join(" ");
+      return `
+      ${open} is-poster ${posterClasses} rail-card-${escapeHtml(item.type)}" ${attrs}>
+        ${tabHtml}
         <span class="rail-card-body">
-          ${chip ? `<span class="rail-card-chip rail-card-chip-${escapeHtml(item.type)}">${escapeHtml(chip)}</span>` : ""}
-          <span class="rail-card-title">${escapeHtml(item.title)}</span>
+          ${titleHtml}
+          <span class="rail-card-sub">${metaLine}</span>
+        </span>
+      </button>`;
+    }
+
+    // Quiet directory card — imageless place.
+    return `
+      ${open} is-quiet rail-card-place" ${attrs}>
+        ${tabHtml}
+        <span class="rail-card-caption">
+          ${titleHtml}
           ${item.desc ? `<span class="rail-card-desc">${escapeHtml(item.desc)}</span>` : ""}
           <span class="rail-card-meta">${metaLine}</span>
         </span>

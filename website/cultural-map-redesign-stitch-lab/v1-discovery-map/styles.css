@@ -1175,35 +1175,35 @@ body:not([data-map-mode="places"]) .review-tools {
   background: transparent;
 }
 
-/* Warmth pass 1 — event "charcoal feature" (approved mockup A). Events are
-   campaign surfaces: the drawer becomes a dark editorial feature on ink.
-   White knockout title, red weighted kicker for date, photo with full-width
-   ink caption bar, red primary action, muted-outline secondary.
-   Contrast: #fff on #1A1A1A 17.4:1; --line (#D8D0C6) body ~10.9:1 — both AA.
-   Red appears only as the weighted kicker + the primary fill (one red device;
-   structural, never decorative — no red rules or borders here). */
+/* Event feature = red-field knockout poster (NCAC-V1-BRAND.md: the guide's two
+   field forms are white-interior + red-frame, and FULL RED FIELD + white
+   knockout — "Creative Capital"/"Mini-Grants". Black is text/frame only, never
+   a flooded field). Events are the red layer, matching the red event markers.
+   White frame, white knockout type, white-chip program tab; imageless events
+   read as clean red-field posters (no gradient spray needed).
+   Contrast: large/bold knockout (title, date kicker, buttons) clears AA on red;
+   small white body on #FF2500 is ~3.8:1, so keep event body copy short. */
 .detail-card.event-feature-card,
 .selection-drawer .detail-card.event-feature-card {
-  /* The dark event poster keeps the red frame (brand: red frame on a black field). */
-  border: 3px solid var(--ncac-red);
-  background: var(--ink);
-  color: var(--line);
+  border: 3px solid #fff;
+  background: var(--ncac-red);
+  color: #fff;
   padding: 0;
 }
 
 .event-feature-card .selected-place-close {
   top: 14px;
   right: 14px;
-  border-color: var(--ink-soft);
-  background: var(--ink);
-  color: var(--paper);
+  border-color: rgba(255, 255, 255, 0.7);
+  background: transparent;
+  color: #fff;
 }
 
 .event-feature-card .selected-place-close:hover,
 .event-feature-card .selected-place-close:focus-visible {
-  background: var(--paper);
-  border-color: var(--paper);
-  color: var(--ink);
+  background: #fff;
+  border-color: #fff;
+  color: var(--ncac-red);
 }
 
 .event-feature-photo {
@@ -1230,9 +1230,9 @@ body:not([data-map-mode="places"]) .review-tools {
 
 .event-feature-kicker {
   margin: 0 0 6px;
-  color: var(--ncac-red);
+  color: #fff;
   font-family: var(--font-brand);
-  font-size: 12px;
+  font-size: 13px;
   font-weight: 800;
   letter-spacing: 0.01em;
 }
@@ -1252,7 +1252,7 @@ body:not([data-map-mode="places"]) .review-tools {
 
 .event-feature-venue {
   margin: -4px 0 10px;
-  color: var(--line);
+  color: rgba(255, 255, 255, 0.88);
   font-size: 12px;
   font-weight: 700;
   text-transform: uppercase;
@@ -1261,7 +1261,7 @@ body:not([data-map-mode="places"]) .review-tools {
 
 .event-feature-blurb {
   margin: 0;
-  color: var(--line);
+  color: #fff;
   font-size: 14px;
   line-height: 1.5;
   max-width: 62ch;
@@ -1272,58 +1272,65 @@ body:not([data-map-mode="places"]) .review-tools {
   gap: 10px;
 }
 
-/* On-ink overrides to the shared feature-action recipe above: the dark card
-   hovers flip to paper, and the secondary outline reads in paper, not ink. */
+/* On-red overrides to the shared feature-action recipe: the red field needs a
+   white knockout primary (white bg / red type) and a white-outline secondary. */
+.event-feature-card .event-feature-actions a {
+  border-color: #fff;
+  background: #fff;
+  color: var(--ncac-red);
+}
+
 .event-feature-card .event-feature-actions a:hover,
 .event-feature-card .event-feature-actions a:focus-visible {
-  border-color: var(--paper);
-  background: var(--paper);
-  color: var(--ink);
+  border-color: #fff;
+  background: rgba(255, 255, 255, 0.88);
+  color: var(--ncac-red);
 }
 
 .event-feature-card .event-feature-actions button {
-  border-color: var(--ink-soft);
-  color: var(--paper);
+  border-color: rgba(255, 255, 255, 0.6);
+  color: #fff;
   padding: 10px 16px 9px;
 }
 
 .event-feature-card .event-feature-actions button:hover,
 .event-feature-card .event-feature-actions button:focus-visible {
-  border-color: var(--paper);
+  border-color: #fff;
   color: #fff;
 }
 
 /* "Before or after" stops inside the charcoal feature: same ink surface,
    hairline separation instead of boxed white cards. */
 .event-feature-card .section-label {
-  color: var(--line);
+  color: rgba(255, 255, 255, 0.88);
 }
 
 .event-feature-card .place-nearby {
   margin-top: 16px;
-  border-top: 1px solid var(--ink-soft);
+  border-top: 1px solid rgba(255, 255, 255, 0.32);
   padding-top: 12px;
 }
 
 .event-feature-card .place-nearby-link {
-  border: 1px solid var(--ink-soft);
+  border: 1px solid rgba(255, 255, 255, 0.5);
   background: transparent;
-  color: var(--paper);
+  color: #fff;
 }
 
 .event-feature-card .place-nearby-link:hover,
 .event-feature-card .place-nearby-link:focus-visible {
-  border-color: var(--paper);
+  border-color: #fff;
 }
 
 .event-feature-card .place-nearby-link span {
-  color: var(--line);
+  color: rgba(255, 255, 255, 0.82);
 }
 
 /* Poster anatomy fixtures (brand pages 11/24/25/40) on the dark event card. */
 
-/* Program tab — knocked into the top-left frame edge, red field / white type,
-   naming the event's own category. Square top-left flushes to the frame corner;
+/* Program tab — knocked into the top-left frame edge, naming the event's own
+   category. On the red field it inverts to a white chip / red type (the guide's
+   "Mini-Grants" red-on-white tab). Square top-left flushes to the frame corner;
    only the inner corner rounds, so it reads as a tab cut into the frame. */
 .event-feature-tab {
   position: absolute;
@@ -1333,8 +1340,8 @@ body:not([data-map-mode="places"]) .review-tools {
   max-width: 68%;
   padding: 7px 12px 6px;
   border-bottom-right-radius: 9px;
-  background: var(--ncac-red);
-  color: #fff;
+  background: #fff;
+  color: var(--ncac-red);
   font-family: var(--font-brand);
   font-size: 11px;
   font-weight: 800;
@@ -1361,7 +1368,7 @@ body:not([data-map-mode="places"]) .review-tools {
 }
 
 .event-feature-recurring {
-  color: var(--line);
+  color: rgba(255, 255, 255, 0.88);
   font-size: 12px;
   font-weight: 600;
 }
@@ -1370,9 +1377,9 @@ body:not([data-map-mode="places"]) .review-tools {
   display: inline-flex;
   align-items: center;
   padding: 3px 9px 2px;
-  border: 1px solid var(--ink-soft);
+  border: 1px solid rgba(255, 255, 255, 0.6);
   border-radius: 999px;
-  color: var(--paper);
+  color: #fff;
   font-size: 11px;
   font-weight: 700;
   letter-spacing: 0.01em;
@@ -1383,9 +1390,9 @@ body:not([data-map-mode="places"]) .review-tools {
    suppressed in showEvent). */
 .event-feature-presenter {
   margin: 0;
-  border-top: 1px solid var(--ink-soft);
+  border-top: 1px solid rgba(255, 255, 255, 0.32);
   padding: 11px 20px 13px;
-  color: var(--line);
+  color: rgba(255, 255, 255, 0.88);
   font-family: var(--font-brand);
   font-size: 11px;
   font-weight: 600;
@@ -1393,7 +1400,7 @@ body:not([data-map-mode="places"]) .review-tools {
 }
 
 .event-feature-presenter strong {
-  color: var(--paper);
+  color: #fff;
   font-weight: 800;
 }
 
@@ -2806,37 +2813,37 @@ body.rail-browse .discovery-rail {
   }
 }
 
+/* Discovery Rail cards — the real "Happening Now" poster anatomy (NCAC-V1-BRAND
+   pp.11/24/38), compressed to the 250×190 rail slab. Three forms (is-photo /
+   is-poster / is-quiet) share a red program tab on the frame's top edge and a
+   red frame (the brand framing device). The color lives INSIDE the frame as the
+   gradient-spray field — the frame is the poster, not an outline around the card. */
 .rail-card {
   flex: 0 0 250px;
   height: 190px;
-  overflow: hidden;
+  position: relative;
   scroll-snap-align: center;
   display: flex;
   flex-direction: column;
   background: var(--panel);
-  /* Brand adoption: every rail card wears the red frame device (Card = Poster).
-     Uniform frames carry no per-card meaning — the SELECTED card differentiates
-     with a hard red offset (.rail-card.active below). */
-  border: 3px solid var(--ncac-red);
   box-shadow: var(--shadow-low);
   padding: 0;
   text-align: left;
   font: inherit;
   cursor: pointer;
-  /* Hover = lift (fast feedback); active = the red ring easing in on
-     scroll-settle (base — a state change, so it eases rather than snaps).
-     outline-color is paint-only; it cannot fight the Rail Follow camera. */
-  outline: 2px solid transparent;
-  outline-offset: -1px;
+  /* Frame color: the brand framing device is red (NCAC-V1-BRAND.md p.10) — or
+     black/white when red would fight the art, never a secondary hue. The
+     secondary palette belongs INSIDE the frame, as the gradient-spray field. */
+  --rail-frame: var(--ncac-red);
   transition:
     transform var(--motion-fast) var(--ease-out),
     box-shadow var(--motion-fast) var(--ease-out),
-    outline-color var(--motion-base) var(--ease-out);
+    filter var(--motion-fast) var(--ease-out);
 }
 
 .rail-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 18px rgba(26, 26, 26, 0.2);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.2);
 }
 
 /* Press: the card sets back down before the selection fires. */
@@ -2856,35 +2863,76 @@ body.rail-browse .discovery-rail {
   box-shadow: var(--focus-ring), var(--shadow-low);
 }
 
+/* Program tab (brand pp.11/24/36): a small pill knocked into the frame's top
+   edge — red field, white knockout type — naming the program. One per card. */
+.rail-card-tab {
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: 80%;
+  padding: 3px 9px;
+  background: var(--rail-frame);
+  color: #fff;
+  font-family: var(--font-brand);
+  font-size: 8.5px;
+  font-weight: 800;
+  letter-spacing: 0.085em;
+  text-transform: uppercase;
+  line-height: 1.3;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* ---- is-photo: framed key-art + caption below (Variant A) -------------- */
+/* The tab straddles the inner frame's top border (a sibling of the frame, so
+   the frame's overflow:hidden clips only the photo, not the tab). */
+.rail-card.is-photo .rail-card-tab { top: 13px; transform: translate(-50%, -50%); }
+
+.rail-card-frame {
+  position: relative;
+  flex: 0 0 auto;
+  margin: 13px 11px 0;
+  height: 104px;
+  border: 7px solid var(--rail-frame);
+  overflow: hidden;
+  background: var(--paper-warm);
+}
+
 .rail-card-img {
   width: 100%;
-  height: 92px;
-  flex: 0 0 auto;
+  height: 100%;
   object-fit: cover;
   display: block;
-  background: var(--paper-warm);
-  border-bottom: 1px solid var(--line);
 }
+
+.rail-card-caption {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+  min-height: 0;
+  padding: 8px 12px 0;
+}
+
+/* ---- is-poster: knockout title on the spray field (Variant B) ---------- */
+/* The whole card is the framed poster; the tab sits inside the top border. */
+.rail-card.is-poster {
+  border: 7px solid var(--rail-frame);
+  justify-content: center;
+  overflow: hidden;
+}
+
+.rail-card.is-poster .rail-card-tab { top: 0; }
+
+.rail-card.is-poster:hover { filter: brightness(1.04); }
 
 .rail-card-body {
   display: flex;
   flex-direction: column;
-  gap: 3px;
-  flex: 1;
-  min-height: 0;
-  padding: 10px 12px 11px;
-}
-
-/* Photo cards: the image is the hook; title + meta carry the rest. */
-.rail-card-img ~ .rail-card-body .rail-card-desc {
-  display: none;
-}
-
-/* Poster field cards (brand secondaries, campaign surfaces only): full-bleed
-   color + knockout type stands in for missing imagery on event/story/path
-   cards. Never on chips, buttons, or markers. */
-.rail-card-poster .rail-card-body {
-  padding: 12px 13px;
+  gap: 5px;
+  padding: 14px;
 }
 
 /* Poster-field hover refinement: a saturated slab swallows the 2px lift, so
@@ -2902,8 +2950,8 @@ body.rail-browse .discovery-rail {
 }
 
 /* Gradient sprays (NCAC-V1-BRAND.md pp.13,27-30,37): a bright multi-color bloom
-   from the secondary palette, lightened toward the top-left so the black chip +
-   title stay legible (the "Donate Today" recipe). One distinct pairing per slot. */
+   from the secondary palette, lightened toward the top-left so the tab + black
+   knockout title stay legible (the "Donate Today" recipe). One pairing per slot. */
 .rail-card-poster-blue {
   background:
     radial-gradient(85% 68% at 16% 16%, rgba(255, 255, 255, 0.96), rgba(255, 255, 255, 0) 58%),
@@ -2931,53 +2979,37 @@ body.rail-browse .discovery-rail {
 }
 
 
-/* Poster knockout type: real display confidence — big, bold, tight (>= -0.04em
-   floor), clamped to 3 lines so the 190/168px slab never overflows. */
-.rail-card-poster .rail-card-title {
+/* Knockout type on the poster field: big, tight, black on the lightened bloom,
+   clamped to 3 lines so the 190/168px slab never overflows. */
+.rail-card.is-poster .rail-card-title {
   color: #000000;
-  font-size: 22px;
-  line-height: 1.05;
+  font-size: 21px;
+  line-height: 1.04;
   letter-spacing: -0.02em;
   -webkit-line-clamp: 3;
 }
 
-.rail-card-poster .rail-card-desc,
-.rail-card-poster .rail-card-meta {
-  color: rgba(0, 0, 0, 0.82);
-}
-
-.rail-card-poster .rail-card-when {
-  color: #000000;
-}
-
-/* Rail delineation chip (P1-6): every card names its kind — Event, Worth a
-   stop, From MUSE Magazine, A walk to take — so the mixed run reads curated.
-   Replaces the old single MUSE kicker line. */
-.rail-card-chip {
-  align-self: flex-start;
-  font-size: 9px;
+/* The poster's date·venue line, knocked out under the title. */
+.rail-card-sub {
+  font-size: 12px;
   font-weight: 700;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-  color: var(--ink-soft);
-  background: rgba(0, 0, 0, 0.05);
-  border-radius: 99px;
-  padding: 2px 8px;
-  margin-bottom: 2px;
+  color: rgba(0, 0, 0, 0.82);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.rail-card-poster .rail-card-chip {
+.rail-card.is-poster .rail-card-when {
   color: #000000;
-  background: rgba(255, 255, 255, 0.62);
 }
 
-/* Rail surface hierarchy: TWO sizes with a real jump — name (17/800 brand)
-   over meta (12/regular muted). Emphasis inside the meta line is weight. */
+/* Caption type shared by is-photo + is-quiet: name (16/800 brand) over meta
+   (12/regular muted). Emphasis inside the meta line is weight. */
 .rail-card-title {
   font-family: var(--font-brand);
-  font-size: 17px;
+  font-size: 16px;
   font-weight: 800;
-  line-height: 1.18;
+  line-height: 1.16;
   color: var(--ink);
   text-wrap: balance;
   display: -webkit-box;
@@ -3012,6 +3044,24 @@ body.rail-browse .discovery-rail {
 .rail-card-when {
   font-weight: 800;
   color: var(--ink);
+}
+
+/* ---- is-quiet: calm directory entry (imageless places) ---------------- */
+/* A place is a directory entry, not a campaign: a thin card, a red corner flag
+   instead of a centered tab, no poster field. */
+.rail-card.is-quiet {
+  border: 1px solid var(--line);
+}
+
+.rail-card.is-quiet .rail-card-tab {
+  top: 10px;
+  left: 11px;
+  transform: none;
+  max-width: calc(100% - 22px);
+}
+
+.rail-card.is-quiet .rail-card-caption {
+  padding: 28px 13px 12px;
 }
 
 .rail-empty {
@@ -3079,8 +3129,17 @@ body.rail-browse .map-canvas .maplibregl-ctrl-bottom-left {
     height: 168px;
   }
 
-  .rail-card-img {
-    height: 72px;
+  .rail-card.is-photo .rail-card-frame {
+    height: 86px;
+    margin-top: 11px;
+  }
+
+  .rail-card.is-photo .rail-card-tab {
+    top: 11px;
+  }
+
+  .rail-card.is-poster .rail-card-title {
+    font-size: 19px;
   }
 
   .rail-chips,
