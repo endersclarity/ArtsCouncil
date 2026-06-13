@@ -2670,6 +2670,49 @@ body.rail-browse .discovery-rail {
   display: none;
 }
 
+/* Rail arrows (P1-6): mouse users had no visible way into the rail — the OS
+   scrollbar is hidden and cards don't drag. Fine pointers only; touch and
+   trackpad scroll natively, so the arrows never show there. JS sets [hidden]
+   when the track doesn't overflow and .is-end at each extreme. */
+.rail-arrow {
+  display: none;
+  position: absolute;
+  bottom: 98px;
+  z-index: 6;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  color: var(--ink);
+  box-shadow: var(--shadow-low);
+  cursor: pointer;
+  pointer-events: auto;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  transition: opacity var(--motion-fast) var(--ease-out);
+}
+
+.rail-arrow-prev {
+  left: 10px;
+}
+
+.rail-arrow-next {
+  right: 10px;
+}
+
+.rail-arrow.is-end {
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+@media (pointer: fine) {
+  .rail-arrow:not([hidden]) {
+    display: flex;
+  }
+}
+
 .rail-card {
   flex: 0 0 250px;
   height: 190px;
@@ -2768,9 +2811,6 @@ body.rail-browse .discovery-rail {
 .rail-card-poster-pink { background: var(--poster-pink); }
 .rail-card-poster-ink { background: var(--ink); }
 
-.rail-card-poster .rail-card-kicker {
-  color: rgba(255, 255, 255, 0.92);
-}
 
 /* Poster knockout type: real display confidence — big, bold, tight (>= -0.04em
    floor), clamped to 3 lines so the 190/168px slab never overflows. */
@@ -2791,13 +2831,25 @@ body.rail-browse .discovery-rail {
   color: #ffffff;
 }
 
-/* The ONE deliberate kicker on the rail: the MUSE story credential line. */
-.rail-card-kicker {
-  font-size: 10px;
+/* Rail delineation chip (P1-6): every card names its kind — Event, Worth a
+   stop, From MUSE Magazine, A walk to take — so the mixed run reads curated.
+   Replaces the old single MUSE kicker line. */
+.rail-card-chip {
+  align-self: flex-start;
+  font-size: 9px;
   font-weight: 700;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.09em;
   text-transform: uppercase;
   color: var(--ink-soft);
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 99px;
+  padding: 2px 8px;
+  margin-bottom: 2px;
+}
+
+.rail-card-poster .rail-card-chip {
+  color: rgba(255, 255, 255, 0.92);
+  background: rgba(255, 255, 255, 0.16);
 }
 
 /* Rail surface hierarchy: TWO sizes with a real jump — name (17/800 brand)

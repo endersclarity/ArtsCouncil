@@ -3,6 +3,12 @@
   "entries": [
     {
       "date": "2026-06-12",
+      "title": "The bottom rail learns to share: scroll it with any mouse, and every card says what it is",
+      "summary": "The strip of cards along the bottom of the map was quietly broken for anyone with a regular mouse: the scrollbar is hidden by design, and a mouse wheel did nothing, so most desktop visitors could only ever see the first three cards. Now the wheel scrolls the rail, and a pair of soft arrow buttons sits at its edges (on mouse setups only — phones and trackpads already scrolled fine and stay unchanged). The rail's mix also explains itself: each card wears a small tag — \"Event\", \"Worth a stop\", \"From MUSE Magazine\", \"A walk to take\" — so the lineup reads as a curated mix instead of a random shuffle.",
+      "kind": "improvement"
+    },
+    {
+      "date": "2026-06-12",
       "title": "Smaller comforts: clearer words, steadier tabs, kinder buttons",
       "summary": "A sweep of small fixes from the visitor review. The story panel now opens with \"Stories from MUSE\" and a line explaining that MUSE is the Arts Council's magazine, so newcomers aren't left guessing at the name. \"Surprise me\" now pulls the camera back to frame all four of its picks instead of leaving you zoomed into wherever you were. Opening an event from the rail lights up the Events tab (and closing it hands the highlight back), so the tabs always tell the truth about what you're looking at. Card descriptions no longer cut off mid-word — they end cleanly at a word boundary with an ellipsis. And on phones and tablets, the small chips and tabs grew to a comfortable fingertip size.",
       "kind": "improvement"

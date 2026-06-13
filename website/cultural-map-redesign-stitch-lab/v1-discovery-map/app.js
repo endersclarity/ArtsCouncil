@@ -203,6 +203,8 @@
     rail: document.getElementById("discovery-rail"),
     railTrack: document.getElementById("rail-track"),
     railResetChip: document.getElementById("rail-reset-chip"),
+    railArrowPrev: document.getElementById("rail-arrow-prev"),
+    railArrowNext: document.getElementById("rail-arrow-next"),
   };
 
   // CLA-42: when the OS requests reduced motion, swap MapLibre's animated camera
@@ -2163,7 +2165,6 @@
       const storyPlaces = (story.placeIds || []).map(placeById).filter((place) => place && isPlaceMapReady(place));
       items.push({
         type: "story",
-        kicker: "In the pages of MUSE Magazine",
         title: story.title,
         meta: story.issue,
         desc: "See everywhere this story touches the map.",
@@ -2207,19 +2208,28 @@
     return ` ${railPosterClasses(item.type, index).join(" ")}`;
   }
 
+  // Rail delineation (P1-6): every card names its kind in one quiet chip, so
+  // the mixed editorial run (events / picks / story / path) reads curated.
+  // This supersedes the pass-3 "one kicker" rule for the rail surface only —
+  // a pill chip, not a typeset eyebrow row.
+  const RAIL_CHIP_LABELS = {
+    event: "Event",
+    place: "Worth a stop",
+    story: "From MUSE Magazine",
+    path: "A walk to take",
+  };
+
   function railCardHtml(item, index) {
     // Accessible name is title + venue/date only — never the full description
     // essay (screen readers read the whole name per card).
     const accessibleName = `${item.title} — ${item.when ? `${item.when} · ` : ""}${item.meta}`;
-    // ONE deliberate kicker across the surface: the MUSE story card's
-    // credential line ("In the pages of MUSE Magazine"). Everything else
-    // carries its signal in the title and meta line.
     const metaLine = `${item.when ? `<strong class="rail-card-when${item.when === "Tonight" ? " is-tonight" : ""}">${escapeHtml(item.when)}</strong> · ` : ""}${escapeHtml(item.meta)}`;
+    const chip = RAIL_CHIP_LABELS[item.type];
     return `
       <button class="rail-card rail-card-${escapeHtml(item.type)}${railPosterClass(item, index)}" type="button" data-rail-index="${index}" aria-label="${escapeHtml(accessibleName)}">
         ${item.image ? `<img class="rail-card-img" src="${escapeHtml(item.image)}" alt="" loading="lazy" decoding="async" data-img-fallback="poster">` : ""}
         <span class="rail-card-body">
-          ${item.kicker ? `<span class="rail-card-kicker">${escapeHtml(item.kicker)}</span>` : ""}
+          ${chip ? `<span class="rail-card-chip rail-card-chip-${escapeHtml(item.type)}">${escapeHtml(chip)}</span>` : ""}
           <span class="rail-card-title">${escapeHtml(item.title)}</span>
           ${item.desc ? `<span class="rail-card-desc">${escapeHtml(item.desc)}</span>` : ""}
           <span class="rail-card-meta">${metaLine}</span>
@@ -2375,6 +2385,20 @@
     }
   }
 
+  // Arrows live only where they help: fine pointers (CSS hides them on touch),
+  // and only while the track actually overflows. Ends fade as they're reached.
+  function syncRailArrows() {
+    const track = els.railTrack;
+    if (!track || !els.railArrowPrev || !els.railArrowNext) return;
+    const overflowing = track.scrollWidth > track.clientWidth + 1;
+    els.railArrowPrev.hidden = !overflowing;
+    els.railArrowNext.hidden = !overflowing;
+    if (!overflowing) return;
+    const maxScroll = track.scrollWidth - track.clientWidth - 1;
+    els.railArrowPrev.classList.toggle("is-end", track.scrollLeft <= 1);
+    els.railArrowNext.classList.toggle("is-end", track.scrollLeft >= maxScroll);
+  }
+
   function renderDiscoveryRail() {
     if (!els.railTrack) return;
     const filter = state.railFilter;
@@ -2400,6 +2424,7 @@
     els.railTrack.querySelectorAll("[data-rail-index]").forEach((card) => {
       card.addEventListener("click", () => activateRailCard(Number(card.dataset.railIndex), card));
     });
+    syncRailArrows();
   }
 
   function initDiscoveryRail() {
@@ -2425,11 +2450,34 @@
       // Rail Follow (active card + map ease) exactly as it does for touch.
       card.scrollIntoView({ inline: "center", block: "nearest", behavior: prefersReducedMotion() ? "auto" : "smooth" });
     });
+    // Mouse path (P1-6): the OS scrollbar is hidden by design, so a vertical
+    // wheel is the only scroll gesture most mouse users will try. Translate it
+    // to horizontal travel; trackpads keep their native horizontal swipe
+    // (skipped when deltaX dominates).
+    els.railTrack.addEventListener("wheel", (event) => {
+      if (Math.abs(event.deltaY) <= Math.abs(event.deltaX)) return;
+      const track = els.railTrack;
+      if (track.scrollWidth <= track.clientWidth) return;
+      // deltaMode 1 = lines (Firefox wheel); normalize to ~pixels.
+      track.scrollLeft += event.deltaMode === 1 ? event.deltaY * 40 : event.deltaY;
+      event.preventDefault();
+    }, { passive: false });
     let settleTimer;
     els.railTrack.addEventListener("scroll", () => {
       clearTimeout(settleTimer);
       settleTimer = setTimeout(handleRailScrollSettle, 180);
+      syncRailArrows();
     }, { passive: true });
+    [[els.railArrowPrev, -1], [els.railArrowNext, 1]].forEach(([arrow, direction]) => {
+      arrow?.addEventListener("click", () => {
+        const track = els.railTrack;
+        track.scrollBy({
+          left: direction * track.clientWidth * 0.8,
+          behavior: prefersReducedMotion() ? "auto" : "smooth",
+        });
+      });
+    });
+    window.addEventListener("resize", syncRailArrows);
     els.rail.querySelectorAll("[data-rail-filter]").forEach((chip) => {
       chip.addEventListener("click", () => {
         state.railFilter = chip.dataset.railFilter;
