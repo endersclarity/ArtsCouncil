@@ -1,0 +1,616 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contribute a Place — Nevada County Cultural Map</title>
+  <meta name="description" content="Suggest a cultural place, or correct one we already list, for the Nevada County Cultural Map.">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" href="assets/fonts/polymath-variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&display=swap" rel="stylesheet">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23ff2500'/%3E%3Cpath d='M7 24V8h4l10 9V8h4v16h-4L11 15v9z' fill='%23faf8f4'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="styles.css?v=cla-83-polymath">
+  <style>
+    /* Scoped to the contribute page. Tokens only (no new design language):
+       inputs match .review-search-input (1px --line on --paper-warm, --focus-ring),
+       the form sits in a Card = Poster frame (2px ink border, red left rule, hard
+       offset --shadow), and the primary action mirrors .mode-tab.active
+       (ink knockout + red inset rule). */
+    .contribute-shell {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 26px clamp(16px, 4vw, 54px) 90px;
+    }
+    .contribute-back {
+      display: inline-block;
+      margin-bottom: 18px;
+      font-family: var(--font-brand);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      text-decoration: none;
+      border: 1px solid color-mix(in srgb, var(--ink) 30%, transparent);
+      padding: 7px 11px 6px;
+    }
+    .contribute-back:hover,
+    .contribute-back:focus-visible { background: var(--ncac-red); color: var(--paper); outline: 0; }
+
+    .contribute-kicker {
+      font-family: var(--font-brand);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ncac-red);
+      margin: 0 0 6px;
+    }
+    .contribute-shell > h1 {
+      font-family: var(--font-brand);
+      font-size: clamp(27px, 4.4vw, 40px);
+      line-height: 1.02;
+      margin: 0 0 10px;
+    }
+    .contribute-intro { color: var(--ink-soft); max-width: 58ch; margin: 0 0 26px; }
+
+    /* Card = Poster frame around the whole form. */
+    .contribute-panel {
+      border: 2px solid var(--line-strong);
+      border-left: 6px solid var(--ncac-red);
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      padding: clamp(18px, 3.5vw, 32px);
+    }
+
+    .form-section { margin: 0 0 26px; padding: 0; border: 0; }
+    .form-section:last-of-type { margin-bottom: 0; }
+    .form-section > legend,
+    .form-section-title {
+      font-family: var(--font-brand);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--ink);
+      padding: 0 0 12px;
+      margin: 0;
+      border-bottom: 1px solid var(--line);
+      width: 100%;
+    }
+    .form-section-title { display: block; margin-bottom: 16px; }
+
+    .field { margin: 0 0 16px; }
+    .field:last-child { margin-bottom: 0; }
+    .field > label,
+    .field-group-label {
+      display: block;
+      font-family: var(--font-brand);
+      font-size: 13px;
+      font-weight: 600;
+      margin: 0 0 5px;
+    }
+    .req { color: var(--ncac-red); margin-left: 2px; }
+    .field-hint { display: block; color: var(--ink-soft); font-size: 12px; margin: 0 0 6px; line-height: 1.35; }
+
+    .field input[type="text"],
+    .field input[type="email"],
+    .field input[type="tel"],
+    .field input[type="url"],
+    .field select,
+    .field textarea {
+      width: 100%;
+      border: 1px solid var(--line);
+      background: var(--paper-warm);
+      color: var(--ink);
+      font: inherit;
+      font-size: 14px;
+      padding: 10px 11px;
+    }
+    .field textarea { min-height: 96px; resize: vertical; line-height: 1.45; }
+    .field select { appearance: none; background-image: none; cursor: pointer; }
+    .field input:focus,
+    .field select:focus,
+    .field textarea:focus { outline: 0; box-shadow: var(--focus-ring); }
+    .field input[aria-invalid="true"],
+    .field select[aria-invalid="true"],
+    .field textarea[aria-invalid="true"] { border-color: var(--ncac-red); background: var(--ncac-red-soft); }
+
+    .field-error { display: none; color: var(--ncac-red); font-size: 12px; font-weight: 600; margin: 5px 0 0; }
+    .field-error.show { display: block; }
+
+    .char-count { float: right; color: var(--ink-soft); font-size: 11px; font-variant-numeric: tabular-nums; }
+    .char-count.over { color: var(--ncac-red); font-weight: 700; }
+
+    /* Radio / checkbox rows. */
+    .radio-row { display: flex; flex-wrap: wrap; gap: 10px; }
+    .radio-pill {
+      display: inline-flex; align-items: center; gap: 8px;
+      border: 1px solid var(--line-strong);
+      padding: 9px 13px; cursor: pointer; font-size: 13px; font-weight: 600;
+      background: var(--field);
+    }
+    .radio-pill:focus-within { box-shadow: var(--focus-ring); }
+    .radio-pill input { accent-color: var(--ncac-red); margin: 0; }
+    .radio-pill:has(input:checked) { background: var(--ink); color: #fff; }
+
+    .consent-row { display: flex; gap: 10px; align-items: flex-start; }
+    .consent-row input { margin: 2px 0 0; accent-color: var(--ncac-red); width: 17px; height: 17px; flex: 0 0 auto; }
+    .consent-row label { font-size: 13px; line-height: 1.4; }
+
+    .form-actions { margin-top: 26px; display: flex; align-items: center; gap: 16px; flex-wrap: wrap; }
+    .btn-submit {
+      font-family: var(--font-brand);
+      font-size: 15px; font-weight: 700;
+      letter-spacing: 0.01em;
+      background: var(--ink); color: #fff;
+      border: 0; padding: 13px 26px; cursor: pointer;
+      box-shadow: inset 0 -3px 0 var(--ncac-red);
+    }
+    .btn-submit:hover { background: #222; }
+    .btn-submit:focus-visible { outline: 0; box-shadow: var(--focus-ring), inset 0 -3px 0 var(--ncac-red); }
+    .form-note { color: var(--ink-soft); font-size: 12px; max-width: 34ch; }
+
+    /* Honeypot: off-screen, hidden from AT and tab order, but present in the DOM
+       so naive bots fill it. A filled value = silent no-op. */
+    .hp-field { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+
+    /* Success = poster card. */
+    .contribute-success {
+      border: 2px solid var(--line-strong);
+      border-left: 6px solid var(--ncac-red);
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      padding: clamp(20px, 3.5vw, 34px);
+    }
+    .contribute-success h2 { font-family: var(--font-brand); font-size: clamp(22px, 3.4vw, 30px); margin: 0 0 10px; }
+    .contribute-success p { color: var(--ink-soft); margin: 0 0 14px; line-height: 1.5; }
+    .success-fallback { margin: 18px 0 0; }
+    .success-fallback summary { font-family: var(--font-brand); font-size: 13px; font-weight: 700; cursor: pointer; }
+    .success-fallback textarea {
+      width: 100%; min-height: 150px; margin-top: 10px;
+      border: 1px solid var(--line); background: var(--paper-warm); color: var(--ink);
+      font-family: ui-monospace, "Cascadia Code", Consolas, monospace; font-size: 12px;
+      padding: 10px; line-height: 1.45; resize: vertical;
+    }
+    .success-fallback-row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-top: 10px; }
+    .btn-ghost {
+      font-family: var(--font-brand); font-size: 12px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.03em;
+      border: 1px solid var(--line-strong); background: var(--field); color: var(--ink);
+      padding: 8px 13px; cursor: pointer;
+    }
+    .btn-ghost:hover { background: var(--ncac-red); color: #fff; }
+    .btn-ghost:focus-visible { outline: 0; box-shadow: var(--focus-ring); }
+    .success-email { font-weight: 700; color: var(--ink); }
+
+    [hidden] { display: none !important; }
+    @media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto; } }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#contribute-form">Skip to the form</a>
+
+  <header class="site-header" aria-label="Nevada County Arts Council shell">
+    <a class="brand" href="index.html" aria-label="Nevada County Cultural Map home">
+      <span>Nevada County</span>
+      <span>Cultural Map</span>
+    </a>
+    <span class="alpha-pill">Internal preview build</span>
+  </header>
+
+  <main class="contribute-shell">
+    <a class="contribute-back" href="index.html">‹ Back to the map</a>
+    <p class="contribute-kicker">Nevada County Arts Council</p>
+    <h1>Add a place to the map</h1>
+    <p class="contribute-intro">
+      Know a gallery, trail, festival, or historic spot we should include? Tell us about it,
+      or correct something we already list. A real person reviews every submission before it
+      appears on the map.
+    </p>
+
+    <div class="contribute-panel" id="form-panel">
+      <form id="contribute-form" novalidate>
+        <!-- Submission type -->
+        <fieldset class="form-section">
+          <legend>What are you submitting?</legend>
+          <div class="field">
+            <div class="radio-row" role="radiogroup" aria-label="Submission type">
+              <label class="radio-pill">
+                <input type="radio" name="submissionType" value="new" checked>
+                <span>A new place</span>
+              </label>
+              <label class="radio-pill">
+                <input type="radio" name="submissionType" value="correction">
+                <span>A correction to a place you already list</span>
+              </label>
+            </div>
+          </div>
+          <div class="field" id="existing-name-field" hidden>
+            <label for="existingName">Which place needs correcting?</label>
+            <span class="field-hint">The name as it appears on the map, so we can find the right record.</span>
+            <input type="text" id="existingName" name="existingName" autocomplete="off">
+          </div>
+        </fieldset>
+
+        <!-- The place -->
+        <fieldset class="form-section">
+          <legend>About the place</legend>
+
+          <div class="field">
+            <label for="name">Name of the place<span class="req" aria-hidden="true">*</span></label>
+            <input type="text" id="name" name="name" autocomplete="off" required aria-required="true" aria-describedby="name-error">
+            <p class="field-error" id="name-error">Please enter the name of the place.</p>
+          </div>
+
+          <div class="field">
+            <label for="category">Category<span class="req" aria-hidden="true">*</span></label>
+            <select id="category" name="category" required aria-required="true" aria-describedby="category-error">
+              <option value="" selected disabled>Choose a category…</option>
+              <option>Arts Organizations</option>
+              <option>Performing Arts</option>
+              <option>Galleries &amp; Studios</option>
+              <option>Fairs &amp; Festivals</option>
+              <option>Cultural Resources</option>
+              <option>Historic Places</option>
+              <option>Shops &amp; Makers</option>
+              <option>Eat, Drink &amp; Stay</option>
+              <option>Public Art</option>
+              <option>Walks &amp; Trails</option>
+            </select>
+            <p class="field-error" id="category-error">Please choose a category.</p>
+          </div>
+
+          <div class="field">
+            <label for="address">Street address</label>
+            <span class="field-hint">Optional. Skip it for a trail, a public artwork, or a mailing-only organization.</span>
+            <input type="text" id="address" name="address" autocomplete="off">
+          </div>
+
+          <div class="field">
+            <label for="city">Town<span class="req" aria-hidden="true">*</span></label>
+            <input type="text" id="city" name="city" list="city-options" autocomplete="off" required aria-required="true" aria-describedby="city-error">
+            <datalist id="city-options">
+              <option>Grass Valley</option>
+              <option>Nevada City</option>
+              <option>Truckee</option>
+              <option>Penn Valley</option>
+              <option>North San Juan</option>
+              <option>Rough and Ready</option>
+              <option>Soda Springs</option>
+              <option>Washington</option>
+              <option>Chicago Park</option>
+              <option>Smartsville</option>
+              <option>Alta Sierra</option>
+              <option>Olympic Valley</option>
+            </datalist>
+            <p class="field-error" id="city-error">Please tell us which town this is in.</p>
+          </div>
+
+          <div class="field">
+            <label for="website">Website</label>
+            <input type="url" id="website" name="website" inputmode="url" placeholder="https://" autocomplete="off" aria-describedby="website-error">
+            <p class="field-error" id="website-error">That doesn't look like a web address. Include https://</p>
+          </div>
+
+          <div class="field">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" autocomplete="off">
+          </div>
+
+          <div class="field">
+            <label for="description">Short description
+              <span class="char-count" id="desc-count" aria-hidden="true">0/280</span>
+            </label>
+            <span class="field-hint">One or two sentences on what makes it worth a visit.</span>
+            <textarea id="description" name="description" maxlength="280" aria-describedby="desc-error"></textarea>
+            <p class="field-error" id="desc-error">Please keep the description to 280 characters or fewer.</p>
+          </div>
+
+          <div class="field">
+            <label for="image">Photo link</label>
+            <span class="field-hint">Optional. Paste a link to a photo you have the right to share. Direct file uploads turn on once our review queue is live.</span>
+            <input type="url" id="image" name="image" inputmode="url" placeholder="https://" autocomplete="off" aria-describedby="image-error">
+            <p class="field-error" id="image-error">That doesn't look like a web address. Include https://</p>
+          </div>
+        </fieldset>
+
+        <!-- About you -->
+        <fieldset class="form-section">
+          <legend>About you</legend>
+          <span class="field-hint" style="margin-bottom:14px;">So we can credit you or follow up. Your contact details are never shown on the map.</span>
+
+          <div class="field">
+            <label for="submitterName">Your name</label>
+            <input type="text" id="submitterName" name="submitterName" autocomplete="name">
+          </div>
+
+          <div class="field">
+            <label for="submitterEmail">Your email<span class="req" aria-hidden="true">*</span></label>
+            <input type="email" id="submitterEmail" name="submitterEmail" autocomplete="email" required aria-required="true" aria-describedby="submitterEmail-error">
+            <p class="field-error" id="submitterEmail-error">Please enter a valid email so we can reach you.</p>
+          </div>
+
+          <div class="field">
+            <label for="submitterPhone">Your phone</label>
+            <input type="tel" id="submitterPhone" name="submitterPhone" autocomplete="tel">
+          </div>
+
+          <div class="field">
+            <span class="field-group-label">Preferred contact</span>
+            <div class="radio-row" role="radiogroup" aria-label="Preferred contact method">
+              <label class="radio-pill">
+                <input type="radio" name="preferredContact" value="Email" checked>
+                <span>Email</span>
+              </label>
+              <label class="radio-pill">
+                <input type="radio" name="preferredContact" value="Telephone">
+                <span>Telephone</span>
+              </label>
+            </div>
+          </div>
+        </fieldset>
+
+        <!-- Consent -->
+        <div class="field consent-row">
+          <input type="checkbox" id="consent" name="consent" required aria-required="true" aria-describedby="consent-error">
+          <label for="consent">
+            I have the right to share this information and any photo link, and I agree it may be
+            published on the Nevada County Cultural Map.<span class="req" aria-hidden="true">*</span>
+            <p class="field-error" id="consent-error">Please confirm before submitting.</p>
+          </label>
+        </div>
+
+        <!-- Honeypot: humans never see or tab to this. -->
+        <div class="hp-field" aria-hidden="true">
+          <label for="company">Company (leave blank)</label>
+          <input type="text" id="company" name="company" tabindex="-1" autocomplete="off">
+        </div>
+
+        <div class="form-actions">
+          <button type="submit" class="btn-submit">Submit for review</button>
+          <p class="form-note">A reviewer checks every submission before it reaches the map.</p>
+        </div>
+      </form>
+    </div>
+
+    <!-- Success state (poster card), shown after a valid submit. -->
+    <div class="contribute-success" id="success-panel" hidden tabindex="-1">
+      <p class="contribute-kicker">Thank you</p>
+      <h2>Your submission is on its way</h2>
+      <p id="success-message">
+        Your email app should have opened with the details ready to send. Give it a moment, then
+        press send to finish.
+      </p>
+      <p>
+        Didn't see your email app open? Copy the details below and send them to
+        <a class="success-email" id="success-email-link" href="#"></a>.
+      </p>
+      <details class="success-fallback">
+        <summary>Show submission details</summary>
+        <textarea id="success-fallback-text" readonly aria-label="Submission details to copy"></textarea>
+        <div class="success-fallback-row">
+          <button type="button" class="btn-ghost" id="copy-details">Copy details</button>
+          <span id="copy-status" role="status" aria-live="polite"></span>
+        </div>
+      </details>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      "use strict";
+
+      /* ── The one place that changes when NCAC picks a backend ───────────────
+         Default transport is a structured mailto:, so a real submission works
+         the day this page ships — no infrastructure required. To switch the
+         destination later, replace the body of submitForm(); nothing else moves.
+
+           • Supabase:  await fetch(SUPABASE_URL + "/rest/v1/map_submissions", {
+                          method: "POST", headers: {...anon key...},
+                          body: JSON.stringify(payload) });
+           • Serverless: await fetch("/api/submit", { method: "POST",
+                          headers: { "Content-Type": "application/json" },
+                          body: JSON.stringify(payload) });
+           • Third party: point a real <form action> at their endpoint.
+
+         SUBMISSION_EMAIL is a placeholder — NCAC confirms the recipient (their
+         form lists Eliza Tudor as the map contact). */
+      var SUBMISSION_EMAIL = "info@nevadacountyarts.org";
+      var TIME_TRAP_MS = 2500; // a human can't complete required fields faster
+      var loadedAt = Date.now();
+
+      var form = document.getElementById("contribute-form");
+      var formPanel = document.getElementById("form-panel");
+      var successPanel = document.getElementById("success-panel");
+
+      // Conditional "which place" field for corrections.
+      var existingField = document.getElementById("existing-name-field");
+      form.querySelectorAll('input[name="submissionType"]').forEach(function (radio) {
+        radio.addEventListener("change", function () {
+          existingField.hidden = form.submissionType.value !== "correction";
+        });
+      });
+
+      // Live character count for the description.
+      var desc = document.getElementById("description");
+      var descCount = document.getElementById("desc-count");
+      desc.addEventListener("input", function () {
+        var n = desc.value.length;
+        descCount.textContent = n + "/280";
+        descCount.classList.toggle("over", n > 280);
+      });
+
+      function setError(field, errorId, show) {
+        var el = document.getElementById(errorId);
+        if (el) el.classList.toggle("show", show);
+        if (field) field.setAttribute("aria-invalid", show ? "true" : "false");
+      }
+
+      function looksLikeEmail(v) { return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v); }
+      function looksLikeUrl(v) { return /^https?:\/\/.+\..+/i.test(v); }
+
+      function validate() {
+        var invalid = [];
+
+        var name = document.getElementById("name");
+        var ok = name.value.trim() !== "";
+        setError(name, "name-error", !ok); if (!ok) invalid.push(name);
+
+        var category = document.getElementById("category");
+        ok = category.value !== ""; setError(category, "category-error", !ok); if (!ok) invalid.push(category);
+
+        var city = document.getElementById("city");
+        ok = city.value.trim() !== ""; setError(city, "city-error", !ok); if (!ok) invalid.push(city);
+
+        var website = document.getElementById("website");
+        ok = website.value.trim() === "" || looksLikeUrl(website.value.trim());
+        setError(website, "website-error", !ok); if (!ok) invalid.push(website);
+
+        var image = document.getElementById("image");
+        ok = image.value.trim() === "" || looksLikeUrl(image.value.trim());
+        setError(image, "image-error", !ok); if (!ok) invalid.push(image);
+
+        ok = desc.value.length <= 280; setError(desc, "desc-error", !ok); if (!ok) invalid.push(desc);
+
+        var email = document.getElementById("submitterEmail");
+        ok = looksLikeEmail(email.value.trim()); setError(email, "submitterEmail-error", !ok); if (!ok) invalid.push(email);
+
+        var consent = document.getElementById("consent");
+        ok = consent.checked; setError(consent, "consent-error", !ok); if (!ok) invalid.push(consent);
+
+        return invalid;
+      }
+
+      function collectPayload() {
+        var fd = new FormData(form);
+        function v(k) { return (fd.get(k) || "").toString().trim(); }
+        return {
+          submission_type: v("submissionType"),
+          existing_place_name: form.submissionType.value === "correction" ? v("existingName") : "",
+          name: v("name"),
+          category: v("category"),
+          address: v("address"),
+          city: v("city"),
+          website: v("website"),
+          phone: v("phone"),
+          description: v("description"),
+          image: v("image"),
+          submitter_name: v("submitterName"),
+          submitter_email: v("submitterEmail"),
+          submitter_phone: v("submitterPhone"),
+          preferred_contact: v("preferredContact"),
+          submitted_at: new Date().toISOString()
+        };
+      }
+
+      function payloadToText(p) {
+        var typeLabel = p.submission_type === "correction" ? "Correction to an existing place" : "New place";
+        var lines = [
+          "Submission type: " + typeLabel,
+          p.existing_place_name ? "Place to correct: " + p.existing_place_name : null,
+          "",
+          "Name: " + p.name,
+          "Category: " + p.category,
+          "Address: " + (p.address || "—"),
+          "Town: " + p.city,
+          "Website: " + (p.website || "—"),
+          "Phone: " + (p.phone || "—"),
+          "Description: " + (p.description || "—"),
+          "Photo link: " + (p.image || "—"),
+          "",
+          "Submitted by: " + (p.submitter_name || "—"),
+          "Email: " + p.submitter_email,
+          "Phone: " + (p.submitter_phone || "—"),
+          "Preferred contact: " + p.preferred_contact,
+          "",
+          "Submitted: " + p.submitted_at
+        ];
+        return lines.filter(function (l) { return l !== null; }).join("\n");
+      }
+
+      /* The swappable seam. Default: structured mailto:. Returns a promise so a
+         later fetch-based backend drops in without touching the caller. */
+      function submitForm(payload) {
+        var subject = "Cultural Map submission: " + payload.name +
+          " (" + (payload.submission_type === "correction" ? "correction" : "new") + ")";
+        var body = payloadToText(payload);
+        var href = "mailto:" + SUBMISSION_EMAIL +
+          "?subject=" + encodeURIComponent(subject) +
+          "&body=" + encodeURIComponent(body);
+        window.location.href = href;
+        return Promise.resolve({ ok: true, transport: "mailto" });
+      }
+
+      function showSuccess(payload) {
+        formPanel.hidden = true;
+        successPanel.hidden = false;
+
+        var link = document.getElementById("success-email-link");
+        link.textContent = SUBMISSION_EMAIL;
+        link.setAttribute("href", "mailto:" + SUBMISSION_EMAIL);
+
+        document.getElementById("success-fallback-text").value =
+          "To: " + SUBMISSION_EMAIL + "\nSubject: Cultural Map submission: " +
+          payload.name + "\n\n" + payloadToText(payload);
+
+        successPanel.focus();
+        successPanel.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        // Anti-spam: a filled honeypot or a too-fast submit is a bot. Pretend
+        // success so the bot moves on; do not actually send.
+        var isBot = document.getElementById("company").value !== "" ||
+          (Date.now() - loadedAt) < TIME_TRAP_MS;
+
+        var invalid = validate();
+        if (invalid.length) {
+          invalid[0].focus();
+          return;
+        }
+
+        var payload = collectPayload();
+        if (isBot) { showSuccess(payload); return; }
+
+        submitForm(payload).then(function () {
+          showSuccess(payload);
+        }).catch(function () {
+          // mailto can't fail, but a real backend can — keep the data on screen.
+          showSuccess(payload);
+        });
+      });
+
+      // Clear a field's error as soon as the user starts fixing it.
+      form.addEventListener("input", function (e) {
+        if (e.target.getAttribute("aria-invalid") === "true") {
+          e.target.setAttribute("aria-invalid", "false");
+          var err = document.getElementById(e.target.id + "-error");
+          if (err) err.classList.remove("show");
+        }
+      });
+
+      // Copy-to-clipboard fallback in the success card.
+      var copyBtn = document.getElementById("copy-details");
+      if (copyBtn) {
+        copyBtn.addEventListener("click", function () {
+          var text = document.getElementById("success-fallback-text").value;
+          var status = document.getElementById("copy-status");
+          var done = function () { status.textContent = "Copied."; };
+          var fail = function () { status.textContent = "Press Ctrl+C to copy."; };
+          if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(text).then(done, fail);
+          } else {
+            var ta = document.getElementById("success-fallback-text");
+            ta.focus(); ta.select();
+            try { document.execCommand("copy"); done(); } catch (err) { fail(); }
+          }
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
