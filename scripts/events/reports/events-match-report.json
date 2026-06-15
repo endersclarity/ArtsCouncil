@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-06-14T10:23:36.550585+00:00",
+  "generated_at": "2026-06-15T13:11:32.813212+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 261,
-    "matched_events": 191,
-    "unmatched_events": 70,
+    "total_events": 262,
+    "matched_events": 193,
+    "unmatched_events": 69,
     "matched_by_pid": 0,
-    "matched_by_alias": 8,
+    "matched_by_alias": 9,
     "matched_by_name_city": 73,
-    "matched_by_name_city_fuzzy": 110,
-    "upcoming_14d": 108
+    "matched_by_name_city_fuzzy": 111,
+    "upcoming_14d": 109
   },
   "unmatched_venues": [
     {
@@ -174,15 +174,6 @@
       "count": 1,
       "sample_event_id": "gvda-198214906",
       "sample_title": "Decendants: The Musical",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "darkhosecoffee|truckee",
-      "venue_name": "Dark Hose Coffee",
-      "venue_city": "Truckee",
-      "count": 1,
-      "sample_event_id": "trumba-116325476",
-      "sample_title": "Word Jam",
       "candidate_assets": []
     },
     {
