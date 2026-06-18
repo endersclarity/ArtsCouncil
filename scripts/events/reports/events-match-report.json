@@ -1,24 +1,24 @@
 {
-  "generated_at": "2026-06-17T11:46:10.699935+00:00",
+  "generated_at": "2026-06-18T11:07:53.630587+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 249,
-    "matched_events": 180,
-    "unmatched_events": 69,
+    "total_events": 245,
+    "matched_events": 177,
+    "unmatched_events": 68,
     "matched_by_pid": 0,
     "matched_by_alias": 9,
-    "matched_by_name_city": 66,
-    "matched_by_name_city_fuzzy": 105,
-    "upcoming_14d": 96
+    "matched_by_name_city": 65,
+    "matched_by_name_city_fuzzy": 103,
+    "upcoming_14d": 92
   },
   "unmatched_venues": [
     {
       "venue_key": "unknownvenue|nevadacity",
       "venue_name": "Unknown venue",
       "venue_city": "Nevada City",
-      "count": 13,
+      "count": 12,
       "sample_event_id": "gvda-198326438",
       "sample_title": "Fogelberg Revisited &#8211; A Tribute to Dan Fogelberg",
       "candidate_assets": []
@@ -28,7 +28,7 @@
       "venue_name": "Eric Rood Center",
       "venue_city": "Nevada City",
       "count": 10,
-      "sample_event_id": "trumba-202909237",
+      "sample_event_id": "trumba-202909238",
       "sample_title": "Lavender Glow | Queer Art & Our Shared History",
       "candidate_assets": []
     },
