@@ -1,24 +1,33 @@
 {
-  "generated_at": "2026-06-19T11:21:11.132801+00:00",
+  "generated_at": "2026-06-20T10:07:54.127716+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 239,
-    "matched_events": 172,
-    "unmatched_events": 67,
+    "total_events": 255,
+    "matched_events": 174,
+    "unmatched_events": 81,
     "matched_by_pid": 0,
     "matched_by_alias": 9,
-    "matched_by_name_city": 63,
-    "matched_by_name_city_fuzzy": 100,
-    "upcoming_14d": 86
+    "matched_by_name_city": 66,
+    "matched_by_name_city_fuzzy": 99,
+    "upcoming_14d": 102
   },
   "unmatched_venues": [
+    {
+      "venue_key": "wonderdocent|nevadacity",
+      "venue_name": "Wonder Docent",
+      "venue_city": "Nevada City",
+      "count": 14,
+      "sample_event_id": "trumba-204682298",
+      "sample_title": "In the Night Dimension and Those We Meet at Twilight",
+      "candidate_assets": []
+    },
     {
       "venue_key": "unknownvenue|nevadacity",
       "venue_name": "Unknown venue",
       "venue_city": "Nevada City",
-      "count": 11,
+      "count": 10,
       "sample_event_id": "gvda-198326438",
       "sample_title": "Fogelberg Revisited &#8211; A Tribute to Dan Fogelberg",
       "candidate_assets": []
@@ -28,7 +37,7 @@
       "venue_name": "Eric Rood Center",
       "venue_city": "Nevada City",
       "count": 10,
-      "sample_event_id": "trumba-202909239",
+      "sample_event_id": "trumba-202909240",
       "sample_title": "Lavender Glow | Queer Art & Our Shared History",
       "candidate_assets": []
     },
@@ -192,6 +201,15 @@
       "count": 1,
       "sample_event_id": "trumba-202728776",
       "sample_title": "First Thursday with Musical Guest Feral Heart",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "northwoodsclubhouse|truckee",
+      "venue_name": "Northwoods Clubhouse",
+      "venue_city": "Truckee",
+      "count": 1,
+      "sample_event_id": "trumba-113922959",
+      "sample_title": "Kids Night Out",
       "candidate_assets": []
     }
   ],
