@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-06-22T12:49:00.203614+00:00",
+  "generated_at": "2026-06-23T10:35:46.024930+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 250,
-    "matched_events": 168,
+    "total_events": 247,
+    "matched_events": 165,
     "unmatched_events": 82,
     "matched_by_pid": 0,
     "matched_by_alias": 9,
-    "matched_by_name_city": 61,
+    "matched_by_name_city": 58,
     "matched_by_name_city_fuzzy": 98,
-    "upcoming_14d": 97
+    "upcoming_14d": 94
   },
   "unmatched_venues": [
     {
@@ -19,7 +19,7 @@
       "venue_name": "Wonder Docent",
       "venue_city": "Nevada City",
       "count": 14,
-      "sample_event_id": "trumba-204682300",
+      "sample_event_id": "trumba-204682301",
       "sample_title": "In the Night Dimension and Those We Meet at Twilight",
       "candidate_assets": []
     },
@@ -28,7 +28,7 @@
       "venue_name": "Eric Rood Center",
       "venue_city": "Nevada City",
       "count": 10,
-      "sample_event_id": "trumba-202909240",
+      "sample_event_id": "trumba-202909241",
       "sample_title": "Lavender Glow | Queer Art & Our Shared History",
       "candidate_assets": []
     },
