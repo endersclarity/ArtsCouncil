@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-06-25T10:14:46.227362+00:00",
+  "generated_at": "2026-06-26T10:22:24.930369+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 242,
-    "matched_events": 162,
-    "unmatched_events": 80,
+    "total_events": 238,
+    "matched_events": 160,
+    "unmatched_events": 78,
     "matched_by_pid": 0,
-    "matched_by_alias": 9,
-    "matched_by_name_city": 55,
+    "matched_by_alias": 8,
+    "matched_by_name_city": 54,
     "matched_by_name_city_fuzzy": 98,
-    "upcoming_14d": 89
+    "upcoming_14d": 85
   },
   "unmatched_venues": [
     {
@@ -19,7 +19,7 @@
       "venue_name": "Wonder Docent",
       "venue_city": "Nevada City",
       "count": 14,
-      "sample_event_id": "trumba-204682303",
+      "sample_event_id": "trumba-204682304",
       "sample_title": "In the Night Dimension and Those We Meet at Twilight",
       "candidate_assets": []
     },
@@ -28,7 +28,7 @@
       "venue_name": "Eric Rood Center",
       "venue_city": "Nevada City",
       "count": 10,
-      "sample_event_id": "trumba-202909243",
+      "sample_event_id": "trumba-202909244",
       "sample_title": "Lavender Glow | Queer Art & Our Shared History",
       "candidate_assets": []
     },
@@ -42,21 +42,21 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "unknownvenue|nevadacity",
-      "venue_name": "Unknown venue",
-      "venue_city": "Nevada City",
-      "count": 7,
-      "sample_event_id": "gvda-198326438",
-      "sample_title": "Fogelberg Revisited &#8211; A Tribute to Dan Fogelberg",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "ctcclassroom|nevadacity",
       "venue_name": "CTC Classroom",
       "venue_city": "Nevada City",
       "count": 7,
       "sample_event_id": "libcal-LibCal-20247-16035875-20260316",
       "sample_title": "Ukulele for the People",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "unknownvenue|nevadacity",
+      "venue_name": "Unknown venue",
+      "venue_city": "Nevada City",
+      "count": 6,
+      "sample_event_id": "gvda-198326438",
+      "sample_title": "Fogelberg Revisited &#8211; A Tribute to Dan Fogelberg",
       "candidate_assets": []
     },
     {
@@ -192,15 +192,6 @@
       "count": 1,
       "sample_event_id": "gvda-198214906",
       "sample_title": "Decendants: The Musical",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "bannergrange|grassvalley",
-      "venue_name": "Banner Grange",
-      "venue_city": "Grass Valley",
-      "count": 1,
-      "sample_event_id": "trumba-204486349",
-      "sample_title": "Community conversation on following your calling",
       "candidate_assets": []
     },
     {
