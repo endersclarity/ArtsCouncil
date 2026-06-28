@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-06-27T09:27:36.889294+00:00",
+  "generated_at": "2026-06-28T09:56:45.107934+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 242,
-    "matched_events": 163,
+    "total_events": 237,
+    "matched_events": 158,
     "unmatched_events": 79,
     "matched_by_pid": 0,
-    "matched_by_alias": 7,
-    "matched_by_name_city": 56,
-    "matched_by_name_city_fuzzy": 100,
-    "upcoming_14d": 89
+    "matched_by_alias": 6,
+    "matched_by_name_city": 53,
+    "matched_by_name_city_fuzzy": 99,
+    "upcoming_14d": 84
   },
   "unmatched_venues": [
     {
@@ -19,7 +19,7 @@
       "venue_name": "Wonder Docent",
       "venue_city": "Nevada City",
       "count": 14,
-      "sample_event_id": "trumba-204682305",
+      "sample_event_id": "trumba-204682306",
       "sample_title": "In the Night Dimension and Those We Meet at Twilight",
       "candidate_assets": []
     },
@@ -51,21 +51,21 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "unknownvenue|nevadacity",
-      "venue_name": "Unknown venue",
-      "venue_city": "Nevada City",
-      "count": 5,
-      "sample_event_id": "gvda-198326438",
-      "sample_title": "Fogelberg Revisited &#8211; A Tribute to Dan Fogelberg",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "axisgallery|nevadacounty",
       "venue_name": "Axis Gallery",
       "venue_city": "Nevada County",
       "count": 4,
       "sample_event_id": "kvmr-348660-1772884800-1772902800-20260307",
       "sample_title": "\"The Winters Where Catfish Sings\": Exhibition by Sokthea Chan at Axis Gallery",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "unknownvenue|nevadacity",
+      "venue_name": "Unknown venue",
+      "venue_city": "Nevada City",
+      "count": 4,
+      "sample_event_id": "gvda-198326438",
+      "sample_title": "Fogelberg Revisited &#8211; A Tribute to Dan Fogelberg",
       "candidate_assets": []
     },
     {
@@ -96,6 +96,15 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "nevadamuseumofart|renonv",
+      "venue_name": "Nevada Museum of Art",
+      "venue_city": "Reno, NV",
+      "count": 3,
+      "sample_event_id": "trumba-202728776",
+      "sample_title": "First Thursday with Musical Guest Feral Heart",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "meetingroom|pennvalley",
       "venue_name": "Meeting Room",
       "venue_city": "Penn Valley",
@@ -120,15 +129,6 @@
       "count": 2,
       "sample_event_id": "gvda-183038851",
       "sample_title": "Playwriting Group",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "nevadamuseumofart|renonv",
-      "venue_name": "Nevada Museum of Art",
-      "venue_city": "Reno, NV",
-      "count": 2,
-      "sample_event_id": "trumba-202728776",
-      "sample_title": "First Thursday with Musical Guest Feral Heart",
       "candidate_assets": []
     },
     {

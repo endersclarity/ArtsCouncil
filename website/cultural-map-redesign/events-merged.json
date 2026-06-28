@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-06-27T02:27:36-07:00",
+  "generated_at": "2026-06-28T02:56:44-07:00",
   "source_counts": {
-    "trumba": 89,
+    "trumba": 84,
     "gvda": 54,
     "libcal": 70,
     "kvmr": 29,
@@ -12,8 +12,8 @@
     "community": 0
   },
   "dedup_removed": 0,
-  "event_tagged": 127,
-  "family_tagged": 61,
+  "event_tagged": 125,
+  "family_tagged": 62,
   "events": [
     {
       "event_id": "kvmr-348860-1772877600-1772892000-20260307",
@@ -2887,301 +2887,6 @@
       ]
     },
     {
-      "event_id": "trumba-191631923",
-      "title": "Cars and coffee grass valley",
-      "start_iso": "2026-06-27T07:00:00-07:00",
-      "end_iso": "2026-06-27T10:00:00-07:00",
-      "timezone": "America/Los_Angeles",
-      "venue_name": "Mcknight crossing shopping center",
-      "source_type": "feed",
-      "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
-      "venue_city": "Grass Valley",
-      "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D191631923",
-      "tags": [
-        "Outdoors / Recreation"
-      ],
-      "image_url": "https://www.trumba.com/i/DgBKEBX2ZTHqcQNSaCHgCme2.jpg?w=900",
-      "description": "Cars and coffee grass valley is a weekly car event at daily donuts in the Mcknight crossing shopping center every saturday morning from 7 to 10",
-      "source_label": "Nevada County Arts Council",
-      "event_tags": [],
-      "is_family": false
-    },
-    {
-      "event_id": "trumba-175586896",
-      "title": "STEAM Exploration Saturdays",
-      "start_iso": "2026-06-27T09:00:00-07:00",
-      "end_iso": "2026-06-27T12:00:00-07:00",
-      "timezone": "America/Los_Angeles",
-      "venue_name": "Kidzone Museum",
-      "source_type": "feed",
-      "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
-      "venue_city": "Truckee",
-      "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D175586896",
-      "tags": [
-        "Children / Family"
-      ],
-      "image_url": "https://www.trumba.com/i/DgC7gDCT3W7cz0-9kOg-E9mD.jpg?w=900",
-      "source_label": "Nevada County Arts Council",
-      "event_tags": [],
-      "is_family": false
-    },
-    {
-      "event_id": "trumba-196881056",
-      "title": "Sierra Storytelling Festival",
-      "start_iso": "2026-06-27T09:00:00-07:00",
-      "end_iso": "2026-06-27T22:00:00-07:00",
-      "timezone": "America/Los_Angeles",
-      "venue_name": "North Columbia Schoolhouse Cultural Center",
-      "source_type": "feed",
-      "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
-      "venue_city": "Nevada City",
-      "ticket_url": "https://www.sierrastorytellingfestival.org",
-      "tags": [
-        "Art & Gallery",
-        "Literary Arts",
-        "Theatre",
-        "Visual Arts",
-        "Workshop"
-      ],
-      "image_url": "https://www.trumba.com/i/DgAzgSD2bTMwpRHYZJWUfsMs.jpg?w=900",
-      "description": "In a time of six-lane freeways, high-speed internet and split-second decisions, the Sierra Storytelling Festival steps out of a busy schedule to take a breath and celebrate in a style reminiscent of our ancestors’ gathering around a fire. A group of dedicated volunteers provides a festival to hear stories, to build culture, to review traditions., Stories not only entertain us but they reach inside to our humanity and bind us together, open our minds and help us imagine a better future., For 39 years the Sierra Storytelling Festival has invited a diverse group of Tellers at the top of their game, from the far reaches of the world, to gather together for one magical weekend of tales, lessons and anecdotes.",
-      "source_label": "Nevada County Arts Council",
-      "event_tags": [],
-      "is_family": false
-    },
-    {
-      "event_id": "trumba-204165950",
-      "title": "Make a Tiny Grief Book",
-      "start_iso": "2026-06-27T09:00:00-07:00",
-      "end_iso": "2026-06-27T12:00:00-07:00",
-      "timezone": "America/Los_Angeles",
-      "venue_name": "The Curious Forge",
-      "source_type": "feed",
-      "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
-      "venue_city": "Nevada City",
-      "ticket_url": "https://thecuriousforge.org/virtual-tour/",
-      "tags": [
-        "Art & Gallery"
-      ],
-      "image_url": "https://www.trumba.com/i/DgAmEW7pgSwQwHX44Lfzkwrr.jpg?w=900",
-      "description": "Make a Tiny Grief Book – A Book Arts Workshop",
-      "source_label": "Nevada County Arts Council",
-      "event_tags": [],
-      "is_family": false
-    },
-    {
-      "event_id": "trumba-204359345",
-      "title": "Live theatrical performance of Butterfly Home",
-      "start_iso": "2026-06-27T09:00:00-07:00",
-      "end_iso": "2026-06-27T10:00:00-07:00",
-      "timezone": "America/Los_Angeles",
-      "venue_name": "Litton Trail",
-      "source_type": "feed",
-      "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
-      "venue_city": "Grass Valley",
-      "ticket_url": "https://www.bylt.org/events/event/live-theatrical-performance-of-butterfly-home-2/",
-      "tags": [
-        "Dance",
-        "Music"
-      ],
-      "image_url": "https://www.trumba.com/i/DgBTNSf8K2onWB-MEku5dvkb.jpg?w=900",
-      "description": "Live Theatrical Performance of Butterfly Home, Saturday, June 27, 9am – 10am, Meet at the Litton Trail trailhead on Sierra College Drive in Grass Valley. The performance will move along the paved section of trail., What connects us to an iridescent milkweed puff glinting in the breeze? Have we lost touch with the pulse of our own nature? Join us for a guided walk along the Litton Trail and experience Butterfly Home — a live, immersive theatrical performance unfolding throughout the forest. From one of the creators of “Project Wild Edges,” this moving outdoor production explores disconnection, transformation, and reclamation through the lens of the monarch butterfly’s metamorphosis., This FREE live performance takes place along the trail itself — no ticket required. Simply arrive at the trailhead ready to walk, witness, and be guided through the experience as the story unfolds around you in nature.",
-      "source_label": "Nevada County Arts Council",
-      "event_tags": [],
-      "is_family": false
-    },
-    {
-      "event_id": "trumba-116790100",
-      "title": "Spanish story time",
-      "start_iso": "2026-06-27T10:30:00-07:00",
-      "end_iso": "2026-06-27T11:00:00-07:00",
-      "timezone": "America/Los_Angeles",
-      "venue_name": "Truckee Library",
-      "source_type": "feed",
-      "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
-      "venue_city": "Truckee",
-      "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D116790100",
-      "tags": [
-        "Children / Family",
-        "Health / Wellbeing"
-      ],
-      "description": "Monthly bilingual story time with Reyna Sanchez-Lopez. Enjoy lively books and activities to introduce children to the wonders of reading and books.",
-      "source_label": "Nevada County Arts Council",
-      "event_tags": [
-        "family-kids"
-      ],
-      "is_family": true
-    },
-    {
-      "event_id": "trumba-201251992",
-      "title": "Saturday Get Behind the Wheel Ceramics",
-      "start_iso": "2026-06-27T10:30:00-07:00",
-      "end_iso": "2026-06-27T12:30:00-07:00",
-      "timezone": "America/Los_Angeles",
-      "venue_name": "The Curious Forge",
-      "source_type": "feed",
-      "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
-      "venue_city": "Nevada City",
-      "ticket_url": "https://thecuriousforge.org/",
-      "tags": [
-        "Art & Gallery"
-      ],
-      "image_url": "https://www.trumba.com/i/DgDjb-qKo6Fbuc2W5fpbnrYc.jpg?w=900",
-      "description": "Saturday Get Behind the Wheel Ceramics",
-      "source_label": "Nevada County Arts Council",
-      "event_tags": [],
-      "is_family": false
-    },
-    {
-      "event_id": "trumba-204682305",
-      "title": "In the Night Dimension and Those We Meet at Twilight",
-      "start_iso": "2026-06-27T11:00:00-07:00",
-      "end_iso": "2026-06-27T18:00:00-07:00",
-      "timezone": "America/Los_Angeles",
-      "venue_name": "Wonder Docent",
-      "source_type": "feed",
-      "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
-      "venue_city": "Nevada City",
-      "ticket_url": "https://www.wonderdocent.com/blog/blog-post-in-the-night-dimension",
-      "tags": [
-        "Art & Gallery"
-      ],
-      "image_url": "https://www.trumba.com/i/DgCnWF08nHIjl1Emrsm%2ANyOC.jpg?w=900",
-      "description": "Strange beings lurk in pixelated places, eyes peep from dark spaces, and seemingly random objects confront curious travelers. These are the dreamscapes that visitors will encounter in artist Jon Hioki’s new exhibition, In the Night Dimension and Those You Meet at Twilight, opening June 20th at Wonder Docent. The show, which features original paintings and sculptures, will be on display at the downtown Nevada City art supply store through August 16th., Wonder Docent will host an opening reception for In the Night Dimension and Those You Meet at Twilight on Saturday, June 20th from 6 to 8 pm.",
-      "source_label": "Nevada County Arts Council",
-      "event_tags": [
-        "arts-gallery"
-      ],
-      "is_family": false
-    },
-    {
-      "event_id": "trumba-203859388",
-      "title": "Sip 'n' Song",
-      "start_iso": "2026-06-27T16:30:00-07:00",
-      "end_iso": "2026-06-27T20:00:00-07:00",
-      "timezone": "America/Los_Angeles",
-      "venue_name": "Pioneer Park",
-      "source_type": "feed",
-      "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
-      "venue_city": "Nevada City",
-      "ticket_url": "https://www.inconcertsierra.org/pages/concerts/sipnsong.php",
-      "tags": [
-        "Music"
-      ],
-      "image_url": "https://www.trumba.com/i/DgCCr13yguR3rHSSbZtRkurE.jpg?w=900",
-      "description": "Summer funshine!, Come out for high-powered fun with great music, dancing, raffles, a photo booth, and community, while celebrating and supporting the Sierra Master Chorale.",
-      "source_label": "Nevada County Arts Council",
-      "event_tags": [
-        "community"
-      ],
-      "is_family": false
-    },
-    {
-      "event_id": "trumba-203861615",
-      "title": "Eli Rush Retrospective Art Show",
-      "start_iso": "2026-06-27T17:00:00-07:00",
-      "end_iso": "2026-06-27T18:00:00-07:00",
-      "timezone": "America/Los_Angeles",
-      "venue_name": "Unknown venue",
-      "source_type": "feed",
-      "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
-      "venue_city": "Nevada City",
-      "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D203861615",
-      "tags": [
-        "Art & Gallery"
-      ],
-      "image_url": "https://www.trumba.com/i/DgCj0fV5vwSqPzbbYM96WW7F.jpg?w=900",
-      "source_label": "Nevada County Arts Council",
-      "event_tags": [
-        "arts-gallery"
-      ],
-      "is_family": false
-    },
-    {
-      "event_id": "trumba-196389412",
-      "title": "Nevada County Playwrights Collective Performance",
-      "start_iso": "2026-06-27T19:00:00-07:00",
-      "end_iso": "2026-06-27T21:00:00-07:00",
-      "timezone": "America/Los_Angeles",
-      "venue_name": "Miners Foundry",
-      "source_type": "feed",
-      "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
-      "venue_city": "Nevada City",
-      "ticket_url": "https://nevcoplayco.com/",
-      "tags": [
-        "Theatre"
-      ],
-      "image_url": "https://www.trumba.com/i/DgC11Bu9Ppl6IMvPCXNiMStV.jpg?w=900",
-      "description": "Performances: June 25th-28th of new plays written and performed by and for the Nevada County community.",
-      "source_label": "Nevada County Arts Council",
-      "event_tags": [
-        "community"
-      ],
-      "is_family": false
-    },
-    {
-      "event_id": "trumba-204714090",
-      "title": "Queer Burlesque & Dance Party",
-      "start_iso": "2026-06-27T20:00:00-07:00",
-      "end_iso": "2026-06-28T00:00:00-07:00",
-      "timezone": "America/Los_Angeles",
-      "venue_name": "Nevada City Oddfellows Hall",
-      "source_type": "feed",
-      "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
-      "venue_city": "Nevada City",
-      "ticket_url": "https://kvmrx.org/",
-      "tags": [
-        "Art & Gallery",
-        "Comedy/Improv",
-        "Dance",
-        "Music"
-      ],
-      "image_url": "https://www.trumba.com/i/DgDMi5v7Hh88gJUd%2AEijeHvH.jpg?w=900",
-      "description": "Queer Burlesque & Dance Party , Taste the Rainbow with Iridescent Indulgence Burlesque 🌈, This event brings together local queer performers, DJs, and friends of KVMR/KVMRx for a night of bold art, movement, and community. Proceeds to benefit KVMR and KVMRx Community Radio;, support independent community radio and the diverse voices heard on our airwaves., End Pride Month with a Bang!",
-      "source_label": "Nevada County Arts Council",
-      "event_tags": [
-        "community"
-      ],
-      "is_family": false
-    },
-    {
-      "event_id": "trumba-196881055",
-      "title": "Sierra Storytelling Festival",
-      "start_iso": "2026-06-27T22:00:00-07:00",
-      "end_iso": "2026-06-28T00:00:00-07:00",
-      "timezone": "America/Los_Angeles",
-      "venue_name": "North Columbia Schoolhouse Cultural Center",
-      "source_type": "feed",
-      "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
-      "venue_city": "Nevada City",
-      "ticket_url": "https://www.sierrastorytellingfestival.org",
-      "tags": [
-        "Art & Gallery",
-        "Literary Arts",
-        "Theatre",
-        "Visual Arts",
-        "Workshop"
-      ],
-      "image_url": "https://www.trumba.com/i/DgA13JGjw2xhiNOLaFAd9mmV.jpg?w=900",
-      "description": "In a time of six-lane freeways, high-speed internet and split-second decisions, the Sierra Storytelling Festival steps out of a busy schedule to take a breath and celebrate in a style reminiscent of our ancestors’ gathering around a fire. A group of dedicated volunteers provides a festival to hear stories, to build culture, to review traditions., Stories not only entertain us but they reach inside to our humanity and bind us together, open our minds and help us imagine a better future., For 39 years the Sierra Storytelling Festival has invited a diverse group of Tellers at the top of their game, from the far reaches of the world, to gather together for one magical weekend of tales, lessons and anecdotes.",
-      "source_label": "Nevada County Arts Council",
-      "event_tags": [],
-      "is_family": false
-    },
-    {
       "event_id": "trumba-199990458",
       "title": "Make your own Hand-Carved Wooden Spoon",
       "start_iso": "2026-06-28T09:30:00-07:00",
@@ -3190,7 +2895,7 @@
       "venue_name": "The Curious Forge",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://thecuriousforge.org/product/hand-carved-wooden-spoons/",
       "tags": [
@@ -3213,7 +2918,7 @@
       "venue_name": "Condon Park",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Grass Valley",
       "ticket_url": "https://www.nevadacountypride.org/events/pride-family-fest",
       "tags": [
@@ -3237,7 +2942,7 @@
       "venue_name": "Wonder Docent",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.wonderdocent.com/blog/blog-post-in-the-night-dimension",
       "tags": [
@@ -3260,7 +2965,7 @@
       "venue_name": "The Curious Forge",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://thecuriousforge.org/virtual-tour/",
       "tags": [
@@ -3281,7 +2986,7 @@
       "venue_name": "The Curious Forge",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://thecuriousforge.org/product/ceramic-garden-art/",
       "tags": [
@@ -3304,7 +3009,7 @@
       "venue_name": "Miners Foundry",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://nevcoplayco.com/",
       "tags": [
@@ -3327,7 +3032,7 @@
       "venue_name": "Pioneer Park band shell",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.nccb.org",
       "tags": [
@@ -3351,7 +3056,7 @@
       "venue_name": "The Curious Forge",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://thecuriousforge.org/virtual-tour/",
       "tags": [
@@ -3374,7 +3079,7 @@
       "venue_name": "The Curious Forge",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://thecuriousforge.org/virtual-tour/",
       "tags": [
@@ -3398,7 +3103,7 @@
       "venue_name": "Wonder Docent",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.wonderdocent.com/blog/blog-post-in-the-night-dimension",
       "tags": [
@@ -3421,7 +3126,7 @@
       "venue_name": "Eric Rood Center",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D202909245",
       "tags": [
@@ -3442,7 +3147,7 @@
       "venue_name": "The Curious Forge",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://thecuriousforge.org/product/glass-flameworking-level-2-youth-camp/",
       "tags": [
@@ -3467,7 +3172,7 @@
       "venue_name": "Seven Stars Gallery 210 Spring Street",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D195322402",
       "tags": [
@@ -3493,7 +3198,7 @@
       "venue_name": "Main Stage - Marisa Funk Theater",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Grass Valley",
       "ticket_url": "https://bit.ly/260629_comm_cal",
       "tags": [
@@ -3516,7 +3221,7 @@
       "venue_name": "The Curious Forge",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://thecuriousforge.org/virtual-tour/",
       "tags": [
@@ -3540,7 +3245,7 @@
       "venue_name": "The Curious Forge",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://thecuriousforge.org/product/tuesday-morning-ceramics-2/",
       "tags": [
@@ -3563,7 +3268,7 @@
       "venue_name": "Wonder Docent",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.wonderdocent.com/blog/blog-post-in-the-night-dimension",
       "tags": [
@@ -3586,7 +3291,7 @@
       "venue_name": "Eric Rood Center",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D202909246",
       "tags": [
@@ -3607,7 +3312,7 @@
       "venue_name": "Miners Foundry Cultural Center",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.facebook.com/groups/246116427305067/?ref=share_group_link&mibextid=wwXIfr",
       "tags": [
@@ -3630,7 +3335,7 @@
       "venue_name": "Unknown venue",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D203861616",
       "tags": [
@@ -3652,7 +3357,7 @@
       "venue_name": "The Curious Forge",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://thecuriousforge.org/virtual-tour/",
       "tags": [
@@ -3676,7 +3381,7 @@
       "venue_name": "Madelyn Helling Library",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.inconcertsierra.org/pages/education/musicalmornings.php",
       "tags": [
@@ -3701,7 +3406,7 @@
       "venue_name": "Wonder Docent",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.wonderdocent.com/blog/blog-post-in-the-night-dimension",
       "tags": [
@@ -3724,7 +3429,7 @@
       "venue_name": "Eric Rood Center",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D202909247",
       "tags": [
@@ -3745,7 +3450,7 @@
       "venue_name": "Members homes",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Grass Valley",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D183038858",
       "tags": [
@@ -3769,7 +3474,7 @@
       "venue_name": "The Curious Forge",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://thecuriousforge.org/virtual-tour/",
       "tags": [
@@ -3793,7 +3498,7 @@
       "venue_name": "Wonder Docent",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.wonderdocent.com/blog/blog-post-in-the-night-dimension",
       "tags": [
@@ -3816,7 +3521,7 @@
       "venue_name": "Eric Rood Center",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D202909248",
       "tags": [
@@ -3837,7 +3542,7 @@
       "venue_name": "Nevada Museum of Art",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Reno, NV",
       "ticket_url": "https://www.nevadaart.org/event/first-thursday-79/",
       "tags": [
@@ -3860,7 +3565,7 @@
       "venue_name": "Grass Valley Brewing Co",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Grass Valley",
       "ticket_url": "https://www.gvbrew.com/",
       "tags": [
@@ -3884,7 +3589,7 @@
       "venue_name": "Grass Valley",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Grass Valley",
       "ticket_url": "https://downtowngrassvalley.com/gvda-events/2026-thursday-night-market/",
       "tags": [
@@ -3911,7 +3616,7 @@
       "venue_name": "Wonder Docent",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.wonderdocent.com/blog/blog-post-in-the-night-dimension",
       "tags": [
@@ -3934,7 +3639,7 @@
       "venue_name": "Eric Rood Center",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D202909249",
       "tags": [
@@ -3955,7 +3660,7 @@
       "venue_name": "Northwoods Clubhouse",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Truckee",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D113922959",
       "tags": [
@@ -3979,7 +3684,7 @@
       "venue_name": "Atelier",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Truckee",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D114306314",
       "tags": [
@@ -4000,7 +3705,7 @@
       "venue_name": "Historic Downtown Truckee",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Truckee",
       "ticket_url": "http://www.historictruckee.com",
       "tags": [
@@ -4021,7 +3726,7 @@
       "venue_name": "Mcknight crossing shopping center",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Grass Valley",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D191631924",
       "tags": [
@@ -4042,7 +3747,7 @@
       "venue_name": "Mill Street",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Grass Valley",
       "ticket_url": "https://downtowngrassvalley.com/gvda-events/2026-july-4th-celebration-america-250-our-shared-story/",
       "tags": [
@@ -4066,7 +3771,7 @@
       "venue_name": "Kidzone Museum",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Truckee",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D175838476",
       "tags": [
@@ -4086,7 +3791,7 @@
       "venue_name": "Downtown curbside across from the National Exchange Hotel (Broad St).",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.nccb.org",
       "tags": [
@@ -4111,7 +3816,7 @@
       "venue_name": "Wonder Docent",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.wonderdocent.com/blog/blog-post-in-the-night-dimension",
       "tags": [
@@ -4134,7 +3839,7 @@
       "venue_name": "Mill Street",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Grass Valley",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D199914396",
       "tags": [
@@ -4160,7 +3865,7 @@
       "venue_name": "Wonder Docent",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.wonderdocent.com/blog/blog-post-in-the-night-dimension",
       "tags": [
@@ -4183,7 +3888,7 @@
       "venue_name": "The Onyx Downtown at the Nevada Theatre",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.theonyxtheatre.com/movies/1000040198-kikis-delivery-service-4k/?date=2026-07-05",
       "tags": [
@@ -4204,7 +3909,7 @@
       "venue_name": "The Curious Forge",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://thecuriousforge.org/virtual-tour/",
       "tags": [
@@ -4228,7 +3933,7 @@
       "venue_name": "The Curious Forge",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://thecuriousforge.org/virtual-tour/",
       "tags": [
@@ -4252,7 +3957,7 @@
       "venue_name": "The Curious Forge",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://thecuriousforge.org/virtual-tour/",
       "tags": [
@@ -4276,7 +3981,7 @@
       "venue_name": "Wonder Docent",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.wonderdocent.com/blog/blog-post-in-the-night-dimension",
       "tags": [
@@ -4299,7 +4004,7 @@
       "venue_name": "Eric Rood Center",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D202909250",
       "tags": [
@@ -4320,7 +4025,7 @@
       "venue_name": "Seven Stars Gallery 210 Spring Street",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D195322403",
       "tags": [
@@ -4346,7 +4051,7 @@
       "venue_name": "The Curious Forge",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://thecuriousforge.org/virtual-tour/",
       "tags": [
@@ -4370,7 +4075,7 @@
       "venue_name": "The Curious Forge",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://thecuriousforge.org/virtual-tour/",
       "tags": [
@@ -4394,7 +4099,7 @@
       "venue_name": "The Curious Forge",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://thecuriousforge.org/virtual-tour/",
       "tags": [
@@ -4418,7 +4123,7 @@
       "venue_name": "Wonder Docent",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.wonderdocent.com/blog/blog-post-in-the-night-dimension",
       "tags": [
@@ -4441,7 +4146,7 @@
       "venue_name": "Eric Rood Center",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D202909251",
       "tags": [
@@ -4462,7 +4167,7 @@
       "venue_name": "Miners Foundry Cultural Center",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.facebook.com/groups/246116427305067/?ref=share_group_link&mibextid=wwXIfr",
       "tags": [
@@ -4485,7 +4190,7 @@
       "venue_name": "The Curious Forge",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://thecuriousforge.org/virtual-tour/",
       "tags": [
@@ -4509,7 +4214,7 @@
       "venue_name": "The Curious Forge",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://thecuriousforge.org/virtual-tour/",
       "tags": [
@@ -4533,7 +4238,7 @@
       "venue_name": "The Curious Forge",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://thecuriousforge.org/virtual-tour/",
       "tags": [
@@ -4557,7 +4262,7 @@
       "venue_name": "Madelyn Helling Library",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.inconcertsierra.org/pages/education/musicalmornings.php",
       "tags": [
@@ -4580,7 +4285,7 @@
       "venue_name": "Wonder Docent",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.wonderdocent.com/blog/blog-post-in-the-night-dimension",
       "tags": [
@@ -4603,7 +4308,7 @@
       "venue_name": "Eric Rood Center",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D202909252",
       "tags": [
@@ -4624,7 +4329,7 @@
       "venue_name": "The Curious Forge",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://thecuriousforge.org/virtual-tour/",
       "tags": [
@@ -4645,7 +4350,7 @@
       "venue_name": "The Curious Forge",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://thecuriousforge.org/virtual-tour/",
       "tags": [
@@ -4669,7 +4374,7 @@
       "venue_name": "The Curious Forge",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://thecuriousforge.org/virtual-tour/",
       "tags": [
@@ -4693,7 +4398,7 @@
       "venue_name": "The Curious Forge",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://thecuriousforge.org/virtual-tour/",
       "tags": [
@@ -4717,7 +4422,7 @@
       "venue_name": "Wonder Docent",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.wonderdocent.com/blog/blog-post-in-the-night-dimension",
       "tags": [
@@ -4740,7 +4445,7 @@
       "venue_name": "Eric Rood Center",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D202909253",
       "tags": [
@@ -4761,7 +4466,7 @@
       "venue_name": "The Curious Forge",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://thecuriousforge.org/virtual-tour/",
       "tags": [
@@ -4784,7 +4489,7 @@
       "venue_name": "The Curious Forge",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://thecuriousforge.org/virtual-tour/",
       "tags": [
@@ -4805,7 +4510,7 @@
       "venue_name": "Nevada City Picture Freaming",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D204951317",
       "tags": [
@@ -4828,7 +4533,7 @@
       "venue_name": "Grass Valley",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Grass Valley",
       "ticket_url": "https://downtowngrassvalley.com/gvda-events/2026-thursday-night-market/",
       "tags": [
@@ -4855,7 +4560,7 @@
       "venue_name": "Wonder Docent",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.wonderdocent.com/blog/blog-post-in-the-night-dimension",
       "tags": [
@@ -4878,7 +4583,7 @@
       "venue_name": "Eric Rood Center",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D202909254",
       "tags": [
@@ -4899,7 +4604,7 @@
       "venue_name": "Nevada Museum of Art",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Reno, NV",
       "ticket_url": "https://www.nevadaart.org/event/getting-to-net-zero-with-washoe-county-sustainability-manager-brian-beffort/",
       "tags": [
@@ -4923,7 +4628,7 @@
       "venue_name": "The Rhythm Den",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-06-27T02:27:31-07:00",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
       "venue_city": "Grass Valley",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D204519361",
       "tags": [
@@ -4935,6 +4640,186 @@
       "source_label": "Nevada County Arts Council",
       "event_tags": [],
       "is_family": false
+    },
+    {
+      "event_id": "trumba-191631925",
+      "title": "Cars and coffee grass valley",
+      "start_iso": "2026-07-11T07:00:00-07:00",
+      "end_iso": "2026-07-11T10:00:00-07:00",
+      "timezone": "America/Los_Angeles",
+      "venue_name": "Mcknight crossing shopping center",
+      "source_type": "feed",
+      "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
+      "venue_city": "Grass Valley",
+      "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D191631925",
+      "tags": [
+        "Outdoors / Recreation"
+      ],
+      "image_url": "https://www.trumba.com/i/DgBKEBX2ZTHqcQNSaCHgCme2.jpg?w=900",
+      "description": "Cars and coffee grass valley is a weekly car event at daily donuts in the Mcknight crossing shopping center every saturday morning from 7 to 10",
+      "source_label": "Nevada County Arts Council",
+      "event_tags": [],
+      "is_family": false
+    },
+    {
+      "event_id": "trumba-175838477",
+      "title": "STEAM Exploration Saturdays",
+      "start_iso": "2026-07-11T09:00:00-07:00",
+      "end_iso": "2026-07-11T12:00:00-07:00",
+      "timezone": "America/Los_Angeles",
+      "venue_name": "Kidzone Museum",
+      "source_type": "feed",
+      "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
+      "venue_city": "Truckee",
+      "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D175838477",
+      "tags": [
+        "Children / Family"
+      ],
+      "image_url": "https://www.trumba.com/i/DgC7gDCT3W7cz0-9kOg-E9mD.jpg?w=900",
+      "source_label": "Nevada County Arts Council",
+      "event_tags": [],
+      "is_family": false
+    },
+    {
+      "event_id": "trumba-204159026",
+      "title": "Introduction to indigo dyeing",
+      "start_iso": "2026-07-11T09:00:00-07:00",
+      "end_iso": "2026-07-11T12:00:00-07:00",
+      "timezone": "America/Los_Angeles",
+      "venue_name": "Siren Song Fleece Works at Lucchesi Vineyards",
+      "source_type": "feed",
+      "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
+      "venue_city": "Grass Valley",
+      "ticket_url": "https://sirensongfleeceworks.com/events",
+      "tags": [
+        "Workshop"
+      ],
+      "image_url": "https://www.trumba.com/i/DgD4-jUb9Z0nTPDVdv%2AaWDUX.jpg?w=900",
+      "description": "Come and join us for an introduction into the magic of indigo, a plant dye used throughout the tropical and semi-tropical regions of the world for centuries. We will use some basic tie dye wraps to prepare a tshirt to dip into the best natural blue dye available. Materials provided.",
+      "source_label": "Nevada County Arts Council",
+      "event_tags": [],
+      "is_family": false
+    },
+    {
+      "event_id": "trumba-204575942",
+      "title": "Paint a collaborative wall mural at Lucchesi Vineyards",
+      "start_iso": "2026-07-11T09:00:00-07:00",
+      "end_iso": "2026-07-11T14:00:00-07:00",
+      "timezone": "America/Los_Angeles",
+      "venue_name": "Lucchesi Vineyards",
+      "source_type": "feed",
+      "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
+      "venue_city": "Grass Valley",
+      "ticket_url": "https://www.eventbrite.com/e/paint-a-collaborative-wall-mural-at-lucchesi-vineyards-tickets-1991722568819?aff=oddtdtcreator",
+      "tags": [
+        "Art & Gallery",
+        "Visual Arts",
+        "Workshop"
+      ],
+      "image_url": "https://www.trumba.com/i/DgBKzLvu0EP-NtHUyCyPXAeD.jpg?w=900",
+      "description": "A hands-on wall mural workshop will be offered at Lucchesi Vineyards in Grass Valley California. Gary Graham, a well-known muralist, will instruct the various procedures required to create a unique work of art. This workshop will allow you to participate in all stages of creating a wall mural, from design and drawing to the painting itself., Each day of this six-day workshop will focus on a different element of the wall mural creation. You can attend one day, a weekend, or all of the sessions. Each day is a separate ticketed event, so you can pick and choose for your schedule and interests., The workshop dates and topics are as follows:July 11 - Design process + drawing (including color, perspective, scale), July 12 - Design process + drawing (including color, perspective, scale), July 18 - Paint (underpainting), July 19 - Paint (underpainting), July 25 - Paint (overpainting), July 26 - Paint (overpainting + glazing)",
+      "source_label": "Nevada County Arts Council",
+      "event_tags": [
+        "arts-gallery"
+      ],
+      "is_family": false
+    },
+    {
+      "event_id": "trumba-202729191",
+      "title": "Hands ON! Second Saturday",
+      "start_iso": "2026-07-11T10:00:00-07:00",
+      "end_iso": "2026-07-11T18:00:00-07:00",
+      "timezone": "America/Los_Angeles",
+      "venue_name": "Nevada Museum of Art",
+      "source_type": "feed",
+      "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
+      "venue_city": "Reno, NV",
+      "ticket_url": "https://www.nevadaart.org/event/hands-on-second-saturday-65/",
+      "tags": [
+        "Art & Gallery"
+      ],
+      "image_url": "https://www.trumba.com/i/DgC-pFybfstuFZTuFEPBnONc.jpg?w=900",
+      "description": "Estelle J. Kelsey Foundation Hands ON! Second Saturdays offers monthly free admission, hands-on art activities, storytelling, a docent-guided tour, live performances, and community collaborations. “Art Expeditions” provides children the opportunity to engage with Museum staff and take a closer look at current work on view. New exhibitions, community collaborations, guest performances and monthly themes rotate in this engaging series of monthly programs. This month’s theme “Fruitful Summer” is inspired by Fallen Fruit’s Monument to Sharing.",
+      "source_label": "Nevada County Arts Council",
+      "event_tags": [
+        "family-kids",
+        "community"
+      ],
+      "is_family": true
+    },
+    {
+      "event_id": "trumba-204682319",
+      "title": "In the Night Dimension and Those We Meet at Twilight",
+      "start_iso": "2026-07-11T11:00:00-07:00",
+      "end_iso": "2026-07-11T18:00:00-07:00",
+      "timezone": "America/Los_Angeles",
+      "venue_name": "Wonder Docent",
+      "source_type": "feed",
+      "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
+      "venue_city": "Nevada City",
+      "ticket_url": "https://www.wonderdocent.com/blog/blog-post-in-the-night-dimension",
+      "tags": [
+        "Art & Gallery"
+      ],
+      "image_url": "https://www.trumba.com/i/DgCnWF08nHIjl1Emrsm%2ANyOC.jpg?w=900",
+      "description": "Strange beings lurk in pixelated places, eyes peep from dark spaces, and seemingly random objects confront curious travelers. These are the dreamscapes that visitors will encounter in artist Jon Hioki’s new exhibition, In the Night Dimension and Those You Meet at Twilight, opening June 20th at Wonder Docent. The show, which features original paintings and sculptures, will be on display at the downtown Nevada City art supply store through August 16th., Wonder Docent will host an opening reception for In the Night Dimension and Those You Meet at Twilight on Saturday, June 20th from 6 to 8 pm.",
+      "source_label": "Nevada County Arts Council",
+      "event_tags": [
+        "arts-gallery"
+      ],
+      "is_family": false
+    },
+    {
+      "event_id": "trumba-204963959",
+      "title": "Flameworking Hot Links: The Art of Glass Chains",
+      "start_iso": "2026-07-11T15:00:00-07:00",
+      "end_iso": "2026-07-11T17:00:00-07:00",
+      "timezone": "America/Los_Angeles",
+      "venue_name": "The Curious Forge",
+      "source_type": "feed",
+      "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
+      "venue_city": "Nevada City",
+      "ticket_url": "https://thecuriousforge.org/virtual-tour/",
+      "tags": [
+        "Art & Gallery"
+      ],
+      "image_url": "https://www.trumba.com/i/DgA9jouumMdNVXnXy8muIZQQ.jpg?w=900",
+      "description": "Hot Links: The Art of Glass Chains",
+      "source_label": "Nevada County Arts Council",
+      "event_tags": [],
+      "is_family": false
+    },
+    {
+      "event_id": "trumba-204955387",
+      "title": "Rockin' the Gateway presents \"Life In The Fast Lane\"",
+      "start_iso": "2026-07-11T19:30:00-07:00",
+      "end_iso": "2026-07-11T22:00:00-07:00",
+      "timezone": "America/Los_Angeles",
+      "venue_name": "Western Gateway Park",
+      "source_type": "feed",
+      "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
+      "last_verified_at": "2026-06-28T02:56:39-07:00",
+      "venue_city": "Penn Valley",
+      "ticket_url": "https://rockinthegateway.com",
+      "tags": [
+        "Dance",
+        "Music"
+      ],
+      "image_url": "https://www.trumba.com/i/DgByu9F0OLXEc3U16%2Am%2AiXWm.jpg?w=900",
+      "description": "Life In The Fast Lane, the best Eagles tribute band in the country, returns to Western Gateway Park July 11! For over thirty years Life In The Fast Lane has been playing a 2+ hour note-for-note tribute to the Eagles and the solo work of Don Henley, Glenn Frey, and Joe Walsh. You will hear all of your favorite hits from “Take It Easy” to “Hotel California” with some surprises in between. Life In The Fast Lane does not simply play the music of the Eagles, they become the Eagles. Remember, at all Rockin’ the Gateway concerts children under 18 are free and leashed dogs are welcome! BYOB, sprits included, bring a picnic or visit one of our 3 food vendors. You’ll need a blanket or chair to sit on and of course your dancing shoes. The show starts at 7:30, after the sun is below the horizon, so all seating is in the shade. Tickets are only $25 at RockinTheGateway.com or $30 (cash only) at the door. Be prepared to Take It To The Limit on July 11 with Life In The Fast Lane at Rockin’ the Gateway. Get your tickets today!",
+      "source_label": "Nevada County Arts Council",
+      "event_tags": [
+        "live-music",
+        "family-kids"
+      ],
+      "is_family": true
     }
   ]
 }
