@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-06-28T09:56:45.107934+00:00",
+  "generated_at": "2026-06-29T11:57:51.150554+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
     "total_events": 237,
-    "matched_events": 158,
-    "unmatched_events": 79,
+    "matched_events": 157,
+    "unmatched_events": 80,
     "matched_by_pid": 0,
-    "matched_by_alias": 6,
-    "matched_by_name_city": 53,
-    "matched_by_name_city_fuzzy": 99,
+    "matched_by_alias": 5,
+    "matched_by_name_city": 52,
+    "matched_by_name_city_fuzzy": 100,
     "upcoming_14d": 84
   },
   "unmatched_venues": [
@@ -19,7 +19,7 @@
       "venue_name": "Wonder Docent",
       "venue_city": "Nevada City",
       "count": 14,
-      "sample_event_id": "trumba-204682306",
+      "sample_event_id": "trumba-204682307",
       "sample_title": "In the Night Dimension and Those We Meet at Twilight",
       "candidate_assets": []
     },
@@ -219,6 +219,15 @@
       "count": 1,
       "sample_event_id": "trumba-204519361",
       "sample_title": "Playing and Creating Original Rhythms -A Monthly Playshop",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "darkhosecoffee|truckee",
+      "venue_name": "Dark Hose Coffee",
+      "venue_city": "Truckee",
+      "count": 1,
+      "sample_event_id": "trumba-116325477",
+      "sample_title": "Word Jam",
       "candidate_assets": []
     }
   ],
