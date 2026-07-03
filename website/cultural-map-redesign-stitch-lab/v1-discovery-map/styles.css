@@ -3686,7 +3686,9 @@ body.drifting .discovery-rail {
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 7;
+  /* The tour's steering wheel always wins the bottom band — the touchdown
+     card (drawer, z8) must never hide the pause/resume/next controls. */
+  z-index: 9;
   display: flex;
   align-items: center;
   gap: 14px;
@@ -3696,6 +3698,11 @@ body.drifting .discovery-rail {
 }
 .drift-bar[hidden] {
   display: none;
+}
+/* While drifting, the drawer stops short of the bar so no card content hides
+   under the ink band at short viewports. */
+body.drifting .selection-drawer {
+  max-height: calc(100% - 88px);
 }
 .drift-live {
   flex: none;

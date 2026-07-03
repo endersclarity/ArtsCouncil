@@ -3,6 +3,12 @@
   "entries": [
     {
       "date": "2026-07-02",
+      "title": "Keyboard and screen-reader browsing works the way it should",
+      "summary": "Closing a place card now returns you exactly where you were — keyboard focus goes back to the list row or card you picked from, instead of silently dropping to the top of the page. The Escape key now closes an open place card (and still ends a Drift tour first if one is running). The Places / Events / Paths / Trails switcher announces itself properly to screen readers as a group of toggle buttons with a clear pressed state. And during a Drift tour, the pause and next buttons always stay visible — the place card can no longer cover them on shorter screens.",
+      "kind": "improvement"
+    },
+    {
+      "date": "2026-07-02",
       "title": "Three MUSE picks reconnected to the starting view",
       "summary": "Miners Foundry Cultural Center, Granucci Gallery, and the Nevada County Fairgrounds Foundation had quietly fallen out of the map's starting selection: when duplicate directory records were merged earlier this year, the curated MUSE sampler and its magazine evidence links kept pointing at the retired record names. Those references now point at the current records, so all twelve starting-view places appear again with their MUSE citations intact. The data contract tests that watch coordinate caveats and public copy were also repaired so they check today's records instead of the pre-merge ones.",
       "kind": "fix"

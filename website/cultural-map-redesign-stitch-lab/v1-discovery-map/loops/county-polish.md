@@ -109,3 +109,28 @@
   clean. Tokens cla-88-pass2.
 - Next: batch 3 = drift-bar occlusion (P1-5) + drawer focus/Escape (A0-1,
   A1-2) + tabs ARIA (A0-2).
+
+### Pass 3 — 2026-07-02 (fix batch 3: P1-5 + A0-1 + A0-2 + A1-2)
+- Attempted: (a) drift-bar z-index 7→9 + `body.drifting .selection-drawer
+  { max-height: calc(100% - 88px) }` — the tour's controls always win the
+  bottom band. (b) Drawer focus continuity: captureDrawerOpener() at the TOP
+  of showPlace/showEvent (list re-renders destroy the opener before
+  openSelectionDrawer runs — found live), restore on close with re-find by
+  data identity (data-place / data-trail-place / data-rail-index) and
+  .mode-tab.active landmark fallback. (c) Escape closes the open drawer
+  (drift Esc keeps priority; Escape inside text controls keeps native
+  meaning). (d) mode-tabs: role tablist→group + aria-pressed synced in
+  syncModeTabs.
+- Verified live (rig): Miners Foundry row focus → open → Esc → drawer closed
+  AND focus back on the same rebuilt row; Escape in the search box does NOT
+  close the drawer; aria-pressed follows mode clicks (places:false
+  events:true …); bar z=9 and drawer max-height calc(100%-88px) under
+  body.drifting. Two test-rig false alarms diagnosed, not product bugs:
+  starting-view #places-list is display:none (invisible rows refuse focus)
+  and location.href reuses cached app.js (token bump required). Tokens
+  cla-88-pass3c. node --check clean.
+- Remaining backlog: A1-3 contrast (trail-facts dt, muse-badge-link), A1-4
+  drift live-region spam, A1-1 rail re-render focus, P2 batch (tab/panel
+  disagreement, ISO dates + recurrence flood, stale search, static legend,
+  trails URL sync), P3 batch.
+- Next: batch 4 = A1 trio, then RE-CRITIQUE (3 fix passes done).

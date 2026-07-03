@@ -1221,7 +1221,19 @@
     if (controlPanel) controlPanel.classList.remove("collapsed");
   }
 
+  // Keyboard/AT continuity: remember who opened the drawer so closing it can
+  // hand focus back instead of dropping it on <body>. Called at the TOP of
+  // showPlace/showEvent — their list re-renders destroy the opener before
+  // openSelectionDrawer ever runs.
+  function captureDrawerOpener() {
+    const active = document.activeElement;
+    if (active && active !== document.body && !els.selectionDrawer?.contains(active)) {
+      state.drawerReturnFocus = active;
+    }
+  }
+
   function openSelectionDrawer() {
+    captureDrawerOpener();
     els.selectionDrawer?.classList.add("open");
     // Each selection starts at the top of the card — never inherit the
     // previous place's scroll position.
@@ -1233,10 +1245,18 @@
   // browse mode underneath is unchanged; closing the card restores the truth.
   function syncModeTabs(kind) {
     const active = kind || state.mode;
-    document.querySelectorAll(".mode-tab").forEach((tab) => tab.classList.toggle("active", tab.dataset.mode === active));
+    document.querySelectorAll(".mode-tab").forEach((tab) => {
+      const on = tab.dataset.mode === active;
+      tab.classList.toggle("active", on);
+      tab.setAttribute("aria-pressed", on ? "true" : "false");
+    });
   }
 
   function closeSelectionDrawer() {
+    // The innerHTML swap below destroys whatever holds focus inside the drawer
+    // — hand it back to the opener (or a stable landmark) so keyboard and
+    // screen-reader users keep their place.
+    const hadFocusInside = els.selectionDrawer?.contains(document.activeElement);
     els.selectionDrawer?.classList.remove("open");
     state.selectedPlaceId = "";
     state.selectedEventId = "";
@@ -1248,6 +1268,18 @@
     // In the Trails lens, drop the deselected row's active highlight.
     if (state.mode === "trails") renderTrailPanel();
     updateReviewUrl();
+    if (hadFocusInside) {
+      let target = state.drawerReturnFocus;
+      if (target && !target.isConnected) {
+        // List/rail re-renders rebuild their rows — re-find the equivalent
+        // control by its data identity before falling back to a landmark.
+        const key = ["data-place", "data-trail-place", "data-rail-index"].find((name) => target.hasAttribute(name));
+        if (key) target = document.querySelector(`[${key}="${CSS.escape(target.getAttribute(key))}"]`);
+      }
+      if (target?.isConnected) target.focus();
+      else document.querySelector(".mode-tab.active")?.focus();
+    }
+    state.drawerReturnFocus = null;
   }
 
   function revealDetailCard() {
@@ -2077,6 +2109,7 @@
   function showPlace(place, opts = {}) {
     // A selection the drift tour didn't make is the visitor taking the wheel.
     if (drift.on && opts.flight !== false) pauseDrift();
+    captureDrawerOpener();
     expandDrawer();
     state.selectedPlaceId = place.id;
     state.selectedEventId = "";
@@ -2288,6 +2321,7 @@
   // Pass-4 (poster anatomy): + program tab, date/time line, recurring series,
   // family pill, presenter bar.
   function showEvent(event) {
+    captureDrawerOpener();
     expandDrawer();
     setDetailCardMode("event");
     syncModeTabs("events");
@@ -3127,7 +3161,12 @@
   driftEls.next?.addEventListener("click", () => driftStep(1));
   driftEls.end?.addEventListener("click", endDrift);
   document.addEventListener("keydown", (event) => {
-    if (event.key === "Escape" && drift.on) endDrift();
+    if (event.key !== "Escape") return;
+    if (drift.on) { endDrift(); return; }
+    // Escape inside a text control keeps its native meaning (clear/cancel).
+    const target = event.target;
+    if (target instanceof HTMLElement && /^(input|textarea|select)$/i.test(target.tagName)) return;
+    if (els.selectionDrawer?.classList.contains("open")) closeSelectionDrawer();
   });
 
   // Every selection flies the camera somewhere; this is the one control that
