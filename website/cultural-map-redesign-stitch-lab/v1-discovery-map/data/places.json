@@ -47226,7 +47226,7 @@
     "city": "",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada County, included for alpha review while source descriptions are cleaned.",
+    "description": "A walking trail in Nevada County — its route is traced on this map.",
     "website": "",
     "address": "",
     "phone": "",
@@ -47266,7 +47266,13 @@
       "source": "bylt",
       "matchedName": "Old Flume Trail"
     },
-    "trailRef": "old-flume-trail"
+    "trailRef": "old-flume-trail",
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "old-greenwood-trail-connector",
@@ -47275,7 +47281,7 @@
     "city": "",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada County, included for alpha review while source descriptions are cleaned.",
+    "description": "A connector trail in Nevada County, with its route drawn on this map.",
     "website": "",
     "address": "",
     "phone": "",
@@ -47315,7 +47321,13 @@
       "source": "bylt",
       "matchedName": "Old Greenwood Trail Connector"
     },
-    "trailRef": "old-greenwood-trail-connector"
+    "trailRef": "old-greenwood-trail-connector",
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "old-reno-ohv-trail",
@@ -47324,7 +47336,7 @@
     "city": "",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada County, included for alpha review while source descriptions are cleaned.",
+    "description": "An off-highway vehicle (OHV) trail in Nevada County; its route isn't drawn on this map yet.",
     "website": "",
     "address": "",
     "phone": "",
@@ -47353,7 +47365,13 @@
       "source": "osm",
       "matchedName": "Old Reno Spur Road"
     },
-    "trailRef": "old-reno-ohv-trail"
+    "trailRef": "old-reno-ohv-trail",
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "omega-mc-trail",
@@ -47362,7 +47380,7 @@
     "city": "",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada County, included for alpha review while source descriptions are cleaned.",
+    "description": "A motorcycle trail in Nevada County; its exact location is still being reviewed.",
     "website": "",
     "address": "",
     "phone": "",
@@ -47386,7 +47404,13 @@
     "featured": false,
     "coordinateProvenance": "none",
     "markerTier": "directory-only",
-    "inGvncScope": false
+    "inGvncScope": false,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "omega-overlook-motorcycle-trail",
@@ -47395,7 +47419,7 @@
     "city": "",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada County, included for alpha review while source descriptions are cleaned.",
+    "description": "A motorcycle trail in Nevada County; its route is drawn on this map.",
     "website": "",
     "address": "",
     "phone": "",
@@ -47424,7 +47448,13 @@
       "source": "osm",
       "matchedName": "Omega Overlook Motorcycle Trail"
     },
-    "trailRef": "omega-overlook-motorcycle-trail"
+    "trailRef": "omega-overlook-motorcycle-trail",
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "orene-wetherall-trail",
@@ -47433,7 +47463,7 @@
     "city": "",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada County, included for alpha review while source descriptions are cleaned.",
+    "description": "A walking trail in Nevada County — its route is traced on this map.",
     "website": "",
     "address": "",
     "phone": "",
@@ -47473,7 +47503,13 @@
       "source": "bylt",
       "matchedName": "Orene Wetherall Trail"
     },
-    "trailRef": "orene-wetherall-trail"
+    "trailRef": "orene-wetherall-trail",
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "orleans-trail",
@@ -47482,7 +47518,7 @@
     "city": "",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada County, included for alpha review while source descriptions are cleaned.",
+    "description": "A walking trail in Nevada County, with its route drawn on this map.",
     "website": "",
     "address": "",
     "phone": "",
@@ -47522,7 +47558,13 @@
       "source": "bylt",
       "matchedName": "Orleans Trail"
     },
-    "trailRef": "orleans-trail"
+    "trailRef": "orleans-trail",
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "osborne-hill-loop-trail",
@@ -47531,7 +47573,7 @@
     "city": "",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada County, included for alpha review while source descriptions are cleaned.",
+    "description": "A loop trail in Nevada County; its route is drawn on this map.",
     "website": "",
     "address": "",
     "phone": "",
@@ -47571,7 +47613,13 @@
       "source": "bylt",
       "matchedName": "Osborne Hill Loop Trail"
     },
-    "trailRef": "osborne-hill-loop-trail"
+    "trailRef": "osborne-hill-loop-trail",
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "osborne-loop-cross-trail",
@@ -47580,7 +47628,7 @@
     "city": "",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada County, included for alpha review while source descriptions are cleaned.",
+    "description": "A loop trail in Nevada County — its route is traced on this map.",
     "website": "",
     "address": "",
     "phone": "",
@@ -47620,7 +47668,13 @@
       "source": "bylt",
       "matchedName": "Osborne Loop Cross"
     },
-    "trailRef": "osborne-loop-cross-trail"
+    "trailRef": "osborne-loop-cross-trail",
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "overland-emmigrant-commemorative-trail",
@@ -47629,7 +47683,7 @@
     "city": "",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada County, included for alpha review while source descriptions are cleaned.",
+    "description": "A walking trail in Nevada County, with its route drawn on this map.",
     "website": "",
     "address": "",
     "phone": "",
@@ -47669,7 +47723,13 @@
       "source": "bylt",
       "matchedName": "Overland Emigrant Commemorative Trail"
     },
-    "trailRef": "overland-emmigrant-commemorative-trail"
+    "trailRef": "overland-emmigrant-commemorative-trail",
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "overland-emmigrant-connector-trail",
@@ -47678,7 +47738,7 @@
     "city": "",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada County, included for alpha review while source descriptions are cleaned.",
+    "description": "A connector trail in Nevada County; its route isn't drawn on this map yet.",
     "website": "",
     "address": "",
     "phone": "",
@@ -47707,7 +47767,13 @@
       "source": "osm",
       "matchedName": "Overland Trail Connector"
     },
-    "trailRef": "overland-emmigrant-connector-trail"
+    "trailRef": "overland-emmigrant-connector-trail",
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "overland-low-water-trail",
@@ -47716,7 +47782,7 @@
     "city": "",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada County, included for alpha review while source descriptions are cleaned.",
+    "description": "A walking trail in Nevada County; its exact location is still being reviewed.",
     "website": "",
     "address": "",
     "phone": "",
@@ -47740,7 +47806,13 @@
     "featured": false,
     "coordinateProvenance": "none",
     "markerTier": "directory-only",
-    "inGvncScope": false
+    "inGvncScope": false,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "overlook-loop-trail",
@@ -47749,7 +47821,7 @@
     "city": "",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada County, included for alpha review while source descriptions are cleaned.",
+    "description": "A loop trail in Nevada County; its exact location is still being reviewed.",
     "website": "",
     "address": "",
     "phone": "",
@@ -47773,7 +47845,13 @@
     "featured": false,
     "coordinateProvenance": "none",
     "markerTier": "directory-only",
-    "inGvncScope": false
+    "inGvncScope": false,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "pacific-crest-trail-castle-peak-trailhead-soda-springs",
@@ -47782,7 +47860,7 @@
     "city": "Soda Springs",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Soda Springs, included for alpha review while source descriptions are cleaned.",
+    "description": "A trailhead on Boreal Ridge Road at Soda Springs where the Pacific Crest Trail sets off toward Castle Peak.",
     "website": "https://www.visitcalifornia.com/attraction/pacific-crest-trail-castle-peak",
     "address": "Boreal Ridge Rd",
     "phone": "",
@@ -47806,7 +47884,13 @@
     "featured": false,
     "coordinateProvenance": "arcgis-confident",
     "markerTier": "map-ready",
-    "inGvncScope": false
+    "inGvncScope": false,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "palisades-creek-trail-soda-springs",
@@ -47815,7 +47899,7 @@
     "city": "Soda Springs",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Soda Springs, included for alpha review while source descriptions are cleaned.",
+    "description": "A walking trail in Soda Springs; its route isn't drawn on this map yet.",
     "website": "https://www.alltrails.com/trail/us/california/palisade-creek-trail",
     "address": "",
     "phone": "",
@@ -47842,7 +47926,13 @@
     "featured": false,
     "coordinateProvenance": "arcgis-confident",
     "markerTier": "map-ready",
-    "inGvncScope": false
+    "inGvncScope": false,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "park-and-walk-trail-chicago-park-chicago-park",
@@ -47906,7 +47996,7 @@
     "city": "Penn Valley",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Penn Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "A bike path in Penn Valley, reached from Penn Valley Drive; its route is not drawn on this map yet.",
     "website": "https://www.bylt.org/trail/penn-valley-bike-trail/",
     "address": "17384 Penn Valley Dr",
     "phone": "",
@@ -47930,7 +48020,13 @@
     "featured": false,
     "coordinateProvenance": "arcgis-confident",
     "markerTier": "map-ready",
-    "inGvncScope": true
+    "inGvncScope": true,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "penner-lake-connector-trail",
@@ -47939,7 +48035,7 @@
     "city": "",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada County, included for alpha review while source descriptions are cleaned.",
+    "description": "A connector trail in Nevada County; its route is drawn on this map.",
     "website": "",
     "address": "",
     "phone": "",
@@ -47979,7 +48075,13 @@
       "source": "bylt",
       "matchedName": "Penner Lake Connector"
     },
-    "trailRef": "penner-lake-connector-trail"
+    "trailRef": "penner-lake-connector-trail",
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "pierce-creek-campground-trail",
@@ -47988,7 +48090,7 @@
     "city": "",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada County, included for alpha review while source descriptions are cleaned.",
+    "description": "A walking trail in Nevada County; its exact location is still being reviewed.",
     "website": "",
     "address": "",
     "phone": "",
@@ -48012,7 +48114,13 @@
     "featured": false,
     "coordinateProvenance": "none",
     "markerTier": "directory-only",
-    "inGvncScope": false
+    "inGvncScope": false,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "pierce-ohv-connector-trail",
@@ -48021,7 +48129,7 @@
     "city": "",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada County, included for alpha review while source descriptions are cleaned.",
+    "description": "An off-highway vehicle (OHV) trail in Nevada County — its route is traced on this map.",
     "website": "",
     "address": "",
     "phone": "",
@@ -48050,7 +48158,13 @@
       "source": "osm",
       "matchedName": "Pierce OHV Connector"
     },
-    "trailRef": "pierce-ohv-connector-trail"
+    "trailRef": "pierce-ohv-connector-trail",
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "pierce-ohv-spur-a-trail",
@@ -48059,7 +48173,7 @@
     "city": "",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada County, included for alpha review while source descriptions are cleaned.",
+    "description": "An off-highway vehicle (OHV) trail in Nevada County; its exact location is still being reviewed.",
     "website": "",
     "address": "",
     "phone": "",
@@ -48083,7 +48197,13 @@
     "featured": false,
     "coordinateProvenance": "none",
     "markerTier": "directory-only",
-    "inGvncScope": false
+    "inGvncScope": false,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "pierce-ohv-spur-b-trail",
@@ -48092,7 +48212,7 @@
     "city": "",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada County, included for alpha review while source descriptions are cleaned.",
+    "description": "An off-highway vehicle (OHV) trail in Nevada County; its exact location is still being reviewed.",
     "website": "",
     "address": "",
     "phone": "",
@@ -48116,7 +48236,13 @@
     "featured": false,
     "coordinateProvenance": "none",
     "markerTier": "directory-only",
-    "inGvncScope": false
+    "inGvncScope": false,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "pioneer-bike-path",
@@ -48125,7 +48251,7 @@
     "city": "",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada County, included for alpha review while source descriptions are cleaned.",
+    "description": "A bike path in Nevada County, with its route drawn on this map.",
     "website": "",
     "address": "",
     "phone": "",
@@ -48165,7 +48291,13 @@
       "source": "bylt",
       "matchedName": "Pioneer Bike Path"
     },
-    "trailRef": "pioneer-bike-path"
+    "trailRef": "pioneer-bike-path",
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "pioneer-commerce-center-trails",
@@ -48174,7 +48306,7 @@
     "city": "",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada County, included for alpha review while source descriptions are cleaned.",
+    "description": "A walking trail in Nevada County; its route is drawn on this map.",
     "website": "",
     "address": "",
     "phone": "",
@@ -48214,7 +48346,13 @@
       "source": "bylt",
       "matchedName": "Pioneer Commerce Center Trails"
     },
-    "trailRef": "pioneer-commerce-center-trails"
+    "trailRef": "pioneer-commerce-center-trails",
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "pioneer-northspur-1-trail",
@@ -48223,7 +48361,7 @@
     "city": "",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada County, included for alpha review while source descriptions are cleaned.",
+    "description": "A walking trail in Nevada County — its route is traced on this map.",
     "website": "",
     "address": "",
     "phone": "",
@@ -48263,7 +48401,13 @@
       "source": "bylt",
       "matchedName": "Pioneer Northspur 1 Trail"
     },
-    "trailRef": "pioneer-northspur-1-trail"
+    "trailRef": "pioneer-northspur-1-trail",
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "pioneer-northspur-2-trail",
@@ -48272,7 +48416,7 @@
     "city": "",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada County, included for alpha review while source descriptions are cleaned.",
+    "description": "A walking trail in Nevada County, with its route drawn on this map.",
     "website": "",
     "address": "",
     "phone": "",
@@ -48312,7 +48456,13 @@
       "source": "bylt",
       "matchedName": "Pioneer Northspur 2 Trail"
     },
-    "trailRef": "pioneer-northspur-2-trail"
+    "trailRef": "pioneer-northspur-2-trail",
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "pioneer-trail",
@@ -48321,7 +48471,7 @@
     "city": "",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada County, included for alpha review while source descriptions are cleaned.",
+    "description": "A walking trail in Nevada County; its route is drawn on this map, and it appears in MUSE's '48 Hours in GVNC: Exploring Culture & Art.'",
     "website": "",
     "address": "",
     "phone": "",
@@ -48361,7 +48511,14 @@
       "source": "bylt",
       "matchedName": "Pioneer Trail"
     },
-    "trailRef": "pioneer-trail"
+    "trailRef": "pioneer-trail",
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "muse",
+        "record"
+      ]
+    }
   },
   {
     "id": "pioneer-trail-south",
@@ -48370,7 +48527,7 @@
     "city": "",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada County, included for alpha review while source descriptions are cleaned.",
+    "description": "A walking trail in Nevada County; its exact location is still being reviewed.",
     "website": "",
     "address": "",
     "phone": "",
@@ -48394,7 +48551,13 @@
     "featured": false,
     "coordinateProvenance": "none",
     "markerTier": "directory-only",
-    "inGvncScope": false
+    "inGvncScope": false,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "pipeline-trail",
@@ -48403,7 +48566,7 @@
     "city": "",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada County, included for alpha review while source descriptions are cleaned.",
+    "description": "A walking trail in Nevada County; its route is drawn on this map.",
     "website": "",
     "address": "",
     "phone": "",
@@ -48443,7 +48606,13 @@
       "source": "bylt",
       "matchedName": "PipeLine Trail"
     },
-    "trailRef": "pipeline-trail"
+    "trailRef": "pipeline-trail",
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "plumbago-trail",
@@ -48452,7 +48621,7 @@
     "city": "",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada County, included for alpha review while source descriptions are cleaned.",
+    "description": "A walking trail in Nevada County; its exact location is still being reviewed.",
     "website": "",
     "address": "",
     "phone": "",
@@ -48476,7 +48645,13 @@
     "featured": false,
     "coordinateProvenance": "none",
     "markerTier": "directory-only",
-    "inGvncScope": false
+    "inGvncScope": false,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "point-defiance-trail-penn-valley",
@@ -48485,7 +48660,7 @@
     "city": "Penn Valley",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Penn Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "A walking trail off Pleasant Valley Road in Penn Valley; its route isn't drawn on this map yet.",
     "website": "http://syrpa.lindberglce.com/defiance.htm",
     "address": "17660 Pleasant Valley Rd",
     "phone": "",
@@ -48510,7 +48685,13 @@
     "coordinateProvenance": "arcgis-confident",
     "markerTier": "map-ready",
     "inGvncScope": true,
-    "websiteStatus": "dead"
+    "websiteStatus": "dead",
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "pond-trail",
@@ -48519,7 +48700,7 @@
     "city": "",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada County, included for alpha review while source descriptions are cleaned.",
+    "description": "A walking trail in Nevada County; its exact location is still being reviewed.",
     "website": "",
     "address": "",
     "phone": "",
@@ -48543,7 +48724,13 @@
     "featured": false,
     "coordinateProvenance": "none",
     "markerTier": "directory-only",
-    "inGvncScope": false
+    "inGvncScope": false,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "preiffer-trail",
@@ -48552,7 +48739,7 @@
     "city": "",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada County, included for alpha review while source descriptions are cleaned.",
+    "description": "A walking trail in Nevada County — its route is traced on this map.",
     "website": "",
     "address": "",
     "phone": "",
@@ -48592,7 +48779,13 @@
       "source": "bylt",
       "matchedName": "Preiffer Trail"
     },
-    "trailRef": "preiffer-trail"
+    "trailRef": "preiffer-trail",
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "prescott-hill-cross-trail",
@@ -48601,7 +48794,7 @@
     "city": "",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada County, included for alpha review while source descriptions are cleaned.",
+    "description": "A walking trail in Nevada County, with its route drawn on this map.",
     "website": "",
     "address": "",
     "phone": "",
@@ -48641,7 +48834,13 @@
       "source": "bylt",
       "matchedName": "Prescott Hill Cross Trail"
     },
-    "trailRef": "prescott-hill-cross-trail"
+    "trailRef": "prescott-hill-cross-trail",
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "prescott-mine-trail",
@@ -48650,7 +48849,7 @@
     "city": "",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada County, included for alpha review while source descriptions are cleaned.",
+    "description": "A walking trail in Nevada County; its route is drawn on this map.",
     "website": "",
     "address": "",
     "phone": "",
@@ -48690,7 +48889,13 @@
       "source": "bylt",
       "matchedName": "Prescott Mine Trail"
     },
-    "trailRef": "prescott-mine-trail"
+    "trailRef": "prescott-mine-trail",
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "prosser-creek-east-ohv-loop-trail",
@@ -48699,7 +48904,7 @@
     "city": "",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada County, included for alpha review while source descriptions are cleaned.",
+    "description": "An off-highway vehicle (OHV) trail in Nevada County; its exact location is still being reviewed.",
     "website": "",
     "address": "",
     "phone": "",
@@ -48723,7 +48928,13 @@
     "featured": false,
     "coordinateProvenance": "none",
     "markerTier": "directory-only",
-    "inGvncScope": false
+    "inGvncScope": false,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "prosser-creek-ohv-loop-trail",
@@ -48732,7 +48943,7 @@
     "city": "",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada County, included for alpha review while source descriptions are cleaned.",
+    "description": "An off-highway vehicle (OHV) trail in Nevada County; its route isn't drawn on this map yet.",
     "website": "",
     "address": "",
     "phone": "",
@@ -48761,7 +48972,13 @@
       "source": "osm",
       "matchedName": "South Prosser Creek Spur"
     },
-    "trailRef": "prosser-creek-ohv-loop-trail"
+    "trailRef": "prosser-creek-ohv-loop-trail",
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "prosser-creek-west-ohv-trail",
@@ -48770,7 +48987,7 @@
     "city": "",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada County, included for alpha review while source descriptions are cleaned.",
+    "description": "An off-highway vehicle (OHV) trail in Nevada County; its exact location is still being reviewed.",
     "website": "",
     "address": "",
     "phone": "",
@@ -48794,7 +49011,13 @@
     "featured": false,
     "coordinateProvenance": "none",
     "markerTier": "directory-only",
-    "inGvncScope": false
+    "inGvncScope": false,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "prosser-hill-connector-1-trail",
@@ -48803,7 +49026,7 @@
     "city": "",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada County, included for alpha review while source descriptions are cleaned.",
+    "description": "A connector trail in Nevada County — its route is traced on this map.",
     "website": "",
     "address": "",
     "phone": "",
@@ -48832,7 +49055,13 @@
       "source": "osm",
       "matchedName": "Prosser Hills Connector"
     },
-    "trailRef": "prosser-hill-connector-1-trail"
+    "trailRef": "prosser-hill-connector-1-trail",
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "prosser-hill-connector-3-trail",
@@ -48841,7 +49070,7 @@
     "city": "",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada County, included for alpha review while source descriptions are cleaned.",
+    "description": "A connector trail in Nevada County, with its route drawn on this map.",
     "website": "",
     "address": "",
     "phone": "",
@@ -48870,7 +49099,13 @@
       "source": "osm",
       "matchedName": "Prosser Hills Connector"
     },
-    "trailRef": "prosser-hill-connector-3-trail"
+    "trailRef": "prosser-hill-connector-3-trail",
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "prosser-hill-jeep-trail",
@@ -48879,7 +49114,7 @@
     "city": "",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada County, included for alpha review while source descriptions are cleaned.",
+    "description": "A jeep trail in Nevada County; its exact location is still being reviewed.",
     "website": "",
     "address": "",
     "phone": "",
@@ -48903,7 +49138,13 @@
     "featured": false,
     "coordinateProvenance": "none",
     "markerTier": "directory-only",
-    "inGvncScope": false
+    "inGvncScope": false,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "prosser-hill-motorcycle-trail",
