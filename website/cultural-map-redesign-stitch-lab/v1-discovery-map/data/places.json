@@ -22070,7 +22070,7 @@
     "city": "Grass Valley",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "A walking trail in Grass Valley, reached from 1000 Cooley Drive.",
     "website": "https://www.fs.usda.gov/r05/tahoe/recreation",
     "address": "1000 Cooley Dr",
     "phone": "",
@@ -22094,7 +22094,13 @@
     "featured": false,
     "coordinateProvenance": "arcgis-confident",
     "markerTier": "map-ready",
-    "inGvncScope": true
+    "inGvncScope": true,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "bear-river-historic-bridge-grass-valley",
@@ -22103,7 +22109,7 @@
     "city": "Grass Valley",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "A Bear River site on the Colfax Highway near Grass Valley, named for the 1908 narrow-gauge railroad bridge that once crossed here — the highest railway bridge in California in its day, demolished in 1963 for the Rollins Dam project.",
     "website": "https://en.wikipedia.org/wiki/Bear_River_Bridge",
     "address": "20010 Colfax Hwy",
     "phone": "",
@@ -22127,7 +22133,14 @@
     "featured": false,
     "coordinateProvenance": "arcgis-confident",
     "markerTier": "candidate",
-    "inGvncScope": true
+    "inGvncScope": true,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "cascade-canal-trail-banner-mountain-nevada-city",
@@ -22191,7 +22204,7 @@
     "city": "Nevada City",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "A network of trails off Champion Mine Road in Nevada City; their routes aren't drawn on this map yet.",
     "website": "https://www.gaiagps.com/hike/326251/champion-mine-road/",
     "address": "",
     "phone": "",
@@ -22221,7 +22234,13 @@
     "featured": false,
     "coordinateProvenance": "arcgis-confident",
     "markerTier": "map-ready",
-    "inGvncScope": true
+    "inGvncScope": true,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "condon-park-trails-grass-valley",
@@ -22269,7 +22288,7 @@
     "city": "Nevada City",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "A stretch of the South Yuba River known as the Emerald Pools, reached from Forest Route 18 near Nevada City.",
     "website": "https://www.outdoorproject.com/adventures/california/hikes/emerald-pools",
     "address": "Forest Rte 18",
     "phone": "",
@@ -22293,7 +22312,13 @@
     "featured": false,
     "coordinateProvenance": "arcgis-confident",
     "markerTier": "map-ready",
-    "inGvncScope": true
+    "inGvncScope": true,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "empire-mine-memorial-park-trail-grass-valley",
@@ -22422,7 +22447,7 @@
     "city": "Nevada City",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "A self-guided fall-colors tour of Nevada City starting from Broad Street; the Nevada City Chamber publishes the route.",
     "website": "https://www.nevadacitychamber.com/images/fallcolors.pdf",
     "address": "100 Broad St",
     "phone": "",
@@ -22449,7 +22474,13 @@
     "featured": false,
     "coordinateProvenance": "arcgis-confident",
     "markerTier": "map-ready",
-    "inGvncScope": true
+    "inGvncScope": true,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "hirschman-trail-nevada-city",
@@ -22796,7 +22827,7 @@
     "city": "Nevada City",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "Nevada City's Pioneer Park, on Nimrod Street — a recurring MUSE stop, from the annual Calendar of Events to 'A Filmmaking Tradition' and 'Lucky Little Towns.'",
     "website": "https://www.nevadacityca.gov/pview.aspx?id=20737&catID=564",
     "address": "425 Nimrod St",
     "phone": "",
@@ -22821,7 +22852,14 @@
     "coordinateProvenance": "osm-rooftop",
     "markerTier": "candidate",
     "inGvncScope": true,
-    "websiteStatus": "dead"
+    "websiteStatus": "dead",
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "muse",
+        "record"
+      ]
+    }
   },
   {
     "id": "rattlesnake-trail-grass-valley",
@@ -22869,7 +22907,7 @@
     "city": "Nevada City",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "Scotts Flat Lake and its trails, off Scotts Flat Road near Nevada City; the Scotts Flat Trail's route is drawn on this map.",
     "website": "https://www.alltrails.com/trail/us/california/scotts-flat-trail",
     "address": "23333 Scotts Flat Rd",
     "phone": "",
@@ -22909,7 +22947,13 @@
       "source": "bylt",
       "matchedName": "Scotts Flat Trail"
     },
-    "trailRef": "scotts-flat-lake-and-trails-nevada-city"
+    "trailRef": "scotts-flat-lake-and-trails-nevada-city",
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "spaulding-reservoir-nevada-city",
@@ -23035,7 +23079,7 @@
     "city": "Grass Valley",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "A self-guided walking tour of Grass Valley, beginning at Neal and South Church Streets and taking in the Del Oro Theatre, the Holbrooke Hotel, and the Mill Street historic district.",
     "website": "https://www.nevadacountygold.com/experience/tours-sightseeing/grass-valley-walking-tour",
     "address": "100 West Main St",
     "phone": "",
@@ -23059,7 +23103,14 @@
     "featured": false,
     "coordinateProvenance": "arcgis-confident",
     "markerTier": "map-ready",
-    "inGvncScope": true
+    "inGvncScope": true,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "walking-tour-of-nevada-city-trees-nevada-city",
@@ -41452,7 +41503,7 @@
     "city": "Alta Sierra",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Alta Sierra, included for alpha review while source descriptions are cleaned.",
+    "description": "A walking trail in Alta Sierra; its route is drawn on this map.",
     "website": "https://www.bylt.org/trail/alan-thiesen-trail",
     "address": "",
     "phone": "",
@@ -41495,7 +41546,13 @@
       "source": "bylt",
       "matchedName": "Alan Theisen Trail"
     },
-    "trailRef": "alan-thiesen-trail-alta-sierra"
+    "trailRef": "alan-thiesen-trail-alta-sierra",
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "andesite-west-ohv-trail-soda-springs",
@@ -41504,7 +41561,7 @@
     "city": "Soda Springs",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Soda Springs, included for alpha review while source descriptions are cleaned.",
+    "description": "An off-highway vehicle (OHV) trail in Soda Springs; its exact location is still being reviewed.",
     "website": "https://www.fs.usda.gov/r05/tahoe/recreation",
     "address": "",
     "phone": "",
@@ -41528,7 +41585,13 @@
     "featured": false,
     "coordinateProvenance": "none",
     "markerTier": "directory-only",
-    "inGvncScope": false
+    "inGvncScope": false,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "baltimore-trail-truckee",
@@ -41537,7 +41600,7 @@
     "city": "Truckee",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Truckee, included for alpha review while source descriptions are cleaned.",
+    "description": "A walking trail in Truckee — its route is traced on this map.",
     "website": "https://www.fs.usda.gov/r05/tahoe/recreation",
     "address": "",
     "phone": "",
@@ -41577,7 +41640,13 @@
       "source": "bylt",
       "matchedName": "Baltimore Trail"
     },
-    "trailRef": "baltimore-trail-truckee"
+    "trailRef": "baltimore-trail-truckee",
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "beaver-pond-route-trail-truckee",
@@ -41646,7 +41715,7 @@
     "city": "",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada County, included for alpha review while source descriptions are cleaned.",
+    "description": "A walking trail in Nevada County, with its route drawn on this map.",
     "website": "https://www.trailforks.com/trails/betsy-mine-trail/",
     "address": "",
     "phone": "",
@@ -41686,7 +41755,13 @@
       "source": "bylt",
       "matchedName": "Betsy Mine Trail"
     },
-    "trailRef": "betsy-mine-trail"
+    "trailRef": "betsy-mine-trail",
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "beyers-lake-trail",
@@ -41695,7 +41770,7 @@
     "city": "",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada County, included for alpha review while source descriptions are cleaned.",
+    "description": "A walking trail in Nevada County; its route is drawn on this map.",
     "website": "https://www.trailforks.com/trails/beyers-lake-trail/",
     "address": "",
     "phone": "",
@@ -41735,7 +41810,13 @@
       "source": "bylt",
       "matchedName": "Beyers Lake Trail"
     },
-    "trailRef": "beyers-lake-trail"
+    "trailRef": "beyers-lake-trail",
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "big-boca-ohv-tie-trail",
@@ -41744,7 +41825,7 @@
     "city": "",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada County, included for alpha review while source descriptions are cleaned.",
+    "description": "An off-highway vehicle (OHV) trail in Nevada County; its route isn't drawn on this map yet.",
     "website": "https://www.alltrails.com/trail/us/california/boca-atv-tie-trail-and-boca-reservoir-loop",
     "address": "",
     "phone": "",
@@ -41773,7 +41854,13 @@
       "source": "osm",
       "matchedName": "Big Boca ATV Tie Trail"
     },
-    "trailRef": "big-boca-ohv-tie-trail"
+    "trailRef": "big-boca-ohv-tie-trail",
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "big-boca-ohv-trail",
@@ -41782,7 +41869,7 @@
     "city": "",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada County, included for alpha review while source descriptions are cleaned.",
+    "description": "An off-highway vehicle (OHV) trail in Nevada County; its route isn't drawn on this map yet.",
     "website": "https://www.alltrails.com/trail/us/california/boca-hill-loop-ohv-trail",
     "address": "",
     "phone": "",
@@ -41811,7 +41898,13 @@
       "source": "osm",
       "matchedName": "Big Boca ATV Tie Trail"
     },
-    "trailRef": "big-boca-ohv-trail"
+    "trailRef": "big-boca-ohv-trail",
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "big-sagehen-ohv-trail",
@@ -41820,7 +41913,7 @@
     "city": "",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada County, included for alpha review while source descriptions are cleaned.",
+    "description": "An off-highway vehicle (OHV) trail in Nevada County; its exact location is still being reviewed.",
     "website": "https://www.outerspatial.com/trails/uid-0517-big-sagehen-ohv?community=west-virginia",
     "address": "",
     "phone": "",
@@ -41844,7 +41937,13 @@
     "featured": false,
     "coordinateProvenance": "none",
     "markerTier": "directory-only",
-    "inGvncScope": false
+    "inGvncScope": false,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "billy-hills-ohv-trail",
@@ -41947,7 +42046,7 @@
     "city": "",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada County, included for alpha review while source descriptions are cleaned.",
+    "description": "A walking trail in Nevada County — its route is traced on this map.",
     "website": "https://www.alltrails.com/trail/us/california/blair-trail",
     "address": "",
     "phone": "",
@@ -41987,7 +42086,13 @@
       "source": "bylt",
       "matchedName": "Blair Trail"
     },
-    "trailRef": "blair-trail"
+    "trailRef": "blair-trail",
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "blue-lake-trail",
@@ -41996,7 +42101,7 @@
     "city": "",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada County, included for alpha review while source descriptions are cleaned.",
+    "description": "A walking trail in Nevada County, with its route drawn on this map.",
     "website": "https://www.alltrails.com/trail/us/california/blue-lake-trail--5",
     "address": "",
     "phone": "",
@@ -42036,7 +42141,13 @@
       "source": "bylt",
       "matchedName": "Blue Lake Trail"
     },
-    "trailRef": "blue-lake-trail"
+    "trailRef": "blue-lake-trail",
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "boca-atv-connector",
@@ -42045,7 +42156,7 @@
     "city": "",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada County, included for alpha review while source descriptions are cleaned.",
+    "description": "An off-highway vehicle (OHV) trail in Nevada County; its exact location is still being reviewed.",
     "website": "https://www.alltrails.com/trail/us/california/boca-atv-tie-trail-and-boca-reservoir-loop",
     "address": "",
     "phone": "",
@@ -42069,7 +42180,13 @@
     "featured": false,
     "coordinateProvenance": "none",
     "markerTier": "directory-only",
-    "inGvncScope": false
+    "inGvncScope": false,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "boca-break-ohv-trail",
@@ -42078,7 +42195,7 @@
     "city": "",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada County, included for alpha review while source descriptions are cleaned.",
+    "description": "An off-highway vehicle (OHV) trail in Nevada County; its exact location is still being reviewed.",
     "website": "https://www.alltrails.com/trail/us/california/boca-hill-loop-ohv-trail",
     "address": "",
     "phone": "",
@@ -42102,7 +42219,13 @@
     "featured": false,
     "coordinateProvenance": "none",
     "markerTier": "directory-only",
-    "inGvncScope": false
+    "inGvncScope": false,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "boca-dam-trail-truckee",
@@ -42111,7 +42234,7 @@
     "city": "Truckee",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Truckee, included for alpha review while source descriptions are cleaned.",
+    "description": "A walking trail in Truckee, off Boca Dam Reservoir Rd; its route is drawn on this map.",
     "website": "",
     "address": "Boca Dam Reservoir Rd",
     "phone": "",
@@ -42151,7 +42274,13 @@
       "source": "bylt",
       "matchedName": "Boca Dam Trail"
     },
-    "trailRef": "boca-dam-trail-truckee"
+    "trailRef": "boca-dam-trail-truckee",
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "boca-hill-ohv-trail",
@@ -42160,7 +42289,7 @@
     "city": "",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada County, included for alpha review while source descriptions are cleaned.",
+    "description": "An off-highway vehicle (OHV) trail in Nevada County; its exact location is still being reviewed.",
     "website": "",
     "address": "",
     "phone": "",
@@ -42184,7 +42313,13 @@
     "featured": false,
     "coordinateProvenance": "none",
     "markerTier": "directory-only",
-    "inGvncScope": false
+    "inGvncScope": false,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "boca-historic-townsite-interpretive-trail",
@@ -42193,7 +42328,7 @@
     "city": "",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada County, included for alpha review while source descriptions are cleaned.",
+    "description": "A walking trail in Nevada County — its route is traced on this map.",
     "website": "",
     "address": "",
     "phone": "",
@@ -42233,7 +42368,13 @@
       "source": "bylt",
       "matchedName": "Boca Townsite Trail"
     },
-    "trailRef": "boca-historic-townsite-interpretive-trail"
+    "trailRef": "boca-historic-townsite-interpretive-trail",
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "boca-ohv-tie-trail",
@@ -42242,7 +42383,7 @@
     "city": "",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada County, included for alpha review while source descriptions are cleaned.",
+    "description": "An off-highway vehicle (OHV) trail in Nevada County; its route isn't drawn on this map yet.",
     "website": "",
     "address": "",
     "phone": "",
@@ -42271,7 +42412,13 @@
       "source": "osm",
       "matchedName": "Boca ATV Tie Trail"
     },
-    "trailRef": "boca-ohv-tie-trail"
+    "trailRef": "boca-ohv-tie-trail",
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "boca-reservoir-truckee",
@@ -42280,7 +42427,7 @@
     "city": "Truckee",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Truckee, included for alpha review while source descriptions are cleaned.",
+    "description": "A reservoir off Stampede Dam Road near Truckee, with camping managed through recreation.gov.",
     "website": "https://www.recreation.gov/camping/gateways/30",
     "address": "Stampede Dam Rd",
     "phone": "",
@@ -42304,7 +42451,13 @@
     "featured": false,
     "coordinateProvenance": "arcgis-confident",
     "markerTier": "map-ready",
-    "inGvncScope": false
+    "inGvncScope": false,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "boca-wye-ohv-trail",
@@ -42313,7 +42466,7 @@
     "city": "",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada County, included for alpha review while source descriptions are cleaned.",
+    "description": "An off-highway vehicle (OHV) trail in Nevada County; its exact location is still being reviewed.",
     "website": "",
     "address": "",
     "phone": "",
@@ -42337,7 +42490,13 @@
     "featured": false,
     "coordinateProvenance": "none",
     "markerTier": "directory-only",
-    "inGvncScope": false
+    "inGvncScope": false,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "boca-too-ohv-trail",
@@ -42346,7 +42505,7 @@
     "city": "",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada County, included for alpha review while source descriptions are cleaned.",
+    "description": "An off-highway vehicle (OHV) trail in Nevada County; its exact location is still being reviewed.",
     "website": "",
     "address": "",
     "phone": "",
@@ -42370,7 +42529,13 @@
     "featured": false,
     "coordinateProvenance": "none",
     "markerTier": "directory-only",
-    "inGvncScope": false
+    "inGvncScope": false,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "borrow-pit-2-ohv-trail",
@@ -42379,7 +42544,7 @@
     "city": "",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada County, included for alpha review while source descriptions are cleaned.",
+    "description": "An off-highway vehicle (OHV) trail in Nevada County; its exact location is still being reviewed.",
     "website": "",
     "address": "",
     "phone": "",
@@ -42403,7 +42568,13 @@
     "featured": false,
     "coordinateProvenance": "none",
     "markerTier": "directory-only",
-    "inGvncScope": false
+    "inGvncScope": false,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "bowman-mountain-trail",
@@ -42412,7 +42583,7 @@
     "city": "",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada County, included for alpha review while source descriptions are cleaned.",
+    "description": "A walking trail in Nevada County, with its route drawn on this map.",
     "website": "",
     "address": "",
     "phone": "",
@@ -42452,7 +42623,13 @@
       "source": "bylt",
       "matchedName": "Bowman Mountain Trail"
     },
-    "trailRef": "bowman-mountain-trail"
+    "trailRef": "bowman-mountain-trail",
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "brockway-road-trail",
@@ -42461,7 +42638,7 @@
     "city": "",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada County, included for alpha review while source descriptions are cleaned.",
+    "description": "A trail in Nevada County; its route is drawn on this map.",
     "website": "",
     "address": "",
     "phone": "",
@@ -42501,7 +42678,13 @@
       "source": "bylt",
       "matchedName": "Brockway Road Trail"
     },
-    "trailRef": "brockway-road-trail"
+    "trailRef": "brockway-road-trail",
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "bullpen-trail",
@@ -42510,7 +42693,7 @@
     "city": "",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada County, included for alpha review while source descriptions are cleaned.",
+    "description": "A walking trail in Nevada County — its route is traced on this map.",
     "website": "",
     "address": "",
     "phone": "",
@@ -42550,7 +42733,13 @@
       "source": "bylt",
       "matchedName": "Bullpen Trail"
     },
-    "trailRef": "bullpen-trail"
+    "trailRef": "bullpen-trail",
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "buttermilk-bend-trail-penn-valley",
@@ -42600,7 +42789,7 @@
     "city": "",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada County, included for alpha review while source descriptions are cleaned.",
+    "description": "A walking trail in Nevada County; its exact location is still being reviewed.",
     "website": "",
     "address": "",
     "phone": "",
@@ -42624,7 +42813,13 @@
     "featured": false,
     "coordinateProvenance": "none",
     "markerTier": "directory-only",
-    "inGvncScope": false
+    "inGvncScope": false,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "castle-valley-east-ohv-trail",
@@ -42633,7 +42828,7 @@
     "city": "",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada County, included for alpha review while source descriptions are cleaned.",
+    "description": "An off-highway vehicle (OHV) trail in Nevada County, with its route drawn on this map.",
     "website": "",
     "address": "",
     "phone": "",
@@ -42673,7 +42868,13 @@
       "source": "bylt",
       "matchedName": "Castle Valley Access Trail"
     },
-    "trailRef": "castle-valley-east-ohv-trail"
+    "trailRef": "castle-valley-east-ohv-trail",
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "cemetery-loop-trail",
@@ -42682,7 +42883,7 @@
     "city": "",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada County, included for alpha review while source descriptions are cleaned.",
+    "description": "A loop trail in Nevada County; its exact location is still being reviewed.",
     "website": "",
     "address": "",
     "phone": "",
@@ -42706,7 +42907,13 @@
     "featured": false,
     "coordinateProvenance": "none",
     "markerTier": "directory-only",
-    "inGvncScope": false
+    "inGvncScope": false,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "china-cove-trail",
@@ -42715,7 +42922,7 @@
     "city": "",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada County, included for alpha review while source descriptions are cleaned.",
+    "description": "A walking trail in Nevada County; its route is drawn on this map.",
     "website": "",
     "address": "",
     "phone": "",
@@ -42755,7 +42962,13 @@
       "source": "bylt",
       "matchedName": "China Cove Trail"
     },
-    "trailRef": "china-cove-trail"
+    "trailRef": "china-cove-trail",
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "church-trail",
@@ -42764,7 +42977,7 @@
     "city": "",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada County, included for alpha review while source descriptions are cleaned.",
+    "description": "A walking trail in Nevada County — its route is traced on this map.",
     "website": "",
     "address": "",
     "phone": "",
@@ -42804,7 +43017,13 @@
       "source": "bylt",
       "matchedName": "Church Trail"
     },
-    "trailRef": "church-trail"
+    "trailRef": "church-trail",
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "coldstream-trail",
@@ -42813,7 +43032,7 @@
     "city": "",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada County, included for alpha review while source descriptions are cleaned.",
+    "description": "A walking trail in Nevada County, with its route drawn on this map.",
     "website": "",
     "address": "",
     "phone": "",
@@ -42842,7 +43061,13 @@
       "source": "osm",
       "matchedName": "Coldstream Trail"
     },
-    "trailRef": "coldstream-trail"
+    "trailRef": "coldstream-trail",
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "coldstream-trailhead-truckee",
@@ -42851,7 +43076,7 @@
     "city": "Truckee",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Truckee, included for alpha review while source descriptions are cleaned.",
+    "description": "A trailhead on Cold Stream Road in Truckee; the Coldstream Trail's route is drawn on this map.",
     "website": "https://www.alltrails.com/trail/us/california/cold-stream-trail--2",
     "address": "Cold Stream Rd",
     "phone": "",
@@ -42875,7 +43100,13 @@
     "featured": false,
     "coordinateProvenance": "arcgis-confident",
     "markerTier": "map-ready",
-    "inGvncScope": false
+    "inGvncScope": false,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "comstock-dive-bike-path",
@@ -42884,7 +43115,7 @@
     "city": "",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada County, included for alpha review while source descriptions are cleaned.",
+    "description": "A bike path in Nevada County; its route is drawn on this map.",
     "website": "",
     "address": "",
     "phone": "",
@@ -42924,7 +43155,13 @@
       "source": "bylt",
       "matchedName": "Comstock Drive Bike Path"
     },
-    "trailRef": "comstock-dive-bike-path"
+    "trailRef": "comstock-dive-bike-path",
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "condon-park-service-roads",
@@ -42933,7 +43170,7 @@
     "city": "",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada County, included for alpha review while source descriptions are cleaned.",
+    "description": "A walking trail in Nevada County — its route is traced on this map.",
     "website": "",
     "address": "",
     "phone": "",
@@ -42973,7 +43210,13 @@
       "source": "bylt",
       "matchedName": "Condon Park Trails"
     },
-    "trailRef": "condon-park-service-roads"
+    "trailRef": "condon-park-service-roads",
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "conlon-mine-trail",
