@@ -1,0 +1,76 @@
+{
+  "pass": true,
+  "deterministic": {
+    "D1": {
+      "pass": true,
+      "evidence": "preview_console_logs level=error returned 'No console logs' after fresh ?motion=1 load plus full pass (drift auto-ran 9 stops, HUD/wheel/dot-click pauses, search, index pills+box, route drift, three dossiers, home) and the ?motion=0 load; only warn-level basemap sprite messages ('Image \"reservoir\" could not be loaded') exist, which are warnings from the openfreemap style, not errors."
+    },
+    "D2": {
+      "pass": true,
+      "evidence": "On arrival after the cold open the band was up with glyph '⏸' and class 'run'; MutationObserver logged unattended advance stop 6 'Empire Mine' through stop 14 'Walking Tour of Nevada City Trees' (9 stops) at deltas 7989-8004ms (DWELL 7400 + timer jitter), with the 'run' class re-applied on every stop (progress-line restart via classList.remove/offsetWidth/add at source lines 580-581; the fill animation itself is zeroed by the environment's reduced-motion CSS, judged by class evidence per spec header)."
+    },
+    "D3": {
+      "pass": true,
+      "evidence": "While broadcasting (⏸): #z-in click -> glyph '▶', run removed, toast.show with 'You have the wheel. ▶ or Space to drift again.' (HUD buttons call pause() unquieted, lines 835-840); Space keydown resumed (⏸/run); real WheelEvent on the map canvas paused again with the same toast; resumed, then real mousedown/mouseup/click at the projected point of rendered dot 'Roundabout by Sierra College' paused the broadcast (pause() line 700), showed the toast, and dealt that dot's card ('1 / 1 on this frequency'); Space resumed afterwards (pool rebuilt to 257)."
+    },
+    "D4": {
+      "pass": true,
+      "evidence": "Night click: toast 'Night — stages up, lights on · 43 places' (pool size reported), b-count denominator 1->43 vs All-day 257 (drift pool refiltered); getFilter showed ['in',['get','category'],['literal',['Performing Arts','Eat, Drink & Stay']]] appended on places-dots, places-approx, anchor-dots AND anchor-labels; queryRenderedFeatures at z11.2 county view returned only those categories on all four layers (anchor-dots/labels: Performing Arts only in view)."
+    },
+    "D5": {
+      "pass": true,
+      "evidence": "'/' keydown opened #search with document.activeElement===#sq at +150ms; typing 'truckee' rendered 9 rows all matching; Enter on mapped top hit 'Holidays at the Empire Mine' closed the overlay, dealt its poster card (b-name matched) and map.isMoving()===true (flyTo); Esc dispatched from the focused input closed the overlay. Note: an unmapped top hit ('Encompass Films', lat null) instead shows the designed 'isn't mapped yet' toast and opens its dossier."
+    },
+    "D6": {
+      "pass": true,
+      "evidence": "#open-index opened the sheet showing 'Every place · 1,351'; ixq 'truckee' -> 327; Public Art pill -> 62 with all visible row metas 'Public Art · …'; clicking route row 'Living Like a Local' closed the sheet, toasted 'Drifting “Living Like a Local” — 4 stops, in order.', counter read 'Stop 1 / 4' then 'Stop 3 / 4'/'Stop 4 / 4', and observed stops (Booktown Books … Nevada City Winery, Nevada Theatre) matched paths.json stop order exactly."
+    },
+    "D7": {
+      "pass": true,
+      "evidence": "Three live dossiers: Banner Mountain Artisans -> 'Pin status: Verified — building-accurate' + Website/Directions links; Ananda Crystal Hermitage Gardens (candidate) -> 'Approximate — under review' + caveat 'Tier downgraded by audit: 210m from exact address geocode.'; Community Asian Theatre (CATS) -> 'Directory listing — not yet mapped' with Website only (no Directions, no coords)."
+    },
+    "D8": {
+      "pass": true,
+      "evidence": "Computed backgroundImage on #b-ph, #dr-ph and an index .th all resolved to assets/category-placeholders-ncac/*.png painted beneath the <img> (e.g. arts-organizations.png); placeholder HEAD requests returned 200; source lines 377-384 add a capture-phase error listener swapping any failed img to its data-ph placeholder."
+    },
+    "D9": {
+      "pass": true,
+      "evidence": "getPaintProperty: places-approx circle-color 'rgba(0,0,0,0)' at every zoom (ring-only via #5E5852 stroke) with circle-stroke-opacity ['interpolate',…,12.2,0,13.1,0.5] (rings emerge ~z12.4); places-dots filter ['==',tier,'map-ready'] with solid '#1A1A1A' fill ('#FF2E00' only when feature-state sel); filters are mutually exclusive on tier so approximate records can never join the solid-dot layer."
+    },
+    "D10": {
+      "pass": true,
+      "evidence": "?motion=0: play glyph '▶' (title 'Drift'), one card dealt ('1 / 257') and b-name unchanged ('Art Works Gallery') across an 8.5s unattended wait (no auto-drift); ArrowRight changed center synchronously with map.isMoving()===false immediately after (jumpTo, not flyTo); .pulse::after and .prog i computed animationName 'none' (the page's prefers-reduced-motion CSS, active in this environment, zeroes both — judged per spec header; JS adds no other pulse mechanism)."
+    },
+    "D11": {
+      "pass": true,
+      "evidence": "At 800x900: #b-ph display none, band-in two columns (629/170) and band width 800 fits viewport, .dial order:3, width 800, overflow-x auto (scrollable), #search open at 800px wide, #index 430px within max-width 100vw; at 375x812: index capped at 375px (100vw), band fits, all five dial buttons reachable (scrollWidth 374 = clientWidth)."
+    },
+    "D12": {
+      "pass": true,
+      "evidence": "Space toggled drift (three observed resumes plus pauses); ArrowRight/ArrowLeft stepped Stop 3->4->3 while pausing; '/' opened search; Esc with search+dossier+index all open closed them in exactly that order over three presses, and a fourth-context Esc with no overlays paused the running drift with the handoff toast; with #ixq focused, Space, ArrowRight and '/' all did nothing (glyph, count and search state unchanged), while the same Space on body immediately resumed."
+    },
+    "D13": {
+      "pass": true,
+      "evidence": "Source hex sweep: only #FF2E00/#1A1A1A/#5E5852/#FAF6EC/#F5F0E8/#D8D0C6/#FFFFFF/#fff plus the four secondaries appearing exactly once each — in the FIELDS array (line 425) whose sole consumer is band.style.background (line 563, full-bleed band field); all rgba() are alpha variants of canonical colors; border-radius only at 50% on .pulse/.pulse::after/.evdot (circles) and 0 on the popup; all six font-family declarations are var(--font-brand) (Polymath stack), confirmed live by a DOM sweep finding zero non-Polymath text elements and zero rogue radii."
+    },
+    "D14": {
+      "pass": true,
+      "evidence": "Live computed-style scan of visible chrome found red backgrounds only on .mark (the typemark plate) and .pill.on (selected-state signal); every other red in source is a state signal — dial .on::after underline, selection pulse, .evdot event dots, hover accents (.sr/.rt/.row/.dr-x/.s-x), #ixq focus outline — plus the dossier's primary action link (red marks the live action, Directions stays quiet ink). The rotating poster FIELDS array can paint the band red, but that is the campaign/poster surface D13 defines, not chrome; the cold open is a transient title card that lifts away."
+    }
+  },
+  "judged": {
+    "J1": {
+      "score": 4,
+      "why": "Frozen at a stop (verified at 1280px: 'NEVADA THEATRE' at 46px/700 uppercase with -2.5% tracking over a single full-bleed #00A3A3 field, 300px/1fr/auto grid, letterspaced kicker, 60ch hook, hairline progress, red plate top-left on a desaturated sepia map) the band reads as disciplined Arbex poster grammar — genuinely good, though it is a strip-poster whose composition I could verify structurally but not optically in this headless environment."
+    },
+    "J2": {
+      "score": 4,
+      "why": "The broadcast metaphor is coherent and inviting — steady unhurried 7.4s dwells, eased 3.4s flights (1.4s when you steer), per-stop zoom variation and rotating field colors, a dial that re-tunes pool and map with a one-line mood toast, ordered route drifts, and every natural gesture (drag, wheel, dot click, HUD) hands you the wheel with a charming toast — nothing jittery or gimmicky; solidly good rather than certifiably exceptional under this reduced-motion test rig."
+    },
+    "J3": {
+      "score": 5,
+      "why": "fable-best is a lean-forward catalog (persistent left field-guide panel with search/pills/expeditions/index, paper intro, manual tours) while fable-drift is a lean-back broadcast (red cold open, autonomous poster band, time-of-day dial as the primary lens, search/index demoted to summonable overlays) — shared brand components (dossier, HUD, dots) read as one brand, but the product concept, entry, primary surface and default mode are unmistakably different."
+    }
+  },
+  "summary": "PASS — all 14 deterministic items verified live against http://localhost:4173/fable-drift.html (motion=1 and motion=0) plus full source sweeps; J1=4, J2=4, J3=5. Environment interventions (test rig only, artifact untouched): the ?motion=0 navigation stalled on MapLibre style load in the hidden preview window — repaired by shimming requestAnimationFrame onto setTimeout, one setStyle re-trigger while no page layers existed yet, aborting a stale pre-shim _frameRequest, and a 60ms triggerRepaint pump until 'load' fired; viewport resized explicitly (native preview width is 735px) to 1280/800/375 for desktop and responsive checks; interactions were driven with real DOM events (WheelEvent/MouseEvent on the canvas, KeyboardEvent on document/inputs). Notes: search Enter on an unmapped top hit opens its dossier with an explanatory toast instead of flying (designed fallback); the rotating poster field includes red/ink as band fields, read as campaign surface per the chrome-vs-poster distinction in D13/D14."
+}
