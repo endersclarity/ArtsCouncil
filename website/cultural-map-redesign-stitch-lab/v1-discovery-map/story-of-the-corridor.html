@@ -195,19 +195,6 @@
     .chapter.light .chapter-description strong { color: var(--ink); }
     .chapter.dark .chapter-description strong { color: #fff; }
 
-    .stat-row {
-      display: flex; gap: 38px; margin-top: 30px; flex-wrap: wrap;
-    }
-    .stat { display: flex; flex-direction: column; gap: 4px; }
-    .stat-num {
-      font-family: var(--font-display); font-size: 2.4rem; line-height: 1;
-      color: var(--red);
-    }
-    .stat-label {
-      font-size: 0.74rem; text-transform: uppercase; letter-spacing: 0.14em;
-      opacity: 0.6;
-    }
-
     .illustration {
       position: relative; height: 420px;
       display: flex; align-items: center; justify-content: center;
@@ -301,7 +288,7 @@
     }
     /* Polymath display voice: hierarchy by weight, tight tracking (brand rule).
        Last in the sheet so it wins ties with the per-element rules above. */
-    .hero-title, .chapter-title, .stat-num, .quote, .finale-title {
+    .hero-title, .chapter-title, .quote, .finale-title {
       font-weight: 700; letter-spacing: -0.02em;
     }
   </style>
@@ -384,11 +371,6 @@
             Each one is a dot on the map and a paragraph in the guide: what it is, why it&rsquo;s
             worth the stop, and what makes it unmistakably <em>this</em> county.
           </p>
-        </div>
-        <div class="stat-row">
-          <div class="stat"><span class="stat-num" data-stat="places">1,351</span><span class="stat-label">Cultural places</span></div>
-          <div class="stat"><span class="stat-num" data-stat="mapready">1,034</span><span class="stat-label">Mapped &amp; ready</span></div>
-          <div class="stat"><span class="stat-num" data-stat="categories">10</span><span class="stat-label">Outing types</span></div>
         </div>
       </div>
       <div class="illustration">
@@ -486,10 +468,6 @@
             question anyone actually asks: <strong>&ldquo;what should I do this weekend?&rdquo;</strong>
           </p>
         </div>
-        <div class="stat-row">
-          <div class="stat"><span class="stat-num" data-stat="events">48</span><span class="stat-label">Live events mapped</span></div>
-          <div class="stat"><span class="stat-num">9</span><span class="stat-label">Feeds, nightly</span></div>
-        </div>
       </div>
       <div class="illustration">
         <!-- A theatre marquee / poster glowing -->
@@ -562,10 +540,6 @@
             History is underfoot out here: many of these paths follow the ditches and rail grades
             that the gold rush cut into the hills. The walk <strong>is</strong> the exhibit.
           </p>
-        </div>
-        <div class="stat-row">
-          <div class="stat"><span class="stat-num" data-stat="trails">159</span><span class="stat-label">Trails matched</span></div>
-          <div class="stat"><span class="stat-num" data-stat="walks">270</span><span class="stat-label">Walks &amp; trails listed</span></div>
         </div>
       </div>
     </div>
@@ -675,31 +649,6 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
   <script>
-    /* Stats stay honest: recompute every [data-stat] from the live data files
-       (they refresh nightly). The printed numbers are the fallback when the
-       fetch fails; the count-up reads whatever is in the DOM at scroll time. */
-    (async () => {
-      try {
-        const [placesRaw, events, trails] = await Promise.all([
-          'data/places.json', 'data/events.json', 'data/trails.json',
-        ].map(u => fetch(u).then(r => r.json())));
-        const places = placesRaw.places || placesRaw;
-        const counts = {
-          places: places.length,
-          mapready: places.filter(p => p.locationReviewStatus === 'Map-Ready').length,
-          categories: new Set(places.map(p => p.category).filter(Boolean)).size,
-          events: events.length,
-          trails: Object.keys(trails.trails || trails).length,
-          walks: places.filter(p => p.category === 'Walks & Trails').length,
-        };
-        document.querySelectorAll('[data-stat]').forEach(el => {
-          const v = counts[el.dataset.stat];
-          if (Number.isFinite(v) && v > 0) el.textContent = v.toLocaleString('en-US');
-        });
-      } catch (e) { /* printed fallbacks stand */ }
-    })();
-  </script>
-  <script>
     const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     gsap.registerPlugin(ScrollTrigger);
 
@@ -794,29 +743,6 @@
         gsap.from(content, {
           opacity: 0, y: 44, duration: 1, ease: 'power3.out',
           scrollTrigger: { trigger: content, start: 'top 82%' }
-        });
-      });
-
-      /* ---- Stat count-up ---- */
-      /* Target is read at scroll-arrival, not registration, so the live-stat
-         recompute (below) can rewrite the numbers before anyone scrolls here. */
-      gsap.utils.toArray('.stat-num').forEach(el => {
-        ScrollTrigger.create({
-          trigger: el, start: 'top 86%', once: true,
-          onEnter: () => {
-            const raw = el.textContent.trim();
-            const target = parseInt(raw.replace(/[^0-9]/g, ''), 10);
-            if (!target) return;
-            const useComma = raw.includes(',') || target >= 1000;
-            const obj = { v: 0 };
-            gsap.to(obj, {
-              v: target, duration: 1.4, ease: 'power2.out',
-              onUpdate: () => {
-                const n = Math.round(obj.v);
-                el.textContent = useComma ? n.toLocaleString('en-US') : String(n);
-              }
-            });
-          }
         });
       });
 
