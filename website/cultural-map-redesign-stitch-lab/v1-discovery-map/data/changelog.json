@@ -3,6 +3,12 @@
   "entries": [
     {
       "date": "2026-07-02",
+      "title": "Trails show themselves, and the map always knows the way home",
+      "summary": "Opening the Trails tab now draws the whole trail network on the map right away — 150 real routes traced as quiet lines, with your chosen trail highlighted in red on top — instead of an empty map waiting for a pick. And after any flight to a far corner of the county, a new 'County view' button in the top corner of the map brings you straight back to the familiar overview of Grass Valley and Nevada City.",
+      "kind": "improvement"
+    },
+    {
+      "date": "2026-07-02",
       "title": "Trail cards speak to visitors, and trail filters tell the truth",
       "summary": "Trail detail cards no longer show behind-the-scenes working notes: a trail whose route is drawn on the map no longer claims its location is 'coming soon', the internal note about descriptions being cleaned up is gone, and trails without a photo simply skip the photo block instead of showing an empty 'not yet sourced' frame. The trail filters also got honest: Surface and Uses now offer clean single choices (no more duplicate spellings of the same surface), and picking 'Hiking' now correctly includes every trail that allows hiking, even where the source data lists several uses together.",
       "kind": "improvement"

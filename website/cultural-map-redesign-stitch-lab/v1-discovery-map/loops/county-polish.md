@@ -92,3 +92,20 @@
   drift, pre-existing, not this loop's doing. Spawned owner chip task_40ea3890
   to repair.
 - Next: batch 2 = items 3-4 (trails first paint + county reset).
+
+### Pass 2 — 2026-07-02 (fix batch 2: backlog items 3-4)
+- Attempted: (a) Trails-lens network layer — trail-lines source now carries ALL
+  filtered trails as quiet ink lines (per-feature `selected` flag keeps the one
+  red framing device for the pick; white casing selected-only), synced through
+  setSourceData/clearTrailLine so filters, selection, and mode exits all agree.
+  (b) County-view reset chip (#county-reset, top-right map overlay, brand chip
+  register, hidden while drifting, 44px coarse target) → eases to the initial
+  county view, pitch/bearing flattened.
+- Verified live (rig, tab 646762187): trails first paint = 150 line features
+  drawn (9 of 159 are trailhead-only); select Thiesen → 150 features / exactly
+  1 selected, camera z16; County view click → camera exactly home (-121.04,
+  39.24, z10.7, pitch 0); back to Places → 0 features (network cleared);
+  screenshot shows network + chip + clean filters at first paint. node --check
+  clean. Tokens cla-88-pass2.
+- Next: batch 3 = drift-bar occlusion (P1-5) + drawer focus/Escape (A0-1,
+  A1-2) + tabs ARIA (A0-2).

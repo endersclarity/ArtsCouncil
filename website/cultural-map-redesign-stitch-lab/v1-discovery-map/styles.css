@@ -2262,6 +2262,45 @@ button.event-mini:hover {
   }
 }
 
+/* One way home: the county-view chip sits over the map, always reachable
+   after any flight or trail fit strands the camera. */
+.county-reset {
+  position: absolute;
+  top: 18px;
+  right: 18px;
+  z-index: 3;
+  border: 1.5px solid var(--ink);
+  background: var(--panel);
+  color: var(--ink);
+  font: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  padding: 7px 12px;
+  cursor: pointer;
+  box-shadow: var(--shadow-low);
+}
+
+.county-reset:hover {
+  background: var(--ink);
+  color: var(--panel);
+}
+
+.county-reset:focus-visible {
+  outline: 0;
+  box-shadow: var(--focus-ring);
+}
+
+/* Drift owns the camera while it runs — its own bar is the way out. */
+body.drifting .county-reset {
+  display: none;
+}
+
+@media (pointer: coarse) {
+  .county-reset {
+    min-height: 44px;
+  }
+}
+
 .map-legend {
   position: absolute;
   right: 18px;

@@ -289,15 +289,37 @@
     const t = state.trails[place.trailRef];
     return t && t.geometry ? t : null;
   }
+  function trailLineFeature(place, selected) {
+    const t = trailFor(place);
+    if (!t || !t.hasLine) return null;
+    return { type: "Feature", geometry: t.geometry, properties: { id: place.id, selected: Boolean(selected) } };
+  }
+  // The Trails lens shows its whole (filtered) network as a quiet ink layer —
+  // the tab promises 159 trails, so the map must show trails before any list
+  // pick. Selection stays the single red line over the network.
+  function drawTrailNetwork(selectedId) {
+    const src = state.map && state.map.getSource("trail-lines");
+    if (!src) return;
+    const features = state.mode === "trails"
+      ? filteredTrailPlaces().map((place) => trailLineFeature(place, place.id === selectedId)).filter(Boolean)
+      : [];
+    src.setData({ type: "FeatureCollection", features });
+  }
   function drawSelectedTrail(place) {
     const src = state.map && state.map.getSource("trail-lines");
     if (!src) return false;
-    const t = trailFor(place);
-    if (!t || !t.hasLine) { src.setData({ type: "FeatureCollection", features: [] }); return false; }
-    src.setData({ type: "Feature", geometry: t.geometry, properties: { id: place.id } });
-    return true;
+    const selected = trailLineFeature(place, true);
+    if (state.mode === "trails") {
+      drawTrailNetwork(selected ? place.id : "");
+      return Boolean(selected);
+    }
+    src.setData(selected ? { type: "FeatureCollection", features: [selected] } : { type: "FeatureCollection", features: [] });
+    return Boolean(selected);
   }
   function clearTrailLine() {
+    // In the Trails lens, "cleared" means back to the quiet network — never a
+    // blank stage under a tab that promises trails.
+    if (state.mode === "trails") { drawTrailNetwork(""); return; }
     const src = state.map && state.map.getSource("trail-lines");
     if (src) src.setData({ type: "FeatureCollection", features: [] });
   }
@@ -892,6 +914,8 @@
     if (placeSource) {
       placeSource.setData({ type: "FeatureCollection", features: places });
     }
+    // Trails-lens network follows the same filter changes as the dots.
+    if (state.mode === "trails") drawTrailNetwork(state.selectedPlaceId);
     setLocalRevealSourceData();
 
     const events = state.mode === "events" ? lensFilteredEvents().map(eventToFeature) : [];
@@ -3106,6 +3130,17 @@
     if (event.key === "Escape" && drift.on) endDrift();
   });
 
+  // Every selection flies the camera somewhere; this is the one control that
+  // always brings it home to the county overview (critique P1: the stranded
+  // viewport had no recovery affordance).
+  document.getElementById("county-reset")?.addEventListener("click", () => {
+    if (!state.map) return;
+    if (drift.on) endDrift();
+    const view = isMobileViewport() ? MOBILE_INITIAL_MAP_VIEW : DESKTOP_INITIAL_MAP_VIEW;
+    if (prefersReducedMotion()) state.map.jumpTo({ ...view, pitch: 0, bearing: 0 });
+    else state.map.easeTo({ ...view, pitch: 0, bearing: 0, duration: 900 });
+  });
+
   function renderDiscoveryRail() {
     if (!els.railTrack) return;
     const filter = state.railFilter;
@@ -3692,19 +3727,23 @@
     // Trail line (shared core): a white casing under a brand-red line, both
     // inserted before "place-density" so the line draws UNDER the place dots.
     state.map.addSource("trail-lines", { type: "geojson", data: { type: "FeatureCollection", features: [] } });
+    // The same source now carries the whole Trails-lens network (quiet ink)
+    // plus the selection (white casing under brand red) — selected is a
+    // per-feature flag so one red framing device survives 159 lines on screen.
+    const trailSelected = ["to-boolean", ["get", "selected"]];
     state.map.addLayer({
       id: "trail-line-casing", type: "line", source: "trail-lines",
       layout: { "line-cap": "round", "line-join": "round" },
       paint: { "line-color": "#ffffff",
-               "line-width": ["interpolate", ["linear"], ["zoom"], 10, 4, 16, 9],
-               "line-opacity": 0.85 },
+               "line-width": ["interpolate", ["linear"], ["zoom"], 10, ["case", trailSelected, 4, 0], 16, ["case", trailSelected, 9, 0]],
+               "line-opacity": ["case", trailSelected, 0.85, 0] },
     }, "place-density");
     state.map.addLayer({
       id: "trail-line", type: "line", source: "trail-lines",
       layout: { "line-cap": "round", "line-join": "round" },
-      paint: { "line-color": MARKERS.red,
-               "line-width": ["interpolate", ["linear"], ["zoom"], 10, 2.4, 16, 5.5],
-               "line-opacity": 0.95 },
+      paint: { "line-color": ["case", trailSelected, MARKERS.red, "#555555"],
+               "line-width": ["interpolate", ["linear"], ["zoom"], 10, ["case", trailSelected, 2.4, 1.1], 16, ["case", trailSelected, 5.5, 2.6]],
+               "line-opacity": ["case", trailSelected, 0.95, 0.55] },
     }, "place-density");
 
     const showPlaceFromFeature = (event) => {
