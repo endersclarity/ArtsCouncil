@@ -134,3 +134,21 @@
   disagreement, ISO dates + recurrence flood, stale search, static legend,
   trails URL sync), P3 batch.
 - Next: batch 4 = A1 trio, then RE-CRITIQUE (3 fix passes done).
+
+### Pass 4 — 2026-07-02 (fix batch 4: A1-3 + A1-4 + A1-1)
+- Attempted: (a) `--ncac-red-text: #d61f00` (5.18:1 on white, computed) for
+  .trail-facts dt + .featured-muse-badge-link; decorative #ff2500 untouched.
+  (b) Drift live-region: aria-live off the bar; new sr-only
+  #drift-bar-announce (polite + atomic) written once per stop on arrival
+  only. (c) renderDiscoveryRail preserves keyboard focus across the innerHTML
+  swap (re-find by data-rail-index, first-card/track fallback). Added .sr-only
+  utility.
+- Verified live (rig): --ncac-red-text resolves #d61f00; rail focus survives
+  chip switch (stayed on a card, not body); drift start → announce reads
+  "Now at Center for the Arts, stop 1 of 42" exactly once on arrival; bar has
+  NO aria-live; Esc exit clean. node --check ok. Tokens cla-88-pass4.
+- MERGE-MARSHAL note: task_40ea3890 landed 1f9fe2c (contract tests repaired,
+  both PASS on master now); changelog rebase conflict resolved keeping both
+  entries (see loops/merge-marshal.md pass 1).
+- Backlog now: P2 batch + P3 batch only (no known P0/P1-class items open).
+- Next: RE-CRITIQUE (fresh agent, same brief/scale) — this decides the exit.

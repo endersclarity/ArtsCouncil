@@ -2972,6 +2972,7 @@
     toggle: document.getElementById("drift-toggle"),
     bar: document.getElementById("drift-bar"),
     label: document.getElementById("drift-bar-label"),
+    announce: document.getElementById("drift-bar-announce"),
     name: document.getElementById("drift-bar-name"),
     meta: document.getElementById("drift-bar-meta"),
     count: document.getElementById("drift-bar-count"),
@@ -3002,6 +3003,11 @@
     driftEls.meta.textContent = [place.category, place.city].filter(Boolean).join(" · ");
     driftEls.count.textContent = `${drift.i + 1} / ${drift.pool.length}`;
     driftEls.bar.classList.toggle("en-route", Boolean(enRoute));
+    // One announcement per stop, on arrival only — the bar is not a live
+    // region, so the en-route swap stays silent for screen readers.
+    if (!enRoute && driftEls.announce) {
+      driftEls.announce.textContent = `Now at ${place.name}, stop ${drift.i + 1} of ${drift.pool.length}`;
+    }
     if (!enRoute && gsapMotionOn()) {
       const gsap = window.gsap;
       gsap.killTweensOf([driftEls.name, driftEls.meta]);
@@ -3182,6 +3188,11 @@
 
   function renderDiscoveryRail() {
     if (!els.railTrack) return;
+    // The innerHTML swap below destroys a keyboard-focused card (the arrow
+    // walker puts focus on cards) — note it so focus survives the rebuild.
+    const focusedCard = els.railTrack.contains(document.activeElement)
+      ? document.activeElement.dataset?.railIndex
+      : null;
     const filter = state.railFilter;
     const visibleItems = state.railItems
       .map((item, index) => ({ item, index }))
@@ -3205,6 +3216,11 @@
     els.railTrack.querySelectorAll("[data-rail-index]").forEach((card) => {
       card.addEventListener("click", () => activateRailCard(Number(card.dataset.railIndex), card));
     });
+    if (focusedCard !== null) {
+      const again = els.railTrack.querySelector(`[data-rail-index="${CSS.escape(focusedCard)}"]`)
+        || els.railTrack.querySelector("[data-rail-index]");
+      (again || els.railTrack).focus({ preventScroll: true });
+    }
     syncRailArrows();
     animateRailEntrance();
   }

@@ -3,6 +3,12 @@
   "entries": [
     {
       "date": "2026-07-02",
+      "title": "Easier-to-read red labels and calmer screen-reader narration",
+      "summary": "The small red labels on trail fact tables and MUSE badges now use a slightly deeper cut of the brand red that meets accessibility contrast standards on white — the bright poster red stays for frames, rings, and big marks where it belongs. During a Drift tour, screen readers now hear one clear announcement per stop ('Now at Center for the Arts, stop 1 of 42') instead of a running commentary of every bar update. And keyboard focus in the bottom card strip survives switching between Everything / Events / Places instead of being dropped.",
+      "kind": "improvement"
+    },
+    {
+      "date": "2026-07-02",
       "title": "Keyboard and screen-reader browsing works the way it should",
       "summary": "Closing a place card now returns you exactly where you were — keyboard focus goes back to the list row or card you picked from, instead of silently dropping to the top of the page. The Escape key now closes an open place card (and still ends a Drift tour first if one is running). The Places / Events / Paths / Trails switcher announces itself properly to screen readers as a group of toggle buttons with a clear pressed state. And during a Drift tour, the pause and next buttons always stay visible — the place card can no longer cover them on shorter screens.",
       "kind": "improvement"

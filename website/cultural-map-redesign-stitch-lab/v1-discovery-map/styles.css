@@ -15,6 +15,10 @@
      ground — white surfaces, black text, gray #F7F7F7 wells — and the red
      corrects to the canonical Nevada County Red #FF2500. */
   --ncac-red: #ff2500;
+  /* Text-safe cut of the brand red: #ff2500 on white is 3.81:1 (fails AA for
+     body-size text). Use this 5.18:1 print-red wherever red renders as small
+     text; the decorative #ff2500 stays for frames, rings, and large marks. */
+  --ncac-red-text: #d61f00;
   --ncac-red-soft: rgba(255, 37, 0, 0.08);
   --ncac-red-ring: rgba(255, 37, 0, 0.28);
   --ink: #000000;
@@ -2262,6 +2266,19 @@ button.event-mini:hover {
   }
 }
 
+/* Screen-reader-only text: rendered for AT, invisible on screen. */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* One way home: the county-view chip sits over the map, always reachable
    after any flight or trail fit strands the camera. */
 .county-reset {
@@ -3356,7 +3373,7 @@ a.muse-directory-badge-link:hover {
   font-family: var(--font-brand);
   font-weight: 800;
   font-size: 12px;
-  color: var(--ncac-red);
+  color: var(--ncac-red-text);
 }
 
 .featured-muse-badge-link:hover {
@@ -3546,7 +3563,7 @@ button.seen-in-muse-story,
 .trail-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 8px 16px; margin: 12px 0;
   border-top: 1px solid var(--line); padding-top: 12px; }
 .trail-facts dt { font-size: 11px; font-weight: 700; text-transform: uppercase;
-  letter-spacing: 0.04em; color: var(--ncac-red); margin: 0; }
+  letter-spacing: 0.04em; color: var(--ncac-red-text); margin: 0; }
 .trail-facts dd { margin: 2px 0 0; font-size: 14px; }
 .trail-permitted { font-size: 12px; color: var(--ink-soft); margin: 8px 0 0; line-height: 1.4; }
 .trail-source { font-size: 12px; margin: 6px 0 0; }

@@ -32,3 +32,17 @@ history says unmarshalled parallel writers clobber each other.
 
 ## Iteration log
 (append-only: pass #, task integrated, verifier result, delta)
+
+### Pass 1 — 2026-07-02: task_40ea3890 (contract-test repair) INTEGRATED
+- The chip session pushed 1f9fe2c to origin/master on its own (repo write
+  access from its worktree): repaired both contract-test fixtures + re-pointed
+  3 post-dedupe MUSE sampler ids; declared file scope respected (tests/,
+  data fixtures, changelog).
+- Reconciliation: its changelog entry conflicted with county-polish pass 3's
+  on rebase — resolved keeping both (mine newest-first).
+- Verified: `node tests/test_v1_coordinate_caveat_contract.js` and
+  `test_v1_public_beta_copy_contract.js` both PASS on master 576093b; JSON
+  valid. Disposition: integrated, no follow-up.
+- Still out: task_53b81ae7 (photos), task_a1561047 (corridor link — collision
+  watch on index.html/app.js/styles.css), task_bf00a1ff (descriptions pilot,
+  proposal-only), task_8070959d (dead websites).
