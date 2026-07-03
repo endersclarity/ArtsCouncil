@@ -3,6 +3,12 @@
   "entries": [
     {
       "date": "2026-07-03",
+      "title": "The Events count now says what it counts",
+      "summary": "In the 'What are you in the mood for?' list, the Events row showed a bare number that never matched the Events tab — one counts places that host events, the other counts upcoming dates. The row now reads '74 venues' so the two numbers stop looking like a contradiction. A few list dividers also snap to the site's one hairline color instead of near-identical one-off greys.",
+      "kind": "improvement"
+    },
+    {
+      "date": "2026-07-03",
       "title": "Panel labels drop the shouting caps and stray italics",
       "summary": "Small labels across the side panel — 'What are you in the mood for?', section headings like 'Before or after', the Close button, trail fact labels, tag chips, and the Drift bar — now read in normal sentence case instead of ALL CAPS, matching the Arts Council's brand voice (emphasis comes from weight, not shouting). Italics are likewise reserved for titles of works: business self-descriptions in Surprise picks, provenance notes, and the 'See this story on the map' cue now sit upright.",
       "kind": "improvement"

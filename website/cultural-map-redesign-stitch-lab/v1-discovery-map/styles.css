@@ -2369,7 +2369,7 @@ body.drifting .county-reset {
   padding: 10px 2px;
   background: none;
   border: 0;
-  border-bottom: 1px solid color-mix(in srgb, var(--ink) 12%, transparent);
+  border-bottom: 1px solid var(--line);
   text-align: left;
   font: inherit;
   cursor: pointer;
@@ -2536,7 +2536,7 @@ body.drifting .county-reset {
 
   .site-nav a {
     padding: 14px 16px;
-    border-top: 1px solid color-mix(in srgb, var(--ink) 14%, transparent);
+    border-top: 1px solid var(--line);
   }
 
   .brand {
@@ -3643,7 +3643,7 @@ button.seen-in-muse-story,
   padding: 10px 2px;
   background: none;
   border: 0;
-  border-bottom: 1px solid color-mix(in srgb, var(--ink) 12%, transparent);
+  border-bottom: 1px solid var(--line);
   text-align: left;
   font: inherit;
   cursor: pointer;

@@ -1331,7 +1331,7 @@
         const active = state.activeIntents.has(outingType.label);
         return `<button class="outing-row${active ? " active" : ""}" type="button" data-outing-type="${escapeHtml(outingType.label)}" aria-pressed="${active ? "true" : "false"}">
           <span class="outing-row-label">${escapeHtml(outingType.label)}</span>
-          <span class="outing-row-count">${escapeHtml(countFor(outingType))}</span>
+          <span class="outing-row-count">${escapeHtml(outingType.label === "Events" ? `${countFor(outingType)} venues` : countFor(outingType))}</span>
           <span class="outing-row-cue" aria-hidden="true">${active ? "✓" : "›"}</span>
         </button>`;
       }).join("");
