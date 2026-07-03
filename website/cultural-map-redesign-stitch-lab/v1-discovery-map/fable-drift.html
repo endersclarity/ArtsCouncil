@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<!-- PROTOTYPE — fable-drift. Fable's own thesis, not the site's IA rearranged:
+     a cultural map should make you want to leave the house, and being SHOWN does
+     that better than browsing. So the county plays itself. The map drifts from
+     place to place like a broadcast, dealing full-bleed poster cards (the Arbex
+     poster language, including the brand's secondary poster fields — campaign
+     surfaces only, per docs/brand/NCAC-V1-BRAND.md). Time of day is the primary
+     lens, not category. Grab the wheel any time; search and the index are
+     summonable overlays, not permanent chrome. Siblings: fable-best.html (the
+     Atlas), fable-best-magazine.html (the magazine front page). -->
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Drift — Nevada County Arts &amp; Culture</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://use.typekit.net">
+<script src="https://use.typekit.net/ik/QpZL-jTAx8VcE7iBVv7r5tSVTAEaLdPXUwSgW14405GfelJgfFHN4UJLFRbh52jhWD9tZcjow2MaFQSoZcJD5Q48w2yKwR4cZsGMJ6Nyjaml-AtlSY4zOWiTZe9KIA4kjAoqdhtlZa4ziemDSWm8Jysyjaml-AtlSY4zOAFzdcs8d1F8ZfGHf5dOMsMMeMb6MKG4fOZbIMIjgfMfH6qJz8MbMs6BJMJ7f6Kbk3IbMy6IJMJ7f6KAk3IbMy6BJMJ7f6Kjk3IbMy6eJMJ7f6K5k3IbMy6YJMJ7f6Ksk3IbMy65JMJ7f6KVk3IbMy6sJMHbM-K0oCte.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+<script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+<style>
+  :root{
+    --red:#FF2E00; --ink:#1A1A1A; --muted:#5E5852; --paper:#FAF6EC;
+    --paper-soft:#F5F0E8; --line:#D8D0C6; --surface:#FFFFFF;
+    --font-brand:"polymath-variable-2th9nk","DM Sans","Inter",system-ui,sans-serif;
+    --ease:cubic-bezier(.22,.8,.26,1);
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{height:100%}
+  body{background:var(--paper);color:var(--ink);font-family:var(--font-brand);
+    font-size:15px;line-height:1.42;-webkit-font-smoothing:antialiased;overflow:hidden}
+  a{color:inherit;text-decoration:none}
+  button{font-family:var(--font-brand);cursor:pointer}
+  img{display:block;width:100%;height:100%;object-fit:cover}
+
+  #map{position:fixed;inset:0;z-index:0;background:var(--paper-soft)}
+  #map .maplibregl-canvas{filter:grayscale(.92) sepia(.05) contrast(1.02) brightness(1.04)}
+  .maplibregl-ctrl-attrib{font-family:var(--font-brand);font-size:10px;background:rgba(250,246,236,.85)}
+
+  /* ---------- cold open ---------- */
+  #cold{position:fixed;inset:0;z-index:100;background:var(--red);color:#fff;display:flex;
+    flex-direction:column;justify-content:center;padding:0 7vw;cursor:pointer;
+    transition:transform .8s cubic-bezier(.76,0,.24,1)}
+  #cold.lift{transform:translateY(-101%)}
+  #cold h1{font-weight:700;font-size:clamp(58px,11vw,150px);line-height:.92;letter-spacing:-.04em;text-transform:uppercase}
+  #cold .sub{margin-top:26px;font-weight:700;font-size:clamp(15px,2.1vw,24px);letter-spacing:-.01em}
+  #cold .n{margin-top:8px;font-size:13px;font-weight:500;color:rgba(255,255,255,.85)}
+  #cold .hint{position:absolute;bottom:5vh;font-size:11px;font-weight:700;letter-spacing:.18em;
+    text-transform:uppercase;animation:bl 1.8s ease-in-out infinite}
+  @keyframes bl{0%,100%{opacity:.5}50%{opacity:1}}
+
+  /* ---------- masthead: typemark + dial ---------- */
+  #mast{position:fixed;z-index:30;top:0;left:0;right:0;display:flex;align-items:stretch;
+    justify-content:space-between;pointer-events:none;
+    opacity:0;transform:translateY(-8px);transition:opacity .5s var(--ease) .2s,transform .5s var(--ease) .2s}
+  body.ready #mast{opacity:1;transform:none}
+  #mast > *{pointer-events:auto}
+  .mark{background:var(--red);color:#fff;font-weight:700;font-size:13px;line-height:1.05;
+    padding:10px 14px;text-transform:uppercase;letter-spacing:-.01em}
+  .dial{display:flex;align-items:stretch;background:var(--paper);border:1px solid var(--ink);border-top:none;
+    box-shadow:0 2px 12px rgba(26,26,26,.14)}
+  .dial button{background:none;border:none;border-left:1px solid var(--line);padding:11px 16px 9px;
+    font-weight:700;font-size:11.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);
+    position:relative;transition:color .15s}
+  .dial button:first-child{border-left:none}
+  .dial button:hover{color:var(--ink)}
+  .dial button.on{color:var(--ink)}
+  .dial button.on::after{content:'';position:absolute;left:10px;right:10px;bottom:5px;height:3px;background:var(--red)}
+  .corner{display:flex;gap:8px;align-items:flex-start;padding:10px 12px}
+  .chip{background:var(--paper);border:1px solid var(--ink);font-weight:700;font-size:11px;
+    letter-spacing:.13em;text-transform:uppercase;padding:9px 13px;box-shadow:0 2px 10px rgba(26,26,26,.12);
+    transition:background .15s,color .15s}
+  .chip:hover{background:var(--ink);color:#fff}
+
+  /* ---------- the poster band (the interaction unit) ---------- */
+  #band{position:fixed;z-index:30;left:0;right:0;bottom:0;color:#fff;
+    transform:translateY(105%);transition:transform .5s var(--ease)}
+  #band.up{transform:none}
+  .prog{position:absolute;top:0;left:0;right:0;height:3px;background:rgba(255,255,255,.25)}
+  .prog i{display:block;height:100%;width:0;background:#fff}
+  #band.run .prog i{animation:prog var(--dwell,7.4s) linear forwards}
+  @keyframes prog{from{width:0}to{width:100%}}
+  .band-in{display:grid;grid-template-columns:300px 1fr auto;min-height:188px;transition:opacity .45s var(--ease)}
+  #band.fly .band-in{opacity:.18}
+  #band.fly .prog{opacity:0}
+  .b-ph{position:relative;border-right:1px solid rgba(255,255,255,.25);overflow:hidden}
+  .b-ph img{position:absolute;inset:0;transform-origin:50% 42%}
+  /* arrival: the card is DEALT on touchdown, not at departure */
+  #band.deal .b-ph img{animation:kenb var(--dwell,8.2s) linear forwards}
+  @keyframes kenb{from{transform:scale(1.16) translateX(2.5%)}to{transform:scale(1) translateX(0)}}
+  #band.deal .b-kick{animation:rise .5s var(--ease) backwards}
+  #band.deal .b-name{animation:nrev .7s cubic-bezier(.16,.84,.24,1) .07s backwards}
+  #band.deal .b-hook{animation:rise .55s var(--ease) .2s backwards}
+  #band.deal .b-acts{animation:rise .55s var(--ease) .3s backwards}
+  #band.deal .b-side > *{animation:rise .55s var(--ease) .26s backwards}
+  @keyframes rise{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+  @keyframes nrev{from{opacity:0;transform:translateY(26px) skewY(1.2deg)}to{opacity:1;transform:none}}
+  .b-tx{padding:22px 30px 24px;display:flex;flex-direction:column;justify-content:center;min-width:0}
+  .b-kick{font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;opacity:.85}
+  .b-name{font-weight:700;font-size:clamp(26px,3.6vw,46px);line-height:.98;letter-spacing:-.025em;
+    margin:8px 0 10px;text-transform:uppercase;overflow:hidden;text-overflow:ellipsis;display:-webkit-box;
+    -webkit-line-clamp:2;-webkit-box-orient:vertical}
+  .b-hook{font-size:14px;line-height:1.5;max-width:60ch;opacity:.92}
+  .b-acts{margin-top:14px;display:flex;gap:22px;font-size:13px;font-weight:700}
+  .b-acts button, .b-acts a{background:none;border:none;color:#fff;font-size:13px;font-weight:700;padding:0;
+    border-bottom:2px solid rgba(255,255,255,.55)}
+  .b-acts button:hover, .b-acts a:hover{border-bottom-color:#fff}
+  .b-side{display:flex;flex-direction:column;justify-content:space-between;align-items:flex-end;
+    padding:18px 22px;border-left:1px solid rgba(255,255,255,.25);min-width:120px}
+  .b-count{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;opacity:.85;white-space:nowrap}
+  .b-ctl{display:flex;gap:8px}
+  .b-ctl button{width:42px;height:42px;border:1.5px solid #fff;background:none;color:#fff;font-size:15px;
+    display:flex;align-items:center;justify-content:center;transition:background .15s,color .15s}
+  .b-ctl button:hover{background:#fff;color:var(--ink)}
+  #band .b-x{position:absolute;top:3px;right:0;width:30px;height:30px;border:none;background:none;
+    color:#fff;font-size:14px;opacity:.7}
+  #band .b-x:hover{opacity:1}
+  @media(max-width:880px){
+    .band-in{grid-template-columns:1fr auto;min-height:0}
+    .b-ph{display:none}
+    .b-tx{padding:18px 18px 18px}
+    .b-side{padding:14px 14px;min-width:0}
+    .b-count{display:none}
+  }
+
+  /* ---------- wheel HUD (when you've taken control) ---------- */
+  #hud{position:fixed;z-index:29;right:16px;bottom:210px;display:flex;flex-direction:column;gap:6px;
+    opacity:0;transform:translateY(8px);transition:opacity .5s var(--ease) .35s,transform .5s var(--ease) .35s}
+  body.ready #hud{opacity:1;transform:none}
+  .hud-b{width:40px;height:40px;border:1px solid var(--ink);background:var(--paper);font-size:15px;
+    font-weight:700;display:flex;align-items:center;justify-content:center;
+    box-shadow:0 1px 8px rgba(26,26,26,.14);transition:background .15s,color .15s}
+  .hud-b:hover{background:var(--ink);color:#fff}
+  @media(max-width:880px){#hud{bottom:170px}}
+
+  /* ---------- hover label ---------- */
+  #hoverlab{position:fixed;z-index:35;pointer-events:none;background:var(--paper);border:1px solid var(--ink);
+    padding:6px 10px;max-width:240px;display:none;box-shadow:0 2px 10px rgba(26,26,26,.15)}
+  #hoverlab b{display:block;font-size:12.5px;line-height:1.2}
+  #hoverlab span{font-size:10.5px;color:var(--muted)}
+
+  /* ---------- selected pulse / event dots ---------- */
+  .pulse{width:13px;height:13px;background:var(--red);border:2px solid #fff;border-radius:50%;
+    box-shadow:0 0 0 1px var(--ink);position:relative}
+  .pulse::after{content:'';position:absolute;inset:-4px;border:2px solid var(--red);border-radius:50%;
+    animation:pul 1.7s cubic-bezier(.2,.6,.36,1) infinite}
+  @keyframes pul{from{transform:scale(.55);opacity:.95}to{transform:scale(2.5);opacity:0}}
+  .evdot{width:10px;height:10px;border-radius:50%;background:var(--red);border:1.5px solid #fff;
+    box-shadow:0 0 0 1px var(--ink);cursor:pointer}
+  .maplibregl-popup-content{font-family:var(--font-brand);border-radius:0;border:1px solid var(--ink);box-shadow:none}
+
+  /* ---------- search overlay ---------- */
+  #search{position:fixed;inset:0;z-index:60;background:rgba(250,246,236,.97);display:none;
+    flex-direction:column;padding:9vh 8vw 0}
+  #search.open{display:flex}
+  #search .s-top{display:flex;align-items:baseline;gap:18px;border-bottom:3px solid var(--ink);padding-bottom:12px}
+  #sq{flex:1;border:none;background:none;font-family:var(--font-brand);font-weight:700;
+    font-size:clamp(28px,5vw,56px);letter-spacing:-.03em;color:var(--ink);min-width:0}
+  #sq::placeholder{color:var(--line)}
+  #sq:focus{outline:none}
+  #search .s-x{border:none;background:none;font-size:22px;color:var(--muted)}
+  #search .s-x:hover{color:var(--red)}
+  #sres{overflow-y:auto;padding:18px 0 12vh}
+  .sr{display:flex;align-items:baseline;gap:18px;padding:13px 4px;border-bottom:1px solid var(--line);cursor:pointer}
+  .sr:hover{background:var(--paper-soft)}
+  .sr b{font-weight:700;font-size:clamp(19px,2.6vw,30px);letter-spacing:-.02em;line-height:1.05}
+  .sr:hover b{color:var(--red)}
+  .sr span{font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);white-space:nowrap}
+  .s-hint{font-size:12px;color:var(--muted);padding:14px 4px}
+
+  /* ---------- index sheet ---------- */
+  #index{position:fixed;z-index:50;right:0;top:0;bottom:0;width:430px;max-width:100vw;background:var(--paper);
+    border-left:1px solid var(--ink);box-shadow:-6px 0 26px rgba(26,26,26,.18);
+    transform:translateX(102%);transition:transform .38s var(--ease);display:flex;flex-direction:column}
+  #index.open{transform:none}
+  .ix-head{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:1px solid var(--ink)}
+  .ix-head b{font-weight:700;font-size:15px;letter-spacing:.04em;text-transform:uppercase}
+  .ix-head button{border:none;background:none;font-size:16px;color:var(--muted)}
+  .ix-head button:hover{color:var(--red)}
+  .ix-tools{padding:12px 16px 0}
+  #ixq{width:100%;border:1px solid var(--ink);background:var(--surface);font-family:var(--font-brand);
+    font-size:13.5px;padding:9px 12px}
+  #ixq:focus{outline:2px solid var(--red);outline-offset:-1px}
+  .ix-pills{display:flex;gap:6px;overflow-x:auto;padding:10px 0;scrollbar-width:none}
+  .ix-pills::-webkit-scrollbar{display:none}
+  .pill{flex:0 0 auto;border:1px solid var(--ink);background:var(--surface);font-weight:500;font-size:11.5px;
+    padding:6px 11px;transition:background .15s,color .15s}
+  .pill.on{background:var(--red);border-color:var(--red);color:#fff;font-weight:700}
+  .ix-body{flex:1;overflow-y:auto;padding:0 16px 18px;scrollbar-width:thin}
+  .ix-sec{font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);
+    padding:14px 0 8px}
+  .rt{display:grid;grid-template-columns:30px 1fr auto;gap:10px;align-items:baseline;border-top:1px solid var(--line);
+    padding:10px 2px;cursor:pointer}
+  .rt:hover{background:var(--paper-soft)}
+  .rt .no{font-weight:700;font-size:16px}
+  .rt h4{font-weight:700;font-size:13.5px}
+  .rt span{font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .rt:hover h4{color:var(--red)}
+  .row{display:grid;grid-template-columns:42px 1fr;gap:11px;align-items:center;border-top:1px solid var(--line);
+    padding:8px 2px;cursor:pointer}
+  .row:hover{background:var(--paper-soft)}
+  .row .th{width:42px;height:42px;overflow:hidden;border:1px solid var(--line)}
+  .row .th img{filter:grayscale(1);transition:filter .25s}
+  .row:hover .th img{filter:none}
+  .row h4{font-weight:700;font-size:13.5px;line-height:1.15}
+  .row .m{font-size:11px;color:var(--muted);margin-top:2px}
+  .row:hover h4{color:var(--red)}
+  #ixmore{display:block;width:100%;border:1px solid var(--ink);background:var(--surface);font-weight:700;
+    font-size:12px;padding:10px;margin-top:12px}
+  #ixmore:hover{background:var(--ink);color:#fff}
+
+  /* ---------- dossier ---------- */
+  #drawer{position:fixed;z-index:55;right:0;top:0;bottom:0;width:430px;max-width:100vw;background:var(--surface);
+    border-left:1px solid var(--ink);box-shadow:-6px 0 26px rgba(26,26,26,.2);
+    transform:translateX(102%);transition:transform .38s var(--ease);display:flex;flex-direction:column}
+  #drawer.open{transform:none}
+  .dr-ph{height:230px;flex:0 0 auto;position:relative;border-bottom:1px solid var(--ink);background:var(--paper-soft)}
+  .dr-ph .cap{position:absolute;left:0;bottom:0;background:#fff;font-size:10px;font-weight:700;
+    letter-spacing:.14em;text-transform:uppercase;padding:7px 12px;border-top:1px solid var(--ink);border-right:1px solid var(--ink)}
+  .dr-x{position:absolute;top:0;right:0;width:34px;height:34px;background:var(--ink);color:#fff;border:none;font-size:15px}
+  .dr-x:hover{background:var(--red)}
+  .dr-bd{flex:1;overflow-y:auto;padding:20px 22px 26px;scrollbar-width:thin}
+  .dr-bd h2{font-weight:700;font-size:26px;letter-spacing:-.02em;line-height:1.05}
+  .dr-bd .sub{margin-top:6px;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+  .dr-bd .desc{margin-top:14px;font-size:14px;line-height:1.58}
+  .dr-bd .desc.placeholder{color:var(--muted)}
+  .meta{margin-top:18px;border-top:1px solid var(--ink)}
+  .meta .mr{display:grid;grid-template-columns:96px 1fr;gap:12px;padding:9px 0;border-bottom:1px solid var(--line);font-size:12.5px}
+  .meta .mr b{font-size:10px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--muted);padding-top:2px}
+  .dr-acts{display:flex;gap:18px;margin-top:18px;font-size:13px;font-weight:700}
+  .dr-acts a{color:var(--red)}
+  .dr-acts a:hover{text-decoration:underline}
+  .dr-acts a.quiet{color:var(--ink);border-bottom:1px solid var(--line)}
+  .caveat{margin-top:16px;font-size:11px;color:var(--muted);line-height:1.5;border-left:2px solid var(--line);padding-left:10px}
+
+  #toast{position:fixed;z-index:70;left:50%;top:14px;transform:translate(-50%,-60px);background:var(--ink);
+    color:#fff;font-size:12.5px;padding:11px 18px;transition:transform .3s var(--ease);max-width:88vw}
+  #toast.show{transform:translate(-50%,0)}
+
+  /* JS adds .motion-on (honoring the ?motion override) — without it, reduce wins */
+  @media (prefers-reduced-motion: reduce){
+    html:not(.motion-on) *,html:not(.motion-on) *::before,html:not(.motion-on) *::after{
+      animation:none!important;transition:none!important}
+  }
+  @media(max-width:880px){
+    .dial{order:3;width:100%;overflow-x:auto}
+    #mast{flex-wrap:wrap}
+    .dial button{padding:10px 12px 8px;font-size:10.5px}
+  }
+</style>
+</head>
+<body>
+
+<div id="map" aria-label="Drifting map of Nevada County culture"></div>
+
+<div id="cold" role="button" aria-label="Start drifting">
+  <h1>Nevada<br>County</h1>
+  <div class="sub">Arts &amp; Culture — on drift</div>
+  <div class="n" id="cold-n">Tuning the county…</div>
+  <div class="hint">Click anywhere — the county plays itself</div>
+</div>
+
+<header id="mast">
+  <div class="mark">Nevada County<br>Arts &amp; Culture</div>
+  <nav class="dial" id="dial" aria-label="Time of day">
+    <button class="on" data-d="all">All day</button>
+    <button data-d="morning">Morning</button>
+    <button data-d="midday">Midday</button>
+    <button data-d="golden">Golden</button>
+    <button data-d="night">Night</button>
+  </nav>
+  <div class="corner">
+    <button class="chip" id="open-search">Search /</button>
+    <button class="chip" id="open-index">Index</button>
+  </div>
+</header>
+
+<div id="hud">
+  <button class="hud-b" id="z-in" title="Zoom in">+</button>
+  <button class="hud-b" id="z-out" title="Zoom out">−</button>
+  <button class="hud-b" id="home" title="Whole county">⌂</button>
+</div>
+
+<div id="hoverlab"></div>
+
+<section id="band" aria-label="Now showing">
+  <div class="prog"><i></i></div>
+  <button class="b-x" id="b-x" title="Hide">✕</button>
+  <div class="band-in">
+    <div class="b-ph" id="b-ph"></div>
+    <div class="b-tx">
+      <div class="b-kick" id="b-kick"></div>
+      <h2 class="b-name" id="b-name"></h2>
+      <p class="b-hook" id="b-hook"></p>
+      <div class="b-acts">
+        <button id="b-record">Full record →</button>
+        <a id="b-site" target="_blank" rel="noopener" style="display:none">Website ↗</a>
+      </div>
+    </div>
+    <div class="b-side">
+      <div class="b-count" id="b-count"></div>
+      <div class="b-ctl">
+        <button id="b-prev" title="Previous">←</button>
+        <button id="b-play" title="Pause / drift">⏸</button>
+        <button id="b-next" title="Next">→</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="search">
+  <div class="s-top">
+    <input id="sq" type="search" placeholder="Type a place, a town, a mood…" autocomplete="off">
+    <button class="s-x" id="s-x">✕</button>
+  </div>
+  <div id="sres"></div>
+</div>
+
+<aside id="index">
+  <div class="ix-head"><b>The index</b><button id="ix-x">✕</button></div>
+  <div class="ix-tools">
+    <input id="ixq" type="search" placeholder="Filter 1,300+ places…" autocomplete="off">
+    <div class="ix-pills" id="ixpills"></div>
+  </div>
+  <div class="ix-body">
+    <div class="ix-sec">Drift a route</div>
+    <div id="ixroutes"></div>
+    <div class="ix-sec">Every place · <span id="ixcount" style="color:var(--ink)">…</span></div>
+    <div id="ixlist"></div>
+    <button id="ixmore">Show more</button>
+  </div>
+</aside>
+
+<article id="drawer" aria-label="Place details">
+  <div class="dr-ph" id="dr-ph"></div>
+  <div class="dr-bd" id="dr-bd"></div>
+</article>
+
+<div id="toast"></div>
+
+<script>
+(async function(){
+  'use strict';
+  const $ = id => document.getElementById(id);
+  // ?motion=1 forces motion on (test hook); ?motion=0 forces it off
+  const mq = new URLSearchParams(location.search).get('motion');
+  const RM = mq != null ? mq === '0' : matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (!RM) document.documentElement.classList.add('motion-on');
+
+  /* ---------- data ---------- */
+  const [events, placesRaw, anchors, paths] = await Promise.all(
+    ['data/events.json','data/places.json','data/anchor_cards.json','data/paths.json']
+      .map(u => fetch(u).then(r => r.json()))
+  );
+  const places = placesRaw.places || placesRaw;
+  const byId = new Map(places.map(p => [p.id, p]));
+  const anchorById = new Map(anchors.map(a => [a.placeId, a]));
+  const anchorSet = new Set(anchors.map(a => a.placeId).filter(id => byId.has(id)));
+
+  const today = new Date(); today.setHours(0,0,0,0);
+  const iso = today.toISOString().slice(0,10);
+  const upcoming = events.filter(e => e.date >= iso).sort((a,b) => a.date < b.date ? -1 : 1);
+  const fmtDay = d => d === iso ? 'Tonight'
+    : new Date(d + 'T12:00').toLocaleDateString('en-US',{weekday:'short',month:'short',day:'numeric'});
+
+  /* ---------- photos ---------- */
+  const CAT_PH = {
+    "Arts Organizations":"assets/category-placeholders-ncac/arts-organizations.png",
+    "Cultural Resources":"assets/category-placeholders-ncac/cultural-resources.png",
+    "Eat, Drink & Stay":"assets/category-placeholders-ncac/eat-drink-stay.png",
+    "Fairs & Festivals":"assets/category-placeholders-ncac/fairs-festivals.png",
+    "Galleries & Studios":"assets/category-placeholders-ncac/galleries-studios.png",
+    "Historic Places":"assets/category-placeholders-ncac/historic-places.png",
+    "MUSE Picks":"assets/category-placeholders-ncac/muse-picks.png",
+    "Performing Arts":"assets/category-placeholders-ncac/performing-arts.png",
+    "Public Art":"assets/category-placeholders-ncac/public-art.png",
+    "Shops & Makers":"assets/category-placeholders-ncac/shops-makers.png",
+    "Walks & Trails":"assets/category-placeholders-ncac/walks-trails.png"
+  };
+  const phOf = (id, cat) => {
+    const p = byId.get(id);
+    return CAT_PH[(p && p.category) || cat] || CAT_PH["Cultural Resources"];
+  };
+  const photoOf = (id, cat) => {
+    const p = byId.get(id);
+    const img = p && p.image;
+    return (img && img.kind === 'real' && img.src) ? img.src : phOf(id, cat);
+  };
+  window.addEventListener('error', e => {
+    const t = e.target;
+    if (t && t.tagName === 'IMG' && t.dataset.ph && !t.src.endsWith(t.dataset.ph)) t.src = t.dataset.ph;
+  }, true);
+  const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+  const imgTag = (id, cat) =>
+    `<img loading="lazy" data-ph="${esc(phOf(id,cat))}" src="${esc(photoOf(id,cat))}" alt="">`;
+  const phBg = (id, cat) => `style="background:url('${esc(phOf(id,cat))}') center/cover"`;
+  const trunc = (s,n)=>{s=String(s??'');return s.length>n?s.slice(0,n).replace(/\s+\S*$/,'')+'…':s;};
+
+  /* ---------- editorial voice ---------- */
+  // Per-category one-liners for places whose descriptions are still boilerplate.
+  const HOOK = {
+    "Galleries & Studios":"Working walls. Someone nearby made all of this.",
+    "Performing Arts":"A stage that has earned its evenings.",
+    "Historic Places":"Gold Rush bones, still standing their ground.",
+    "Walks & Trails":"The county's longest gallery is outdoors.",
+    "Public Art":"Art that doesn't wait for you to come inside.",
+    "Shops & Makers":"Made here, sold here, argued over here.",
+    "Eat, Drink & Stay":"Where the county refuels between acts.",
+    "Fairs & Festivals":"The calendar's loud days.",
+    "Arts Organizations":"The people who keep the lights on.",
+    "Cultural Resources":"Local memory, kept in working order.",
+    "MUSE Picks":"The magazine already vouched for this one."
+  };
+  const hookOf = p => {
+    const a = anchorById.get(p.id);
+    if (a && a.whyItMatters) return trunc(a.whyItMatters, 150);
+    const d = p.description || '';
+    if (d && !/alpha review/i.test(d)) return trunc(d, 150);
+    return HOOK[p.category] || 'Part of the county’s working culture.';
+  };
+
+  /* ---------- the dial: time of day is the lens ---------- */
+  const DAYPART = {
+    all:    null,
+    morning:["Walks & Trails","Historic Places","Cultural Resources"],
+    midday: ["Galleries & Studios","Shops & Makers","Arts Organizations","MUSE Picks"],
+    golden: ["Public Art","Eat, Drink & Stay","Fairs & Festivals"],
+    night:  ["Performing Arts","Eat, Drink & Stay"]
+  };
+  const DIAL_LINE = {
+    all:'the whole repertoire', morning:'trails, stone, quiet starts', midday:'studios open, makers in',
+    golden:'art in the open, tables filling', night:'stages up, lights on'
+  };
+  let dial = 'all';
+
+  /* ---------- poster fields (campaign surfaces, rotated one at a time) ---------- */
+  const FIELDS = ['#1A1A1A', '#FF2E00', '#1E40FF', '#00A3A3', '#F4569D', '#0E9F5B'];
+
+  /* ---------- cold open ---------- */
+  $('cold-n').textContent =
+    `${places.length.toLocaleString()} places · ${upcoming.length} happenings this week`;
+  let coldGone = sessionStorage.getItem('drift-cold') === '1';
+  function dropCold(){
+    if (coldGone) return;
+    coldGone = true;
+    sessionStorage.setItem('drift-cold','1');
+    if (RM) $('cold').style.display = 'none';
+    else { $('cold').classList.add('lift'); setTimeout(() => $('cold').style.display = 'none', 850); }
+    document.body.classList.add('ready');
+    beginIfReady();
+  }
+  if (coldGone){ $('cold').style.display = 'none'; document.body.classList.add('ready'); }
+  $('cold').addEventListener('click', dropCold);
+  setTimeout(dropCold, 2300);
+
+  /* ---------- map ---------- */
+  const COUNTY = [[-121.36, 38.98],[-120.00, 39.56]];
+  const BAND_H = () => $('band').classList.contains('up') ? 210 : 40;
+  const padFor = () => ({left:50, right:50, top:90, bottom:BAND_H() + 40});
+
+  const map = new maplibregl.Map({
+    container:'map',
+    style:'https://tiles.openfreemap.org/styles/liberty',
+    center:[-121.0, 39.26], zoom:9.4, minZoom:7.4, maxZoom:17.5,
+    attributionControl:{compact:true}
+  });
+  window.__map = map; // prototype-only debug handle
+
+  const feats = places.filter(p => p.lat != null && p.lng != null).map(p => ({
+    type:'Feature', id:p.id,
+    properties:{ id:p.id, name:p.name, category:p.category || '', city:p.city || '',
+                 tier:p.markerTier || 'candidate', anchor: anchorSet.has(p.id) },
+    geometry:{ type:'Point', coordinates:[p.lng, p.lat] }
+  }));
+  const F_ANCHOR = ['==', ['get','anchor'], true];
+  const F_DOTS   = ['all', ['==',['get','tier'],'map-ready'], ['==',['get','anchor'], false]];
+  const F_APPROX = ['!=', ['get','tier'], 'map-ready'];
+
+  let styleReady = false;
+  map.on('load', () => {
+    map.addSource('places', {type:'geojson', promoteId:'id',
+      data:{type:'FeatureCollection', features:feats}});
+    map.addLayer({id:'places-approx', type:'circle', source:'places', filter:F_APPROX, paint:{
+      'circle-radius':['interpolate',['linear'],['zoom'], 11, 2.5, 14, 5, 16, 6.5],
+      'circle-color':'rgba(0,0,0,0)',
+      'circle-stroke-width':1.1,
+      'circle-stroke-color':'#5E5852',
+      'circle-stroke-opacity':['interpolate',['linear'],['zoom'], 12.2, 0, 13.1, .5]
+    }});
+    map.addLayer({id:'places-dots', type:'circle', source:'places', filter:F_DOTS, paint:{
+      'circle-radius':['interpolate',['linear'],['zoom'],
+        9,  ['case',['boolean',['feature-state','hover'],false], 4.4, 2.2],
+        13, ['case',['boolean',['feature-state','hover'],false], 7.6, 5.0],
+        16, ['case',['boolean',['feature-state','hover'],false], 11,  7.6]],
+      'circle-color':['case',
+        ['boolean',['feature-state','sel'],false], '#FF2E00', '#1A1A1A'],
+      'circle-opacity':['interpolate',['linear'],['zoom'], 9.8, 0, 10.8, .88],
+      'circle-stroke-width':1.2,
+      'circle-stroke-color':'#FAF6EC'
+    }});
+    map.addLayer({id:'anchor-dots', type:'circle', source:'places', filter:F_ANCHOR, paint:{
+      'circle-radius':['interpolate',['linear'],['zoom'],
+        8.5, ['case',['boolean',['feature-state','hover'],false], 7.5, 5],
+        13,  ['case',['boolean',['feature-state','hover'],false], 11.5, 8.5]],
+      'circle-color':['case',
+        ['boolean',['feature-state','sel'],false], '#FF2E00', '#1A1A1A'],
+      'circle-stroke-width':1.8,
+      'circle-stroke-color':'#FAF6EC'
+    }});
+    map.addLayer({id:'anchor-labels', type:'symbol', source:'places', filter:F_ANCHOR, layout:{
+      'text-field':['get','name'],
+      'text-font':['Noto Sans Bold'],
+      'text-size':['interpolate',['linear'],['zoom'], 9, 10.5, 13, 12.5],
+      'text-offset':[0, 1.05], 'text-anchor':'top', 'text-max-width':9
+    }, paint:{'text-color':'#1A1A1A','text-halo-color':'#FAF6EC','text-halo-width':1.6}});
+
+    upcoming.forEach(e => {
+      if (e.lat == null) return;
+      const d = document.createElement('div');
+      d.className = 'evdot'; d.title = e.title;
+      new maplibregl.Marker({element:d}).setLngLat([e.lng, e.lat])
+        .setPopup(new maplibregl.Popup({offset:12}).setHTML(
+          `<strong>${esc(e.title)}</strong><br><span style="color:#5E5852;font-size:12px">${esc(e.placeName||'')} · ${esc(fmtDay(e.date))}</span>`))
+        .addTo(map);
+    });
+
+    styleReady = true;
+    syncDialFilter();
+    beginIfReady();
+  });
+
+  /* ---------- selection ---------- */
+  let selId = null, pulseMk = null;
+  function clearSel(){
+    if (selId != null) map.setFeatureState({source:'places', id:selId}, {sel:false});
+    selId = null;
+    if (pulseMk){ pulseMk.remove(); pulseMk = null; }
+  }
+  function markSel(p){
+    clearSel();
+    selId = p.id;
+    if (byId.has(p.id)) map.setFeatureState({source:'places', id:p.id}, {sel:true});
+    const el = document.createElement('div'); el.className = 'pulse';
+    pulseMk = new maplibregl.Marker({element:el}).setLngLat([p.lng, p.lat]).addTo(map);
+  }
+
+  /* ---------- the drift engine ---------- */
+  const DWELL = 8200;            // ms parked at a stop — the flight is extra, not deducted
+  let pool = [], pi = -1, drifting = false, driftT = null, fieldI = 0, routeMode = null;
+  let flightSeq = 0, orbitRaf = null, lastStop = null;
+  $('band').style.setProperty('--dwell', (DWELL/1000) + 's');
+
+  /* slow orbital hold while parked — the camera never plays dead */
+  function stopOrbit(){ if (orbitRaf){ cancelAnimationFrame(orbitRaf); orbitRaf = null; } }
+  function startOrbit(){
+    stopOrbit();
+    if (RM) return;
+    let last = null;
+    const spin = t => {
+      if (last != null) map.setBearing(map.getBearing() + Math.min(t - last, 50) * 0.0013);
+      last = t;
+      orbitRaf = requestAnimationFrame(spin);
+    };
+    orbitRaf = requestAnimationFrame(spin);
+  }
+
+  /* field-guide datum: how far this stop is from the last one */
+  const DIRS = ['north','northeast','east','southeast','south','southwest','west','northwest'];
+  function datum(a, b){
+    if (!a || !b || a.id === b.id) return '';
+    const R = 3958.8, dLa = (b.lat-a.lat)*Math.PI/180, dLn = (b.lng-a.lng)*Math.PI/180;
+    const h = Math.sin(dLa/2)**2 + Math.cos(a.lat*Math.PI/180)*Math.cos(b.lat*Math.PI/180)*Math.sin(dLn/2)**2;
+    const mi = 2*R*Math.asin(Math.sqrt(h));
+    if (mi < 0.05) return '';
+    const dy = b.lat-a.lat, dx = (b.lng-a.lng)*Math.cos(b.lat*Math.PI/180);
+    let ang = Math.atan2(dx, dy)*180/Math.PI; if (ang < 0) ang += 360;
+    return ` · ${mi < 9.5 ? mi.toFixed(1) : Math.round(mi)} mi ${DIRS[Math.round(ang/45)%8]}`;
+  }
+
+  const dialMatch = p => !DAYPART[dial] || DAYPART[dial].includes(p.category);
+  function buildPool(){
+    if (routeMode){
+      pool = routeMode.stops.filter(s => s.lat != null)
+        .map(s => byId.get(s.placeId) || s);
+      pi = -1;
+      return;
+    }
+    const base = places.filter(p =>
+      p.lat != null && p.markerTier === 'map-ready' &&
+      (p.image||{}).kind === 'real' && dialMatch(p));
+    // shuffle — the broadcast should not be alphabetical
+    pool = base.slice();
+    for (let i = pool.length - 1; i > 0; i--){
+      const j = Math.floor(Math.random() * (i + 1));
+      [pool[i], pool[j]] = [pool[j], pool[i]];
+    }
+    // anchors lead the show
+    pool.sort((a,b) => (anchorSet.has(b.id) ? 1 : 0) - (anchorSet.has(a.id) ? 1 : 0) || 0);
+    pi = -1;
+  }
+
+  function posterCard(p){
+    const band = $('band');
+    const field = FIELDS[fieldI++ % FIELDS.length];
+    band.style.background = field;
+    $('b-ph').innerHTML = imgTag(p.id, p.category);
+    $('b-ph').setAttribute('style', `background:url('${phOf(p.id,p.category)}') center/cover`);
+    const dayLbl = dial === 'all' ? '' : dial + ' · ';
+    $('b-kick').textContent =
+      (routeMode ? routeMode.title + ' · ' : dayLbl) +
+      (p.category || 'Place') + (p.city ? ' · ' + p.city : '');
+    $('b-name').textContent = p.name;
+    $('b-hook').textContent = hookOf(p);
+    const hop = datum(lastStop, p);
+    $('b-count').textContent = (routeMode
+      ? `Stop ${pi + 1} / ${pool.length}`
+      : `${pi + 1} / ${pool.length} on this frequency`) + hop;
+    lastStop = p;
+    const site = byId.get(p.id) && byId.get(p.id).website;
+    $('b-site').style.display = site ? '' : 'none';
+    if (site) $('b-site').href = site;
+    band.classList.add('up');
+    band.classList.remove('run'); void band.offsetWidth;   // restart progress line
+    if (drifting && !RM) band.classList.add('run');
+  }
+
+  // Flight: pull up, arc, dive to building level, land pitched like a drone shot.
+  // The card is dealt on touchdown (arrive), never at departure.
+  function goTo(p, opts = {}){
+    if (!p || p.lat == null) return;
+    markSel(p);
+    const seq = ++flightSeq;
+    stopOrbit();
+    const band = $('band');
+    band.classList.remove('run', 'deal');
+    if (band.classList.contains('up')) band.classList.add('fly');   // dim the old card en route
+    if (RM){
+      map.jumpTo({center:[p.lng, p.lat], zoom: 14.6, pitch: 0, bearing: 0});
+      arrive(p, seq);
+      return;
+    }
+    map.flyTo({
+      center:[p.lng, p.lat],
+      zoom: opts.fast ? 14.7 + Math.random()*.7 : 15.1 + Math.random()*.9,
+      pitch: opts.fast ? 38 : 44 + Math.random()*14,
+      bearing: Math.random()*84 - 42,
+      padding: padFor(),
+      speed: opts.fast ? 1.7 : 0.85,        // slow soar for the broadcast, brisk when you steer
+      curve: opts.fast ? 1.35 : 1.62,       // high arc: long hops balloon up over the county
+      maxDuration: opts.fast ? 2600 : 7800,
+      essential: true
+    });
+    map.once('moveend', () => { if (seq === flightSeq) arrive(p, seq); });
+  }
+
+  function arrive(p){
+    const band = $('band');
+    band.classList.remove('fly');
+    posterCard(p);                                          // content + 'up' + progress restart
+    band.classList.remove('deal'); void band.offsetWidth;
+    band.classList.add('deal');                             // staggered reveal + ken burns
+    if (drifting){
+      startOrbit();                                         // hold the shot, slowly circling
+      clearTimeout(driftT);
+      driftT = setTimeout(() => step(1), DWELL);            // dwell starts at touchdown
+    }
+  }
+
+  function step(dir){
+    if (!pool.length) buildPool();
+    if (!pool.length) return toast('Nothing on this frequency yet.');
+    clearTimeout(driftT);
+    pi = (pi + dir + pool.length) % pool.length;
+    goTo(pool[pi], {fast: !drifting});
+  }
+  function play(){
+    if (drifting) return;
+    // resuming after a single-place focus returns to the broadcast, not a one-song loop
+    if (!routeMode && pool.length <= 1) buildPool();
+    drifting = true;
+    $('b-play').textContent = '⏸'; $('b-play').title = 'Pause';
+    clearTimeout(driftT);
+    step(1);
+  }
+  function pause(quiet){
+    stopOrbit();
+    if (!drifting) { $('band').classList.remove('run'); return; }
+    drifting = false;
+    clearTimeout(driftT);
+    $('b-play').textContent = '▶'; $('b-play').title = 'Drift';
+    $('band').classList.remove('run');
+    if (!quiet) toast('You have the wheel. ▶ or Space to drift again.');
+  }
+  function beginIfReady(){
+    if (!styleReady || !coldGone || drifting) return;
+    buildPool();
+    if (RM){ step(1); $('b-play').textContent = '▶'; $('b-play').title = 'Drift'; }
+    else play();   // reduced motion: deal the first card, leave the broadcast parked
+  }
+
+  // taking the wheel pauses the broadcast
+  ['dragstart','wheel'].forEach(ev => map.on(ev, () => { if (drifting) pause(); }));
+
+  $('b-play').addEventListener('click', () => drifting ? pause(true) : play());
+  $('b-next').addEventListener('click', () => { pause(true); step(1); });
+  $('b-prev').addEventListener('click', () => { pause(true); step(-1); });
+  $('b-x').addEventListener('click', () => { pause(true); $('band').classList.remove('up'); clearSel(); });
+  $('b-record').addEventListener('click', () => { if (pi >= 0 && pool[pi]) openDrawer(byId.get(pool[pi].id) || pool[pi]); });
+
+  /* ---------- dial ---------- */
+  $('dial').addEventListener('click', e => {
+    const b = e.target.closest('button'); if (!b) return;
+    dial = b.dataset.d;
+    [...$('dial').children].forEach(x => x.classList.toggle('on', x === b));
+    routeMode = null;
+    buildPool();
+    syncDialFilter();
+    toast(`${b.textContent} — ${DIAL_LINE[dial]} · ${pool.length} places`);
+    step(1);
+  });
+  function syncDialFilter(){
+    if (!styleReady) return;
+    const cats = DAYPART[dial];
+    if (!cats){
+      map.setFilter('places-dots', F_DOTS);
+      map.setFilter('places-approx', F_APPROX);
+      map.setFilter('anchor-dots', F_ANCHOR);
+      map.setFilter('anchor-labels', F_ANCHOR);
+      return;
+    }
+    const inCats = ['in', ['get','category'], ['literal', cats]];
+    map.setFilter('places-dots',    ['all', F_DOTS, inCats]);
+    map.setFilter('places-approx',  ['all', F_APPROX, inCats]);
+    map.setFilter('anchor-dots',    ['all', F_ANCHOR, inCats]);
+    map.setFilter('anchor-labels',  ['all', F_ANCHOR, inCats]);
+  }
+
+  /* ---------- hover + click on dots ---------- */
+  const hitLayers = () => {
+    const z = map.getZoom();
+    const l = ['anchor-dots'];
+    if (z >= 10.2) l.push('places-dots');
+    if (z >= 12.4) l.push('places-approx');
+    return l;
+  };
+  const hitAt = pt => {
+    const pad = 8;
+    const fs = map.queryRenderedFeatures([[pt.x-pad,pt.y-pad],[pt.x+pad,pt.y+pad]], {layers: hitLayers()});
+    return fs[0];
+  };
+  const hoverlab = $('hoverlab');
+  let hoverId = null;
+  const setHover = (id, on) => { if (id != null) map.setFeatureState({source:'places', id}, {hover:on}); };
+  map.on('mousemove', e => {
+    if (!styleReady) return;
+    const f = hitAt(e.point);
+    map.getCanvas().style.cursor = f ? 'pointer' : '';
+    if (hoverId !== (f && f.id)){ setHover(hoverId, false); hoverId = f ? f.id : null; setHover(hoverId, true); }
+    if (f && f.id !== selId){
+      hoverlab.innerHTML = `<b>${esc(f.properties.name)}</b><span>${esc(f.properties.category)}${f.properties.city ? ' · ' + esc(f.properties.city) : ''}</span>`;
+      hoverlab.style.display = 'block';
+      const r = map.getContainer().getBoundingClientRect();
+      hoverlab.style.left = (r.left + e.point.x + 14) + 'px';
+      hoverlab.style.top  = (r.top  + e.point.y - 10) + 'px';
+    } else hoverlab.style.display = 'none';
+  });
+  map.on('click', e => {
+    if (!styleReady) return;
+    const f = hitAt(e.point);
+    if (!f) return;
+    pause();   // taking the wheel by hand deserves the handoff toast
+    const p = byId.get(f.properties.id);
+    if (p){ routeMode = null; pool = [p]; pi = 0; goTo(p, {fast:true}); }
+  });
+
+  /* ---------- focus from search / index ---------- */
+  function focusPlace(p){
+    if (!p) return;
+    closeSearch(); $('index').classList.remove('open');
+    pause(true);
+    routeMode = null; pool = [p]; pi = 0;
+    if (p.lat == null){ toast(`${p.name} isn’t mapped yet — directory listing only.`); openDrawer(p); return; }
+    goTo(p, {fast:true});
+  }
+
+  /* ---------- dossier ---------- */
+  const drawer = $('drawer');
+  function openDrawer(p){
+    if (!p) return;
+    const tierLabel = (p.markerTier || 'candidate') === 'map-ready'
+      ? 'Verified — building-accurate'
+      : (p.markerTier === 'directory-only' ? 'Directory listing — not yet mapped' : 'Approximate — under review');
+    const desc = p.description || '';
+    const boiler = !desc || /alpha review/i.test(desc);
+    $('dr-ph').style.background = `url('${phOf(p.id, p.category)}') center/cover`;
+    $('dr-ph').innerHTML = `${imgTag(p.id, p.category)}
+      <div class="cap">${esc(p.category || 'Place')}</div>
+      <button class="dr-x" id="dr-x" aria-label="Close">✕</button>`;
+    $('dr-bd').innerHTML = `
+      <div><h2>${esc(p.name)}</h2><div class="sub">${esc(p.city || 'Nevada County')}</div></div>
+      <div class="desc ${boiler ? 'placeholder' : ''}">${boiler
+        ? 'No write-up yet. This listing comes straight from the county’s open data set — a proper story is on its way.'
+        : esc(desc)}</div>
+      <div class="meta">
+        ${p.address ? `<div class="mr"><b>Address</b><span>${esc(p.address)}${p.city ? ', ' + esc(p.city) : ''}</span></div>` : ''}
+        <div class="mr"><b>Category</b><span>${esc(p.category || '—')}</span></div>
+        <div class="mr"><b>Pin status</b><span>${tierLabel}</span></div>
+      </div>
+      <div class="dr-acts">
+        ${p.website ? `<a href="${esc(p.website)}" target="_blank" rel="noopener">Website ↗</a>` : ''}
+        ${p.lat != null ? `<a class="quiet" href="https://www.google.com/maps/search/?api=1&query=${p.lat}%2C${p.lng}" target="_blank" rel="noopener">Directions ↗</a>` : ''}
+      </div>
+      ${p.locationCaveat ? `<div class="caveat">${esc(p.locationCaveat)}</div>` : ''}`;
+    drawer.classList.add('open');
+    $('dr-x').addEventListener('click', () => drawer.classList.remove('open'));
+  }
+
+  /* ---------- search overlay ---------- */
+  const norm = s => String(s || '').toLowerCase();
+  function openSearch(){
+    pause(true);
+    $('search').classList.add('open');
+    $('sq').value = ''; renderSearch('');
+    setTimeout(() => $('sq').focus(), 30);
+  }
+  function closeSearch(){ $('search').classList.remove('open'); }
+  function renderSearch(q){
+    q = norm(q.trim());
+    if (!q){
+      $('sres').innerHTML = `<div class="s-hint">Try “gallery”, “Truckee”, “historic”, or a name. Enter jumps to the top hit.</div>`;
+      return;
+    }
+    const hits = places.filter(p =>
+      norm(p.name).includes(q) || norm(p.city).includes(q) || norm(p.category).includes(q)).slice(0, 9);
+    $('sres').innerHTML = hits.length ? hits.map(p => `
+      <div class="sr" data-id="${esc(p.id)}">
+        <b>${esc(p.name)}</b>
+        <span>${esc(p.category || '')}${p.city ? ' · ' + esc(p.city) : ''}</span>
+      </div>`).join('')
+      : `<div class="s-hint">Nothing out here by that name.</div>`;
+  }
+  $('open-search').addEventListener('click', openSearch);
+  $('s-x').addEventListener('click', closeSearch);
+  $('sq').addEventListener('input', e => renderSearch(e.target.value));
+  $('sq').addEventListener('keydown', e => {
+    if (e.key === 'Enter'){
+      const first = $('sres').querySelector('.sr');
+      if (first) focusPlace(byId.get(first.dataset.id));
+    }
+  });
+  $('sres').addEventListener('click', e => {
+    const r = e.target.closest('.sr'); if (!r) return;
+    focusPlace(byId.get(r.dataset.id));
+  });
+
+  /* ---------- index sheet ---------- */
+  const cats = [...new Set(places.map(p => p.category).filter(Boolean))].sort();
+  let ixCat = null, ixQ = '', ixShown = 30;
+  const ixMatches = () => places.filter(p =>
+    (!ixCat || p.category === ixCat) &&
+    (!ixQ || norm(p.name).includes(ixQ) || norm(p.city).includes(ixQ)));
+  $('ixpills').innerHTML =
+    `<button class="pill on" data-cat="">All</button>` +
+    cats.map(c => `<button class="pill" data-cat="${esc(c)}">${esc(c)}</button>`).join('');
+  $('ixpills').addEventListener('click', e => {
+    const b = e.target.closest('.pill'); if (!b) return;
+    ixCat = b.dataset.cat || null; ixShown = 30;
+    document.querySelectorAll('#ixpills .pill').forEach(x => x.classList.toggle('on', x === b));
+    renderIx();
+  });
+  $('ixq').addEventListener('input', e => { ixQ = norm(e.target.value.trim()); ixShown = 30; renderIx(); });
+  function renderIx(){
+    const hits = ixMatches();
+    $('ixcount').textContent = hits.length.toLocaleString();
+    $('ixlist').innerHTML = hits.slice(0, ixShown).map(p => `
+      <div class="row" data-id="${esc(p.id)}">
+        <div class="th" ${phBg(p.id, p.category)}>${imgTag(p.id, p.category)}</div>
+        <div><h4>${esc(p.name)}</h4><div class="m">${esc(p.category || '')}${p.city ? ' · ' + esc(p.city) : ''}</div></div>
+      </div>`).join('');
+    $('ixmore').style.display = hits.length > ixShown ? 'block' : 'none';
+    $('ixmore').textContent = `Show more (${(hits.length - ixShown).toLocaleString()} left)`;
+  }
+  $('ixmore').addEventListener('click', () => { ixShown += 60; renderIx(); });
+  $('ixlist').addEventListener('click', e => {
+    const r = e.target.closest('.row'); if (!r) return;
+    focusPlace(byId.get(r.dataset.id));
+  });
+  $('ixroutes').innerHTML = paths.map((p,i) => `
+    <div class="rt" data-i="${i}">
+      <div class="no">${String(i+1).padStart(2,'0')}</div>
+      <div><h4>${esc(p.title)}</h4></div>
+      <span>${p.stops.length} stops · drift it →</span>
+    </div>`).join('');
+  $('ixroutes').addEventListener('click', e => {
+    const r = e.target.closest('.rt'); if (!r) return;
+    routeMode = paths[+r.dataset.i];
+    $('index').classList.remove('open');
+    buildPool();
+    toast(`Drifting “${routeMode.title}” — ${pool.length} stops, in order.`);
+    drifting = false; play();
+  });
+  $('open-index').addEventListener('click', () => { $('index').classList.add('open'); renderIx(); });
+  $('ix-x').addEventListener('click', () => $('index').classList.remove('open'));
+
+  /* ---------- HUD ---------- */
+  $('z-in').addEventListener('click', () => { pause(); map.zoomIn({duration:280}); });
+  $('z-out').addEventListener('click', () => { pause(); map.zoomOut({duration:280}); });
+  $('home').addEventListener('click', () => {
+    pause(); clearSel(); $('band').classList.remove('up');
+    // fitBounds keeps the current pitch; fly flat instead so 'home' reads as the survey view
+    map.flyTo({center:[-120.68, 39.27], zoom: 9.2, pitch: 0, bearing: 0,
+               speed: 1.1, curve: 1.5, maxDuration: 2400, duration: RM ? 0 : undefined, essential:true});
+  });
+
+  /* ---------- chrome ---------- */
+  let toastT = null;
+  function toast(msg){
+    const t = $('toast');
+    t.textContent = msg; t.classList.add('show');
+    clearTimeout(toastT);
+    toastT = setTimeout(() => t.classList.remove('show'), 2600);
+  }
+  document.addEventListener('keydown', e => {
+    const typing = /INPUT|TEXTAREA/.test(document.activeElement.tagName);
+    if (e.key === 'Escape'){
+      if ($('search').classList.contains('open')) return closeSearch();
+      if (drawer.classList.contains('open')) return drawer.classList.remove('open');
+      if ($('index').classList.contains('open')) return $('index').classList.remove('open');
+      if (drifting) pause();
+    }
+    if (typing) return;
+    if (e.key === '/'){ e.preventDefault(); openSearch(); }
+    if (e.key === ' '){ e.preventDefault(); drifting ? pause(true) : play(); }
+    if (e.key === 'ArrowRight'){ pause(true); step(1); }
+    if (e.key === 'ArrowLeft'){ pause(true); step(-1); }
+  });
+})();
+</script>
+</body>
+</html>
