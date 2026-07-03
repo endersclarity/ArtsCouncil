@@ -2280,12 +2280,13 @@ button.event-mini:hover {
 }
 
 /* One way home: the county-view chip sits over the map, always reachable
-   after any flight or trail fit strands the camera. */
+   after any flight or trail fit strands the camera — including when the
+   selection drawer (z8) claims the corner, so it outranks the drawer. */
 .county-reset {
   position: absolute;
   top: 18px;
   right: 18px;
-  z-index: 3;
+  z-index: 9;
   border: 1.5px solid var(--ink);
   background: var(--panel);
   color: var(--ink);

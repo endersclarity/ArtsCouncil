@@ -183,3 +183,23 @@
   more matches" → click → 8 shown incl. Nevada Theatre (critic's exact
   repro); node --check ok. Tokens cla-88-pass6b.
 - Next: final re-critique (fresh agent) — decides done.
+
+### Pass 7 — 2026-07-02 (rescore-2 verdict + last P1 fix)
+- Verifier result: county-critic-3 scored **32/40** — rescore2 critique at
+  .impeccable/critique/2026-07-02__county-polish-rescore2.md. **0 P0, 1 P1**
+  (+7 P2, 9 P3). Both pass-6 P1s verified fixed live; zero console errors.
+- Fix batch: (a) THE P1 — presenter bar misattribution: the feed stamps
+  presenter="Nevada County Arts Council" on all 48 events; the council now
+  renders as provenance ("From the Nevada County Arts Council calendar"),
+  only a genuine third party gets "Presented by" (data untouched).
+  (b) P2 folded in: .county-reset z-index 3→9 so the camera-home chip stays
+  clickable under the open drawer.
+- Verified live (rig): Karaoke – Grass Valley Brewing Co. card (the critic's
+  exact repro) reads "From the Nevada County Arts Council calendar";
+  elementFromPoint on the chip's center returns the chip with the drawer
+  open. node --check ok. Tokens cla-88-pass7.
+- Remaining (P2/P3, non-blocking): stale events-list highlight after
+  map-diamond pick; ALL-ROUTES ↔ long title overlap; chip-clear feedback on
+  the search escape hatch; filter/search camera refit; ISO→card date parity
+  elsewhere; trails URL sync; paths stop-tap flip.
+- Next: final re-critique (fresh agent) — score >=30 with 0 P0/P1 exits DONE.

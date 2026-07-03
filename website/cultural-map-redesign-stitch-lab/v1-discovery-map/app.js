@@ -2372,8 +2372,10 @@
       ? `Also ${otherDates.slice(0, 3).map(shortEventDate).join(", ")}${otherDates.length > 3 ? ` +${otherDates.length - 3} more` : ""}`
       : "";
     // Presenter bar (brand bottom-edge fixture). Suppress when it would only
-    // echo the venue — Crazy Horse / Golden Era events are presented by their
-    // own venue, so the bar would repeat the caption. Shows for the council feed.
+    // echo the venue. The feed stamps EVERY event presenter="Nevada County
+    // Arts Council" (it owns the calendar, it doesn't present brewery
+    // karaoke) — so the council reads as calendar provenance ("From the …
+    // calendar"), and only a genuine third party gets "Presented by".
     const presenter = event.presenter &&
       event.presenter.toLowerCase() !== (event.placeName || "").toLowerCase()
         ? event.presenter : "";
@@ -2407,7 +2409,7 @@
         </div>
         ${renderBeforeOrAfter(place)}
       </div>
-      ${presenter ? `<p class="event-feature-presenter">Presented by <strong>${escapeHtml(presenter)}</strong></p>` : ""}
+      ${presenter ? `<p class="event-feature-presenter">${/nevada county arts council/i.test(presenter) ? `From the <strong>${escapeHtml(presenter)}</strong> calendar` : `Presented by <strong>${escapeHtml(presenter)}</strong>`}</p>` : ""}
     `;
     const jump = document.getElementById("event-place-jump");
     if (jump && place) jump.addEventListener("click", () => showPlace(place));

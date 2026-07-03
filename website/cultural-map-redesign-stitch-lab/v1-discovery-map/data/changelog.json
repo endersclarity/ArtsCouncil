@@ -3,6 +3,12 @@
   "entries": [
     {
       "date": "2026-07-02",
+      "title": "Event cards credit the calendar, not the wrong presenter",
+      "summary": "Event cards used to stamp 'Presented by Nevada County Arts Council' on every event — including nights the Council doesn't put on, like a brewery's karaoke. Since the map mirrors the Council's public calendar, the card now says what's actually true: 'From the Nevada County Arts Council calendar.' A genuinely named presenter would still get proper 'Presented by' credit. The County view button also now stays clickable even when a place card is open over that corner of the map.",
+      "kind": "improvement"
+    },
+    {
+      "date": "2026-07-02",
       "title": "Recurring events read as one listing, and search never hides an answer",
       "summary": "A show that runs many nights — like an exhibit open daily — now appears once in the event list and once on the card rail, marked with its run ('Jul 2 · 14 dates'), instead of filling the screen with copies of itself. Event list dates now read like the cards do ('Jul 2') rather than as raw database dates. And when you search while a mood filter is on, the list now tells you what the filter is hiding — searching 'theatre' with Art selected offers a one-click 'Show 5 more matches outside your filters' so the Nevada Theatre can't silently disappear.",
       "kind": "improvement"
