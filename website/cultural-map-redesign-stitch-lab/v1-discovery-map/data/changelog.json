@@ -2,6 +2,12 @@
   "_readme": "Site changelog, rendered by changelog.html. Newest entry FIRST. Every meaningful commit to v1-discovery-map gets an entry (the pre-commit hook enforces this). Write 'summary' in plain language for the Arts Council — what changed for a visitor, not implementation detail. 'commit' is the short hash; the page links it to GitHub.",
   "entries": [
     {
+      "date": "2026-07-02",
+      "title": "New: press Drift and let the map tour the county for you",
+      "summary": "A new Drift button beside the browsing chips starts a sit-back tour: the map glides from one cultural anchor to the next in slow, swooping flights, tilts in low over each place like a drone shot, circles gently while the place's own card is shown, then moves on. You stay in charge the whole time — drag or scroll the map, tap a marker, or hit pause and the tour hands you the wheel; press Escape or the close button to end it, and the map settles back to normal. People who prefer reduced motion get the same tour as a calm slideshow with no swooping or spinning.",
+      "kind": "feature"
+    },
+    {
       "date": "2026-06-13",
       "title": "The cards along the bottom of the map arrive like posters being pinned up",
       "summary": "When the map opens — and whenever you switch what the bottom strip is showing — the poster cards now rise and settle into place one after another, with the red frame snapping crisp last, the way a flyer looks as it's pinned to a board. The MUSE story cards in the side panel get the same gentle entrance. It's a small, quiet touch on the browsing surface; the map itself stays calm and still. People who prefer reduced motion see the cards appear instantly, as before.",

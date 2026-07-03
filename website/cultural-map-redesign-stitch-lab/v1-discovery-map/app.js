@@ -2015,7 +2015,9 @@
     els.detail.querySelector(".selected-place-close")?.addEventListener("click", closeSelectionDrawer);
   }
 
-  function showPlace(place) {
+  function showPlace(place, opts = {}) {
+    // A selection the drift tour didn't make is the visitor taking the wheel.
+    if (drift.on && opts.flight !== false) pauseDrift();
     expandDrawer();
     state.selectedPlaceId = place.id;
     state.selectedEventId = "";
@@ -2142,7 +2144,10 @@
     });
     revealDetailCard();
     };
-    if (_trail && trailFor(place).hasLine) {
+    if (opts.flight === false) {
+      // Drift arrivals: the tour's own camera already landed — just deal.
+      dealCard();
+    } else if (_trail && trailFor(place).hasLine) {
       fitTrail(place);
       if (prefersReducedMotion()) dealCard();
       else state.map.once("moveend", dealCard);
@@ -2856,6 +2861,215 @@
     });
   }
 
+  // ── Drift mode (GSAP plan task #3) ────────────────────────────────────────
+  // Opt-in cinematic tour, mined from fable-drift.html's verified broadcast
+  // grammar: slow soar-and-dive flights (high arc, pitched landing at street
+  // level), the real detail card dealt on touchdown, and a slow orbital hold
+  // while parked. Strictly a layer OVER the functional map: any wheel-take
+  // (map drag, scroll-zoom, a selection the tour didn't make) pauses it, Esc
+  // or a mode switch ends it, and the camera flattens back to the survey
+  // posture on exit. MapLibre's own camera does the flying; GSAP dresses only
+  // the drift bar. Reduced motion tours as a slideshow: instant jumps, flat
+  // camera, no orbit, no pulse.
+  const DRIFT_DWELL_MS = 8200;
+  const DRIFT_FLIGHT = { speed: 0.85, curve: 1.62, maxDuration: 7800 };
+  const drift = { on: false, paused: false, wired: false, pool: [], i: -1, timer: 0, orbitFrame: 0 };
+  const driftEls = {
+    toggle: document.getElementById("drift-toggle"),
+    bar: document.getElementById("drift-bar"),
+    label: document.getElementById("drift-bar-label"),
+    name: document.getElementById("drift-bar-name"),
+    meta: document.getElementById("drift-bar-meta"),
+    count: document.getElementById("drift-bar-count"),
+    pause: document.getElementById("drift-pause"),
+    next: document.getElementById("drift-next"),
+    end: document.getElementById("drift-end"),
+  };
+
+  function driftPool() {
+    const isLead = (place) => Boolean(place.anchor || place.featured);
+    const leads = state.places.filter((place) => isPlaceMapReady(place) && isLead(place));
+    const seen = new Set(leads.map((place) => place.id));
+    const rest = surpriseEligiblePlaces().filter((place) => place.image?.kind === "real" && !seen.has(place.id));
+    const pool = leads.concat(rest);
+    for (let i = pool.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [pool[i], pool[j]] = [pool[j], pool[i]];
+    }
+    // Anchors open the show; the shuffled tail keeps every drift a fresh cut.
+    // Cap the guest list — a tour is a curated cut, not the whole catalog.
+    const sorted = pool.sort((a, b) => (isLead(b) ? 1 : 0) - (isLead(a) ? 1 : 0));
+    return sorted.slice(0, leads.length + 36);
+  }
+
+  function updateDriftBar(place, enRoute) {
+    if (!driftEls.bar) return;
+    driftEls.name.textContent = place.name;
+    driftEls.meta.textContent = [place.category, place.city].filter(Boolean).join(" · ");
+    driftEls.count.textContent = `${drift.i + 1} / ${drift.pool.length}`;
+    driftEls.bar.classList.toggle("en-route", Boolean(enRoute));
+    if (!enRoute && gsapMotionOn()) {
+      const gsap = window.gsap;
+      gsap.killTweensOf([driftEls.name, driftEls.meta]);
+      gsap.fromTo(
+        [driftEls.name, driftEls.meta],
+        { opacity: 0, y: 9 },
+        { opacity: 1, y: 0, duration: 0.45, ease: "power3.out", stagger: 0.06, clearProps: "transform,opacity" },
+      );
+    }
+  }
+
+  function syncDriftChrome() {
+    driftEls.toggle?.setAttribute("aria-pressed", drift.on ? "true" : "false");
+    driftEls.bar?.classList.toggle("paused", drift.paused);
+    if (driftEls.label) driftEls.label.textContent = drift.paused ? "Paused — you have the wheel" : "On drift";
+    if (driftEls.pause) {
+      driftEls.pause.textContent = drift.paused ? "▶" : "⏸";
+      driftEls.pause.setAttribute("aria-label", drift.paused ? "Resume drift" : "Pause drift");
+    }
+  }
+
+  function driftOrbitStop() {
+    if (drift.orbitFrame) {
+      cancelAnimationFrame(drift.orbitFrame);
+      drift.orbitFrame = 0;
+    }
+  }
+  // The parked camera never plays dead: a barely-there rotation (~1.2°/s)
+  // holds the shot like a drone circling the subject.
+  function driftOrbitStart() {
+    driftOrbitStop();
+    if (prefersReducedMotion()) return;
+    let last = 0;
+    const spin = (t) => {
+      if (last) state.map.setBearing(state.map.getBearing() + Math.min(t - last, 50) * 0.0012);
+      last = t;
+      drift.orbitFrame = requestAnimationFrame(spin);
+    };
+    drift.orbitFrame = requestAnimationFrame(spin);
+  }
+
+  function driftArrive(place) {
+    showPlace(place, { flight: false });
+    updateDriftBar(place, false);
+    if (!drift.paused) {
+      driftOrbitStart();
+      drift.timer = setTimeout(() => driftStep(1), DRIFT_DWELL_MS);
+    }
+  }
+
+  function driftStep(dir) {
+    if (!drift.on) return;
+    clearTimeout(drift.timer);
+    driftOrbitStop();
+    drift.i = (drift.i + dir + drift.pool.length) % drift.pool.length;
+    const place = drift.pool[drift.i];
+    const seq = ++state.flightSeq; // share the selection guard so user flights supersede tour flights
+    updateDriftBar(place, true);
+    if (prefersReducedMotion()) {
+      state.map.jumpTo({ center: [place.lng, place.lat], zoom: 15.4, pitch: 0, bearing: 0 });
+      driftArrive(place);
+      return;
+    }
+    state.map.flyTo({
+      center: [place.lng, place.lat],
+      zoom: 15.1 + Math.random() * 0.9,
+      pitch: 44 + Math.random() * 14,
+      bearing: Math.random() * 84 - 42,
+      ...DRIFT_FLIGHT,
+      essential: true,
+    });
+    state.map.once("moveend", () => {
+      if (drift.on && seq === state.flightSeq) driftArrive(place);
+    });
+  }
+
+  function pauseDrift() {
+    if (!drift.on || drift.paused) return;
+    drift.paused = true;
+    clearTimeout(drift.timer);
+    driftOrbitStop();
+    syncDriftChrome();
+  }
+  function resumeDrift() {
+    if (!drift.on || !drift.paused) return;
+    drift.paused = false;
+    syncDriftChrome();
+    driftStep(1);
+  }
+
+  function startDrift() {
+    // mapMode is stamped by the first setMode during bootstrap — before that,
+    // sources/layers may not exist yet and a tour would land on nothing.
+    if (drift.on || !state.map || !document.body.dataset.mapMode) return;
+    const pool = driftPool();
+    if (pool.length < 2) return;
+    if (state.mode !== "places") setMode("places");
+    drift.pool = pool;
+    drift.i = -1;
+    drift.on = true;
+    drift.paused = false;
+    document.body.classList.add("drifting");
+    if (driftEls.bar) driftEls.bar.hidden = false;
+    syncDriftChrome();
+    if (!drift.wired) {
+      drift.wired = true;
+      ["dragstart", "wheel"].forEach((type) =>
+        state.map.on(type, () => {
+          if (drift.on && !drift.paused) pauseDrift();
+        }),
+      );
+    }
+    if (gsapMotionOn()) {
+      window.gsap.fromTo(
+        driftEls.bar,
+        { y: 64, opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.5, ease: "power3.out", clearProps: "transform,opacity" },
+      );
+    }
+    driftStep(1);
+  }
+
+  function endDrift() {
+    if (!drift.on) return;
+    drift.on = false;
+    drift.paused = false;
+    clearTimeout(drift.timer);
+    driftOrbitStop();
+    state.flightSeq += 1; // strand any tour flight still in the air
+    document.body.classList.remove("drifting");
+    syncDriftChrome();
+    const settle = () => {
+      if (driftEls.bar) driftEls.bar.hidden = true;
+    };
+    if (gsapMotionOn()) {
+      window.gsap.to(driftEls.bar, {
+        y: 64, opacity: 0, duration: 0.35, ease: "power2.in",
+        onComplete: () => {
+          window.gsap.set(driftEls.bar, { clearProps: "transform,opacity" });
+          settle();
+        },
+      });
+      // Throttled/hidden tabs can stall GSAP's ticker mid-tween — never leave
+      // the bar stranded on screen. settle() is idempotent.
+      setTimeout(settle, 900);
+    } else {
+      settle();
+    }
+    // Flatten the cinematic posture; the center stays wherever the tour left off.
+    if (!state.map) return;
+    if (prefersReducedMotion()) state.map.jumpTo({ pitch: 0, bearing: 0 });
+    else state.map.easeTo({ pitch: 0, bearing: 0, duration: 700 });
+  }
+
+  driftEls.toggle?.addEventListener("click", () => (drift.on ? endDrift() : startDrift()));
+  driftEls.pause?.addEventListener("click", () => (drift.paused ? resumeDrift() : pauseDrift()));
+  driftEls.next?.addEventListener("click", () => driftStep(1));
+  driftEls.end?.addEventListener("click", endDrift);
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && drift.on) endDrift();
+  });
+
   function renderDiscoveryRail() {
     if (!els.railTrack) return;
     const filter = state.railFilter;
@@ -2949,6 +3163,8 @@
   }
 
   function setMode(mode) {
+    // Leaving Places mid-tour ends the show — the other lenses are hands-on.
+    if (drift.on && mode !== "places") endDrift();
     state.mode = mode;
     document.body.dataset.mapMode = mode;
     if (mode !== "places") state.selectedPlaceId = "";
