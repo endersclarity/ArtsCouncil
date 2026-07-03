@@ -1958,22 +1958,9 @@ body:not([data-map-mode="places"]) .review-tools {
   text-underline-offset: 3px;
 }
 
-/* Quiet door from the story list to the standalone scroll-story page
-   (story-of-the-corridor.html). Same red-underline idiom as .story-read-link —
-   no new framing device, no motion; the map surface stays quiet. */
-.corridor-story-link {
-  display: inline-block;
-  margin-top: 12px;
-  font-size: 12px;
-  font-weight: 800;
-  color: var(--ink);
-  text-decoration-color: var(--ncac-red);
-  text-underline-offset: 3px;
-}
-
-.corridor-story-link:hover {
-  color: var(--ncac-red);
-}
+/* The corridor scroll-story is OUR editorial page, not a MUSE article — its
+   door lives in the site nav (owner ruling 2026-07-03), never inside the
+   MUSE stories panel where it would read as magazine content. */
 
 button.seen-in-muse-story {
   appearance: none;
