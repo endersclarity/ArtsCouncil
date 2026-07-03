@@ -203,3 +203,27 @@
   the search escape hatch; filter/search camera refit; ISO→card date parity
   elsewhere; trails URL sync; paths stop-tap flip.
 - Next: final re-critique (fresh agent) — score >=30 with 0 P0/P1 exits DONE.
+
+### Pass 8 — 2026-07-02 — EXIT: DONE
+- Verifier result: county-critic-4 initially returned 31/40, 0 P0, 1 P1
+  ("event diamonds 46→1 on selection"). Worker reproduced the measurement,
+  found the source/filter/icon all clean, and showed a −0.1 zoom nudge
+  restores all 46 — a hidden-tab SYMBOL-PLACEMENT stall (event-points is the
+  only symbol layer on app data; circle layers don't place, which is why
+  Places never showed it). Evidence sent back to the critic, who re-ran the
+  repro in its own tab, could NOT reproduce the loss, RETRACTED the P1, and
+  revised the critique: **32/40, 0 P0, 0 P1** (rescore3, revision noted in
+  the file; new rig caveat recorded: queryRenderedFeatures on symbol layers
+  is unreliable in a throttled tab).
+- EXIT CONDITION MET: fresh critique >= 30/40 with zero P0 AND zero P1.
+- Score arc: 21/40 (2026-06-12 baseline) → 26 (pass 1) → 31 (rescore) →
+  32 (rescore2) → **32/40 final** (rescore3 revised). Six fix commits, all
+  pushed: ea06381, 60da95f, 576093b, c7c9b8f, 2c42bfd, 6fb4f62.
+- Open P2/P3 backlog handed to the owner via the rescore3 critique: drawer
+  top-right collision cluster, route-stop tap desync, trails URL sync,
+  filter-clear feedback on the search escape hatch, "Tonight" on daytime
+  events, plus data flags (Nevada Theater/Theatre dupe, Lyric Rose Rose,
+  stale feed prose).
+- Unjudgeable in the rig, still owed a VISIBLE-window pass: Drift motion
+  smoothness/orbit rate, basemap tint, real mobile viewport.
+- State file archived to loops/archive/ per contract.
