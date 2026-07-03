@@ -857,13 +857,34 @@
       els.placesList.innerHTML = "";
       return;
     }
+    // A search that silently ANDs with the mood chips hides real answers —
+    // typing "theatre" with Art active must not bury the Nevada Theatre.
+    // Count what the chips exclude and offer it as one honest click.
+    const filtersActive = state.activeIntents.size > 0 || state.featuredInMuseOnly;
+    const hiddenByFilters = query && filtersActive && !state.localReveal
+      ? state.places.filter((place) => searchableText(place).includes(query.toLowerCase())).length - places.length
+      : 0;
+    const hiddenHint = hiddenByFilters > 0
+      ? `<button class="filter-chip search-beyond-filters" type="button" id="search-beyond-filters">Show ${escapeHtml(hiddenByFilters)} more match${hiddenByFilters === 1 ? "" : "es"} outside your filters</button>`
+      : "";
+    const wireHiddenHint = () => {
+      els.placesList.querySelector("#search-beyond-filters")?.addEventListener("click", () => {
+        state.activeIntents.clear();
+        state.featuredInMuseOnly = false;
+        renderFilters();
+        setSourceData();
+        updateReviewUrl();
+      });
+    };
     if (!places.length) {
       els.placesList.innerHTML = `
         <div class="places-list-empty">
-          <p>No places match ${query ? `"${escapeHtml(query)}"` : "this filter"}.</p>
+          <p>No places match ${query ? `"${escapeHtml(query)}"` : "this filter"}${hiddenByFilters > 0 ? " inside your filters" : ""}.</p>
+          ${hiddenHint}
           ${state.activeIntents.size || state.featuredInMuseOnly ? `<button class="filter-chip" type="button" id="clear-place-filters">Clear filters</button>` : ""}
         </div>
       `;
+      wireHiddenHint();
       // Mode is already places here — delegate to the shared reset so search
       // and local reveal clear too, exactly like the rail reset chip.
       els.placesList.querySelector("#clear-place-filters")?.addEventListener("click", resetToBrowseStartingView);
@@ -884,6 +905,7 @@
           <span>${isStartingView ? "Places to explore" : `${escapeHtml(places.length)} ${query ? "matching" : "listed"} of ${escapeHtml(visibleCount)} places on the map`}</span>
         </div>
       `}
+      ${hiddenHint}
       <div class="places-list-items">
         ${shown.map((place) => `
           <button class="place-list-item${place.id === state.selectedPlaceId ? " active" : ""}${isLocalReveal ? " local-reveal-item" : ""}" type="button" data-place="${escapeHtml(place.id)}" aria-current="${place.id === state.selectedPlaceId ? "true" : "false"}">
@@ -896,6 +918,7 @@
       ${isStartingView && !isLocalReveal ? `<p class="places-list-more">Choose an Outing Type or search places to browse the full directory.</p>` : ""}
       ${!isStartingView && !isLocalReveal && places.length > limit ? `<p class="places-list-more">Showing first ${escapeHtml(limit)}. Use search to narrow the list.</p>` : ""}
     `;
+    wireHiddenHint();
     els.placesList.querySelector("#local-reveal-back")?.addEventListener("click", clearLocalReveal);
     els.placesList.querySelectorAll("[data-place]").forEach((button) => {
       const place = placeById(button.dataset.place);
@@ -1387,16 +1410,27 @@
     ];
     const chips = lenses.map(([key, label]) => `
       <button class="time-lens-chip${state.eventLens === key ? " active" : ""}" type="button" data-event-lens="${key}" aria-pressed="${state.eventLens === key ? "true" : "false"}">${label}</button>`).join("");
-    const rows = events.map((event) => `
+    // Collapse recurring series to one row (first upcoming date leads, the row
+    // notes the run) — five consecutive rows of the same nightly show read as
+    // a broken list, not a schedule. Dates render in the card format ("Jul 2"),
+    // never raw ISO.
+    const groups = new Map();
+    for (const event of events) {
+      const key = `${(event.title || "").toLowerCase()}|${event.placeId}`;
+      const group = groups.get(key);
+      if (group) group.count += 1;
+      else groups.set(key, { event, count: 1 });
+    }
+    const rows = [...groups.values()].map(({ event, count }) => `
       <button class="event-list-row${state.selectedEventId === event.id ? " active" : ""}" type="button" data-event-id="${escapeHtml(event.id)}">
-        <span class="event-list-date">${escapeHtml(event.date)}</span>
-        <span class="event-list-copy"><strong>${escapeHtml(event.title)}</strong><em>${escapeHtml(event.placeName || "")}</em></span>
+        <span class="event-list-date">${escapeHtml(shortEventDate(event.date))}</span>
+        <span class="event-list-copy"><strong>${escapeHtml(event.title)}</strong><em>${escapeHtml(event.placeName || "")}${count > 1 ? ` · ${escapeHtml(count)} dates` : ""}</em></span>
       </button>`).join("");
     els.filters.innerHTML = `
       <div class="outing-browse">
         <div class="time-lens-row" role="group" aria-label="When">${chips}</div>
         <div class="outing-browse-head">
-          <span class="outing-browse-title">${events.length ? `Events (${escapeHtml(events.length)})` : "No events in this window"}</span>
+          <span class="outing-browse-title">${events.length ? `Events (${escapeHtml(groups.size)}${events.length > groups.size ? ` · ${escapeHtml(events.length)} dates` : ""})` : "No events in this window"}</span>
         </div>
         <div class="events-browse-list" role="list" aria-label="Upcoming events">${rows}</div>
       </div>`;
@@ -2590,7 +2624,8 @@
       // Pass-3 typeset: the banned eyebrow row is gone. The date/recency signal
       // lives in the meta line as a weighted lead word ("Tonight" / "Sat, Jun 13"),
       // not a kicker above every card.
-      when: event.date === today ? "Tonight" : niceEventDate(event.date),
+      when: (event.date === today ? "Tonight" : niceEventDate(event.date))
+        + (eventOtherDates(event).length ? ` · ${eventOtherDates(event).length + 1} dates` : ""),
       // Program tab (poster anatomy): the event's own category names the field,
       // mirroring the detail card's tab. Falls back to a generic "Event".
       tab: eventProgramTab(event) || "Event",
@@ -2617,7 +2652,17 @@
       lng: place.lng,
       place,
     });
-    events.slice(0, 4).forEach((event) => items.push(eventCard(event)));
+    // A recurring series is ONE poster on the rail — four copies of the same
+    // nightly show would fill every event slot. The card's date line carries
+    // the run; the event card lists the other dates.
+    const seenSeries = new Set();
+    const distinctEvents = events.filter((event) => {
+      const key = `${(event.title || "").toLowerCase()}|${event.placeId}`;
+      if (seenSeries.has(key)) return false;
+      seenSeries.add(key);
+      return true;
+    });
+    distinctEvents.slice(0, 4).forEach((event) => items.push(eventCard(event)));
     samplerPlaces.slice(0, 3).forEach((place) => items.push(placeCard(place)));
     const story = state.museStories[0];
     if (story) {
@@ -2648,7 +2693,7 @@
         path,
       });
     }
-    events.slice(4, 8).forEach((event) => items.push(eventCard(event)));
+    distinctEvents.slice(4, 8).forEach((event) => items.push(eventCard(event)));
     samplerPlaces.slice(3).forEach((place) => items.push(placeCard(place)));
     return items;
   }

@@ -152,3 +152,34 @@
   entries (see loops/merge-marshal.md pass 1).
 - Backlog now: P2 batch + P3 batch only (no known P0/P1-class items open).
 - Next: RE-CRITIQUE (fresh agent, same brief/scale) — this decides the exit.
+
+### Pass 5 — 2026-07-02 (re-critique verdict)
+- Verifier result: fresh critic (county-critic-2) scored **31/40** (26 pass 1,
+  21 June baseline) — .impeccable/critique/2026-07-02__county-polish-rescore.md.
+  **0 P0, 2 P1.** All five pass-1 P0/P1s confirmed fixed live; zero console
+  errors. Score gate (>=30) MET; zero-P1 gate NOT met.
+- New P1s: (1) recurring event floods rail (4/19 cards) + events list (5+
+  consecutive rows) — needs recurrence collapse on both surfaces; (2) search
+  silently ANDs with active mood chips — "theatre" + Art chip hides the
+  Nevada Theatre (3 shown vs 8 unfiltered) with no cue.
+- P2s noted for later/backlog: back-button overlaps card titles; "Presented
+  by NCAC" stamped on third-party Trumba events (misattribution); ISO dates
+  in events list; trails URL sync; paths stop-tap tab flip. Data flags routed
+  to the data owner in the critique.
+- Next: pass 6 = fix both P1s, verify, then final re-critique.
+
+### Pass 6 — 2026-07-02 (fix batch: the two remaining P1s)
+- Attempted: (a) recurrence collapse — rail dedupes events by title+venue in
+  BOTH batches of buildRailItems (first fix missed the second
+  `events.slice(4,8)` — caught live), card date line carries "· N dates";
+  events list groups series to one row (first upcoming date leads, "· N
+  dates" in the venue line), header reads "Events (22 · 48 dates)", list
+  dates now shortEventDate ("Jul 2") not raw ISO (P2 folded in).
+  (b) search × chips: renderPlacesList counts query matches the active
+  chips exclude and renders "Show N more matches outside your filters"
+  (clears chips, keeps query) in both the results and empty states.
+- Verified live (rig): rail 19 cards ZERO duplicate titles; events list 22
+  grouped rows zero dupes; "theatre" + Art chip = 3 shown + hint "Show 5
+  more matches" → click → 8 shown incl. Nevada Theatre (critic's exact
+  repro); node --check ok. Tokens cla-88-pass6b.
+- Next: final re-critique (fresh agent) — decides done.

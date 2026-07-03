@@ -3,6 +3,12 @@
   "entries": [
     {
       "date": "2026-07-02",
+      "title": "Recurring events read as one listing, and search never hides an answer",
+      "summary": "A show that runs many nights — like an exhibit open daily — now appears once in the event list and once on the card rail, marked with its run ('Jul 2 · 14 dates'), instead of filling the screen with copies of itself. Event list dates now read like the cards do ('Jul 2') rather than as raw database dates. And when you search while a mood filter is on, the list now tells you what the filter is hiding — searching 'theatre' with Art selected offers a one-click 'Show 5 more matches outside your filters' so the Nevada Theatre can't silently disappear.",
+      "kind": "improvement"
+    },
+    {
+      "date": "2026-07-02",
       "title": "Easier-to-read red labels and calmer screen-reader narration",
       "summary": "The small red labels on trail fact tables and MUSE badges now use a slightly deeper cut of the brand red that meets accessibility contrast standards on white — the bright poster red stays for frames, rings, and big marks where it belongs. During a Drift tour, screen readers now hear one clear announcement per stop ('Now at Center for the Arts, stop 1 of 42') instead of a running commentary of every bar update. And keyboard focus in the bottom card strip survives switching between Everything / Events / Places instead of being dropped.",
       "kind": "improvement"
