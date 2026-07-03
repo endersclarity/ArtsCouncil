@@ -3,6 +3,12 @@
   "entries": [
     {
       "date": "2026-07-03",
+      "title": "Real descriptions begin replacing placeholder text (first 10 places)",
+      "summary": "441 places still carried the alpha placeholder line ('…included for alpha review while source descriptions are cleaned'). The first 10 — trails, cafes, galleries, and shops like the Hirschman Trail and the Outside Inn — now have short, factual descriptions written in the map's voice, each grounded in the place's own website, its MUSE story appearances, or its plain record facts, with the source noted on every rewrite. The rest of the placeholder text will be replaced in batches by category.",
+      "kind": "improvement"
+    },
+    {
+      "date": "2026-07-03",
       "title": "The corridor story drops its number tickers",
       "summary": "The Story of the Corridor page no longer interrupts its chapters with rows of counting-up statistics (places mapped, events, trails). The numbers added dashboard noise to what is meant to read as a story — the prose now carries each chapter on its own.",
       "kind": "improvement"

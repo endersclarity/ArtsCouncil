@@ -3673,7 +3673,7 @@
     "city": "Grass Valley",
     "category": "Shops & Makers",
     "intent": "Historic Places",
-    "description": "A cultural resources entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "A letterpress print shop — 'the original social media,' as they put it — printing wedding suites, business cards, and stationery, by appointment.",
     "website": "https://full-circle-press.com/",
     "address": "12803 MacBoyle Way",
     "phone": "(530) 273-5606",
@@ -3703,7 +3703,14 @@
       2024,
       2025
     ],
-    "musePage": 101
+    "musePage": 101,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-02"
+    }
   },
   {
     "id": "gold-city-guitar-repair-nevada-city",
@@ -10093,7 +10100,7 @@
     "city": "Grass Valley",
     "category": "Eat, Drink & Stay",
     "intent": "Eat, Drink & Stay",
-    "description": "A eat, drink & stay entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "A cafe on Richardson Street in Grass Valley, featured in MUSE's 'Seasons in the GVNC Cultural District.'",
     "website": "https://www.southpinecafe.com/",
     "address": "102 Richardson St",
     "phone": "(530) 274-0261",
@@ -10125,7 +10132,14 @@
       2025,
       2026
     ],
-    "musePage": 96
+    "musePage": 96,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "muse",
+        "record"
+      ]
+    }
   },
   {
     "id": "sushi-q-nevada-city",
@@ -10272,7 +10286,7 @@
     "city": "Nevada City",
     "category": "Eat, Drink & Stay",
     "intent": "Eat, Drink & Stay",
-    "description": "A eat, drink & stay entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "Szabo Vineyards' tasting room on Broad Street in Nevada City — 'Californian wine, with Hungarian roots,' in their words.",
     "website": "https://www.szabovineyards.com/",
     "address": "316 Broad St",
     "phone": "(530) 265-8792",
@@ -10303,7 +10317,14 @@
       2025,
       2026
     ],
-    "musePage": 98
+    "musePage": 98,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-02"
+    }
   },
   {
     "id": "taqueria-el-taco-loco-nevada-city",
@@ -10552,7 +10573,7 @@
     "city": "Nevada City",
     "category": "Eat, Drink & Stay",
     "intent": "Eat, Drink & Stay",
-    "description": "A eat, drink & stay entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "A family-owned motel two blocks from downtown Nevada City, with themed rooms and an adventure bent — the office keeps a library of hiking and biking route info, and dogs are welcome in most rooms.",
     "website": "https://outsideinn.com/",
     "address": "575 E Broad St",
     "phone": "(530 265-2233",
@@ -10583,7 +10604,14 @@
       2025,
       2026
     ],
-    "musePage": 95
+    "musePage": 95,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-02"
+    }
   },
   {
     "id": "the-owl-tavern-grass-valley",
@@ -12692,7 +12720,7 @@
     "city": "Grass Valley",
     "category": "Galleries & Studios",
     "intent": "Galleries & Studios",
-    "description": "A galleries & studios entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "A gallery space at 201 W Main Street in Grass Valley.",
     "website": "",
     "address": "201 W Main St",
     "phone": "530-273-3722",
@@ -12719,7 +12747,13 @@
     "featured": false,
     "coordinateProvenance": "diana",
     "markerTier": "map-ready",
-    "inGvncScope": true
+    "inGvncScope": true,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "bear-river-glassworks-grass-valley",
@@ -22424,7 +22458,7 @@
     "city": "Nevada City",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "A 2.4-mile trail a mile from downtown Nevada City, centered on Hirschman's Pond — five acres of water beneath cliffs carved by 1800s hydraulic mining. The first stretch is built to ADA standards and crosses a 40-foot trestle; dogs on leash.",
     "website": "https://www.bylt.org/trail/hirschman-trail/",
     "address": "1000 Cement Hill Rd",
     "phone": "",
@@ -22464,7 +22498,14 @@
       "source": "bylt",
       "matchedName": "Hirschman Trail"
     },
-    "trailRef": "hirschman-trail-nevada-city"
+    "trailRef": "hirschman-trail-nevada-city",
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-02"
+    }
   },
   {
     "id": "hoyt-trail-south-yuba-river-nevada-city",
@@ -22551,7 +22592,7 @@
     "city": "Nevada City",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "A walking trail in Nevada City, reached from Via Colina Drive.",
     "website": "https://www.alltrails.com/trail/us/california/litton-trail",
     "address": "1000 Via Colina Dr",
     "phone": "",
@@ -22575,7 +22616,13 @@
     "featured": false,
     "coordinateProvenance": "arcgis-confident",
     "markerTier": "map-ready",
-    "inGvncScope": true
+    "inGvncScope": true,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "loma-rica-trail-grass-valley",
@@ -33597,7 +33644,7 @@
     "city": "Truckee",
     "category": "Galleries & Studios",
     "intent": "Galleries & Studios",
-    "description": "A galleries & studios entry in Truckee, included for alpha review while source descriptions are cleaned.",
+    "description": "An artists' collective and gallery on Donner Pass Road in Truckee — a stop in MUSE's '48 Hours in Truckee' and 'In Nevada County, the Arts Are Essential.'",
     "website": "https://mountainartscollective.com/",
     "address": "10065 Donner Pass Rd",
     "phone": "(530) 563-5110",
@@ -33628,7 +33675,14 @@
       2025,
       2026
     ],
-    "musePage": 101
+    "musePage": 101,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "muse",
+        "record"
+      ]
+    }
   },
   {
     "id": "piper-j-gallery-truckee",
@@ -42505,7 +42559,7 @@
     "city": "Penn Valley",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Penn Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "A walking trail off Pleasant Valley Road in Penn Valley — one of the outings in MUSE's 'Seasons in the GVNC Cultural District.'",
     "website": "http://syrpa.lindberglce.com/buttermilk.htm",
     "address": "17660 Pleasant Valley Rd",
     "phone": "",
@@ -42530,7 +42584,14 @@
     "coordinateProvenance": "arcgis-confident",
     "markerTier": "map-ready",
     "inGvncScope": true,
-    "websiteStatus": "dead"
+    "websiteStatus": "dead",
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "muse",
+        "record"
+      ]
+    }
   },
   {
     "id": "campfire-center-trail",
@@ -50852,7 +50913,7 @@
     "city": "Truckee",
     "category": "Walks & Trails",
     "intent": "Outdoors",
-    "description": "A walks & trails entry in Truckee, included for alpha review while source descriptions are cleaned.",
+    "description": "Truckee's regional park on Brockway Road — a recurring MUSE stop, from the annual Calendar of Events to 'The Culture of Food in Nevada County.'",
     "website": "http://www.tdrpd.org/parks/195-regional-park.html",
     "address": "10050 Brockway Rd",
     "phone": "",
@@ -50877,7 +50938,14 @@
     "coordinateProvenance": "arcgis-confident",
     "markerTier": "map-ready",
     "inGvncScope": false,
-    "websiteStatus": "dead"
+    "websiteStatus": "dead",
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "muse",
+        "record"
+      ]
+    }
   },
   {
     "id": "turnpike-trail",
