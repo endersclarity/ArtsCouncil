@@ -1958,6 +1958,23 @@ body:not([data-map-mode="places"]) .review-tools {
   text-underline-offset: 3px;
 }
 
+/* Quiet door from the story list to the standalone scroll-story page
+   (story-of-the-corridor.html). Same red-underline idiom as .story-read-link —
+   no new framing device, no motion; the map surface stays quiet. */
+.corridor-story-link {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 12px;
+  font-weight: 800;
+  color: var(--ink);
+  text-decoration-color: var(--ncac-red);
+  text-underline-offset: 3px;
+}
+
+.corridor-story-link:hover {
+  color: var(--ncac-red);
+}
+
 button.seen-in-muse-story {
   appearance: none;
   text-align: left;
