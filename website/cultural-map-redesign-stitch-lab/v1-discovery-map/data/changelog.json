@@ -3,6 +3,12 @@
   "entries": [
     {
       "date": "2026-07-02",
+      "title": "The corridor's story is now one click from the map",
+      "summary": "The Story of the Corridor — the scrolling illustrated tour of everything the map holds — used to be reachable only if someone handed you the link. Now the Stories from MUSE panel ends with a quiet link that opens it, so anyone browsing stories can step into the full tour. Nothing else on the map surface changed, and no new motion was added.",
+      "kind": "improvement"
+    },
+    {
+      "date": "2026-07-02",
       "title": "A scroll-told story of the cultural corridor",
       "summary": "A new standalone page, The Story of the Corridor, walks through what the map holds — the places, the paths, the happenings, and the trails from Grass Valley to Nevada City — as a scrolling illustrated story. Its headline numbers now read themselves from the same data the map uses, so they stay true as the data refreshes nightly. The page follows the brand's own typeface throughout, and everything animated respects reduced-motion preferences, including the cursor and spotlight effects.",
       "kind": "feature"

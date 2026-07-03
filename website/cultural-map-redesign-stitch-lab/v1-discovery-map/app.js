@@ -1671,6 +1671,7 @@
           </button>
         `).join("")}
       </div>
+      <a class="corridor-story-link" href="story-of-the-corridor.html">The Story of the Corridor — a scroll-told tour of the whole map ›</a>
     `;
     els.detail.querySelector(".selected-place-close")?.addEventListener("click", closeSelectionDrawer);
     els.detail.querySelectorAll("[data-muse-story]").forEach((button) => {
