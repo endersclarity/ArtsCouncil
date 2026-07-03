@@ -98,3 +98,17 @@ priority; after #1 and at least one GSAP prototype land.
   drift-polish loop (loops/archive/). Data note: `data/events.json` (refreshed
   2026-06-13) is now fully in the past — pages truthfully show "0 happenings".
   Closed trail loops archived to loops/archive/.
+- 2026-07-02: #3 BUILT, pending live glance. "Drift" chip in the rail chips starts an
+  opt-in cinematic tour: pool = anchors/featured first + 36 shuffled photo-rich guests;
+  slow soar-and-dive flyTo (speed .85, curve 1.62, pitch 44–58, banked bearing), the
+  real detail card dealt on touchdown via `showPlace(place, {flight:false})` (new opt),
+  ~1.2°/s orbital hold while parked, 8.2s dwell. Wheel-takes: map drag/wheel or any
+  non-tour selection pauses (showPlace hook); Esc / ✕ / mode switch ends; camera
+  flattens to pitch 0 on exit. Drift bar (ink band, red live dot, pause/next/end) is
+  the only GSAP surface — MapLibre flies itself, per the marketing-only rule. Reduced
+  motion = flat instant slideshow, no orbit/pulse. Guard: chip inert until bootstrap
+  stamps body.dataset.mapMode. Cache tokens bumped to cla-87-drift; changelog entry
+  added. Verified in the hidden preview: chrome mounts, chip styling, pre-boot guard,
+  bar mechanics, pool build, node --check clean — the full camera run needs the
+  AGENTS.md "verify in real Chrome" pass (0-fps preview never fires MapLibre load),
+  then commit.
