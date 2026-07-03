@@ -112,3 +112,11 @@ priority; after #1 and at least one GSAP prototype land.
   bar mechanics, pool build, node --check clean — the full camera run needs the
   AGENTS.md "verify in real Chrome" pass (0-fps preview never fires MapLibre load),
   then commit.
+- 2026-07-02 (later): #3 SHIPPED to master a03719c after a real-Chrome functional pass
+  (county-polish loop pass 0): full flight/touchdown/card/advance cycle, wheel-take,
+  Esc, zero console errors; orbit rate + smoothness deferred to a visible-window pass.
+  #4 SHIPPED 7e675d0: story-of-the-corridor.html reviewed (COMMIT-AFTER-FIXES,
+  .planning/corridor-review-2026-07-02.md) and fixed pre-commit — live-computed stats,
+  Polymath instead of Instrument Serif, reduced-motion gates on cursor/spotlight,
+  theme-color. ALL FOUR TASKS DONE. Open thread: nothing links to the corridor page
+  yet (owner call: add a discoverable link from index.html or keep it share-only).

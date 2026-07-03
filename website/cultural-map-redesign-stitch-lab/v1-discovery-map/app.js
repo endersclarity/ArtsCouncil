@@ -328,8 +328,8 @@
     const rows = [];
     if (t.difficulty) rows.push(["Difficulty", t.difficulty]);
     if (t.length_txt) rows.push(["Length", t.length_txt + " mi"]);
-    if (t.surface) rows.push(["Surface", t.surface]);
-    if (t.uses) rows.push(["Uses", t.uses]);
+    if (t.surface) rows.push(["Surface", trailTokens(t.surface).join(", ")]);
+    if (t.uses) rows.push(["Uses", trailTokens(t.uses).join(", ")]);
     if (!rows.length && !t.permitted) return "";
     return `<dl class="trail-facts">${rows.map(([k, v]) =>
       `<div><dt>${escapeHtml(k)}</dt><dd>${escapeHtml(v)}</dd></div>`).join("")}</dl>`
@@ -618,6 +618,21 @@
 
   const TRAIL_DIFFICULTY_ORDER = { Easy: 0, Moderate: 1, Difficult: 2 };
 
+  // Trail surface/use values arrive as free-text combo strings with case twins
+  // and typos ("Natural earth" / "Natural Earth" / "Natural Eath", "Hiking,
+  // biking"). Facet on canonical tokens so no case-twin or combo string
+  // silently excludes results; raw values stay untouched in data and are
+  // flagged to the data owner (.planning/data-flags-2026-07-02.md).
+  const TRAIL_TOKEN_FIXES = { "natural eath": "natural earth" };
+  function trailTokens(raw) {
+    return [...new Set(String(raw || "")
+      .split(/[,/]/)
+      .map((part) => part.trim().toLowerCase())
+      .filter(Boolean)
+      .map((part) => TRAIL_TOKEN_FIXES[part] || part)
+      .map((part) => part.replace(/(^|\s)[a-z]/g, (c) => c.toUpperCase())))];
+  }
+
   function trailLengthMi(place) {
     const t = place.trail || {};
     if (Number.isFinite(t.length_mi)) return t.length_mi;
@@ -632,8 +647,8 @@
     const distinct = (values) => [...new Set(values.filter(Boolean))];
     const difficulties = distinct(trails.map(trailDifficulty))
       .sort((a, b) => (TRAIL_DIFFICULTY_ORDER[a] ?? 99) - (TRAIL_DIFFICULTY_ORDER[b] ?? 99) || a.localeCompare(b));
-    const uses = distinct(trails.map((place) => place.trail?.uses)).sort((a, b) => a.localeCompare(b));
-    const surfaces = distinct(trails.map((place) => place.trail?.surface)).sort((a, b) => a.localeCompare(b));
+    const uses = distinct(trails.flatMap((place) => trailTokens(place.trail?.uses))).sort((a, b) => a.localeCompare(b));
+    const surfaces = distinct(trails.flatMap((place) => trailTokens(place.trail?.surface))).sort((a, b) => a.localeCompare(b));
     const towns = distinct(trails.map((place) => place.city)).sort((a, b) => a.localeCompare(b));
     return { difficulties, uses, surfaces, towns };
   }
@@ -644,8 +659,8 @@
     const f = state.trailFilters;
     let list = trailPlaces().filter((place) => {
       if (f.difficulty !== "all" && trailDifficulty(place) !== f.difficulty) return false;
-      if (f.use !== "all" && (place.trail?.uses || "") !== f.use) return false;
-      if (f.surface !== "all" && (place.trail?.surface || "") !== f.surface) return false;
+      if (f.use !== "all" && !trailTokens(place.trail?.uses).includes(f.use)) return false;
+      if (f.surface !== "all" && !trailTokens(place.trail?.surface).includes(f.surface)) return false;
       if (f.town !== "all" && (place.city || "") !== f.town) return false;
       return true;
     });
@@ -1517,6 +1532,10 @@
         </figure>
       `;
     }
+    // A trail card's visual is its traced route on the map beside it — an
+    // empty placeholder block labelled "not yet sourced" just narrates the
+    // photo pipeline. Skip the figure; the facts table carries the card.
+    if (place.trail) return "";
     const explicitPlaceholder = place.image?.kind === "placeholder" ? "" : place.image?.src || place.image?.placeholderSrc;
     const alt = explicitPlaceholder
       ? place.image?.alt || `Non-documentary placeholder image for ${place.name}`
@@ -1543,8 +1562,21 @@
       !place.anchor &&
       !place.featured &&
       place.description &&
-      !place.description.includes("included for alpha review"),
+      !isPipelineBoilerplate(place.description),
     );
+  }
+
+  // Pipeline boilerplate ("…included for alpha review while source
+  // descriptions are cleaned") is data-team copy, never visitor copy.
+  // Display-only guard — the data fix itself is the data owner's call
+  // (.planning/data-flags-2026-07-02.md).
+  function isPipelineBoilerplate(text) {
+    return /included for alpha review/i.test(String(text || ""));
+  }
+
+  function visitorDescription(place) {
+    const text = place.anchorCard?.supportingDescription || place.description || "";
+    return isPipelineBoilerplate(text) ? "" : text;
   }
 
   function firstSentence(text) {
@@ -1863,6 +1895,9 @@
 
   function renderLocationCaveat(place) {
     if (!place.locationCaveat) return "";
+    // A traced route IS the location — "coming soon" above a drawn trail line
+    // contradicts the map. Display-only; the record keeps its caveat.
+    if (trailFor(place)?.hasLine) return "";
     return `<p class="location-caveat">${escapeHtml(locationCaveatCopy(place.locationCaveat))}</p>`;
   }
 
@@ -2081,6 +2116,7 @@
       ? `<p class="description-provenance">In their own words — from <a href="${escapeHtml(place.descriptionSource.url)}" target="_blank" rel="noopener">their website</a></p>`
       : "";
     const hook = place.anchorCard?.hook || anchor?.hook || "";
+    const description = visitorDescription(place);
     // The card is dealt on touchdown (moveend), not at departure — content
     // appearing as the camera lands is most of the perceived flight quality.
     const dealCard = () => {
@@ -2102,7 +2138,7 @@
         ${renderTrailFacts(place)}
         ${renderLocationCaveat(place)}
         ${anchorCardMeta(place)}
-        <p class="detail-description">${escapeHtml(place.anchorCard?.supportingDescription || place.description)}</p>
+        ${description ? `<p class="detail-description">${escapeHtml(description)}</p>` : ""}
         ${provenance}
         ${featuredInMuseBadge(place)}
         ${museDirectoryBadge(place)}
@@ -2517,7 +2553,7 @@
       tab: placeKindLabel(place),
       title: place.name,
       meta: `${placeKindLabel(place)} · ${place.city || "Nevada County"}`,
-      desc: firstSentence(place.description || ""),
+      desc: firstSentence(visitorDescription(place)),
       image: resolvePlaceImage(place).src || "",
       lat: place.lat,
       lng: place.lng,

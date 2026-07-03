@@ -3,6 +3,12 @@
   "entries": [
     {
       "date": "2026-07-02",
+      "title": "Trail cards speak to visitors, and trail filters tell the truth",
+      "summary": "Trail detail cards no longer show behind-the-scenes working notes: a trail whose route is drawn on the map no longer claims its location is 'coming soon', the internal note about descriptions being cleaned up is gone, and trails without a photo simply skip the photo block instead of showing an empty 'not yet sourced' frame. The trail filters also got honest: Surface and Uses now offer clean single choices (no more duplicate spellings of the same surface), and picking 'Hiking' now correctly includes every trail that allows hiking, even where the source data lists several uses together.",
+      "kind": "improvement"
+    },
+    {
+      "date": "2026-07-02",
       "title": "A scroll-told story of the cultural corridor",
       "summary": "A new standalone page, The Story of the Corridor, walks through what the map holds — the places, the paths, the happenings, and the trails from Grass Valley to Nevada City — as a scrolling illustrated story. Its headline numbers now read themselves from the same data the map uses, so they stay true as the data refreshes nightly. The page follows the brand's own typeface throughout, and everything animated respects reduced-motion preferences, including the cursor and spotlight effects.",
       "kind": "feature"

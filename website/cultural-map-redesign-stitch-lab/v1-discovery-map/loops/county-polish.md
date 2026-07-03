@@ -54,3 +54,41 @@
 - Result: Drift committed a03719c and PUSHED with the two audit commits
   (7b83a2a, b0d2a40); origin/master = a03719c.
 - Next: Pass 1 = fresh critique agent scores the surface, builds the backlog.
+
+### Pass 1 — 2026-07-02 (critique + first fix batch)
+- Verifier result: fresh critique landed at
+  .impeccable/critique/2026-07-02__county-polish-pass1.md — **26/40**
+  (baseline 21/40), 1 P0 + 4 P1s. Caveats: motion/orbit, basemap tint, and
+  mobile 390px unjudged (hidden tab).
+- Merged backlog (critique + .planning/a11y-audit-2026-07-02.md A0/A1s):
+  1. [P0] trail cards ship pipeline copy (caveat-over-route, alpha-review
+     boilerplate, photo-not-sourced block) — **FIXED this pass**
+  2. [P1] trail filters expose dirty data, silent-exclusion — **FIXED this pass**
+  3. [P1] trails mode first paint = empty map
+  4. [P1] stranded viewport, no county-reset affordance
+  5. [P1] drift bar occluded by drawer at short viewports
+  6. [A0] drawer close destroys focus (app.js closeSelectionDrawer)
+  7. [A0] mode-tabs tablist wraps role-less buttons (index.html:66 + syncModeTabs)
+  8. [A1] rail re-render drops focus; [A1] no Escape-to-close drawer;
+     [A1] red-on-white 3.81:1 (.trail-facts dt, .featured-muse-badge-link);
+     [A1] drift bar live-region announces twice per stop
+  9. [P2s] tab/panel/mode 3-way disagreement; ISO dates + recurrence flood in
+     events list; stale search compounds with filters; one static legend for
+     all modes; trails missing from URL sync. [P3 batch] per critique.
+- Attempted (batch 1 = items 1-2, display-only per no-data-rewrite guard):
+  visitorDescription()/isPipelineBoilerplate() suppress alpha-review copy on
+  cards + rail; renderLocationCaveat suppressed when trailFor(place).hasLine;
+  renderImage skips the placeholder figure for trail places; trailTokens()
+  canonicalizes surface/use combo strings + "Natural Eath" typo for options,
+  matching, and card display. Tokens bumped cla-88-pass1.
+- Verified live (real-Chrome rig, tab 646762187): surface options collapsed
+  6→3 clean values, use options 4 clean; Hiking filter = 117/159 (combo
+  strings now included); Alan Thiesen Trail card: no coming-soon, no
+  alpha-review, no photo block, route line drawn (6 features), facts show
+  "Natural Earth / Hiking, Biking"; non-trail regression (NCAC card):
+  description + image block intact; no eval-visible errors; node --check ok.
+- Note: BOTH app-level contract tests (tests/test_v1_coordinate_caveat_contract.js,
+  test_v1_public_beta_copy_contract.js) fail on PRISTINE master — data-fixture
+  drift, pre-existing, not this loop's doing. Spawned owner chip task_40ea3890
+  to repair.
+- Next: batch 2 = items 3-4 (trails first paint + county reset).
