@@ -3,6 +3,12 @@
   "entries": [
     {
       "date": "2026-07-03",
+      "title": "Panel labels drop the shouting caps and stray italics",
+      "summary": "Small labels across the side panel — 'What are you in the mood for?', section headings like 'Before or after', the Close button, trail fact labels, tag chips, and the Drift bar — now read in normal sentence case instead of ALL CAPS, matching the Arts Council's brand voice (emphasis comes from weight, not shouting). Italics are likewise reserved for titles of works: business self-descriptions in Surprise picks, provenance notes, and the 'See this story on the map' cue now sit upright.",
+      "kind": "improvement"
+    },
+    {
+      "date": "2026-07-03",
       "title": "The corridor story moves to the site menu, out of the MUSE shelf",
       "summary": "The Story of the Corridor is the map's own editorial page, not a MUSE article — so its link now lives in the top navigation alongside Proposed Flows and Contribute, instead of sitting at the end of the Stories from MUSE list where it could be mistaken for magazine content. The MUSE panel now holds only real MUSE stories.",
       "kind": "improvement"
