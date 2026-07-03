@@ -1960,7 +1960,7 @@
     "city": "Grass Valley",
     "category": "Eat, Drink & Stay",
     "intent": "Eat, Drink & Stay",
-    "description": "A creative services entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "An electric-bike shop on Neal Street in Grass Valley. Area 13 sells complete e-bikes alongside parts, accessories, and upgrade kits for existing rides.",
     "website": "https://area13ebikes.com",
     "address": "117 Neal St, Ste B",
     "phone": "530 615 0565",
@@ -1990,7 +1990,15 @@
       2025,
       2026
     ],
-    "musePage": 101
+    "musePage": 101,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website",
+        "record"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "auric-adornments-grass-valley",
@@ -5637,7 +5645,7 @@
     "city": "Grass Valley",
     "category": "Eat, Drink & Stay",
     "intent": "Eat, Drink & Stay",
-    "description": "A eat, drink & stay entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "A Grass Valley brewery pouring 'modern and traditional style beers' alongside 'American pub style food,' in their words. Find the taproom at 468 Sutton Way.",
     "website": "https://www.1849brewingco.com/",
     "address": "468 Sutton Way",
     "phone": "(530) 477-1849",
@@ -5668,7 +5676,14 @@
       2025,
       2026
     ],
-    "musePage": 95
+    "musePage": 95,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "1856-speakeasy-suites-nevada-city",
@@ -5710,7 +5725,7 @@
     "city": "Grass Valley",
     "category": "Eat, Drink & Stay",
     "intent": "Eat, Drink & Stay",
-    "description": "A eat, drink & stay entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "A Victorian Rose is a restored 1891 Victorian vacation home in Grass Valley's Downtown Historic District. Four bedrooms, a hot tub, and 'antique & eclectic furnishings' sleep groups of up to twelve — 'Don't Just Stay, Play!!' in their words.",
     "website": "https://sites.google.com/view/avictorianrose",
     "address": "120 Winchester St",
     "phone": "925 825 6462",
@@ -5738,7 +5753,14 @@
     "museIssues": [
       2026
     ],
-    "musePage": 95
+    "musePage": 95,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "alloro-cucina-italiana-grass-valley",
@@ -5781,7 +5803,7 @@
     "city": "Grass Valley",
     "category": "Eat, Drink & Stay",
     "intent": "Eat, Drink & Stay",
-    "description": "A eat, drink & stay entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "An Italian ristorante on Bank Street in Grass Valley. Alloro sits at 124 Bank St.",
     "website": "https://www.allororistorantegrassvalley.com/",
     "address": "124 Bank St",
     "phone": "(530) 273-3555",
@@ -5812,7 +5834,13 @@
       2025,
       2026
     ],
-    "musePage": 95
+    "musePage": 95,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "alta-sierra-village-inn-grass-valley",
@@ -5821,7 +5849,7 @@
     "city": "Grass Valley",
     "category": "Eat, Drink & Stay",
     "intent": "Eat, Drink & Stay",
-    "description": "A eat, drink & stay entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "Alta Sierra Village Inn offers lodging in the Alta Sierra area of Grass Valley. The inn is listed at 11858 Tammy Way.",
     "website": "https://room77.com/property/4690225.html",
     "address": "11858 Tammy Way",
     "phone": "(530) 446-3241",
@@ -5850,7 +5878,13 @@
     "museIssues": [
       2026
     ],
-    "musePage": 95
+    "musePage": 95,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "alta-sierra-wine-shop-grass-valley",
@@ -5859,7 +5893,7 @@
     "city": "Grass Valley",
     "category": "Eat, Drink & Stay",
     "intent": "Eat, Drink & Stay",
-    "description": "A eat, drink & stay entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "Alta Sierra Wine Shop is a wine shop and tasting room on Alta Sierra Drive in Grass Valley. Its mission, in their words: 'to search out, evaluate, and purchase beautiful wines, and then share those discoveries with you' — a 'cozy, friendly shop' for tastings and flights.",
     "website": "https://altasierrawineshop.com/",
     "address": "10074 Alta Sierra Dr",
     "phone": "(530) 802-0904",
@@ -5889,7 +5923,14 @@
       2025,
       2026
     ],
-    "musePage": 97
+    "musePage": 97,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "antonio-ayestaran-custom-catering-grass-valley",
@@ -5970,7 +6011,7 @@
     "city": "Nevada City",
     "category": "Eat, Drink & Stay",
     "intent": "Eat, Drink & Stay",
-    "description": "A eat, drink & stay entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "A natural winery on Cement Hill Road in Nevada City making old-world-style wines from Nevada County grapes. Arquils takes what it calls a '100% natural, sustainable approach' — hand-harvested, zero-intervention, with no sulfur added.",
     "website": "https://arquils.com",
     "address": "11760 Cement Hill Rd",
     "phone": "530 701 0334",
@@ -6005,7 +6046,15 @@
     "museIssues": [
       2026
     ],
-    "musePage": 97
+    "musePage": 97,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website",
+        "record"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "avanguardia-winery-nevada-city",
@@ -6048,7 +6097,7 @@
     "city": "Grass Valley",
     "category": "Eat, Drink & Stay",
     "intent": "Eat, Drink & Stay",
-    "description": "A eat, drink & stay entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "Avanguardia Wines pours its bottlings at a tasting room on Mill Street in Grass Valley.",
     "website": "https://www.avanguardiawines.com/",
     "address": "163 Mill St",
     "phone": "(530) 274-9911",
@@ -6077,7 +6126,13 @@
     "museIssues": [
       2026
     ],
-    "musePage": 97
+    "musePage": 97,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "backporch-market-grass-valley",
@@ -6125,7 +6180,7 @@
     "city": "Grass Valley",
     "category": "Eat, Drink & Stay",
     "intent": "Eat, Drink & Stay",
-    "description": "A eat, drink & stay entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "Bicycle Thief is a restaurant on East Main Street in Grass Valley, featured in MUSE's 'Rural is the New Cool.'",
     "website": "https://order.toasttab.com/online/bicyclethiefgv",
     "address": "122 E Main St,",
     "phone": "",
@@ -6155,7 +6210,14 @@
       2025,
       2026
     ],
-    "musePage": 95
+    "musePage": 95,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "muse",
+        "record"
+      ]
+    }
   },
   {
     "id": "brew-bakers-coffee-and-tea-house-grass-valley",
@@ -6230,7 +6292,7 @@
     "city": "Nevada City",
     "category": "Eat, Drink & Stay",
     "intent": "Eat, Drink & Stay",
-    "description": "A eat, drink & stay entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "A German restaurant and brewery on Spring Street in Nevada City. BrewHaus serves bratwurst, pretzels, and beer brewed on-site in what it calls 'a relaxed, family-friendly, dog-friendly setting.'",
     "website": "https://www.brewbiltbrewhaus.com/",
     "address": "300 Spring St",
     "phone": "(530) 205-3924",
@@ -6266,7 +6328,14 @@
       2025,
       2026
     ],
-    "musePage": 95
+    "musePage": 95,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "briarpatch-food-co-op-grass-valley",
@@ -6314,7 +6383,7 @@
     "city": "Nevada City",
     "category": "Eat, Drink & Stay",
     "intent": "Eat, Drink & Stay",
-    "description": "A eat, drink & stay entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "A Nevada City bed and breakfast with 'six contemporary, eco-friendly rooms.' The inn promises 'clean, comfortable accommodations at affordable rates' on West Broad Street.",
     "website": "https://broadstreetinn.com/",
     "address": "11858 Tammy Way",
     "phone": "(530) 446-3241",
@@ -6345,7 +6414,14 @@
       2025,
       2026
     ],
-    "musePage": 95
+    "musePage": 95,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "bubba-s-bagels-grass-valley",
@@ -6354,7 +6430,7 @@
     "city": "Grass Valley",
     "category": "Eat, Drink & Stay",
     "intent": "Eat, Drink & Stay",
-    "description": "A eat, drink & stay entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "Bubba's Bagels is a bagel shop on Sutton Way in Grass Valley.",
     "website": "https://www.facebook.com/people/Bubbas-Bagels/100063755761910/#",
     "address": "860 Sutton Way",
     "phone": "(530) 788-6477",
@@ -6383,7 +6459,13 @@
     "museIssues": [
       2026
     ],
-    "musePage": 95
+    "musePage": 95,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "cake-bakery-and-cafe-grass-valley",
@@ -6467,7 +6549,7 @@
     "city": "Grass Valley",
     "category": "Eat, Drink & Stay",
     "intent": "Historic Places",
-    "description": "A eat, drink & stay entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "A coffee roaster on South Auburn Street in Grass Valley. Caroline's Coffee Roasters is at 128 S Auburn St.",
     "website": "https://carolinescoffee.com/",
     "address": "128 S Auburn St",
     "phone": "(530) 273-6424",
@@ -6497,7 +6579,13 @@
       2025,
       2026
     ],
-    "musePage": 97
+    "musePage": 97,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "carrington-s-fine-wines-nevada-city",
@@ -6506,7 +6594,7 @@
     "city": "Nevada City",
     "category": "Eat, Drink & Stay",
     "intent": "Eat, Drink & Stay",
-    "description": "A eat, drink & stay entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "A fine-wine shop on Commercial Street in Nevada City, featured in MUSE's 'New Gold in Nevada County.'",
     "website": "http://carringtonswines.com/",
     "address": "242 Commercial St # A",
     "phone": "(530) 265-0195",
@@ -6537,7 +6625,14 @@
       2025,
       2026
     ],
-    "musePage": 97
+    "musePage": 97,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "muse",
+        "record"
+      ]
+    }
   },
   {
     "id": "cascade-shores-general-store-and-cafe-nevada-city",
@@ -6579,7 +6674,7 @@
     "city": "Nevada City",
     "category": "Eat, Drink & Stay",
     "intent": "Historic Places",
-    "description": "A eat, drink & stay entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "Choquiero Cacao Cafe is a cacao cafe on Broad Street in Nevada City, featured in MUSE's 'Seasons in the GVNC Cultural District.'",
     "website": "https://www.thechocolatemarketplace.com/",
     "address": "419 Broad St Ste A",
     "phone": "(530) 264-7058",
@@ -6609,7 +6704,14 @@
       2025,
       2026
     ],
-    "musePage": 97
+    "musePage": 97,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "muse",
+        "record"
+      ]
+    }
   },
   {
     "id": "choquiero-chocolate-and-gifts-nevada-city",
@@ -6700,7 +6802,7 @@
     "city": "Grass Valley",
     "category": "Eat, Drink & Stay",
     "intent": "Historic Places",
-    "description": "A eat, drink & stay entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "A candy and ice cream shop on Nevada City Highway in Grass Valley. Coco's scoops ice cream, sells candy and gifts, and hosts parties in its own party room.",
     "website": "https://www.cocoscandyandcreamery.com/",
     "address": "2072 Nevada City Hwy.",
     "phone": "(530) 446-6203",
@@ -6729,7 +6831,14 @@
     "museIssues": [
       2026
     ],
-    "musePage": 97
+    "musePage": 97,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "communal-cafe-nevada-city",
@@ -6778,7 +6887,7 @@
     "city": "Grass Valley",
     "category": "Eat, Drink & Stay",
     "intent": "Eat, Drink & Stay",
-    "description": "A eat, drink & stay entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "Cork 49 is a wine spot on Mill Street in Grass Valley. The name says it plainly: corks get pulled here.",
     "website": "https://downtowngrassvalley.com/cork-49/",
     "address": "142 Mill St",
     "phone": "(530) 277-8524",
@@ -6810,7 +6919,13 @@
       2025,
       2026
     ],
-    "musePage": 97
+    "musePage": 97,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "corvus-bakery-grass-valley",
@@ -7065,7 +7180,7 @@
     "city": "Grass Valley",
     "category": "Eat, Drink & Stay",
     "intent": "Eat, Drink & Stay",
-    "description": "A eat, drink & stay entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "The Dew Drop Inn is a Grass Valley venue on Cerrito Road, listed among KVMR's event venues.",
     "website": "https://www.kvmr.org/venue/the-dew-drop-inn/",
     "address": "19729 Cerrito Rd",
     "phone": "(530) 268-1065",
@@ -7095,7 +7210,13 @@
       2025,
       2026
     ],
-    "musePage": 95
+    "musePage": 95,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "diego-s-restaurant-grass-valley",
@@ -7156,7 +7277,7 @@
     "city": "Grass Valley",
     "category": "Eat, Drink & Stay",
     "intent": "Eat, Drink & Stay",
-    "description": "A eat, drink & stay entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "A Mexican restaurant on South Auburn Street in Grass Valley serving what it calls 'authentic Mexican food,' from carne asada tacos to margaritas.",
     "website": "https://www.elmilagromenu.com/",
     "address": "760 A S Auburn St",
     "phone": "(530) 802-5229",
@@ -7186,7 +7307,14 @@
       2025,
       2026
     ],
-    "musePage": 95
+    "musePage": 95,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "elam-biggs-bed-and-breakfast-grass-valley",
@@ -7228,7 +7356,7 @@
     "city": "Nevada City",
     "category": "Eat, Drink & Stay",
     "intent": "Eat, Drink & Stay",
-    "description": "A eat, drink & stay entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "An alcohol-free elixir bar in Nevada City serving 'hand-crafted botanical beverages.' Their invitation: 'Sip the Exotic. Live the Extraordinary.'",
     "website": "https://elixart.com/",
     "address": "203 York St",
     "phone": "(530) 265-1901",
@@ -7259,7 +7387,14 @@
       2025,
       2026
     ],
-    "musePage": 95
+    "musePage": 95,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "elixart-herbal-lounge-and-gallery-nevada-city",
@@ -7301,7 +7436,7 @@
     "city": "Grass Valley",
     "category": "Eat, Drink & Stay",
     "intent": "Eat, Drink & Stay",
-    "description": "A eat, drink & stay entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "Enrique's Lounge is a lounge on East Main Street in Grass Valley.",
     "website": "https://www.enriqueslounge.com/",
     "address": "120 E Main St",
     "phone": "(530) 205-9174",
@@ -7337,7 +7472,13 @@
       2025,
       2026
     ],
-    "musePage": 96
+    "musePage": 96,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "farmstead-cheeses-and-wines-grass-valley",
@@ -7346,7 +7487,7 @@
     "city": "Grass Valley",
     "category": "Eat, Drink & Stay",
     "intent": "Eat, Drink & Stay",
-    "description": "A eat, drink & stay entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "A cheese and wine shop on Main Street in Grass Valley, featured in MUSE's 'New Gold in Nevada County.'",
     "website": "https://farmstead.biz",
     "address": "102 Main St",
     "phone": "866 746 7293",
@@ -7375,7 +7516,14 @@
     "museIssues": [
       2026
     ],
-    "musePage": 98
+    "musePage": 98,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "muse",
+        "record"
+      ]
+    }
   },
   {
     "id": "flour-garden-bakery-grass-valley",
@@ -7751,7 +7899,7 @@
     "city": "Grass Valley",
     "category": "Eat, Drink & Stay",
     "intent": "Eat, Drink & Stay",
-    "description": "A eat, drink & stay entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "A craft hard-kombucha maker with a 'family friendly taproom hidden in the hills of Grass Valley,' in their words — craft brews plus arcade games, arts, and food trucks. Their kombucha travels from the Sacramento region to the Bay Area and Reno.",
     "website": "https://www.goldvibe.com/",
     "address": "12615 Charles Dr",
     "phone": "(530) 802-7337",
@@ -7782,7 +7930,14 @@
       2025,
       2026
     ],
-    "musePage": 96
+    "musePage": 96,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "golden-era-lounge-nevada-city",
@@ -7791,7 +7946,7 @@
     "city": "Nevada City",
     "category": "Eat, Drink & Stay",
     "intent": "Eat, Drink & Stay",
-    "description": "A eat, drink & stay entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "Golden Era Lounge is a cocktail bar and lounge on Broad Street in Nevada City with a 'vibrant music scene.' Artists perform 'original, vintage classic & contemporary scores' spanning jazz, blues, R&B, funk, world, and soul.",
     "website": "https://www.goldeneralounge.com/",
     "address": "309 Broad St",
     "phone": "(530) 264-7048",
@@ -7821,7 +7976,14 @@
       2024,
       2026
     ],
-    "musePage": 96
+    "musePage": 96,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "golden-gate-saloon-grass-valley",
@@ -7928,7 +8090,7 @@
     "city": "Grass Valley",
     "category": "Eat, Drink & Stay",
     "intent": "Eat, Drink & Stay",
-    "description": "A eat, drink & stay entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "A boutique hotel and event venue on North Auburn Street in Grass Valley. Grass Valley Courtyard Suites offers rooms and suites, a pool and hot tub, breakfast service, and meeting space.",
     "website": "https://www.gvcourtyardsuites.com/",
     "address": "210 N Auburn St",
     "phone": "(530) 265-2239",
@@ -7958,7 +8120,14 @@
     "featured": false,
     "coordinateProvenance": "osm-rooftop",
     "markerTier": "candidate",
-    "inGvncScope": true
+    "inGvncScope": true,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "grass-valley-rv-resort-grass-valley",
@@ -8247,7 +8416,7 @@
     "city": "Grass Valley",
     "category": "Eat, Drink & Stay",
     "intent": "Eat, Drink & Stay",
-    "description": "A eat, drink & stay entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "Iron Door Speakeasy is a bar on West Main Street in Grass Valley, styled after the hidden drinking rooms its name recalls.",
     "website": "https://www.instagram.com/iron_door_speakeasy/",
     "address": "212 W Main St",
     "phone": "(530) 460- 4078",
@@ -8271,7 +8440,13 @@
     "featured": false,
     "coordinateProvenance": "osm-rooftop",
     "markerTier": "candidate",
-    "inGvncScope": true
+    "inGvncScope": true,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "java-johns-nevada-city",
@@ -8695,7 +8870,7 @@
     "city": "Grass Valley",
     "category": "Eat, Drink & Stay",
     "intent": "Eat, Drink & Stay",
-    "description": "A eat, drink & stay entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "MAK's BBQ is a barbecue spot on Alta Sierra Drive in Grass Valley.",
     "website": "https://www.grassvalleychamber.com/directory/listing/maks-bbq/",
     "address": "10128 Alta Sierra Dr",
     "phone": "(530) 362-8555",
@@ -8725,7 +8900,13 @@
     "museIssues": [
       2025
     ],
-    "musePage": 97
+    "musePage": 97,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "maria-s-mexican-restaurant-grass-valley",
@@ -8835,7 +9016,7 @@
     "city": "Nevada City",
     "category": "Eat, Drink & Stay",
     "intent": "Eat, Drink & Stay",
-    "description": "A eat, drink & stay entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "An eat-and-drink stop on Broad Street in Nevada City. McGee's Annex sits at 315 Broad St.",
     "website": "https://mcgeesnevadacity.com/",
     "address": "315 Broad St",
     "phone": "(530) 265-3205",
@@ -8866,7 +9047,13 @@
       2024,
       2025
     ],
-    "musePage": 97
+    "musePage": 97,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "meze-eatery-grass-valley",
@@ -9153,7 +9340,7 @@
     "city": "Nevada City",
     "category": "Eat, Drink & Stay",
     "intent": "Eat, Drink & Stay",
-    "description": "A eat, drink & stay entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "Nevada City Classic Cafe is a cafe at 216 Broad Street in Nevada City.",
     "website": "https://nevada-city-classic-cafe.wa-cafe.com/",
     "address": "216 Broad St",
     "phone": "(530) 265- 9440",
@@ -9178,7 +9365,13 @@
     "coordinateProvenance": "osm-rooftop",
     "markerTier": "candidate",
     "inGvncScope": true,
-    "websiteStatus": "dead"
+    "websiteStatus": "dead",
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "nevada-city-inn-nevada-city",
@@ -9260,7 +9453,7 @@
     "city": "Grass Valley",
     "category": "Eat, Drink & Stay",
     "intent": "Eat, Drink & Stay",
-    "description": "A eat, drink & stay entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "The Nevada Club stands at 108 West Main Street in Grass Valley.",
     "website": "https://www.instagram.com/explore/locations/155974021116220/nevada-club/",
     "address": "108 W Main St",
     "phone": "(530) 274-0947",
@@ -9289,7 +9482,13 @@
     "museIssues": [
       2025
     ],
-    "musePage": 98
+    "musePage": 98,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "new-west-wine-co-grass-valley",
@@ -9832,7 +10031,7 @@
     "city": "Grass Valley",
     "category": "Eat, Drink & Stay",
     "intent": "Eat, Drink & Stay",
-    "description": "A eat, drink & stay entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "A caffe on Mill Street in Grass Valley. Sergio's Caffe is at 109 Mill St.",
     "website": "http://www.sergioscaffe.com/",
     "address": "109 Mill St",
     "phone": "(530) 274-2600",
@@ -9863,7 +10062,13 @@
       2025,
       2026
     ],
-    "musePage": 96
+    "musePage": 96,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "sierra-mountain-inn-grass-valley",
@@ -10023,7 +10228,7 @@
     "city": "Nevada City",
     "category": "Eat, Drink & Stay",
     "intent": "Eat, Drink & Stay",
-    "description": "A eat, drink & stay entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "Sopa Thai Cuisine serves Thai food on Commercial Street in Nevada City.",
     "website": "https://sopa-thai-cuisine.res-menu.com/",
     "address": "312 Commercial St",
     "phone": "(530) 470-0101",
@@ -10053,7 +10258,13 @@
       2024,
       2026
     ],
-    "musePage": 96
+    "musePage": 96,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "soulspace-collective-grass-valley",
@@ -10148,7 +10359,7 @@
     "city": "Nevada City",
     "category": "Eat, Drink & Stay",
     "intent": "Eat, Drink & Stay",
-    "description": "A eat, drink & stay entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "Sushi Q is a sushi restaurant on Commercial Street in Nevada City, where reservations are taken by phone.",
     "website": "https://www.sushiqnevadacity.com/",
     "address": "238 Commercial St",
     "phone": "(530)265-5757",
@@ -10185,7 +10396,14 @@
       2025,
       2026
     ],
-    "musePage": 96
+    "musePage": 96,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "sushi-at-nourish-nevada-city",
@@ -10246,7 +10464,7 @@
     "city": "Nevada City",
     "category": "Eat, Drink & Stay",
     "intent": "Eat, Drink & Stay",
-    "description": "A eat, drink & stay entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "A sushi restaurant on Argall Way in Nevada City. Sushi in the Raw serves Japanese sushi at 135 Argall Way, sharing its address with California Organics, with reservations through Resy.",
     "website": "https://www.sushiintheraw.net/",
     "address": "135 Argall Way",
     "phone": "(530) 478-9503",
@@ -10277,7 +10495,15 @@
       2025,
       2026
     ],
-    "musePage": 96
+    "musePage": 96,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website",
+        "record"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "szabo-vineyards-tasting-room-nevada-city",
@@ -10423,7 +10649,7 @@
     "city": "Nevada City",
     "category": "Eat, Drink & Stay",
     "intent": "Eat, Drink & Stay",
-    "description": "A eat, drink & stay entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "A Nevada City bar with '20 beers on tap,' cocktails, and a live calendar of local bands and DJs. The Fern also hosts pub quiz and open-mic comedy nights on Commercial Street.",
     "website": "https://thefernnevadacity.com/",
     "address": "235 Commercial St",
     "phone": "(530) 817-9919",
@@ -10453,7 +10679,14 @@
       2025,
       2026
     ],
-    "musePage": 96
+    "musePage": 96,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "the-ham-stand-nevada-city",
@@ -10534,7 +10767,7 @@
     "city": "Nevada City",
     "category": "Eat, Drink & Stay",
     "intent": "Eat, Drink & Stay",
-    "description": "A eat, drink & stay entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "The National Bar is the tavern of the National Exchange Hotel on Broad Street in Nevada City — 'a Legendary Haunt,' in their words. Beers on tap, cask ales, well-made cocktails, and a small menu of shareable snacks under 'dark, seductive décor.'",
     "website": "https://thenationalexchangehotel.com/dining/national-bar",
     "address": "211 Broad St",
     "phone": "530 362 7605",
@@ -10564,7 +10797,14 @@
       2024,
       2026
     ],
-    "musePage": 95
+    "musePage": 95,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "the-outside-inn-nevada-city",
@@ -10744,7 +10984,7 @@
     "city": "Nevada City",
     "category": "Eat, Drink & Stay",
     "intent": "Eat, Drink & Stay",
-    "description": "A eat, drink & stay entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "A family-owned take-out pizzeria on Commercial Street in Nevada City. The Pizza Joint makes New York, Detroit, and Grandma-style pizza by the slice or whole pie, with draft beer to go with it.",
     "website": "https://www.thepizzajointnc.com/",
     "address": "228 Commercial St",
     "phone": "(530) 470-6100",
@@ -10773,7 +11013,14 @@
     "museIssues": [
       2026
     ],
-    "musePage": 96
+    "musePage": 96,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "the-place-on-south-pine-nevada-city",
@@ -10782,7 +11029,7 @@
     "city": "Nevada City",
     "category": "Eat, Drink & Stay",
     "intent": "Eat, Drink & Stay",
-    "description": "A eat, drink & stay entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "The Place on South Pine sits at 110 South Pine Street in Nevada City. The name doubles as the directions.",
     "website": "https://www.theplaceonsouthpine.com/",
     "address": "110 S Pine St",
     "phone": "(530) 265-0260",
@@ -10812,7 +11059,13 @@
       2024,
       2025
     ],
-    "musePage": 98
+    "musePage": 98,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "the-stone-house-nevada-city",
@@ -11192,7 +11445,7 @@
     "city": "Grass Valley",
     "category": "Eat, Drink & Stay",
     "intent": "Historic Places",
-    "description": "A eat, drink & stay entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "Wyld Tiger is a sourdough bakery on West Main Street in Grass Valley, featured in MUSE's 'Rural is the New Cool.'",
     "website": "https://www.facebook.com/p/Wyld-Tiger-Sourdough-61554345165190/",
     "address": "217 W Main St",
     "phone": "(530) 270-9077",
@@ -11222,7 +11475,14 @@
       2025,
       2026
     ],
-    "musePage": 97
+    "musePage": 97,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "muse",
+        "record"
+      ]
+    }
   },
   {
     "id": "zalt-and-co-bbq-grass-valley",
@@ -18186,7 +18446,7 @@
     "city": "Nevada City",
     "category": "Eat, Drink & Stay",
     "intent": "Historic Places",
-    "description": "A muse picks entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "A gift and tea shop on Broad Street in Nevada City. Gold Mountain invites visitors to 'travel the world' through its collection of imported treasures, alongside a curated tea selection.",
     "website": "https://shopgoldmountain.com/",
     "address": "312 Broad St",
     "phone": "(530) 265-6686",
@@ -18217,7 +18477,15 @@
       2025,
       2026
     ],
-    "musePage": 99
+    "musePage": 99,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website",
+        "record"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "goodtimes-boardstore-grass-valley",
@@ -18310,7 +18578,7 @@
     "city": "Grass Valley",
     "category": "Eat, Drink & Stay",
     "intent": "Historic Places",
-    "description": "A muse picks entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "A cannabis dispensary on Idaho Maryland Road in Grass Valley offering 'premium cannabis at Provisions,' in their words. Online orders are 'usually ready in 10 minutes or less.'",
     "website": "https://www.gvprovisions.com/",
     "address": "403 Idaho Maryland Rd",
     "phone": "(530) 420-1660",
@@ -18340,7 +18608,14 @@
       2025,
       2026
     ],
-    "musePage": 97
+    "musePage": 97,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "heart-and-home-grass-valley",
@@ -18388,7 +18663,7 @@
     "city": "Nevada City",
     "category": "Eat, Drink & Stay",
     "intent": "Historic Places",
-    "description": "A muse picks entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "Hola! Tortilla makes fresh corn and flour tortillas in Nevada City from 'organic nixtamalized white corn masa' with minimal ingredients. 'Locally Made in Nevada County' and preservative-free, its tortillas also supply school lunch programs and commercial kitchens.",
     "website": "https://www.holatortilla.com/",
     "address": "821 Zion Street, Unit C2",
     "phone": "(530) 264-7173",
@@ -18417,7 +18692,14 @@
     "museIssues": [
       2026
     ],
-    "musePage": 97
+    "musePage": 97,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "inner-path-nevada-city",
@@ -18706,7 +18988,7 @@
     "city": "Grass Valley",
     "category": "Eat, Drink & Stay",
     "intent": "Historic Places",
-    "description": "A muse picks entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "A bottle shop on Colfax Avenue in Grass Valley. Long's Bottle Shop is at 420 Colfax Ave.",
     "website": "https://@longsbottleshop",
     "address": "420 Colfax Ave",
     "phone": "(530) 477-8803",
@@ -18737,7 +19019,13 @@
       2025,
       2026
     ],
-    "musePage": 97
+    "musePage": 97,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "main-street-kids-nevada-city",
@@ -19222,7 +19510,7 @@
     "city": "Nevada City",
     "category": "Eat, Drink & Stay",
     "intent": "Historic Places",
-    "description": "A muse picks entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "An 'Organic Herbal Apothecary' in downtown Nevada City offering 'Natural Medicines For Body and Soul.' Shelves hold teas, tinctures, medicinal mushrooms, salves, and classes in herbalism.",
     "website": "https://remedygarden.com/",
     "address": "412 Commercial St",
     "phone": "(530) 470-6157",
@@ -19252,7 +19540,14 @@
       2025,
       2026
     ],
-    "musePage": 97
+    "musePage": 97,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "shiva-moon-nevada-city",
@@ -19642,7 +19937,7 @@
     "city": "Grass Valley",
     "category": "Eat, Drink & Stay",
     "intent": "Historic Places",
-    "description": "A muse picks entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "The Olive Groove is a specialty food shop and tasting room on Mill Street in Grass Valley, pouring extra virgin olive oils and balsamic vinegars alongside seasonings and charcuterie. Everything, they say, 'is selected as best in class' from 'local and global artisans.'",
     "website": "https://theolivegroove.com/",
     "address": "126 Mill St",
     "phone": "(530) 273-8336",
@@ -19672,7 +19967,14 @@
       2025,
       2026
     ],
-    "musePage": 97
+    "musePage": 97,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "the-outpost-nevada-city",
@@ -19681,7 +19983,7 @@
     "city": "Nevada City",
     "category": "Eat, Drink & Stay",
     "intent": "Historic Places",
-    "description": "A muse picks entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "An eat-and-drink stop on Commercial Street in Nevada City. The Outpost sits at 405 Commercial St.",
     "website": "https://@theoutpostdowntown",
     "address": "405 Commercial St",
     "phone": "",
@@ -19711,7 +20013,13 @@
     "museIssues": [
       2026
     ],
-    "musePage": 97
+    "musePage": 97,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "the-phoenix-rose-nevada-city",
@@ -19926,7 +20234,7 @@
     "city": "Nevada City",
     "category": "Eat, Drink & Stay",
     "intent": "Historic Places",
-    "description": "A muse picks entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "A superette on Commercial Street in Nevada City, featured in MUSE's 'The Culture of Food in Nevada County,' 'Art on the Walls,' and 'Rural is the New Cool.'",
     "website": "https://winniesuperette.com/",
     "address": "315 Commercial St",
     "phone": "(530) 388-4483",
@@ -19956,7 +20264,14 @@
       2025,
       2026
     ],
-    "musePage": 97
+    "musePage": 97,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "muse",
+        "record"
+      ]
+    }
   },
   {
     "id": "yabobo-nevada-city",
@@ -24142,7 +24457,7 @@
     "city": "Truckee",
     "category": "Eat, Drink & Stay",
     "intent": "Eat, Drink & Stay",
-    "description": "A creative services entry in Truckee, included for alpha review while source descriptions are cleaned.",
+    "description": "Arbor Tahoe is the flagship store for Arbor Snowboards and Skateboards on Donner Pass Road in Truckee. It carries 'wood snowboards, skateboards, and apparel' made with 'environmentally friendly natural materials,' staffed by 'Truckee and Tahoe natives.'",
     "website": "https://arborcollective.com/pages/arbor-flagship-tahoe",
     "address": "10130 Donner Pass Rd",
     "phone": "530 212 8800",
@@ -24171,7 +24486,14 @@
     "museIssues": [
       2026
     ],
-    "musePage": 105
+    "musePage": 105,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "bobbiemoon-video",
@@ -26921,7 +27243,7 @@
     "city": "Truckee",
     "category": "Eat, Drink & Stay",
     "intent": "Eat, Drink & Stay",
-    "description": "A eat, drink & stay entry in Truckee, included for alpha review while source descriptions are cleaned.",
+    "description": "A bar and restaurant on Donner Pass Road in Truckee. Bar of America serves food and drink with weekend brunch, live music, banquet facilities, and a full bar.",
     "website": "https://barofamerica.com",
     "address": "10040 Donner Pass Rd",
     "phone": "530 587 2626",
@@ -26956,7 +27278,14 @@
     "museIssues": [
       2026
     ],
-    "musePage": 102
+    "musePage": 102,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "best-western-plus-hotel-truckee-tahoe-truckee",
@@ -27122,7 +27451,7 @@
     "city": "Truckee",
     "category": "Eat, Drink & Stay",
     "intent": "Eat, Drink & Stay",
-    "description": "A eat, drink & stay entry in Truckee, included for alpha review while source descriptions are cleaned.",
+    "description": "A Truckee burger joint calling itself 'premium local and delicious,' with patties running from beef and bison to ahi tuna and veggie. Sweet potato fries, hand-dipped onion rings, and shakes round out the board on Donner Pass Road.",
     "website": "https://burgermeusa.com/",
     "address": "10418 Donner Pass Rd",
     "phone": "(530) 587-8852",
@@ -27158,7 +27487,14 @@
       2025,
       2026
     ],
-    "musePage": 102
+    "musePage": 102,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "como-mexican-restaurant-truckee",
@@ -27200,7 +27536,7 @@
     "city": "Truckee",
     "category": "Eat, Drink & Stay",
     "intent": "Historic Places",
-    "description": "A eat, drink & stay entry in Truckee, included for alpha review while source descriptions are cleaned.",
+    "description": "Café Lupine is a cafe on Brockway Road in Truckee.",
     "website": "https://@cafelupine",
     "address": "11177 Brockway Rd, Ste F101",
     "phone": "530 214 5075",
@@ -27230,7 +27566,13 @@
     "museIssues": [
       2026
     ],
-    "musePage": 103
+    "musePage": 103,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "casa-baeza-mexican-restaurant-truckee",
@@ -27349,7 +27691,7 @@
     "city": "Truckee",
     "category": "Eat, Drink & Stay",
     "intent": "Eat, Drink & Stay",
-    "description": "A eat, drink & stay entry in Truckee, included for alpha review while source descriptions are cleaned.",
+    "description": "A Sierra Club-built lodge on Donner Pass Road near Donner Lake and Lake Tahoe. Clair Tappaan offers lodge and backcountry-hut stays, dining, winter equipment rentals, and group hosting.",
     "website": "https://www.clairtappaanlodge.com/",
     "address": "19940Donner Pass Rd",
     "phone": "(530) 426-3632",
@@ -27385,7 +27727,14 @@
       2024,
       2026
     ],
-    "musePage": 102
+    "musePage": 102,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "clair-tappan-lodge-norden",
@@ -27433,7 +27782,7 @@
     "city": "Penn Valley",
     "category": "Eat, Drink & Stay",
     "intent": "Eat, Drink & Stay",
-    "description": "A eat, drink & stay entry in Penn Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "Clarky's BBQ, Smoke & More brings barbecue and smoked fare to Penn Valley Drive in Penn Valley.",
     "website": "https://www.facebook.com/p/Clarkys-BBQ-Smoke-More-100089843100774/",
     "address": "17487 Penn Valley Dr",
     "phone": "(530) 701-8911",
@@ -27457,7 +27806,13 @@
     "featured": false,
     "coordinateProvenance": "osm-rooftop",
     "markerTier": "candidate",
-    "inGvncScope": true
+    "inGvncScope": true,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "cloud-sushi-truckee",
@@ -27719,7 +28074,7 @@
     "city": "Penn Valley",
     "category": "Eat, Drink & Stay",
     "intent": "Historic Places",
-    "description": "A eat, drink & stay entry in Penn Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "Crazy 4 Yogurt is a frozen yogurt shop on Commercial Avenue in Penn Valley.",
     "website": "https://@crazy.4yogurt",
     "address": "10136 Commercial Ave",
     "phone": "(530) 432-2490",
@@ -27749,7 +28104,13 @@
     "museIssues": [
       2026
     ],
-    "musePage": 97
+    "musePage": 97,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "dark-horse-coffee-roasters-truckee-truckee",
@@ -27804,7 +28165,7 @@
     "city": "Penn Valley",
     "category": "Eat, Drink & Stay",
     "intent": "Eat, Drink & Stay",
-    "description": "A eat, drink & stay entry in Penn Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "A cafe on Penn Valley Drive in Penn Valley. Daybreak Cafe is at 17438 Penn Valley Dr.",
     "website": "https://www.facebook.com/groups/lwwpennvalleyfun/posts/3293708447427405/",
     "address": "17438 Penn Valley Dr",
     "phone": "(530) 432-1216",
@@ -27833,7 +28194,13 @@
     "museIssues": [
       2026
     ],
-    "musePage": 95
+    "musePage": 95,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "donner-creek-brewing-truckee",
@@ -27842,7 +28209,7 @@
     "city": "Truckee",
     "category": "Eat, Drink & Stay",
     "intent": "Eat, Drink & Stay",
-    "description": "A eat, drink & stay entry in Truckee, included for alpha review while source descriptions are cleaned.",
+    "description": "Donner Creek Brewing is a brewery on Deerfield Drive in Truckee.",
     "website": "https://www.donnercreekbrewingtruckee.com/",
     "address": "11448 Deerfield Dr",
     "phone": "(530) 414-9923",
@@ -27872,7 +28239,13 @@
       2025,
       2026
     ],
-    "musePage": 102
+    "musePage": 102,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "donner-lake-inn-truckee",
@@ -27933,7 +28306,7 @@
     "city": "Truckee",
     "category": "Eat, Drink & Stay",
     "intent": "Eat, Drink & Stay",
-    "description": "A eat, drink & stay entry in Truckee, included for alpha review while source descriptions are cleaned.",
+    "description": "Donner Lake Kitchen is an eatery on Donner Pass Road in Truckee.",
     "website": "https://@donner_lake_kitchen",
     "address": "13720 Donner Pass Rd",
     "phone": "(530) 587-3555",
@@ -27964,7 +28337,13 @@
       2025,
       2026
     ],
-    "musePage": 102
+    "musePage": 102,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "dorinda-s-chocolates-truckee",
@@ -27973,7 +28352,7 @@
     "city": "Truckee",
     "category": "Eat, Drink & Stay",
     "intent": "Historic Places",
-    "description": "A eat, drink & stay entry in Truckee, included for alpha review while source descriptions are cleaned.",
+    "description": "A handmade artisan chocolate shop on Donner Pass Road in Truckee. Dorinda's crafts truffles, bon bons, and pralines by hand, with build-your-own boxes and a monthly chocolate subscription.",
     "website": "https://dorindaschocolates.com/",
     "address": "10191 Donner Pass Rd",
     "phone": "(775) 432-2024",
@@ -28004,7 +28383,14 @@
       2025,
       2026
     ],
-    "musePage": 103
+    "musePage": 103,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "drink-coffee-do-stuff-truckee",
@@ -28207,7 +28593,7 @@
     "city": "",
     "category": "Eat, Drink & Stay",
     "intent": "Eat, Drink & Stay",
-    "description": "A eat, drink & stay entry in Nevada County, included for alpha review while source descriptions are cleaned.",
+    "description": "Everwild Wines is a Nevada County winemaker. Location details are still being confirmed for the map.",
     "website": "https://@everwildwines",
     "address": "",
     "phone": "530 559 4542",
@@ -28237,7 +28623,13 @@
     "museIssues": [
       2026
     ],
-    "musePage": 98
+    "musePage": 98,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "fifty-fifty-brewing-company-truckee",
@@ -28542,7 +28934,7 @@
     "city": "Truckee",
     "category": "Eat, Drink & Stay",
     "intent": "Eat, Drink & Stay",
-    "description": "A eat, drink & stay entry in Truckee, included for alpha review while source descriptions are cleaned.",
+    "description": "Good Wolf Brewing is a brewery on Industrial Way in Truckee.",
     "website": "https://www.facebook.com/thegoodwolfco/",
     "address": "10990 Industrial Way",
     "phone": "(530) 580-8775",
@@ -28572,7 +28964,13 @@
       2025,
       2026
     ],
-    "musePage": 102
+    "musePage": 102,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "gravity-haus-truckee-tahoe-truckee",
@@ -28931,7 +29329,7 @@
     "city": "Truckee",
     "category": "Eat, Drink & Stay",
     "intent": "Eat, Drink & Stay",
-    "description": "A eat, drink & stay entry in Truckee, included for alpha review while source descriptions are cleaned.",
+    "description": "A Mexican restaurant on Donner Pass Road in Truckee. La Bamba is at 11760 Donner Pass Rd.",
     "website": "https://@labambatruckee",
     "address": "11760 Donner Pass Rd",
     "phone": "530 587 3516",
@@ -28956,7 +29354,13 @@
     "coordinateProvenance": "osm-rooftop",
     "markerTier": "candidate",
     "inGvncScope": false,
-    "websiteStatus": "dead"
+    "websiteStatus": "dead",
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "little-truckee-ice-creamery-truckee",
@@ -28998,7 +29402,7 @@
     "city": "Truckee",
     "category": "Eat, Drink & Stay",
     "intent": "Eat, Drink & Stay",
-    "description": "A eat, drink & stay entry in Truckee, included for alpha review while source descriptions are cleaned.",
+    "description": "A Truckee lodge billing itself 'The Best Hotel on Donner Lake.' Loch Leven Lodge calls itself the town's 'favorite place to unwind,' right on Donner Pass Road.",
     "website": "https://lochlevenlodge.com",
     "address": "13855 Donner Pass Rd",
     "phone": "530 587 3773",
@@ -29027,7 +29431,14 @@
     "museIssues": [
       2026
     ],
-    "musePage": 102
+    "musePage": 102,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "makiali-truckee",
@@ -29036,7 +29447,7 @@
     "city": "Truckee",
     "category": "Eat, Drink & Stay",
     "intent": "Eat, Drink & Stay",
-    "description": "A eat, drink & stay entry in Truckee, included for alpha review while source descriptions are cleaned.",
+    "description": "MakiAli is a sushi restaurant on Donner Pass Road in Truckee, serving nigiri and maki rolls for dine-in and to-go.",
     "website": "https://makiali.com",
     "address": "11357 Donner Pass Rd, Ste F,",
     "phone": "530 582 1144",
@@ -29065,7 +29476,14 @@
     "museIssues": [
       2026
     ],
-    "musePage": 102
+    "musePage": 102,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "martis-valley-lodge-truckee",
@@ -29074,7 +29492,7 @@
     "city": "Truckee",
     "category": "Eat, Drink & Stay",
     "intent": "Eat, Drink & Stay",
-    "description": "A eat, drink & stay entry in Truckee, included for alpha review while source descriptions are cleaned.",
+    "description": "A lodge on State Highway 267 in Truckee, featured in MUSE's 'Mountain Heart. Small-Town Soul.'",
     "website": "https://martisvalleylodge.com",
     "address": "11951 State Highway 267",
     "phone": "530 587 1197",
@@ -29102,7 +29520,14 @@
     "museIssues": [
       2026
     ],
-    "musePage": 102
+    "musePage": 102,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "muse",
+        "record"
+      ]
+    }
   },
   {
     "id": "masa-kitchen-truckee",
@@ -29111,7 +29536,7 @@
     "city": "Truckee",
     "category": "Eat, Drink & Stay",
     "intent": "Eat, Drink & Stay",
-    "description": "A eat, drink & stay entry in Truckee, included for alpha review while source descriptions are cleaned.",
+    "description": "A Truckee restaurant specializing in 'Sourdough Pizza and Tapas,' pairing naturally leavened pies with small plates on Donner Pass Road.",
     "website": "https://masa.kitchen",
     "address": "10068 Donner Pass Rd",
     "phone": "530 582 1111",
@@ -29140,7 +29565,14 @@
     "museIssues": [
       2026
     ],
-    "musePage": 102
+    "musePage": 102,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "mehfil-indian-bistro-truckee",
@@ -29149,7 +29581,7 @@
     "city": "Truckee",
     "category": "Eat, Drink & Stay",
     "intent": "Eat, Drink & Stay",
-    "description": "A eat, drink & stay entry in Truckee, included for alpha review while source descriptions are cleaned.",
+    "description": "Mehfil Indian Bistro is an Indian restaurant on Deerfield Drive in Truckee.",
     "website": "https://mehfilindianbistrotruckee.com",
     "address": "11421 Deerfield Dr",
     "phone": "530 563 5078",
@@ -29179,7 +29611,13 @@
     "museIssues": [
       2026
     ],
-    "musePage": 102
+    "musePage": 102,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "mi-pueblito-market-truckee",
@@ -29901,7 +30339,7 @@
     "city": "Truckee",
     "category": "Eat, Drink & Stay",
     "intent": "Eat, Drink & Stay",
-    "description": "A eat, drink & stay entry in Truckee, included for alpha review while source descriptions are cleaned.",
+    "description": "A ski shop, tune shop, and bar rolled into one on Donner Pass Road in Truckee. RMU offers 'high quality handmade skis, full service tune shop, packs, bar and food,' in its words — from ski tuning to cocktails under one roof.",
     "website": "https://rmumtnculture.com/pages/rmu-truckee",
     "address": "10292 Donner Pass Rd",
     "phone": "(530) 536-3208",
@@ -29925,7 +30363,14 @@
     "featured": false,
     "coordinateProvenance": "osm-rooftop",
     "markerTier": "candidate",
-    "inGvncScope": false
+    "inGvncScope": false,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "river-street-inn-truckee",
@@ -30050,7 +30495,7 @@
     "city": "Truckee",
     "category": "Eat, Drink & Stay",
     "intent": "Eat, Drink & Stay",
-    "description": "A eat, drink & stay entry in Truckee, included for alpha review while source descriptions are cleaned.",
+    "description": "Siam Cuisine serves Thai food on Donner Pass Road in Truckee.",
     "website": "https://siamthaicuisinetruckee.com",
     "address": "10770 Donner Pass Rd, #101",
     "phone": "530 550 0503",
@@ -30079,7 +30524,13 @@
     "museIssues": [
       2026
     ],
-    "musePage": 102
+    "musePage": 102,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "sierra-bakehouse-truckee",
@@ -30192,7 +30643,7 @@
     "city": "Truckee",
     "category": "Eat, Drink & Stay",
     "intent": "Eat, Drink & Stay",
-    "description": "A eat, drink & stay entry in Truckee, included for alpha review while source descriptions are cleaned.",
+    "description": "Spring Poke & Sushi is a poke and sushi spot on Deerfield Drive in Truckee.",
     "website": "",
     "address": "11375 Deerfield Dr",
     "phone": "530 912 8116",
@@ -30221,7 +30672,13 @@
     "museIssues": [
       2026
     ],
-    "musePage": 102
+    "musePage": 102,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "springhill-suites-by-marriott-truckee-truckee",
@@ -30230,7 +30687,7 @@
     "city": "Truckee",
     "category": "Eat, Drink & Stay",
     "intent": "Eat, Drink & Stay",
-    "description": "A eat, drink & stay entry in Truckee, included for alpha review while source descriptions are cleaned.",
+    "description": "A SpringHill Suites by Marriott hotel on East Jibboom Street in Truckee. The hotel sits at 10640 E Jibboom St.",
     "website": "https://marriott.com/hotels/travel/rnosu-springhill-suites-truckee",
     "address": "10640 E Jibboom St",
     "phone": "530 563 9500",
@@ -30259,7 +30716,13 @@
     "museIssues": [
       2026
     ],
-    "musePage": 102
+    "musePage": 102,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "springhill-suites-by-marriott-truckee",
@@ -30503,7 +30966,7 @@
     "city": "Truckee",
     "category": "Eat, Drink & Stay",
     "intent": "Historic Places",
-    "description": "A eat, drink & stay entry in Truckee, included for alpha review while source descriptions are cleaned.",
+    "description": "A Truckee candy maker turning out handmade confections and 'Hand-Dipped Belgian Chocolates.' Cases fill with fudges, caramels, brittles, truffles, and caramel apples on Donner Pass Road.",
     "website": "https://sweetshandmadecandies.com/",
     "address": "10118 Donner Pass Rd",
     "phone": "(530) 587-6556",
@@ -30534,7 +30997,14 @@
       2025,
       2026
     ],
-    "musePage": 103
+    "musePage": 103,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "t-bones-meat-shop-auburn",
@@ -30582,7 +31052,7 @@
     "city": "Penn Valley",
     "category": "Eat, Drink & Stay",
     "intent": "Eat, Drink & Stay",
-    "description": "A eat, drink & stay entry in Penn Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "Tack Room Restaurant and Bar is a restaurant and bar on Penn Valley Drive in Penn Valley.",
     "website": "https://www.facebook.com/tackroompennvalley/",
     "address": "17356 Penn Valley Dr",
     "phone": "(530) 432-1126",
@@ -30606,7 +31076,13 @@
     "featured": false,
     "coordinateProvenance": "osm-rooftop",
     "markerTier": "candidate",
-    "inGvncScope": true
+    "inGvncScope": true,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "tacos-jalisco-truckee",
@@ -30842,7 +31318,7 @@
     "city": "Truckee",
     "category": "Eat, Drink & Stay",
     "intent": "Eat, Drink & Stay",
-    "description": "A eat, drink & stay entry in Truckee, included for alpha review while source descriptions are cleaned.",
+    "description": "A hotel on West River Street in Truckee. Tahoe Star Hotel is at 10015 W River St.",
     "website": "https://www.stardust-tahoe.com/",
     "address": "10015 W River St",
     "phone": "(530) 536-3920",
@@ -30866,7 +31342,13 @@
     "featured": false,
     "coordinateProvenance": "osm-rooftop",
     "markerTier": "candidate",
-    "inGvncScope": false
+    "inGvncScope": false,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "tahoe-truckee-vacation-properties-truckee",
@@ -31359,7 +31841,7 @@
     "city": "Penn Valley",
     "category": "Eat, Drink & Stay",
     "intent": "Eat, Drink & Stay",
-    "description": "A eat, drink & stay entry in Penn Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "A Penn Valley brewery promising 'Craft Beer, Food & Friends!' Beers go 'From Grain to Glass' on-site, with a food menu and trivia nights alongside.",
     "website": "https://thirstybarrelbrewing.com/",
     "address": "10183 Commercial Ave",
     "phone": "(530) 802-0100",
@@ -31388,7 +31870,14 @@
     "museIssues": [
       2026
     ],
-    "musePage": 96
+    "musePage": 96,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "tourist-club-truckee",
@@ -31430,7 +31919,7 @@
     "city": "Truckee",
     "category": "Eat, Drink & Stay",
     "intent": "Eat, Drink & Stay",
-    "description": "A eat, drink & stay entry in Truckee, included for alpha review while source descriptions are cleaned.",
+    "description": "Trokay is a restaurant on Donner Pass Road in Truckee. Its site points to a team of chefs, dining by reservation, special events, and private dining.",
     "website": "https://www.restauranttrokay.com/",
     "address": "10046 Donner Pass Rd",
     "phone": "530 582 1040",
@@ -31459,7 +31948,14 @@
     "museIssues": [
       2026
     ],
-    "musePage": 103
+    "musePage": 103,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "truckee-brewing-company-truckee",
@@ -31805,7 +32301,7 @@
     "city": "Truckee",
     "category": "Eat, Drink & Stay",
     "intent": "Eat, Drink & Stay",
-    "description": "A eat, drink & stay entry in Truckee, included for alpha review while source descriptions are cleaned.",
+    "description": "A wine bar on Donner Pass Road in Truckee, featured in MUSE's 'New Gold in Nevada County.'",
     "website": "https://FB: /uncorkedtruckee",
     "address": "10118 Donner Pass Rd",
     "phone": "(530) 550-5200",
@@ -31834,7 +32330,14 @@
     "museIssues": [
       2026
     ],
-    "musePage": 103
+    "musePage": 103,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "muse",
+        "record"
+      ]
+    }
   },
   {
     "id": "village-camp-truckee-truckee",
@@ -32082,7 +32585,7 @@
     "city": "Truckee",
     "category": "Eat, Drink & Stay",
     "intent": "Eat, Drink & Stay",
-    "description": "A eat, drink & stay entry in Truckee, included for alpha review while source descriptions are cleaned.",
+    "description": "Wong's Garden is a restaurant on Deerfield Drive in Truckee, with its menu posted online.",
     "website": "https://wongsgarden.godaddysites.com",
     "address": "11430 Deerfield Dr",
     "phone": "530 587 1831",
@@ -32111,7 +32614,15 @@
     "museIssues": [
       2026
     ],
-    "musePage": 103
+    "musePage": 103,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website",
+        "record"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "zander-s-the-bottleshop-truckee",
@@ -39587,7 +40098,7 @@
     "city": "Truckee",
     "category": "Eat, Drink & Stay",
     "intent": "Historic Places",
-    "description": "A muse picks entry in Truckee, included for alpha review while source descriptions are cleaned.",
+    "description": "Sticks Market is a market on Donner Pass Road in Truckee.",
     "website": "https://FB: /sticksmarket",
     "address": "13710 Donner Pass Rd",
     "phone": "(530) 214-8891",
@@ -39616,7 +40127,13 @@
     "museIssues": [
       2026
     ],
-    "musePage": 103
+    "musePage": 103,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "tahoe-mountain-life-truckee",
@@ -39664,7 +40181,7 @@
     "city": "",
     "category": "Eat, Drink & Stay",
     "intent": "Historic Places",
-    "description": "A muse picks entry in Nevada County, included for alpha review while source descriptions are cleaned.",
+    "description": "A specialty food shop on Donner Pass Road in Truckee, near the train station. Tahoe Oil & Spice offers 'more than 50 extra virgin and flavor infused olive oil and balsamic vinegar,' plus specialty oils, spices, and honey.",
     "website": "https://tahoeoilandspice.com",
     "address": "10091 Donner Pass Rd, Ste B",
     "phone": "(530) 550-8857",
@@ -39693,7 +40210,14 @@
     "museIssues": [
       2026
     ],
-    "musePage": 103
+    "musePage": 103,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "tahoe-truckee-jerky-truckee",
@@ -39702,7 +40226,7 @@
     "city": "Truckee",
     "category": "Eat, Drink & Stay",
     "intent": "Historic Places",
-    "description": "A muse picks entry in Truckee, included for alpha review while source descriptions are cleaned.",
+    "description": "'Fresh Local Craft Jerky' sold from an iconic red caboose on Donner Pass Road in Truckee. Beyond fifteen kinds of beef jerky, the cases run to elk, buffalo, venison, salmon, and ahi.",
     "website": "https://tahoetruckeejerky.com/",
     "address": "11401 Donner Pass Rd",
     "phone": "(530) 401-0035",
@@ -39736,7 +40260,14 @@
     "museIssues": [
       2026
     ],
-    "musePage": 103
+    "musePage": 103,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "tahoe-truckee-t-shirtery-truckee",
@@ -40045,7 +40576,7 @@
     "city": "Truckee",
     "category": "Eat, Drink & Stay",
     "intent": "Historic Places",
-    "description": "A muse picks entry in Truckee, included for alpha review while source descriptions are cleaned.",
+    "description": "Z Market Place is a neighborhood market and deli in Truckee's Tahoe Donner area. Shelves run from fresh produce and pantry staples to 'a wide selection of libations,' with a made-to-order deli 'where flavor meets freshness.'",
     "website": "https://zdelimarket.com",
     "address": "12716 Northwoods Blvd",
     "phone": "530 587 1717",
@@ -40080,7 +40611,14 @@
     "museIssues": [
       2026
     ],
-    "musePage": 103
+    "musePage": 103,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "ela-chapman-truckee",
