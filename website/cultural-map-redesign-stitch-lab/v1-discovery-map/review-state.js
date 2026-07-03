@@ -5,7 +5,7 @@
 })(typeof globalThis !== "undefined" ? globalThis : this, function () {
   "use strict";
 
-  const VALID_MODES = new Set(["places", "events", "paths"]);
+  const VALID_MODES = new Set(["places", "events", "paths", "trails"]);
 
   function parse(search) {
     const params = new URLSearchParams(String(search || "").replace(/^\?/, ""));
@@ -27,7 +27,9 @@
     [...new Set(reviewState.intents || [])].filter(Boolean).sort().forEach((intent) => {
       params.append("intent", intent);
     });
-    if (mode === "places" && reviewState.place) params.set("place", reviewState.place);
+    // A selected trail is a place record, so the Trails lens shares via the
+    // same place param.
+    if ((mode === "places" || mode === "trails") && reviewState.place) params.set("place", reviewState.place);
     if (mode === "paths" && reviewState.path) params.set("path", reviewState.path);
     if (mode === "events" && reviewState.event) params.set("event", reviewState.event);
     const next = params.toString();

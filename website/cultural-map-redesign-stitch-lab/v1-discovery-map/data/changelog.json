@@ -2,6 +2,12 @@
   "_readme": "Site changelog, rendered by changelog.html. Newest entry FIRST. Every meaningful commit to v1-discovery-map gets an entry (the pre-commit hook enforces this). Write 'summary' in plain language for the Arts Council — what changed for a visitor, not implementation detail. 'commit' is the short hash; the page links it to GitHub.",
   "entries": [
     {
+      "date": "2026-07-03",
+      "title": "A round of small honesty and tidiness fixes across the map",
+      "summary": "Trails links can now be shared — copying the address with a trail selected reopens that trail, route traced, for whoever you send it to. A daytime event today now says 'Today' instead of 'Tonight' (a gallery closing at 6pm was being billed as a night out). Tapping an event's red diamond on the map now highlights that event in the list too, and tapping a stop inside a walking route keeps the Paths tab lit instead of flipping to Places. Long route titles no longer run underneath the back button, the County view button steps aside instead of floating over an open card, and the search hint now says plainly that it clears your filters before showing the extra matches.",
+      "kind": "improvement"
+    },
+    {
       "date": "2026-07-02",
       "title": "Event cards credit the calendar, not the wrong presenter",
       "summary": "Event cards used to stamp 'Presented by Nevada County Arts Council' on every event — including nights the Council doesn't put on, like a brewery's karaoke. Since the map mirrors the Council's public calendar, the card now says what's actually true: 'From the Nevada County Arts Council calendar.' A genuinely named presenter would still get proper 'Presented by' credit. The County view button also now stays clickable even when a place card is open over that corner of the map.",

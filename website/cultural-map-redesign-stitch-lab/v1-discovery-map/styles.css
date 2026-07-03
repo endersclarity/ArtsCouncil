@@ -952,6 +952,17 @@ body:not([data-map-mode="places"]) .review-tools {
   color: var(--surface);
 }
 
+/* Headings that share the card's top row clear the absolute Close /
+   "‹ All routes" actions instead of running under them (photo-less trail
+   cards put the title in that row; route cards always do). */
+.path-detail-card .path-card-heading {
+  padding-right: 100px;
+}
+
+.detail-card.place-feature-card .place-feature-head {
+  padding-right: 64px;
+}
+
 /* Warmth pass 2 — place "warm magazine page" (approved mockup B). Every place
    detail (1,351 of them) is a calm paper feature: photo-led with a full-width
    ink caption bar carrying name/city, a date-block-style meta column (3px red
@@ -2311,6 +2322,15 @@ button.event-mini:hover {
 /* Drift owns the camera while it runs — its own bar is the way out. */
 body.drifting .county-reset {
   display: none;
+}
+
+/* When the drawer claims the top-right corner, the chip steps left of it
+   instead of floating over the open card (desktop widths only — narrow
+   layouts stack the drawer elsewhere). */
+@media (min-width: 881px) {
+  .map-stage:has(.selection-drawer.open) .county-reset {
+    right: calc(clamp(18px, 4vw, 54px) + min(380px, 100vw - 420px) + 12px);
+  }
 }
 
 @media (pointer: coarse) {

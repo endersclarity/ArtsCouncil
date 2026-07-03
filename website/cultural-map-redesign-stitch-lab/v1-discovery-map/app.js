@@ -829,7 +829,7 @@
     return {
       mode: state.mode,
       intents: [...state.activeIntents],
-      place: state.mode === "places" ? state.selectedPlaceId : "",
+      place: state.mode === "places" || state.mode === "trails" ? state.selectedPlaceId : "",
       path: state.mode === "paths" && state.selectedPath ? state.selectedPath.id : "",
       event: state.mode === "events" ? state.selectedEventId : "",
     };
@@ -865,7 +865,7 @@
       ? state.places.filter((place) => searchableText(place).includes(query.toLowerCase())).length - places.length
       : 0;
     const hiddenHint = hiddenByFilters > 0
-      ? `<button class="filter-chip search-beyond-filters" type="button" id="search-beyond-filters">Show ${escapeHtml(hiddenByFilters)} more match${hiddenByFilters === 1 ? "" : "es"} outside your filters</button>`
+      ? `<button class="filter-chip search-beyond-filters" type="button" id="search-beyond-filters">Clear filters to show ${escapeHtml(hiddenByFilters)} more match${hiddenByFilters === 1 ? "" : "es"}</button>`
       : "";
     const wireHiddenHint = () => {
       els.placesList.querySelector("#search-beyond-filters")?.addEventListener("click", () => {
@@ -2163,9 +2163,10 @@
     // not — gets the same calm paper feature card. The old primary-anchor /
     // supporting-stop card chrome (red top borders, gradients) is retired.
     setDetailCardMode("place");
-    // In the Trails lens a selected trail is still a place card, but the lens
-    // (and its tab) stays Trails — don't flip the active tab to Places.
-    syncModeTabs(state.mode === "trails" ? "trails" : "places");
+    // In the Trails/Paths lenses a selected stop is still a place card, but
+    // the lens (and its tab) stays put — don't flip the active tab to Places
+    // while the URL and panel still say trails/paths.
+    syncModeTabs(state.mode === "trails" || state.mode === "paths" ? state.mode : "places");
     const imageLabel = isSupportingStop && place.image?.status === "candidate"
       ? "Candidate image"
       : isSupportingStop && (!place.image?.src || place.image?.status === "missing")
@@ -2314,8 +2315,15 @@
 
   // Kicker line: "Tonight / 8—11pm" or "Sat, Jun 13 / 9am—12pm" ("/" joins a
   // shared date+time line, brand page 15). Time omitted for all-day events.
+  // "Tonight" belongs to evenings — a gallery open 11am–6pm today is "Today".
+  // endTime is 24h "HH:MM"; anything wrapped up by 6pm reads as a daytime thing.
+  function todayEventWord(event) {
+    const endHour = parseInt(String(event.endTime || "").split(":")[0], 10);
+    return Number.isFinite(endHour) && endHour <= 18 ? "Today" : "Tonight";
+  }
+
   function eventWhenLine(event) {
-    const day = event.date === todayISO() ? "Tonight" : niceEventDate(event.date);
+    const day = event.date === todayISO() ? todayEventWord(event) : niceEventDate(event.date);
     const time = eventTimeRange(event.startTime, event.endTime);
     return time ? `${day} / ${time}` : day;
   }
@@ -2363,6 +2371,9 @@
     state.selectedPlaceId = "";
     state.selectedPath = null;
     setSourceData();
+    // A map-diamond pick must move the list highlight too — card and list
+    // may never disagree about what's selected.
+    if (state.mode === "events") renderEventsList();
     const place = placeById(event.placeId);
     const venueLine = [event.placeName, event.city].filter(Boolean).join(", ");
     const whenLine = eventWhenLine(event);
@@ -2626,7 +2637,7 @@
       // Pass-3 typeset: the banned eyebrow row is gone. The date/recency signal
       // lives in the meta line as a weighted lead word ("Tonight" / "Sat, Jun 13"),
       // not a kicker above every card.
-      when: (event.date === today ? "Tonight" : niceEventDate(event.date))
+      when: (event.date === today ? todayEventWord(event) : niceEventDate(event.date))
         + (eventOtherDates(event).length ? ` · ${eventOtherDates(event).length + 1} dates` : ""),
       // Program tab (poster anatomy): the event's own category names the field,
       // mirroring the detail card's tab. Falls back to a generic "Event".
@@ -2731,7 +2742,7 @@
     // Accessible name is title + venue/date only — never the full description
     // essay (screen readers read the whole name per card).
     const accessibleName = `${item.title} — ${item.when ? `${item.when} · ` : ""}${item.meta}`;
-    const metaLine = `${item.when ? `<strong class="rail-card-when${item.when === "Tonight" ? " is-tonight" : ""}">${escapeHtml(item.when)}</strong> · ` : ""}${escapeHtml(item.meta)}`;
+    const metaLine = `${item.when ? `<strong class="rail-card-when${/^(Tonight|Today)/.test(item.when) ? " is-tonight" : ""}">${escapeHtml(item.when)}</strong> · ` : ""}${escapeHtml(item.meta)}`;
     const tab = item.tab || RAIL_CHIP_LABELS[item.type] || "";
     const tabHtml = tab ? `<span class="rail-card-tab">${escapeHtml(tab)}</span>` : "";
     const titleHtml = `<span class="rail-card-title">${escapeHtml(item.title)}</span>`;
@@ -3421,6 +3432,10 @@
     } else if (state.mode === "places" && reviewState.place) {
       const visibleIds = new Set(filteredPlaces().map((place) => place.id));
       const place = state.places.find((item) => item.id === reviewState.place && visibleIds.has(item.id));
+      if (place) showPlace(place);
+    } else if (state.mode === "trails" && reviewState.place) {
+      // A shared Trails link restores the traced trail, not a Places view.
+      const place = trailPlaces().find((item) => item.id === reviewState.place);
       if (place) showPlace(place);
     }
     state.isApplyingReviewState = false;
