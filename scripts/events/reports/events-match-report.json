@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-07-02T10:09:35.332718+00:00",
+  "generated_at": "2026-07-03T09:56:52.663402+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 235,
+    "total_events": 240,
     "matched_events": 156,
-    "unmatched_events": 79,
+    "unmatched_events": 84,
     "matched_by_pid": 0,
     "matched_by_alias": 5,
-    "matched_by_name_city": 52,
-    "matched_by_name_city_fuzzy": 99,
-    "upcoming_14d": 82
+    "matched_by_name_city": 53,
+    "matched_by_name_city_fuzzy": 98,
+    "upcoming_14d": 87
   },
   "unmatched_venues": [
     {
@@ -19,7 +19,7 @@
       "venue_name": "Wonder Docent",
       "venue_city": "Nevada City",
       "count": 14,
-      "sample_event_id": "trumba-204682310",
+      "sample_event_id": "trumba-204682311",
       "sample_title": "In the Night Dimension and Those We Meet at Twilight",
       "candidate_assets": []
     },
@@ -28,7 +28,7 @@
       "venue_name": "Eric Rood Center",
       "venue_city": "Nevada City",
       "count": 10,
-      "sample_event_id": "trumba-202909248",
+      "sample_event_id": "trumba-202909249",
       "sample_title": "Lavender Glow | Queer Art & Our Shared History",
       "candidate_assets": []
     },
@@ -48,6 +48,15 @@
       "count": 7,
       "sample_event_id": "libcal-LibCal-20247-16035875-20260316",
       "sample_title": "Ukulele for the People",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "bodhihivestudio131|nevadacity",
+      "venue_name": "Bodhi Hive, Studio #131",
+      "venue_city": "Nevada City",
+      "count": 6,
+      "sample_event_id": "trumba-205204510",
+      "sample_title": "Summer Nature Pop Art Classes",
       "candidate_assets": []
     },
     {
@@ -96,15 +105,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "nevadamuseumofart|renonv",
-      "venue_name": "Nevada Museum of Art",
-      "venue_city": "Reno, NV",
-      "count": 3,
-      "sample_event_id": "trumba-202728776",
-      "sample_title": "First Thursday with Musical Guest Feral Heart",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "meetingroom|pennvalley",
       "venue_name": "Meeting Room",
       "venue_city": "Penn Valley",
@@ -138,6 +138,15 @@
       "count": 2,
       "sample_event_id": "trumba-199911167",
       "sample_title": "4th of July FAMILY PANCAKE BREAKFAST",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "nevadamuseumofart|renonv",
+      "venue_name": "Nevada Museum of Art",
+      "venue_city": "Reno, NV",
+      "count": 2,
+      "sample_event_id": "trumba-204518248",
+      "sample_title": "Getting to Net Zero with Washoe County Sustainability Manager Brian Beffort",
       "candidate_assets": []
     },
     {
