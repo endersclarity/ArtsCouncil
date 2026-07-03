@@ -439,7 +439,7 @@
     "city": "Nevada City",
     "category": "Performing Arts",
     "intent": "See a Show",
-    "description": "A arts organizations entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "Headquarters is a performing arts venue on Broad Street in Nevada City.",
     "website": "https://www.facebook.com/events/511934484622261/?acontext=%257B%2522action_history%2522%253A%2522null%2522%257D&ref_source=newsfeed&ref_mechanism=feed_attachment&_rdr",
     "address": "425 Broad Street",
     "phone": "",
@@ -468,7 +468,13 @@
     "museIssues": [
       2024
     ],
-    "musePage": 68
+    "musePage": 68,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "holt-ballet-conservatory-nevada-city",
@@ -1122,7 +1128,7 @@
     "city": "Grass Valley",
     "category": "Arts Organizations",
     "intent": "Galleries & Studios",
-    "description": "A arts organizations entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "N.U.T.S — the Nevada Union Theatre Society — is a student theatre organization at Nevada Union in Grass Valley. Its programs include drama classes, Comedy Sportz, and theatre productions.",
     "website": "https://www.sites.google.com/a/njuhsd.com/n-u-t-s-nevada-union-theatre-society/",
     "address": "11761 Ridge Rd",
     "phone": "530-273-4431 x2102",
@@ -1146,7 +1152,14 @@
     "featured": false,
     "coordinateProvenance": "arcgis-confident",
     "markerTier": "candidate",
-    "inGvncScope": true
+    "inGvncScope": true,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "north-columbia-schoolhouse-cultural-center-nevada-city",
@@ -1228,7 +1241,7 @@
     "city": "Nevada City",
     "category": "Performing Arts",
     "intent": "See a Show",
-    "description": "A arts organizations entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "Off Broadstreet is a live theater company on Commercial Street in Nevada City. Its stage productions come with desserts and beverages as part of the evening.",
     "website": "https://www.offbroadstreet.com/now_playing.htm",
     "address": "305 Commercial St",
     "phone": "(530) 265-8686",
@@ -1257,7 +1270,14 @@
     "museIssues": [
       2025
     ],
-    "musePage": 101
+    "musePage": 101,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "paul-emery-productions-nevada-city",
@@ -1693,7 +1713,7 @@
     "city": "Grass Valley",
     "category": "Performing Arts",
     "intent": "See a Show",
-    "description": "A arts organizations entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "The Cauldron is a 'Community - Apothecary - Ritual Supplies' shop at Loot and Lore on West Main Street in Grass Valley. It pairs a physical storefront with an online shop.",
     "website": "https://www.thecauldron.love/",
     "address": "107 W Main St Unit A",
     "phone": "(530) 615-4328",
@@ -1717,7 +1737,14 @@
     "featured": false,
     "coordinateProvenance": "osm-rooftop",
     "markerTier": "candidate",
-    "inGvncScope": true
+    "inGvncScope": true,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "the-curious-forge-nevada-city",
@@ -2007,7 +2034,7 @@
     "city": "Grass Valley",
     "category": "Galleries & Studios",
     "intent": "Historic Places",
-    "description": "A creative services entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "Auric Adornments is a gallery and studio space at 470 Auburn St in Grass Valley.",
     "website": "https://auricadornments.com/",
     "address": "470 Auburn St",
     "phone": "",
@@ -2037,7 +2064,13 @@
       2025,
       2026
     ],
-    "musePage": 100
+    "musePage": 100,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "beads-galore-grass-valley",
@@ -2046,7 +2079,7 @@
     "city": "Grass Valley",
     "category": "Shops & Makers",
     "intent": "Historic Places",
-    "description": "A creative services entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "Beads Galore is a bead shop on Sutton Way in Grass Valley, part of the county's community of shops and makers.",
     "website": "https://www.instagram.com/beadsgaloreca/?hl=en",
     "address": "989 Sutton Way",
     "phone": "(530) 274-9650",
@@ -2076,7 +2109,13 @@
       2024,
       2026
     ],
-    "musePage": 100
+    "musePage": 100,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "ben-franklin-grass-valley",
@@ -2131,7 +2170,7 @@
     "city": "Nevada City",
     "category": "Shops & Makers",
     "intent": "Historic Places",
-    "description": "A creative services entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "Black Bart Ornamental Iron Works is an ornamental iron maker on Gold Flat Road in Nevada City.",
     "website": "https://blackbartironworks.com/contact.html",
     "address": "10481 Gold Flat Rd",
     "phone": "530 265 4816",
@@ -2160,7 +2199,13 @@
     "museIssues": [
       2026
     ],
-    "musePage": 100
+    "musePage": 100,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "country-copy-grass-valley",
@@ -2264,7 +2309,7 @@
     "city": "Grass Valley",
     "category": "Shops & Makers",
     "intent": "Historic Places",
-    "description": "A creative services entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "Grass Valley Sign is a full-service sign company, 'specialists in truck lettering, vehicle wraps and digital printing.' Locally owned and operated since 1984, it also makes outdoor and indoor signs, custom banners, and window art.",
     "website": "https://grassvalleysign.com/",
     "address": "13321 Grass Valley Ave #2",
     "phone": "(530) 477-7446",
@@ -2293,7 +2338,14 @@
       2025,
       2026
     ],
-    "musePage": 100
+    "musePage": 100,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "grateful-ink-nevada-city",
@@ -2302,7 +2354,7 @@
     "city": "Nevada City",
     "category": "Galleries & Studios",
     "intent": "Historic Places",
-    "description": "A creative services entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "Grateful Ink is a tattoo studio on Spring Street in Nevada City, one of the town's working art studios.",
     "website": "https://www.instagram.com/explore/locations/245509915/grateful-ink-tattoo/",
     "address": "315 Spring St",
     "phone": "(530) 265-0465",
@@ -2332,7 +2384,13 @@
       2025,
       2026
     ],
-    "musePage": 100
+    "musePage": 100,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "heart-and-soul-spinnery-grass-valley",
@@ -2380,7 +2438,7 @@
     "city": "Grass Valley",
     "category": "Shops & Makers",
     "intent": "Historic Places",
-    "description": "A creative services entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "Heathered Yarn Co. is a yarn shop on West Main Street in Grass Valley built around its own hand-dyed yarn. The shop also carries knitting tools, patterns, project bags, and fiber for embroidery and cross stitch, and offers in-person knitting instruction.",
     "website": "https://heatheredyarnco.com/",
     "address": "109 W Main St",
     "phone": "(530) 205-9523",
@@ -2410,7 +2468,14 @@
       2025,
       2026
     ],
-    "musePage": 100
+    "musePage": 100,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "house-of-print-and-copy-grass-valley",
@@ -2508,7 +2573,7 @@
     "city": "Nevada City",
     "category": "Shops & Makers",
     "intent": "Historic Places",
-    "description": "A creative services entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "Mountain Event Productions handles 'all things digital audio & video presentations' from its Nevada City base. Services run from event and tribute video production to DJ sets, video transfers, and audio-visual rentals for conferences.",
     "website": "https://mountaineventproductions.com/",
     "address": "12626 Dobbins Dr",
     "phone": "(530) 272-6293",
@@ -2537,7 +2602,14 @@
     "museIssues": [
       2026
     ],
-    "musePage": 101
+    "musePage": 101,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "mountain-recreation-grass-valley",
@@ -2636,7 +2708,7 @@
     "city": "Nevada City",
     "category": "Shops & Makers",
     "intent": "Historic Places",
-    "description": "A creative services entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "Nevada City Picture Framing & Gallery is a picture-framing shop and gallery on Searls Avenue in Nevada City.",
     "website": "https://www.facebook.com/NCFramingandRestoration/",
     "address": "571 Searls Ave #B",
     "phone": "(530) 478-1990",
@@ -2660,7 +2732,13 @@
     "featured": false,
     "coordinateProvenance": "osm-rooftop",
     "markerTier": "candidate",
-    "inGvncScope": true
+    "inGvncScope": true,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "punk-and-bunny-tattoo-grass-valley",
@@ -2669,7 +2747,7 @@
     "city": "Grass Valley",
     "category": "Galleries & Studios",
     "intent": "Historic Places",
-    "description": "A creative services entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "Punk and Bunny Tattoo is a tattoo studio on East Main Street in Grass Valley.",
     "website": "https://www.punkandbunnytattoo.com/",
     "address": "1087 E Main St",
     "phone": "(530) 270-6790",
@@ -2699,7 +2777,13 @@
       2025,
       2026
     ],
-    "musePage": 100
+    "musePage": 100,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "real-graphic-source-grass-valley",
@@ -2708,7 +2792,7 @@
     "city": "Grass Valley",
     "category": "Shops & Makers",
     "intent": "Historic Places",
-    "description": "A creative services entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "The Real Graphic Source is a full-service graphics and printing shop in Grass Valley. It handles screen-printed apparel, blueprint reproduction, large-format banners and posters, giclee fine-art reproduction, scanning, and signage.",
     "website": "https://therealgraphicsource.com/",
     "address": "749 Maltman Dr",
     "phone": "(530) 273-8835",
@@ -2738,7 +2822,14 @@
       2025,
       2026
     ],
-    "musePage": 100
+    "musePage": 100,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "riparian-studios-nevada-city",
@@ -2888,7 +2979,7 @@
     "city": "Grass Valley",
     "category": "Galleries & Studios",
     "intent": "Historic Places",
-    "description": "A creative services entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "Sierra Rose Alpacas is an alpaca farm and studio on Greenhorn Road in Grass Valley.",
     "website": "https://www.sierrarosealpacas.com/store/",
     "address": "15895 Greenhorn Rd",
     "phone": "(530) 272-1218",
@@ -2918,7 +3009,13 @@
       2025,
       2026
     ],
-    "musePage": 100
+    "musePage": 100,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "someone-said-yes-dj-and-photo-booth-grass-valley",
@@ -2977,7 +3074,7 @@
     "city": "Nevada City",
     "category": "Galleries & Studios",
     "intent": "Historic Places",
-    "description": "A creative services entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "Sweet Spirit Tattoo is a custom tattoo studio in Nevada City. The studio works from Providence Mine Road.",
     "website": "https://sweetspirittattoo.com",
     "address": "420 Providence Mine Rd, Ste 245",
     "phone": "530 433 1599",
@@ -3007,7 +3104,14 @@
       2025,
       2026
     ],
-    "musePage": 100
+    "musePage": 100,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "waking-crow-studio-nevada-city",
@@ -3183,7 +3287,7 @@
     "city": "Nevada City",
     "category": "Performing Arts",
     "intent": "See a Show",
-    "description": "A cultural resources entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "An Inner Sanctum is a performing-arts listing at 308 Broad St in Nevada City.",
     "website": "",
     "address": "308 Broad St,",
     "phone": "530 478 9905",
@@ -3212,7 +3316,13 @@
     "museIssues": [
       2026
     ],
-    "musePage": 98
+    "musePage": 98,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "bear-yuba-land-trust-grass-valley",
@@ -3806,7 +3916,7 @@
     "city": "Nevada City",
     "category": "Cultural Resources",
     "intent": "Historic Places",
-    "description": "A cultural resources entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "Golden Road Radio and Television is a radio and television outfit on New Mohawk Road in Nevada City, listed among the county's cultural resources.",
     "website": "https://www.instagram.com/goldenroadradio/?hl=en",
     "address": "104 New Mohawk Rd",
     "phone": "(413) 374-6531",
@@ -3833,7 +3943,13 @@
     "featured": false,
     "coordinateProvenance": "osm-rooftop",
     "markerTier": "candidate",
-    "inGvncScope": true
+    "inGvncScope": true,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "grass-valley-downtown-association-grass-valley",
@@ -4108,7 +4224,7 @@
     "city": "Grass Valley",
     "category": "Cultural Resources",
     "intent": "Historic Places",
-    "description": "A cultural resources entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "KNCO is a Grass Valley radio broadcaster carrying 'NewsTalk' programming with local and national news. Its studios sit on East Main Street, with community features like weather and listener call-in segments.",
     "website": "https://knco.com/",
     "address": "1255 E Main St",
     "phone": "Listener Line-(530) 477-5626 Business Line-(530) 272-3424",
@@ -4132,7 +4248,14 @@
     "featured": false,
     "coordinateProvenance": "osm-rooftop",
     "markerTier": "candidate",
-    "inGvncScope": true
+    "inGvncScope": true,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "kvmr-nevada-city",
@@ -4216,7 +4339,7 @@
     "city": "Nevada City",
     "category": "Cultural Resources",
     "intent": "Historic Places",
-    "description": "A cultural resources entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "KVMRx is a community DJ-driven radio station at 105.7 FM serving Grass Valley and Nevada City — 'On The Dial > Off The Hook.' Volunteer-run and tied to parent station KVMR, its shows range from alt, punk, and experimental to electronic, hip-hop, funk, and soul.",
     "website": "https://kvmrx.org/",
     "address": "120 Bridge St",
     "phone": "(530) 265-9073",
@@ -4244,7 +4367,14 @@
     "museIssues": [
       2026
     ],
-    "musePage": 100
+    "musePage": 100,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "kyrr-93-3-fm-nevada-city",
@@ -4253,7 +4383,7 @@
     "city": "Nevada City",
     "category": "Cultural Resources",
     "intent": "Historic Places",
-    "description": "A cultural resources entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "KYRR 93.3 FM is a radio station based on Barn Hollow Road in Nevada City.",
     "website": "https://www.angelfire.com/ky3/kyrr93.3/",
     "address": "15517 Barn Hollow Rd",
     "phone": "(530) 470-9063",
@@ -4284,7 +4414,13 @@
       2025,
       2026
     ],
-    "musePage": 100
+    "musePage": 100,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "madelyn-helling-library-nevada-city",
@@ -4608,7 +4744,7 @@
     "city": "Grass Valley",
     "category": "Cultural Resources",
     "intent": "Historic Places",
-    "description": "A cultural resources entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "Nevada County Gold is a regional guide to Grass Valley, Nevada City, and the surrounding county. Its coverage runs from 'Festivals & Events' and dining to lodging, outdoor recreation, and 'California Gold Rush Stories', alongside its Gold print magazine.",
     "website": "http://www.nevadacountygold.com/",
     "address": "14520 Lynshar Rd",
     "phone": "",
@@ -4632,7 +4768,14 @@
     "featured": false,
     "coordinateProvenance": "diana",
     "markerTier": "candidate",
-    "inGvncScope": true
+    "inGvncScope": true,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "nevada-county-historical-society-nevada-city",
@@ -4757,7 +4900,7 @@
     "city": "Grass Valley",
     "category": "Cultural Resources",
     "intent": "Historic Places",
-    "description": "A cultural resources entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "Nevada County Media is a community media hub and production facility in Grass Valley where members can 'create, collaborate, and learn.' It produces the local news program Nevada County Now and offers workshops, equipment access, and rentable production facilities.",
     "website": "https://nevadacountymedia.org/",
     "address": "355 Crown Point Circle",
     "phone": "(530) 272-8862",
@@ -4793,7 +4936,14 @@
       2025,
       2026
     ],
-    "musePage": 100
+    "musePage": 100,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "nevada-theatre-commission-nevada-city",
@@ -4868,7 +5018,7 @@
     "city": "Grass Valley",
     "category": "Cultural Resources",
     "intent": "Historic Places",
-    "description": "A cultural resources entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "Nevada Union High School Library is the campus library at Nevada Union High School on Ridge Road in Grass Valley.",
     "website": "http://nevadaunion.njuhsd.com/Library/index.html",
     "address": "11761 Ridge Rd",
     "phone": "530-273-4431",
@@ -4893,7 +5043,13 @@
     "coordinateProvenance": "diana",
     "markerTier": "candidate",
     "inGvncScope": true,
-    "websiteStatus": "dead"
+    "websiteStatus": "dead",
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "ngakmang-foundation-nevada-city",
@@ -5004,7 +5160,7 @@
     "city": "Grass Valley",
     "category": "Performing Arts",
     "intent": "See a Show",
-    "description": "A cultural resources entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "Ron's Real Records is a record store on Mill Street in Grass Valley. The shop stocks 'Rare & Affordable Records, Tapes, Discs & Tons of Toys & Fun Collectibles'.",
     "website": "https://downtowngrassvalley.com/rons-real-records/",
     "address": "233A Mill St",
     "phone": "",
@@ -5033,7 +5189,14 @@
     "featured": false,
     "coordinateProvenance": "candidate",
     "markerTier": "candidate",
-    "inGvncScope": true
+    "inGvncScope": true,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "san-juan-ridge-community-library-nevada-city",
@@ -5093,7 +5256,7 @@
     "city": "Nevada City",
     "category": "Performing Arts",
     "intent": "See a Show",
-    "description": "A cultural resources entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "Sans Backup Plan Records is a performing-arts spot on Zion Street in Nevada City, featured in MUSE's 'Rural is the New Cool.'",
     "website": "https://@sans.backup.plan",
     "address": "748 Zion St, A",
     "phone": "530 559 2394",
@@ -5123,7 +5286,14 @@
     "museIssues": [
       2026
     ],
-    "musePage": 98
+    "musePage": 98,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "muse",
+        "record"
+      ]
+    }
   },
   {
     "id": "searls-historical-library-nevada-city",
@@ -5317,7 +5487,7 @@
     "city": "Grass Valley",
     "category": "Performing Arts",
     "intent": "See a Show",
-    "description": "A cultural resources entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "Sound Check Music buys, sells, and trades used musical gear on Maltman Drive in Grass Valley — 'amps, guitars, bass guitars' and effects — and offers 'amp, guitar, and band instrument repair.'",
     "website": "https://soundcheckmusiccenter.godaddysites.com/",
     "address": "671 Maltman Dr #5",
     "phone": "(530) 272-7236",
@@ -5347,7 +5517,14 @@
     "featured": false,
     "coordinateProvenance": "candidate",
     "markerTier": "candidate",
-    "inGvncScope": true
+    "inGvncScope": true,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "south-yuba-river-citizens-league-nevada-city",
@@ -5495,7 +5672,7 @@
     "city": "Grass Valley",
     "category": "Cultural Resources",
     "intent": "Historic Places",
-    "description": "A cultural resources entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "The Union is a news publication serving Grass Valley and Nevada County from Sutton Way. Its sections span local news, business, education, environment, prep and community sports, and entertainment.",
     "website": "https://www.theunion.com/",
     "address": "464 Sutton Way",
     "phone": "(530)273-9561",
@@ -5525,7 +5702,14 @@
       2025,
       2026
     ],
-    "musePage": 100
+    "musePage": 100,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "the-union-newspaper-grass-valley",
@@ -5567,7 +5751,7 @@
     "city": "Nevada City",
     "category": "Performing Arts",
     "intent": "See a Show",
-    "description": "A cultural resources entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "Toad Hall Books is a book shop at 108 N Pine St in Nevada City.",
     "website": "https://maps.roadtrippers.com/us/nevada-city-ca/shopping/toad-hall-book-shop-nevada-city",
     "address": "108 N Pine St",
     "phone": "(530) 264-7183",
@@ -5597,7 +5781,13 @@
     "featured": false,
     "coordinateProvenance": "osm-rooftop",
     "markerTier": "candidate",
-    "inGvncScope": true
+    "inGvncScope": true,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "yubanet-nevada-city",
@@ -5606,7 +5796,7 @@
     "city": "Nevada City",
     "category": "Cultural Resources",
     "intent": "Historic Places",
-    "description": "A cultural resources entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "YubaNet is an independent regional news site — 'We Deliver News to the Sierra' — covering Nevada County and beyond with fire news, environmental reporting, and community coverage from its Nevada City base.",
     "website": "https://yubanet.com/",
     "address": "20150 New Rome Rd",
     "phone": "(530) 478-9600",
@@ -5636,7 +5826,14 @@
       2025,
       2026
     ],
-    "musePage": 100
+    "musePage": 100,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "1849-brewing-company-grass-valley",
@@ -13325,7 +13522,7 @@
     "city": "Grass Valley",
     "category": "Galleries & Studios",
     "intent": "Galleries & Studios",
-    "description": "A galleries & studios entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "The Grass Valley Museum occupies 'a historic nunnery and orphanage' on South Church Street, with Victorian-era furniture, art, clothing, instruments, and artifacts. The grounds include Saint Joseph's Chapel and the Russell Rose Garden with 'over 100 heritage roses, trees, and plants'.",
     "website": "https://www.grassvalleymuseum.org/",
     "address": "410 S Church St",
     "phone": "(530) 272-4725",
@@ -13355,7 +13552,14 @@
       2025,
       2026
     ],
-    "musePage": 95
+    "musePage": 95,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "higgins-lions-community-center-grass-valley",
@@ -13397,7 +13601,7 @@
     "city": "Nevada City",
     "category": "Galleries & Studios",
     "intent": "Galleries & Studios",
-    "description": "A galleries & studios entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "Juxtartstudios is an art studio and gallery space at 406 Nimrod St in Nevada City.",
     "website": "https://www.instagram.com/juxtartstudios/",
     "address": "406 Nimrod St",
     "phone": "(917) 498-9797",
@@ -13426,7 +13630,13 @@
     "museIssues": [
       2024
     ],
-    "musePage": 66
+    "musePage": 66,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "kitkitdizzi-nevada-city",
@@ -13553,7 +13763,7 @@
     "city": "Nevada City",
     "category": "Galleries & Studios",
     "intent": "Galleries & Studios",
-    "description": "A galleries & studios entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "MIX decor + design is a decor and design studio on Argall Way in Nevada City.",
     "website": "https://@mix_nevadacity",
     "address": "108 Argall Way",
     "phone": "510-520-0677",
@@ -13578,7 +13788,13 @@
     "coordinateProvenance": "osm-rooftop",
     "markerTier": "candidate",
     "inGvncScope": true,
-    "websiteStatus": "dead"
+    "websiteStatus": "dead",
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "nevada-city-picture-framing-nevada-city",
@@ -13666,7 +13882,7 @@
     "city": "Grass Valley",
     "category": "Historic Places",
     "intent": "Historic Places",
-    "description": "A galleries & studios entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "North Star House is a wedding and event venue on Auburn Road in Grass Valley. It is featured in MUSE's 'Architect Julia Morgan's Legacy in Nevada County'.",
     "website": "https://www.northstarhouse.org/",
     "address": "12075 Auburn Rd",
     "phone": "(530) 477-7126",
@@ -13703,7 +13919,15 @@
     "museIssues": [
       2026
     ],
-    "musePage": 95
+    "musePage": 95,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website",
+        "muse"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "north-star-mining-museum-grass-valley",
@@ -14121,7 +14345,7 @@
     "city": "Nevada City",
     "category": "Galleries & Studios",
     "intent": "Galleries & Studios",
-    "description": "A galleries & studios entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "The Vault @ Crush is a gallery space at 211 Broad Street in Nevada City.",
     "website": "https://crushnevadacity.com/",
     "address": "211 Broad Street",
     "phone": "707 834-9922",
@@ -14145,7 +14369,13 @@
     "featured": false,
     "coordinateProvenance": "osm-rooftop",
     "markerTier": "candidate",
-    "inGvncScope": true
+    "inGvncScope": true,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "uba-seo-nisenan-arts-and-culture-nevada-city",
@@ -14278,7 +14508,7 @@
     "city": "Nevada City",
     "category": "Galleries & Studios",
     "intent": "Galleries & Studios",
-    "description": "A galleries & studios entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "Wolf Craft School teaches traditional crafts in Nevada City, with workshops spanning ceramics, fiber arts, natural dyeing, shoemaking, and jewelry making. It describes itself as 'a creative hub offering hands-on workshops and classes that reconnect people with the timeless art of making.'",
     "website": "https://wolfcraftcollective.com",
     "address": "205 York St, Ste C",
     "phone": "530 557 3727",
@@ -14306,7 +14536,14 @@
     "museIssues": [
       2025
     ],
-    "musePage": 100
+    "musePage": 100,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "wonder-docent-nevada-city",
@@ -17368,7 +17605,7 @@
     "city": "Grass Valley",
     "category": "Historic Places",
     "intent": "Historic Places",
-    "description": "A historic places entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "Uncle Rob's Cabin is a historic place on Seven Cedars Drive in Grass Valley.",
     "website": "",
     "address": "13970 Seven Cedars Dr",
     "phone": "",
@@ -17392,7 +17629,13 @@
     "featured": false,
     "coordinateProvenance": "candidate",
     "markerTier": "candidate",
-    "inGvncScope": true
+    "inGvncScope": true,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "vietnam-war-memorials-grass-valley-grass-valley",
@@ -17668,7 +17911,7 @@
     "city": "Nevada City",
     "category": "Shops & Makers",
     "intent": "Historic Places",
-    "description": "A muse picks entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "Abstrakt is a maker's shop at 228 Broad St in Nevada City.",
     "website": "https://www.instagram.com/abstraktnevadacity_/",
     "address": "228 Broad St",
     "phone": "(530) 470-6031",
@@ -17697,7 +17940,13 @@
     "museIssues": [
       2026
     ],
-    "musePage": 98
+    "musePage": 98,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "asylum-down-nevada-city",
@@ -17706,7 +17955,7 @@
     "city": "Nevada City",
     "category": "Shops & Makers",
     "intent": "Historic Places",
-    "description": "A muse picks entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "Asylum Down is a shop at 300 Broad Street in Nevada City, part of the county's roster of shops and makers.",
     "website": "https://www.instagram.com/asylumdowntown/?hl=en",
     "address": "300 Broad St",
     "phone": "(530) 265-9666 fax (530) 265-9666",
@@ -17735,7 +17984,13 @@
     "museIssues": [
       2026
     ],
-    "musePage": 99
+    "musePage": 99,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "atra-nova-nevada-city",
@@ -17744,7 +17999,7 @@
     "city": "Nevada City",
     "category": "Shops & Makers",
     "intent": "Historic Places",
-    "description": "A muse picks entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "Atra Nova is a shop on Broad Street in Nevada City.",
     "website": "https://www.instagram.com/atranova_shop/?hl=en",
     "address": "219 Broad St",
     "phone": "(323) 285-0266",
@@ -17768,7 +18023,13 @@
     "featured": false,
     "coordinateProvenance": "osm-rooftop",
     "markerTier": "candidate",
-    "inGvncScope": true
+    "inGvncScope": true,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "bamboo-home-store-grass-valley",
@@ -17777,7 +18038,7 @@
     "city": "Grass Valley",
     "category": "Shops & Makers",
     "intent": "Historic Places",
-    "description": "A muse picks entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "Bamboo Home Store is a home goods shop at 114 E Main St in Grass Valley.",
     "website": "https://downtowngrassvalley.com/bamboo-home-store/",
     "address": "114 E Main St",
     "phone": "(530) 272-0303",
@@ -17807,7 +18068,13 @@
     "museIssues": [
       2026
     ],
-    "musePage": 98
+    "musePage": 98,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "cosmic-shark-clothing-grass-valley",
@@ -17861,7 +18128,7 @@
     "city": "Nevada City",
     "category": "Shops & Makers",
     "intent": "Historic Places",
-    "description": "A muse picks entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "Crush is a shop at 211 Broad Street in Nevada City, counted among the town's independent shops and makers.",
     "website": "https://crushnevadacity.com/",
     "address": "211 Broad St",
     "phone": "",
@@ -17891,7 +18158,13 @@
       2025,
       2026
     ],
-    "musePage": 99
+    "musePage": 99,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "crystal-empire-gems-grass-valley",
@@ -17900,7 +18173,7 @@
     "city": "Grass Valley",
     "category": "Shops & Makers",
     "intent": "Historic Places",
-    "description": "A muse picks entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "Crystal Empire Gems is a crystal and gem shop on Mill Street in Grass Valley.",
     "website": "https://www.facebook.com/p/Crystal-Empire-Gems-100057478726884/",
     "address": "139 Mill St",
     "phone": "(530) 615-4234",
@@ -17930,7 +18203,13 @@
       2025,
       2026
     ],
-    "musePage": 99
+    "musePage": 99,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "crystal-rainbow-rock-shop-nevada-city",
@@ -17939,7 +18218,7 @@
     "city": "Nevada City",
     "category": "Shops & Makers",
     "intent": "Historic Places",
-    "description": "A muse picks entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "Crystal Rainbow Rock Shop is a rock and crystal shop at 310 Commercial St in Nevada City.",
     "website": "https://www.facebook.com/crystalrainbowrox/",
     "address": "310 Commercial St",
     "phone": "(530) 687-2323",
@@ -17968,7 +18247,13 @@
     "museIssues": [
       2026
     ],
-    "musePage": 99
+    "musePage": 99,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "earth-central-nevada-city",
@@ -17977,7 +18262,7 @@
     "city": "Nevada City",
     "category": "Shops & Makers",
     "intent": "Historic Places",
-    "description": "A muse picks entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "Earth Central is a shop at 417 Broad Street in Nevada City, one of the storefronts in the town's shops-and-makers listings.",
     "website": "https://www.instagram.com/earth_central_/?hl=en",
     "address": "417 Broad St",
     "phone": "(530)417-8443",
@@ -18006,7 +18291,13 @@
     "museIssues": [
       2025
     ],
-    "musePage": 98
+    "musePage": 98,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "earthdrop-nevada-city",
@@ -18110,7 +18401,7 @@
     "city": "Grass Valley",
     "category": "Shops & Makers",
     "intent": "Historic Places",
-    "description": "A muse picks entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "Elevate Athleisure is a Mill Street shop in Grass Valley built around 'Fitness.Comfort.Wellness.Beauty'. It carries women's and men's activewear, yoga mats and studio supplies, and bath and body products from brands like Free People Movement, Beyond Yoga, and Manduka.",
     "website": "https://www.elevateathleisure.com/",
     "address": "124 Mill St",
     "phone": "(530) 205-9008",
@@ -18139,7 +18430,14 @@
     "museIssues": [
       2026
     ],
-    "musePage": 99
+    "musePage": 99,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "elevation-2477-nevada-city",
@@ -18237,7 +18535,7 @@
     "city": "Nevada City",
     "category": "Shops & Makers",
     "intent": "Historic Places",
-    "description": "A muse picks entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "Field Day Apparel sells sustainable, 'Made in California' women's clothing from its Nevada City showroom on Broad Street. The line is 'ethically made' in Oakland, with 'inclusive sizing' and — as the shop puts it — 'pockets for everyone.'",
     "website": "https://www.fielddayapparel.com/?srsltid=AfmBOooCArwld5myxRAUAIJYomr-1JVJxORGHsloxnge9OvDKxyTLQGl",
     "address": "408 Broad St",
     "phone": "(530) 264-7448",
@@ -18268,7 +18566,14 @@
       2025,
       2026
     ],
-    "musePage": 99
+    "musePage": 99,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "foothill-flowers-grass-valley",
@@ -18321,7 +18626,7 @@
     "city": "Grass Valley",
     "category": "Shops & Makers",
     "intent": "Historic Places",
-    "description": "A muse picks entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "Foothill Mercantile is a family-owned store on Mill Street in Grass Valley, in business since 1976. Its shelves carry some 23,000 items — 'toys, puzzles, stuffed animals, candy, gifts, housewares, greeting cards, holiday items, and much more.'",
     "website": "https://foothillmercantile.com/",
     "address": "121 Mill St",
     "phone": "(530) 273-8304",
@@ -18352,7 +18657,14 @@
       2025,
       2026
     ],
-    "musePage": 99
+    "musePage": 99,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "fur-traders-nevada-city",
@@ -18406,7 +18718,7 @@
     "city": "Grass Valley",
     "category": "Shops & Makers",
     "intent": "Historic Places",
-    "description": "A muse picks entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "Gather & Mill is a shop on West Main Street in Grass Valley.",
     "website": "https://www.gatherandmill.com/",
     "address": "212 W Main St",
     "phone": "",
@@ -18437,7 +18749,13 @@
       2025,
       2026
     ],
-    "musePage": 99
+    "musePage": 99,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "gold-mountain-nevada-city",
@@ -18539,7 +18857,7 @@
     "city": "Grass Valley",
     "category": "Shops & Makers",
     "intent": "Historic Places",
-    "description": "A muse picks entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "Grass Valley Games is a tabletop game store on Mill Street that calls itself 'more than just your local neighborhood game store.' Shelves hold board games, Magic and Pokémon cards, miniatures, comics, and RPGs, with tables set aside as 'a relaxing place to play them and meet other gamers.'",
     "website": "https://www.grassvalleygames.com/",
     "address": "140 Mill St",
     "phone": "(530) 205-9383",
@@ -18569,7 +18887,14 @@
       2025,
       2026
     ],
-    "musePage": 100
+    "musePage": 100,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "grass-valley-provisions-grass-valley",
@@ -18624,7 +18949,7 @@
     "city": "Grass Valley",
     "category": "Shops & Makers",
     "intent": "Historic Places",
-    "description": "A muse picks entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "Heart and Home is a home-goods shop on Mill Street in Grass Valley.",
     "website": "https://gograssvalley.com/attraction/heart-and-home-2",
     "address": "129 Mill St",
     "phone": "(530) 477-0506",
@@ -18654,7 +18979,13 @@
       2025,
       2026
     ],
-    "musePage": 99
+    "musePage": 99,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "hola-tortilla-nevada-city",
@@ -18708,7 +19039,7 @@
     "city": "Nevada City",
     "category": "Shops & Makers",
     "intent": "Historic Places",
-    "description": "A muse picks entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "Inner Path is a nonprofit spiritual shop and center on Commercial Street in Nevada City, carrying 'meditation accessories, yoga supplies, the teachings of Paramahansa Yogananda and other spiritual teachers'. The center also holds group meditations, a healing room, a library, and a boutique.",
     "website": "https://innerpath.com",
     "address": "200 Commercial Street",
     "phone": "530-470-6057",
@@ -18737,7 +19068,14 @@
     "museIssues": [
       2026
     ],
-    "musePage": 100
+    "musePage": 100,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "j-breuer-clothing-grass-valley",
@@ -18796,7 +19134,7 @@
     "city": "Nevada City",
     "category": "Shops & Makers",
     "intent": "Historic Places",
-    "description": "A muse picks entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "J.J. Jackson's is a shop at 244 Commercial St in Nevada City.",
     "website": "https://www.jj-jacksons.com",
     "address": "244 Commercial St",
     "phone": "(530)265-2644",
@@ -18828,7 +19166,13 @@
       2025,
       2026
     ],
-    "musePage": 99
+    "musePage": 99,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "kiya-s-naturals-nevada-city",
@@ -18837,7 +19181,7 @@
     "city": "Nevada City",
     "category": "Shops & Makers",
     "intent": "Historic Places",
-    "description": "A muse picks entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "Kiya's Naturals is a natural-goods shop on Commercial Street in Nevada City.",
     "website": "https://www.kiyasnaturals.com/",
     "address": "241 Commercial St",
     "phone": "(530) 470-6181",
@@ -18868,7 +19212,13 @@
       2025,
       2026
     ],
-    "musePage": 99
+    "musePage": 99,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "la-cache-nevada-city",
@@ -18877,7 +19227,7 @@
     "city": "Nevada City",
     "category": "Shops & Makers",
     "intent": "Historic Places",
-    "description": "A muse picks entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "La Cache is a shop on Broad Street in Nevada City.",
     "website": "https://www.facebook.com/pages/La%20Cache/747331541949535/#",
     "address": "218 Broad St",
     "phone": "(530) 265-8104",
@@ -18901,7 +19251,13 @@
     "featured": false,
     "coordinateProvenance": "osm-rooftop",
     "markerTier": "candidate",
-    "inGvncScope": true
+    "inGvncScope": true,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "lateda-grass-valley",
@@ -18910,7 +19266,7 @@
     "city": "Grass Valley",
     "category": "Shops & Makers",
     "intent": "Historic Places",
-    "description": "A muse picks entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "LaTeDa is a shop at 138 Mill St in Grass Valley.",
     "website": "https://www.instagram.com/latedagirls/",
     "address": "138 Mill St",
     "phone": "(530) 477-1930",
@@ -18940,7 +19296,13 @@
       2025,
       2026
     ],
-    "musePage": 99
+    "musePage": 99,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "lola-and-jack-grass-valley",
@@ -18949,7 +19311,7 @@
     "city": "Grass Valley",
     "category": "Shops & Makers",
     "intent": "Historic Places",
-    "description": "A muse picks entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "Lola and Jack is a shop on Mill Street in Grass Valley, one of the storefronts in the town's shops-and-makers scene.",
     "website": "https://www.lolaandjack.com/",
     "address": "145 Mill St",
     "phone": "(530) 274-8991",
@@ -18979,7 +19341,13 @@
       2025,
       2026
     ],
-    "musePage": 99
+    "musePage": 99,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "long-s-bottle-shop-grass-valley",
@@ -19034,7 +19402,7 @@
     "city": "Nevada City",
     "category": "Shops & Makers",
     "intent": "Historic Places",
-    "description": "A muse picks entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "Main Street Kids sells 'new and consignment children's clothing and toys' on Main Street in Nevada City. Its curated selection runs from newborn sizes up to teens.",
     "website": "https://mainstkids.com",
     "address": "212 Main Street",
     "phone": "(530) 478-1089",
@@ -19069,7 +19437,14 @@
     "museIssues": [
       2026
     ],
-    "musePage": 99
+    "musePage": 99,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "make-local-habit-grass-valley",
@@ -19118,7 +19493,7 @@
     "city": "Nevada City",
     "category": "Shops & Makers",
     "intent": "Historic Places",
-    "description": "A muse picks entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "Mama Madrone's Eco-Emporium fills its Broad Street storefront in Nevada City with 'ethically sourced products made with sustainable practices from around the world.' The shop carries clothing, body care, housewares, jewelry, and kids' toys, and 'proudly supports many of our local artisans.'",
     "website": "https://mama-madrones-eco-emporium.myshopify.com/",
     "address": "307 Broad St",
     "phone": "(530) 478-1700",
@@ -19142,7 +19517,14 @@
     "featured": false,
     "coordinateProvenance": "osm-rooftop",
     "markerTier": "candidate",
-    "inGvncScope": true
+    "inGvncScope": true,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "marley-lane-grass-valley",
@@ -19151,7 +19533,7 @@
     "city": "Grass Valley",
     "category": "Shops & Makers",
     "intent": "Historic Places",
-    "description": "A muse picks entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "Marley Lane is a shop on West Main Street in Grass Valley, among the independent shops and makers on the map.",
     "website": "https://www.instagram.com/marley_lane_grassvalley/?hl=en",
     "address": "105 W Main St",
     "phone": "(530) 559-7520",
@@ -19180,7 +19562,13 @@
     "museIssues": [
       2026
     ],
-    "musePage": 99
+    "musePage": 99,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "mint-grass-valley",
@@ -19189,7 +19577,7 @@
     "city": "Grass Valley",
     "category": "Shops & Makers",
     "intent": "Historic Places",
-    "description": "A muse picks entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "Mint is a shop on Mill Street in Grass Valley.",
     "website": "https://www.mintshopgrassvalley.com/",
     "address": "144 Mill St",
     "phone": "(530) 272-6468",
@@ -19219,7 +19607,13 @@
       2025,
       2026
     ],
-    "musePage": 99
+    "musePage": 99,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "moms-and-minis-grass-valley",
@@ -19273,7 +19667,7 @@
     "city": "Nevada City",
     "category": "Shops & Makers",
     "intent": "Historic Places",
-    "description": "A muse picks entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "Mountain Pastimes has sold toys, games, kites, and puzzles on Spring Street in Nevada City since 1989. The shop even offers a virtual 3D tour on its website.",
     "website": "https://mountainpastimes.com/",
     "address": "320 Spring St",
     "phone": "(530) 265-6692",
@@ -19309,7 +19703,14 @@
       2025,
       2026
     ],
-    "musePage": 99
+    "musePage": 99,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "native-wren-grass-valley",
@@ -19318,7 +19719,7 @@
     "city": "Grass Valley",
     "category": "Shops & Makers",
     "intent": "Historic Places",
-    "description": "A muse picks entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "Native Wren is a shop at 125 Mill Street in Grass Valley, part of the street's cluster of independent shops.",
     "website": "https://www.nativewren.com/",
     "address": "125 Mill St",
     "phone": "(530) 205-9883",
@@ -19347,7 +19748,13 @@
     "museIssues": [
       2026
     ],
-    "musePage": 99
+    "musePage": 99,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "nevada-city-crystal-and-glass-shop-nevada-city",
@@ -19356,7 +19763,7 @@
     "city": "Nevada City",
     "category": "Shops & Makers",
     "intent": "Historic Places",
-    "description": "A muse picks entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "Nevada City Crystal & Glass Shop is a crystal and glass shop on Broad Street in Nevada City.",
     "website": "https://www.facebook.com/p/Nevada-City-Crystal-Glass-100064074401534/",
     "address": "320 Broad St",
     "phone": "(530) 265-3325",
@@ -19380,7 +19787,13 @@
     "featured": false,
     "coordinateProvenance": "osm-rooftop",
     "markerTier": "candidate",
-    "inGvncScope": true
+    "inGvncScope": true,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "nightingale-farms-grass-valley",
@@ -19433,7 +19846,7 @@
     "city": "Nevada City",
     "category": "Shops & Makers",
     "intent": "Historic Places",
-    "description": "A muse picks entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "Novak's Menswear is a men's clothing shop at 305 Broad St in Nevada City.",
     "website": "https://www.facebook.com/novaksdowntownnevadacity/",
     "address": "305 Broad St",
     "phone": "(530) 265-4684",
@@ -19462,7 +19875,13 @@
     "museIssues": [
       2026
     ],
-    "musePage": 99
+    "musePage": 99,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "of-earth-and-salt-nevada-city",
@@ -19471,7 +19890,7 @@
     "city": "Nevada City",
     "category": "Shops & Makers",
     "intent": "Historic Places",
-    "description": "A muse picks entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "Of Earth and Salt is a clothing shop on Searls Avenue in Nevada City focused on 'Slow Fashion + Ethically Made' apparel, from ice-dyed hemp pieces to jewelry and home goods.",
     "website": "https://www.ofearthandsalt.com/",
     "address": "576 Searls Ave",
     "phone": "(530) 687-6413",
@@ -19501,7 +19920,14 @@
       2025,
       2026
     ],
-    "musePage": 99
+    "musePage": 99,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "remedy-garden-nevada-city",
@@ -19556,7 +19982,7 @@
     "city": "Nevada City",
     "category": "Shops & Makers",
     "intent": "Historic Places",
-    "description": "A muse picks entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "Shiva Moon is a shop on Main Street in Nevada City.",
     "website": "https://www.instagram.com/shivamoonnevadacity/?hl=en",
     "address": "206 Main St",
     "phone": "(530)264-7377",
@@ -19585,7 +20011,13 @@
     "museIssues": [
       2026
     ],
-    "musePage": 99
+    "musePage": 99,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "soulcrafts-nevada-city",
@@ -19594,7 +20026,7 @@
     "city": "Nevada City",
     "category": "Shops & Makers",
     "intent": "Historic Places",
-    "description": "A muse picks entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "SoulCrafts is a maker's shop at 236 Commercial St in Nevada City.",
     "website": "https://www.ofearthandsalt.com/",
     "address": "236 Commercial St",
     "phone": "(530)557-5337",
@@ -19623,7 +20055,13 @@
     "museIssues": [
       2026
     ],
-    "musePage": 99
+    "musePage": 99,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "stucki-jewelers-inc-grass-valley",
@@ -19772,7 +20210,7 @@
     "city": "Nevada City",
     "category": "Shops & Makers",
     "intent": "Historic Places",
-    "description": "A muse picks entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "The Earth Store is a shop at 310 Broad Street in Nevada City, listed among the town's shops and makers.",
     "website": "https://www.earthstorenc.com/",
     "address": "310 Broad St",
     "phone": "(530) 265-0448",
@@ -19802,7 +20240,13 @@
       2025,
       2026
     ],
-    "musePage": 99
+    "musePage": 99,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "the-fates-fine-jewelry-nevada-city",
@@ -19811,7 +20255,7 @@
     "city": "Nevada City",
     "category": "Shops & Makers",
     "intent": "Historic Places",
-    "description": "A muse picks entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "The Fates Fine Jewelry is a fine jewelry shop on Broad Street in Nevada City.",
     "website": "https://thefatesjewelry.com",
     "address": "211 Broad St, Ste 150",
     "phone": "530 205 3690",
@@ -19840,7 +20284,13 @@
     "museIssues": [
       2026
     ],
-    "musePage": 99
+    "musePage": 99,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "the-hat-store-nevada-city",
@@ -20117,7 +20567,7 @@
     "city": "Grass Valley",
     "category": "Shops & Makers",
     "intent": "Historic Places",
-    "description": "A muse picks entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "Tribal Weaver is a shop at 105 Mill St in Grass Valley.",
     "website": "https://www.facebook.com/tribalweaver?_rdr",
     "address": "105 Mill St",
     "phone": "(530) 274-0251",
@@ -20147,7 +20597,13 @@
       2025,
       2026
     ],
-    "musePage": 99
+    "musePage": 99,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "two-little-birds-nevada-city",
@@ -20156,7 +20612,7 @@
     "city": "Nevada City",
     "category": "Shops & Makers",
     "intent": "Historic Places",
-    "description": "A muse picks entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "Two Little Birds is a children's boutique on Commercial Street in Nevada City, stocking toys, books, and clothing 'hand selected with so much care and attention for the planet and our children.'",
     "website": "https://twolittlebirdsnevadacity.com/",
     "address": "234 Commercial St",
     "phone": "(530) 648-0750",
@@ -20186,7 +20642,14 @@
       2025,
       2026
     ],
-    "musePage": 99
+    "musePage": 99,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "wild-side-grass-valley",
@@ -20195,7 +20658,7 @@
     "city": "Grass Valley",
     "category": "Shops & Makers",
     "intent": "Historic Places",
-    "description": "A muse picks entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "Wild Side is a shop on Mill Street in Grass Valley.",
     "website": "https://downtowngrassvalley.com/wild-side/",
     "address": "160 Mill St",
     "phone": "(530)272-9618",
@@ -20225,7 +20688,13 @@
     "museIssues": [
       2025
     ],
-    "musePage": 99
+    "musePage": 99,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "winnie-superette-nevada-city",
@@ -20280,7 +20749,7 @@
     "city": "Nevada City",
     "category": "Shops & Makers",
     "intent": "Historic Places",
-    "description": "A muse picks entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "Yabobo is a shop at 107 N. Pine Street in Nevada City.",
     "website": "http://www.asylumdown.com/",
     "address": "107 N. Pine Street",
     "phone": "530-478-9114",
@@ -20310,7 +20779,13 @@
     "museIssues": [
       2026
     ],
-    "musePage": 100
+    "musePage": 100,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "yuba-blue-grass-valley",
@@ -20637,7 +21112,7 @@
     "city": "Nevada City",
     "category": "Performing Arts",
     "intent": "See a Show",
-    "description": "A performing arts entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "Mystic Theater is a performing arts venue at 240 Commercial Street in Nevada City.",
     "website": "",
     "address": "240 Commercial St",
     "phone": "(530) 755-6677",
@@ -20667,7 +21142,13 @@
       2024,
       2025
     ],
-    "musePage": 99
+    "musePage": 99,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "off-center-stage-grass-valley",
@@ -21215,7 +21696,7 @@
     "city": "Nevada City",
     "category": "Public Art",
     "intent": "Galleries & Studios",
-    "description": "A public art entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "A public sculpture stands at the Madelyn Helling Library on Helling Way in Nevada City.",
     "website": "",
     "address": "980 Helling Way",
     "phone": "",
@@ -21239,7 +21720,13 @@
     "featured": false,
     "coordinateProvenance": "diana",
     "markerTier": "map-ready",
-    "inGvncScope": true
+    "inGvncScope": true,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "metal-flower-sculpture-at-as-if-studios-grass-valley",
@@ -21914,7 +22401,7 @@
     "city": "Grass Valley",
     "category": "Shops & Makers",
     "intent": "Shops & Makers",
-    "description": "A shops & makers entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "Back in the Day is a shop at 120 Mill St in Grass Valley.",
     "website": "https://www.instagram.com/backinthedaygrassvalley",
     "address": "120 Mill St",
     "phone": "(530) 263-8288",
@@ -21943,7 +22430,13 @@
     "museIssues": [
       2026
     ],
-    "musePage": 98
+    "musePage": 98,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "booktown-books-grass-valley",
@@ -22126,7 +22619,7 @@
     "city": "Nevada City",
     "category": "Shops & Makers",
     "intent": "Shops & Makers",
-    "description": "A shops & makers entry in Nevada City, included for alpha review while source descriptions are cleaned.",
+    "description": "Kodo Arts is a Japanese art and antiques dealer on Searls Avenue in Nevada City, offering 'treasures, the unusual and something for every budget and taste.'",
     "website": "https://kodo-arts.com/",
     "address": "571 Searls Ave",
     "phone": "(530) 478-0812",
@@ -22157,7 +22650,14 @@
       2025,
       2026
     ],
-    "musePage": 98
+    "musePage": 98,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "lost-and-found-vintage-nevada-city",
@@ -22300,7 +22800,7 @@
     "city": "Grass Valley",
     "category": "Shops & Makers",
     "intent": "Shops & Makers",
-    "description": "A shops & makers entry in Grass Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "Vintage on Mill is a vintage shop on Mill Street in Grass Valley.",
     "website": "https://downtowngrassvalley.com/vintage-on-mill/",
     "address": "117 Mill St",
     "phone": "(530) 802 5283",
@@ -22331,7 +22831,13 @@
       2025,
       2026
     ],
-    "musePage": 98
+    "musePage": 98,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "ananda-village-crystal-hermitage-gardens-nevada-city",
@@ -24502,7 +25008,7 @@
     "city": "",
     "category": "Shops & Makers",
     "intent": "Historic Places",
-    "description": "A creative services entry in Nevada County, included for alpha review while source descriptions are cleaned.",
+    "description": "BobbieMoon Video is a video maker listed on the Nevada County cultural map; location details are still being confirmed.",
     "website": "",
     "address": "",
     "phone": "408-694-8345",
@@ -24531,7 +25037,13 @@
     "museIssues": [
       2026
     ],
-    "musePage": 101
+    "musePage": 101,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "filmprojects-penn-valley",
@@ -24763,7 +25275,7 @@
     "city": "Truckee",
     "category": "Shops & Makers",
     "intent": "Historic Places",
-    "description": "A creative services entry in Truckee, included for alpha review while source descriptions are cleaned.",
+    "description": "Nevada County Arts Council is the county's community arts hub and a State-Local Partner with the California Arts Council, working to 'promote and sustain the visual, literary and performing arts of Nevada County.' Its Truckee office anchors the Truckee Cultural District.",
     "website": "https://nevadacountyarts.org, truckeeculturaldistrict.org",
     "address": "10266 Truckee Airport Rd, Ste C",
     "phone": "(530) 264-7031",
@@ -24787,7 +25299,14 @@
     "featured": false,
     "coordinateProvenance": "candidate",
     "markerTier": "candidate",
-    "inGvncScope": false
+    "inGvncScope": false,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "snowy-mountain-tattoo-co-truckee",
@@ -25253,7 +25772,7 @@
     "city": "Truckee",
     "category": "Galleries & Studios",
     "intent": "Historic Places",
-    "description": "A creative services entry in Truckee, included for alpha review while source descriptions are cleaned.",
+    "description": "Truth Tattoo is a tattoo studio in 'Historic Downtown Truckee' on Jibboom Street. The shop offers artist consultations, and 'Walk-Ins Always Welcome'.",
     "website": "https://truthtattootruckee.com/",
     "address": "10099 Jibboom St",
     "phone": "(530) 582-8788",
@@ -25282,7 +25801,14 @@
     "museIssues": [
       2026
     ],
-    "musePage": 104
+    "musePage": 104,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "wandt-graphix-truckee",
@@ -25926,7 +26452,7 @@
     "city": "Truckee",
     "category": "Cultural Resources",
     "intent": "Historic Places",
-    "description": "A cultural resources entry in Truckee, included for alpha review while source descriptions are cleaned.",
+    "description": "Mountain Gazette is an outdoor culture magazine founded in 1966 and revived in 2020 — 'the craft brewery of outdoor media.' Published twice a year in oversized 11x17 format, it pairs long-form journalism with big photography of mountain life.",
     "website": "https://mountaingazette.com/?srsltid=AfmBOooKnwKlEPFiNb28ACIf4hOu67SlzHP6ck4dSv1XSOANqv1SFj8g",
     "address": "",
     "phone": "",
@@ -25955,7 +26481,14 @@
     "museIssues": [
       2025
     ],
-    "musePage": 104
+    "musePage": 104,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "museum-of-truckee-history-truckee",
@@ -26153,7 +26686,7 @@
     "city": "Truckee",
     "category": "Performing Arts",
     "intent": "See a Show",
-    "description": "A cultural resources entry in Truckee, included for alpha review while source descriptions are cleaned.",
+    "description": "Rock Cellar Records sells new, used, and collectible vinyl from the basement of Word After Word Books in 'Historic Downtown Truckee,' along with record players and 'a growing collection of books about music and musicians.'",
     "website": "https://rockcellarrecords.com/",
     "address": "10052 Donner Pass Rd",
     "phone": "(530) 536-5099",
@@ -26189,7 +26722,14 @@
       2025,
       2026
     ],
-    "musePage": 104
+    "musePage": 104,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "rough-and-ready-chamber-of-commerce-rough-and-ready",
@@ -26501,7 +27041,7 @@
     "city": "Truckee",
     "category": "Cultural Resources",
     "intent": "Historic Places",
-    "description": "A cultural resources entry in Truckee, included for alpha review while source descriptions are cleaned.",
+    "description": "Tahoe Guide is a lifestyle and events publication covering the Lake Tahoe region. Its sections range from hiking, skiing, and boating to local makers, live music, theater and dance, and dining.",
     "website": "https://yourtahoeguide.com/",
     "address": "",
     "phone": "",
@@ -26530,7 +27070,14 @@
     "museIssues": [
       2025
     ],
-    "musePage": 105
+    "musePage": 105,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "tahoe-safe-alliance-truckee",
@@ -26608,7 +27155,7 @@
     "city": "Truckee",
     "category": "Cultural Resources",
     "intent": "Historic Places",
-    "description": "A cultural resources entry in Truckee, included for alpha review while source descriptions are cleaned.",
+    "description": "Tahoe Truckee Media is an 'Educational and Governmental (EG) access media center' run through the Tahoe Truckee Unified School District. Its channels broadcast public meetings and district events, reaching '14,000 homes in Truckee, Tahoe City, the West Shore of Lake Tahoe, and parts of Placer and Nevada Counties.'",
     "website": "https://www.ttusd.org/community/tahoetruckeemedia",
     "address": "Donner Pass Rd",
     "phone": "(530) 582-1194",
@@ -26636,7 +27183,14 @@
     "museIssues": [
       2026
     ],
-    "musePage": 104
+    "musePage": 104,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "the-martis-fund-truckee",
@@ -27955,7 +28509,7 @@
     "city": "Truckee",
     "category": "Shops & Makers",
     "intent": "Historic Places",
-    "description": "A eat, drink & stay entry in Truckee, included for alpha review while source descriptions are cleaned.",
+    "description": "Cornerstone Bakery & Kitchen is a bakery on West River Street in Truckee.",
     "website": "https://@truckeecornerstonebakery",
     "address": "10087 W River St",
     "phone": "(530) 563-5322",
@@ -27980,7 +28534,13 @@
     "coordinateProvenance": "osm-rooftop",
     "markerTier": "candidate",
     "inGvncScope": false,
-    "websiteStatus": "dead"
+    "websiteStatus": "dead",
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "cottonwood-restaurant-and-bar-truckee",
@@ -32473,7 +33033,7 @@
     "city": "Truckee",
     "category": "Shops & Makers",
     "intent": "Historic Places",
-    "description": "A eat, drink & stay entry in Truckee, included for alpha review while source descriptions are cleaned.",
+    "description": "Whole Treats Bakery & Coffee House is a bakery and coffee house on Palisades Drive in Truckee.",
     "website": "https://@wholetreatsbakery",
     "address": "10015 Palisades Dr, # A3",
     "phone": "(530) 563-5096",
@@ -32498,7 +33058,13 @@
     "coordinateProvenance": "osm-rooftop",
     "markerTier": "candidate",
     "inGvncScope": false,
-    "websiteStatus": "dead"
+    "websiteStatus": "dead",
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "wild-cherries-coffee-house-truckee",
@@ -33770,7 +34336,7 @@
     "city": "Truckee",
     "category": "Galleries & Studios",
     "intent": "Galleries & Studios",
-    "description": "A galleries & studios entry in Truckee, included for alpha review while source descriptions are cleaned.",
+    "description": "9848.Gallery is an artist-run gallery inside the Truckee Artist Lofts on Donner Pass Road. Resident artists rotate solo and group shows in painting, mosaics, and illustration, alongside open mics for narrative, poetry, and song.",
     "website": "https://sites.google.com/view/9848gallery?usp=sharing",
     "address": "9848 Donner Pass Rd",
     "phone": "(5300 563-5052",
@@ -33800,7 +34366,14 @@
     "featured": false,
     "coordinateProvenance": "none",
     "markerTier": "directory-only",
-    "inGvncScope": false
+    "inGvncScope": false,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "art-truckee-truckee",
@@ -33809,7 +34382,7 @@
     "city": "Truckee",
     "category": "Galleries & Studios",
     "intent": "Galleries & Studios",
-    "description": "A galleries & studios entry in Truckee, included for alpha review while source descriptions are cleaned.",
+    "description": "Art Truckee is a gallery and community space on Donner Pass Road, showing and selling work by local and regional artists in the gallery and through its online shop.",
     "website": "https://www.arttruckee.com/",
     "address": "9940 Donner Pass Rd",
     "phone": "(5300 448-3423",
@@ -33839,7 +34412,14 @@
       2025,
       2026
     ],
-    "musePage": 101
+    "musePage": 101,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "donner-memorial-state-park-museum-truckee",
@@ -34116,7 +34696,7 @@
     "city": "Truckee",
     "category": "Galleries & Studios",
     "intent": "Galleries & Studios",
-    "description": "A galleries & studios entry in Truckee, included for alpha review while source descriptions are cleaned.",
+    "description": "Lorien Powers Studio Jewelry is a custom jewelry studio on Donner Pass Road in Truckee.",
     "website": "https://www.lorienpowers.com/",
     "address": "9932 Donner Pass Rd",
     "phone": "(530) 563-5400",
@@ -34147,7 +34727,14 @@
       2025,
       2026
     ],
-    "musePage": 104
+    "musePage": 104,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "made-by-me-in-truckee-truckee",
@@ -34299,7 +34886,7 @@
     "city": "Truckee",
     "category": "Galleries & Studios",
     "intent": "Galleries & Studios",
-    "description": "A galleries & studios entry in Truckee, included for alpha review while source descriptions are cleaned.",
+    "description": "Ridgeline Gallery is an art gallery on Donner Pass Road in Truckee, featured in MUSE's 'Mountain Heart. Small-Town Soul.'",
     "website": "https://ridgelinegallery.com",
     "address": "10104 Donner Pass Rd",
     "phone": "530 606 2491",
@@ -34328,7 +34915,14 @@
     "museIssues": [
       2026
     ],
-    "musePage": 101
+    "musePage": 101,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "muse",
+        "record"
+      ]
+    }
   },
   {
     "id": "riverside-studios-truckee",
@@ -34551,7 +35145,7 @@
     "city": "Truckee",
     "category": "Galleries & Studios",
     "intent": "Galleries & Studios",
-    "description": "A galleries & studios entry in Truckee, included for alpha review while source descriptions are cleaned.",
+    "description": "Truckee Tahoe Airport doubles as an exhibition space: its 'Art at the Airport' program, managed by the Truckee Cultural District, showcases 'over 100 artists annually' in rotating exhibitions, and displayed works are available for purchase.",
     "website": "https://truckeetahoeairport.com/guide/art-at-the-airport",
     "address": "10356 Truckee Airport",
     "phone": "(5300 587-4119",
@@ -34581,7 +35175,14 @@
       2024,
       2026
     ],
-    "musePage": 101
+    "musePage": 101,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "truckee-tahoe-airport-district-art-at-the-airport-truckee",
@@ -39475,7 +40076,7 @@
     "city": "Truckee",
     "category": "Galleries & Studios",
     "intent": "Historic Places",
-    "description": "A muse picks entry in Truckee, included for alpha review while source descriptions are cleaned.",
+    "description": "Bespoke & Atelier is a yarn and fiber-arts shop on Donner Pass Road in Truckee, where 'Bespoke and Atelier are now united in one light, bright and beautiful location'. Shelves carry yarns from Malabrigo, Noro, Shibui, Knitting for Olive, and more.",
     "website": "https://bespoketruckee.com/?utm_source=google&utm_medium=organic&utm_campaign=google-my-business",
     "address": "10098 Donner Pass Rd",
     "phone": "(530) 582-5500",
@@ -39506,7 +40107,14 @@
       2025,
       2026
     ],
-    "musePage": 104
+    "musePage": 104,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "bluestone-jewelry-and-wine-truckee",
@@ -39732,7 +40340,7 @@
     "city": "Truckee",
     "category": "Shops & Makers",
     "intent": "Historic Places",
-    "description": "A muse picks entry in Truckee, included for alpha review while source descriptions are cleaned.",
+    "description": "Dressed Boutique is a clothing shop on Donner Pass Road in Truckee.",
     "website": "https://instagram.com/dressed_boutique",
     "address": "10084 Donner Pass Rd",
     "phone": "",
@@ -39761,7 +40369,13 @@
     "museIssues": [
       2026
     ],
-    "musePage": 104
+    "musePage": 104,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "echo-blue-truckee",
@@ -39819,7 +40433,7 @@
     "city": "Truckee",
     "category": "Shops & Makers",
     "intent": "Historic Places",
-    "description": "A muse picks entry in Truckee, included for alpha review while source descriptions are cleaned.",
+    "description": "Good Anya Plant Shop is a plant shop on Donner Pass Road in Truckee.",
     "website": "https://thegoodanya.com",
     "address": "11429 Donner Pass Rd, #2",
     "phone": "(530) 608-0654",
@@ -39849,7 +40463,13 @@
       2025,
       2026
     ],
-    "musePage": 104
+    "musePage": 104,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "hello-clogs",
@@ -39901,7 +40521,7 @@
     "city": "Truckee",
     "category": "Shops & Makers",
     "intent": "Historic Places",
-    "description": "A muse picks entry in Truckee, included for alpha review while source descriptions are cleaned.",
+    "description": "Juniper Boutique is a boutique shop on Donner Pass Road in Truckee.",
     "website": "https://10056 Donner Pass Rd",
     "address": "10056 Donner Pass Rd",
     "phone": "(530) 213-3662",
@@ -39930,7 +40550,13 @@
     "museIssues": [
       2026
     ],
-    "musePage": 104
+    "musePage": 104,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "kalifornia-jean-bar-truckee",
@@ -39939,7 +40565,7 @@
     "city": "Truckee",
     "category": "Shops & Makers",
     "intent": "Historic Places",
-    "description": "A muse picks entry in Truckee, included for alpha review while source descriptions are cleaned.",
+    "description": "Kalifornia Jean Bar is a clothing boutique on Donner Pass Road in Truckee, with a sister store in Napa. Racks mix curated designer denim, dresses, and accessories with the shop's in-house 'Tahoe Soul' collection.",
     "website": "https://kaliforniajeanbar.com",
     "address": "10092 Donner Pass Rd",
     "phone": "(530) 550-9933",
@@ -39968,7 +40594,14 @@
     "museIssues": [
       2026
     ],
-    "musePage": 104
+    "musePage": 104,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "marilyn-s-catwalk-truckee",
@@ -39977,7 +40610,7 @@
     "city": "Truckee",
     "category": "Shops & Makers",
     "intent": "Historic Places",
-    "description": "A muse picks entry in Truckee, included for alpha review while source descriptions are cleaned.",
+    "description": "Marilyn's Catwalk is a shop on Donner Pass Road in Truckee, among the storefronts along the road.",
     "website": "https://@marilynscatwalk",
     "address": "10058 Donner Pass Rd",
     "phone": "(530) 587-7467",
@@ -40007,7 +40640,13 @@
     "museIssues": [
       2026
     ],
-    "musePage": 104
+    "musePage": 104,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "mo-jo-and-zoe-truckee",
@@ -40016,7 +40655,7 @@
     "city": "Truckee",
     "category": "Shops & Makers",
     "intent": "Historic Places",
-    "description": "A muse picks entry in Truckee, included for alpha review while source descriptions are cleaned.",
+    "description": "Mo, Jo & Zoe is a shop on Donner Pass Road in Truckee.",
     "website": "https://instagram.com/mojozoe",
     "address": "10122 Donner Pass Rd",
     "phone": "(530) 587-3495",
@@ -40045,7 +40684,13 @@
     "museIssues": [
       2026
     ],
-    "musePage": 104
+    "musePage": 104,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "nomad-boutique-truckee",
@@ -40142,7 +40787,7 @@
     "city": "Truckee",
     "category": "Shops & Makers",
     "intent": "Historic Places",
-    "description": "A muse picks entry in Truckee, included for alpha review while source descriptions are cleaned.",
+    "description": "Tahoe Mountain Life is a shop at 10120 Jibboom St in Truckee.",
     "website": "https://@tahoe_mountain_life",
     "address": "10120 Jibboom St, #102",
     "phone": "(530) 214-8593",
@@ -40172,7 +40817,13 @@
     "museIssues": [
       2026
     ],
-    "musePage": 104
+    "musePage": 104,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "tahoe-oil-and-spice",
@@ -40276,7 +40927,7 @@
     "city": "Truckee",
     "category": "Shops & Makers",
     "intent": "Historic Places",
-    "description": "A muse picks entry in Truckee, included for alpha review while source descriptions are cleaned.",
+    "description": "Tahoe-Truckee T-Shirtery is a T-shirt shop on Donner Pass Road in Truckee.",
     "website": "",
     "address": "10128 Donner Pass Rd",
     "phone": "(530) 587-5744",
@@ -40305,7 +40956,13 @@
     "museIssues": [
       2026
     ],
-    "musePage": 104
+    "musePage": 104,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "the-cooking-gallery-truckee",
@@ -40314,7 +40971,7 @@
     "city": "Truckee",
     "category": "Shops & Makers",
     "intent": "Historic Places",
-    "description": "A muse picks entry in Truckee, included for alpha review while source descriptions are cleaned.",
+    "description": "The Cooking Gallery is a family-owned kitchen shop on Donner Pass Road in Truckee, in business since 1972 and now in its second generation. It stocks 'high-quality cooking and kitchen products' with expert advice to match.",
     "website": "https://cookinggallery.net/pages/about",
     "address": "10084 Donner Pass Rd",
     "phone": "(530) 587-8303",
@@ -40345,7 +41002,14 @@
       2025,
       2026
     ],
-    "musePage": 104
+    "musePage": 104,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "the-farmacy-truckee",
@@ -40448,7 +41112,7 @@
     "city": "Penn Valley",
     "category": "Shops & Makers",
     "intent": "Historic Places",
-    "description": "A muse picks entry in Penn Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "Whim Be Beautiful is a fashion boutique on Penn Valley Drive in Penn Valley, stocking 'amazing new fashion finds.'",
     "website": "https://whimbebeautiful.com/",
     "address": "17562 Penn Valley Dr",
     "phone": "(530) 559-3954",
@@ -40477,7 +41141,14 @@
       2025,
       2026
     ],
-    "musePage": 99
+    "musePage": 99,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "website"
+      ],
+      "fetched": "2026-07-03"
+    }
   },
   {
     "id": "white-buffalo-truckee",
@@ -40627,7 +41298,7 @@
     "city": "Truckee",
     "category": "Shops & Makers",
     "intent": "Historic Places",
-    "description": "A muse picks entry in Truckee, included for alpha review while source descriptions are cleaned.",
+    "description": "ela chapman is a shop at 10056 Donner Pass Road in Truckee, listed among the area's shops and makers.",
     "website": "",
     "address": "10056 Donner Pass Rd",
     "phone": "(530) 563-3512",
@@ -40656,7 +41327,13 @@
     "museIssues": [
       2026
     ],
-    "musePage": 104
+    "musePage": 104,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "truckee-love-truckee",
@@ -40665,7 +41342,7 @@
     "city": "Truckee",
     "category": "Shops & Makers",
     "intent": "Historic Places",
-    "description": "A muse picks entry in Truckee, included for alpha review while source descriptions are cleaned.",
+    "description": "truckee love. is a shop on Donner Pass Road in Truckee.",
     "website": "https://www.truckeelove.com/",
     "address": "10064 Donner Pass Rd",
     "phone": "(530) 214-8956",
@@ -40697,7 +41374,13 @@
       2025,
       2026
     ],
-    "musePage": 104
+    "musePage": 104,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "community-arts-center-truckee",
@@ -40751,7 +41434,7 @@
     "city": "Truckee",
     "category": "Performing Arts",
     "intent": "See a Show",
-    "description": "A performing arts entry in Truckee, included for alpha review while source descriptions are cleaned.",
+    "description": "Elevation Escape offers escape-room games at 12047 Donner Pass Rd in Truckee.",
     "website": "https://elevationescapetahoe.com/",
     "address": "12047 Donner Pass Rd",
     "phone": "(530) 448-3792",
@@ -40780,7 +41463,13 @@
       2025,
       2026
     ],
-    "musePage": 105
+    "musePage": 105,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "liberty-bell-smart-home-truckee",
@@ -40789,7 +41478,7 @@
     "city": "Truckee",
     "category": "Performing Arts",
     "intent": "See a Show",
-    "description": "A performing arts entry in Truckee, included for alpha review while source descriptions are cleaned.",
+    "description": "Liberty Bell Smart Home is a smart-home shop at 10072 Donner Pass Road in Truckee.",
     "website": "https://www.lbsmarthome.com/",
     "address": "10072 Donner Pass Rd",
     "phone": "(530) 927-8117",
@@ -40813,7 +41502,13 @@
     "featured": false,
     "coordinateProvenance": "osm-rooftop",
     "markerTier": "candidate",
-    "inGvncScope": false
+    "inGvncScope": false,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "mciver-arena-truckee",
@@ -41086,7 +41781,7 @@
     "city": "Truckee",
     "category": "Public Art",
     "intent": "Galleries & Studios",
-    "description": "A public art entry in Truckee, included for alpha review while source descriptions are cleaned.",
+    "description": "'El Dragon' is a bike rack artwork on South Shore Drive in Truckee, part of the area's public art.",
     "website": "",
     "address": "15888 S. Shore Dr.",
     "phone": "",
@@ -41110,7 +41805,13 @@
     "featured": false,
     "coordinateProvenance": "diana",
     "markerTier": "map-ready",
-    "inGvncScope": false
+    "inGvncScope": false,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "finding-your-fold-truckee",
@@ -41551,7 +42252,7 @@
     "city": "Penn Valley",
     "category": "Public Art",
     "intent": "Galleries & Studios",
-    "description": "A public art entry in Penn Valley, included for alpha review while source descriptions are cleaned.",
+    "description": "A public sculpture stands at Western Gateway Park, 18560 Penn Valley Dr in Penn Valley.",
     "website": "",
     "address": "18560 Penn Valley Dr.",
     "phone": "",
@@ -41575,7 +42276,13 @@
     "featured": false,
     "coordinateProvenance": "diana",
     "markerTier": "candidate",
-    "inGvncScope": true
+    "inGvncScope": true,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "solim-ni-i-sing-grass-vally",
@@ -41958,7 +42665,7 @@
     "city": "Truckee",
     "category": "Shops & Makers",
     "intent": "Shops & Makers",
-    "description": "A shops & makers entry in Truckee, included for alpha review while source descriptions are cleaned.",
+    "description": "Unique Boutique is a boutique shop on West River Street in Truckee.",
     "website": "https://@uniqueboutique_truckee",
     "address": "10925 W River St",
     "phone": "(530) 503-9091",
@@ -41988,7 +42695,13 @@
     "museIssues": [
       2026
     ],
-    "musePage": 104
+    "musePage": 104,
+    "descriptionSource": {
+      "kind": "map-editorial",
+      "basis": [
+        "record"
+      ]
+    }
   },
   {
     "id": "valhalla-vintage-truckee",
