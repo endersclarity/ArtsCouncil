@@ -3,6 +3,12 @@
   "entries": [
     {
       "date": "2026-07-02",
+      "title": "Three MUSE picks reconnected to the starting view",
+      "summary": "Miners Foundry Cultural Center, Granucci Gallery, and the Nevada County Fairgrounds Foundation had quietly fallen out of the map's starting selection: when duplicate directory records were merged earlier this year, the curated MUSE sampler and its magazine evidence links kept pointing at the retired record names. Those references now point at the current records, so all twelve starting-view places appear again with their MUSE citations intact. The data contract tests that watch coordinate caveats and public copy were also repaired so they check today's records instead of the pre-merge ones.",
+      "kind": "fix"
+    },
+    {
+      "date": "2026-07-02",
       "title": "Trails show themselves, and the map always knows the way home",
       "summary": "Opening the Trails tab now draws the whole trail network on the map right away — 150 real routes traced as quiet lines, with your chosen trail highlighted in red on top — instead of an empty map waiting for a pick. And after any flight to a far corner of the county, a new 'County view' button in the top corner of the map brings you straight back to the familiar overview of Grass Valley and Nevada City.",
       "kind": "improvement"

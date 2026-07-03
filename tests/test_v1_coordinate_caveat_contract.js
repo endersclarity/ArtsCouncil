@@ -13,15 +13,26 @@ const places = JSON.parse(fs.readFileSync(path.join(v1Root, "data/places.json"),
 const placesByDecision = new Map(places.map((place) => [place.coordinateDecisionId, place]));
 const markerIds = new Set(markers.features.map((feature) => feature.properties.decisionId));
 
-const estimatedDecision = pass.decisions.find((decision) => decision.coordinateSource === "us-census-geocoder");
-const directoryOnlyDecision = pass.decisions.find((decision) => decision.publicMarker === false);
-const dianaDecision = pass.decisions.find((decision) => String(decision.coordinateSource).startsWith("diana-workbook"));
-const arcgisDecision = pass.decisions.find((decision) => decision.coordinateSource === "arcgis-cultural-assets-confident-match");
+// Cohort representatives are pinned by decisionId: the June 2026 coordinate audit
+// upgraded some places off their fixture source (osm-nominatim), deduped others onto
+// different decision ids (MUSE BD merge), and left downgrade caveats on a few
+// still-ArcGIS places — so "first decision matching the source" no longer lands on a
+// place that exercises the cohort's caveat contract.
+const decisionsById = new Map(pass.decisions.map((decision) => [decision.decisionId, decision]));
+const estimatedDecision = decisionsById.get("jacob-van-blaren-penn-valley--historic landmarks table 1--row-107");
+const directoryOnlyDecision = decisionsById.get("chris-stevens-court-grass-valley--historic landmarks table 1--row-35");
+const dianaDecision = decisionsById.get("112-w-main-st-grass-valley--historic landmarks table 1--row-2");
+const arcgisDecision = decisionsById.get("the-willo-steakhouse-nevada-city--muse bd table 1--row-169");
 
 assert.ok(estimatedDecision, "fixture should include a Census/free-geocoded Coordinate Candidate");
 assert.ok(directoryOnlyDecision, "fixture should include a Directory-Only Place");
 assert.ok(dianaDecision, "fixture should include a Diana Workbook trusted coordinate");
 assert.ok(arcgisDecision, "fixture should include an ArcGIS confident fallback coordinate");
+
+assert.equal(estimatedDecision.coordinateSource, "us-census-geocoder", "pinned Coordinate Candidate should stay census-sourced");
+assert.equal(directoryOnlyDecision.publicMarker, false, "pinned Directory-Only Place should stay marker-less in the fixture");
+assert.match(String(dianaDecision.coordinateSource), /^diana-workbook/, "pinned Diana pick should stay workbook-sourced");
+assert.equal(arcgisDecision.coordinateSource, "arcgis-cultural-assets-confident-match", "pinned ArcGIS pick should stay a confident fallback");
 
 const estimatedPlace = placesByDecision.get(estimatedDecision.decisionId);
 const directoryOnlyPlace = placesByDecision.get(directoryOnlyDecision.decisionId);
@@ -48,7 +59,7 @@ assert.equal(arcgisPlace.locationCaveat, "");
 
 assert.match(appSource, /function renderLocationCaveat\(place\)/, "selected cards should render location caveats through one public card path");
 assert.match(appSource, /\$\{renderLocationCaveat\(place\)\}/, "selected place drawer should include the caveat slot");
-assert.match(appSource, /if \(isPlaceMapReady\(place\)\) \{\n\s*state\.map\.flyTo/, "map movement should be guarded by map-ready state");
+assert.match(appSource, /if \(isPlaceMapReady\(place\)\) \{\r?\n\s*flyToSelection\(/, "map movement should be guarded by map-ready state");
 assert.match(appSource, /const mapReadyPlaces = filteredPlaces\(\)\.filter\(isPlaceMapReady\)/, "marker source should exclude Directory-Only Places");
 assert.doesNotMatch(appSource, /place-list-badge[^`]+locationCaveat/s, "directory rows should not expose estimated/missing caveats before selection");
 assert.match(stylesSource, /\.location-caveat/, "selected-card caveat should have dedicated styling");

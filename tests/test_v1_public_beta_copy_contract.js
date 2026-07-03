@@ -59,7 +59,8 @@ assert.doesNotMatch(
   "first viewport copy should avoid internal review/prototype language",
 );
 
-const selectedPlaceRuntimeCopy = appSource.match(/function showPlace\(place\) \{([\s\S]*?)\n  \}/)?.[1] || "";
+const selectedPlaceRuntimeCopy = appSource.match(/function showPlace\(place, opts = \{\}\) \{([\s\S]*?)\n  \}/)?.[1] || "";
+assert.ok(selectedPlaceRuntimeCopy, "showPlace body should be extractable so the selected-place copy check actually runs");
 assert.doesNotMatch(
   selectedPlaceRuntimeCopy,
   forbiddenVisibleCopy,
