@@ -3225,6 +3225,14 @@
   driftEls.next?.addEventListener("click", () => driftStep(1));
   driftEls.end?.addEventListener("click", endDrift);
   document.addEventListener("keydown", (event) => {
+    // While drifting, the arrow keys step the tour — ArrowRight skips ahead,
+    // ArrowLeft replays the previous stop. Intercepted here so the map's own
+    // keyboard handler never pans (a pan would read as taking the wheel).
+    if (drift.on && (event.key === "ArrowRight" || event.key === "ArrowLeft")) {
+      event.preventDefault();
+      driftStep(event.key === "ArrowRight" ? 1 : -1);
+      return;
+    }
     if (event.key !== "Escape") return;
     if (drift.on) { endDrift(); return; }
     // Escape inside a text control keeps its native meaning (clear/cancel).

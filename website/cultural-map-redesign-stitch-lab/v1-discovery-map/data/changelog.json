@@ -3,6 +3,12 @@
   "entries": [
     {
       "date": "2026-07-03",
+      "title": "Steer a Drift tour with the arrow keys",
+      "summary": "While the map is drifting between places, the right arrow key now skips ahead to the next stop and the left arrow replays the one before — the same controls as the bar's buttons, without reaching for the mouse. The keys steer the tour rather than panning the map, so tapping them doesn't pause anything; Escape still ends the ride.",
+      "kind": "improvement"
+    },
+    {
+      "date": "2026-07-03",
       "title": "A round of small honesty and tidiness fixes across the map",
       "summary": "Trails links can now be shared — copying the address with a trail selected reopens that trail, route traced, for whoever you send it to. A daytime event today now says 'Today' instead of 'Tonight' (a gallery closing at 6pm was being billed as a night out). Tapping an event's red diamond on the map now highlights that event in the list too, and tapping a stop inside a walking route keeps the Paths tab lit instead of flipping to Places. Long route titles no longer run underneath the back button, the County view button steps aside instead of floating over an open card, and the search hint now says plainly that it clears your filters before showing the extra matches.",
       "kind": "improvement"
