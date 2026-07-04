@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-07-03T09:56:52.663402+00:00",
+  "generated_at": "2026-07-04T09:21:14.533362+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 240,
+    "total_events": 239,
     "matched_events": 156,
-    "unmatched_events": 84,
+    "unmatched_events": 83,
     "matched_by_pid": 0,
     "matched_by_alias": 5,
     "matched_by_name_city": 53,
     "matched_by_name_city_fuzzy": 98,
-    "upcoming_14d": 87
+    "upcoming_14d": 86
   },
   "unmatched_venues": [
     {
@@ -19,7 +19,7 @@
       "venue_name": "Wonder Docent",
       "venue_city": "Nevada City",
       "count": 14,
-      "sample_event_id": "trumba-204682311",
+      "sample_event_id": "trumba-204682312",
       "sample_title": "In the Night Dimension and Those We Meet at Twilight",
       "candidate_assets": []
     },
@@ -28,7 +28,7 @@
       "venue_name": "Eric Rood Center",
       "venue_city": "Nevada City",
       "count": 10,
-      "sample_event_id": "trumba-202909249",
+      "sample_event_id": "trumba-202909250",
       "sample_title": "Lavender Glow | Queer Art & Our Shared History",
       "candidate_assets": []
     },
@@ -55,7 +55,7 @@
       "venue_name": "Bodhi Hive, Studio #131",
       "venue_city": "Nevada City",
       "count": 6,
-      "sample_event_id": "trumba-205204510",
+      "sample_event_id": "trumba-205204511",
       "sample_title": "Summer Nature Pop Art Classes",
       "candidate_assets": []
     },
@@ -210,15 +210,6 @@
       "count": 1,
       "sample_event_id": "gvda-198214906",
       "sample_title": "Decendants: The Musical",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "northwoodsclubhouse|truckee",
-      "venue_name": "Northwoods Clubhouse",
-      "venue_city": "Truckee",
-      "count": 1,
-      "sample_event_id": "trumba-113922959",
-      "sample_title": "Kids Night Out",
       "candidate_assets": []
     },
     {
