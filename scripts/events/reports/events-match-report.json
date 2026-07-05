@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-07-04T09:21:14.533362+00:00",
+  "generated_at": "2026-07-05T09:41:24.254046+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 239,
-    "matched_events": 156,
-    "unmatched_events": 83,
+    "total_events": 241,
+    "matched_events": 160,
+    "unmatched_events": 81,
     "matched_by_pid": 0,
     "matched_by_alias": 5,
-    "matched_by_name_city": 53,
-    "matched_by_name_city_fuzzy": 98,
-    "upcoming_14d": 86
+    "matched_by_name_city": 55,
+    "matched_by_name_city_fuzzy": 100,
+    "upcoming_14d": 88
   },
   "unmatched_venues": [
     {
@@ -19,7 +19,7 @@
       "venue_name": "Wonder Docent",
       "venue_city": "Nevada City",
       "count": 14,
-      "sample_event_id": "trumba-204682312",
+      "sample_event_id": "trumba-204682313",
       "sample_title": "In the Night Dimension and Those We Meet at Twilight",
       "candidate_assets": []
     },
@@ -129,15 +129,6 @@
       "count": 2,
       "sample_event_id": "gvda-183038851",
       "sample_title": "Playwriting Group",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "millstreet|grassvalley",
-      "venue_name": "Mill Street",
-      "venue_city": "Grass Valley",
-      "count": 2,
-      "sample_event_id": "trumba-199911167",
-      "sample_title": "4th of July FAMILY PANCAKE BREAKFAST",
       "candidate_assets": []
     },
     {
