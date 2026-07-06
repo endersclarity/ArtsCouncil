@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-07-05T09:41:24.254046+00:00",
+  "generated_at": "2026-07-06T11:26:09.363289+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 241,
-    "matched_events": 160,
+    "total_events": 244,
+    "matched_events": 163,
     "unmatched_events": 81,
     "matched_by_pid": 0,
     "matched_by_alias": 5,
-    "matched_by_name_city": 55,
-    "matched_by_name_city_fuzzy": 100,
-    "upcoming_14d": 88
+    "matched_by_name_city": 56,
+    "matched_by_name_city_fuzzy": 102,
+    "upcoming_14d": 91
   },
   "unmatched_venues": [
     {
@@ -19,7 +19,7 @@
       "venue_name": "Wonder Docent",
       "venue_city": "Nevada City",
       "count": 14,
-      "sample_event_id": "trumba-204682313",
+      "sample_event_id": "trumba-204682314",
       "sample_title": "In the Night Dimension and Those We Meet at Twilight",
       "candidate_assets": []
     },
@@ -55,7 +55,7 @@
       "venue_name": "Bodhi Hive, Studio #131",
       "venue_city": "Nevada City",
       "count": 6,
-      "sample_event_id": "trumba-205204511",
+      "sample_event_id": "trumba-205204512",
       "sample_title": "Summer Nature Pop Art Classes",
       "candidate_assets": []
     },
