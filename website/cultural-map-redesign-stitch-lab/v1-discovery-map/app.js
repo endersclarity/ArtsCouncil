@@ -929,9 +929,14 @@
   function setSourceData() {
     // In the Trails lens the place dots are the filtered trail set, independent
     // of the normal outing filters; otherwise they follow filteredPlaces().
-    const mapReadyPlaces = state.mode === "trails"
-      ? filteredTrailPlaces().filter(isPlaceMapReady)
-      : filteredPlaces().filter(isPlaceMapReady);
+    // In the Events lens the place dots leave entirely (owner call, 2026-07-07):
+    // the event diamonds are the only markers, so upcoming events read at a
+    // glance instead of layering over a thousand place dots.
+    const mapReadyPlaces = state.mode === "events"
+      ? []
+      : state.mode === "trails"
+        ? filteredTrailPlaces().filter(isPlaceMapReady)
+        : filteredPlaces().filter(isPlaceMapReady);
     const places = mapReadyPlaces.map((place) => placeToFeature(place, nearbyPlaceDensity(place, mapReadyPlaces)));
     const placeSource = state.map.getSource("places");
     if (placeSource) {
