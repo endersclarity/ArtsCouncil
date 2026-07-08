@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-07-07T10:24:27.112704+00:00",
+  "generated_at": "2026-07-08T09:24:27.733649+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 242,
-    "matched_events": 160,
-    "unmatched_events": 82,
+    "total_events": 241,
+    "matched_events": 158,
+    "unmatched_events": 83,
     "matched_by_pid": 0,
     "matched_by_alias": 5,
-    "matched_by_name_city": 53,
-    "matched_by_name_city_fuzzy": 102,
-    "upcoming_14d": 89
+    "matched_by_name_city": 50,
+    "matched_by_name_city_fuzzy": 103,
+    "upcoming_14d": 88
   },
   "unmatched_venues": [
     {
@@ -19,7 +19,7 @@
       "venue_name": "Wonder Docent",
       "venue_city": "Nevada City",
       "count": 14,
-      "sample_event_id": "trumba-204682315",
+      "sample_event_id": "trumba-204682316",
       "sample_title": "In the Night Dimension and Those We Meet at Twilight",
       "candidate_assets": []
     },
@@ -28,7 +28,7 @@
       "venue_name": "Eric Rood Center",
       "venue_city": "Nevada City",
       "count": 10,
-      "sample_event_id": "trumba-202909251",
+      "sample_event_id": "trumba-202909252",
       "sample_title": "Lavender Glow | Queer Art & Our Shared History",
       "candidate_assets": []
     },
@@ -60,21 +60,21 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "unknownvenue|nevadacity",
+      "venue_name": "Unknown venue",
+      "venue_city": "Nevada City",
+      "count": 5,
+      "sample_event_id": "gvda-198326438",
+      "sample_title": "Fogelberg Revisited &#8211; A Tribute to Dan Fogelberg",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "axisgallery|nevadacounty",
       "venue_name": "Axis Gallery",
       "venue_city": "Nevada County",
       "count": 4,
       "sample_event_id": "kvmr-348660-1772884800-1772902800-20260307",
       "sample_title": "\"The Winters Where Catfish Sings\": Exhibition by Sokthea Chan at Axis Gallery",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "unknownvenue|nevadacity",
-      "venue_name": "Unknown venue",
-      "venue_city": "Nevada City",
-      "count": 4,
-      "sample_event_id": "gvda-198326438",
-      "sample_title": "Fogelberg Revisited &#8211; A Tribute to Dan Fogelberg",
       "candidate_assets": []
     },
     {
