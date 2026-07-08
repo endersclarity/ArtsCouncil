@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Story of the Corridor · Nevada County Cultural Map</title>
+  <title>Our Cultural Corridors · Nevada County Cultural Map</title>
   <meta name="description" content="A scroll-told field guide to the Nevada County cultural corridor — its places, paths, happenings, and trails, from Grass Valley to Nevada City.">
   <meta name="theme-color" content="#000000">
   <!-- Marketing page only. This file is standalone and never touches the functional map. -->
@@ -239,6 +239,31 @@
       font-size: 0.76rem; letter-spacing: 0.3em; text-transform: uppercase;
       color: var(--red); margin-bottom: 22px; font-weight: 600;
     }
+    /* MUSE illustrated corridor spread (pages 12-13) — real page scans, shown
+       as a two-page spread that stacks on small screens. */
+    .corridor-spread {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 0;
+    }
+    .corridor-spread img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 6px;
+      box-shadow: 0 10px 34px rgba(0, 0, 0, 0.35);
+    }
+    .corridor-spread figcaption {
+      grid-column: 1 / -1;
+      font-size: 13px;
+      opacity: 0.65;
+      padding-top: 6px;
+    }
+    @media (max-width: 700px) {
+      .corridor-spread { grid-template-columns: 1fr; }
+    }
+
     .finale-title {
       font-family: var(--font-display);
       font-size: clamp(2.4rem, 6vw, 4.2rem);
@@ -326,22 +351,22 @@
     </svg>
 
     <div class="hero-content">
-      <p class="hero-eyebrow">A field guide to the cultural corridor</p>
+      <p class="hero-eyebrow">A field guide to our cultural corridors</p>
       <h1 class="hero-title">
         <span class="line">
-          <span class="word">The</span>
-          <span class="word">Story</span>
-          <span class="word">of</span>
-          <span class="word">the</span>
+          <span class="word">Our</span>
+          <span class="word">Cultural</span>
         </span>
         <span class="line">
-          <span class="word"><em>Corridor</em></span>
+          <span class="word"><em>Corridors</em></span>
         </span>
       </h1>
       <p class="hero-subtitle">
-        Between Grass Valley and Nevada City, a few square miles of foothill country hold theatres,
-        forges, galleries, gold-rush ruins and ridgeline trails. This is the map of all of it &mdash;
-        and the story of how it fits together.
+        In the heart of the Sierra Nevada, Nevada County&rsquo;s highways are more than just roads
+        &mdash; they are cultural corridors. Highways 49, 20, and 40, each with its own distinct
+        heritage, weave together the stories of California&rsquo;s First Peoples, Gold Rush miners,
+        artists, and dreamers &mdash; connecting the county&rsquo;s California Cultural Districts,
+        from Truckee to Grass Valley&ndash;Nevada City.
       </p>
     </div>
     <div class="scroll-indicator">
@@ -355,19 +380,23 @@
     <span class="chapter-number">01</span>
     <div class="chapter-inner">
       <div class="chapter-content">
-        <p class="chapter-label">The Places</p>
-        <h2 class="chapter-title">A county of small, particular things</h2>
+        <p class="chapter-label">Highway 49</p>
+        <h2 class="chapter-title">The golden chain of history</h2>
         <div class="chapter-description">
           <p>
-            The corridor is not one big attraction. It is hundreds of small ones &mdash; the
-            <strong>Nevada Theatre</strong>, the oldest operating theatre in California; the
-            <strong>Curious Forge</strong>, a makerspace humming with sparks; galleries, mines,
-            schoolhouses and supper spots scattered across Grass Valley, Nevada City and the ridges
-            beyond.
+            Running north to south through Nevada County, Highway 49 &mdash; named for the
+            &ldquo;49ers&rdquo; who rushed into California&rsquo;s goldfields &mdash; is famously
+            known as the <strong>Golden Chain Highway</strong>, linking the historic Gold Rush towns
+            that once defined California&rsquo;s economy. Travelers today can explore
+            <strong>Empire Mine State Historic Park</strong> in Grass Valley, one of the oldest,
+            deepest, and richest gold mines in California.
           </p>
           <p>
-            Each one is a dot on the map and a paragraph in the guide: what it is, why it&rsquo;s
-            worth the stop, and what makes it unmistakably <em>this</em> county.
+            Further north, the San Juan Ridge unfolds in towns like North San Juan and the preserved
+            ghost town of North Bloomfield at <strong>Malakoff Diggins State Historic Park</strong>.
+            On Tyler Foote Road stands the <strong>North Columbia Schoolhouse Cultural Center</strong>,
+            an 1875 schoolhouse built by miners for their children &mdash; now home to artists, film
+            screenings, poetry readings, and the internationally renowned Sierra Storytelling Festival.
           </p>
         </div>
       </div>
@@ -426,19 +455,23 @@
         </svg>
       </div>
       <div class="chapter-content">
-        <p class="chapter-label">The Paths</p>
-        <h2 class="chapter-title">Days, drawn as routes</h2>
+        <p class="chapter-label">Highway 20</p>
+        <h2 class="chapter-title">From wagon trail to modern artery</h2>
         <div class="chapter-description">
           <p>
-            A list of places tells you what exists. A <strong>path</strong> tells you what to do with
-            an afternoon. Each one is a curated route through the corridor &mdash; anchors strung
-            together with narrative, walking legs and a reason to go in that order.
+            Stretching east to west across Nevada County, Highway 20 traces its roots to the
+            19th-century <strong>California Trail</strong>, used by emigrants in wagons seeking new
+            lives in California. What began as a rugged pioneer road evolved into one of the
+            state&rsquo;s most scenic drives. Just off the highway, the <strong>Little Town of
+            Washington</strong> flanks the South Yuba River, where the historic Washington Hotel,
+            built in 1857, still serves as the community hub and rallying point for the town&rsquo;s
+            Fourth of July Parade.
           </p>
           <p>
-            <strong>Living Like a Local.</strong> <strong>Makers &amp; Working Artists.</strong>
-            <strong>Evening Arts Night.</strong> <strong>Pond, Ridge &amp; Schoolhouse.</strong>
-            Four flagship itineraries to start &mdash; and every one of them is just a link, so a
-            day&rsquo;s plan can be shared in a text.
+            Further south is <strong>Rough and Ready</strong>, founded in 1849, which proudly recalls
+            its three-month rebellion as the Great Republic of Rough and Ready each June during
+            Secession Days &mdash; its mining heritage alive in street names like Ironclad, Gamble
+            Court, and the unforgettable To Hell and Back Lane.
           </p>
         </div>
       </div>
@@ -452,18 +485,23 @@
     <span class="chapter-number">03</span>
     <div class="chapter-inner">
       <div class="chapter-content">
-        <p class="chapter-label">The Happenings</p>
-        <h2 class="chapter-title">What&rsquo;s on tonight</h2>
+        <p class="chapter-label">Highway 40</p>
+        <h2 class="chapter-title">The Lincoln Highway and the road to the west</h2>
         <div class="chapter-description">
           <p>
-            The corridor keeps a calendar. A film at the Nevada Theatre at seven. A gallery open late
-            on Broad Street. A farmers market that wraps at noon. The map pulls these straight from
-            the county&rsquo;s live event feeds, so the red glow on a marker means one honest thing:
-            <em>something is happening here, now.</em>
+            Before Interstate 80 sped travelers through the Sierra, there was &ldquo;Old Highway
+            40&rdquo; &mdash; part of America&rsquo;s first transcontinental road, the legendary
+            <strong>Lincoln Highway</strong>, stretching from Times Square to San Francisco. Here,
+            every curve tells a story: ancient petroglyphs near Donner Summit, etched into granite by
+            the ancestors of today&rsquo;s Washoe People, and <strong>Van Norden Meadow</strong>,
+            where the South Fork of the Yuba River begins its journey to the foothills.
           </p>
           <p>
-            It is the most alive layer in the whole guide &mdash; the part that answers the first
-            question anyone actually asks: <strong>&ldquo;what should I do this weekend?&rdquo;</strong>
+            <strong>Clair Tappaan Lodge</strong>, built in the 1930s by Sierra Club volunteers, still
+            welcomes adventurers; <strong>Rainbow Lodge</strong>, a 1920s retreat of native stone and
+            timber, recalls the golden age of alpine travel. And from Donner Lake to Cisco Grove, the
+            <strong>&ldquo;20 Mile Museum&rdquo;</strong> tells the evolving story of migration and
+            innovation through a series of interpretive signs.
           </p>
         </div>
       </div>
@@ -502,41 +540,29 @@
   <section class="chapter dark">
     <span class="chapter-number">04</span>
     <div class="chapter-inner reverse">
-      <div class="illustration">
-        <!-- Ridgelines with a trail switchbacking up -->
-        <svg viewBox="0 0 500 500" fill="none" aria-hidden="true">
-          <path class="organic-path fade-path" fill="var(--foam)" opacity="0.10"
-            d="M30,330 Q140,250 250,300 Q360,350 470,270 L470,470 L30,470 Z"/>
-          <path class="organic-path fade-path" fill="var(--foam)" opacity="0.18"
-            d="M30,380 Q150,320 270,360 Q380,396 470,340 L470,470 L30,470 Z"/>
-          <!-- the trail, switchbacking -->
-          <path class="organic-path draw-path" stroke="var(--red)" stroke-width="2.5" fill="none"
-            stroke-linecap="round" stroke-dasharray="2 7" opacity="0.9"
-            d="M120,430 Q210,400 200,350 Q190,300 280,290 Q360,282 330,220 Q312,180 380,150"/>
-          <!-- tree silhouettes -->
-          <path class="organic-path fade-path" fill="var(--foam)" opacity="0.35"
-            d="M150,250 Q138,210 150,170 Q162,210 150,250 Z M150,180 Q120,166 132,140 Q150,158 168,140 Q180,166 150,180 Z"/>
-          <path class="organic-path fade-path" fill="var(--foam)" opacity="0.28"
-            d="M400,200 Q390,168 400,136 Q410,168 400,200 Z M400,148 Q376,136 386,114 Q400,130 414,114 Q424,136 400,148 Z"/>
-          <!-- trailhead marker -->
-          <path class="organic-path scale-path" fill="var(--red)"
-            d="M380,128 Q396,128 398,146 Q398,162 381,180 Q364,162 364,146 Q364,128 380,128 Z"/>
-          <path class="organic-path scale-path" fill="var(--ink)"
-            d="M380,141 Q387,141 387,148 Q387,155 380,155 Q373,155 373,148 Q373,141 380,141 Z"/>
-        </svg>
+      <div class="illustration spread-illustration">
+        <figure class="corridor-spread">
+          <img src="assets/corridors/corridor-map-west.jpg" alt="Illustrated map of the cultural corridor, western half: the Grass Valley–Nevada City Cultural District, Highway 20, the Washington Hotel, and 5 Mile House" loading="lazy">
+          <img src="assets/corridors/corridor-map-east.jpg" alt="Illustrated map of the cultural corridor, eastern half: Donner Summit, Highway 40, and the numbered list of 32 historic and cultural landmarks" loading="lazy">
+          <figcaption>The corridor, illustrated &mdash; from MUSE &rsquo;26. Illustration by Milada Belohlavek and Ron Pitcher.</figcaption>
+        </figure>
       </div>
       <div class="chapter-content">
-        <p class="chapter-label">The Trails</p>
-        <h2 class="chapter-title">Where the culture meets the ground</h2>
+        <p class="chapter-label">The Illustrated Map</p>
+        <h2 class="chapter-title">Thirty-two landmarks, three languages</h2>
         <div class="chapter-description">
           <p>
-            Walk a few minutes past the storefronts and the corridor turns to ridge and pine. The
-            map carries the trail network too &mdash; ditch trails, mine roads and ridgeline loops,
-            traced from open geometry so a route shows up as a <em>line</em>, not just a dot.
+            MUSE&rsquo;s illustrated corridor map charts <strong>32 historic and cultural
+            landmarks</strong> along the scenic route connecting the Truckee Cultural District and the
+            Grass Valley&ndash;Nevada City Cultural District &mdash; from daSpa and ?wstuma, historic
+            Nisenan village sites, to the Washoe petroglyphs at d&eacute;?ek ?itb&eacute;ynil near
+            Donner Summit.
           </p>
           <p>
-            History is underfoot out here: many of these paths follow the ditches and rail grades
-            that the gold rush cut into the hills. The walk <strong>is</strong> the exhibit.
+            The map keeps the land&rsquo;s original names beside the familiar ones: ?uba Sew, the
+            Nisenan name for the Yuba River; wag&oacute;&nbsp;&laquo;&nbsp;t, the Washoe name for Van
+            Norden Meadow; dewbey&Uacute;muwe?, the Washoe name for the Truckee River &mdash; a
+            reminder that these corridors carried stories long before they carried highways.
           </p>
         </div>
       </div>
@@ -549,9 +575,9 @@
   <section class="quote-section">
     <blockquote class="quote">
       <span class="quote-mark">&ldquo;</span>
-      A map of two hundred great things beats a map of two thousand uneven ones. Here, <em>red</em>
-      means exactly one thing &mdash; something is happening at this spot.
-      <span class="quote-cite">The Almanac &middot; a vision for the cultural map</span>
+      The cultural corridors that connect the Town of Truckee with Grass Valley, Nevada City, and
+      beyond are reminders of how our past and present connect along every mile.
+      <span class="quote-cite">Our Cultural Corridors &middot; words by Jesse Locks &middot; MUSE &rsquo;26</span>
     </blockquote>
   </section>
 
