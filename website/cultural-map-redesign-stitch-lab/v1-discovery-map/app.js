@@ -2678,8 +2678,14 @@
       seenSeries.add(key);
       return true;
     });
-    distinctEvents.slice(0, 4).forEach((event) => items.push(eventCard(event)));
-    samplerPlaces.slice(0, 3).forEach((place) => items.push(placeCard(place)));
+    // Rail rethink (owner call, July 7: "it's a grab bag… it's messy"). The
+    // rail is now a legible "what's happening" strip: date-sorted events lead,
+    // the MUSE story and the path close it out. The random sampler places are
+    // gone — a random place implied "this is all there is" (her Family & Kids
+    // read). Reversible: placeCard() and samplerPlaces still exist for the
+    // poke-around session if a curated-places row earns its way back.
+    distinctEvents.slice(0, 10).forEach((event) => items.push(eventCard(event)));
+    void placeCard; void samplerPlaces;
     const story = state.museStories[0];
     if (story) {
       const storyPlaces = (story.placeIds || []).map(placeById).filter((place) => place && isPlaceMapReady(place));
@@ -2709,8 +2715,6 @@
         path,
       });
     }
-    distinctEvents.slice(4, 8).forEach((event) => items.push(eventCard(event)));
-    samplerPlaces.slice(3).forEach((place) => items.push(placeCard(place)));
     return items;
   }
 

@@ -100,10 +100,10 @@
       </div>
 
       <div class="discovery-rail" id="discovery-rail" aria-label="Browse what's happening and worth a stop">
-        <div class="rail-chips" id="rail-chips" role="group" aria-label="Choose what to browse">
-          <button class="rail-chip on" type="button" data-rail-filter="all">Everything</button>
-          <button class="rail-chip" type="button" data-rail-filter="event">Events</button>
-          <button class="rail-chip" type="button" data-rail-filter="place">Places</button>
+        <!-- Rail rethink (July 7 call): the grab-bag filter chips are gone —
+             the rail is one legible happening-now strip, so there is nothing
+             left to filter. Drift keeps its perch. -->
+        <div class="rail-chips" id="rail-chips" role="group" aria-label="Rail controls">
           <button class="rail-chip rail-chip-drift" type="button" id="drift-toggle" aria-pressed="false" title="Sit back — the map tours the county's cultural anchors">&#9654; Drift</button>
         </div>
         <div class="rail-track" id="rail-track" tabindex="0" aria-label="Scroll through events, places, stories, and paths"></div>
