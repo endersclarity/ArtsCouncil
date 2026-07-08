@@ -168,7 +168,7 @@
     .success-fallback textarea {
       width: 100%; min-height: 150px; margin-top: 10px;
       border: 1px solid var(--line); background: var(--paper-warm); color: var(--ink);
-      font-family: ui-monospace, "Cascadia Code", Consolas, monospace; font-size: 12px;
+      font-family: var(--font-body); font-size: 12px;
       padding: 10px; line-height: 1.45; resize: vertical;
     }
     .success-fallback-row { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; margin-top: 10px; }
@@ -191,8 +191,8 @@
 
   <header class="site-header" aria-label="Nevada County Arts Council shell">
     <a class="brand" href="index.html" aria-label="Nevada County Cultural Map home">
-      <span>Nevada County</span>
-      <span>Cultural Map</span>
+      <img class="brand-logo" src="assets/brand/NCAC_logotype_blk.svg" alt="Nevada County Arts &amp; Culture">
+      <span class="brand-product">Cultural Map</span>
     </a>
     <span class="alpha-pill">Internal preview build</span>
   </header>

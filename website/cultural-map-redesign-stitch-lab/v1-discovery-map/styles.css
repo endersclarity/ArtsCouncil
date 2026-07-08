@@ -111,8 +111,9 @@ button {
 }
 
 .brand {
-  display: inline-grid;
-  gap: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(10px, 1.4vw, 16px);
   font-family: var(--font-brand);
   font-size: clamp(18px, 2.15vw, 28px);
   font-weight: 800;
@@ -121,8 +122,18 @@ button {
   letter-spacing: 0;
 }
 
-.brand span:last-child {
+.brand-logo {
+  /* Real NCAC logotype from the brand kit (docs/brand/resources/logos/ncac).
+     576x208.65 viewBox — height-driven so it scales with the header. */
+  display: block;
+  height: clamp(30px, 3.4vw, 42px);
+  width: auto;
+}
+
+.brand-product {
   color: var(--ncac-red);
+  border-left: 2px solid currentColor;
+  padding-left: clamp(10px, 1.4vw, 16px);
 }
 
 .site-nav {

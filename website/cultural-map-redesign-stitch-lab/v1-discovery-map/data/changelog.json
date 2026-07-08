@@ -2,6 +2,12 @@
   "_readme": "Site changelog, rendered by changelog.html. Newest entry FIRST. Every meaningful commit to v1-discovery-map gets an entry (the pre-commit hook enforces this). Write 'summary' in plain language for the Arts Council — what changed for a visitor, not implementation detail. 'commit' is the short hash; the page links it to GitHub.",
   "entries": [
     {
+      "date": "2026-07-07",
+      "title": "The real Arts & Culture logo is in the header",
+      "summary": "The header now carries the actual Nevada County Arts & Culture logotype from the brand kit — on the map, the contribute page, and this changelog — with 'Cultural Map' beside it as the site's name, and the red NCAC avatar as the browser-tab icon. A leftover prototype page and the contribute form's one non-brand font were also removed, so every visible letter on the site is now Polymath.",
+      "kind": "improvement"
+    },
+    {
       "date": "2026-07-03",
       "title": "One brand typeface everywhere: Polymath only",
       "summary": "The Arts Council's brand typeface, Polymath, is now the only font the site uses — the map, the contribute form, the changelog, and the Story of the Corridor page all render in it. The borrowed Google fonts (DM Sans and Inter) that some pages still loaded as backups are gone entirely, which also means the site no longer calls out to Google's font servers.",
