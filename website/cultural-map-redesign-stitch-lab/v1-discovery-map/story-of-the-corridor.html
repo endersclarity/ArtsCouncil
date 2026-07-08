@@ -264,6 +264,25 @@
       .corridor-spread { grid-template-columns: 1fr; }
     }
 
+    /* Real MUSE photography cropped from the '26 page scans — same treatment
+       as the spread: soft radius, deep shadow, verbatim credit lines. */
+    .corridor-photo {
+      display: grid;
+      gap: 12px;
+      margin: 0;
+    }
+    .corridor-photo img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 6px;
+      box-shadow: 0 10px 34px rgba(0, 0, 0, 0.3);
+    }
+    .corridor-photo figcaption {
+      font-size: 13px;
+      opacity: 0.65;
+    }
+
     .finale-title {
       font-family: var(--font-display);
       font-size: clamp(2.4rem, 6vw, 4.2rem);
@@ -351,7 +370,7 @@
     </svg>
 
     <div class="hero-content">
-      <p class="hero-eyebrow">A field guide to our cultural corridors</p>
+      <p class="hero-eyebrow">Connecting history, people, and place along scenic routes</p>
       <h1 class="hero-title">
         <span class="line">
           <span class="word">Our</span>
@@ -361,13 +380,19 @@
           <span class="word"><em>Corridors</em></span>
         </span>
       </h1>
+      <!-- All body copy on this page is verbatim from MUSE '26, Issue 03,
+           "Our Cultural Corridors," words by Jesse Locks (pages 44-45), and the
+           illustrated corridor map spread (pages 12-13). No editorial additions. -->
       <p class="hero-subtitle">
-        In the heart of the Sierra Nevada, Nevada County&rsquo;s highways are more than just roads
-        &mdash; they are cultural corridors. Highways 49, 20, and 40, each with its own distinct
-        heritage, weave together the stories of California&rsquo;s First Peoples, Gold Rush miners,
-        artists, and dreamers &mdash; connecting the county&rsquo;s California Cultural Districts,
-        from Truckee to Grass Valley&ndash;Nevada City.
+        In the heart of the Sierra Nevada, Nevada County&rsquo;s highways are more than just
+        roads&mdash;they are cultural corridors. These routes weave together stories of
+        California&rsquo;s First Peoples, Gold Rush miners, artists, and dreamers who shaped the
+        region&rsquo;s history. Highways 49, 20, and 40&mdash;each with its own distinct
+        heritage&mdash;form a network that connects the county&rsquo;s vibrant California Cultural
+        Districts and historic landmarks, while offering breathtaking views of rolling foothills,
+        towering pines, and High Sierra vistas.
       </p>
+      <p class="hero-eyebrow">Words / Jesse Locks &middot; MUSE &rsquo;26 | Issue 03</p>
     </div>
     <div class="scroll-indicator">
       <span>Scroll the corridor</span>
@@ -384,47 +409,34 @@
         <h2 class="chapter-title">The golden chain of history</h2>
         <div class="chapter-description">
           <p>
-            Running north to south through Nevada County, Highway 49 &mdash; named for the
-            &ldquo;49ers&rdquo; who rushed into California&rsquo;s goldfields &mdash; is famously
-            known as the <strong>Golden Chain Highway</strong>, linking the historic Gold Rush towns
-            that once defined California&rsquo;s economy. Travelers today can explore
-            <strong>Empire Mine State Historic Park</strong> in Grass Valley, one of the oldest,
-            deepest, and richest gold mines in California.
+            Running north to south through Nevada County, <strong>Highway 49</strong>&mdash;named for
+            the &ldquo;49ers&rdquo; who rushed into California&rsquo;s goldfields looking for their
+            fortunes in 1894&mdash;is famously known as the <strong>Golden Chain Highway</strong>,
+            linking the historic Gold Rush towns that once defined California&rsquo;s economy.
           </p>
           <p>
-            Further north, the San Juan Ridge unfolds in towns like North San Juan and the preserved
-            ghost town of North Bloomfield at <strong>Malakoff Diggins State Historic Park</strong>.
-            On Tyler Foote Road stands the <strong>North Columbia Schoolhouse Cultural Center</strong>,
-            an 1875 schoolhouse built by miners for their children &mdash; now home to artists, film
-            screenings, poetry readings, and the internationally renowned Sierra Storytelling Festival.
+            Today, travelers along Highway 49 can explore <strong>Empire Mine State Historic
+            Park</strong> in Grass Valley&mdash;one of the oldest, deepest, and richest gold mines in
+            California. The beautifully preserved mine buildings, cottages, and gardens recall the
+            opulence of the mining boom and the lives of those who built their futures here.
+          </p>
+          <p>
+            Further north, the rugged beauty of the <strong>San Juan Ridge</strong> unfolds in towns
+            like North San Juan and the preserved ghost town of North Bloomfield at
+            <strong>Malakoff Diggins State Historic Park</strong>. On Tyler Foote Road, on the San
+            Juan Ridge, stands the <strong>North Columbia Schoolhouse Cultural Center</strong>, a
+            beautifully restored 1875 schoolhouse that remains the creative heart of its rural
+            community. Built by miners for their children, the Schoolhouse now hosts artists, film
+            screenings, poetry readings, craft fairs, weddings, and, of course, the internationally
+            renowned <strong>Sierra Storytelling Festival</strong>.
           </p>
         </div>
       </div>
       <div class="illustration">
-        <!-- A scatter of mapped places, one ringed & red (a featured anchor) -->
-        <svg viewBox="0 0 500 500" fill="none" aria-hidden="true">
-          <!-- soft ground hills -->
-          <path class="organic-path fade-path" fill="var(--deep)" opacity="0.06"
-            d="M40,360 Q140,310 240,350 Q340,390 460,335 L460,470 L40,470 Z"/>
-          <!-- ink place markers (teardrops) -->
-          <path class="organic-path fade-path scale-path" fill="var(--deep)" opacity="0.55"
-            d="M150,150 Q170,150 172,172 Q172,192 151,214 Q130,192 130,172 Q130,150 150,150 Z"/>
-          <path class="organic-path fade-path scale-path" fill="var(--deep)" opacity="0.42"
-            d="M330,128 Q346,128 348,146 Q348,162 331,180 Q314,162 314,146 Q314,128 330,128 Z"/>
-          <path class="organic-path fade-path scale-path" fill="var(--deep)" opacity="0.42"
-            d="M110,300 Q124,300 126,316 Q126,330 111,346 Q96,330 96,316 Q96,300 110,300 Z"/>
-          <path class="organic-path fade-path scale-path" fill="var(--deep)" opacity="0.5"
-            d="M380,300 Q396,300 398,318 Q398,334 381,352 Q364,334 364,318 Q364,300 380,300 Z"/>
-          <path class="organic-path fade-path scale-path" fill="var(--deep)" opacity="0.35"
-            d="M250,360 Q262,360 264,374 Q264,386 251,400 Q238,386 238,374 Q238,360 250,360 Z"/>
-          <!-- featured anchor: red marker with ring -->
-          <path class="organic-path scale-path" fill="none" stroke="var(--deep)" stroke-width="2" opacity="0.25"
-            d="M250,150 Q310,150 312,220 Q310,278 250,300 Q190,278 188,220 Q190,150 250,150 Z"/>
-          <path class="organic-path scale-path" fill="var(--red)"
-            d="M250,180 Q278,180 280,212 Q280,240 251,272 Q222,240 220,212 Q220,180 250,180 Z"/>
-          <path class="organic-path scale-path" fill="var(--paper)"
-            d="M250,203 Q261,203 261,214 Q261,225 250,225 Q239,225 239,214 Q239,203 250,203 Z"/>
-        </svg>
+        <figure class="corridor-photo">
+          <img src="assets/corridors/photo-malakoff-diggins.jpg" alt="The orange and white cliffs of Malakoff Diggins State Historic Park, ringed by pines" loading="lazy">
+          <figcaption>Malakoff Diggins State Historic Park &mdash; Casey Garrotto &middot; MUSE &rsquo;26</figcaption>
+        </figure>
       </div>
     </div>
   </section>
@@ -436,42 +448,37 @@
     <span class="chapter-number">02</span>
     <div class="chapter-inner reverse">
       <div class="illustration">
-        <!-- A winding path threading numbered stops -->
-        <svg viewBox="0 0 500 500" fill="none" aria-hidden="true">
-          <path class="organic-path draw-path" stroke="var(--foam)" stroke-width="2.5" fill="none" opacity="0.45"
-            stroke-linecap="round"
-            d="M90,420 Q150,360 130,290 Q110,220 200,200 Q300,180 290,110 Q284,70 360,80"/>
-          <!-- stop nodes -->
-          <path class="organic-path fade-path scale-path" fill="var(--foam)" opacity="0.85"
-            d="M90,420 Q104,420 106,434 Q106,446 91,460 Q76,446 76,434 Q76,420 90,420 Z"/>
-          <path class="organic-path fade-path scale-path" fill="var(--foam)" opacity="0.6"
-            d="M134,278 Q148,278 150,292 Q150,304 135,318 Q120,304 120,292 Q120,278 134,278 Z"/>
-          <path class="organic-path fade-path scale-path" fill="var(--foam)" opacity="0.6"
-            d="M204,188 Q218,188 220,202 Q220,214 205,228 Q190,214 190,202 Q190,188 204,188 Z"/>
-          <path class="organic-path fade-path scale-path" fill="var(--red)"
-            d="M362,66 Q380,66 382,84 Q382,100 363,118 Q344,100 344,84 Q344,66 362,66 Z"/>
-          <path class="organic-path fade-path scale-path" fill="var(--paper)"
-            d="M362,79 Q369,79 369,86 Q369,93 362,93 Q355,93 355,86 Q355,79 362,79 Z"/>
-        </svg>
+        <figure class="corridor-photo">
+          <img src="assets/corridors/photo-washington-aerial.jpg" alt="Aerial view of the Little Town of Washington along the South Yuba River, under the printed title Our Cultural Corridors" loading="lazy">
+          <img src="assets/corridors/photo-rough-and-ready.jpg" alt="Weathered corrugated-metal buildings and mining relics in Rough and Ready" loading="lazy">
+          <figcaption>Aerial view of the Little Town of Washington &mdash; Steve Hillis &middot; Rough and Ready &mdash; Casey Garrotto &middot; MUSE &rsquo;26</figcaption>
+        </figure>
       </div>
       <div class="chapter-content">
         <p class="chapter-label">Highway 20</p>
         <h2 class="chapter-title">From wagon trail to modern artery</h2>
         <div class="chapter-description">
           <p>
-            Stretching east to west across Nevada County, Highway 20 traces its roots to the
-            19th-century <strong>California Trail</strong>, used by emigrants in wagons seeking new
-            lives in California. What began as a rugged pioneer road evolved into one of the
-            state&rsquo;s most scenic drives. Just off the highway, the <strong>Little Town of
-            Washington</strong> flanks the South Yuba River, where the historic Washington Hotel,
-            built in 1857, still serves as the community hub and rallying point for the town&rsquo;s
-            Fourth of July Parade.
+            Stretching east to west across Nevada County, <strong>Highway 20</strong> traces its
+            roots to the 19th-century California Trail, used by emigrants in wagons seeking new lives
+            in California. What began as a rugged pioneer road evolved into one of the state&rsquo;s
+            most scenic drives, officially designated <strong>State Route 20</strong> in 1934. The
+            eastern stretch, from <strong>Bear Valley</strong> to <strong>Nevada City</strong>,
+            follows the old Truckee Route of the California Trail&mdash;later transformed into a
+            turnpike that linked the mining camps with emerging farming towns.
           </p>
           <p>
-            Further south is <strong>Rough and Ready</strong>, founded in 1849, which proudly recalls
-            its three-month rebellion as the Great Republic of Rough and Ready each June during
-            Secession Days &mdash; its mining heritage alive in street names like Ironclad, Gamble
-            Court, and the unforgettable To Hell and Back Lane.
+            Just off Highway 20, the <strong>Little Town of Washington</strong> offers a glimpse into
+            Nevada County&rsquo;s colorful past, the latter flanking the South Yuba River. Here, the
+            historic <strong>Washington Hotel</strong>, built in 1857, continues to serve as the
+            community hub, hosting fundraisers for the local fire department, and acting as the
+            rallying point for the town&rsquo;s Fourth of July Parade.
+          </p>
+          <p>
+            Further south is <strong>Rough and Ready</strong>, founded in 1849. The town proudly
+            recalls its less than three-month rebellion as the Great Republic of Rough and Ready each
+            June during Secession Days. The town&rsquo;s mining heritage lives on in its street
+            names&mdash;Ironclad, Gamble Court, and the unforgettable To Hell and Back Lane.
           </p>
         </div>
       </div>
@@ -489,47 +496,34 @@
         <h2 class="chapter-title">The Lincoln Highway and the road to the west</h2>
         <div class="chapter-description">
           <p>
-            Before Interstate 80 sped travelers through the Sierra, there was &ldquo;Old Highway
-            40&rdquo; &mdash; part of America&rsquo;s first transcontinental road, the legendary
-            <strong>Lincoln Highway</strong>, stretching from Times Square to San Francisco. Here,
-            every curve tells a story: ancient petroglyphs near Donner Summit, etched into granite by
-            the ancestors of today&rsquo;s Washoe People, and <strong>Van Norden Meadow</strong>,
-            where the South Fork of the Yuba River begins its journey to the foothills.
+            Before Interstate 80 sped travelers through the Sierra, there was &ldquo;<strong>Old
+            Highway 40</strong>&rdquo;&mdash;part of America&rsquo;s first transcontinental road, the
+            legendary <strong>Lincoln Highway</strong>, which stretched from Times Square in New York
+            City to Lincoln Park in San Francisco. Here, every curve tells a story. Ancient
+            <strong>petroglyphs</strong> near Donner Summit, etched into granite thousands of years
+            ago by the ancestors of today&rsquo;s Washoe People&mdash;a culture known as the Martis
+            People&mdash;offer a glimpse into the lives of the region&rsquo;s earliest inhabitants.
+            Stop at <strong>Van Norden Meadow</strong>, where the South Fork of the <strong>Yuba
+            River</strong> begins its journey through canyons and forests, down into the foothills
+            below. The river is a serene reminder of the natural forces that have shaped this land
+            for millennia.
           </p>
           <p>
-            <strong>Clair Tappaan Lodge</strong>, built in the 1930s by Sierra Club volunteers, still
-            welcomes adventurers; <strong>Rainbow Lodge</strong>, a 1920s retreat of native stone and
-            timber, recalls the golden age of alpine travel. And from Donner Lake to Cisco Grove, the
-            <strong>&ldquo;20 Mile Museum&rdquo;</strong> tells the evolving story of migration and
-            innovation through a series of interpretive signs.
+            Nearby, <strong>Clair Tappaan Lodge</strong>, built in the 1930s by Sierra Club
+            volunteers, continues to welcome adventurers and families drawn with its rustic charm.
+            Further along Old 40, <strong>Rainbow Lodge</strong>, a 1920s retreat crafted from native
+            stone and timber, recalls the golden age of alpine travel. And from <strong>Donner
+            Lake</strong> to <strong>Cisco Grove</strong>, visitors can experience this rich history
+            along the &ldquo;<strong>20 Mile Museum</strong>,&rdquo; through a series of interpretive
+            signs that tell the evolving story of migration, innovation, and the spirit of the Sierra.
           </p>
         </div>
       </div>
       <div class="illustration">
-        <!-- A theatre marquee / poster glowing -->
-        <svg viewBox="0 0 500 500" fill="none" aria-hidden="true">
-          <!-- radiating glow -->
-          <g class="organic-path fade-path" opacity="0.5">
-            <path fill="var(--red)" opacity="0.12" d="M250,250 L250,60 L262,60 Z"/>
-            <path fill="var(--red)" opacity="0.10" d="M250,250 L120,120 L132,108 Z"/>
-            <path fill="var(--red)" opacity="0.10" d="M250,250 L380,120 L368,108 Z"/>
-            <path fill="var(--red)" opacity="0.08" d="M250,250 L430,230 L430,242 Z"/>
-            <path fill="var(--red)" opacity="0.08" d="M250,250 L70,230 L70,242 Z"/>
-          </g>
-          <!-- marquee board (organic rounded) -->
-          <path class="organic-path fade-path scale-path" fill="var(--deep)" opacity="0.85"
-            d="M150,200 Q250,184 350,200 Q366,228 350,300 Q250,316 150,300 Q134,228 150,200 Z"/>
-          <!-- marquee text lines -->
-          <path class="organic-path fade-path" fill="var(--paper)" opacity="0.9"
-            d="M178,236 Q250,230 322,236 Q322,244 250,250 Q178,244 178,236 Z"/>
-          <path class="organic-path fade-path" fill="var(--red)"
-            d="M196,268 Q250,264 304,268 Q304,278 250,282 Q196,278 196,268 Z"/>
-          <!-- glowing event marker dot beneath -->
-          <path class="organic-path scale-path" fill="var(--red)"
-            d="M250,340 Q272,340 274,366 Q274,388 251,414 Q228,388 228,366 Q228,340 250,340 Z"/>
-          <path class="organic-path scale-path" fill="var(--paper)"
-            d="M250,359 Q259,359 259,368 Q259,377 250,377 Q241,377 241,368 Q241,359 250,359 Z"/>
-        </svg>
+        <figure class="corridor-photo">
+          <img src="assets/corridors/photo-hwy-20-49-signs.jpg" alt="Freeway entrance signs for California Highways 20 East and 49 North in winter fog" loading="lazy">
+          <figcaption>&mdash; Casey Garrotto &middot; MUSE &rsquo;26</figcaption>
+        </figure>
       </div>
     </div>
   </section>
@@ -548,21 +542,16 @@
         </figure>
       </div>
       <div class="chapter-content">
-        <p class="chapter-label">The Illustrated Map</p>
-        <h2 class="chapter-title">Thirty-two landmarks, three languages</h2>
+        <p class="chapter-label">MUSE &rsquo;26 &middot; Pages 12&ndash;13</p>
+        <h2 class="chapter-title">Historic &amp; cultural landmarks</h2>
         <div class="chapter-description">
           <p>
-            MUSE&rsquo;s illustrated corridor map charts <strong>32 historic and cultural
-            landmarks</strong> along the scenic route connecting the Truckee Cultural District and the
-            Grass Valley&ndash;Nevada City Cultural District &mdash; from daSpa and ?wstuma, historic
-            Nisenan village sites, to the Washoe petroglyphs at d&eacute;?ek ?itb&eacute;ynil near
-            Donner Summit.
+            &ldquo;<strong>Our Cultural Corridor</strong> &mdash; Connecting History, People, and
+            Place. A scenic route connecting Truckee Cultural District and Grass Valley&ndash;Nevada
+            City Cultural District across the Sierra Nevada.&rdquo;
           </p>
           <p>
-            The map keeps the land&rsquo;s original names beside the familiar ones: ?uba Sew, the
-            Nisenan name for the Yuba River; wag&oacute;&nbsp;&laquo;&nbsp;t, the Washoe name for Van
-            Norden Meadow; dewbey&Uacute;muwe?, the Washoe name for the Truckee River &mdash; a
-            reminder that these corridors carried stories long before they carried highways.
+            Illustration | <strong>Milada Belohlavek and Ron Pitcher</strong>
           </p>
         </div>
       </div>
@@ -575,59 +564,12 @@
   <section class="quote-section">
     <blockquote class="quote">
       <span class="quote-mark">&ldquo;</span>
-      The cultural corridors that connect the Town of Truckee with Grass Valley, Nevada City, and
-      beyond are reminders of how our past and present connect along every mile.
+      Blending Gold Rush history with a vibrant arts community, the cultural corridors that connect
+      the Town of Truckee with Grass Valley, Nevada City, and beyond are reminders of how our past
+      and present connect along every mile.
       <span class="quote-cite">Our Cultural Corridors &middot; words by Jesse Locks &middot; MUSE &rsquo;26</span>
     </blockquote>
   </section>
-
-  <!-- ============ CHAPTER 5 · CONTRIBUTE ============ -->
-  <section class="chapter light">
-    <span class="chapter-number">05</span>
-    <div class="chapter-inner">
-      <div class="chapter-content">
-        <p class="chapter-label">The Living Part</p>
-        <h2 class="chapter-title">The corridor keeps changing &mdash; so does the map</h2>
-        <div class="chapter-description">
-          <p>
-            A studio opens. A trail gets re-routed. A festival moves to a new lot. No single editor
-            can keep up with a whole county &mdash; which is why the guide is built to be
-            <strong>added to</strong>.
-          </p>
-          <p>
-            If you run a venue, lead a walk, or simply know a place the map is missing, you can put it
-            on the map. Every contribution is one more honest dot in the field guide.
-          </p>
-        </div>
-      </div>
-      <div class="illustration">
-        <!-- An open hand offering / planting a marker -->
-        <svg viewBox="0 0 500 500" fill="none" aria-hidden="true">
-          <!-- palm -->
-          <path class="organic-path fade-path scale-path" fill="var(--deep)" opacity="0.5"
-            d="M150,330 Q140,280 180,260 Q230,238 290,250 Q350,262 360,300 Q366,336 330,356 Q280,378 220,374 Q170,370 150,330 Z"/>
-          <!-- fingers -->
-          <path class="organic-path fade-path" fill="var(--deep)" opacity="0.42"
-            d="M186,262 Q182,222 196,196 Q210,224 206,262 Z"/>
-          <path class="organic-path fade-path" fill="var(--deep)" opacity="0.42"
-            d="M232,250 Q230,206 244,180 Q258,210 252,252 Z"/>
-          <path class="organic-path fade-path" fill="var(--deep)" opacity="0.42"
-            d="M278,250 Q280,208 294,184 Q306,212 298,254 Z"/>
-          <path class="organic-path fade-path" fill="var(--deep)" opacity="0.42"
-            d="M322,262 Q328,226 344,208 Q352,236 342,272 Z"/>
-          <!-- the offered red marker, lifting up with rings -->
-          <path class="organic-path scale-path" fill="none" stroke="var(--red)" stroke-width="1.5" opacity="0.3"
-            d="M250,60 Q322,60 324,150 Q322,210 250,236 Q178,210 176,150 Q178,60 250,60 Z"/>
-          <path class="organic-path scale-path" fill="var(--red)"
-            d="M250,96 Q286,96 288,138 Q288,176 251,214 Q214,176 212,138 Q212,96 250,96 Z"/>
-          <path class="organic-path scale-path" fill="var(--paper)"
-            d="M250,124 Q264,124 264,138 Q264,152 250,152 Q236,152 236,138 Q236,124 250,124 Z"/>
-        </svg>
-      </div>
-    </div>
-  </section>
-
-  <div class="transition-section on-paper"><div class="transition-line"></div></div>
 
   <!-- ============ FINALE ============ -->
   <section class="finale">
@@ -654,11 +596,11 @@
       <path class="organic-path scale-path" fill="var(--paper)"
         d="M200,186 Q214,186 214,200 Q214,214 200,214 Q186,214 186,200 Q186,186 200,186 Z"/>
     </svg>
-    <p class="finale-eyebrow">One county, one map</p>
-    <h2 class="finale-title">Now go find your corridor</h2>
+    <p class="finale-eyebrow">From MUSE &rsquo;26 &middot; Our Cultural Corridors</p>
+    <h2 class="finale-title">See the corridors on the map</h2>
     <p class="finale-text">
-      Places, paths, happenings and trails &mdash; all on one quiet ink-and-paper map, where the only
-      red on screen is the thing worth your attention. Open it and start exploring.
+      Every place named in this story &mdash; Empire Mine, the Washington Hotel, Malakoff Diggins,
+      the North Columbia Schoolhouse, Clair Tappaan Lodge &mdash; is on the Cultural Map.
     </p>
     <a class="finale-cta" href="index.html">
       Open the Cultural Map
