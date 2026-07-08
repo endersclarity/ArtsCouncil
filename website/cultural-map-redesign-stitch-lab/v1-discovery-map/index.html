@@ -64,11 +64,13 @@
         <!-- Toggle-button group, not a tablist: these buttons carry aria-pressed
              (synced in syncModeTabs) and no tab/tabpanel wiring — announcing a
              "tab list" of role-less buttons misleads AT users. -->
+        <!-- Owner call (July 7): two tabs only. Trails fold into the cultural
+             map (they're a category, and a selected trail still draws its
+             route); Paths stay reachable from place cards and shared links —
+             the modes remain valid internally, they just have no tab. -->
         <div class="mode-tabs" role="group" aria-label="Map mode">
-          <button class="mode-tab active" type="button" data-mode="places" aria-pressed="true">Places</button>
+          <button class="mode-tab active" type="button" data-mode="places" aria-pressed="true">Cultural Map</button>
           <button class="mode-tab" type="button" data-mode="events" aria-pressed="false">Events</button>
-          <button class="mode-tab" type="button" data-mode="paths" aria-pressed="false">Paths</button>
-          <button class="mode-tab" type="button" data-mode="trails" aria-pressed="false">Trails</button>
         </div>
 
         <div class="featured-hint" id="featured-hint">
