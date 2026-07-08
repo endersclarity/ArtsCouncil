@@ -1,6 +1,6 @@
 /* Polymath (NCAC brand face) self-hosted: the family name matches the
-   Squarespace upload the brand doc references, but the face itself was
-   never loaded here — without this block everything falls back to DM Sans. */
+   Squarespace upload the brand doc references. Polymath is the only brand
+   face — no Google-font fallbacks; system-ui is the emergency-only fallback. */
 @font-face {
   font-family: "polymath-variable-2th9nk";
   font-style: normal;
@@ -56,8 +56,8 @@
   --motion-fast: 120ms;
   --motion-base: 200ms;
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
-  --font-brand: "polymath-variable-2th9nk", "DM Sans", "Inter", system-ui, sans-serif;
-  --font-body: "polymath-variable-2th9nk", "DM Sans", "Inter", system-ui, sans-serif;
+  --font-brand: "polymath-variable-2th9nk", system-ui, sans-serif;
+  --font-body: "polymath-variable-2th9nk", system-ui, sans-serif;
   --font-ui: var(--font-brand);
 }
 

@@ -3,6 +3,12 @@
   "entries": [
     {
       "date": "2026-07-03",
+      "title": "One brand typeface everywhere: Polymath only",
+      "summary": "The Arts Council's brand typeface, Polymath, is now the only font the site uses — the map, the contribute form, the changelog, and the Story of the Corridor page all render in it. The borrowed Google fonts (DM Sans and Inter) that some pages still loaded as backups are gone entirely, which also means the site no longer calls out to Google's font servers.",
+      "kind": "improvement"
+    },
+    {
+      "date": "2026-07-03",
       "title": "Every placeholder description is gone (final 111 places)",
       "summary": "The description rewrite sweep is complete: the last 111 placeholders — galleries, shops, tattoo studios, radio stations, theaters, publications, and public art from Grass Valley to Truckee — now carry real descriptions. Website-grounded where the place's own site could be read (the Grass Valley Museum, Mountain Pastimes, YubaNet, Art at the Airport and dozens more), plain record facts where it couldn't. All 441 placeholder descriptions on the map have been replaced, each tagged with its source, and every data problem found along the way is filed for follow-up.",
       "kind": "improvement"
