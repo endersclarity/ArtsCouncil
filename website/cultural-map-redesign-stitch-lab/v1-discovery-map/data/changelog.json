@@ -3,6 +3,12 @@
  "entries": [
   {
    "date": "2026-07-07",
+   "title": "Browsing now uses the Arts Council's own categories",
+   "summary": "The made-up browse groups (Art, History, Local Shops, Outdoors…) are gone. The left panel now lists the ten official cultural asset map categories — Arts Organizations, Performing Arts, Galleries & Studios, Fairs & Festivals, Cultural Resources, Historic Places, Shops & Makers, Eat, Drink & Stay, Public Art, and Walks & Trails — exactly as they appear in the Arts Council's records. Family & Kids stays as a small 'in the mood for' shortcut beneath the official list.",
+   "kind": "improvement"
+  },
+  {
+   "date": "2026-07-07",
    "title": "A calmer map: normal cursor, and Events mode shows only events",
    "summary": "Two requests from the July 7 call: the custom hand cursor is gone — the map now uses the normal arrow, switching to the familiar pointing hand over anything clickable — and the Events tab now clears away the thousand place dots so the red event diamonds are the only markers, making what's happening this week readable at a glance.",
    "kind": "improvement"

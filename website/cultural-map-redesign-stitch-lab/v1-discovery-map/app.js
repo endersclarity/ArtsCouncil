@@ -123,40 +123,27 @@
     "Walks & Trails": "assets/category-placeholders-ncac/walks-trails.png",
   };
 
+  // Owner call (July 7 call): the browse filters ARE the official NCAC
+  // categories, 1:1 — no invented taxonomy. Dot colors still share the six
+  // visual groups (marker-category-color.js); color = family, filter = category.
+  // "Family & Kids" survives as a mood row (rendered under its own subheading),
+  // not mixed into the official list. The old synthetic "Events" lens is gone —
+  // the Events tab does that job now.
   const OUTING_TYPES = [
+    { label: "Arts Organizations", matchCategories: ["Arts Organizations", "Creative Services"] },
+    { label: "Performing Arts", matchCategories: ["Performing Arts"] },
+    { label: "Galleries & Studios", matchCategories: ["Galleries & Studios"] },
+    { label: "Fairs & Festivals", matchCategories: ["Fairs & Festivals"] },
+    { label: "Cultural Resources", matchCategories: ["Cultural Resources"] },
+    { label: "Historic Places", matchCategories: ["Historic Places"] },
+    { label: "Shops & Makers", matchCategories: ["Shops & Makers"] },
+    { label: "Eat, Drink & Stay", matchCategories: ["Eat, Drink & Stay"] },
+    { label: "Public Art", matchCategories: ["Public Art"] },
+    { label: "Walks & Trails", matchCategories: ["Walks & Trails"] },
     {
-      label: "Art",
-      matchCategories: ["Arts Organizations", "Creative Services", "Galleries & Studios", "Public Art"],
-      matchIntents: ["Galleries & Studios"],
-    },
-    {
-      label: "Music & Performance",
-      matchCategories: ["Performing Arts"],
-      matchIntents: ["See a Show"],
-    },
-    {
-      label: "History",
-      matchCategories: ["Cultural Resources", "Historic Places"],
-      matchIntents: ["Historic Places"],
-    },
-    {
-      label: "Local Shops",
-      matchCategories: ["Eat, Drink & Stay", "Shops & Makers"],
-      matchIntents: ["Eat, Drink & Stay", "Shops & Makers"],
-    },
-    {
-      label: "Outdoors",
-      matchCategories: ["Walks & Trails"],
-      matchIntents: ["Outdoors"],
-    },
-    {
-      label: "Events",
-      matchCategories: ["Fairs & Festivals"],
-      matchEventVenues: true,
-    },
-    {
-      label: "Family-Friendly",
+      label: "Family & Kids",
       matchCategories: ["Cultural Resources", "Fairs & Festivals", "Public Art", "Walks & Trails"],
+      mood: true,
     },
   ];
 
@@ -915,7 +902,7 @@
           </button>
         `).join("")}
       </div>
-      ${isStartingView && !isLocalReveal ? `<p class="places-list-more">Choose an Outing Type or search places to browse the full directory.</p>` : ""}
+      ${isStartingView && !isLocalReveal ? `<p class="places-list-more">Choose a category or search places to browse the full directory.</p>` : ""}
       ${!isStartingView && !isLocalReveal && places.length > limit ? `<p class="places-list-more">Showing first ${escapeHtml(limit)}. Use search to narrow the list.</p>` : ""}
     `;
     wireHiddenHint();
@@ -1332,22 +1319,26 @@
     const countFor = (outingType) => state.places.filter((place) => placeMatchesOutingType(place, outingType)).length;
 
     if (listOpen) {
-      const rows = OUTING_TYPES.map((outingType) => {
+      const rowFor = (outingType) => {
         const active = state.activeIntents.has(outingType.label);
         return `<button class="outing-row${active ? " active" : ""}" type="button" data-outing-type="${escapeHtml(outingType.label)}" aria-pressed="${active ? "true" : "false"}">
           <span class="outing-row-label">${escapeHtml(outingType.label)}</span>
-          <span class="outing-row-count">${escapeHtml(outingType.label === "Events" ? `${countFor(outingType)} venues` : countFor(outingType))}</span>
+          <span class="outing-row-count">${escapeHtml(countFor(outingType))}</span>
           <span class="outing-row-cue" aria-hidden="true">${active ? "✓" : "›"}</span>
         </button>`;
-      }).join("");
+      };
+      const categoryRows = OUTING_TYPES.filter((outingType) => !outingType.mood).map(rowFor).join("");
+      const moodRows = OUTING_TYPES.filter((outingType) => outingType.mood).map(rowFor).join("");
       els.filters.innerHTML = `
         <div class="outing-browse">
           <div class="outing-browse-head">
-            <span class="outing-browse-title">What are you in the mood for?</span>
+            <span class="outing-browse-title">Browse by category</span>
             ${hasActive ? `<button class="outing-done" type="button" data-outing-done>Done</button>` : ""}
           </div>
           ${featuredInMuseChip()}
-          <div class="outing-list" role="group" aria-label="Outing types">${rows}</div>
+          <div class="outing-list" role="group" aria-label="Categories">${categoryRows}</div>
+          ${moodRows ? `<div class="outing-browse-head outing-mood-head"><span class="outing-browse-title">In the mood for</span></div>
+          <div class="outing-list" role="group" aria-label="Moods">${moodRows}</div>` : ""}
           <button class="surprise-button" type="button" data-surprise>Surprise me nearby</button>
           <button class="surprise-button story-lens-button" type="button" data-muse-stories>Stories from MUSE</button>
         </div>`;
@@ -2062,11 +2053,11 @@
     const filterLabel = [...state.activeIntents].sort().join(", ");
     if (!place) {
       setDetailCardMode("");
-      els.hint.innerHTML = `<p class="hint-title">No places match this Outing Type</p><p>Try another broad outing lane to bring places back onto the map.</p>`;
+      els.hint.innerHTML = `<p class="hint-title">No places match this category</p><p>Try another category to bring places back onto the map.</p>`;
       els.detail.innerHTML = `<p class="empty-title">No matching places</p><p class="empty-copy">The active filter does not currently match any mapped places.</p>`;
       return;
     }
-    els.hint.innerHTML = `<p class="hint-title">Outing Type selected</p><p>${escapeHtml(places.length)} places match ${escapeHtml(filterLabel)}.</p>`;
+    els.hint.innerHTML = `<p class="hint-title">Category selected</p><p>${escapeHtml(places.length)} places match ${escapeHtml(filterLabel)}.</p>`;
     // The first match rides the same place-feature card language showPlace
     // uses (photo + caption, meta column, title block) — no orphaned
     // anchor-card markup.
@@ -2085,7 +2076,7 @@
             <h2>${escapeHtml(place.name)}</h2>
           </div>
         </div>
-        <p class="detail-description">Select a point or choose another Outing Type to refine the map.</p>
+        <p class="detail-description">Select a point or choose another category to refine the map.</p>
         <div class="detail-actions"><button type="button" class="anchor-map-action">View on map</button></div>
       </div>
     `;
