@@ -513,6 +513,12 @@
       end.setDate(end.getDate() + (start.getDay() === 0 ? 0 : 1));
       return [localISO(start), localISO(end)];
     }
+    if (lens === "month") {
+      // Through the end of the current calendar month ("what does 'all
+      // upcoming' mean" — owner call, July 7: a bounded, nameable window).
+      const end = new Date(now.getFullYear(), now.getMonth() + 1, 0);
+      return [today, localISO(end)];
+    }
     return null; // all upcoming
   }
 
@@ -1402,6 +1408,7 @@
       ["today", "Today"],
       ["weekend", "This weekend"],
       ["week", "Next 7 days"],
+      ["month", "This month"],
       ["all", "All upcoming"],
     ];
     const chips = lenses.map(([key, label]) => `

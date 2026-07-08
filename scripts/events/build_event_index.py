@@ -397,7 +397,7 @@ def main() -> int:
     asset_tokens_by_idx = [tokenize_venue_name(venue.get("n")) for venue in venues]
 
     now_utc = datetime.now(timezone.utc)
-    window_end = now_utc + timedelta(days=14)
+    window_end = now_utc + timedelta(days=31)
 
     stats = {
         "total_events": 0,
@@ -539,7 +539,7 @@ def main() -> int:
         "source_events_file": str(args.events_file).replace("\\", "/"),
         "source_data_file": str(args.data_file).replace("\\", "/"),
         "source_aliases_file": str(args.aliases_file).replace("\\", "/"),
-        "window_days": 14,
+        "window_days": 31,
         "stats": stats,
         "by_asset_idx": by_asset_idx,
         "events": indexed_events,

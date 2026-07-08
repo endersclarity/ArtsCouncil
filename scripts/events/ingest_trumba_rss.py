@@ -22,7 +22,7 @@ import requests
 
 DEFAULT_RSS_URL = "https://www.trumba.com/calendars/nevada-county-arts-council.rss"
 DEFAULT_OUTPUT_FILE = Path("website/cultural-map-redesign/events.json")
-DEFAULT_WINDOW_DAYS = 14
+DEFAULT_WINDOW_DAYS = 31
 DEFAULT_TZ = "America/Los_Angeles"
 DEFAULT_TIMEOUT = 30
 

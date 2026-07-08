@@ -2,6 +2,12 @@
  "_readme": "Site changelog, rendered by changelog.html. Newest entry FIRST. Every meaningful commit to v1-discovery-map gets an entry (the pre-commit hook enforces this). Write 'summary' in plain language for the Arts Council — what changed for a visitor, not implementation detail. 'commit' is the short hash; the page links it to GitHub.",
  "entries": [
   {
+   "date": "2026-07-08",
+   "title": "Events now look a full month ahead — with a 'This month' filter",
+   "summary": "The events feed previously stopped two weeks out, which made 'All upcoming' feel oddly short. The pipeline now gathers a full 31 days of events (86 dates on the map today, out through early August), and the Events tab gains a 'This month' filter alongside Today, This weekend, and Next 7 days — a bounded window that answers 'what's happening in July?' at a glance.",
+   "kind": "improvement"
+  },
+  {
    "date": "2026-07-07",
    "title": "Two tabs: Cultural Map and Events",
    "summary": "The Places / Events / Paths / Trails tab row is now just Cultural Map and Events, per the July 7 call. Trails live inside the Cultural Map as the Walks & Trails category — selecting a trail still draws its full route on the map and shows difficulty, length, surface, and uses. Curated paths didn't disappear either: they're still reachable from place cards and shared links, they just no longer claim a top-level tab.",

@@ -24,7 +24,7 @@ import requests
 
 DEFAULT_JSON_URL = "https://www.trumba.com/calendars/GVDA.json"
 DEFAULT_OUTPUT_FILE = Path("website/cultural-map-redesign/events-gvda.json")
-DEFAULT_WINDOW_DAYS = 14
+DEFAULT_WINDOW_DAYS = 31
 DEFAULT_TZ = "America/Los_Angeles"
 DEFAULT_TIMEOUT = 30
 
