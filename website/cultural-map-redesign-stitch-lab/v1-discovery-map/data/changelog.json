@@ -3,6 +3,12 @@
  "entries": [
   {
    "date": "2026-07-08",
+   "title": "Header logo switched to the red-box logotype",
+   "summary": "The header now uses the brand kit's primary lockup — the white Nevada County Arts & Culture wordmark in its red box — instead of the plain black wordmark.",
+   "kind": "improvement"
+  },
+  {
+   "date": "2026-07-08",
    "title": "Events now look a full month ahead — with a 'This month' filter",
    "summary": "The events feed previously stopped two weeks out, which made 'All upcoming' feel oddly short. The pipeline now gathers a full 31 days of events (86 dates on the map today, out through early August), and the Events tab gains a 'This month' filter alongside Today, This weekend, and Next 7 days — a bounded window that answers 'what's happening in July?' at a glance.",
    "kind": "improvement"
