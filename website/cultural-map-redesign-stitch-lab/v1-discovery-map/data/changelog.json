@@ -3,6 +3,12 @@
  "entries": [
   {
    "date": "2026-07-08",
+   "title": "Polish pass: the map always recovers, and the rail shows the whole county",
+   "summary": "Six refinements from today's design review. The big one: after zooming to a place, choosing a category no longer leaves you staring at an empty stretch of map — the view flies back to frame the places you filtered. The bottom rail now caps each venue at two cards so ten venues, not one, represent the county. Event cards use the same official category names as the browse list, the legend no longer claims a color code it never explained, touch targets meet the 44px minimum on phones, and a failed search now offers a one-tap 'Clear search.'",
+   "kind": "improvement"
+  },
+  {
+   "date": "2026-07-08",
    "title": "The bottom rail is no longer a grab bag",
    "summary": "On the July 7 call the bottom card rail read as 'messy… a bit random' — events, random places, a story, and a walk all shuffled together. It's now one legible strip: the next ten upcoming events in date order (tonight first), then the featured MUSE story and a walk to take. The random place cards and the Everything/Events/Places filter chips are gone; Drift keeps its button.",
    "kind": "improvement"

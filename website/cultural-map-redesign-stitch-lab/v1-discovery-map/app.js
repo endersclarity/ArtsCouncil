@@ -875,12 +875,19 @@
           <p>No places match ${query ? `"${escapeHtml(query)}"` : "this filter"}${hiddenByFilters > 0 ? " inside your filters" : ""}.</p>
           ${hiddenHint}
           ${state.activeIntents.size || state.featuredInMuseOnly ? `<button class="filter-chip" type="button" id="clear-place-filters">Clear filters</button>` : ""}
+          ${query ? `<button class="filter-chip" type="button" id="clear-place-search">Clear search</button>` : ""}
         </div>
       `;
       wireHiddenHint();
       // Mode is already places here — delegate to the shared reset so search
       // and local reveal clear too, exactly like the rail reset chip.
       els.placesList.querySelector("#clear-place-filters")?.addEventListener("click", resetToBrowseStartingView);
+      els.placesList.querySelector("#clear-place-search")?.addEventListener("click", () => {
+        if (els.search) els.search.value = "";
+        state.searchQuery = "";
+        renderPlacesList();
+        setSourceData();
+      });
       return;
     }
     const shown = places.slice(0, limit);
@@ -1362,11 +1369,32 @@
     }
 
     const refreshAfterChange = () => {
-      const visibleIds = new Set(filteredPlaces().map((place) => place.id));
+      const visible = filteredPlaces().filter(isPlaceMapReady);
+      const visibleIds = new Set(visible.map((place) => place.id));
       if (state.selectedPlaceId && !visibleIds.has(state.selectedPlaceId)) state.selectedPlaceId = "";
       renderFilters();
       if (!state.selectedPlaceId) renderFeaturedAnchor();
       setSourceData();
+      // Critique 2026-07-08 P1: a filter change after a selection flight was
+      // acting on an invisible map (camera parked at zoom ~15 on the previous
+      // pick while the list claimed "54 on the map"). Re-frame whenever no
+      // selection holds the camera. Countywide categories have Truckee/Tahoe
+      // outliers that would stretch raw bounds to a zoom where dots vanish —
+      // below the initial-view zoom, fall back to the district framing.
+      if (!state.selectedPlaceId && visible.length) {
+        const homeZoom = (isMobileViewport() ? MOBILE_INITIAL_MAP_VIEW : DESKTOP_INITIAL_MAP_VIEW).zoom;
+        const bounds = visible.reduce(
+          (box, place) => box.extend([place.lng, place.lat]),
+          new maplibregl.LngLatBounds([visible[0].lng, visible[0].lat], [visible[0].lng, visible[0].lat]),
+        );
+        const camera = state.map.cameraForBounds(bounds, { padding: 90 });
+        if (camera && camera.zoom < homeZoom) {
+          const view = isMobileViewport() ? MOBILE_INITIAL_MAP_VIEW : DESKTOP_INITIAL_MAP_VIEW;
+          state.map.flyTo({ ...view, duration: prefersReducedMotion() ? 0 : 800 });
+        } else {
+          fitToPoints(visible, { maxZoom: 14 });
+        }
+      }
       updateReviewUrl();
     };
     const toggleIntent = (intent) => {
@@ -2335,6 +2363,11 @@
   // tag to its human label ("Live Music", "Family & Kids"). The firehose carries
   // `category` (a comma list), not `program`, so fall back to the first category.
   function eventProgramTab(event) {
+    // Critique 2026-07-08 P2: Trumba program strings ("Arts & Gallery") forked
+    // from the official NCAC taxonomy in the browse list. The venue's own
+    // category is the shared vocabulary — prefer it when the venue resolves.
+    const venue = event.placeId ? state.places.find((place) => place.id === event.placeId) : null;
+    if (venue?.category) return venue.category;
     return (event.program || (event.category || "").split(",")[0] || "").trim();
   }
 
@@ -2684,7 +2717,21 @@
     // gone — a random place implied "this is all there is" (her Family & Kids
     // read). Reversible: placeCard() and samplerPlaces still exist for the
     // poke-around session if a curated-places row earns its way back.
-    distinctEvents.slice(0, 10).forEach((event) => items.push(eventCard(event)));
+    // Venue diversity before strict date order (critique 2026-07-08 P2: 8 of
+    // the first 10 cards were one venue — reads "one makerspace has a
+    // calendar", not "the county has culture"). Cap 2 cards per venue on the
+    // first pass, then backfill by date if fewer than 10 made the cut.
+    const perVenue = new Map();
+    const diverse = [];
+    const overflow = [];
+    distinctEvents.forEach((event) => {
+      const count = perVenue.get(event.placeId) || 0;
+      if (count < 2) { perVenue.set(event.placeId, count + 1); diverse.push(event); }
+      else overflow.push(event);
+    });
+    diverse.concat(overflow).slice(0, 10)
+      .sort((a, b) => (a.date < b.date ? -1 : a.date > b.date ? 1 : 0))
+      .forEach((event) => items.push(eventCard(event)));
     void placeCard; void samplerPlaces;
     const story = state.museStories[0];
     if (story) {

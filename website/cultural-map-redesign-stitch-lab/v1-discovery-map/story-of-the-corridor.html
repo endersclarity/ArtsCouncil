@@ -60,7 +60,7 @@
       border-radius: 50%;
       pointer-events: none; z-index: 9999;
       mix-blend-mode: difference; display: none;
-      transition: width .25s ease, height .25s ease;
+      transition: transform .25s cubic-bezier(0.22, 1, 0.36, 1);
     }
     .cursor-dot {
       position: fixed; width: 6px; height: 6px;
@@ -637,8 +637,8 @@
         cursorDot.style.top   = dy - 3 + 'px';
       });
       document.querySelectorAll('a, button').forEach(el => {
-        el.addEventListener('mouseenter', () => { cursorRing.style.width = '54px'; cursorRing.style.height = '54px'; });
-        el.addEventListener('mouseleave', () => { cursorRing.style.width = '38px'; cursorRing.style.height = '38px'; });
+        el.addEventListener('mouseenter', () => { cursorRing.style.transform = 'scale(1.42)'; });
+        el.addEventListener('mouseleave', () => { cursorRing.style.transform = 'scale(1)'; });
       });
 
       /* ---- Spotlight on dark sections ---- */

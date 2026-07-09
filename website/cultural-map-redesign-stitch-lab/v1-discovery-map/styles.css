@@ -545,6 +545,18 @@ button {
   margin-top: 14px;
 }
 
+/* Touch ergonomics (critique 2026-07-08 P2): chips/tabs/rows measured
+   31-39px tall — under the 44px minimum. Desktop density is deliberate, so
+   the bump applies only where the pointer is a finger. */
+@media (pointer: coarse) {
+  .rail-chip,
+  .mode-tab,
+  .outing-row,
+  .time-lens-chip {
+    min-height: 44px;
+  }
+}
+
 .outing-done {
   border: 0;
   background: transparent;
