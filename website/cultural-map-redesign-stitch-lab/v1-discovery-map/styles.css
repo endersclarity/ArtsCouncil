@@ -919,7 +919,7 @@ body:not([data-map-mode="places"]) .review-tools {
 
 .marker-preview-kicker {
   color: var(--ink);
-  font-size: 9px;
+  font-size: 10px;
   font-weight: 900;
   letter-spacing: 0.04em;
   line-height: 1;
@@ -3014,7 +3014,9 @@ body.rail-browse .discovery-rail {
   background: var(--rail-frame);
   color: #fff;
   font-family: var(--font-brand);
-  font-size: 8.5px;
+  /* Audit 2026-07-08: 8.5px was below any readability floor; 10.5px keeps
+     the poster-kicker proportion while staying legible on phones. */
+  font-size: 10.5px;
   font-weight: 800;
   letter-spacing: 0.085em;
   text-transform: uppercase;
