@@ -3,6 +3,12 @@
  "entries": [
   {
    "date": "2026-07-08",
+   "title": "Faster first load — heavy data now arrives after the map appears",
+   "summary": "The map was downloading 13 MB of data before settling, most of it reference material a visitor may never touch. Now the map paints with just the essentials (~3 MB) and the heavyweight files — MUSE article links, the browse sampler, and trail route geometry — stream in quietly afterwards. Trail routes still draw on selection and the MUSE features still work; they just don't hold up first paint anymore.",
+   "kind": "improvement"
+  },
+  {
+   "date": "2026-07-08",
    "title": "Polish pass: the map always recovers, and the rail shows the whole county",
    "summary": "Six refinements from today's design review. The big one: after zooming to a place, choosing a category no longer leaves you staring at an empty stretch of map — the view flies back to frame the places you filtered. The bottom rail now caps each venue at two cards so ten venues, not one, represent the county. Event cards use the same official category names as the browse list, the legend no longer claims a color code it never explained, touch targets meet the 44px minimum on phones, and a failed search now offers a one-tap 'Clear search.'",
    "kind": "improvement"

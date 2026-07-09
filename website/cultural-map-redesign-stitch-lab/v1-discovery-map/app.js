@@ -3967,14 +3967,38 @@
     });
   }
 
+  // Payload diet (audit 2026-07-08 P1): first load was 13.3 MB because every
+  // sidecar fetched upfront. The heavy, non-critical three — evidence links
+  // (1.9 MB, powers the Featured-in-MUSE chip count + per-place MUSE links),
+  // the grounded sampler (4.5 MB for a list of starting-view ids), and trail
+  // geometry (1.5 MB, only drawn on trail selection) — now load AFTER first
+  // paint and re-render the surfaces that depend on them when they arrive.
+  function loadDeferredData() {
+    fetch(DATA.museEvidence).then((r) => r.json()).catch(() => ({ links: [] })).then((museEvidence) => {
+      state.museEvidenceByPlace = buildDirectMuseEvidenceByPlace(museEvidence);
+    });
+    fetch(DATA.museSampler).then((r) => r.json()).catch(() => ({ showcaseSampler: [] })).then((museSampler) => {
+      state.browseSamplerPlaceIds = (museSampler.showcaseSampler || museSampler.recommendedSampler || [])
+        .map((place) => place.id)
+        .filter(Boolean);
+      // Starting-view list + sampler dots depend on these ids.
+      if (isBrowseStartingView()) { renderPlacesList(); setSourceData(); }
+    });
+    fetch(DATA.trails).then((r) => r.json()).catch(() => ({ trails: {} })).then((trailsData) => {
+      state.trails = (trailsData && trailsData.trails) || {};
+      // A deep-linked trail selected before the geometry arrived gets its
+      // route drawn now instead of never.
+      const selected = state.places.find((place) => place.id === state.selectedPlaceId);
+      if (selected && selected.trailRef) drawSelectedTrail(selected);
+    });
+  }
+
   async function init() {
-    const [places, events, paths, anchorCards, museEvidence, museSampler, museStories, museStoryThumbs, warmStyle, trailsData] = await Promise.all([
+    const [places, events, paths, anchorCards, museStories, museStoryThumbs, warmStyle] = await Promise.all([
       fetch(DATA.places).then((r) => r.json()),
       fetch(DATA.events).then((r) => r.json()),
       fetch(DATA.paths).then((r) => r.json()),
       fetch(DATA.anchorCards).then((r) => r.json()).catch(() => []),
-      fetch(DATA.museEvidence).then((r) => r.json()).catch(() => ({ links: [] })),
-      fetch(DATA.museSampler).then((r) => r.json()).catch(() => ({ showcaseSampler: [] })),
       fetch(DATA.museStories).then((r) => r.json()).catch(() => ({ stories: [] })),
       fetch(DATA.museStoryThumbs).then((r) => r.json()).catch(() => ({})),
       // F10: pre-fetch the Liberty style and retint it BEFORE the Map is
@@ -3985,9 +4009,7 @@
         .then((r) => (r.ok ? r.json() : Promise.reject(new Error(`style fetch ${r.status}`))))
         .then((style) => warmStyleObject(style))
         .catch(() => null),
-      fetch(DATA.trails).then((r) => r.json()).catch(() => ({ trails: {} })),
     ]);
-    state.trails = (trailsData && trailsData.trails) || {};
     state.anchorCards = Array.isArray(anchorCards) ? anchorCards : [];
     state.museStories = museStories.stories || [];
     // Join hero thumbnails from the regen-safe sidecar (keyed by stable article
@@ -3999,10 +4021,6 @@
     });
     // Featured-in-MUSE membership: exact article links only (owner ruling).
     state.museFeaturedIds = new Set(state.museStories.flatMap((story) => story.placeIds || []));
-    state.museEvidenceByPlace = buildDirectMuseEvidenceByPlace(museEvidence);
-    state.browseSamplerPlaceIds = (museSampler.showcaseSampler || museSampler.recommendedSampler || [])
-      .map((place) => place.id)
-      .filter(Boolean);
     state.places = applyAnchorCards(places, state.anchorCards);
     // Belt-and-suspenders Event Freshness Guarantee: the transform pre-filters
     // to date>=today, but a same-day boundary or a hand-edited file could still
@@ -4058,6 +4076,8 @@
       setSourceData();
       applyInitialReviewState();
       initDiscoveryRail();
+      // First paint is done — bring in the heavy sidecars (audit P1).
+      loadDeferredData();
     });
 
     state.map.on("moveend", updateSmartLabels);
