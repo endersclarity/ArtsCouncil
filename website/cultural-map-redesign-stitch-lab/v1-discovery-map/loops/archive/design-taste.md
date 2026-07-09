@@ -46,3 +46,44 @@
 
 ## Iteration log
 (append-only: pass #, attempted, verifier result, delta)
+
+- Pass 1 (2026-07-03): targets 1-2. Retired text-transform:uppercase on
+  outing-browse-title, section-label, selected-place-close, trail-facts dt,
+  trail-control-label, anchor-context-chips span, review-search-label,
+  directory-record-meta dt, seen-in-muse-item small, anchor-card-meta strong,
+  detail-location, event-feature-venue, drift-bar-label (tracking trimmed to
+  match). Kept as sanctioned marks: site-nav, alpha-pill, kickers/eyebrows
+  (intro kicker, marker-preview-kicker, detail-eyebrow, place-feature-flag),
+  badges (place-list-badge, image-proof-label, placeholder-label,
+  anchor-demo-badge), rail-card-tab poster tab, mobile map town labels.
+  Italics: surprise em + description-provenance -> upright; new
+  seen-in-muse-item em rule (story cue was default italic); path-stop/event
+  list em already normal. Verified live via chrome rig (computed styles:
+  tt=none on all retired selectors, Close/chips/meta confirmed in an open
+  detail card); both contract tests green. Commit d49f077, pushed,
+  token cla-91-register. Delta: register violations cleared per grep;
+  re-critique deferred until after pass 2.
+
+- Pass 2 (2026-07-03): targets 3-4. Twin event counts reconciled by labeling
+  units: mood-row Events count renders "74 venues" (places hosting events)
+  vs Events tab "48 upcoming events" — different units now self-explanatory.
+  Hairline consistency: 3 ad-hoc color-mix ink hairlines (event-list +
+  trail-list row dividers, mobile nav border) -> var(--line). Measure/rag
+  found already handled (text-wrap balance/pretty rules exist from county
+  polish). Verified live ("Events | 74 venues" rendered, no JS errors);
+  contract tests green. Commit c49530e, pushed, token cla-92-taste2.
+  Next: fresh re-critique decides exit.
+
+- Pass 3 (2026-07-03) — EXIT: DONE. Fresh critic scored **35/40** (baseline
+  32), **0 P0, 0 P1, zero brand-register violations** — computed-style sweep
+  found uppercase only on sanctioned chrome (nav, alpha pill, Start-here
+  flag, route kicker, category badge), zero italics anywhere, UI dates
+  guide-perfect. Critique at
+  .impeccable/critique/2026-07-03__design-taste-rescore.md. Verified-fixed
+  from prior backlog: Tonight→Today, trails/route-stop URL sync, selection
+  sync, filter-clear hatch copy, collision cluster. Remaining P2s handed to
+  owner via the critique: Events topline "49 upcoming events" vs list
+  "22 · 49 dates" (occurrences vs series), search doesn't filter map dots
+  while claiming "…on the map", Makers route blurb reads as ad copy.
+  Rail/Drift motion unjudgeable in the rig this round (rig artifact, prior
+  verification carries). Score arc: 32 → 35/40. Commits: d49f077, c49530e.
