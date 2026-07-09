@@ -3,6 +3,12 @@
  "entries": [
   {
    "date": "2026-07-08",
+   "title": "New story page: 48 Hours in GVNC — straight from MUSE, linked to the map",
+   "summary": "The second MUSE story page is live: '48 Hours in GVNC: Exploring Culture & Art' from MUSE Issue 01/2024, word-for-word as Jesse Locks wrote it, with the article's own photography (Gold Country Photography & Akim Aginsky) including the Grass Valley mural opening spread and the Nevada Theatre's Sarah Coleman mural. Its closing button opens the Cultural Map with all 19 places the story mentions marked — powered by a new story link the map now understands.",
+   "kind": "feature"
+  },
+  {
+   "date": "2026-07-08",
    "title": "Audit follow-ups: crisper small type and under-the-hood hardening",
    "summary": "The tiny category label on rail posters and the map-marker preview kicker are bumped to readable sizes on phones. Under the hood: the map's density styling now tolerates missing data instead of warning, the live-event halo color is defined once instead of twice, and the site declares itself light-mode so dark-mode phones don't darken the form controls.",
    "kind": "improvement"

@@ -3502,6 +3502,14 @@
     }
     state.isApplyingReviewState = false;
     updateReviewUrl();
+    // ?story=<muse-story-id> deep link (transient lens, not round-tripped):
+    // lets the standalone MUSE story pages open the map with the article's
+    // places ringed. Applied after mode/place state so it wins the detail card.
+    const storyId = new URLSearchParams(window.location.search).get("story");
+    if (storyId) {
+      const story = state.museStories.find((item) => item.id === storyId);
+      if (story) renderStory(story);
+    }
   }
 
   // Warmth pass 4 (cla-65): retint the Liberty basemap to the brand's warm

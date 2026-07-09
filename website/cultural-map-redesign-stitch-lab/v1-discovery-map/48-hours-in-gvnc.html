@@ -1,0 +1,292 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>48 Hours in GVNC · Nevada County Cultural Map</title>
+  <meta name="description" content="48 Hours in GVNC: Exploring Culture &amp; Art — from MUSE Issue 01 / 2024, with every mentioned place on the Nevada County Cultural Map.">
+  <meta name="theme-color" content="#ffffff">
+  <link rel="preload" href="assets/fonts/polymath-variable.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="icon" type="image/svg+xml" href="assets/brand/NCAC_logotype_avatar.svg">
+  <style>
+    /* MUSE story page. Every sentence of body copy is verbatim from MUSE
+       Issue 01 / 2024, pages 28-30 ("48 Hours in GVNC", words Jesse Locks),
+       verified against the page scans in docs/muse-corpus/2024/pages. The
+       photographs are the article's own (Gold Country Photography & Akim
+       Aginsky), cropped from the scans with printed credits carried over.
+       No editorial additions. */
+    @font-face {
+      font-family: "polymath-variable-2th9nk";
+      font-style: normal;
+      font-weight: 100 900;
+      font-display: swap;
+      src: url("assets/fonts/polymath-variable.woff2") format("woff2");
+    }
+    :root {
+      --paper: #ffffff;
+      --ink: #000000;
+      --ink-soft: rgba(0, 0, 0, 0.66);
+      --red: #ff2500;
+      --font: "polymath-variable-2th9nk", system-ui, sans-serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { background: var(--paper); color: var(--ink); font-family: var(--font); line-height: 1.55; }
+    img { display: block; max-width: 100%; }
+
+    .topline {
+      position: sticky; top: 0; z-index: 10;
+      display: flex; justify-content: space-between; align-items: center;
+      padding: 12px clamp(18px, 4vw, 54px);
+      background: var(--paper); border-bottom: 4px solid var(--red);
+    }
+    .topline a { color: var(--ink); text-decoration: none; font-weight: 700; font-size: 13px; }
+    .topline a:hover { color: var(--red); }
+
+    .art-hero { line-height: 0; }
+    .hero-bg { width: 100%; height: auto; }
+    .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+    .intro { padding: clamp(30px, 5vw, 56px) clamp(18px, 5vw, 72px) clamp(16px, 3vw, 30px); max-width: 900px; margin: 0 auto; text-align: center; }
+    .hero-kicker { font-size: 13px; font-weight: 800; letter-spacing: 0.04em; text-transform: uppercase; color: #fff; background: var(--red); display: inline-block; padding: 5px 10px 4px; }
+    .intro-deck { font-size: clamp(17px, 1.8vw, 22px); line-height: 1.5; margin: 22px auto 0; max-width: 58ch; text-wrap: pretty; }
+    .intro-byline { margin-top: 16px; font-size: 12.5px; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; color: var(--ink-soft); }
+
+    .chapter { padding: clamp(56px, 9vw, 120px) clamp(18px, 5vw, 72px); }
+    .chapter.dark { background: var(--ink); color: #fff; }
+    .chapter.dark .chapter-copy p { color: rgba(255,255,255,0.85); }
+    .chapter-inner { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 5fr); gap: clamp(28px, 5vw, 72px); align-items: center; }
+    .chapter-inner.reverse .chapter-copy { order: 2; }
+    .chapter-label { color: var(--red); font-weight: 800; font-size: 14px; margin-bottom: 10px; }
+    .chapter h2 { font-size: clamp(26px, 3.4vw, 44px); line-height: 1.04; letter-spacing: -0.015em; margin-bottom: 22px; text-wrap: balance; }
+    .chapter-copy p { margin-bottom: 16px; max-width: 62ch; color: var(--ink-soft); font-size: 16.5px; text-wrap: pretty; }
+    .chapter-copy p:last-child { margin-bottom: 0; }
+    .chapter figure { margin: 0; }
+    .chapter figure img { width: 100%; border: 3px solid var(--red); }
+    .chapter.dark figure img { border-color: #fff; }
+    .chapter figcaption { font-size: 12.5px; margin-top: 8px; opacity: 0.65; }
+    .stack { display: grid; gap: 18px; }
+
+    .pull { padding: clamp(56px, 9vw, 110px) clamp(18px, 5vw, 72px); background: var(--red); color: #fff; text-align: center; }
+    .pull blockquote { max-width: 22ch; margin: 0 auto; font-size: clamp(26px, 4vw, 52px); line-height: 1.1; letter-spacing: -0.015em; font-weight: 700; text-wrap: balance; }
+    .pull cite { display: block; margin-top: 20px; font-style: normal; font-size: 13px; font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase; opacity: 0.85; }
+
+    .finale { padding: clamp(64px, 10vw, 130px) clamp(18px, 5vw, 72px); text-align: center; }
+    .finale h2 { font-size: clamp(28px, 4vw, 52px); letter-spacing: -0.015em; margin-bottom: 14px; text-wrap: balance; }
+    .finale p { color: var(--ink-soft); max-width: 56ch; margin: 0 auto 26px; }
+    .finale-cta { display: inline-block; background: var(--red); color: #fff; text-decoration: none; font-weight: 800; font-size: 16px; padding: 15px 28px; }
+    .finale-cta:hover { background: #d81f00; }
+    .finale-credit { margin-top: 34px; font-size: 12.5px; font-weight: 700; letter-spacing: 0.03em; text-transform: uppercase; color: var(--ink-soft); }
+
+    /* Scroll reveal: enhances an already-visible default; content never
+       hidden without JS, and reduced-motion gets no movement at all. */
+    .reveal { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: no-preference) {
+      body.js .reveal { opacity: 0; transform: translateY(18px); transition: opacity 600ms cubic-bezier(0.22,1,0.36,1), transform 600ms cubic-bezier(0.22,1,0.36,1); }
+      body.js .reveal.in { opacity: 1; transform: none; }
+    }
+    @media (max-width: 820px) {
+      .chapter-inner { grid-template-columns: 1fr; }
+      .chapter-inner.reverse .chapter-copy { order: 0; }
+    }
+  </style>
+</head>
+<body>
+  <div class="topline">
+    <a href="https://www.nevadacountyarts.org/">Nevada County Arts &amp; Culture</a>
+    <a href="index.html?story=muse-2024-48-hours-in-gvnc-exploring-culture-and-art">Open the map &rarr;</a>
+  </div>
+
+  <!-- The hero IS the article's opening art — the magazine's own typeset title
+       is baked into the mural photograph, so the page adds no headline on top
+       of it (the h1 below serves structure and screen readers). -->
+  <section class="hero art-hero">
+    <img class="hero-bg" src="assets/muse-48h/gv-mural-hero.jpg" alt="The article's opening spread: the Grass Valley mural with the printed title '48 Hours in GVNC: Exploring Culture &amp; Art'">
+  </section>
+  <section class="intro">
+    <span class="hero-kicker">Grass Valley&ndash;Nevada City Cultural District Spotlight</span>
+    <h1 class="sr-only">48 Hours in GVNC: Exploring Culture &amp; Art</h1>
+    <p class="intro-deck">
+      In 2017, when the California Arts Council announced the 14 districts that would serve as
+      California&rsquo;s inaugural state-designated Cultural Districts, only four were from rural
+      communities, and two of them just so happened to be in Nevada County &mdash; Truckee and the
+      combined small towns of Grass Valley and Nevada City.
+    </p>
+    <p class="intro-byline">Words / Jesse Locks &middot; MUSE Issue 01 / 2024</p>
+  </section>
+
+  <section class="chapter">
+    <div class="chapter-inner">
+      <div class="chapter-copy reveal">
+        <p class="chapter-label">The District</p>
+        <h2>At the epicenter</h2>
+        <p>
+          It was a moment that signified something both locals and frequent visitors already knew
+          about the infamous gold rush towns&mdash;the Grass Valley Nevada City (GVNC) Cultural
+          District has a long history of being at the epicenter of arts (all forms visual, literary,
+          media, healing, etc.), culture, and technology in California.
+        </p>
+        <p>
+          From one of the greatest American poets, Gary Snyder, to progressive journalist Jennie
+          Carter; filmmakers Jonathan Dayton (Little Miss Sunshine) and Adrian Molina (Coco) to
+          professional skateboarders John Cardiel and Chris Senn, snowboarders Tina Basich Haller;
+          and let&rsquo;s not forget the bevy of musicians (Utah Phillips, Roger Hodgson, Joanna
+          Newsom, Jonathan Richman, and Hunter Burgan), dancers (Lola Montez, Alison Clancy), and
+          artists (Charles Woods and David Osborn, Rose Freymuth-Frazier, and Tahiti Pehrson) are
+          just a few who have called this place home.
+        </p>
+        <p>
+          Maybe it&rsquo;s the vibes we feel unconsciously from the granite and gold quartz
+          reverberating all around, or the sounds of the whispering pines, or the sheer number of
+          people making art professionally and for fun&mdash;but art doesn&rsquo;t just grow here,
+          it thrives and flourishes.
+        </p>
+      </div>
+      <figure class="reveal">
+        <img src="assets/muse-48h/aerialist.jpg" alt="An aerialist performing on silks above a downtown street crowd" loading="lazy">
+        <figcaption>From the pages of MUSE &mdash; photos Gold Country Photography.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="chapter dark">
+    <div class="chapter-inner reverse">
+      <figure class="reveal">
+        <img src="assets/muse-48h/mill-street-holidays.jpg" alt="Mill Street in Grass Valley strung with lights, the Del Oro Theatre spire glowing at dusk" loading="lazy">
+        <figcaption>Mill Street and the Del Oro spire &mdash; Gold Country Photography.</figcaption>
+      </figure>
+      <div class="chapter-copy reveal">
+        <p class="chapter-label">Grass Valley</p>
+        <h2>Public art on every corner</h2>
+        <p>
+          From the moment you step out onto Mill Street in the heart of Grass Valley you are
+          surrounded by charming shops, an array of dining options, and public art on every corner.
+        </p>
+        <p>
+          The iconic spire of the <strong>Del Oro Theatre</strong> can be seen at various downtown
+          vantage points while stunning large-scale murals tell unique local stories. They include
+          the open &ldquo;Mine Shaft&rdquo; at 165 Mill Street by John Pugh, the iconic Grass Valley
+          sign at 101 Mill Street by Justin Lovato, &ldquo;A New Dawn&rdquo; at 105 S Church Street
+          painted by Miles Toland, Ursula X Young&rsquo;s one-of-a-kind take on the famous dancer
+          Lola Montez can be seen at 121 Neal Street, and the Nisenan mural &ldquo;Solim Ni&mdash;I
+          sing&rdquo; painted by Nikila Badua at 305 Neal Street.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter">
+    <div class="chapter-inner">
+      <div class="chapter-copy reveal">
+        <p class="chapter-label">Eat &middot; Play &middot; Stay</p>
+        <h2>Treasure hunting, downtown</h2>
+        <p>
+          Check out local art and artisans at <strong>Artworks Gallery</strong> or <strong>Make
+          Local Habit</strong>. Pick up that impossible to find LP from <strong>Clocktower
+          Records</strong> or <strong>Ron&rsquo;s Real Records</strong>, your next favorite page
+          turning novel at <strong>The Bookseller</strong> or something more obscure at
+          <strong>Booktown Books</strong>, cables for your guitar amp or a new guitar at
+          <strong>Foggy Mountain Music</strong>, or specialty yarn at <strong>Heathered Yarn Co</strong>.
+        </p>
+        <p>
+          Sip local and regional wines at <strong>Cork 49</strong>, <strong>New West Wines</strong>,
+          or <strong>Sierra Star Winery</strong> or a beer at <strong>Grass Valley Brewery</strong>.
+          Maybe it&rsquo;s something sweet you are craving. Satisfy your sweet tooth with a French
+          pastry from <strong>Cake</strong>, hand dipped <strong>Lazy Dog Ice Cream</strong> or
+          something delicious AND gluten free from <strong>Corvus Bakery</strong>.
+        </p>
+        <p>
+          Pick up lunch or a picnic from <strong>Backporch Market</strong>, <strong>Tess&rsquo;
+          Kitchen</strong> or <strong>El Barrio Market</strong> before heading over to
+          <strong>Empire Mine State Historic Park</strong>. Just over one mile away from downtown
+          Grass Valley, Empire Mine is the site of one of the oldest, deepest, and richest gold
+          mines in California. Here you can tour the lush grounds or take a more vigorous hike along
+          its many trails.
+        </p>
+        <p>
+          Finish up the evening with a hand-crafted, custom-blended cocktail at the <strong>Iron
+          Door Saloon</strong> at the beautifully renovated historic <strong>Holbrooke Hotel</strong>.
+          Or enjoy some live music, comedy, dance or theater at the <strong>Center for the Arts</strong>.
+        </p>
+      </div>
+      <figure class="reveal">
+        <img src="assets/muse-48h/miner-mural.jpg" alt="A large mural of a miner on a brick building at sunset" loading="lazy">
+        <figcaption>From the pages of MUSE &mdash; photos Gold Country Photography.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section class="pull">
+    <blockquote class="reveal">
+      On the weekends the streets come alive with visitors heading downtown for dinner, a movie or
+      to take in some live music or theater.
+      <cite>48 Hours in GVNC &middot; MUSE Issue 01 / 2024</cite>
+    </blockquote>
+  </section>
+
+  <section class="chapter dark">
+    <div class="chapter-inner reverse">
+      <figure class="stack reveal">
+        <img src="assets/muse-48h/nevada-theatre-interior.jpg" alt="The Nevada Theatre auditorium: red seats under a painted night-sky ceiling with a glowing moon" loading="lazy">
+        <img src="assets/muse-48h/broad-street-summer.jpg" alt="Broad Street in Nevada City on a busy summer evening" loading="lazy">
+        <figcaption>The Nevada Theatre mural by Sarah Coleman &mdash; photo Akim Aginsky; Broad Street &mdash; Gold Country Photography.</figcaption>
+      </figure>
+      <div class="chapter-copy reveal">
+        <p class="chapter-label">Nevada City</p>
+        <h2>Four miles away, a movie set</h2>
+        <p>
+          Just four miles away is Nevada City, originally named Nevada (Spanish for
+          &ldquo;snow-covered&rdquo;) after a particularly snowy winter in 1850. The word
+          &ldquo;City&rdquo; was added in 1864 to relieve confusion with the nearby state of Nevada.
+        </p>
+        <p>
+          Historic Victorian homes and their heritage gardens line the winding streets here. The
+          town&rsquo;s main corridor, Broad Street, looks like something from a movie set, perfectly
+          preserved and a reminder of bygone eras. Stop by the <strong>Nevada City Chamber of
+          Commerce</strong> and pick up a walking tour or a tree map to fully acquaint yourself.
+        </p>
+        <p>
+          The historic <strong>Nevada Theatre</strong>&mdash;the oldest continuously operated
+          theater venue on the West Coast&mdash;is home to several theater companies including
+          <strong>Community Asian Theater of the Sierra (CATS)</strong>, <strong>Sierra
+          Stages</strong>, <strong>LeGacy Presents</strong>, and <strong>The Lyric Rose Theatre
+          Company</strong>. On Sundays <strong>The Onyx Downtown</strong> screens classic, repertory
+          and independent films. The theatre recently underwent an extensive interior renovation
+          which includes a stunning, must-see, large-scale, completely original mural spanning the
+          entire auditorium painted by artist Sarah Coleman.
+        </p>
+        <p>
+          Across the street from KVMR is a hub of arts and culture in Nevada City&mdash;the
+          <strong>Miners Foundry Cultural Center</strong>. Once a foundry that repaired heavy
+          machinery for the mines, the space was reimagined in the late 1960s and 70s as the
+          American Victorian Museum by two San Francisco artists, Charles Woods and David Osborn.
+          The Miners Foundry has since hosted everything from the annual Robert Burns Scottish
+          Celebration to a secret concert by the Red Hot Chili Peppers.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="finale">
+    <h2 class="reveal">Every place in this story is on the map</h2>
+    <p class="reveal">
+      This article mentions 19 places you can visit on the Nevada County Cultural Map &mdash; open
+      it with all of them marked.
+    </p>
+    <a class="finale-cta reveal" href="index.html?story=muse-2024-48-hours-in-gvnc-exploring-culture-and-art">
+      See the 19 places on the map &rarr;
+    </a>
+    <p class="finale-credit">
+      Words Jesse Locks &middot; Photos Gold Country Photography &amp; Akim Aginsky (Nevada Theater)
+      &middot; MUSE Issue 01 / 2024, pages 28&ndash;31
+    </p>
+  </section>
+
+  <script>
+    document.body.classList.add("js");
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => { if (entry.isIntersecting) { entry.target.classList.add("in"); io.unobserve(entry.target); } });
+    }, { threshold: 0.15 });
+    document.querySelectorAll(".reveal").forEach((el) => io.observe(el));
+  </script>
+</body>
+</html>
