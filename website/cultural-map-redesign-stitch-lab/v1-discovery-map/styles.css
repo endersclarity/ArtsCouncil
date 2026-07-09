@@ -10,11 +10,17 @@
 }
 
 :root {
+  /* Light-only by design (brand ruling) — declare it so dark-mode OSes don't
+     dark-adapt native form controls against the white surfaces. */
+  color-scheme: light;
   /* Brand adoption (NCAC-V1-BRAND.md "Decided direction for the V1 map"): the
      warm Gold-Country cream/charcoal system is retired for the guide's cool
      ground — white surfaces, black text, gray #F7F7F7 wells — and the red
      corrects to the canonical Nevada County Red #FF2500. */
   --ncac-red: #ff2500;
+  /* Live-event halo plum. Must match MARKERS.plum in app.js (MapLibre paint
+     can't read CSS vars) — change both together. */
+  --halo-plum: 84, 70, 107;
   /* Text-safe cut of the brand red: #ff2500 on white is 3.81:1 (fails AA for
      body-size text). Use this 5.18:1 print-red wherever red renders as small
      text; the decorative #ff2500 stays for frames, rings, and large marks. */
@@ -2479,11 +2485,9 @@ body.drifting .county-reset {
   border: 2.4px solid var(--ncac-red);
 }
 
-/* Plum must match MARKERS.plum in app.js (the live event halo on the map) —
-   CSS can't read that constant, so change both together. */
 .legend-dot.halo {
-  background: rgba(84, 70, 107, 0.35);
-  box-shadow: 0 0 5px 2px rgba(84, 70, 107, 0.35);
+  background: rgba(var(--halo-plum), 0.35);
+  box-shadow: 0 0 5px 2px rgba(var(--halo-plum), 0.35);
 }
 
 .legend-line {

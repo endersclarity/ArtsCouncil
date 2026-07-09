@@ -3711,9 +3711,9 @@
       paint: {
         "circle-radius": [
           "interpolate", ["linear"], ["zoom"],
-          7, ["case", ["get", "denseConstellation"], ["interpolate", ["linear"], ["get", "nearbyDensity"], 8, 5.5, 18, 7.8, 36, 10.8], 3.8],
-          11, ["case", ["get", "denseConstellation"], ["interpolate", ["linear"], ["get", "nearbyDensity"], 8, 5.5, 18, 7.8, 36, 10.8], 5],
-          14, ["case", ["get", "denseConstellation"], ["interpolate", ["linear"], ["get", "nearbyDensity"], 8, 5.5, 18, 7.8, 36, 10.8], 6]
+          7, ["case", ["get", "denseConstellation"], ["interpolate", ["linear"], ["coalesce", ["get", "nearbyDensity"], 0], 8, 5.5, 18, 7.8, 36, 10.8], 3.8],
+          11, ["case", ["get", "denseConstellation"], ["interpolate", ["linear"], ["coalesce", ["get", "nearbyDensity"], 0], 8, 5.5, 18, 7.8, 36, 10.8], 5],
+          14, ["case", ["get", "denseConstellation"], ["interpolate", ["linear"], ["coalesce", ["get", "nearbyDensity"], 0], 8, 5.5, 18, 7.8, 36, 10.8], 6]
         ],
         "circle-color": CATEGORY_COLOR,
         // Flow-upgrade Stage 1: ordinary dots stay recessive at county zoom so
