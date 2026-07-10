@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-07-09T10:23:50.447661+00:00",
+  "generated_at": "2026-07-10T10:22:45.968507+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 331,
-    "matched_events": 197,
-    "unmatched_events": 134,
+    "total_events": 328,
+    "matched_events": 193,
+    "unmatched_events": 135,
     "matched_by_pid": 0,
     "matched_by_alias": 6,
-    "matched_by_name_city": 69,
-    "matched_by_name_city_fuzzy": 122,
-    "upcoming_14d": 178
+    "matched_by_name_city": 64,
+    "matched_by_name_city_fuzzy": 123,
+    "upcoming_14d": 175
   },
   "unmatched_venues": [
     {
@@ -19,7 +19,7 @@
       "venue_name": "Wonder Docent",
       "venue_city": "Nevada City",
       "count": 31,
-      "sample_event_id": "trumba-204682317",
+      "sample_event_id": "trumba-204682318",
       "sample_title": "In the Night Dimension and Those We Meet at Twilight",
       "candidate_assets": []
     },
@@ -27,8 +27,8 @@
       "venue_key": "ericroodcenter|nevadacity",
       "venue_name": "Eric Rood Center",
       "venue_city": "Nevada City",
-      "count": 22,
-      "sample_event_id": "trumba-202909253",
+      "count": 21,
+      "sample_event_id": "trumba-202909254",
       "sample_title": "Lavender Glow | Queer Art & Our Shared History",
       "candidate_assets": []
     },
@@ -45,7 +45,7 @@
       "venue_key": "bodhihivestudio131|nevadacity",
       "venue_name": "Bodhi Hive, Studio #131",
       "venue_city": "Nevada City",
-      "count": 13,
+      "count": 14,
       "sample_event_id": "trumba-205204513",
       "sample_title": "Summer Nature Pop Art Classes",
       "candidate_assets": []
@@ -141,6 +141,15 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "darkhosecoffee|truckee",
+      "venue_name": "Dark Hose Coffee",
+      "venue_city": "Truckee",
+      "count": 2,
+      "sample_event_id": "trumba-116325477",
+      "sample_title": "Word Jam",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "suttercreektheatre|nevadacounty",
       "venue_name": "Sutter Creek Theatre",
       "venue_city": "Nevada County",
@@ -210,15 +219,6 @@
       "count": 1,
       "sample_event_id": "trumba-204519361",
       "sample_title": "Playing and Creating Original Rhythms -A Monthly Playshop",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "darkhosecoffee|truckee",
-      "venue_name": "Dark Hose Coffee",
-      "venue_city": "Truckee",
-      "count": 1,
-      "sample_event_id": "trumba-116325477",
-      "sample_title": "Word Jam",
       "candidate_assets": []
     },
     {
