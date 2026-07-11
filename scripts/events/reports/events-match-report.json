@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-07-10T10:22:45.968507+00:00",
+  "generated_at": "2026-07-11T08:45:33.583151+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 328,
-    "matched_events": 193,
+    "total_events": 330,
+    "matched_events": 195,
     "unmatched_events": 135,
     "matched_by_pid": 0,
     "matched_by_alias": 6,
     "matched_by_name_city": 64,
-    "matched_by_name_city_fuzzy": 123,
-    "upcoming_14d": 175
+    "matched_by_name_city_fuzzy": 125,
+    "upcoming_14d": 177
   },
   "unmatched_venues": [
     {
@@ -19,7 +19,7 @@
       "venue_name": "Wonder Docent",
       "venue_city": "Nevada City",
       "count": 31,
-      "sample_event_id": "trumba-204682318",
+      "sample_event_id": "trumba-204682319",
       "sample_title": "In the Night Dimension and Those We Meet at Twilight",
       "candidate_assets": []
     },
@@ -28,7 +28,7 @@
       "venue_name": "Eric Rood Center",
       "venue_city": "Nevada City",
       "count": 21,
-      "sample_event_id": "trumba-202909254",
+      "sample_event_id": "trumba-202909255",
       "sample_title": "Lavender Glow | Queer Art & Our Shared History",
       "candidate_assets": []
     },
@@ -45,8 +45,8 @@
       "venue_key": "bodhihivestudio131|nevadacity",
       "venue_name": "Bodhi Hive, Studio #131",
       "venue_city": "Nevada City",
-      "count": 14,
-      "sample_event_id": "trumba-205204513",
+      "count": 13,
+      "sample_event_id": "trumba-205204514",
       "sample_title": "Summer Nature Pop Art Classes",
       "candidate_assets": []
     },
@@ -132,15 +132,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "nevadamuseumofart|renonv",
-      "venue_name": "Nevada Museum of Art",
-      "venue_city": "Reno, NV",
-      "count": 2,
-      "sample_event_id": "trumba-204518248",
-      "sample_title": "Getting to Net Zero with Washoe County Sustainability Manager Brian Beffort",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "darkhosecoffee|truckee",
       "venue_name": "Dark Hose Coffee",
       "venue_city": "Truckee",
@@ -213,12 +204,39 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "therhythmden|grassvalley",
-      "venue_name": "The Rhythm Den",
-      "venue_city": "Grass Valley",
+      "venue_key": "nevadamuseumofart|renonv",
+      "venue_name": "Nevada Museum of Art",
+      "venue_city": "Reno, NV",
       "count": 1,
-      "sample_event_id": "trumba-204519361",
-      "sample_title": "Playing and Creating Original Rhythms -A Monthly Playshop",
+      "sample_event_id": "trumba-202729191",
+      "sample_title": "Hands ON! Second Saturday",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "picnicarearightbbqs|nevadacity",
+      "venue_name": "Picnic Area Right- BBQ's",
+      "venue_city": "Nevada City",
+      "count": 1,
+      "sample_event_id": "trumba-205423068",
+      "sample_title": "KVMR Birthday",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "cedarcircle64bodhihive|nevadacity",
+      "venue_name": "Cedar Circle &#64; Bodhi-Hive",
+      "venue_city": "Nevada City",
+      "count": 1,
+      "sample_event_id": "bodhihive-dance-church-this-sunday-xuxa-bluet",
+      "sample_title": "Dance Church :: THIS SUNDAY! Xuxa Bluet",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "thebodhihive|nevadacity",
+      "venue_name": "The Bodhi-Hive",
+      "venue_city": "Nevada City",
+      "count": 1,
+      "sample_event_id": "bodhihive-free-outdoor-gear-clothing-swap",
+      "sample_title": "FREE Outdoor Gear & Clothing Swap",
       "candidate_assets": []
     },
     {
