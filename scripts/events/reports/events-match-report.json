@@ -1,25 +1,25 @@
 {
-  "generated_at": "2026-07-18T08:47:14.841706+00:00",
+  "generated_at": "2026-07-19T09:04:03.195704+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 336,
-    "matched_events": 205,
-    "unmatched_events": 131,
+    "total_events": 330,
+    "matched_events": 201,
+    "unmatched_events": 129,
     "matched_by_pid": 0,
     "matched_by_alias": 6,
-    "matched_by_name_city": 52,
-    "matched_by_name_city_fuzzy": 147,
-    "upcoming_14d": 183
+    "matched_by_name_city": 51,
+    "matched_by_name_city_fuzzy": 144,
+    "upcoming_14d": 177
   },
   "unmatched_venues": [
     {
       "venue_key": "wonderdocent|nevadacity",
       "venue_name": "Wonder Docent",
       "venue_city": "Nevada City",
-      "count": 30,
-      "sample_event_id": "trumba-204682326",
+      "count": 29,
+      "sample_event_id": "trumba-204682327",
       "sample_title": "In the Night Dimension and Those We Meet at Twilight",
       "candidate_assets": []
     },
@@ -27,7 +27,7 @@
       "venue_key": "ericroodcenter|nevadacity",
       "venue_name": "Eric Rood Center",
       "venue_city": "Nevada City",
-      "count": 21,
+      "count": 22,
       "sample_event_id": "trumba-202909260",
       "sample_title": "Lavender Glow | Queer Art & Our Shared History",
       "candidate_assets": []
@@ -72,7 +72,7 @@
       "venue_key": "mcknightcrossingshoppingcenter|grassvalley",
       "venue_name": "Mcknight crossing shopping center",
       "venue_city": "Grass Valley",
-      "count": 7,
+      "count": 6,
       "sample_event_id": "gvda-191631909",
       "sample_title": "Cars and coffee grass valley",
       "candidate_assets": []
@@ -192,15 +192,6 @@
       "count": 1,
       "sample_event_id": "gvda-198214906",
       "sample_title": "Decendants: The Musical",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "thebodhihive|nevadacity",
-      "venue_name": "The Bodhi-Hive",
-      "venue_city": "Nevada City",
-      "count": 1,
-      "sample_event_id": "bodhihive-free-outdoor-gear-clothing-swap",
-      "sample_title": "FREE Outdoor Gear & Clothing Swap",
       "candidate_assets": []
     },
     {
