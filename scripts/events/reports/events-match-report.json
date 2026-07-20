@@ -1,25 +1,25 @@
 {
-  "generated_at": "2026-07-19T09:04:03.195704+00:00",
+  "generated_at": "2026-07-20T09:58:45.225873+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 330,
-    "matched_events": 201,
-    "unmatched_events": 129,
+    "total_events": 326,
+    "matched_events": 198,
+    "unmatched_events": 128,
     "matched_by_pid": 0,
     "matched_by_alias": 6,
-    "matched_by_name_city": 51,
-    "matched_by_name_city_fuzzy": 144,
-    "upcoming_14d": 177
+    "matched_by_name_city": 50,
+    "matched_by_name_city_fuzzy": 142,
+    "upcoming_14d": 173
   },
   "unmatched_venues": [
     {
       "venue_key": "wonderdocent|nevadacity",
       "venue_name": "Wonder Docent",
       "venue_city": "Nevada City",
-      "count": 29,
-      "sample_event_id": "trumba-204682327",
+      "count": 28,
+      "sample_event_id": "trumba-204682328",
       "sample_title": "In the Night Dimension and Those We Meet at Twilight",
       "candidate_assets": []
     },
@@ -27,7 +27,7 @@
       "venue_key": "ericroodcenter|nevadacity",
       "venue_name": "Eric Rood Center",
       "venue_city": "Nevada City",
-      "count": 22,
+      "count": 23,
       "sample_event_id": "trumba-202909260",
       "sample_title": "Lavender Glow | Queer Art & Our Shared History",
       "candidate_assets": []
@@ -45,8 +45,8 @@
       "venue_key": "bodhihivestudio131|nevadacity",
       "venue_name": "Bodhi Hive, Studio #131",
       "venue_city": "Nevada City",
-      "count": 13,
-      "sample_event_id": "trumba-205204517",
+      "count": 12,
+      "sample_event_id": "trumba-205204518",
       "sample_title": "Summer Nature Pop Art Classes",
       "candidate_assets": []
     },
