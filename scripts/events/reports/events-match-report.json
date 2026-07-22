@@ -1,25 +1,25 @@
 {
-  "generated_at": "2026-07-21T09:26:01.108896+00:00",
+  "generated_at": "2026-07-22T09:25:02.133650+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 326,
-    "matched_events": 200,
-    "unmatched_events": 126,
+    "total_events": 327,
+    "matched_events": 203,
+    "unmatched_events": 124,
     "matched_by_pid": 0,
-    "matched_by_alias": 6,
+    "matched_by_alias": 8,
     "matched_by_name_city": 51,
-    "matched_by_name_city_fuzzy": 143,
-    "upcoming_14d": 173
+    "matched_by_name_city_fuzzy": 144,
+    "upcoming_14d": 174
   },
   "unmatched_venues": [
     {
       "venue_key": "wonderdocent|nevadacity",
       "venue_name": "Wonder Docent",
       "venue_city": "Nevada City",
-      "count": 27,
-      "sample_event_id": "trumba-204682329",
+      "count": 26,
+      "sample_event_id": "trumba-204682330",
       "sample_title": "In the Night Dimension and Those We Meet at Twilight",
       "candidate_assets": []
     },
@@ -28,7 +28,7 @@
       "venue_name": "Eric Rood Center",
       "venue_city": "Nevada City",
       "count": 23,
-      "sample_event_id": "trumba-202909261",
+      "sample_event_id": "trumba-202909262",
       "sample_title": "Lavender Glow | Queer Art & Our Shared History",
       "candidate_assets": []
     },
@@ -36,7 +36,7 @@
       "venue_key": "unknownvenue|nevadacity",
       "venue_name": "Unknown venue",
       "venue_city": "Nevada City",
-      "count": 14,
+      "count": 13,
       "sample_event_id": "gvda-198326438",
       "sample_title": "Fogelberg Revisited &#8211; A Tribute to Dan Fogelberg",
       "candidate_assets": []
