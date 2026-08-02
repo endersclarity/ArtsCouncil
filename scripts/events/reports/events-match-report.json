@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-08-01T09:04:58.513044+00:00",
+  "generated_at": "2026-08-02T09:07:14.186527+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 317,
-    "matched_events": 214,
-    "unmatched_events": 103,
+    "total_events": 313,
+    "matched_events": 212,
+    "unmatched_events": 101,
     "matched_by_pid": 0,
     "matched_by_alias": 6,
-    "matched_by_name_city": 49,
-    "matched_by_name_city_fuzzy": 159,
-    "upcoming_14d": 164
+    "matched_by_name_city": 48,
+    "matched_by_name_city_fuzzy": 158,
+    "upcoming_14d": 160
   },
   "unmatched_venues": [
     {
@@ -27,8 +27,8 @@
       "venue_key": "wonderdocent|nevadacity",
       "venue_name": "Wonder Docent",
       "venue_city": "Nevada City",
-      "count": 16,
-      "sample_event_id": "trumba-204682340",
+      "count": 15,
+      "sample_event_id": "trumba-204682341",
       "sample_title": "In the Night Dimension and Those We Meet at Twilight",
       "candidate_assets": []
     },
@@ -63,7 +63,7 @@
       "venue_key": "mcknightcrossingshoppingcenter|grassvalley",
       "venue_name": "Mcknight crossing shopping center",
       "venue_city": "Grass Valley",
-      "count": 7,
+      "count": 6,
       "sample_event_id": "gvda-191631909",
       "sample_title": "Cars and coffee grass valley",
       "candidate_assets": []
