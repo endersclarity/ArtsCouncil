@@ -1,25 +1,25 @@
 {
-  "generated_at": "2026-08-04T09:37:49.234861+00:00",
+  "generated_at": "2026-08-05T09:35:10.038145+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 305,
-    "matched_events": 208,
-    "unmatched_events": 97,
+    "total_events": 306,
+    "matched_events": 210,
+    "unmatched_events": 96,
     "matched_by_pid": 0,
     "matched_by_alias": 6,
-    "matched_by_name_city": 44,
-    "matched_by_name_city_fuzzy": 158,
-    "upcoming_14d": 152
+    "matched_by_name_city": 43,
+    "matched_by_name_city_fuzzy": 161,
+    "upcoming_14d": 153
   },
   "unmatched_venues": [
     {
       "venue_key": "ericroodcenter|nevadacity",
       "venue_name": "Eric Rood Center",
       "venue_city": "Nevada City",
-      "count": 19,
-      "sample_event_id": "trumba-202909271",
+      "count": 18,
+      "sample_event_id": "trumba-202909272",
       "sample_title": "Lavender Glow | Queer Art & Our Shared History",
       "candidate_assets": []
     },
@@ -27,8 +27,8 @@
       "venue_key": "wonderdocent|nevadacity",
       "venue_name": "Wonder Docent",
       "venue_city": "Nevada City",
-      "count": 13,
-      "sample_event_id": "trumba-204682343",
+      "count": 12,
+      "sample_event_id": "trumba-204682344",
       "sample_title": "In the Night Dimension and Those We Meet at Twilight",
       "candidate_assets": []
     },
@@ -132,6 +132,15 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "northwoodsclubhouse|truckee",
+      "venue_name": "Northwoods Clubhouse",
+      "venue_city": "Truckee",
+      "count": 2,
+      "sample_event_id": "trumba-113922960",
+      "sample_title": "Kids Night Out",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "suttercreektheatre|nevadacounty",
       "venue_name": "Sutter Creek Theatre",
       "venue_city": "Nevada County",
@@ -192,15 +201,6 @@
       "count": 1,
       "sample_event_id": "gvda-198214906",
       "sample_title": "Decendants: The Musical",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "northwoodsclubhouse|truckee",
-      "venue_name": "Northwoods Clubhouse",
-      "venue_city": "Truckee",
-      "count": 1,
-      "sample_event_id": "trumba-113922960",
-      "sample_title": "Kids Night Out",
       "candidate_assets": []
     },
     {
