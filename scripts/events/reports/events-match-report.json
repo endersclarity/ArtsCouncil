@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-08-05T09:35:10.038145+00:00",
+  "generated_at": "2026-08-06T09:38:02.745085+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
@@ -9,8 +9,8 @@
     "unmatched_events": 96,
     "matched_by_pid": 0,
     "matched_by_alias": 6,
-    "matched_by_name_city": 43,
-    "matched_by_name_city_fuzzy": 161,
+    "matched_by_name_city": 41,
+    "matched_by_name_city_fuzzy": 163,
     "upcoming_14d": 153
   },
   "unmatched_venues": [
@@ -18,8 +18,8 @@
       "venue_key": "ericroodcenter|nevadacity",
       "venue_name": "Eric Rood Center",
       "venue_city": "Nevada City",
-      "count": 18,
-      "sample_event_id": "trumba-202909272",
+      "count": 17,
+      "sample_event_id": "trumba-202909273",
       "sample_title": "Lavender Glow | Queer Art & Our Shared History",
       "candidate_assets": []
     },
@@ -27,8 +27,8 @@
       "venue_key": "wonderdocent|nevadacity",
       "venue_name": "Wonder Docent",
       "venue_city": "Nevada City",
-      "count": 12,
-      "sample_event_id": "trumba-204682344",
+      "count": 11,
+      "sample_event_id": "trumba-204682345",
       "sample_title": "In the Night Dimension and Those We Meet at Twilight",
       "candidate_assets": []
     },
@@ -36,8 +36,8 @@
       "venue_key": "bodhihivestudio131|nevadacity",
       "venue_name": "Bodhi Hive, Studio #131",
       "venue_city": "Nevada City",
-      "count": 12,
-      "sample_event_id": "trumba-205204524",
+      "count": 11,
+      "sample_event_id": "trumba-205204525",
       "sample_title": "Summer Nature Pop Art Classes",
       "candidate_assets": []
     },
@@ -63,7 +63,7 @@
       "venue_key": "mcknightcrossingshoppingcenter|grassvalley",
       "venue_name": "Mcknight crossing shopping center",
       "venue_city": "Grass Valley",
-      "count": 6,
+      "count": 7,
       "sample_event_id": "gvda-191631909",
       "sample_title": "Cars and coffee grass valley",
       "candidate_assets": []
@@ -204,12 +204,30 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "winniesuperette|nevadacity",
+      "venue_name": "Winnie Superette",
+      "venue_city": "Nevada City",
+      "count": 1,
+      "sample_event_id": "trumba-206393519",
+      "sample_title": "Friends: New Ceramic Work by Klai Brown Opening August 7",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "darkhosecoffee|truckee",
       "venue_name": "Dark Hose Coffee",
       "venue_city": "Truckee",
       "count": 1,
       "sample_event_id": "trumba-116325478",
       "sample_title": "Word Jam",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "nevadamuseumofart|renonv",
+      "venue_name": "Nevada Museum of Art",
+      "venue_city": "Reno, NV",
+      "count": 1,
+      "sample_event_id": "trumba-205260486",
+      "sample_title": "Reversing Ecological Loss with Walker Basin Conservancy",
       "candidate_assets": []
     }
   ],
