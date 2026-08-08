@@ -1,35 +1,26 @@
 {
-  "generated_at": "2026-08-07T08:11:54.930749+00:00",
+  "generated_at": "2026-08-08T07:47:59.000494+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 302,
-    "matched_events": 208,
-    "unmatched_events": 94,
+    "total_events": 296,
+    "matched_events": 205,
+    "unmatched_events": 91,
     "matched_by_pid": 0,
     "matched_by_alias": 6,
-    "matched_by_name_city": 39,
-    "matched_by_name_city_fuzzy": 163,
-    "upcoming_14d": 149
+    "matched_by_name_city": 38,
+    "matched_by_name_city_fuzzy": 161,
+    "upcoming_14d": 143
   },
   "unmatched_venues": [
     {
       "venue_key": "ericroodcenter|nevadacity",
       "venue_name": "Eric Rood Center",
       "venue_city": "Nevada City",
-      "count": 16,
-      "sample_event_id": "trumba-202909274",
+      "count": 15,
+      "sample_event_id": "trumba-202909275",
       "sample_title": "Lavender Glow | Queer Art & Our Shared History",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "bodhihivestudio131|nevadacity",
-      "venue_name": "Bodhi Hive, Studio #131",
-      "venue_city": "Nevada City",
-      "count": 11,
-      "sample_event_id": "trumba-205204525",
-      "sample_title": "Summer Nature Pop Art Classes",
       "candidate_assets": []
     },
     {
@@ -42,11 +33,20 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "bodhihivestudio131|nevadacity",
+      "venue_name": "Bodhi Hive, Studio #131",
+      "venue_city": "Nevada City",
+      "count": 10,
+      "sample_event_id": "trumba-205204526",
+      "sample_title": "Summer Nature Pop Art Classes",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "wonderdocent|nevadacity",
       "venue_name": "Wonder Docent",
       "venue_city": "Nevada City",
-      "count": 10,
-      "sample_event_id": "trumba-204682346",
+      "count": 9,
+      "sample_event_id": "trumba-204682347",
       "sample_title": "In the Night Dimension and Those We Meet at Twilight",
       "candidate_assets": []
     },
@@ -132,15 +132,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "northwoodsclubhouse|truckee",
-      "venue_name": "Northwoods Clubhouse",
-      "venue_city": "Truckee",
-      "count": 2,
-      "sample_event_id": "trumba-113922960",
-      "sample_title": "Kids Night Out",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "suttercreektheatre|nevadacounty",
       "venue_name": "Sutter Creek Theatre",
       "venue_city": "Nevada County",
@@ -204,15 +195,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "winniesuperette|nevadacity",
-      "venue_name": "Winnie Superette",
-      "venue_city": "Nevada City",
-      "count": 1,
-      "sample_event_id": "trumba-206393519",
-      "sample_title": "Friends: New Ceramic Work by Klai Brown Opening August 7",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "darkhosecoffee|truckee",
       "venue_name": "Dark Hose Coffee",
       "venue_city": "Truckee",
@@ -228,6 +210,33 @@
       "count": 1,
       "sample_event_id": "trumba-205260486",
       "sample_title": "Reversing Ecological Loss with Walker Basin Conservancy",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "cedarcircle64bodhihive|nevadacity",
+      "venue_name": "Cedar Circle &#64; Bodhi Hive",
+      "venue_city": "Nevada City",
+      "count": 1,
+      "sample_event_id": "bodhihive-peace-dance-10",
+      "sample_title": "Peace Dance #10",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "thebodhihive|nevadacity",
+      "venue_name": "The Bodhi-Hive",
+      "venue_city": "Nevada City",
+      "count": 1,
+      "sample_event_id": "bodhihive-fresh-pasta-two-ways-north-versus-south",
+      "sample_title": "Fresh Pasta Two Ways- North Versus South",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "northwoodsclubhouse|truckee",
+      "venue_name": "Northwoods Clubhouse",
+      "venue_city": "Truckee",
+      "count": 1,
+      "sample_event_id": "trumba-113922961",
+      "sample_title": "Kids Night Out",
       "candidate_assets": []
     }
   ],
