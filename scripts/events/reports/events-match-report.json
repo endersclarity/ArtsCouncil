@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-08-09T07:52:41.770787+00:00",
+  "generated_at": "2026-08-10T08:24:58.852562+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 290,
-    "matched_events": 201,
-    "unmatched_events": 89,
+    "total_events": 285,
+    "matched_events": 198,
+    "unmatched_events": 87,
     "matched_by_pid": 0,
     "matched_by_alias": 6,
     "matched_by_name_city": 39,
-    "matched_by_name_city_fuzzy": 156,
-    "upcoming_14d": 137
+    "matched_by_name_city_fuzzy": 153,
+    "upcoming_14d": 132
   },
   "unmatched_venues": [
     {
@@ -36,18 +36,9 @@
       "venue_key": "bodhihivestudio131|nevadacity",
       "venue_name": "Bodhi Hive, Studio #131",
       "venue_city": "Nevada City",
-      "count": 10,
-      "sample_event_id": "trumba-205204526",
+      "count": 9,
+      "sample_event_id": "trumba-205204527",
       "sample_title": "Summer Nature Pop Art Classes",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "wonderdocent|nevadacity",
-      "venue_name": "Wonder Docent",
-      "venue_city": "Nevada City",
-      "count": 8,
-      "sample_event_id": "trumba-204682348",
-      "sample_title": "In the Night Dimension and Those We Meet at Twilight",
       "candidate_assets": []
     },
     {
@@ -57,6 +48,15 @@
       "count": 7,
       "sample_event_id": "libcal-LibCal-20247-16035875-20260316",
       "sample_title": "Ukulele for the People",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "wonderdocent|nevadacity",
+      "venue_name": "Wonder Docent",
+      "venue_city": "Nevada City",
+      "count": 7,
+      "sample_event_id": "trumba-204682349",
+      "sample_title": "In the Night Dimension and Those We Meet at Twilight",
       "candidate_assets": []
     },
     {
@@ -87,6 +87,15 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "membershomes|grassvalley",
+      "venue_name": "Members homes",
+      "venue_city": "Grass Valley",
+      "count": 4,
+      "sample_event_id": "gvda-183038851",
+      "sample_title": "Playwriting Group",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "unknownvenue|nevadacity",
       "venue_name": "Unknown venue",
       "venue_city": "Nevada City",
@@ -102,15 +111,6 @@
       "count": 3,
       "sample_event_id": "gvda-173596655",
       "sample_title": "STEAM Exploration Saturdays",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "membershomes|grassvalley",
-      "venue_name": "Members homes",
-      "venue_city": "Grass Valley",
-      "count": 3,
-      "sample_event_id": "gvda-183038851",
-      "sample_title": "Playwriting Group",
       "candidate_assets": []
     },
     {
@@ -192,15 +192,6 @@
       "count": 1,
       "sample_event_id": "gvda-198214906",
       "sample_title": "Decendants: The Musical",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "darkhosecoffee|truckee",
-      "venue_name": "Dark Hose Coffee",
-      "venue_city": "Truckee",
-      "count": 1,
-      "sample_event_id": "trumba-116325478",
-      "sample_title": "Word Jam",
       "candidate_assets": []
     },
     {
