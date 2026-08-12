@@ -1,25 +1,25 @@
 {
-  "generated_at": "2026-08-11T08:08:21.017305+00:00",
+  "generated_at": "2026-08-12T08:15:20.829050+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 284,
-    "matched_events": 198,
-    "unmatched_events": 86,
+    "total_events": 277,
+    "matched_events": 194,
+    "unmatched_events": 83,
     "matched_by_pid": 0,
     "matched_by_alias": 7,
-    "matched_by_name_city": 39,
-    "matched_by_name_city_fuzzy": 152,
-    "upcoming_14d": 131
+    "matched_by_name_city": 36,
+    "matched_by_name_city_fuzzy": 151,
+    "upcoming_14d": 124
   },
   "unmatched_venues": [
     {
       "venue_key": "ericroodcenter|nevadacity",
       "venue_name": "Eric Rood Center",
       "venue_city": "Nevada City",
-      "count": 14,
-      "sample_event_id": "trumba-202909276",
+      "count": 13,
+      "sample_event_id": "trumba-202909277",
       "sample_title": "Lavender Glow | Queer Art & Our Shared History",
       "candidate_assets": []
     },
@@ -27,7 +27,7 @@
       "venue_key": "unknownvenue|grassvalley",
       "venue_name": "Unknown venue",
       "venue_city": "Grass Valley",
-      "count": 10,
+      "count": 9,
       "sample_event_id": "gvda-197068116",
       "sample_title": "Reluctant Reformers: Mary Hallock Foote and Julia Morgan in the Progressive Era by Mary-Jo Wainwright",
       "candidate_assets": []
@@ -63,8 +63,8 @@
       "venue_key": "wonderdocent|nevadacity",
       "venue_name": "Wonder Docent",
       "venue_city": "Nevada City",
-      "count": 6,
-      "sample_event_id": "trumba-204682350",
+      "count": 5,
+      "sample_event_id": "trumba-204682351",
       "sample_title": "In the Night Dimension and Those We Meet at Twilight",
       "candidate_assets": []
     },
