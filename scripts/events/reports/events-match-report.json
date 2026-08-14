@@ -1,25 +1,25 @@
 {
-  "generated_at": "2026-08-13T08:19:02.946009+00:00",
+  "generated_at": "2026-08-14T08:14:07.846897+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 276,
-    "matched_events": 196,
-    "unmatched_events": 80,
+    "total_events": 279,
+    "matched_events": 198,
+    "unmatched_events": 81,
     "matched_by_pid": 0,
-    "matched_by_alias": 7,
-    "matched_by_name_city": 37,
-    "matched_by_name_city_fuzzy": 152,
-    "upcoming_14d": 123
+    "matched_by_alias": 6,
+    "matched_by_name_city": 41,
+    "matched_by_name_city_fuzzy": 151,
+    "upcoming_14d": 126
   },
   "unmatched_venues": [
     {
       "venue_key": "ericroodcenter|nevadacity",
       "venue_name": "Eric Rood Center",
       "venue_city": "Nevada City",
-      "count": 12,
-      "sample_event_id": "trumba-202909278",
+      "count": 11,
+      "sample_event_id": "trumba-202909279",
       "sample_title": "Lavender Glow | Queer Art & Our Shared History",
       "candidate_assets": []
     },
@@ -78,15 +78,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "wonderdocent|nevadacity",
-      "venue_name": "Wonder Docent",
-      "venue_city": "Nevada City",
-      "count": 4,
-      "sample_event_id": "trumba-204682352",
-      "sample_title": "In the Night Dimension and Those We Meet at Twilight",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "unknownvenue|nevadacity",
       "venue_name": "Unknown venue",
       "venue_city": "Nevada City",
@@ -111,6 +102,24 @@
       "count": 3,
       "sample_event_id": "gvda-183038851",
       "sample_title": "Playwriting Group",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "wonderdocent|nevadacity",
+      "venue_name": "Wonder Docent",
+      "venue_city": "Nevada City",
+      "count": 3,
+      "sample_event_id": "trumba-204682353",
+      "sample_title": "In the Night Dimension and Those We Meet at Twilight",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "sdachurch|grassvalley",
+      "venue_name": "SDA Church",
+      "venue_city": "Grass Valley",
+      "count": 2,
+      "sample_event_id": "gvda-189280629",
+      "sample_title": "Frisson presented by InConcert Sierra",
       "candidate_assets": []
     },
     {
@@ -165,15 +174,6 @@
       "count": 1,
       "sample_event_id": "kvmr-349039-1773160200-1773167400-20260310",
       "sample_title": "Sierra Foothills Audubon Society: \"For the Love of Birds\" Event",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "sdachurch|grassvalley",
-      "venue_name": "SDA Church",
-      "venue_city": "Grass Valley",
-      "count": 1,
-      "sample_event_id": "gvda-189280629",
-      "sample_title": "Frisson presented by InConcert Sierra",
       "candidate_assets": []
     },
     {
@@ -237,6 +237,24 @@
       "count": 1,
       "sample_event_id": "trumba-199041875",
       "sample_title": "Tahoe Music Alive presents Trio Bohémo",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "millstreetplaza|grassvalley",
+      "venue_name": "Mill Street Plaza",
+      "venue_city": "Grass Valley",
+      "count": 1,
+      "sample_event_id": "trumba-188970529",
+      "sample_title": "MAGICAL EVENING on MILL",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "darkhosecoffee|truckee",
+      "venue_name": "Dark Hose Coffee",
+      "venue_city": "Truckee",
+      "count": 1,
+      "sample_event_id": "trumba-116325479",
+      "sample_title": "Word Jam",
       "candidate_assets": []
     }
   ],
