@@ -1,28 +1,19 @@
 {
-  "generated_at": "2026-08-17T07:51:30.562707+00:00",
+  "generated_at": "2026-08-18T07:35:56.500991+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 259,
-    "matched_events": 186,
-    "unmatched_events": 73,
+    "total_events": 256,
+    "matched_events": 184,
+    "unmatched_events": 72,
     "matched_by_pid": 0,
     "matched_by_alias": 6,
-    "matched_by_name_city": 39,
-    "matched_by_name_city_fuzzy": 141,
-    "upcoming_14d": 106
+    "matched_by_name_city": 38,
+    "matched_by_name_city_fuzzy": 140,
+    "upcoming_14d": 103
   },
   "unmatched_venues": [
-    {
-      "venue_key": "ericroodcenter|nevadacity",
-      "venue_name": "Eric Rood Center",
-      "venue_city": "Nevada City",
-      "count": 10,
-      "sample_event_id": "trumba-202909280",
-      "sample_title": "Lavender Glow | Queer Art & Our Shared History",
-      "candidate_assets": []
-    },
     {
       "venue_key": "unknownvenue|grassvalley",
       "venue_name": "Unknown venue",
@@ -30,6 +21,15 @@
       "count": 9,
       "sample_event_id": "gvda-197068116",
       "sample_title": "Reluctant Reformers: Mary Hallock Foote and Julia Morgan in the Progressive Era by Mary-Jo Wainwright",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "ericroodcenter|nevadacity",
+      "venue_name": "Eric Rood Center",
+      "venue_city": "Nevada City",
+      "count": 9,
+      "sample_event_id": "trumba-202909281",
+      "sample_title": "Lavender Glow | Queer Art & Our Shared History",
       "candidate_assets": []
     },
     {
