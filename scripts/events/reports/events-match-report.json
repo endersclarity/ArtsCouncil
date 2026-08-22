@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-08-21T07:40:30.454014+00:00",
+  "generated_at": "2026-08-22T07:29:33.398978+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 266,
-    "matched_events": 178,
+    "total_events": 271,
+    "matched_events": 183,
     "unmatched_events": 88,
     "matched_by_pid": 0,
     "matched_by_alias": 4,
-    "matched_by_name_city": 37,
-    "matched_by_name_city_fuzzy": 137,
-    "upcoming_14d": 113
+    "matched_by_name_city": 40,
+    "matched_by_name_city_fuzzy": 139,
+    "upcoming_14d": 118
   },
   "unmatched_venues": [
     {
@@ -42,24 +42,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "unknownvenue|nevadacity",
-      "venue_name": "Unknown venue",
-      "venue_city": "Nevada City",
-      "count": 5,
-      "sample_event_id": "gvda-198326438",
-      "sample_title": "Fogelberg Revisited &#8211; A Tribute to Dan Fogelberg",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "bodhihive131|nevadacity",
-      "venue_name": "Bodhi Hive #131",
-      "venue_city": "Nevada City",
-      "count": 5,
-      "sample_event_id": "trumba-205204531",
-      "sample_title": "Summer Nature Pop Art Classes",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "sunday|nevadacity",
       "venue_name": "Sunday",
       "venue_city": "Nevada City",
@@ -78,6 +60,15 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "unknownvenue|nevadacity",
+      "venue_name": "Unknown venue",
+      "venue_city": "Nevada City",
+      "count": 4,
+      "sample_event_id": "gvda-198326438",
+      "sample_title": "Fogelberg Revisited &#8211; A Tribute to Dan Fogelberg",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "studynook|grassvalley",
       "venue_name": "Study Nook",
       "venue_city": "Grass Valley",
@@ -87,12 +78,39 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "bodhihive131|nevadacity",
+      "venue_name": "Bodhi Hive #131",
+      "venue_city": "Nevada City",
+      "count": 4,
+      "sample_event_id": "trumba-205204532",
+      "sample_title": "Summer Nature Pop Art Classes",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "unknownvenue|truckee",
       "venue_name": "Unknown venue",
       "venue_city": "Truckee",
       "count": 3,
       "sample_event_id": "gvda-173596655",
       "sample_title": "STEAM Exploration Saturdays",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "monday|nevadacity",
+      "venue_name": "Monday",
+      "venue_city": "Nevada City",
+      "count": 3,
+      "sample_event_id": "trumba-202909285",
+      "sample_title": "Lavender Glow | Queer Art & Our Shared History",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "nevadamuseumofart|renonv",
+      "venue_name": "Nevada Museum of Art",
+      "venue_city": "Reno, NV",
+      "count": 3,
+      "sample_event_id": "trumba-205260498",
+      "sample_title": "Through an Artist’s Eyes: Biodiversity with Isabella Kirkland",
       "candidate_assets": []
     },
     {
@@ -141,15 +159,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "monday|nevadacity",
-      "venue_name": "Monday",
-      "venue_city": "Nevada City",
-      "count": 2,
-      "sample_event_id": "trumba-202909285",
-      "sample_title": "Lavender Glow | Queer Art & Our Shared History",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "wednesday|nevadacity",
       "venue_name": "Wednesday",
       "venue_city": "Nevada City",
@@ -165,15 +174,6 @@
       "count": 2,
       "sample_event_id": "trumba-183038862",
       "sample_title": "Playwriting Group",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "nevadamuseumofart|renonv",
-      "venue_name": "Nevada Museum of Art",
-      "venue_city": "Reno, NV",
-      "count": 2,
-      "sample_event_id": "trumba-205261453",
-      "sample_title": "Powwow People with Director Sky Hopinka",
       "candidate_assets": []
     },
     {
@@ -249,15 +249,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "friday|grassvalley",
-      "venue_name": "Friday",
-      "venue_city": "Grass Valley",
-      "count": 1,
-      "sample_event_id": "trumba-205462575",
-      "sample_title": "ASiF's 18th Annual Student & Teacher Show",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "cedarcircle64bodhihive|nevadacity",
       "venue_name": "Cedar Circle &#64; Bodhi Hive",
       "venue_city": "Nevada City",
@@ -271,8 +262,8 @@
       "venue_name": "The Bodhi-Hive",
       "venue_city": "Nevada City",
       "count": 1,
-      "sample_event_id": "bodhihive-fresh-pasta-two-ways-north-versus-south",
-      "sample_title": "Fresh Pasta Two Ways- North Versus South",
+      "sample_event_id": "bodhihive-dance-church-kerry-bo-berry-soulseed-illuminati-congo",
+      "sample_title": "Dance Church: Kerry Bo Berry, Soulseed, Illuminati Congo",
       "candidate_assets": []
     },
     {
@@ -336,6 +327,15 @@
       "count": 1,
       "sample_event_id": "trumba-206663278",
       "sample_title": "Fall 2026 Youth Classes at The Center for the Arts",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "tuesday|grassvalley",
+      "venue_name": "Tuesday",
+      "venue_city": "Grass Valley",
+      "count": 1,
+      "sample_event_id": "trumba-205849367",
+      "sample_title": "Infamous Stringdusters",
       "candidate_assets": []
     }
   ],
