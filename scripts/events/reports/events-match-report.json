@@ -1,15 +1,15 @@
 {
-  "generated_at": "2026-08-22T07:29:33.398978+00:00",
+  "generated_at": "2026-08-23T07:31:32.440511+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
     "total_events": 271,
-    "matched_events": 183,
-    "unmatched_events": 88,
+    "matched_events": 187,
+    "unmatched_events": 84,
     "matched_by_pid": 0,
-    "matched_by_alias": 4,
-    "matched_by_name_city": 40,
+    "matched_by_alias": 6,
+    "matched_by_name_city": 42,
     "matched_by_name_city_fuzzy": 139,
     "upcoming_14d": 118
   },
@@ -36,7 +36,7 @@
       "venue_key": "mcknightcrossingshoppingcenter|grassvalley",
       "venue_name": "Mcknight crossing shopping center",
       "venue_city": "Grass Valley",
-      "count": 7,
+      "count": 6,
       "sample_event_id": "gvda-191631909",
       "sample_title": "Cars and coffee grass valley",
       "candidate_assets": []
@@ -60,15 +60,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "unknownvenue|nevadacity",
-      "venue_name": "Unknown venue",
-      "venue_city": "Nevada City",
-      "count": 4,
-      "sample_event_id": "gvda-198326438",
-      "sample_title": "Fogelberg Revisited &#8211; A Tribute to Dan Fogelberg",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "studynook|grassvalley",
       "venue_name": "Study Nook",
       "venue_city": "Grass Valley",
@@ -84,6 +75,15 @@
       "count": 4,
       "sample_event_id": "trumba-205204532",
       "sample_title": "Summer Nature Pop Art Classes",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "unknownvenue|nevadacity",
+      "venue_name": "Unknown venue",
+      "venue_city": "Nevada City",
+      "count": 3,
+      "sample_event_id": "gvda-198326438",
+      "sample_title": "Fogelberg Revisited &#8211; A Tribute to Dan Fogelberg",
       "candidate_assets": []
     },
     {
@@ -141,24 +141,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "saturday|grassvalley",
-      "venue_name": "Saturday",
-      "venue_city": "Grass Valley",
-      "count": 2,
-      "sample_event_id": "trumba-205462576",
-      "sample_title": "ASiF's 18th Annual Student & Teacher Show",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "saturday|nevadacity",
-      "venue_name": "Saturday",
-      "venue_city": "Nevada City",
-      "count": 2,
-      "sample_event_id": "trumba-205102080",
-      "sample_title": "Watercolor Exploration with Chappy Valente",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "wednesday|nevadacity",
       "venue_name": "Wednesday",
       "venue_city": "Nevada City",
@@ -183,6 +165,15 @@
       "count": 2,
       "sample_event_id": "trumba-188970529",
       "sample_title": "MAGICAL EVENING on MILL",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "monday|grassvalley",
+      "venue_name": "Monday",
+      "venue_city": "Grass Valley",
+      "count": 2,
+      "sample_event_id": "trumba-206663278",
+      "sample_title": "Fall 2026 Youth Classes at The Center for the Arts",
       "candidate_assets": []
     },
     {
@@ -249,15 +240,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "cedarcircle64bodhihive|nevadacity",
-      "venue_name": "Cedar Circle &#64; Bodhi Hive",
-      "venue_city": "Nevada City",
-      "count": 1,
-      "sample_event_id": "bodhihive-peace-dance-10",
-      "sample_title": "Peace Dance #10",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "thebodhihive|nevadacity",
       "venue_name": "The Bodhi-Hive",
       "venue_city": "Nevada City",
@@ -321,21 +303,30 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "monday|grassvalley",
-      "venue_name": "Monday",
-      "venue_city": "Grass Valley",
-      "count": 1,
-      "sample_event_id": "trumba-206663278",
-      "sample_title": "Fall 2026 Youth Classes at The Center for the Arts",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "tuesday|grassvalley",
       "venue_name": "Tuesday",
       "venue_city": "Grass Valley",
       "count": 1,
       "sample_event_id": "trumba-205849367",
       "sample_title": "Infamous Stringdusters",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "saturday|grassvalley",
+      "venue_name": "Saturday",
+      "venue_city": "Grass Valley",
+      "count": 1,
+      "sample_event_id": "trumba-204144743",
+      "sample_title": "CANCELLED - Stash Dash Extravaganza!",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "saturday|nevadacity",
+      "venue_name": "Saturday",
+      "venue_city": "Nevada City",
+      "count": 1,
+      "sample_event_id": "trumba-194865304",
+      "sample_title": "Sound Blessings With Robin",
       "candidate_assets": []
     }
   ],
