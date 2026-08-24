@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-08-23T07:31:32.440511+00:00",
+  "generated_at": "2026-08-24T07:56:17.568244+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 271,
+    "total_events": 266,
     "matched_events": 187,
-    "unmatched_events": 84,
+    "unmatched_events": 79,
     "matched_by_pid": 0,
     "matched_by_alias": 6,
     "matched_by_name_city": 42,
     "matched_by_name_city_fuzzy": 139,
-    "upcoming_14d": 118
+    "upcoming_14d": 113
   },
   "unmatched_venues": [
     {
@@ -42,15 +42,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "sunday|nevadacity",
-      "venue_name": "Sunday",
-      "venue_city": "Nevada City",
-      "count": 5,
-      "sample_event_id": "trumba-206313492",
-      "sample_title": "Woodturning Adventures – Create a Stunning Wooden Vase or Candlestick Holder",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "axisgallery|nevadacounty",
       "venue_name": "Axis Gallery",
       "venue_city": "Nevada County",
@@ -66,15 +57,6 @@
       "count": 4,
       "sample_event_id": "libcal-LibCal-20247-15952664-20260317",
       "sample_title": "English Language Class",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "bodhihive131|nevadacity",
-      "venue_name": "Bodhi Hive #131",
-      "venue_city": "Nevada City",
-      "count": 4,
-      "sample_event_id": "trumba-205204532",
-      "sample_title": "Summer Nature Pop Art Classes",
       "candidate_assets": []
     },
     {
@@ -102,6 +84,24 @@
       "count": 3,
       "sample_event_id": "trumba-202909285",
       "sample_title": "Lavender Glow | Queer Art & Our Shared History",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "bodhihive131|nevadacity",
+      "venue_name": "Bodhi Hive #131",
+      "venue_city": "Nevada City",
+      "count": 3,
+      "sample_event_id": "trumba-205204533",
+      "sample_title": "Summer Nature Pop Art Classes",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "sentuponrequestwemeetineachothershomes|grassvalley",
+      "venue_name": "Sent upon request. (We meet in each other's homes.)",
+      "venue_city": "Grass Valley",
+      "count": 3,
+      "sample_event_id": "trumba-183038862",
+      "sample_title": "Playwriting Group",
       "candidate_assets": []
     },
     {
@@ -147,15 +147,6 @@
       "count": 2,
       "sample_event_id": "trumba-202909287",
       "sample_title": "Lavender Glow | Queer Art & Our Shared History",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "sentuponrequestwemeetineachothershomes|grassvalley",
-      "venue_name": "Sent upon request. (We meet in each other's homes.)",
-      "venue_city": "Grass Valley",
-      "count": 2,
-      "sample_event_id": "trumba-183038862",
-      "sample_title": "Playwriting Group",
       "candidate_assets": []
     },
     {
@@ -240,15 +231,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "thebodhihive|nevadacity",
-      "venue_name": "The Bodhi-Hive",
-      "venue_city": "Nevada City",
-      "count": 1,
-      "sample_event_id": "bodhihive-dance-church-kerry-bo-berry-soulseed-illuminati-congo",
-      "sample_title": "Dance Church: Kerry Bo Berry, Soulseed, Illuminati Congo",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "tuesday|nevadacity",
       "venue_name": "Tuesday",
       "venue_city": "Nevada City",
@@ -264,6 +246,15 @@
       "count": 1,
       "sample_event_id": "trumba-202909288",
       "sample_title": "Lavender Glow | Queer Art & Our Shared History",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "sunday|nevadacity",
+      "venue_name": "Sunday",
+      "venue_city": "Nevada City",
+      "count": 1,
+      "sample_event_id": "trumba-199993669",
+      "sample_title": "Make your own Hand-Carved Wooden Spoon",
       "candidate_assets": []
     },
     {
