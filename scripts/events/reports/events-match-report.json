@@ -1,24 +1,24 @@
 {
-  "generated_at": "2026-08-24T07:56:17.568244+00:00",
+  "generated_at": "2026-08-25T07:41:44.985430+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 266,
-    "matched_events": 187,
-    "unmatched_events": 79,
+    "total_events": 263,
+    "matched_events": 185,
+    "unmatched_events": 78,
     "matched_by_pid": 0,
     "matched_by_alias": 6,
-    "matched_by_name_city": 42,
-    "matched_by_name_city_fuzzy": 139,
-    "upcoming_14d": 113
+    "matched_by_name_city": 41,
+    "matched_by_name_city_fuzzy": 138,
+    "upcoming_14d": 110
   },
   "unmatched_venues": [
     {
       "venue_key": "unknownvenue|grassvalley",
       "venue_name": "Unknown venue",
       "venue_city": "Grass Valley",
-      "count": 11,
+      "count": 12,
       "sample_event_id": "gvda-197068116",
       "sample_title": "Reluctant Reformers: Mary Hallock Foote and Julia Morgan in the Progressive Era by Mary-Jo Wainwright",
       "candidate_assets": []
@@ -60,6 +60,15 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "membershomes|grassvalley",
+      "venue_name": "Members homes",
+      "venue_city": "Grass Valley",
+      "count": 4,
+      "sample_event_id": "gvda-183038851",
+      "sample_title": "Playwriting Group",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "unknownvenue|nevadacity",
       "venue_name": "Unknown venue",
       "venue_city": "Nevada City",
@@ -78,30 +87,12 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "monday|nevadacity",
-      "venue_name": "Monday",
-      "venue_city": "Nevada City",
-      "count": 3,
-      "sample_event_id": "trumba-202909285",
-      "sample_title": "Lavender Glow | Queer Art & Our Shared History",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "bodhihive131|nevadacity",
       "venue_name": "Bodhi Hive #131",
       "venue_city": "Nevada City",
       "count": 3,
       "sample_event_id": "trumba-205204533",
       "sample_title": "Summer Nature Pop Art Classes",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "sentuponrequestwemeetineachothershomes|grassvalley",
-      "venue_name": "Sent upon request. (We meet in each other's homes.)",
-      "venue_city": "Grass Valley",
-      "count": 3,
-      "sample_event_id": "trumba-183038862",
-      "sample_title": "Playwriting Group",
       "candidate_assets": []
     },
     {
@@ -147,6 +138,15 @@
       "count": 2,
       "sample_event_id": "trumba-202909287",
       "sample_title": "Lavender Glow | Queer Art & Our Shared History",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "saturday|grassvalley",
+      "venue_name": "Saturday",
+      "venue_city": "Grass Valley",
+      "count": 2,
+      "sample_event_id": "trumba-204133591",
+      "sample_title": "Be cool, do ice dyeing",
       "candidate_assets": []
     },
     {
@@ -222,15 +222,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "membershomes|grassvalley",
-      "venue_name": "Members homes",
-      "venue_city": "Grass Valley",
-      "count": 1,
-      "sample_event_id": "gvda-183038851",
-      "sample_title": "Playwriting Group",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "tuesday|nevadacity",
       "venue_name": "Tuesday",
       "venue_city": "Nevada City",
@@ -300,15 +291,6 @@
       "count": 1,
       "sample_event_id": "trumba-205849367",
       "sample_title": "Infamous Stringdusters",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "saturday|grassvalley",
-      "venue_name": "Saturday",
-      "venue_city": "Grass Valley",
-      "count": 1,
-      "sample_event_id": "trumba-204144743",
-      "sample_title": "CANCELLED - Stash Dash Extravaganza!",
       "candidate_assets": []
     },
     {
