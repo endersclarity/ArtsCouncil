@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-08-25T07:41:44.985430+00:00",
+  "generated_at": "2026-08-26T07:43:27.215134+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 263,
-    "matched_events": 185,
-    "unmatched_events": 78,
+    "total_events": 261,
+    "matched_events": 184,
+    "unmatched_events": 77,
     "matched_by_pid": 0,
     "matched_by_alias": 6,
-    "matched_by_name_city": 41,
+    "matched_by_name_city": 40,
     "matched_by_name_city_fuzzy": 138,
-    "upcoming_14d": 110
+    "upcoming_14d": 108
   },
   "unmatched_venues": [
     {
@@ -219,15 +219,6 @@
       "count": 1,
       "sample_event_id": "gvda-198214906",
       "sample_title": "Decendants: The Musical",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "tuesday|nevadacity",
-      "venue_name": "Tuesday",
-      "venue_city": "Nevada City",
-      "count": 1,
-      "sample_event_id": "trumba-202909286",
-      "sample_title": "Lavender Glow | Queer Art & Our Shared History",
       "candidate_assets": []
     },
     {
