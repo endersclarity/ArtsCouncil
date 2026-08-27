@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-08-26T07:43:27.215134+00:00",
+  "generated_at": "2026-08-27T18:05:46.158090+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 261,
-    "matched_events": 184,
-    "unmatched_events": 77,
+    "total_events": 271,
+    "matched_events": 197,
+    "unmatched_events": 74,
     "matched_by_pid": 0,
     "matched_by_alias": 6,
-    "matched_by_name_city": 40,
-    "matched_by_name_city_fuzzy": 138,
-    "upcoming_14d": 108
+    "matched_by_name_city": 46,
+    "matched_by_name_city_fuzzy": 145,
+    "upcoming_14d": 118
   },
   "unmatched_venues": [
     {
@@ -36,7 +36,7 @@
       "venue_key": "mcknightcrossingshoppingcenter|grassvalley",
       "venue_name": "Mcknight crossing shopping center",
       "venue_city": "Grass Valley",
-      "count": 6,
+      "count": 7,
       "sample_event_id": "gvda-191631909",
       "sample_title": "Cars and coffee grass valley",
       "candidate_assets": []
@@ -60,15 +60,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "membershomes|grassvalley",
-      "venue_name": "Members homes",
-      "venue_city": "Grass Valley",
-      "count": 4,
-      "sample_event_id": "gvda-183038851",
-      "sample_title": "Playwriting Group",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "unknownvenue|nevadacity",
       "venue_name": "Unknown venue",
       "venue_city": "Nevada City",
@@ -87,12 +78,12 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "bodhihive131|nevadacity",
-      "venue_name": "Bodhi Hive #131",
-      "venue_city": "Nevada City",
+      "venue_key": "membershomes|grassvalley",
+      "venue_name": "Members homes",
+      "venue_city": "Grass Valley",
       "count": 3,
-      "sample_event_id": "trumba-205204533",
-      "sample_title": "Summer Nature Pop Art Classes",
+      "sample_event_id": "gvda-183038851",
+      "sample_title": "Playwriting Group",
       "candidate_assets": []
     },
     {
@@ -132,12 +123,12 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "wednesday|nevadacity",
-      "venue_name": "Wednesday",
+      "venue_key": "bodhihive131|nevadacity",
+      "venue_name": "Bodhi Hive #131",
       "venue_city": "Nevada City",
       "count": 2,
-      "sample_event_id": "trumba-202909287",
-      "sample_title": "Lavender Glow | Queer Art & Our Shared History",
+      "sample_event_id": "trumba-205204534",
+      "sample_title": "Summer Nature Pop Art Classes",
       "candidate_assets": []
     },
     {
@@ -314,6 +305,7 @@
       "Galleries & Museums",
       "Preservation & Culture",
       "Cultural Resources",
+      "Public Art",
       "Eat, Drink & Stay",
       "Walks & Trails"
     ],
