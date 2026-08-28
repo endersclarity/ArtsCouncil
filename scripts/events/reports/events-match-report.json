@@ -1,24 +1,24 @@
 {
-  "generated_at": "2026-08-27T18:05:46.158090+00:00",
+  "generated_at": "2026-08-28T19:15:13.922160+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 271,
-    "matched_events": 197,
-    "unmatched_events": 74,
+    "total_events": 270,
+    "matched_events": 198,
+    "unmatched_events": 72,
     "matched_by_pid": 0,
     "matched_by_alias": 6,
     "matched_by_name_city": 46,
-    "matched_by_name_city_fuzzy": 145,
-    "upcoming_14d": 118
+    "matched_by_name_city_fuzzy": 146,
+    "upcoming_14d": 117
   },
   "unmatched_venues": [
     {
       "venue_key": "unknownvenue|grassvalley",
       "venue_name": "Unknown venue",
       "venue_city": "Grass Valley",
-      "count": 12,
+      "count": 11,
       "sample_event_id": "gvda-197068116",
       "sample_title": "Reluctant Reformers: Mary Hallock Foote and Julia Morgan in the Progressive Era by Mary-Jo Wainwright",
       "candidate_assets": []
@@ -87,12 +87,12 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "nevadamuseumofart|renonv",
-      "venue_name": "Nevada Museum of Art",
-      "venue_city": "Reno, NV",
+      "venue_key": "monday|grassvalley",
+      "venue_name": "Monday",
+      "venue_city": "Grass Valley",
       "count": 3,
-      "sample_event_id": "trumba-205260498",
-      "sample_title": "Through an Artist’s Eyes: Biodiversity with Isabella Kirkland",
+      "sample_event_id": "trumba-206663278",
+      "sample_title": "Fall 2026 Youth Classes at The Center for the Arts",
       "candidate_assets": []
     },
     {
@@ -141,21 +141,21 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "nevadamuseumofart|renonv",
+      "venue_name": "Nevada Museum of Art",
+      "venue_city": "Reno, NV",
+      "count": 2,
+      "sample_event_id": "trumba-205261453",
+      "sample_title": "Powwow People with Director Sky Hopinka",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "sunday|grassvalley",
       "venue_name": "Sunday",
       "venue_city": "Grass Valley",
       "count": 2,
       "sample_event_id": "trumba-188970529",
       "sample_title": "MAGICAL EVENING on MILL",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "monday|grassvalley",
-      "venue_name": "Monday",
-      "venue_city": "Grass Valley",
-      "count": 2,
-      "sample_event_id": "trumba-206663278",
-      "sample_title": "Fall 2026 Youth Classes at The Center for the Arts",
       "candidate_assets": []
     },
     {
@@ -210,15 +210,6 @@
       "count": 1,
       "sample_event_id": "gvda-198214906",
       "sample_title": "Decendants: The Musical",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "thursday|nevadacity",
-      "venue_name": "Thursday",
-      "venue_city": "Nevada City",
-      "count": 1,
-      "sample_event_id": "trumba-202909288",
-      "sample_title": "Lavender Glow | Queer Art & Our Shared History",
       "candidate_assets": []
     },
     {
