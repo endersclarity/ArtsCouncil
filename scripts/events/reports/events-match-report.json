@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-08-28T19:15:13.922160+00:00",
+  "generated_at": "2026-08-29T12:57:45.742098+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 270,
-    "matched_events": 198,
-    "unmatched_events": 72,
+    "total_events": 268,
+    "matched_events": 197,
+    "unmatched_events": 71,
     "matched_by_pid": 0,
     "matched_by_alias": 6,
     "matched_by_name_city": 46,
-    "matched_by_name_city_fuzzy": 146,
-    "upcoming_14d": 117
+    "matched_by_name_city_fuzzy": 145,
+    "upcoming_14d": 115
   },
   "unmatched_venues": [
     {
@@ -123,15 +123,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "bodhihive131|nevadacity",
-      "venue_name": "Bodhi Hive #131",
-      "venue_city": "Nevada City",
-      "count": 2,
-      "sample_event_id": "trumba-205204534",
-      "sample_title": "Summer Nature Pop Art Classes",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "saturday|grassvalley",
       "venue_name": "Saturday",
       "venue_city": "Grass Valley",
@@ -219,6 +210,15 @@
       "count": 1,
       "sample_event_id": "trumba-199993669",
       "sample_title": "Make your own Hand-Carved Wooden Spoon",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "bodhihive131|nevadacity",
+      "venue_name": "Bodhi Hive #131",
+      "venue_city": "Nevada City",
+      "count": 1,
+      "sample_event_id": "trumba-205204535",
+      "sample_title": "Summer Nature Pop Art Classes",
       "candidate_assets": []
     },
     {
