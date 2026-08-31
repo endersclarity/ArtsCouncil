@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-08-30T12:36:10.120689+00:00",
+  "generated_at": "2026-08-31T14:50:38.438200+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 260,
-    "matched_events": 191,
-    "unmatched_events": 69,
+    "total_events": 256,
+    "matched_events": 189,
+    "unmatched_events": 67,
     "matched_by_pid": 0,
     "matched_by_alias": 6,
     "matched_by_name_city": 45,
-    "matched_by_name_city_fuzzy": 140,
-    "upcoming_14d": 107
+    "matched_by_name_city_fuzzy": 138,
+    "upcoming_14d": 103
   },
   "unmatched_venues": [
     {
@@ -192,24 +192,6 @@
       "count": 1,
       "sample_event_id": "gvda-198214906",
       "sample_title": "Decendants: The Musical",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "sunday|nevadacity",
-      "venue_name": "Sunday",
-      "venue_city": "Nevada City",
-      "count": 1,
-      "sample_event_id": "trumba-199993669",
-      "sample_title": "Make your own Hand-Carved Wooden Spoon",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "bodhihive131|nevadacity",
-      "venue_name": "Bodhi Hive #131",
-      "venue_city": "Nevada City",
-      "count": 1,
-      "sample_event_id": "trumba-205204535",
-      "sample_title": "Summer Nature Pop Art Classes",
       "candidate_assets": []
     },
     {
