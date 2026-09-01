@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-08-31T14:50:38.438200+00:00",
+  "generated_at": "2026-09-01T12:21:14.559712+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 256,
-    "matched_events": 189,
+    "total_events": 254,
+    "matched_events": 187,
     "unmatched_events": 67,
     "matched_by_pid": 0,
     "matched_by_alias": 6,
     "matched_by_name_city": 45,
-    "matched_by_name_city_fuzzy": 138,
-    "upcoming_14d": 103
+    "matched_by_name_city_fuzzy": 136,
+    "upcoming_14d": 101
   },
   "unmatched_venues": [
     {
