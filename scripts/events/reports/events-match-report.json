@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-09-01T12:21:14.559712+00:00",
+  "generated_at": "2026-09-02T11:57:07.267918+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 254,
+    "total_events": 255,
     "matched_events": 187,
-    "unmatched_events": 67,
+    "unmatched_events": 68,
     "matched_by_pid": 0,
-    "matched_by_alias": 6,
+    "matched_by_alias": 5,
     "matched_by_name_city": 45,
-    "matched_by_name_city_fuzzy": 136,
-    "upcoming_14d": 101
+    "matched_by_name_city_fuzzy": 137,
+    "upcoming_14d": 102
   },
   "unmatched_venues": [
     {
@@ -123,6 +123,15 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "northwoodsclubhouse|truckee",
+      "venue_name": "Northwoods Clubhouse",
+      "venue_city": "Truckee",
+      "count": 2,
+      "sample_event_id": "trumba-113922961",
+      "sample_title": "Kids Night Out",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "nevadamuseumofart|renonv",
       "venue_name": "Nevada Museum of Art",
       "venue_city": "Reno, NV",
@@ -201,15 +210,6 @@
       "count": 1,
       "sample_event_id": "trumba-205261426",
       "sample_title": "Drink the Sea",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "northwoodsclubhouse|truckee",
-      "venue_name": "Northwoods Clubhouse",
-      "venue_city": "Truckee",
-      "count": 1,
-      "sample_event_id": "trumba-113922961",
-      "sample_title": "Kids Night Out",
       "candidate_assets": []
     },
     {
