@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-09-03T11:55:29.892682+00:00",
+  "generated_at": "2026-09-04T11:58:12.936255+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 258,
-    "matched_events": 187,
-    "unmatched_events": 71,
+    "total_events": 254,
+    "matched_events": 184,
+    "unmatched_events": 70,
     "matched_by_pid": 0,
     "matched_by_alias": 4,
-    "matched_by_name_city": 46,
-    "matched_by_name_city_fuzzy": 137,
-    "upcoming_14d": 105
+    "matched_by_name_city": 45,
+    "matched_by_name_city_fuzzy": 135,
+    "upcoming_14d": 101
   },
   "unmatched_venues": [
     {
@@ -210,15 +210,6 @@
       "count": 1,
       "sample_event_id": "gvda-198214906",
       "sample_title": "Decendants: The Musical",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "thursday|grassvalley",
-      "venue_name": "Thursday",
-      "venue_city": "Grass Valley",
-      "count": 1,
-      "sample_event_id": "trumba-205261426",
-      "sample_title": "Drink the Sea",
       "candidate_assets": []
     },
     {
