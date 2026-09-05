@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-04T11:58:12.936255+00:00",
+  "generated_at": "2026-09-05T11:07:49.229733+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
@@ -9,8 +9,8 @@
     "unmatched_events": 70,
     "matched_by_pid": 0,
     "matched_by_alias": 4,
-    "matched_by_name_city": 45,
-    "matched_by_name_city_fuzzy": 135,
+    "matched_by_name_city": 44,
+    "matched_by_name_city_fuzzy": 136,
     "upcoming_14d": 101
   },
   "unmatched_venues": [
@@ -60,6 +60,15 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "monday|grassvalley",
+      "venue_name": "Monday",
+      "venue_city": "Grass Valley",
+      "count": 4,
+      "sample_event_id": "trumba-206663278",
+      "sample_title": "Fall 2026 Youth Classes at The Center for the Arts",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "unknownvenue|nevadacity",
       "venue_name": "Unknown venue",
       "venue_city": "Nevada City",
@@ -87,15 +96,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "monday|grassvalley",
-      "venue_name": "Monday",
-      "venue_city": "Grass Valley",
-      "count": 3,
-      "sample_event_id": "trumba-206663278",
-      "sample_title": "Fall 2026 Youth Classes at The Center for the Arts",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "sdachurch|grassvalley",
       "venue_name": "SDA Church",
       "venue_city": "Grass Valley",
@@ -120,15 +120,6 @@
       "count": 2,
       "sample_event_id": "gvda-196396181",
       "sample_title": "Motion Theater",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "northwoodsclubhouse|truckee",
-      "venue_name": "Northwoods Clubhouse",
-      "venue_city": "Truckee",
-      "count": 2,
-      "sample_event_id": "trumba-113922961",
-      "sample_title": "Kids Night Out",
       "candidate_assets": []
     },
     {
@@ -255,6 +246,15 @@
       "count": 1,
       "sample_event_id": "trumba-207629608",
       "sample_title": "Improverse: Improv for the Senses Class",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "northwoodsclubhouse|truckee",
+      "venue_name": "Northwoods Clubhouse",
+      "venue_city": "Truckee",
+      "count": 1,
+      "sample_event_id": "trumba-113922962",
+      "sample_title": "Kids Night Out",
       "candidate_assets": []
     }
   ],
