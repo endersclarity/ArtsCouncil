@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-09-05T11:07:49.229733+00:00",
+  "generated_at": "2026-09-06T11:30:59.402080+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 254,
-    "matched_events": 184,
-    "unmatched_events": 70,
+    "total_events": 252,
+    "matched_events": 181,
+    "unmatched_events": 71,
     "matched_by_pid": 0,
     "matched_by_alias": 4,
     "matched_by_name_city": 44,
-    "matched_by_name_city_fuzzy": 136,
-    "upcoming_14d": 101
+    "matched_by_name_city_fuzzy": 133,
+    "upcoming_14d": 99
   },
   "unmatched_venues": [
     {
@@ -36,7 +36,7 @@
       "venue_key": "mcknightcrossingshoppingcenter|grassvalley",
       "venue_name": "Mcknight crossing shopping center",
       "venue_city": "Grass Valley",
-      "count": 7,
+      "count": 6,
       "sample_event_id": "gvda-191631909",
       "sample_title": "Cars and coffee grass valley",
       "candidate_assets": []
@@ -141,6 +141,15 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "tuesday|grassvalley",
+      "venue_name": "Tuesday",
+      "venue_city": "Grass Valley",
+      "count": 2,
+      "sample_event_id": "trumba-205849367",
+      "sample_title": "Infamous Stringdusters",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "saturday|grassvalley",
       "venue_name": "Saturday",
       "venue_city": "Grass Valley",
@@ -222,21 +231,21 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "tuesday|grassvalley",
-      "venue_name": "Tuesday",
-      "venue_city": "Grass Valley",
-      "count": 1,
-      "sample_event_id": "trumba-205849367",
-      "sample_title": "Infamous Stringdusters",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "saturday|nevadacity",
       "venue_name": "Saturday",
       "venue_city": "Nevada City",
       "count": 1,
       "sample_event_id": "trumba-194865304",
       "sample_title": "Sound Blessings With Robin",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "wednesday|northsanjuan",
+      "venue_name": "Wednesday",
+      "venue_city": "North San Juan",
+      "count": 1,
+      "sample_event_id": "trumba-206967096",
+      "sample_title": "Book release with Caleb Dardick: The Adventures of Superfreak: My Childhood on the Hippie Trail",
       "candidate_assets": []
     },
     {
@@ -278,7 +287,6 @@
       "Galleries & Museums",
       "Preservation & Culture",
       "Cultural Resources",
-      "Public Art",
       "Eat, Drink & Stay",
       "Walks & Trails"
     ],
