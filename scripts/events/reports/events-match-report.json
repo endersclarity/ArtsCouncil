@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-09-06T11:30:59.402080+00:00",
+  "generated_at": "2026-09-07T13:16:48.304903+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 252,
-    "matched_events": 181,
-    "unmatched_events": 71,
+    "total_events": 251,
+    "matched_events": 174,
+    "unmatched_events": 77,
     "matched_by_pid": 0,
     "matched_by_alias": 4,
-    "matched_by_name_city": 44,
+    "matched_by_name_city": 37,
     "matched_by_name_city_fuzzy": 133,
-    "upcoming_14d": 99
+    "upcoming_14d": 98
   },
   "unmatched_venues": [
     {
@@ -21,6 +21,15 @@
       "count": 11,
       "sample_event_id": "gvda-197068116",
       "sample_title": "Reluctant Reformers: Mary Hallock Foote and Julia Morgan in the Progressive Era by Mary-Jo Wainwright",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "unknownvenue|nevadacity",
+      "venue_name": "Unknown venue",
+      "venue_city": "Nevada City",
+      "count": 8,
+      "sample_event_id": "gvda-198326438",
+      "sample_title": "Fogelberg Revisited &#8211; A Tribute to Dan Fogelberg",
       "candidate_assets": []
     },
     {
@@ -60,6 +69,15 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "membershomes|grassvalley",
+      "venue_name": "Members homes",
+      "venue_city": "Grass Valley",
+      "count": 4,
+      "sample_event_id": "gvda-183038851",
+      "sample_title": "Playwriting Group",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "monday|grassvalley",
       "venue_name": "Monday",
       "venue_city": "Grass Valley",
@@ -69,30 +87,12 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "unknownvenue|nevadacity",
-      "venue_name": "Unknown venue",
-      "venue_city": "Nevada City",
-      "count": 3,
-      "sample_event_id": "gvda-198326438",
-      "sample_title": "Fogelberg Revisited &#8211; A Tribute to Dan Fogelberg",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "unknownvenue|truckee",
       "venue_name": "Unknown venue",
       "venue_city": "Truckee",
       "count": 3,
       "sample_event_id": "gvda-173596655",
       "sample_title": "STEAM Exploration Saturdays",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "membershomes|grassvalley",
-      "venue_name": "Members homes",
-      "venue_city": "Grass Valley",
-      "count": 3,
-      "sample_event_id": "gvda-183038851",
-      "sample_title": "Playwriting Group",
       "candidate_assets": []
     },
     {
