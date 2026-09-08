@@ -1,24 +1,24 @@
 {
-  "generated_at": "2026-09-07T13:16:48.304903+00:00",
+  "generated_at": "2026-09-08T11:58:40.558260+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 251,
-    "matched_events": 174,
-    "unmatched_events": 77,
+    "total_events": 254,
+    "matched_events": 155,
+    "unmatched_events": 99,
     "matched_by_pid": 0,
     "matched_by_alias": 4,
-    "matched_by_name_city": 37,
-    "matched_by_name_city_fuzzy": 133,
-    "upcoming_14d": 98
+    "matched_by_name_city": 38,
+    "matched_by_name_city_fuzzy": 113,
+    "upcoming_14d": 101
   },
   "unmatched_venues": [
     {
       "venue_key": "unknownvenue|grassvalley",
       "venue_name": "Unknown venue",
       "venue_city": "Grass Valley",
-      "count": 11,
+      "count": 12,
       "sample_event_id": "gvda-197068116",
       "sample_title": "Reluctant Reformers: Mary Hallock Foote and Julia Morgan in the Progressive Era by Mary-Jo Wainwright",
       "candidate_assets": []
@@ -51,6 +51,42 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "monday|grassvalley",
+      "venue_name": "Monday",
+      "venue_city": "Grass Valley",
+      "count": 6,
+      "sample_event_id": "trumba-206663278",
+      "sample_title": "Fall 2026 Youth Classes at The Center for the Arts",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "tuesday|grassvalley",
+      "venue_name": "Tuesday",
+      "venue_city": "Grass Valley",
+      "count": 5,
+      "sample_event_id": "trumba-204717141",
+      "sample_title": "Chris Dacre: INTER:reactions",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "saturday|grassvalley",
+      "venue_name": "Saturday",
+      "venue_city": "Grass Valley",
+      "count": 5,
+      "sample_event_id": "trumba-204717145",
+      "sample_title": "Chris Dacre: INTER:reactions",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "sunday|grassvalley",
+      "venue_name": "Sunday",
+      "venue_city": "Grass Valley",
+      "count": 5,
+      "sample_event_id": "trumba-204717146",
+      "sample_title": "Chris Dacre: INTER:reactions",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "axisgallery|nevadacounty",
       "venue_name": "Axis Gallery",
       "venue_city": "Nevada County",
@@ -78,21 +114,39 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "monday|grassvalley",
-      "venue_name": "Monday",
-      "venue_city": "Grass Valley",
-      "count": 4,
-      "sample_event_id": "trumba-206663278",
-      "sample_title": "Fall 2026 Youth Classes at The Center for the Arts",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "unknownvenue|truckee",
       "venue_name": "Unknown venue",
       "venue_city": "Truckee",
       "count": 3,
       "sample_event_id": "gvda-173596655",
       "sample_title": "STEAM Exploration Saturdays",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "wednesday|grassvalley",
+      "venue_name": "Wednesday",
+      "venue_city": "Grass Valley",
+      "count": 3,
+      "sample_event_id": "trumba-204717142",
+      "sample_title": "Chris Dacre: INTER:reactions",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "thursday|grassvalley",
+      "venue_name": "Thursday",
+      "venue_city": "Grass Valley",
+      "count": 3,
+      "sample_event_id": "trumba-204717143",
+      "sample_title": "Chris Dacre: INTER:reactions",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "friday|grassvalley",
+      "venue_name": "Friday",
+      "venue_city": "Grass Valley",
+      "count": 3,
+      "sample_event_id": "trumba-204717144",
+      "sample_title": "Chris Dacre: INTER:reactions",
       "candidate_assets": []
     },
     {
@@ -132,30 +186,12 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "sunday|grassvalley",
-      "venue_name": "Sunday",
-      "venue_city": "Grass Valley",
+      "venue_key": "theoctabarn|nevadacity",
+      "venue_name": "The Octabarn",
+      "venue_city": "Nevada City",
       "count": 2,
-      "sample_event_id": "trumba-188970529",
-      "sample_title": "MAGICAL EVENING on MILL",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "tuesday|grassvalley",
-      "venue_name": "Tuesday",
-      "venue_city": "Grass Valley",
-      "count": 2,
-      "sample_event_id": "trumba-205849367",
-      "sample_title": "Infamous Stringdusters",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "saturday|grassvalley",
-      "venue_name": "Saturday",
-      "venue_city": "Grass Valley",
-      "count": 2,
-      "sample_event_id": "trumba-204144743",
-      "sample_title": "CANCELLED - Stash Dash Extravaganza!",
+      "sample_event_id": "trumba-207629608",
+      "sample_title": "Improverse: Improv for the Senses Class",
       "candidate_assets": []
     },
     {
@@ -246,15 +282,6 @@
       "count": 1,
       "sample_event_id": "trumba-206967096",
       "sample_title": "Book release with Caleb Dardick: The Adventures of Superfreak: My Childhood on the Hippie Trail",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "theoctabarn|nevadacity",
-      "venue_name": "The Octabarn",
-      "venue_city": "Nevada City",
-      "count": 1,
-      "sample_event_id": "trumba-207629608",
-      "sample_title": "Improverse: Improv for the Senses Class",
       "candidate_assets": []
     },
     {
