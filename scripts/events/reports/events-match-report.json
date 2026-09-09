@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-09-08T11:58:40.558260+00:00",
+  "generated_at": "2026-09-09T12:09:34.146252+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 254,
-    "matched_events": 155,
-    "unmatched_events": 99,
+    "total_events": 255,
+    "matched_events": 138,
+    "unmatched_events": 117,
     "matched_by_pid": 0,
     "matched_by_alias": 4,
-    "matched_by_name_city": 38,
-    "matched_by_name_city_fuzzy": 113,
-    "upcoming_14d": 101
+    "matched_by_name_city": 25,
+    "matched_by_name_city_fuzzy": 109,
+    "upcoming_14d": 102
   },
   "unmatched_venues": [
     {
@@ -27,7 +27,7 @@
       "venue_key": "unknownvenue|nevadacity",
       "venue_name": "Unknown venue",
       "venue_city": "Nevada City",
-      "count": 8,
+      "count": 7,
       "sample_event_id": "gvda-198326438",
       "sample_title": "Fogelberg Revisited &#8211; A Tribute to Dan Fogelberg",
       "candidate_assets": []
@@ -42,6 +42,15 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "sunday|nevadacity",
+      "venue_name": "Sunday",
+      "venue_city": "Nevada City",
+      "count": 7,
+      "sample_event_id": "trumba-206313493",
+      "sample_title": "Woodturning 101 – Craft a Beautiful Wooden Bowl",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "mcknightcrossingshoppingcenter|grassvalley",
       "venue_name": "Mcknight crossing shopping center",
       "venue_city": "Grass Valley",
@@ -51,28 +60,10 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "monday|grassvalley",
-      "venue_name": "Monday",
-      "venue_city": "Grass Valley",
-      "count": 6,
-      "sample_event_id": "trumba-206663278",
-      "sample_title": "Fall 2026 Youth Classes at The Center for the Arts",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "tuesday|grassvalley",
-      "venue_name": "Tuesday",
-      "venue_city": "Grass Valley",
-      "count": 5,
-      "sample_event_id": "trumba-204717141",
-      "sample_title": "Chris Dacre: INTER:reactions",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "saturday|grassvalley",
       "venue_name": "Saturday",
       "venue_city": "Grass Valley",
-      "count": 5,
+      "count": 6,
       "sample_event_id": "trumba-204717145",
       "sample_title": "Chris Dacre: INTER:reactions",
       "candidate_assets": []
@@ -81,9 +72,18 @@
       "venue_key": "sunday|grassvalley",
       "venue_name": "Sunday",
       "venue_city": "Grass Valley",
-      "count": 5,
+      "count": 6,
       "sample_event_id": "trumba-204717146",
       "sample_title": "Chris Dacre: INTER:reactions",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "monday|grassvalley",
+      "venue_name": "Monday",
+      "venue_city": "Grass Valley",
+      "count": 6,
+      "sample_event_id": "trumba-206663278",
+      "sample_title": "Fall 2026 Youth Classes at The Center for the Arts",
       "candidate_assets": []
     },
     {
@@ -114,6 +114,42 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "thursday|grassvalley",
+      "venue_name": "Thursday",
+      "venue_city": "Grass Valley",
+      "count": 4,
+      "sample_event_id": "trumba-204717143",
+      "sample_title": "Chris Dacre: INTER:reactions",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "friday|grassvalley",
+      "venue_name": "Friday",
+      "venue_city": "Grass Valley",
+      "count": 4,
+      "sample_event_id": "trumba-204717144",
+      "sample_title": "Chris Dacre: INTER:reactions",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "tuesday|grassvalley",
+      "venue_name": "Tuesday",
+      "venue_city": "Grass Valley",
+      "count": 4,
+      "sample_event_id": "trumba-204717148",
+      "sample_title": "Chris Dacre: INTER:reactions",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "oddfellowshall|nevadacity",
+      "venue_name": "Oddfellows Hall",
+      "venue_city": "Nevada City",
+      "count": 3,
+      "sample_event_id": "gvda-196396181",
+      "sample_title": "Motion Theater",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "unknownvenue|truckee",
       "venue_name": "Unknown venue",
       "venue_city": "Truckee",
@@ -132,30 +168,30 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "thursday|grassvalley",
+      "venue_key": "thursday|nevadacity",
       "venue_name": "Thursday",
-      "venue_city": "Grass Valley",
+      "venue_city": "Nevada City",
       "count": 3,
-      "sample_event_id": "trumba-204717143",
-      "sample_title": "Chris Dacre: INTER:reactions",
+      "sample_event_id": "trumba-206502867",
+      "sample_title": "Intro to Stained Glass – Level 1",
       "candidate_assets": []
     },
     {
-      "venue_key": "friday|grassvalley",
-      "venue_name": "Friday",
-      "venue_city": "Grass Valley",
+      "venue_key": "saturday|nevadacity",
+      "venue_name": "Saturday",
+      "venue_city": "Nevada City",
       "count": 3,
-      "sample_event_id": "trumba-204717144",
-      "sample_title": "Chris Dacre: INTER:reactions",
+      "sample_event_id": "trumba-205102079",
+      "sample_title": "Watercolor Exploration with Chappy Valente",
       "candidate_assets": []
     },
     {
-      "venue_key": "sdachurch|grassvalley",
-      "venue_name": "SDA Church",
-      "venue_city": "Grass Valley",
-      "count": 2,
-      "sample_event_id": "gvda-189280629",
-      "sample_title": "Frisson presented by InConcert Sierra",
+      "venue_key": "tuesday|nevadacity",
+      "venue_name": "Tuesday",
+      "venue_city": "Nevada City",
+      "count": 3,
+      "sample_event_id": "trumba-206314481",
+      "sample_title": "Make a Tiny Grief Book",
       "candidate_assets": []
     },
     {
@@ -165,15 +201,6 @@
       "count": 2,
       "sample_event_id": "libcal-LibCal-20247-16276894-20260316",
       "sample_title": "Lab Rats: A Science Book Club",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "oddfellowshall|nevadacity",
-      "venue_name": "Oddfellows Hall",
-      "venue_city": "Nevada City",
-      "count": 2,
-      "sample_event_id": "gvda-196396181",
-      "sample_title": "Motion Theater",
       "candidate_assets": []
     },
     {
@@ -231,6 +258,15 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "sdachurch|grassvalley",
+      "venue_name": "SDA Church",
+      "venue_city": "Grass Valley",
+      "count": 1,
+      "sample_event_id": "gvda-189280629",
+      "sample_title": "Frisson presented by InConcert Sierra",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "workspacemeetingroom|truckee",
       "venue_name": "Workspace Meeting Room",
       "venue_city": "Truckee",
@@ -267,12 +303,12 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "saturday|nevadacity",
-      "venue_name": "Saturday",
+      "venue_key": "wednesday|nevadacity",
+      "venue_name": "Wednesday",
       "venue_city": "Nevada City",
       "count": 1,
-      "sample_event_id": "trumba-194865304",
-      "sample_title": "Sound Blessings With Robin",
+      "sample_event_id": "trumba-205699479",
+      "sample_title": "Make a Ceramic Witches Hat Luminary",
       "candidate_assets": []
     },
     {
