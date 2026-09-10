@@ -1,24 +1,24 @@
 {
-  "generated_at": "2026-09-09T12:09:34.146252+00:00",
+  "generated_at": "2026-09-10T12:03:04.982375+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 255,
-    "matched_events": 138,
-    "unmatched_events": 117,
+    "total_events": 258,
+    "matched_events": 144,
+    "unmatched_events": 114,
     "matched_by_pid": 0,
-    "matched_by_alias": 4,
-    "matched_by_name_city": 25,
-    "matched_by_name_city_fuzzy": 109,
-    "upcoming_14d": 102
+    "matched_by_alias": 7,
+    "matched_by_name_city": 26,
+    "matched_by_name_city_fuzzy": 111,
+    "upcoming_14d": 105
   },
   "unmatched_venues": [
     {
       "venue_key": "unknownvenue|grassvalley",
       "venue_name": "Unknown venue",
       "venue_city": "Grass Valley",
-      "count": 12,
+      "count": 9,
       "sample_event_id": "gvda-197068116",
       "sample_title": "Reluctant Reformers: Mary Hallock Foote and Julia Morgan in the Progressive Era by Mary-Jo Wainwright",
       "candidate_assets": []
@@ -42,21 +42,21 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "mcknightcrossingshoppingcenter|grassvalley",
+      "venue_name": "Mcknight crossing shopping center",
+      "venue_city": "Grass Valley",
+      "count": 7,
+      "sample_event_id": "gvda-191631909",
+      "sample_title": "Cars and coffee grass valley",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "sunday|nevadacity",
       "venue_name": "Sunday",
       "venue_city": "Nevada City",
       "count": 7,
       "sample_event_id": "trumba-206313493",
       "sample_title": "Woodturning 101 – Craft a Beautiful Wooden Bowl",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "mcknightcrossingshoppingcenter|grassvalley",
-      "venue_name": "Mcknight crossing shopping center",
-      "venue_city": "Grass Valley",
-      "count": 6,
-      "sample_event_id": "gvda-191631909",
-      "sample_title": "Cars and coffee grass valley",
       "candidate_assets": []
     },
     {
@@ -105,15 +105,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "membershomes|grassvalley",
-      "venue_name": "Members homes",
-      "venue_city": "Grass Valley",
-      "count": 4,
-      "sample_event_id": "gvda-183038851",
-      "sample_title": "Playwriting Group",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "thursday|grassvalley",
       "venue_name": "Thursday",
       "venue_city": "Grass Valley",
@@ -129,6 +120,15 @@
       "count": 4,
       "sample_event_id": "trumba-204717144",
       "sample_title": "Chris Dacre: INTER:reactions",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "saturday|nevadacity",
+      "venue_name": "Saturday",
+      "venue_city": "Nevada City",
+      "count": 4,
+      "sample_event_id": "trumba-205102079",
+      "sample_title": "Watercolor Exploration with Chappy Valente",
       "candidate_assets": []
     },
     {
@@ -159,12 +159,12 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "wednesday|grassvalley",
-      "venue_name": "Wednesday",
+      "venue_key": "membershomes|grassvalley",
+      "venue_name": "Members homes",
       "venue_city": "Grass Valley",
       "count": 3,
-      "sample_event_id": "trumba-204717142",
-      "sample_title": "Chris Dacre: INTER:reactions",
+      "sample_event_id": "gvda-183038851",
+      "sample_title": "Playwriting Group",
       "candidate_assets": []
     },
     {
@@ -174,15 +174,6 @@
       "count": 3,
       "sample_event_id": "trumba-206502867",
       "sample_title": "Intro to Stained Glass – Level 1",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "saturday|nevadacity",
-      "venue_name": "Saturday",
-      "venue_city": "Nevada City",
-      "count": 3,
-      "sample_event_id": "trumba-205102079",
-      "sample_title": "Watercolor Exploration with Chappy Valente",
       "candidate_assets": []
     },
     {
@@ -210,6 +201,15 @@
       "count": 2,
       "sample_event_id": "trumba-205261453",
       "sample_title": "Powwow People with Director Sky Hopinka",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "wednesday|grassvalley",
+      "venue_name": "Wednesday",
+      "venue_city": "Grass Valley",
+      "count": 2,
+      "sample_event_id": "trumba-204717149",
+      "sample_title": "Chris Dacre: INTER:reactions",
       "candidate_assets": []
     },
     {
