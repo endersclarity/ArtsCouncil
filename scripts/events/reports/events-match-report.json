@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-09-11T12:01:25.120923+00:00",
+  "generated_at": "2026-09-12T11:27:51.849665+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 256,
-    "matched_events": 138,
-    "unmatched_events": 118,
+    "total_events": 277,
+    "matched_events": 141,
+    "unmatched_events": 136,
     "matched_by_pid": 0,
     "matched_by_alias": 6,
     "matched_by_name_city": 27,
-    "matched_by_name_city_fuzzy": 105,
-    "upcoming_14d": 103
+    "matched_by_name_city_fuzzy": 108,
+    "upcoming_14d": 124
   },
   "unmatched_venues": [
     {
@@ -30,6 +30,15 @@
       "count": 8,
       "sample_event_id": "trumba-206313493",
       "sample_title": "Woodturning 101 – Craft a Beautiful Wooden Bowl",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "monday|grassvalley",
+      "venue_name": "Monday",
+      "venue_city": "Grass Valley",
+      "count": 8,
+      "sample_event_id": "trumba-206663278",
+      "sample_title": "Fall 2026 Youth Classes at The Center for the Arts",
       "candidate_assets": []
     },
     {
@@ -78,21 +87,39 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "monday|grassvalley",
-      "venue_name": "Monday",
-      "venue_city": "Grass Valley",
+      "venue_key": "tuesday|nevadacity",
+      "venue_name": "Tuesday",
+      "venue_city": "Nevada City",
       "count": 7,
-      "sample_event_id": "trumba-206663278",
-      "sample_title": "Fall 2026 Youth Classes at The Center for the Arts",
+      "sample_event_id": "trumba-206314481",
+      "sample_title": "Make a Tiny Grief Book",
       "candidate_assets": []
     },
     {
-      "venue_key": "friday|grassvalley",
-      "venue_name": "Friday",
-      "venue_city": "Grass Valley",
+      "venue_key": "thursday|nevadacity",
+      "venue_name": "Thursday",
+      "venue_city": "Nevada City",
+      "count": 6,
+      "sample_event_id": "trumba-208494217",
+      "sample_title": "175 | Land, People, Culture",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "saturday|nevadacity",
+      "venue_name": "Saturday",
+      "venue_city": "Nevada City",
       "count": 5,
-      "sample_event_id": "trumba-204717144",
-      "sample_title": "Chris Dacre: INTER:reactions",
+      "sample_event_id": "trumba-208192398",
+      "sample_title": "Poetry on Preserves at Mountain Bounty Farm",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "monday|nevadacity",
+      "venue_name": "Monday",
+      "venue_city": "Nevada City",
+      "count": 5,
+      "sample_event_id": "trumba-208494214",
+      "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
     },
     {
@@ -114,15 +141,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "saturday|nevadacity",
-      "venue_name": "Saturday",
-      "venue_city": "Nevada City",
-      "count": 4,
-      "sample_event_id": "trumba-205102079",
-      "sample_title": "Watercolor Exploration with Chappy Valente",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "tuesday|grassvalley",
       "venue_name": "Tuesday",
       "venue_city": "Grass Valley",
@@ -132,11 +150,29 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "wednesday|nevadacity",
+      "venue_name": "Wednesday",
+      "venue_city": "Nevada City",
+      "count": 4,
+      "sample_event_id": "trumba-205699479",
+      "sample_title": "Make a Ceramic Witches Hat Luminary",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "thursday|grassvalley",
       "venue_name": "Thursday",
       "venue_city": "Grass Valley",
       "count": 4,
       "sample_event_id": "trumba-204717150",
+      "sample_title": "Chris Dacre: INTER:reactions",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "friday|grassvalley",
+      "venue_name": "Friday",
+      "venue_city": "Grass Valley",
+      "count": 4,
+      "sample_event_id": "trumba-204717151",
       "sample_title": "Chris Dacre: INTER:reactions",
       "candidate_assets": []
     },
@@ -168,15 +204,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "tuesday|nevadacity",
-      "venue_name": "Tuesday",
-      "venue_city": "Nevada City",
-      "count": 3,
-      "sample_event_id": "trumba-206314481",
-      "sample_title": "Make a Tiny Grief Book",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "wednesday|grassvalley",
       "venue_name": "Wednesday",
       "venue_city": "Grass Valley",
@@ -195,21 +222,21 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "nevadamuseumofart|renonv",
+      "venue_name": "Nevada Museum of Art",
+      "venue_city": "Reno, NV",
+      "count": 2,
+      "sample_event_id": "trumba-205261454",
+      "sample_title": "Hands ON! Second Saturday",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "darkhosecoffee|truckee",
       "venue_name": "Dark Hose Coffee",
       "venue_city": "Truckee",
       "count": 2,
       "sample_event_id": "trumba-116325479",
       "sample_title": "Word Jam",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "thursday|nevadacity",
-      "venue_name": "Thursday",
-      "venue_city": "Nevada City",
-      "count": 2,
-      "sample_event_id": "trumba-206502866",
-      "sample_title": "Intro to Stained Glass – Level 1",
       "candidate_assets": []
     },
     {
@@ -282,24 +309,6 @@
       "count": 1,
       "sample_event_id": "gvda-198214906",
       "sample_title": "Decendants: The Musical",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "nevadamuseumofart|renonv",
-      "venue_name": "Nevada Museum of Art",
-      "venue_city": "Reno, NV",
-      "count": 1,
-      "sample_event_id": "trumba-205261454",
-      "sample_title": "Hands ON! Second Saturday",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "wednesday|nevadacity",
-      "venue_name": "Wednesday",
-      "venue_city": "Nevada City",
-      "count": 1,
-      "sample_event_id": "trumba-205699479",
-      "sample_title": "Make a Ceramic Witches Hat Luminary",
       "candidate_assets": []
     },
     {
