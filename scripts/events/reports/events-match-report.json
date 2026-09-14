@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-09-13T12:32:18.428490+00:00",
+  "generated_at": "2026-09-14T13:38:27.444388+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 272,
+    "total_events": 265,
     "matched_events": 139,
-    "unmatched_events": 133,
+    "unmatched_events": 126,
     "matched_by_pid": 0,
     "matched_by_alias": 6,
     "matched_by_name_city": 27,
     "matched_by_name_city_fuzzy": 106,
-    "upcoming_14d": 119
+    "upcoming_14d": 112
   },
   "unmatched_venues": [
     {
@@ -30,15 +30,6 @@
       "count": 8,
       "sample_event_id": "gvda-198326438",
       "sample_title": "Fogelberg Revisited &#8211; A Tribute to Dan Fogelberg",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "sunday|nevadacity",
-      "venue_name": "Sunday",
-      "venue_city": "Nevada City",
-      "count": 8,
-      "sample_event_id": "trumba-206313493",
-      "sample_title": "Woodturning 101 – Craft a Beautiful Wooden Bowl",
       "candidate_assets": []
     },
     {
@@ -69,15 +60,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "sunday|grassvalley",
-      "venue_name": "Sunday",
-      "venue_city": "Grass Valley",
-      "count": 7,
-      "sample_event_id": "trumba-204717146",
-      "sample_title": "Chris Dacre: INTER:reactions",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "mcknightcrossingshoppingcenter|grassvalley",
       "venue_name": "Mcknight crossing shopping center",
       "venue_city": "Grass Valley",
@@ -102,6 +84,24 @@
       "count": 6,
       "sample_event_id": "trumba-208494217",
       "sample_title": "175 | Land, People, Culture",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "wednesday|nevadacity",
+      "venue_name": "Wednesday",
+      "venue_city": "Nevada City",
+      "count": 5,
+      "sample_event_id": "trumba-205699479",
+      "sample_title": "Make a Ceramic Witches Hat Luminary",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "sunday|nevadacity",
+      "venue_name": "Sunday",
+      "venue_city": "Nevada City",
+      "count": 5,
+      "sample_event_id": "trumba-205208644",
+      "sample_title": "Metal Garden Art Workshop",
       "candidate_assets": []
     },
     {
@@ -138,15 +138,6 @@
       "count": 4,
       "sample_event_id": "trumba-204717148",
       "sample_title": "Chris Dacre: INTER:reactions",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "wednesday|nevadacity",
-      "venue_name": "Wednesday",
-      "venue_city": "Nevada City",
-      "count": 4,
-      "sample_event_id": "trumba-205699479",
-      "sample_title": "Make a Ceramic Witches Hat Luminary",
       "candidate_assets": []
     },
     {
@@ -213,21 +204,21 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "sunday|grassvalley",
+      "venue_name": "Sunday",
+      "venue_city": "Grass Valley",
+      "count": 3,
+      "sample_event_id": "trumba-204717153",
+      "sample_title": "Chris Dacre: INTER:reactions",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "meetingroom|pennvalley",
       "venue_name": "Meeting Room",
       "venue_city": "Penn Valley",
       "count": 2,
       "sample_event_id": "libcal-LibCal-20247-16276894-20260316",
       "sample_title": "Lab Rats: A Science Book Club",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "darkhosecoffee|truckee",
-      "venue_name": "Dark Hose Coffee",
-      "venue_city": "Truckee",
-      "count": 2,
-      "sample_event_id": "trumba-116325479",
-      "sample_title": "Word Jam",
       "candidate_assets": []
     },
     {
@@ -327,6 +318,15 @@
       "count": 1,
       "sample_event_id": "trumba-113922962",
       "sample_title": "Kids Night Out",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "darkhosecoffee|truckee",
+      "venue_name": "Dark Hose Coffee",
+      "venue_city": "Truckee",
+      "count": 1,
+      "sample_event_id": "trumba-116325480",
+      "sample_title": "Word Jam",
       "candidate_assets": []
     }
   ],
