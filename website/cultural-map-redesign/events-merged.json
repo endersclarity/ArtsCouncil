@@ -1,7 +1,7 @@
 {
-  "generated_at": "2026-09-14T06:38:27-07:00",
+  "generated_at": "2026-09-15T05:27:42-07:00",
   "source_counts": {
-    "trumba": 112,
+    "trumba": 110,
     "gvda": 54,
     "libcal": 70,
     "kvmr": 29,
@@ -12,8 +12,8 @@
     "community": 0
   },
   "dedup_removed": 0,
-  "event_tagged": 96,
-  "family_tagged": 40,
+  "event_tagged": 87,
+  "family_tagged": 38,
   "events": [
     {
       "event_id": "kvmr-348860-1772877600-1772892000-20260307",
@@ -2887,98 +2887,6 @@
       ]
     },
     {
-      "event_id": "trumba-206663278",
-      "title": "Fall 2026 Youth Classes at The Center for the Arts",
-      "start_iso": "2026-09-14T12:00:00-07:00",
-      "end_iso": "2026-09-14T14:00:00-07:00",
-      "timezone": "America/Los_Angeles",
-      "venue_name": "Monday",
-      "source_type": "feed",
-      "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
-      "venue_city": "Grass Valley",
-      "ticket_url": "https://thecenterforthearts.org/arts-ed/fall-classes-2026/",
-      "tags": [
-        "Conference / Lecture / Workshop",
-        "Visual Art / Gallery"
-      ],
-      "image_url": "https://www.trumba.com/i/DgB3nYN7Rs2kn6mJFJ62Ece5.jpg?w=900",
-      "description": "thecenterforthearts.org…",
-      "source_label": "Nevada County Arts Council",
-      "event_tags": [
-        "family-kids"
-      ],
-      "is_family": true
-    },
-    {
-      "event_id": "trumba-204717147",
-      "title": "Chris Dacre: INTER:reactions",
-      "start_iso": "2026-09-14T13:30:00-07:00",
-      "end_iso": "2026-09-14T17:00:00-07:00",
-      "timezone": "America/Los_Angeles",
-      "venue_name": "Monday",
-      "source_type": "feed",
-      "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
-      "venue_city": "Grass Valley",
-      "ticket_url": "https://thecenterforthearts.my.salesforce-sites.com/ticket/?fbclid=IwY2xjawSe6ZlleHRuA2FlbQIxMABicmlkETE4S0ZsdDNsR2Z3RzFsOXJGc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHhSEu_7x-8oRqqKpO2mFzKb6xBOeX40C2mWqB3rofk1JoCSZbHMjhpIfx7tH_aem_4gkYmJ57SxQxWxCLfcNYFw#/",
-      "tags": [
-        "Visual Art / Gallery"
-      ],
-      "image_url": "https://www.trumba.com/i/DgDoEYB72UwMWgVs3mOX6UgO.png?w=900",
-      "description": "thecenterforthearts.my.salesforce-sites.com…",
-      "source_label": "Nevada County Arts Council",
-      "event_tags": [],
-      "is_family": false
-    },
-    {
-      "event_id": "trumba-206772247",
-      "title": "Suzuki Strings",
-      "start_iso": "2026-09-14T15:30:00-07:00",
-      "end_iso": "2026-09-14T16:30:00-07:00",
-      "timezone": "America/Los_Angeles",
-      "venue_name": "Sierra College",
-      "source_type": "feed",
-      "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
-      "venue_city": "Grass Valley",
-      "ticket_url": "https://www.musicinthemountains.org/youth-orchestra",
-      "tags": [
-        "Conference / Lecture / Workshop"
-      ],
-      "image_url": "https://www.trumba.com/i/DgD17RJSSUThZmN-VdtmGPEZ.png?w=900",
-      "description": "www.musicinthemountains.org…",
-      "source_label": "Nevada County Arts Council",
-      "event_tags": [],
-      "is_family": false
-    },
-    {
-      "event_id": "trumba-195322413",
-      "title": "Nevada City Odd Fellows Open Mic",
-      "start_iso": "2026-09-14T18:30:00-07:00",
-      "end_iso": "2026-09-14T21:00:00-07:00",
-      "timezone": "America/Los_Angeles",
-      "venue_name": "Seven Stars Gallery",
-      "source_type": "feed",
-      "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
-      "venue_city": "Nevada City",
-      "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D195322413",
-      "tags": [
-        "Children / Family",
-        "Community",
-        "Literary Arts",
-        "Music / Concert"
-      ],
-      "image_url": "https://www.trumba.com/i/DgBdHmbH9bk2SvN1RLvWqbxt.jpg?w=900",
-      "description": "The most relaxed, most welcoming open mic in Western Nevada County Address: 210 Spring St, Nevada City, CA 95959",
-      "source_label": "Nevada County Arts Council",
-      "event_tags": [
-        "live-music"
-      ],
-      "is_family": false
-    },
-    {
       "event_id": "trumba-206314481",
       "title": "Make a Tiny Grief Book",
       "start_iso": "2026-09-15T09:00:00-07:00",
@@ -2987,7 +2895,7 @@
       "venue_name": "Tuesday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://thecuriousforge.org/product/make-a-tiny-grief-book/",
       "tags": [
@@ -3008,7 +2916,7 @@
       "venue_name": "Tuesday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://thecuriousforge.org/product/tuesday-morning-ceramics-2/",
       "tags": [
@@ -3029,7 +2937,7 @@
       "venue_name": "Tuesday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://nevadacountyca.libcal.com/event/17423334",
       "tags": [
@@ -3050,7 +2958,7 @@
       "venue_name": "Tuesday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Grass Valley",
       "ticket_url": "https://thecenterforthearts.my.salesforce-sites.com/ticket/?fbclid=IwY2xjawSe6ZlleHRuA2FlbQIxMABicmlkETE4S0ZsdDNsR2Z3RzFsOXJGc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHhSEu_7x-8oRqqKpO2mFzKb6xBOeX40C2mWqB3rofk1JoCSZbHMjhpIfx7tH_aem_4gkYmJ57SxQxWxCLfcNYFw#/",
       "tags": [
@@ -3071,7 +2979,7 @@
       "venue_name": "Unknown venue",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.facebook.com/groups/246116427305067/?ref=share_group_link&mibextid=wwXIfr",
       "tags": [
@@ -3092,7 +3000,7 @@
       "venue_name": "Tuesday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://thecuriousforge.org/product/youth-wood-arts-class/",
       "tags": [
@@ -3115,7 +3023,7 @@
       "venue_name": "Odd Fellows Hall",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.nevadacountyswings.org",
       "tags": [
@@ -3136,7 +3044,7 @@
       "venue_name": "Tuesday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Grass Valley",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D205849367",
       "tags": [
@@ -3159,7 +3067,7 @@
       "venue_name": "Wednesday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Grass Valley",
       "ticket_url": "https://thecenterforthearts.my.salesforce-sites.com/ticket/?fbclid=IwY2xjawSe6ZlleHRuA2FlbQIxMABicmlkETE4S0ZsdDNsR2Z3RzFsOXJGc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHhSEu_7x-8oRqqKpO2mFzKb6xBOeX40C2mWqB3rofk1JoCSZbHMjhpIfx7tH_aem_4gkYmJ57SxQxWxCLfcNYFw#/",
       "tags": [
@@ -3180,7 +3088,7 @@
       "venue_name": "Nevada Museum of Art",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Reno, NV",
       "ticket_url": "https://www.nevadaart.org/event/olli-art-at-the-museum-exhibition-tour/",
       "tags": [
@@ -3201,7 +3109,7 @@
       "venue_name": "Wednesday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://thecuriousforge.org/virtual-tour/",
       "tags": [
@@ -3222,7 +3130,7 @@
       "venue_name": "Thursday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Grass Valley",
       "ticket_url": "https://thecenterforthearts.my.salesforce-sites.com/ticket/?fbclid=IwY2xjawSe6ZlleHRuA2FlbQIxMABicmlkETE4S0ZsdDNsR2Z3RzFsOXJGc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHhSEu_7x-8oRqqKpO2mFzKb6xBOeX40C2mWqB3rofk1JoCSZbHMjhpIfx7tH_aem_4gkYmJ57SxQxWxCLfcNYFw#/",
       "tags": [
@@ -3243,7 +3151,7 @@
       "venue_name": "Thursday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Grass Valley",
       "ticket_url": "https://thecenterforthearts.my.salesforce-sites.com/ticket/#/events/a0SUZ000005dWMv2AM",
       "tags": [
@@ -3264,7 +3172,7 @@
       "venue_name": "Friday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Grass Valley",
       "ticket_url": "https://thecenterforthearts.my.salesforce-sites.com/ticket/?fbclid=IwY2xjawSe6ZlleHRuA2FlbQIxMABicmlkETE4S0ZsdDNsR2Z3RzFsOXJGc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHhSEu_7x-8oRqqKpO2mFzKb6xBOeX40C2mWqB3rofk1JoCSZbHMjhpIfx7tH_aem_4gkYmJ57SxQxWxCLfcNYFw#/",
       "tags": [
@@ -3285,7 +3193,7 @@
       "venue_name": "McKnight crossing shopping center",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Grass Valley",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D191631935",
       "tags": [
@@ -3306,7 +3214,7 @@
       "venue_name": "Kidzone Museum",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Truckee",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D177710477",
       "tags": [
@@ -3327,7 +3235,7 @@
       "venue_name": "Throughout the Yuba River Watershed",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://yubariver.volunteerlocal.com/volunteer/?id=114666",
       "tags": [
@@ -3350,7 +3258,7 @@
       "venue_name": "Saturday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Grass Valley",
       "ticket_url": "https://sirensongfleeceworks.com/events",
       "tags": [
@@ -3371,7 +3279,7 @@
       "venue_name": "Saturday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Grass Valley",
       "ticket_url": "https://thecenterforthearts.my.salesforce-sites.com/ticket/?fbclid=IwY2xjawSe6ZlleHRuA2FlbQIxMABicmlkETE4S0ZsdDNsR2Z3RzFsOXJGc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHhSEu_7x-8oRqqKpO2mFzKb6xBOeX40C2mWqB3rofk1JoCSZbHMjhpIfx7tH_aem_4gkYmJ57SxQxWxCLfcNYFw#/",
       "tags": [
@@ -3392,7 +3300,7 @@
       "venue_name": "N. Pine Street",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.nccb.org",
       "tags": [
@@ -3415,7 +3323,7 @@
       "venue_name": "Saturday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.nevadacity.innerpath.org",
       "tags": [
@@ -3438,7 +3346,7 @@
       "venue_name": "Sunday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://thecuriousforge.org/virtual-tour/",
       "tags": [
@@ -3459,7 +3367,7 @@
       "venue_name": "Sunday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://thecuriousforge.org/product/creative-labyrinth-collage-journey/",
       "tags": [
@@ -3480,7 +3388,7 @@
       "venue_name": "Sunday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Grass Valley",
       "ticket_url": "https://thecenterforthearts.my.salesforce-sites.com/ticket/?fbclid=IwY2xjawSe6ZlleHRuA2FlbQIxMABicmlkETE4S0ZsdDNsR2Z3RzFsOXJGc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHhSEu_7x-8oRqqKpO2mFzKb6xBOeX40C2mWqB3rofk1JoCSZbHMjhpIfx7tH_aem_4gkYmJ57SxQxWxCLfcNYFw#/",
       "tags": [
@@ -3501,7 +3409,7 @@
       "venue_name": "Nevada Theatre",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.theonyxtheatre.com/movies/1000037105-hard-boiled/?date=2026-09-20",
       "tags": [
@@ -3522,7 +3430,7 @@
       "venue_name": "Monday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.facebook.com/events/2555131411656850/",
       "tags": [
@@ -3543,7 +3451,7 @@
       "venue_name": "Monday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Grass Valley",
       "ticket_url": "https://thecenterforthearts.org/arts-ed/fall-classes-2026/",
       "tags": [
@@ -3568,7 +3476,7 @@
       "venue_name": "Monday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Grass Valley",
       "ticket_url": "https://thecenterforthearts.my.salesforce-sites.com/ticket/?fbclid=IwY2xjawSe6ZlleHRuA2FlbQIxMABicmlkETE4S0ZsdDNsR2Z3RzFsOXJGc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHhSEu_7x-8oRqqKpO2mFzKb6xBOeX40C2mWqB3rofk1JoCSZbHMjhpIfx7tH_aem_4gkYmJ57SxQxWxCLfcNYFw#/",
       "tags": [
@@ -3589,7 +3497,7 @@
       "venue_name": "Seven Stars Gallery",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D195322414",
       "tags": [
@@ -3615,7 +3523,7 @@
       "venue_name": "Tuesday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.facebook.com/events/2555131411656850/",
       "tags": [
@@ -3636,7 +3544,7 @@
       "venue_name": "Tuesday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Grass Valley",
       "ticket_url": "https://thecenterforthearts.my.salesforce-sites.com/ticket/?fbclid=IwY2xjawSe6ZlleHRuA2FlbQIxMABicmlkETE4S0ZsdDNsR2Z3RzFsOXJGc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHhSEu_7x-8oRqqKpO2mFzKb6xBOeX40C2mWqB3rofk1JoCSZbHMjhpIfx7tH_aem_4gkYmJ57SxQxWxCLfcNYFw#/",
       "tags": [
@@ -3657,7 +3565,7 @@
       "venue_name": "Unknown venue",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.facebook.com/groups/246116427305067/?ref=share_group_link&mibextid=wwXIfr",
       "tags": [
@@ -3678,7 +3586,7 @@
       "venue_name": "Wednesday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.facebook.com/events/2555131411656850/",
       "tags": [
@@ -3699,7 +3607,7 @@
       "venue_name": "Wednesday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Grass Valley",
       "ticket_url": "https://thecenterforthearts.my.salesforce-sites.com/ticket/?fbclid=IwY2xjawSe6ZlleHRuA2FlbQIxMABicmlkETE4S0ZsdDNsR2Z3RzFsOXJGc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHhSEu_7x-8oRqqKpO2mFzKb6xBOeX40C2mWqB3rofk1JoCSZbHMjhpIfx7tH_aem_4gkYmJ57SxQxWxCLfcNYFw#/",
       "tags": [
@@ -3720,7 +3628,7 @@
       "venue_name": "Members homes",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Grass Valley",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D183038864",
       "tags": [
@@ -3743,7 +3651,7 @@
       "venue_name": "Wednesday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "North San Juan",
       "ticket_url": "https://calebdardick.com",
       "tags": [
@@ -3764,7 +3672,7 @@
       "venue_name": "Wednesday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Grass Valley",
       "ticket_url": "https://thecenterforthearts.my.salesforce-sites.com/ticket/?_gl=1*133lwxe*_gcl_au*MTk5NDE4ODc0LjE3ODQzMDYwOTQuLS4tLjE3ODQzMDYwOTQuODM3Njk4NDgyLjE3ODUyNTMwNjIuMTc4NTI2NjA2Mw..#/events/a0SUZ000005cqFd2AI",
       "tags": [
@@ -3785,7 +3693,7 @@
       "venue_name": "Thursday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.facebook.com/events/2555131411656850/",
       "tags": [
@@ -3806,7 +3714,7 @@
       "venue_name": "Thursday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Grass Valley",
       "ticket_url": "https://thecenterforthearts.my.salesforce-sites.com/ticket/?fbclid=IwY2xjawSe6ZlleHRuA2FlbQIxMABicmlkETE4S0ZsdDNsR2Z3RzFsOXJGc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHhSEu_7x-8oRqqKpO2mFzKb6xBOeX40C2mWqB3rofk1JoCSZbHMjhpIfx7tH_aem_4gkYmJ57SxQxWxCLfcNYFw#/",
       "tags": [
@@ -3827,7 +3735,7 @@
       "venue_name": "Thursday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://thecuriousforge.org/product/make-a-stained-glass-suncatcher/",
       "tags": [
@@ -3848,7 +3756,7 @@
       "venue_name": "Grass Valley Brewing Co",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Grass Valley",
       "ticket_url": "https://www.gvbrew.com/",
       "tags": [
@@ -3869,7 +3777,7 @@
       "venue_name": "Friday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.facebook.com/events/2555131411656850/",
       "tags": [
@@ -3890,7 +3798,7 @@
       "venue_name": "Friday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Grass Valley",
       "ticket_url": "https://thecenterforthearts.my.salesforce-sites.com/ticket/?fbclid=IwY2xjawSe6ZlleHRuA2FlbQIxMABicmlkETE4S0ZsdDNsR2Z3RzFsOXJGc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHhSEu_7x-8oRqqKpO2mFzKb6xBOeX40C2mWqB3rofk1JoCSZbHMjhpIfx7tH_aem_4gkYmJ57SxQxWxCLfcNYFw#/",
       "tags": [
@@ -3911,7 +3819,7 @@
       "venue_name": "Friday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Grass Valley",
       "ticket_url": "https://thecenterforthearts.my.salesforce-sites.com/ticket/?_gl=1*b8knq*_gcl_au*MTk5NDE4ODc0LjE3ODQzMDYwOTQuLS4tLjE3ODQzMDYwOTQuODM3Njk4NDgyLjE3ODUyNTMwNjIuMTc4NTI2NjA2Mw..#/events/a0SUZ000005cshF2AQ",
       "tags": [
@@ -3932,7 +3840,7 @@
       "venue_name": "McKnight crossing shopping center",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Grass Valley",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D191631936",
       "tags": [
@@ -3953,7 +3861,7 @@
       "venue_name": "Kidzone Museum",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Truckee",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D177710478",
       "tags": [
@@ -3974,7 +3882,7 @@
       "venue_name": "Saturday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Grass Valley",
       "ticket_url": "https://sirensongfleeceworks.com/events",
       "tags": [
@@ -3995,7 +3903,7 @@
       "venue_name": "Truckee Library",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Truckee",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D116790103",
       "tags": [
@@ -4018,7 +3926,7 @@
       "venue_name": "Saturday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://thecuriousforge.org/product/quilling-fruit-magnets/",
       "tags": [
@@ -4039,7 +3947,7 @@
       "venue_name": "Saturday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Grass Valley",
       "ticket_url": "https://thecenterforthearts.my.salesforce-sites.com/ticket/?fbclid=IwY2xjawSe6ZlleHRuA2FlbQIxMABicmlkETE4S0ZsdDNsR2Z3RzFsOXJGc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHhSEu_7x-8oRqqKpO2mFzKb6xBOeX40C2mWqB3rofk1JoCSZbHMjhpIfx7tH_aem_4gkYmJ57SxQxWxCLfcNYFw#/",
       "tags": [
@@ -4060,7 +3968,7 @@
       "venue_name": "Sunday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://thecuriousforge.org/product/hand-carved-wooden-spoons/",
       "tags": [
@@ -4081,7 +3989,7 @@
       "venue_name": "Sunday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://thecuriousforge.org/product/woodturning-class/",
       "tags": [
@@ -4102,7 +4010,7 @@
       "venue_name": "Sunday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Grass Valley",
       "ticket_url": "https://thecenterforthearts.my.salesforce-sites.com/ticket/?fbclid=IwY2xjawSe6ZlleHRuA2FlbQIxMABicmlkETE4S0ZsdDNsR2Z3RzFsOXJGc3J0YwZhcHBfaWQQMjIyMDM5MTc4ODIwMDg5MgABHhSEu_7x-8oRqqKpO2mFzKb6xBOeX40C2mWqB3rofk1JoCSZbHMjhpIfx7tH_aem_4gkYmJ57SxQxWxCLfcNYFw#/",
       "tags": [
@@ -4120,22 +4028,16 @@
       "start_iso": "2026-09-27T19:00:00-07:00",
       "end_iso": "2026-09-27T21:00:00-07:00",
       "timezone": "America/Los_Angeles",
-      "venue_name": "The Onyx Downtown at the Nevada Theatre",
+      "venue_name": "Nevada Theatre",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.theonyxtheatre.com/movies/4005-harlan-county-usa/?date=2026-09-27",
-      "tags": [
-        "Film"
-      ],
       "image_url": "https://www.trumba.com/i/DgDTa8VCOayZK0m8rN8JU6-0.jpg?w=900",
-      "description": "9/27 - Presented in a new restoration to mark the film’s 50th anniversary, Barbara Kopple’s Academy Award–winning HARLAN COUNTY USA unflinchingly documents a coal miners’ strike in a small Kentucky town. With unprecedented access, Kopple and her crew captured the miners’ sometimes violent struggles with strikebreakers, local police, and company thugs. With a haunting soundtrack—featuring legendary country and bluegrass artists Hazel Dickens, Merle Travis, David Morris, Sarah Ogan Gunning, and Florence Reece—the film is a heartbreaking record of the thirteen-month struggle between a community fighting to survive and a corporation dedicated to the bottom line.",
+      "description": "www.theonyxtheatre.com…",
       "source_label": "Nevada County Arts Council",
-      "event_tags": [
-        "live-music",
-        "community"
-      ],
+      "event_tags": [],
       "is_family": false
     },
     {
@@ -4147,7 +4049,7 @@
       "venue_name": "Sunday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Grass Valley",
       "ticket_url": "https://thecenterforthearts.my.salesforce-sites.com/ticket/?_gl=1*11bke06*_gcl_au*MzI0NTg4MDYwLjE3ODUyNTUxMzkuLS4tLjE3ODUyNTUxMzkuODE4MDcyNTcwLjE3ODY1NjM2NTYuMTc4NjY0MjM0Mw..#/events/a0SUZ000005W5cn2AC",
       "tags": [
@@ -4168,7 +4070,7 @@
       "venue_name": "Monday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.facebook.com/events/2555131411656850/",
       "tags": [
@@ -4189,7 +4091,7 @@
       "venue_name": "Monday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Grass Valley",
       "ticket_url": "https://thecenterforthearts.org/arts-ed/fall-classes-2026/",
       "tags": [
@@ -4214,7 +4116,7 @@
       "venue_name": "Seven Stars Gallery",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D195322415",
       "tags": [
@@ -4240,7 +4142,7 @@
       "venue_name": "Tuesday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.facebook.com/events/2555131411656850/",
       "tags": [
@@ -4261,7 +4163,7 @@
       "venue_name": "Unknown venue",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.facebook.com/groups/246116427305067/?ref=share_group_link&mibextid=wwXIfr",
       "tags": [
@@ -4282,7 +4184,7 @@
       "venue_name": "Wednesday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.facebook.com/events/2555131411656850/",
       "tags": [
@@ -4303,7 +4205,7 @@
       "venue_name": "Thursday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.facebook.com/events/2555131411656850/",
       "tags": [
@@ -4324,7 +4226,7 @@
       "venue_name": "Thursday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.facebook.com/events/3490061594500593/",
       "tags": [
@@ -4363,17 +4265,11 @@
       "venue_name": "The Octabarn",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D207629608",
-      "tags": [
-        "Comedy/Improv",
-        "Dance",
-        "Theatre",
-        "Workshop"
-      ],
       "image_url": "https://www.trumba.com/i/DgCo-n61CWW1jF2par%2Af87OB.jpg?w=900",
-      "description": "This is a brand NEW Comedy Improv Class 7-week series that infuses mind, body, and spirit connection to in-the-moment presence and authenticity. Instructors Kimmi Ewing & Raina Satori bring their decades of improv and performance work and intertwine with the senses. Location address will be provided upon registration.",
+      "description": "This is a brand NEW Comedy Improv Class 7-week series that infuses mind, body, and spirit connection to in-the-moment presence and authenticity. Instructors Kimmi Ewing & Raina Satori bring their decades of improv and performance work and intertwine with the senses.",
       "source_label": "Nevada County Arts Council",
       "event_tags": [],
       "is_family": false
@@ -4387,7 +4283,7 @@
       "venue_name": "Friday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.facebook.com/events/2555131411656850/",
       "tags": [
@@ -4405,23 +4301,16 @@
       "start_iso": "2026-10-02T12:00:00-07:00",
       "end_iso": "2026-10-02T14:00:00-07:00",
       "timezone": "America/Los_Angeles",
-      "venue_name": "The Center for the Arts Granucci Gallery",
+      "venue_name": "The Granucci Gallery | The Center for the Arts",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Grass Valley",
       "ticket_url": "https://thecenterforthearts.org/open-studios-tour/",
-      "tags": [
-        "Art & Gallery",
-        "Visual Arts"
-      ],
       "image_url": "https://www.trumba.com/i/DgBoYpSAjiyGfZ7yf6GGha-W.jpg?w=900",
-      "description": "GALLERY HOURS DURING TOUR: Monday-Friday 1:30-5:30 October 10,11 & 17,18 10:00am-5:00pm, Open Studios Preview Exhibition 2026, Open Studios – Nevada County West is The Center for the Arts’ largest annual visual arts program which serves on average 200+ artists, in both urban and rural studios, with an estimated 5,000 attendees every year. This self-guided tour extends throughout western Nevada County every second and third weekend of October. In addition, The Center’s Granucci Gallery hosts a Preview Exhibition featuring one work from each participating artist, gallery or group studio. To attend the self-guided tour, use this guide and the Preview Exhibition to discover artists you’d like to visit and plan your route.",
+      "description": "thecenterforthearts.org…",
       "source_label": "Nevada County Arts Council",
-      "event_tags": [
-        "live-music",
-        "arts-gallery"
-      ],
+      "event_tags": [],
       "is_family": false
     },
     {
@@ -4433,7 +4322,7 @@
       "venue_name": "Northwoods Clubhouse",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Truckee",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D113922962",
       "tags": [
@@ -4457,7 +4346,7 @@
       "venue_name": "Atelier",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Truckee",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D114306317",
       "tags": [
@@ -4479,7 +4368,7 @@
       "venue_name": "Historic Downtown Truckee",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Truckee",
       "ticket_url": "http://www.historictruckee.com",
       "tags": [
@@ -4499,7 +4388,7 @@
       "venue_name": "McKnight crossing shopping center",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Grass Valley",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D191631937",
       "tags": [
@@ -4520,7 +4409,7 @@
       "venue_name": "Kidzone Museum",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Truckee",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D178027357",
       "tags": [
@@ -4541,7 +4430,7 @@
       "venue_name": "Saturday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Grass Valley",
       "ticket_url": "https://downtowngrassvalley.com/gvda-events/2026-annual-brew-fest/",
       "tags": [
@@ -4562,18 +4451,13 @@
       "venue_name": "Western Gateway Park",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Penn Valley",
       "ticket_url": "https://rockinthegateway.com",
-      "tags": [
-        "Music"
-      ],
       "image_url": "https://www.trumba.com/i/DgCdObcJE44K-LS4jP-R8NQx.jpg?w=900",
-      "description": "Heads up, Steely Dan fans: Instead of waiting for their next tour, get your fix with local tribute band Steelin' Dan, on October 3rd. From the straightforward pop/rock of “Reelin’ in the Years” to the quirky, jazz-infected “Green Earrings”, even the most discriminating Steely Dan fans will be hard-pressed to find flaws in Steelin' Dan’s amazingly accurate arrangements and marksman like musicianship!\" - Sacramento Magazine",
+      "description": "rockinthegateway.com",
       "source_label": "Nevada County Arts Council",
-      "event_tags": [
-        "live-music"
-      ],
+      "event_tags": [],
       "is_family": false
     },
     {
@@ -4582,25 +4466,19 @@
       "start_iso": "2026-10-04T11:25:00-07:00",
       "end_iso": "2026-10-04T17:25:00-07:00",
       "timezone": "America/Los_Angeles",
-      "venue_name": "North Columbia Schoolhouse",
+      "venue_name": "Unknown venue",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.northcolumbiaschoolhouse.org",
-      "tags": [
-        "Fair / Festival / Gala",
-        "Music"
-      ],
       "image_url": "https://www.trumba.com/i/DgCxmm7iPBQ%2AJuaZ0MGCrdzY.jpg?w=900",
-      "description": "For the last 17 years or so, the Autumn Shindig on the San Juan Ridge has been a reliable harbinger of fall. An annual event to benefit the North Columbia Schoolhouse Cultural Center, this fun and family-friendly festival features live music, local crafts, games for kids and adults alike, and various contests., The festival is a daytime affair beginning at 11:30 am and going until dusk. Admission for the festival is free. Attendees purchase rustic wooden tokens to spend on the food and game booths. Local craftspeople and farmers will also have booths with goods on sale., Gourmet harvest stew, garden salad and fresh bread will be available thanks to local farms, as well as other generous business donations. There will be comfort food and drinks, and organic cotton candy at The “Sugar Shack” which will host the Great Shindig Bake-off with prizes as well as serving Organic cotton Candy and other sweets in all shapes and sizes. 3 Forks Brewery will have local brew on tap., The variety of local live music throughout the day include Oliah Fall, The Heifer Belles, Awkward Pocket, & Delphine & The Moss Collective & more TBA…. The musicians all generously sponsor the event by playing pro bono., Enter the Sack Race just by showing up by 12:30. Grow out your hair and win a prize for the Best Beard, or burn your mouth in the Hot Pepper Eating Contest!, Longtime supporters Mother Truckers & Natural Selection along with Three Forks Bakery & Brewery are sponsoring the Shindig. Many other local businesses provide additional sponsorship to keep this treasure of the San Juan Ridge vibrant and healthy.,",
+      "description": "www.northcolumbiaschoolhouse.org",
       "source_label": "Nevada County Arts Council",
       "event_tags": [
-        "live-music",
-        "family-kids",
         "community"
       ],
-      "is_family": true
+      "is_family": false
     },
     {
       "event_id": "trumba-208494224",
@@ -4611,7 +4489,7 @@
       "venue_name": "Monday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.facebook.com/events/2555131411656850/",
       "tags": [
@@ -4632,7 +4510,7 @@
       "venue_name": "Monday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Grass Valley",
       "ticket_url": "https://thecenterforthearts.org/arts-ed/fall-classes-2026/",
       "tags": [
@@ -4657,7 +4535,7 @@
       "venue_name": "Seven Stars Gallery",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D195322416",
       "tags": [
@@ -4683,7 +4561,7 @@
       "venue_name": "Monday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Grass Valley",
       "ticket_url": "https://bit.ly/comms_marty",
       "tags": [
@@ -4704,7 +4582,7 @@
       "venue_name": "Tuesday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.facebook.com/events/2555131411656850/",
       "tags": [
@@ -4725,7 +4603,7 @@
       "venue_name": "Unknown venue",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.facebook.com/groups/246116427305067/?ref=share_group_link&mibextid=wwXIfr",
       "tags": [
@@ -4746,7 +4624,7 @@
       "venue_name": "Tuesday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Grass Valley",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D197234582",
       "tags": [
@@ -4769,7 +4647,7 @@
       "venue_name": "Wednesday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.facebook.com/events/2555131411656850/",
       "tags": [
@@ -4790,7 +4668,7 @@
       "venue_name": "Members homes",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Grass Valley",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D183038865",
       "tags": [
@@ -4810,21 +4688,16 @@
       "start_iso": "2026-10-07T19:00:00-07:00",
       "end_iso": "2026-10-07T21:00:00-07:00",
       "timezone": "America/Los_Angeles",
-      "venue_name": "The Center For The Art - Marissa Funk Theater",
+      "venue_name": "Unknown venue",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Grass Valley",
       "ticket_url": "https://bit.ly/kishi_comm_cal",
-      "tags": [
-        "Music"
-      ],
       "image_url": "https://www.trumba.com/i/DgAEwHgs8zXUlfijB6y-Zr6j.jpg?w=900",
-      "description": "The Center for the Arts presents Kishi Bashi on his Sonderlust 10th Anniversary Tour., Celebrating ten years of the beloved album Sonderlust, Kishi Bashi brings his signature blend of lush orchestral pop, virtuosic violin, and heartfelt storytelling to the Marisa Funk Theater for an unforgettable evening of music., Known for his dynamic live performances and innovative looping techniques, Kishi Bashi creates immersive soundscapes that blend indie rock, classical influences, and cinematic emotion.",
+      "description": "bit.ly…",
       "source_label": "Nevada County Arts Council",
-      "event_tags": [
-        "live-music"
-      ],
+      "event_tags": [],
       "is_family": false
     },
     {
@@ -4836,7 +4709,7 @@
       "venue_name": "Thursday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.facebook.com/events/2555131411656850/",
       "tags": [
@@ -4857,7 +4730,7 @@
       "venue_name": "Thursday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://thecuriousforge.org/product/paint-what-you-want/",
       "tags": [
@@ -4877,18 +4750,14 @@
       "start_iso": "2026-10-08T17:00:00-07:00",
       "end_iso": "2026-10-08T19:00:00-07:00",
       "timezone": "America/Los_Angeles",
-      "venue_name": "The Center for the Arts Granucci Gallery",
+      "venue_name": "The Granucci Gallery at The Center for the Arts",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Grass Valley",
       "ticket_url": "https://thecenterforthearts.my.salesforce-sites.com/ticket/?_gl=1*1qrhtsl*_gcl_au*MTgwMzY4MDkwOS4xNzg2OTk3MDY1Li0uLS4xNzg2OTk3MDY1LjEyNjU2MDMzNTguMTc4Njk5NzA2Ni4xNzg3MDcxMzE4#/events/a0SUZ000005CMuj2AG",
-      "tags": [
-        "Art & Gallery",
-        "Visual Arts"
-      ],
       "image_url": "https://www.trumba.com/i/DgCtm9XK4yMoD2r8ahZOsn9A.jpg?w=900",
-      "description": "Open Studios Kick-off Party, Get a first look at the incredible artists taking part in Open Studios – Nevada County West at our official Kick-off Party!, Join us Thursday, October 8 from 5–7pm at The Center for the Arts to meet participating artists, preview their work, and get inspired for the 2026 Open Studios Tour. With 90+ artists opening their studios across western Nevada County, this is your chance to discover a few favorites, make a plan, and start your art-filled October., Come mingle, explore the Preview Exhibition, meet the artists behind the work, and celebrate one of Nevada County’s biggest annual art events., Free to attend. RSVP encouraged.",
+      "description": "thecenterforthearts.my.salesforce-sites.com…",
       "source_label": "Nevada County Arts Council",
       "event_tags": [],
       "is_family": false
@@ -4902,7 +4771,7 @@
       "venue_name": "Grass Valley Brewing Co",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Grass Valley",
       "ticket_url": "https://www.gvbrew.com/",
       "tags": [
@@ -4923,17 +4792,11 @@
       "venue_name": "The Octabarn",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D207629609",
-      "tags": [
-        "Comedy/Improv",
-        "Dance",
-        "Theatre",
-        "Workshop"
-      ],
       "image_url": "https://www.trumba.com/i/DgCo-n61CWW1jF2par%2Af87OB.jpg?w=900",
-      "description": "This is a brand NEW Comedy Improv Class 7-week series that infuses mind, body, and spirit connection to in-the-moment presence and authenticity. Instructors Kimmi Ewing & Raina Satori bring their decades of improv and performance work and intertwine with the senses. Location address will be provided upon registration.",
+      "description": "This is a brand NEW Comedy Improv Class 7-week series that infuses mind, body, and spirit connection to in-the-moment presence and authenticity. Instructors Kimmi Ewing & Raina Satori bring their decades of improv and performance work and intertwine with the senses.",
       "source_label": "Nevada County Arts Council",
       "event_tags": [],
       "is_family": false
@@ -4947,7 +4810,7 @@
       "venue_name": "Thursday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Grass Valley",
       "ticket_url": "https://bit.ly/comms_cal_gary",
       "tags": [
@@ -4968,7 +4831,7 @@
       "venue_name": "Friday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.facebook.com/events/2555131411656850/",
       "tags": [
@@ -4989,7 +4852,7 @@
       "venue_name": "Friday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Grass Valley",
       "ticket_url": "https://thecenterforthearts.my.salesforce-sites.com/ticket/?_gl=1*1b40t5z*_gcl_au*MTgwMzY4MDkwOS4xNzg2OTk3MDY1Li0uLS4xNzg2OTk3MDY1LjE3MzUzNjUyNDEuMTc4ODI4MDE2NS4xNzg4Mjk5ODkw#/events/a0SUZ000005nmYT2AY",
       "tags": [
@@ -5008,21 +4871,16 @@
       "start_iso": "2026-10-09T19:30:00-07:00",
       "end_iso": "2026-10-09T21:30:00-07:00",
       "timezone": "America/Los_Angeles",
-      "venue_name": "Nevada Theatre",
+      "venue_name": "Unknown venue",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "http://www.thosedarnaccordions.com",
-      "tags": [
-        "Music"
-      ],
       "image_url": "https://www.trumba.com/i/DgAZKfIaW4olVHiRLwm2HXG-.jpg?w=900",
-      "description": "Those Darn Accordions bring their high-energy accordion-fueled rock & roll to the historic Nevada Theatre October 9, NEVADA CITY, CA — Think you know what an accordion sounds like? Think again., San Francisco’s legendary accordion-rockers Those Darn Accordions are ready to rock Nevada City when they take the stage at the historic Nevada Theatre on Friday, October 9., Fronted by singer, songwriter and accordionist Paul Rogers, Those Darn Accordions have spent decades proving that the accordion can be much more than a polka instrument. With four accordion players up front, backed by bass and drums, the band delivers a wild mix of rock, funk, ska, country, polka and straight-ahead good-time music—with plenty of humor and showmanship thrown in., The result is a live show unlike anything else on the musical landscape: six musicians creating a surprisingly big, driving sound while four accordions trade riffs, melodies and musical punches across the front of the stage., Those Darn Accordions aren't newcomers to the national stage. The band has appeared on The American Music Awards with Drew Carey, Good Morning America, MTV Rock N' Jock, Donny & Marie, Penn & Teller's Sin City Spectacular and other television programs. Their music and antics have also been featured in Time, People and Entertainment Weekly., But at the heart of Those Darn Accordions is a simple idea: accordions are cool—and they can rock., “People have a certain idea of what an accordion band is supposed to sound like,” says Rogers. “Then we hit them with four accordions, bass and drums.”, The band's Nevada City appearance brings its famously energetic live show to one of Northern California's most historic venues. The Nevada Theatre, dating to 1865, provides a fitting setting for a band that has spent years taking something old-fashioned and turning it completely upside down.",
+      "description": "www.thosedarnaccordions.com",
       "source_label": "Nevada County Arts Council",
-      "event_tags": [
-        "live-music"
-      ],
+      "event_tags": [],
       "is_family": false
     },
     {
@@ -5034,7 +4892,7 @@
       "venue_name": "McKnight crossing shopping center",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Grass Valley",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D191631938",
       "tags": [
@@ -5055,7 +4913,7 @@
       "venue_name": "Kidzone Museum",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Truckee",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D178027358",
       "tags": [
@@ -5076,7 +4934,7 @@
       "venue_name": "Saturday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://thecuriousforge.org/product/free-open-studios-tour-stop-63-at-the-curious-forge/",
       "tags": [
@@ -5097,19 +4955,13 @@
       "venue_name": "The Curious Forge",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://thecuriousforge.org/product/watercolor-exploration/",
-      "tags": [
-        "Visual Arts",
-        "Workshop"
-      ],
       "image_url": "https://www.trumba.com/i/DgAZH1OjxC2u4L5xME3ltWG2.jpg?w=900",
-      "description": "Exploring Watercolor with Chappy Valente, Immerse yourself in the expressive world of watercolor painting! Whether you’re brand new to watercolor or looking to expand your skills, this hands-on class with artist and educator Chappy Valente will help you gain confidence and technique. Learn to paint with fluidity and intention as you explore the tools, papers, and brushwork that make watercolor such a luminous and rewarding medium., Each session is a stand-alone class with fresh projects and techniques—join once or come monthly to continue growing your watercolor practice., What’s the Project:, Create your own watercolor studies exploring washes, color mixing, and texture effects. Each class introduces a new focus—such as landscapes, botanicals, or abstract forms—to inspire your creativity., What Will They Learn:Brush control and paint-to-water ratios, Wash techniques (wet-on-wet, wet-on-dry, gradient), Paper types, brush styles, and pigment selection, Layering, and color blending, Tips for composition and adding expressive detail, Materials Needed:, All materials are provided for in-class use. Students are welcome to bring their own favorite brushes or watercolor set if desired., Skill Level / Prerequisites:, All skill levels welcome—from first-time painters to those continuing their watercolor journey., Class Length:, One 3-hour session, (Optional continuing classes offered monthly), Fee: $50 + $20 materials, Minimum 3 / Maximum 5 participants",
+      "description": "thecuriousforge.org…",
       "source_label": "Nevada County Arts Council",
-      "event_tags": [
-        "arts-gallery"
-      ],
+      "event_tags": [],
       "is_family": false
     },
     {
@@ -5121,7 +4973,7 @@
       "venue_name": "Saturday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Grass Valley",
       "ticket_url": "https://bit.ly/comms_cal_mcguinn",
       "tags": [
@@ -5142,7 +4994,7 @@
       "venue_name": "Sunday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://thecuriousforge.org/product/free-open-studios-tour-stop-63-at-the-curious-forge/",
       "tags": [
@@ -5163,20 +5015,13 @@
       "venue_name": "The Curious Forge",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://thecuriousforge.org/product/woodturning-102-expand-your-woodturning-skill/",
-      "tags": [
-        "Art & Gallery",
-        "Visual Arts",
-        "Workshop"
-      ],
       "image_url": "https://www.trumba.com/i/DgBNBlCgYunirobc8Alig8rO.jpg?w=900",
-      "description": "Ready to take your woodturning skills further? Join Dave for an advanced class where you’ll work on creating the project of your dreams. Building on the basics from Woodturning 101 this class is perfect for those looking to deepen their craft., Prerequisite: This workshop is designed for those who have completed Woodturning 101 at The Curious Forge, What You’ll Learn:Advanced Woodturning Techniques: Refine and build on the skills you’ve already acquired, with personalized instruction tailored to your project., Project Planning: Learn how to design and plan a woodturning project that meets your artistic goals., Material Selection: Understand the importance of selecting the right wood block for your project and how it affects the final piece., Safe Woodturning Practices, Creative Expression, Why Attend?Build on Existing Skills: Perfect for those who have taken a beginner woodturning class and want to expand their knowledge and capabilities., Guided by an Expert: Benefit from Dave Sherr’s extensive experience and personalized instruction, tailored to your specific project., Creative Fulfillment: Experience the joy and satisfaction of creating something unique and functional from raw wood., Flexible Project Options: Bring your own wood or choose from our selection—your project, your choice., Intimate Class Size: Enjoy a more personalized experience with limited class sizes, ensuring ample time and attention from the instructor., Class Details:Materials: Bring your own wood block or purchase one from us for approximately $40 (cash, check, or PayPal accepted)., Please note that if your wood block is deemed unsafe or unsuitable for turning, you will need to purchase a block from The Forge., Tools: All Tools Provided; you can bring your own if preferred",
+      "description": "thecuriousforge.org…",
       "source_label": "Nevada County Arts Council",
-      "event_tags": [
-        "community"
-      ],
+      "event_tags": [],
       "is_family": false
     },
     {
@@ -5188,7 +5033,7 @@
       "venue_name": "Dark Hose Coffee",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Truckee",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D116325480",
       "tags": [
@@ -5210,7 +5055,7 @@
       "venue_name": "Monday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.facebook.com/events/2555131411656850/",
       "tags": [
@@ -5231,7 +5076,7 @@
       "venue_name": "Monday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Grass Valley",
       "ticket_url": "https://thecenterforthearts.org/arts-ed/fall-classes-2026/",
       "tags": [
@@ -5256,7 +5101,7 @@
       "venue_name": "Monday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://thecuriousforge.org/product/monday-night-ceramics-handbuilding-wheel-exploration/",
       "tags": [
@@ -5277,7 +5122,7 @@
       "venue_name": "Seven Stars Gallery",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D195322417",
       "tags": [
@@ -5303,7 +5148,7 @@
       "venue_name": "Tuesday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.facebook.com/events/2555131411656850/",
       "tags": [
@@ -5324,7 +5169,7 @@
       "venue_name": "Unknown venue",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.facebook.com/groups/246116427305067/?ref=share_group_link&mibextid=wwXIfr",
       "tags": [
@@ -5345,7 +5190,7 @@
       "venue_name": "Wednesday",
       "source_type": "feed",
       "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
-      "last_verified_at": "2026-09-14T06:38:21-07:00",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
       "venue_city": "Nevada City",
       "ticket_url": "https://www.facebook.com/events/2555131411656850/",
       "tags": [
@@ -5353,6 +5198,45 @@
       ],
       "image_url": "https://www.trumba.com/i/DgC5c4aFaPgraHbuRZLFZBLo.jpg?w=900",
       "description": "www.facebook.com…",
+      "source_label": "Nevada County Arts Council",
+      "event_tags": [],
+      "is_family": false
+    },
+    {
+      "event_id": "trumba-208494232",
+      "title": "175 | Land, People, Culture",
+      "start_iso": "2026-10-15T08:00:00-07:00",
+      "end_iso": "2026-10-15T17:00:00-07:00",
+      "timezone": "America/Los_Angeles",
+      "venue_name": "Thursday",
+      "source_type": "feed",
+      "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
+      "venue_city": "Nevada City",
+      "ticket_url": "https://www.facebook.com/events/2555131411656850/",
+      "tags": [
+        "Visual Art / Gallery"
+      ],
+      "image_url": "https://www.trumba.com/i/DgC5c4aFaPgraHbuRZLFZBLo.jpg?w=900",
+      "description": "www.facebook.com…",
+      "source_label": "Nevada County Arts Council",
+      "event_tags": [],
+      "is_family": false
+    },
+    {
+      "event_id": "trumba-207629610",
+      "title": "Improverse: Improv for the Senses Class",
+      "start_iso": "2026-10-15T18:00:00-07:00",
+      "end_iso": "2026-10-15T20:00:00-07:00",
+      "timezone": "America/Los_Angeles",
+      "venue_name": "The Octabarn",
+      "source_type": "feed",
+      "source_ref": "https://www.trumba.com/calendars/nevada-county-arts-council.rss",
+      "last_verified_at": "2026-09-15T05:27:36-07:00",
+      "venue_city": "Nevada City",
+      "ticket_url": "https://www.nevadacountyarts.org/calendar?trumbaEmbed=view%3Devent%26eventid%3D207629610",
+      "image_url": "https://www.trumba.com/i/DgCo-n61CWW1jF2par%2Af87OB.jpg?w=900",
+      "description": "This is a brand NEW Comedy Improv Class 7-week series that infuses mind, body, and spirit connection to in-the-moment presence and authenticity. Instructors Kimmi Ewing & Raina Satori bring their decades of improv and performance work and intertwine with the senses.",
       "source_label": "Nevada County Arts Council",
       "event_tags": [],
       "is_family": false
