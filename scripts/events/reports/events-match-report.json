@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-09-15T12:27:43.081283+00:00",
+  "generated_at": "2026-09-16T12:25:25.489033+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 263,
-    "matched_events": 134,
-    "unmatched_events": 129,
+    "total_events": 257,
+    "matched_events": 136,
+    "unmatched_events": 121,
     "matched_by_pid": 0,
     "matched_by_alias": 6,
     "matched_by_name_city": 26,
-    "matched_by_name_city_fuzzy": 102,
-    "upcoming_14d": 110
+    "matched_by_name_city_fuzzy": 104,
+    "upcoming_14d": 104
   },
   "unmatched_venues": [
     {
@@ -27,18 +27,9 @@
       "venue_key": "unknownvenue|nevadacity",
       "venue_name": "Unknown venue",
       "venue_city": "Nevada City",
-      "count": 10,
+      "count": 9,
       "sample_event_id": "gvda-198326438",
       "sample_title": "Fogelberg Revisited &#8211; A Tribute to Dan Fogelberg",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "tuesday|nevadacity",
-      "venue_name": "Tuesday",
-      "venue_city": "Nevada City",
-      "count": 8,
-      "sample_event_id": "trumba-206314481",
-      "sample_title": "Make a Tiny Grief Book",
       "candidate_assets": []
     },
     {
@@ -132,15 +123,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "tuesday|grassvalley",
-      "venue_name": "Tuesday",
-      "venue_city": "Grass Valley",
-      "count": 4,
-      "sample_event_id": "trumba-204717148",
-      "sample_title": "Chris Dacre: INTER:reactions",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "thursday|grassvalley",
       "venue_name": "Thursday",
       "venue_city": "Grass Valley",
@@ -159,12 +141,12 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "oddfellowshall|nevadacity",
-      "venue_name": "Oddfellows Hall",
+      "venue_key": "tuesday|nevadacity",
+      "venue_name": "Tuesday",
       "venue_city": "Nevada City",
-      "count": 3,
-      "sample_event_id": "gvda-196396181",
-      "sample_title": "Motion Theater",
+      "count": 4,
+      "sample_event_id": "trumba-208494215",
+      "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
     },
     {
@@ -228,6 +210,24 @@
       "count": 2,
       "sample_event_id": "libcal-LibCal-20247-16276894-20260316",
       "sample_title": "Lab Rats: A Science Book Club",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "oddfellowshall|nevadacity",
+      "venue_name": "Oddfellows Hall",
+      "venue_city": "Nevada City",
+      "count": 2,
+      "sample_event_id": "gvda-196396181",
+      "sample_title": "Motion Theater",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "tuesday|grassvalley",
+      "venue_name": "Tuesday",
+      "venue_city": "Grass Valley",
+      "count": 2,
+      "sample_event_id": "trumba-204717155",
+      "sample_title": "Chris Dacre: INTER:reactions",
       "candidate_assets": []
     },
     {
