@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-09-16T12:25:25.489033+00:00",
+  "generated_at": "2026-09-17T12:25:06.874069+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 257,
-    "matched_events": 136,
-    "unmatched_events": 121,
+    "total_events": 269,
+    "matched_events": 139,
+    "unmatched_events": 130,
     "matched_by_pid": 0,
     "matched_by_alias": 6,
     "matched_by_name_city": 26,
-    "matched_by_name_city_fuzzy": 104,
-    "upcoming_14d": 104
+    "matched_by_name_city_fuzzy": 107,
+    "upcoming_14d": 116
   },
   "unmatched_venues": [
     {
@@ -33,12 +33,48 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "monday|nevadacity",
+      "venue_name": "Monday",
+      "venue_city": "Nevada City",
+      "count": 8,
+      "sample_event_id": "trumba-208494214",
+      "sample_title": "175 | Land, People, Culture",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "ctcclassroom|nevadacity",
       "venue_name": "CTC Classroom",
       "venue_city": "Nevada City",
       "count": 7,
       "sample_event_id": "libcal-LibCal-20247-16035875-20260316",
       "sample_title": "Ukulele for the People",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "mcknightcrossingshoppingcenter|grassvalley",
+      "venue_name": "Mcknight crossing shopping center",
+      "venue_city": "Grass Valley",
+      "count": 7,
+      "sample_event_id": "gvda-191631909",
+      "sample_title": "Cars and coffee grass valley",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "saturday|grassvalley",
+      "venue_name": "Saturday",
+      "venue_city": "Grass Valley",
+      "count": 7,
+      "sample_event_id": "trumba-204144743",
+      "sample_title": "CANCELLED - Stash Dash Extravaganza!",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "saturday|nevadacity",
+      "venue_name": "Saturday",
+      "venue_city": "Nevada City",
+      "count": 7,
+      "sample_event_id": "trumba-194865304",
+      "sample_title": "Sound Blessings With Robin",
       "candidate_assets": []
     },
     {
@@ -51,21 +87,12 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "mcknightcrossingshoppingcenter|grassvalley",
-      "venue_name": "Mcknight crossing shopping center",
-      "venue_city": "Grass Valley",
+      "venue_key": "sunday|nevadacity",
+      "venue_name": "Sunday",
+      "venue_city": "Nevada City",
       "count": 6,
-      "sample_event_id": "gvda-191631909",
-      "sample_title": "Cars and coffee grass valley",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "saturday|grassvalley",
-      "venue_name": "Saturday",
-      "venue_city": "Grass Valley",
-      "count": 6,
-      "sample_event_id": "trumba-204144743",
-      "sample_title": "CANCELLED - Stash Dash Extravaganza!",
+      "sample_event_id": "trumba-205208644",
+      "sample_title": "Metal Garden Art Workshop",
       "candidate_assets": []
     },
     {
@@ -78,29 +105,20 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "tuesday|nevadacity",
+      "venue_name": "Tuesday",
+      "venue_city": "Nevada City",
+      "count": 5,
+      "sample_event_id": "trumba-208494215",
+      "sample_title": "175 | Land, People, Culture",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "wednesday|nevadacity",
       "venue_name": "Wednesday",
       "venue_city": "Nevada City",
       "count": 5,
-      "sample_event_id": "trumba-205699479",
-      "sample_title": "Make a Ceramic Witches Hat Luminary",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "sunday|nevadacity",
-      "venue_name": "Sunday",
-      "venue_city": "Nevada City",
-      "count": 5,
-      "sample_event_id": "trumba-205208644",
-      "sample_title": "Metal Garden Art Workshop",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "monday|nevadacity",
-      "venue_name": "Monday",
-      "venue_city": "Nevada City",
-      "count": 5,
-      "sample_event_id": "trumba-208494214",
+      "sample_event_id": "trumba-208494216",
       "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
     },
@@ -141,15 +159,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "tuesday|nevadacity",
-      "venue_name": "Tuesday",
-      "venue_city": "Nevada City",
-      "count": 4,
-      "sample_event_id": "trumba-208494215",
-      "sample_title": "175 | Land, People, Culture",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "unknownvenue|truckee",
       "venue_name": "Unknown venue",
       "venue_city": "Truckee",
@@ -165,24 +174,6 @@
       "count": 3,
       "sample_event_id": "gvda-183038851",
       "sample_title": "Playwriting Group",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "wednesday|grassvalley",
-      "venue_name": "Wednesday",
-      "venue_city": "Grass Valley",
-      "count": 3,
-      "sample_event_id": "trumba-204717149",
-      "sample_title": "Chris Dacre: INTER:reactions",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "saturday|nevadacity",
-      "venue_name": "Saturday",
-      "venue_city": "Nevada City",
-      "count": 3,
-      "sample_event_id": "trumba-194865304",
-      "sample_title": "Sound Blessings With Robin",
       "candidate_assets": []
     },
     {
@@ -227,6 +218,15 @@
       "venue_city": "Grass Valley",
       "count": 2,
       "sample_event_id": "trumba-204717155",
+      "sample_title": "Chris Dacre: INTER:reactions",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "wednesday|grassvalley",
+      "venue_name": "Wednesday",
+      "venue_city": "Grass Valley",
+      "count": 2,
+      "sample_event_id": "trumba-204717156",
       "sample_title": "Chris Dacre: INTER:reactions",
       "candidate_assets": []
     },
@@ -291,15 +291,6 @@
       "count": 1,
       "sample_event_id": "gvda-198214906",
       "sample_title": "Decendants: The Musical",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "nevadamuseumofart|renonv",
-      "venue_name": "Nevada Museum of Art",
-      "venue_city": "Reno, NV",
-      "count": 1,
-      "sample_event_id": "trumba-205261455",
-      "sample_title": "OLLI Art at the Museum: Exhibition Tour",
       "candidate_assets": []
     },
     {
