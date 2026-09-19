@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-09-18T12:04:24.481442+00:00",
+  "generated_at": "2026-09-19T11:47:07.320471+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 270,
-    "matched_events": 140,
-    "unmatched_events": 130,
+    "total_events": 273,
+    "matched_events": 141,
+    "unmatched_events": 132,
     "matched_by_pid": 0,
     "matched_by_alias": 6,
     "matched_by_name_city": 27,
-    "matched_by_name_city_fuzzy": 107,
-    "upcoming_14d": 117
+    "matched_by_name_city_fuzzy": 108,
+    "upcoming_14d": 120
   },
   "unmatched_venues": [
     {
@@ -24,21 +24,21 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "monday|nevadacity",
+      "venue_name": "Monday",
+      "venue_city": "Nevada City",
+      "count": 10,
+      "sample_event_id": "trumba-208494214",
+      "sample_title": "175 | Land, People, Culture",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "unknownvenue|nevadacity",
       "venue_name": "Unknown venue",
       "venue_city": "Nevada City",
       "count": 9,
       "sample_event_id": "gvda-198326438",
       "sample_title": "Fogelberg Revisited &#8211; A Tribute to Dan Fogelberg",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "monday|nevadacity",
-      "venue_name": "Monday",
-      "venue_city": "Nevada City",
-      "count": 8,
-      "sample_event_id": "trumba-208494214",
-      "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
     },
     {
@@ -87,21 +87,21 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "monday|grassvalley",
+      "venue_name": "Monday",
+      "venue_city": "Grass Valley",
+      "count": 7,
+      "sample_event_id": "trumba-206663279",
+      "sample_title": "Fall 2026 Youth Classes at The Center for the Arts",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "thursday|nevadacity",
       "venue_name": "Thursday",
       "venue_city": "Nevada City",
       "count": 7,
       "sample_event_id": "trumba-208494217",
       "sample_title": "175 | Land, People, Culture",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "monday|grassvalley",
-      "venue_name": "Monday",
-      "venue_city": "Grass Valley",
-      "count": 6,
-      "sample_event_id": "trumba-206663279",
-      "sample_title": "Fall 2026 Youth Classes at The Center for the Arts",
       "candidate_assets": []
     },
     {
@@ -141,15 +141,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "friday|grassvalley",
-      "venue_name": "Friday",
-      "venue_city": "Grass Valley",
-      "count": 4,
-      "sample_event_id": "trumba-204717151",
-      "sample_title": "Chris Dacre: INTER:reactions",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "unknownvenue|truckee",
       "venue_name": "Unknown venue",
       "venue_city": "Truckee",
@@ -173,6 +164,15 @@
       "venue_city": "Grass Valley",
       "count": 3,
       "sample_event_id": "trumba-204717153",
+      "sample_title": "Chris Dacre: INTER:reactions",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "friday|grassvalley",
+      "venue_name": "Friday",
+      "venue_city": "Grass Valley",
+      "count": 3,
+      "sample_event_id": "trumba-204717158",
       "sample_title": "Chris Dacre: INTER:reactions",
       "candidate_assets": []
     },
