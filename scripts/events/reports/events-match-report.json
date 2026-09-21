@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-09-20T12:01:07.427900+00:00",
+  "generated_at": "2026-09-21T13:37:06.113109+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 269,
-    "matched_events": 138,
-    "unmatched_events": 131,
+    "total_events": 267,
+    "matched_events": 137,
+    "unmatched_events": 130,
     "matched_by_pid": 0,
     "matched_by_alias": 6,
-    "matched_by_name_city": 27,
+    "matched_by_name_city": 26,
     "matched_by_name_city_fuzzy": 105,
-    "upcoming_14d": 116
+    "upcoming_14d": 114
   },
   "unmatched_venues": [
     {
@@ -51,15 +51,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "sunday|nevadacity",
-      "venue_name": "Sunday",
-      "venue_city": "Nevada City",
-      "count": 7,
-      "sample_event_id": "trumba-205208644",
-      "sample_title": "Metal Garden Art Workshop",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "monday|grassvalley",
       "venue_name": "Monday",
       "venue_city": "Grass Valley",
@@ -96,6 +87,15 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "wednesday|nevadacity",
+      "venue_name": "Wednesday",
+      "venue_city": "Nevada City",
+      "count": 6,
+      "sample_event_id": "trumba-208494216",
+      "sample_title": "175 | Land, People, Culture",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "saturday|nevadacity",
       "venue_name": "Saturday",
       "venue_city": "Nevada City",
@@ -105,21 +105,21 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "wednesday|nevadacity",
-      "venue_name": "Wednesday",
-      "venue_city": "Nevada City",
-      "count": 5,
-      "sample_event_id": "trumba-208494216",
-      "sample_title": "175 | Land, People, Culture",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "saturday|grassvalley",
       "venue_name": "Saturday",
       "venue_city": "Grass Valley",
       "count": 5,
       "sample_event_id": "trumba-206576754",
       "sample_title": "Introduction to Indigo Dyeing",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "sunday|nevadacity",
+      "venue_name": "Sunday",
+      "venue_city": "Nevada City",
+      "count": 5,
+      "sample_event_id": "trumba-206314625",
+      "sample_title": "Hand-Carved Wooden Utensils--make a spoon",
       "candidate_assets": []
     },
     {
@@ -141,6 +141,15 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "membershomes|grassvalley",
+      "venue_name": "Members homes",
+      "venue_city": "Grass Valley",
+      "count": 4,
+      "sample_event_id": "gvda-183038851",
+      "sample_title": "Playwriting Group",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "oddfellowshall|nevadacity",
       "venue_name": "Oddfellows Hall",
       "venue_city": "Nevada City",
@@ -156,24 +165,6 @@
       "count": 3,
       "sample_event_id": "gvda-173596655",
       "sample_title": "STEAM Exploration Saturdays",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "membershomes|grassvalley",
-      "venue_name": "Members homes",
-      "venue_city": "Grass Valley",
-      "count": 3,
-      "sample_event_id": "gvda-183038851",
-      "sample_title": "Playwriting Group",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "sunday|grassvalley",
-      "venue_name": "Sunday",
-      "venue_city": "Grass Valley",
-      "count": 3,
-      "sample_event_id": "trumba-204717153",
-      "sample_title": "Chris Dacre: INTER:reactions",
       "candidate_assets": []
     },
     {
@@ -227,6 +218,15 @@
       "venue_city": "Grass Valley",
       "count": 2,
       "sample_event_id": "trumba-204717157",
+      "sample_title": "Chris Dacre: INTER:reactions",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "sunday|grassvalley",
+      "venue_name": "Sunday",
+      "venue_city": "Grass Valley",
+      "count": 2,
+      "sample_event_id": "trumba-204717160",
       "sample_title": "Chris Dacre: INTER:reactions",
       "candidate_assets": []
     },
