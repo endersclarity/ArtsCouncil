@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-21T13:37:06.113109+00:00",
+  "generated_at": "2026-09-22T12:21:04.262318+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
@@ -8,9 +8,9 @@
     "matched_events": 137,
     "unmatched_events": 130,
     "matched_by_pid": 0,
-    "matched_by_alias": 6,
+    "matched_by_alias": 7,
     "matched_by_name_city": 26,
-    "matched_by_name_city_fuzzy": 105,
+    "matched_by_name_city_fuzzy": 104,
     "upcoming_14d": 114
   },
   "unmatched_venues": [
@@ -36,8 +36,17 @@
       "venue_key": "monday|nevadacity",
       "venue_name": "Monday",
       "venue_city": "Nevada City",
-      "count": 10,
-      "sample_event_id": "trumba-208494214",
+      "count": 9,
+      "sample_event_id": "trumba-208494219",
+      "sample_title": "175 | Land, People, Culture",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "thursday|nevadacity",
+      "venue_name": "Thursday",
+      "venue_city": "Nevada City",
+      "count": 8,
+      "sample_event_id": "trumba-208494217",
       "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
     },
@@ -48,24 +57,6 @@
       "count": 7,
       "sample_event_id": "libcal-LibCal-20247-16035875-20260316",
       "sample_title": "Ukulele for the People",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "monday|grassvalley",
-      "venue_name": "Monday",
-      "venue_city": "Grass Valley",
-      "count": 7,
-      "sample_event_id": "trumba-206663279",
-      "sample_title": "Fall 2026 Youth Classes at The Center for the Arts",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "thursday|nevadacity",
-      "venue_name": "Thursday",
-      "venue_city": "Nevada City",
-      "count": 7,
-      "sample_event_id": "trumba-208494217",
-      "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
     },
     {
@@ -123,6 +114,15 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "monday|grassvalley",
+      "venue_name": "Monday",
+      "venue_city": "Grass Valley",
+      "count": 5,
+      "sample_event_id": "trumba-206663280",
+      "sample_title": "Fall 2026 Youth Classes at The Center for the Arts",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "axisgallery|nevadacounty",
       "venue_name": "Axis Gallery",
       "venue_city": "Nevada County",
@@ -150,6 +150,15 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "theoctabarn|nevadacity",
+      "venue_name": "The Octabarn",
+      "venue_city": "Nevada City",
+      "count": 4,
+      "sample_event_id": "trumba-207629608",
+      "sample_title": "Improverse: Improv for the Senses Class",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "oddfellowshall|nevadacity",
       "venue_name": "Oddfellows Hall",
       "venue_city": "Nevada City",
@@ -168,21 +177,21 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "thursday|grassvalley",
+      "venue_name": "Thursday",
+      "venue_city": "Grass Valley",
+      "count": 3,
+      "sample_event_id": "trumba-204717157",
+      "sample_title": "Chris Dacre: INTER:reactions",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "friday|grassvalley",
       "venue_name": "Friday",
       "venue_city": "Grass Valley",
       "count": 3,
       "sample_event_id": "trumba-204717158",
       "sample_title": "Chris Dacre: INTER:reactions",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "theoctabarn|nevadacity",
-      "venue_name": "The Octabarn",
-      "venue_city": "Nevada City",
-      "count": 3,
-      "sample_event_id": "trumba-207629608",
-      "sample_title": "Improverse: Improv for the Senses Class",
       "candidate_assets": []
     },
     {
@@ -209,15 +218,6 @@
       "venue_city": "Grass Valley",
       "count": 2,
       "sample_event_id": "trumba-204717156",
-      "sample_title": "Chris Dacre: INTER:reactions",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "thursday|grassvalley",
-      "venue_name": "Thursday",
-      "venue_city": "Grass Valley",
-      "count": 2,
-      "sample_event_id": "trumba-204717157",
       "sample_title": "Chris Dacre: INTER:reactions",
       "candidate_assets": []
     },
