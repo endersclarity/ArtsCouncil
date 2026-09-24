@@ -1,24 +1,33 @@
 {
-  "generated_at": "2026-09-23T12:33:30.656867+00:00",
+  "generated_at": "2026-09-24T12:32:22.471498+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 271,
-    "matched_events": 138,
-    "unmatched_events": 133,
+    "total_events": 282,
+    "matched_events": 142,
+    "unmatched_events": 140,
     "matched_by_pid": 0,
     "matched_by_alias": 7,
-    "matched_by_name_city": 26,
-    "matched_by_name_city_fuzzy": 105,
-    "upcoming_14d": 118
+    "matched_by_name_city": 28,
+    "matched_by_name_city_fuzzy": 107,
+    "upcoming_14d": 129
   },
   "unmatched_venues": [
+    {
+      "venue_key": "monday|nevadacity",
+      "venue_name": "Monday",
+      "venue_city": "Nevada City",
+      "count": 14,
+      "sample_event_id": "trumba-208494219",
+      "sample_title": "175 | Land, People, Culture",
+      "candidate_assets": []
+    },
     {
       "venue_key": "unknownvenue|grassvalley",
       "venue_name": "Unknown venue",
       "venue_city": "Grass Valley",
-      "count": 10,
+      "count": 11,
       "sample_event_id": "gvda-197068116",
       "sample_title": "Reluctant Reformers: Mary Hallock Foote and Julia Morgan in the Progressive Era by Mary-Jo Wainwright",
       "candidate_assets": []
@@ -30,15 +39,6 @@
       "count": 9,
       "sample_event_id": "gvda-198326438",
       "sample_title": "Fogelberg Revisited &#8211; A Tribute to Dan Fogelberg",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "monday|nevadacity",
-      "venue_name": "Monday",
-      "venue_city": "Nevada City",
-      "count": 9,
-      "sample_event_id": "trumba-208494219",
-      "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
     },
     {
@@ -63,18 +63,18 @@
       "venue_key": "mcknightcrossingshoppingcenter|grassvalley",
       "venue_name": "Mcknight crossing shopping center",
       "venue_city": "Grass Valley",
-      "count": 6,
+      "count": 7,
       "sample_event_id": "gvda-191631909",
       "sample_title": "Cars and coffee grass valley",
       "candidate_assets": []
     },
     {
-      "venue_key": "wednesday|nevadacity",
-      "venue_name": "Wednesday",
+      "venue_key": "saturday|nevadacity",
+      "venue_name": "Saturday",
       "venue_city": "Nevada City",
-      "count": 6,
-      "sample_event_id": "trumba-208494216",
-      "sample_title": "175 | Land, People, Culture",
+      "count": 7,
+      "sample_event_id": "trumba-206071941",
+      "sample_title": "Quilling Fruit Magnets",
       "candidate_assets": []
     },
     {
@@ -87,30 +87,12 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "saturday|nevadacity",
-      "venue_name": "Saturday",
-      "venue_city": "Nevada City",
-      "count": 6,
-      "sample_event_id": "trumba-206071941",
-      "sample_title": "Quilling Fruit Magnets",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "tuesday|nevadacity",
       "venue_name": "Tuesday",
       "venue_city": "Nevada City",
       "count": 6,
       "sample_event_id": "trumba-208494220",
       "sample_title": "175 | Land, People, Culture",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "wednesday|grassvalley",
-      "venue_name": "Wednesday",
-      "venue_city": "Grass Valley",
-      "count": 5,
-      "sample_event_id": "trumba-204717156",
-      "sample_title": "Chris Dacre: INTER:reactions",
       "candidate_assets": []
     },
     {
@@ -132,6 +114,15 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "wednesday|nevadacity",
+      "venue_name": "Wednesday",
+      "venue_city": "Nevada City",
+      "count": 5,
+      "sample_event_id": "trumba-208494221",
+      "sample_title": "175 | Land, People, Culture",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "axisgallery|nevadacounty",
       "venue_name": "Axis Gallery",
       "venue_city": "Nevada County",
@@ -147,15 +138,6 @@
       "count": 4,
       "sample_event_id": "libcal-LibCal-20247-15952664-20260317",
       "sample_title": "English Language Class",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "membershomes|grassvalley",
-      "venue_name": "Members homes",
-      "venue_city": "Grass Valley",
-      "count": 4,
-      "sample_event_id": "gvda-183038851",
-      "sample_title": "Playwriting Group",
       "candidate_assets": []
     },
     {
@@ -186,6 +168,15 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "membershomes|grassvalley",
+      "venue_name": "Members homes",
+      "venue_city": "Grass Valley",
+      "count": 3,
+      "sample_event_id": "gvda-183038851",
+      "sample_title": "Playwriting Group",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "thursday|grassvalley",
       "venue_name": "Thursday",
       "venue_city": "Grass Valley",
@@ -204,6 +195,15 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "wednesday|grassvalley",
+      "venue_name": "Wednesday",
+      "venue_city": "Grass Valley",
+      "count": 3,
+      "sample_event_id": "trumba-209055446",
+      "sample_title": "Ekphrastic Poetry Workshop",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "meetingroom|pennvalley",
       "venue_name": "Meeting Room",
       "venue_city": "Penn Valley",
@@ -219,6 +219,15 @@
       "count": 2,
       "sample_event_id": "trumba-204717160",
       "sample_title": "Chris Dacre: INTER:reactions",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "saturday|truckee",
+      "venue_name": "Saturday",
+      "venue_city": "Truckee",
+      "count": 2,
+      "sample_event_id": "trumba-209602479",
+      "sample_title": "Downtown Truckee Wine, Walk & Shop + Dark Skies Awareness Stops",
       "candidate_assets": []
     },
     {
@@ -285,12 +294,12 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "wednesday|northsanjuan",
-      "venue_name": "Wednesday",
-      "venue_city": "North San Juan",
+      "venue_key": "thursday|truckee",
+      "venue_name": "Thursday",
+      "venue_city": "Truckee",
       "count": 1,
-      "sample_event_id": "trumba-206967096",
-      "sample_title": "Book release with Caleb Dardick: The Adventures of Superfreak: My Childhood on the Hippie Trail",
+      "sample_event_id": "trumba-209602469",
+      "sample_title": "Community Connections: Under the Tahoe Stars",
       "candidate_assets": []
     },
     {
@@ -309,6 +318,15 @@
       "count": 1,
       "sample_event_id": "trumba-209132008",
       "sample_title": "BRHS Music Carwash Fundraiser",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "sunday|truckee",
+      "venue_name": "Sunday",
+      "venue_city": "Truckee",
+      "count": 1,
+      "sample_event_id": "trumba-209605515",
+      "sample_title": "Dark Skies Brunch & Creative Writing Workshop",
       "candidate_assets": []
     },
     {
