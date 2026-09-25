@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-09-24T12:32:22.471498+00:00",
+  "generated_at": "2026-09-25T12:33:42.946123+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 282,
-    "matched_events": 142,
-    "unmatched_events": 140,
+    "total_events": 279,
+    "matched_events": 141,
+    "unmatched_events": 138,
     "matched_by_pid": 0,
-    "matched_by_alias": 7,
+    "matched_by_alias": 6,
     "matched_by_name_city": 28,
     "matched_by_name_city_fuzzy": 107,
-    "upcoming_14d": 129
+    "upcoming_14d": 126
   },
   "unmatched_venues": [
     {
@@ -27,7 +27,7 @@
       "venue_key": "unknownvenue|grassvalley",
       "venue_name": "Unknown venue",
       "venue_city": "Grass Valley",
-      "count": 11,
+      "count": 12,
       "sample_event_id": "gvda-197068116",
       "sample_title": "Reluctant Reformers: Mary Hallock Foote and Julia Morgan in the Progressive Era by Mary-Jo Wainwright",
       "candidate_assets": []
@@ -39,15 +39,6 @@
       "count": 9,
       "sample_event_id": "gvda-198326438",
       "sample_title": "Fogelberg Revisited &#8211; A Tribute to Dan Fogelberg",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "thursday|nevadacity",
-      "venue_name": "Thursday",
-      "venue_city": "Nevada City",
-      "count": 8,
-      "sample_event_id": "trumba-208494217",
-      "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
     },
     {
@@ -92,6 +83,15 @@
       "venue_city": "Nevada City",
       "count": 6,
       "sample_event_id": "trumba-208494220",
+      "sample_title": "175 | Land, People, Culture",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "thursday|nevadacity",
+      "venue_name": "Thursday",
+      "venue_city": "Nevada City",
+      "count": 6,
+      "sample_event_id": "trumba-208494222",
       "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
     },
@@ -177,15 +177,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "thursday|grassvalley",
-      "venue_name": "Thursday",
-      "venue_city": "Grass Valley",
-      "count": 3,
-      "sample_event_id": "trumba-204717157",
-      "sample_title": "Chris Dacre: INTER:reactions",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "friday|grassvalley",
       "venue_name": "Friday",
       "venue_city": "Grass Valley",
@@ -228,6 +219,15 @@
       "count": 2,
       "sample_event_id": "trumba-209602479",
       "sample_title": "Downtown Truckee Wine, Walk & Shop + Dark Skies Awareness Stops",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "thursday|grassvalley",
+      "venue_name": "Thursday",
+      "venue_city": "Grass Valley",
+      "count": 2,
+      "sample_event_id": "trumba-206371644",
+      "sample_title": "Gary Gulman: Grandiloquent",
       "candidate_assets": []
     },
     {
