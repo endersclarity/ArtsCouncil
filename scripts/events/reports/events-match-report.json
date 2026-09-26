@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-25T12:33:42.946123+00:00",
+  "generated_at": "2026-09-26T12:03:18.065325+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
@@ -18,7 +18,7 @@
       "venue_key": "monday|nevadacity",
       "venue_name": "Monday",
       "venue_city": "Nevada City",
-      "count": 14,
+      "count": 15,
       "sample_event_id": "trumba-208494219",
       "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
@@ -78,6 +78,15 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "monday|grassvalley",
+      "venue_name": "Monday",
+      "venue_city": "Grass Valley",
+      "count": 6,
+      "sample_event_id": "trumba-206663280",
+      "sample_title": "Fall 2026 Youth Classes at The Center for the Arts",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "tuesday|nevadacity",
       "venue_name": "Tuesday",
       "venue_city": "Nevada City",
@@ -102,15 +111,6 @@
       "count": 5,
       "sample_event_id": "trumba-206314625",
       "sample_title": "Hand-Carved Wooden Utensils--make a spoon",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "monday|grassvalley",
-      "venue_name": "Monday",
-      "venue_city": "Grass Valley",
-      "count": 5,
-      "sample_event_id": "trumba-206663280",
-      "sample_title": "Fall 2026 Youth Classes at The Center for the Arts",
       "candidate_assets": []
     },
     {
@@ -174,15 +174,6 @@
       "count": 3,
       "sample_event_id": "gvda-183038851",
       "sample_title": "Playwriting Group",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "friday|grassvalley",
-      "venue_name": "Friday",
-      "venue_city": "Grass Valley",
-      "count": 3,
-      "sample_event_id": "trumba-204717158",
-      "sample_title": "Chris Dacre: INTER:reactions",
       "candidate_assets": []
     },
     {
@@ -336,6 +327,15 @@
       "count": 1,
       "sample_event_id": "trumba-197234582",
       "sample_title": "Paula Cole",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "friday|grassvalley",
+      "venue_name": "Friday",
+      "venue_city": "Grass Valley",
+      "count": 1,
+      "sample_event_id": "trumba-207562350",
+      "sample_title": "SPACETIME: The Universe Story and Our Place In It at The Center for the Arts",
       "candidate_assets": []
     },
     {
