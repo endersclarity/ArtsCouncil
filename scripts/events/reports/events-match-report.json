@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-09-27T12:45:19.120294+00:00",
+  "generated_at": "2026-09-28T14:56:50.323152+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 275,
-    "matched_events": 139,
-    "unmatched_events": 136,
+    "total_events": 271,
+    "matched_events": 138,
+    "unmatched_events": 133,
     "matched_by_pid": 0,
     "matched_by_alias": 6,
-    "matched_by_name_city": 28,
+    "matched_by_name_city": 27,
     "matched_by_name_city_fuzzy": 105,
-    "upcoming_14d": 122
+    "upcoming_14d": 118
   },
   "unmatched_venues": [
     {
@@ -78,6 +78,15 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "wednesday|nevadacity",
+      "venue_name": "Wednesday",
+      "venue_city": "Nevada City",
+      "count": 6,
+      "sample_event_id": "trumba-208494221",
+      "sample_title": "175 | Land, People, Culture",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "thursday|nevadacity",
       "venue_name": "Thursday",
       "venue_city": "Nevada City",
@@ -93,24 +102,6 @@
       "count": 6,
       "sample_event_id": "trumba-208566207",
       "sample_title": "Glassblowing for Beginners – Make a Paperweight",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "sunday|nevadacity",
-      "venue_name": "Sunday",
-      "venue_city": "Nevada City",
-      "count": 5,
-      "sample_event_id": "trumba-206314625",
-      "sample_title": "Hand-Carved Wooden Utensils--make a spoon",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "wednesday|nevadacity",
-      "venue_name": "Wednesday",
-      "venue_city": "Nevada City",
-      "count": 5,
-      "sample_event_id": "trumba-208494221",
-      "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
     },
     {
@@ -186,21 +177,21 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "sunday|nevadacity",
+      "venue_name": "Sunday",
+      "venue_city": "Nevada City",
+      "count": 3,
+      "sample_event_id": "trumba-208569832",
+      "sample_title": "Glassblowing Glass Pumpkin Taster Experience",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "meetingroom|pennvalley",
       "venue_name": "Meeting Room",
       "venue_city": "Penn Valley",
       "count": 2,
       "sample_event_id": "libcal-LibCal-20247-16276894-20260316",
       "sample_title": "Lab Rats: A Science Book Club",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "sunday|grassvalley",
-      "venue_name": "Sunday",
-      "venue_city": "Grass Valley",
-      "count": 2,
-      "sample_event_id": "trumba-204717160",
-      "sample_title": "Chris Dacre: INTER:reactions",
       "candidate_assets": []
     },
     {
