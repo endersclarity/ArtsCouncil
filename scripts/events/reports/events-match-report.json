@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-09-29T13:44:28.777403+00:00",
+  "generated_at": "2026-09-30T13:20:49.139379+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 271,
-    "matched_events": 137,
-    "unmatched_events": 134,
+    "total_events": 272,
+    "matched_events": 140,
+    "unmatched_events": 132,
     "matched_by_pid": 0,
     "matched_by_alias": 6,
     "matched_by_name_city": 27,
-    "matched_by_name_city_fuzzy": 104,
-    "upcoming_14d": 118
+    "matched_by_name_city_fuzzy": 107,
+    "upcoming_14d": 119
   },
   "unmatched_venues": [
     {
@@ -36,7 +36,7 @@
       "venue_key": "unknownvenue|nevadacity",
       "venue_name": "Unknown venue",
       "venue_city": "Nevada City",
-      "count": 10,
+      "count": 9,
       "sample_event_id": "gvda-198326438",
       "sample_title": "Fogelberg Revisited &#8211; A Tribute to Dan Fogelberg",
       "candidate_assets": []
@@ -57,15 +57,6 @@
       "count": 7,
       "sample_event_id": "libcal-LibCal-20247-16035875-20260316",
       "sample_title": "Ukulele for the People",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "tuesday|nevadacity",
-      "venue_name": "Tuesday",
-      "venue_city": "Nevada City",
-      "count": 7,
-      "sample_event_id": "trumba-208494220",
-      "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
     },
     {
@@ -93,6 +84,15 @@
       "count": 6,
       "sample_event_id": "trumba-208566207",
       "sample_title": "Glassblowing for Beginners – Make a Paperweight",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "tuesday|nevadacity",
+      "venue_name": "Tuesday",
+      "venue_city": "Nevada City",
+      "count": 6,
+      "sample_event_id": "trumba-208494225",
+      "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
     },
     {
@@ -368,6 +368,7 @@
       "Galleries & Museums",
       "Preservation & Culture",
       "Cultural Resources",
+      "Public Art",
       "Eat, Drink & Stay",
       "Walks & Trails"
     ],
