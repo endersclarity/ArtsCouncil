@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-09-30T13:20:49.139379+00:00",
+  "generated_at": "2026-10-01T14:10:23.809312+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 272,
-    "matched_events": 140,
-    "unmatched_events": 132,
+    "total_events": 273,
+    "matched_events": 142,
+    "unmatched_events": 131,
     "matched_by_pid": 0,
     "matched_by_alias": 6,
     "matched_by_name_city": 27,
-    "matched_by_name_city_fuzzy": 107,
-    "upcoming_14d": 119
+    "matched_by_name_city_fuzzy": 109,
+    "upcoming_14d": 120
   },
   "unmatched_venues": [
     {
@@ -63,18 +63,9 @@
       "venue_key": "mcknightcrossingshoppingcenter|grassvalley",
       "venue_name": "Mcknight crossing shopping center",
       "venue_city": "Grass Valley",
-      "count": 6,
+      "count": 7,
       "sample_event_id": "gvda-191631909",
       "sample_title": "Cars and coffee grass valley",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "wednesday|nevadacity",
-      "venue_name": "Wednesday",
-      "venue_city": "Nevada City",
-      "count": 6,
-      "sample_event_id": "trumba-208494221",
-      "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
     },
     {
@@ -111,6 +102,15 @@
       "count": 5,
       "sample_event_id": "trumba-206663281",
       "sample_title": "Fall 2026 Youth Classes at The Center for the Arts",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "wednesday|nevadacity",
+      "venue_name": "Wednesday",
+      "venue_city": "Nevada City",
+      "count": 5,
+      "sample_event_id": "trumba-208494226",
+      "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
     },
     {
@@ -159,15 +159,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "wednesday|grassvalley",
-      "venue_name": "Wednesday",
-      "venue_city": "Grass Valley",
-      "count": 3,
-      "sample_event_id": "trumba-209055446",
-      "sample_title": "Ekphrastic Poetry Workshop",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "saturday|grassvalley",
       "venue_name": "Saturday",
       "venue_city": "Grass Valley",
@@ -210,6 +201,15 @@
       "count": 2,
       "sample_event_id": "trumba-197234582",
       "sample_title": "Paula Cole",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "wednesday|grassvalley",
+      "venue_name": "Wednesday",
+      "venue_city": "Grass Valley",
+      "count": 2,
+      "sample_event_id": "trumba-209055447",
+      "sample_title": "Ekphrastic Poetry Workshop",
       "candidate_assets": []
     },
     {
