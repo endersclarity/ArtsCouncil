@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-10-01T14:10:23.809312+00:00",
+  "generated_at": "2026-10-02T13:33:49.656257+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 273,
+    "total_events": 269,
     "matched_events": 142,
-    "unmatched_events": 131,
+    "unmatched_events": 127,
     "matched_by_pid": 0,
     "matched_by_alias": 6,
     "matched_by_name_city": 27,
     "matched_by_name_city_fuzzy": 109,
-    "upcoming_14d": 120
+    "upcoming_14d": 116
   },
   "unmatched_venues": [
     {
@@ -39,15 +39,6 @@
       "count": 9,
       "sample_event_id": "gvda-198326438",
       "sample_title": "Fogelberg Revisited &#8211; A Tribute to Dan Fogelberg",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "thursday|nevadacity",
-      "venue_name": "Thursday",
-      "venue_city": "Nevada City",
-      "count": 8,
-      "sample_event_id": "trumba-208494222",
-      "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
     },
     {
@@ -87,12 +78,12 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "theoctabarn|nevadacity",
-      "venue_name": "The Octabarn",
+      "venue_key": "thursday|nevadacity",
+      "venue_name": "Thursday",
       "venue_city": "Nevada City",
-      "count": 5,
-      "sample_event_id": "trumba-207629608",
-      "sample_title": "Improverse: Improv for the Senses Class",
+      "count": 6,
+      "sample_event_id": "trumba-208494227",
+      "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
     },
     {
@@ -129,6 +120,15 @@
       "count": 4,
       "sample_event_id": "libcal-LibCal-20247-15952664-20260317",
       "sample_title": "English Language Class",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "theoctabarn|nevadacity",
+      "venue_name": "The Octabarn",
+      "venue_city": "Nevada City",
+      "count": 4,
+      "sample_event_id": "trumba-207629609",
+      "sample_title": "Improverse: Improv for the Senses Class",
       "candidate_assets": []
     },
     {
@@ -282,15 +282,6 @@
       "count": 1,
       "sample_event_id": "gvda-198214906",
       "sample_title": "Decendants: The Musical",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "thursday|truckee",
-      "venue_name": "Thursday",
-      "venue_city": "Truckee",
-      "count": 1,
-      "sample_event_id": "trumba-209602469",
-      "sample_title": "Community Connections: Under the Tahoe Stars",
       "candidate_assets": []
     },
     {
