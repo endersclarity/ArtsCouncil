@@ -1,24 +1,24 @@
 {
-  "generated_at": "2026-10-02T13:33:49.656257+00:00",
+  "generated_at": "2026-10-03T12:14:16.626244+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 269,
-    "matched_events": 142,
-    "unmatched_events": 127,
+    "total_events": 266,
+    "matched_events": 133,
+    "unmatched_events": 133,
     "matched_by_pid": 0,
     "matched_by_alias": 6,
-    "matched_by_name_city": 27,
-    "matched_by_name_city_fuzzy": 109,
-    "upcoming_14d": 116
+    "matched_by_name_city": 23,
+    "matched_by_name_city_fuzzy": 104,
+    "upcoming_14d": 113
   },
   "unmatched_venues": [
     {
       "venue_key": "monday|nevadacity",
       "venue_name": "Monday",
       "venue_city": "Nevada City",
-      "count": 14,
+      "count": 20,
       "sample_event_id": "trumba-208494224",
       "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
@@ -27,16 +27,25 @@
       "venue_key": "unknownvenue|grassvalley",
       "venue_name": "Unknown venue",
       "venue_city": "Grass Valley",
-      "count": 12,
+      "count": 10,
       "sample_event_id": "gvda-197068116",
       "sample_title": "Reluctant Reformers: Mary Hallock Foote and Julia Morgan in the Progressive Era by Mary-Jo Wainwright",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "saturday|nevadacity",
+      "venue_name": "Saturday",
+      "venue_city": "Nevada City",
+      "count": 8,
+      "sample_event_id": "trumba-208566207",
+      "sample_title": "Glassblowing for Beginners – Make a Paperweight",
       "candidate_assets": []
     },
     {
       "venue_key": "unknownvenue|nevadacity",
       "venue_name": "Unknown venue",
       "venue_city": "Nevada City",
-      "count": 9,
+      "count": 7,
       "sample_event_id": "gvda-198326438",
       "sample_title": "Fogelberg Revisited &#8211; A Tribute to Dan Fogelberg",
       "candidate_assets": []
@@ -60,12 +69,12 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "saturday|nevadacity",
-      "venue_name": "Saturday",
-      "venue_city": "Nevada City",
+      "venue_key": "monday|grassvalley",
+      "venue_name": "Monday",
+      "venue_city": "Grass Valley",
       "count": 6,
-      "sample_event_id": "trumba-208566207",
-      "sample_title": "Glassblowing for Beginners – Make a Paperweight",
+      "sample_event_id": "trumba-206663281",
+      "sample_title": "Fall 2026 Youth Classes at The Center for the Arts",
       "candidate_assets": []
     },
     {
@@ -87,12 +96,12 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "monday|grassvalley",
-      "venue_name": "Monday",
-      "venue_city": "Grass Valley",
+      "venue_key": "sunday|nevadacity",
+      "venue_name": "Sunday",
+      "venue_city": "Nevada City",
       "count": 5,
-      "sample_event_id": "trumba-206663281",
-      "sample_title": "Fall 2026 Youth Classes at The Center for the Arts",
+      "sample_event_id": "trumba-208569832",
+      "sample_title": "Glassblowing Glass Pumpkin Taster Experience",
       "candidate_assets": []
     },
     {
@@ -165,15 +174,6 @@
       "count": 3,
       "sample_event_id": "trumba-206258361",
       "sample_title": "2026 GRASS VALLEY BREW FEST!",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "sunday|nevadacity",
-      "venue_name": "Sunday",
-      "venue_city": "Nevada City",
-      "count": 3,
-      "sample_event_id": "trumba-208569832",
-      "sample_title": "Glassblowing Glass Pumpkin Taster Experience",
       "candidate_assets": []
     },
     {
@@ -282,15 +282,6 @@
       "count": 1,
       "sample_event_id": "gvda-198214906",
       "sample_title": "Decendants: The Musical",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "northwoodsclubhouse|truckee",
-      "venue_name": "Northwoods Clubhouse",
-      "venue_city": "Truckee",
-      "count": 1,
-      "sample_event_id": "trumba-113922962",
-      "sample_title": "Kids Night Out",
       "candidate_assets": []
     },
     {
