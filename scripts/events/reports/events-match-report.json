@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-10-03T12:14:16.626244+00:00",
+  "generated_at": "2026-10-04T13:02:43.700092+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 266,
-    "matched_events": 133,
-    "unmatched_events": 133,
+    "total_events": 259,
+    "matched_events": 131,
+    "unmatched_events": 128,
     "matched_by_pid": 0,
     "matched_by_alias": 6,
-    "matched_by_name_city": 23,
-    "matched_by_name_city_fuzzy": 104,
-    "upcoming_14d": 113
+    "matched_by_name_city": 22,
+    "matched_by_name_city_fuzzy": 103,
+    "upcoming_14d": 106
   },
   "unmatched_venues": [
     {
@@ -33,19 +33,10 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "saturday|nevadacity",
-      "venue_name": "Saturday",
-      "venue_city": "Nevada City",
-      "count": 8,
-      "sample_event_id": "trumba-208566207",
-      "sample_title": "Glassblowing for Beginners – Make a Paperweight",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "unknownvenue|nevadacity",
       "venue_name": "Unknown venue",
       "venue_city": "Nevada City",
-      "count": 7,
+      "count": 8,
       "sample_event_id": "gvda-198326438",
       "sample_title": "Fogelberg Revisited &#8211; A Tribute to Dan Fogelberg",
       "candidate_assets": []
@@ -60,10 +51,19 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "tuesday|nevadacity",
+      "venue_name": "Tuesday",
+      "venue_city": "Nevada City",
+      "count": 7,
+      "sample_event_id": "trumba-208494225",
+      "sample_title": "175 | Land, People, Culture",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "mcknightcrossingshoppingcenter|grassvalley",
       "venue_name": "Mcknight crossing shopping center",
       "venue_city": "Grass Valley",
-      "count": 7,
+      "count": 6,
       "sample_event_id": "gvda-191631909",
       "sample_title": "Cars and coffee grass valley",
       "candidate_assets": []
@@ -78,21 +78,21 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "tuesday|nevadacity",
-      "venue_name": "Tuesday",
-      "venue_city": "Nevada City",
-      "count": 6,
-      "sample_event_id": "trumba-208494225",
-      "sample_title": "175 | Land, People, Culture",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "thursday|nevadacity",
       "venue_name": "Thursday",
       "venue_city": "Nevada City",
       "count": 6,
       "sample_event_id": "trumba-208494227",
       "sample_title": "175 | Land, People, Culture",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "saturday|nevadacity",
+      "venue_name": "Saturday",
+      "venue_city": "Nevada City",
+      "count": 6,
+      "sample_event_id": "trumba-207183481",
+      "sample_title": "Open Studios Tour at The Curious Forge",
       "candidate_assets": []
     },
     {
@@ -168,30 +168,12 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "saturday|grassvalley",
-      "venue_name": "Saturday",
-      "venue_city": "Grass Valley",
-      "count": 3,
-      "sample_event_id": "trumba-206258361",
-      "sample_title": "2026 GRASS VALLEY BREW FEST!",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "meetingroom|pennvalley",
       "venue_name": "Meeting Room",
       "venue_city": "Penn Valley",
       "count": 2,
       "sample_event_id": "libcal-LibCal-20247-16276894-20260316",
       "sample_title": "Lab Rats: A Science Book Club",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "saturday|truckee",
-      "venue_name": "Saturday",
-      "venue_city": "Truckee",
-      "count": 2,
-      "sample_event_id": "trumba-209602479",
-      "sample_title": "Downtown Truckee Wine, Walk & Shop + Dark Skies Awareness Stops",
       "candidate_assets": []
     },
     {
@@ -219,6 +201,15 @@
       "count": 2,
       "sample_event_id": "trumba-206371644",
       "sample_title": "Gary Gulman: Grandiloquent",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "saturday|grassvalley",
+      "venue_name": "Saturday",
+      "venue_city": "Grass Valley",
+      "count": 2,
+      "sample_event_id": "trumba-206371633",
+      "sample_title": "Roger McGuinn",
       "candidate_assets": []
     },
     {
@@ -282,15 +273,6 @@
       "count": 1,
       "sample_event_id": "gvda-198214906",
       "sample_title": "Decendants: The Musical",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "saturday|lakeofthepines",
-      "venue_name": "Saturday",
-      "venue_city": "Lake of the Pines",
-      "count": 1,
-      "sample_event_id": "trumba-209132008",
-      "sample_title": "BRHS Music Carwash Fundraiser",
       "candidate_assets": []
     },
     {
