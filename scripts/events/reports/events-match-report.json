@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-10-05T15:33:21.068822+00:00",
+  "generated_at": "2026-10-06T13:55:10.409968+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 258,
-    "matched_events": 130,
-    "unmatched_events": 128,
+    "total_events": 257,
+    "matched_events": 131,
+    "unmatched_events": 126,
     "matched_by_pid": 0,
-    "matched_by_alias": 6,
+    "matched_by_alias": 7,
     "matched_by_name_city": 22,
     "matched_by_name_city_fuzzy": 102,
     "upcoming_14d": 104
@@ -18,9 +18,9 @@
       "venue_key": "monday|nevadacity",
       "venue_name": "Monday",
       "venue_city": "Nevada City",
-      "count": 19,
-      "sample_event_id": "trumba-208566235",
-      "sample_title": "Glassblowing for Beginners – Make a Paperweight",
+      "count": 17,
+      "sample_event_id": "trumba-208494229",
+      "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
     },
     {
@@ -78,15 +78,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "monday|grassvalley",
-      "venue_name": "Monday",
-      "venue_city": "Grass Valley",
-      "count": 6,
-      "sample_event_id": "trumba-206663281",
-      "sample_title": "Fall 2026 Youth Classes at The Center for the Arts",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "wednesday|nevadacity",
       "venue_name": "Wednesday",
       "venue_city": "Nevada City",
@@ -102,6 +93,15 @@
       "count": 6,
       "sample_event_id": "trumba-207183481",
       "sample_title": "Open Studios Tour at The Curious Forge",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "theoctabarn|nevadacity",
+      "venue_name": "The Octabarn",
+      "venue_city": "Nevada City",
+      "count": 5,
+      "sample_event_id": "trumba-207629609",
+      "sample_title": "Improverse: Improv for the Senses Class",
       "candidate_assets": []
     },
     {
@@ -132,21 +132,21 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "theoctabarn|nevadacity",
-      "venue_name": "The Octabarn",
-      "venue_city": "Nevada City",
-      "count": 4,
-      "sample_event_id": "trumba-207629609",
-      "sample_title": "Improverse: Improv for the Senses Class",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "sunday|nevadacity",
       "venue_name": "Sunday",
       "venue_city": "Nevada City",
       "count": 4,
       "sample_event_id": "trumba-207183482",
       "sample_title": "Open Studios Tour at The Curious Forge",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "monday|grassvalley",
+      "venue_name": "Monday",
+      "venue_city": "Grass Valley",
+      "count": 4,
+      "sample_event_id": "trumba-206663282",
+      "sample_title": "Fall 2026 Youth Classes at The Center for the Arts",
       "candidate_assets": []
     },
     {
@@ -165,6 +165,15 @@
       "count": 3,
       "sample_event_id": "gvda-173596655",
       "sample_title": "STEAM Exploration Saturdays",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "thursday|grassvalley",
+      "venue_name": "Thursday",
+      "venue_city": "Grass Valley",
+      "count": 3,
+      "sample_event_id": "trumba-206371644",
+      "sample_title": "Gary Gulman: Grandiloquent",
       "candidate_assets": []
     },
     {
@@ -192,15 +201,6 @@
       "count": 2,
       "sample_event_id": "trumba-209055447",
       "sample_title": "Ekphrastic Poetry Workshop",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "thursday|grassvalley",
-      "venue_name": "Thursday",
-      "venue_city": "Grass Valley",
-      "count": 2,
-      "sample_event_id": "trumba-206371644",
-      "sample_title": "Gary Gulman: Grandiloquent",
       "candidate_assets": []
     },
     {
