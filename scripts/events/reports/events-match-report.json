@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-10-06T13:55:10.409968+00:00",
+  "generated_at": "2026-10-07T14:12:21.685633+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 257,
-    "matched_events": 131,
-    "unmatched_events": 126,
+    "total_events": 266,
+    "matched_events": 135,
+    "unmatched_events": 131,
     "matched_by_pid": 0,
     "matched_by_alias": 7,
-    "matched_by_name_city": 22,
-    "matched_by_name_city_fuzzy": 102,
-    "upcoming_14d": 104
+    "matched_by_name_city": 23,
+    "matched_by_name_city_fuzzy": 105,
+    "upcoming_14d": 112
   },
   "unmatched_venues": [
     {
@@ -33,10 +33,19 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "sunday|nevadacity",
+      "venue_name": "Sunday",
+      "venue_city": "Nevada City",
+      "count": 8,
+      "sample_event_id": "trumba-207183482",
+      "sample_title": "Open Studios Tour at The Curious Forge",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "unknownvenue|nevadacity",
       "venue_name": "Unknown venue",
       "venue_city": "Nevada City",
-      "count": 8,
+      "count": 7,
       "sample_event_id": "gvda-198326438",
       "sample_title": "Fogelberg Revisited &#8211; A Tribute to Dan Fogelberg",
       "candidate_assets": []
@@ -51,12 +60,12 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "tuesday|nevadacity",
-      "venue_name": "Tuesday",
-      "venue_city": "Nevada City",
+      "venue_key": "mcknightcrossingshoppingcenter|grassvalley",
+      "venue_name": "Mcknight crossing shopping center",
+      "venue_city": "Grass Valley",
       "count": 7,
-      "sample_event_id": "trumba-208494225",
-      "sample_title": "175 | Land, People, Culture",
+      "sample_event_id": "gvda-191631909",
+      "sample_title": "Cars and coffee grass valley",
       "candidate_assets": []
     },
     {
@@ -66,15 +75,6 @@
       "count": 7,
       "sample_event_id": "trumba-208494227",
       "sample_title": "175 | Land, People, Culture",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "mcknightcrossingshoppingcenter|grassvalley",
-      "venue_name": "Mcknight crossing shopping center",
-      "venue_city": "Grass Valley",
-      "count": 6,
-      "sample_event_id": "gvda-191631909",
-      "sample_title": "Cars and coffee grass valley",
       "candidate_assets": []
     },
     {
@@ -132,21 +132,21 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "sunday|nevadacity",
-      "venue_name": "Sunday",
-      "venue_city": "Nevada City",
-      "count": 4,
-      "sample_event_id": "trumba-207183482",
-      "sample_title": "Open Studios Tour at The Curious Forge",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "monday|grassvalley",
       "venue_name": "Monday",
       "venue_city": "Grass Valley",
       "count": 4,
       "sample_event_id": "trumba-206663282",
       "sample_title": "Fall 2026 Youth Classes at The Center for the Arts",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "tuesday|nevadacity",
+      "venue_name": "Tuesday",
+      "venue_city": "Nevada City",
+      "count": 4,
+      "sample_event_id": "trumba-208494230",
+      "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
     },
     {
@@ -177,6 +177,24 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "friday|grassvalley",
+      "venue_name": "Friday",
+      "venue_city": "Grass Valley",
+      "count": 3,
+      "sample_event_id": "trumba-207562350",
+      "sample_title": "SPACETIME: The Universe Story and Our Place In It at The Center for the Arts",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "saturday|grassvalley",
+      "venue_name": "Saturday",
+      "venue_city": "Grass Valley",
+      "count": 3,
+      "sample_event_id": "trumba-206371633",
+      "sample_title": "Roger McGuinn",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "meetingroom|pennvalley",
       "venue_name": "Meeting Room",
       "venue_city": "Penn Valley",
@@ -186,30 +204,12 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "tuesday|grassvalley",
-      "venue_name": "Tuesday",
-      "venue_city": "Grass Valley",
-      "count": 2,
-      "sample_event_id": "trumba-197234582",
-      "sample_title": "Paula Cole",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "wednesday|grassvalley",
       "venue_name": "Wednesday",
       "venue_city": "Grass Valley",
       "count": 2,
       "sample_event_id": "trumba-209055447",
       "sample_title": "Ekphrastic Poetry Workshop",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "saturday|grassvalley",
-      "venue_name": "Saturday",
-      "venue_city": "Grass Valley",
-      "count": 2,
-      "sample_event_id": "trumba-206371633",
-      "sample_title": "Roger McGuinn",
       "candidate_assets": []
     },
     {
@@ -276,12 +276,12 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "friday|grassvalley",
+      "venue_key": "friday|northstarcalifornia",
       "venue_name": "Friday",
-      "venue_city": "Grass Valley",
+      "venue_city": "Northstar California",
       "count": 1,
-      "sample_event_id": "trumba-207562350",
-      "sample_title": "SPACETIME: The Universe Story and Our Place In It at The Center for the Arts",
+      "sample_event_id": "trumba-210244408",
+      "sample_title": "46th Annual West Coast Songwriters Conference",
       "candidate_assets": []
     },
     {
@@ -300,6 +300,24 @@
       "count": 1,
       "sample_event_id": "trumba-205166574",
       "sample_title": "Tony Yun, piano presented by InConcert Sierra",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "tuesday|grassvalley",
+      "venue_name": "Tuesday",
+      "venue_city": "Grass Valley",
+      "count": 1,
+      "sample_event_id": "trumba-207242192",
+      "sample_title": "Paul Thorn at The Center for the Arts",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "northwoodsclubhouse|truckee",
+      "venue_name": "Northwoods Clubhouse",
+      "venue_city": "Truckee",
+      "count": 1,
+      "sample_event_id": "trumba-113922963",
+      "sample_title": "Kids Night Out",
       "candidate_assets": []
     }
   ],
