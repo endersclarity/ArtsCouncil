@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-10-07T14:12:21.685633+00:00",
+  "generated_at": "2026-10-08T14:22:20.190590+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 266,
+    "total_events": 264,
     "matched_events": 135,
-    "unmatched_events": 131,
+    "unmatched_events": 129,
     "matched_by_pid": 0,
     "matched_by_alias": 7,
     "matched_by_name_city": 23,
     "matched_by_name_city_fuzzy": 105,
-    "upcoming_14d": 112
+    "upcoming_14d": 111
   },
   "unmatched_venues": [
     {
@@ -78,19 +78,10 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "wednesday|nevadacity",
-      "venue_name": "Wednesday",
-      "venue_city": "Nevada City",
-      "count": 6,
-      "sample_event_id": "trumba-208494226",
-      "sample_title": "175 | Land, People, Culture",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "saturday|nevadacity",
       "venue_name": "Saturday",
       "venue_city": "Nevada City",
-      "count": 6,
+      "count": 7,
       "sample_event_id": "trumba-207183481",
       "sample_title": "Open Studios Tour at The Curious Forge",
       "candidate_assets": []
@@ -123,12 +114,12 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "membershomes|grassvalley",
-      "venue_name": "Members homes",
+      "venue_key": "saturday|grassvalley",
+      "venue_name": "Saturday",
       "venue_city": "Grass Valley",
       "count": 4,
-      "sample_event_id": "gvda-183038851",
-      "sample_title": "Playwriting Group",
+      "sample_event_id": "trumba-206371633",
+      "sample_title": "Roger McGuinn",
       "candidate_assets": []
     },
     {
@@ -146,6 +137,15 @@
       "venue_city": "Nevada City",
       "count": 4,
       "sample_event_id": "trumba-208494230",
+      "sample_title": "175 | Land, People, Culture",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "wednesday|nevadacity",
+      "venue_name": "Wednesday",
+      "venue_city": "Nevada City",
+      "count": 4,
+      "sample_event_id": "trumba-208494231",
       "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
     },
@@ -168,6 +168,15 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "membershomes|grassvalley",
+      "venue_name": "Members homes",
+      "venue_city": "Grass Valley",
+      "count": 3,
+      "sample_event_id": "gvda-183038851",
+      "sample_title": "Playwriting Group",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "thursday|grassvalley",
       "venue_name": "Thursday",
       "venue_city": "Grass Valley",
@@ -186,30 +195,12 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "saturday|grassvalley",
-      "venue_name": "Saturday",
-      "venue_city": "Grass Valley",
-      "count": 3,
-      "sample_event_id": "trumba-206371633",
-      "sample_title": "Roger McGuinn",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "meetingroom|pennvalley",
       "venue_name": "Meeting Room",
       "venue_city": "Penn Valley",
       "count": 2,
       "sample_event_id": "libcal-LibCal-20247-16276894-20260316",
       "sample_title": "Lab Rats: A Science Book Club",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "wednesday|grassvalley",
-      "venue_name": "Wednesday",
-      "venue_city": "Grass Valley",
-      "count": 2,
-      "sample_event_id": "trumba-209055447",
-      "sample_title": "Ekphrastic Poetry Workshop",
       "candidate_assets": []
     },
     {
@@ -291,6 +282,15 @@
       "count": 1,
       "sample_event_id": "trumba-116325480",
       "sample_title": "Word Jam",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "wednesday|grassvalley",
+      "venue_name": "Wednesday",
+      "venue_city": "Grass Valley",
+      "count": 1,
+      "sample_event_id": "trumba-209055448",
+      "sample_title": "Ekphrastic Poetry Workshop",
       "candidate_assets": []
     },
     {
