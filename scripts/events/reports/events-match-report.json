@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-10-08T14:22:20.190590+00:00",
+  "generated_at": "2026-10-09T14:07:43.251970+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 264,
-    "matched_events": 135,
-    "unmatched_events": 129,
+    "total_events": 266,
+    "matched_events": 134,
+    "unmatched_events": 132,
     "matched_by_pid": 0,
-    "matched_by_alias": 7,
+    "matched_by_alias": 6,
     "matched_by_name_city": 23,
     "matched_by_name_city_fuzzy": 105,
-    "upcoming_14d": 111
+    "upcoming_14d": 113
   },
   "unmatched_venues": [
     {
@@ -36,7 +36,7 @@
       "venue_key": "sunday|nevadacity",
       "venue_name": "Sunday",
       "venue_city": "Nevada City",
-      "count": 8,
+      "count": 10,
       "sample_event_id": "trumba-207183482",
       "sample_title": "Open Studios Tour at The Curious Forge",
       "candidate_assets": []
@@ -45,7 +45,7 @@
       "venue_key": "unknownvenue|nevadacity",
       "venue_name": "Unknown venue",
       "venue_city": "Nevada City",
-      "count": 7,
+      "count": 8,
       "sample_event_id": "gvda-198326438",
       "sample_title": "Fogelberg Revisited &#8211; A Tribute to Dan Fogelberg",
       "candidate_assets": []
@@ -69,15 +69,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "thursday|nevadacity",
-      "venue_name": "Thursday",
-      "venue_city": "Nevada City",
-      "count": 7,
-      "sample_event_id": "trumba-208494227",
-      "sample_title": "175 | Land, People, Culture",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "saturday|nevadacity",
       "venue_name": "Saturday",
       "venue_city": "Nevada City",
@@ -87,12 +78,21 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "theoctabarn|nevadacity",
-      "venue_name": "The Octabarn",
+      "venue_key": "tuesday|nevadacity",
+      "venue_name": "Tuesday",
       "venue_city": "Nevada City",
       "count": 5,
-      "sample_event_id": "trumba-207629609",
-      "sample_title": "Improverse: Improv for the Senses Class",
+      "sample_event_id": "trumba-208494230",
+      "sample_title": "175 | Land, People, Culture",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "thursday|nevadacity",
+      "venue_name": "Thursday",
+      "venue_city": "Nevada City",
+      "count": 5,
+      "sample_event_id": "trumba-208494232",
+      "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
     },
     {
@@ -132,21 +132,21 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "tuesday|nevadacity",
-      "venue_name": "Tuesday",
-      "venue_city": "Nevada City",
-      "count": 4,
-      "sample_event_id": "trumba-208494230",
-      "sample_title": "175 | Land, People, Culture",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "wednesday|nevadacity",
       "venue_name": "Wednesday",
       "venue_city": "Nevada City",
       "count": 4,
       "sample_event_id": "trumba-208494231",
       "sample_title": "175 | Land, People, Culture",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "theoctabarn|nevadacity",
+      "venue_name": "The Octabarn",
+      "venue_city": "Nevada City",
+      "count": 4,
+      "sample_event_id": "trumba-207629610",
+      "sample_title": "Improverse: Improv for the Senses Class",
       "candidate_assets": []
     },
     {
@@ -177,15 +177,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "thursday|grassvalley",
-      "venue_name": "Thursday",
-      "venue_city": "Grass Valley",
-      "count": 3,
-      "sample_event_id": "trumba-206371644",
-      "sample_title": "Gary Gulman: Grandiloquent",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "friday|grassvalley",
       "venue_name": "Friday",
       "venue_city": "Grass Valley",
@@ -201,6 +192,33 @@
       "count": 2,
       "sample_event_id": "libcal-LibCal-20247-16276894-20260316",
       "sample_title": "Lab Rats: A Science Book Club",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "darkhosecoffee|truckee",
+      "venue_name": "Dark Hose Coffee",
+      "venue_city": "Truckee",
+      "count": 2,
+      "sample_event_id": "trumba-116325480",
+      "sample_title": "Word Jam",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "thursday|grassvalley",
+      "venue_name": "Thursday",
+      "venue_city": "Grass Valley",
+      "count": 2,
+      "sample_event_id": "trumba-206769357",
+      "sample_title": "An Evening with Celtic Thunder at The Center for the Arts",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "sunday|grassvalley",
+      "venue_name": "Sunday",
+      "venue_city": "Grass Valley",
+      "count": 2,
+      "sample_event_id": "trumba-210688387",
+      "sample_title": "Amelia Zitoun, Cello, with Minhye Choi, Piano",
       "candidate_assets": []
     },
     {
@@ -273,15 +291,6 @@
       "count": 1,
       "sample_event_id": "trumba-210244408",
       "sample_title": "46th Annual West Coast Songwriters Conference",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "darkhosecoffee|truckee",
-      "venue_name": "Dark Hose Coffee",
-      "venue_city": "Truckee",
-      "count": 1,
-      "sample_event_id": "trumba-116325480",
-      "sample_title": "Word Jam",
       "candidate_assets": []
     },
     {
