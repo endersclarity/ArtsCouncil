@@ -1,24 +1,24 @@
 {
-  "generated_at": "2026-10-09T14:07:43.251970+00:00",
+  "generated_at": "2026-10-10T13:17:07.636069+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 266,
-    "matched_events": 134,
-    "unmatched_events": 132,
+    "total_events": 265,
+    "matched_events": 131,
+    "unmatched_events": 134,
     "matched_by_pid": 0,
     "matched_by_alias": 6,
-    "matched_by_name_city": 23,
-    "matched_by_name_city_fuzzy": 105,
-    "upcoming_14d": 113
+    "matched_by_name_city": 22,
+    "matched_by_name_city_fuzzy": 103,
+    "upcoming_14d": 112
   },
   "unmatched_venues": [
     {
       "venue_key": "monday|nevadacity",
       "venue_name": "Monday",
       "venue_city": "Nevada City",
-      "count": 17,
+      "count": 19,
       "sample_event_id": "trumba-208494229",
       "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
@@ -78,6 +78,24 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "saturday|grassvalley",
+      "venue_name": "Saturday",
+      "venue_city": "Grass Valley",
+      "count": 5,
+      "sample_event_id": "trumba-206371633",
+      "sample_title": "Roger McGuinn",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "monday|grassvalley",
+      "venue_name": "Monday",
+      "venue_city": "Grass Valley",
+      "count": 5,
+      "sample_event_id": "trumba-206663282",
+      "sample_title": "Fall 2026 Youth Classes at The Center for the Arts",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "tuesday|nevadacity",
       "venue_name": "Tuesday",
       "venue_city": "Nevada City",
@@ -111,24 +129,6 @@
       "count": 4,
       "sample_event_id": "libcal-LibCal-20247-15952664-20260317",
       "sample_title": "English Language Class",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "saturday|grassvalley",
-      "venue_name": "Saturday",
-      "venue_city": "Grass Valley",
-      "count": 4,
-      "sample_event_id": "trumba-206371633",
-      "sample_title": "Roger McGuinn",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "monday|grassvalley",
-      "venue_name": "Monday",
-      "venue_city": "Grass Valley",
-      "count": 4,
-      "sample_event_id": "trumba-206663282",
-      "sample_title": "Fall 2026 Youth Classes at The Center for the Arts",
       "candidate_assets": []
     },
     {
@@ -177,15 +177,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "friday|grassvalley",
-      "venue_name": "Friday",
-      "venue_city": "Grass Valley",
-      "count": 3,
-      "sample_event_id": "trumba-207562350",
-      "sample_title": "SPACETIME: The Universe Story and Our Place In It at The Center for the Arts",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "meetingroom|pennvalley",
       "venue_name": "Meeting Room",
       "venue_city": "Penn Valley",
@@ -210,6 +201,15 @@
       "count": 2,
       "sample_event_id": "trumba-206769357",
       "sample_title": "An Evening with Celtic Thunder at The Center for the Arts",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "friday|grassvalley",
+      "venue_name": "Friday",
+      "venue_city": "Grass Valley",
+      "count": 2,
+      "sample_event_id": "trumba-210012328",
+      "sample_title": "The Future We Create: Legacy Giving for the Arts in Nevada County",
       "candidate_assets": []
     },
     {
@@ -282,15 +282,6 @@
       "count": 1,
       "sample_event_id": "gvda-198214906",
       "sample_title": "Decendants: The Musical",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "friday|northstarcalifornia",
-      "venue_name": "Friday",
-      "venue_city": "Northstar California",
-      "count": 1,
-      "sample_event_id": "trumba-210244408",
-      "sample_title": "46th Annual West Coast Songwriters Conference",
       "candidate_assets": []
     },
     {
