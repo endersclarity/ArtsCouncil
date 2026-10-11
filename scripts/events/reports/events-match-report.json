@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-10-10T13:17:07.636069+00:00",
+  "generated_at": "2026-10-11T13:46:04.239525+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 265,
-    "matched_events": 131,
-    "unmatched_events": 134,
+    "total_events": 263,
+    "matched_events": 130,
+    "unmatched_events": 133,
     "matched_by_pid": 0,
     "matched_by_alias": 6,
     "matched_by_name_city": 22,
-    "matched_by_name_city_fuzzy": 103,
-    "upcoming_14d": 112
+    "matched_by_name_city_fuzzy": 102,
+    "upcoming_14d": 110
   },
   "unmatched_venues": [
     {
@@ -45,7 +45,7 @@
       "venue_key": "unknownvenue|nevadacity",
       "venue_name": "Unknown venue",
       "venue_city": "Nevada City",
-      "count": 8,
+      "count": 9,
       "sample_event_id": "gvda-198326438",
       "sample_title": "Fogelberg Revisited &#8211; A Tribute to Dan Fogelberg",
       "candidate_assets": []
@@ -63,27 +63,27 @@
       "venue_key": "mcknightcrossingshoppingcenter|grassvalley",
       "venue_name": "Mcknight crossing shopping center",
       "venue_city": "Grass Valley",
-      "count": 7,
+      "count": 6,
       "sample_event_id": "gvda-191631909",
       "sample_title": "Cars and coffee grass valley",
       "candidate_assets": []
     },
     {
-      "venue_key": "saturday|nevadacity",
-      "venue_name": "Saturday",
+      "venue_key": "tuesday|nevadacity",
+      "venue_name": "Tuesday",
       "venue_city": "Nevada City",
-      "count": 7,
-      "sample_event_id": "trumba-207183481",
-      "sample_title": "Open Studios Tour at The Curious Forge",
+      "count": 6,
+      "sample_event_id": "trumba-208494230",
+      "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
     },
     {
-      "venue_key": "saturday|grassvalley",
-      "venue_name": "Saturday",
-      "venue_city": "Grass Valley",
-      "count": 5,
-      "sample_event_id": "trumba-206371633",
-      "sample_title": "Roger McGuinn",
+      "venue_key": "thursday|nevadacity",
+      "venue_name": "Thursday",
+      "venue_city": "Nevada City",
+      "count": 6,
+      "sample_event_id": "trumba-208494232",
+      "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
     },
     {
@@ -96,21 +96,12 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "tuesday|nevadacity",
-      "venue_name": "Tuesday",
+      "venue_key": "saturday|nevadacity",
+      "venue_name": "Saturday",
       "venue_city": "Nevada City",
       "count": 5,
-      "sample_event_id": "trumba-208494230",
-      "sample_title": "175 | Land, People, Culture",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "thursday|nevadacity",
-      "venue_name": "Thursday",
-      "venue_city": "Nevada City",
-      "count": 5,
-      "sample_event_id": "trumba-208494232",
-      "sample_title": "175 | Land, People, Culture",
+      "sample_event_id": "trumba-207183484",
+      "sample_title": "Open Studios Tour at The Curious Forge",
       "candidate_assets": []
     },
     {
@@ -174,6 +165,15 @@
       "count": 3,
       "sample_event_id": "gvda-183038851",
       "sample_title": "Playwriting Group",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "saturday|grassvalley",
+      "venue_name": "Saturday",
+      "venue_city": "Grass Valley",
+      "count": 3,
+      "sample_event_id": "trumba-210941402",
+      "sample_title": "Grass Valley Poetry Crawl",
       "candidate_assets": []
     },
     {
@@ -309,6 +309,15 @@
       "count": 1,
       "sample_event_id": "trumba-207242192",
       "sample_title": "Paul Thorn at The Center for the Arts",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "thursday|grassvalleynevadacity",
+      "venue_name": "Thursday",
+      "venue_city": "Grass Valley, Nevada City",
+      "count": 1,
+      "sample_event_id": "trumba-210997678",
+      "sample_title": "Muse Lab - A Generative Writing Group + Open Mic",
       "candidate_assets": []
     },
     {
