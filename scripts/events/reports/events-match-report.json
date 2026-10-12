@@ -1,26 +1,26 @@
 {
-  "generated_at": "2026-10-11T13:46:04.239525+00:00",
+  "generated_at": "2026-10-12T16:29:40.996542+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 263,
+    "total_events": 260,
     "matched_events": 130,
-    "unmatched_events": 133,
+    "unmatched_events": 130,
     "matched_by_pid": 0,
     "matched_by_alias": 6,
     "matched_by_name_city": 22,
     "matched_by_name_city_fuzzy": 102,
-    "upcoming_14d": 110
+    "upcoming_14d": 107
   },
   "unmatched_venues": [
     {
       "venue_key": "monday|nevadacity",
       "venue_name": "Monday",
       "venue_city": "Nevada City",
-      "count": 19,
-      "sample_event_id": "trumba-208494229",
-      "sample_title": "175 | Land, People, Culture",
+      "count": 17,
+      "sample_event_id": "trumba-208660864",
+      "sample_title": "Welding & Metal Arts – Youth Maker XD Camp Experience",
       "candidate_assets": []
     },
     {
@@ -30,15 +30,6 @@
       "count": 10,
       "sample_event_id": "gvda-197068116",
       "sample_title": "Reluctant Reformers: Mary Hallock Foote and Julia Morgan in the Progressive Era by Mary-Jo Wainwright",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "sunday|nevadacity",
-      "venue_name": "Sunday",
-      "venue_city": "Nevada City",
-      "count": 10,
-      "sample_event_id": "trumba-207183482",
-      "sample_title": "Open Studios Tour at The Curious Forge",
       "candidate_assets": []
     },
     {
@@ -60,6 +51,15 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "thursday|nevadacity",
+      "venue_name": "Thursday",
+      "venue_city": "Nevada City",
+      "count": 7,
+      "sample_event_id": "trumba-208494232",
+      "sample_title": "175 | Land, People, Culture",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "mcknightcrossingshoppingcenter|grassvalley",
       "venue_name": "Mcknight crossing shopping center",
       "venue_city": "Grass Valley",
@@ -78,12 +78,21 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "thursday|nevadacity",
-      "venue_name": "Thursday",
+      "venue_key": "wednesday|nevadacity",
+      "venue_name": "Wednesday",
       "venue_city": "Nevada City",
       "count": 6,
-      "sample_event_id": "trumba-208494232",
+      "sample_event_id": "trumba-208494231",
       "sample_title": "175 | Land, People, Culture",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "sunday|nevadacity",
+      "venue_name": "Sunday",
+      "venue_city": "Nevada City",
+      "count": 6,
+      "sample_event_id": "trumba-207183485",
+      "sample_title": "Open Studios Tour at The Curious Forge",
       "candidate_assets": []
     },
     {
@@ -120,15 +129,6 @@
       "count": 4,
       "sample_event_id": "libcal-LibCal-20247-15952664-20260317",
       "sample_title": "English Language Class",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "wednesday|nevadacity",
-      "venue_name": "Wednesday",
-      "venue_city": "Nevada City",
-      "count": 4,
-      "sample_event_id": "trumba-208494231",
-      "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
     },
     {
@@ -186,12 +186,12 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "darkhosecoffee|truckee",
-      "venue_name": "Dark Hose Coffee",
-      "venue_city": "Truckee",
+      "venue_key": "wednesday|grassvalley",
+      "venue_name": "Wednesday",
+      "venue_city": "Grass Valley",
       "count": 2,
-      "sample_event_id": "trumba-116325480",
-      "sample_title": "Word Jam",
+      "sample_event_id": "trumba-209055448",
+      "sample_title": "Ekphrastic Poetry Workshop",
       "candidate_assets": []
     },
     {
@@ -285,15 +285,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "wednesday|grassvalley",
-      "venue_name": "Wednesday",
-      "venue_city": "Grass Valley",
-      "count": 1,
-      "sample_event_id": "trumba-209055448",
-      "sample_title": "Ekphrastic Poetry Workshop",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "seventhdayadventistchurch|grassvalley",
       "venue_name": "Seventh-day Adventist Church",
       "venue_city": "Grass Valley",
@@ -327,6 +318,15 @@
       "count": 1,
       "sample_event_id": "trumba-113922963",
       "sample_title": "Kids Night Out",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "darkhosecoffee|truckee",
+      "venue_name": "Dark Hose Coffee",
+      "venue_city": "Truckee",
+      "count": 1,
+      "sample_event_id": "trumba-116325481",
+      "sample_title": "Word Jam",
       "candidate_assets": []
     }
   ],
