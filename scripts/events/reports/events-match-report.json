@@ -1,28 +1,19 @@
 {
-  "generated_at": "2026-10-13T14:47:39.813578+00:00",
+  "generated_at": "2026-10-14T12:38:51.584379+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 254,
-    "matched_events": 130,
-    "unmatched_events": 124,
+    "total_events": 260,
+    "matched_events": 135,
+    "unmatched_events": 125,
     "matched_by_pid": 0,
     "matched_by_alias": 6,
     "matched_by_name_city": 22,
-    "matched_by_name_city_fuzzy": 102,
-    "upcoming_14d": 101
+    "matched_by_name_city_fuzzy": 107,
+    "upcoming_14d": 107
   },
   "unmatched_venues": [
-    {
-      "venue_key": "tuesday|nevadacity",
-      "venue_name": "Tuesday",
-      "venue_city": "Nevada City",
-      "count": 11,
-      "sample_event_id": "trumba-208494230",
-      "sample_title": "175 | Land, People, Culture",
-      "candidate_assets": []
-    },
     {
       "venue_key": "unknownvenue|grassvalley",
       "venue_name": "Unknown venue",
@@ -30,6 +21,15 @@
       "count": 10,
       "sample_event_id": "gvda-197068116",
       "sample_title": "Reluctant Reformers: Mary Hallock Foote and Julia Morgan in the Progressive Era by Mary-Jo Wainwright",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "thursday|nevadacity",
+      "venue_name": "Thursday",
+      "venue_city": "Nevada City",
+      "count": 9,
+      "sample_event_id": "trumba-208494232",
+      "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
     },
     {
@@ -42,11 +42,11 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "thursday|nevadacity",
-      "venue_name": "Thursday",
+      "venue_key": "tuesday|nevadacity",
+      "venue_name": "Tuesday",
       "venue_city": "Nevada City",
-      "count": 8,
-      "sample_event_id": "trumba-208494232",
+      "count": 9,
+      "sample_event_id": "trumba-208494235",
       "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
     },
@@ -78,6 +78,15 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "saturday|nevadacity",
+      "venue_name": "Saturday",
+      "venue_city": "Nevada City",
+      "count": 6,
+      "sample_event_id": "trumba-207183484",
+      "sample_title": "Open Studios Tour at The Curious Forge",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "sunday|nevadacity",
       "venue_name": "Sunday",
       "venue_city": "Nevada City",
@@ -93,15 +102,6 @@
       "count": 5,
       "sample_event_id": "trumba-207629610",
       "sample_title": "Improverse: Improv for the Senses Class",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "saturday|nevadacity",
-      "venue_name": "Saturday",
-      "venue_city": "Nevada City",
-      "count": 5,
-      "sample_event_id": "trumba-207183484",
-      "sample_title": "Open Studios Tour at The Curious Forge",
       "candidate_assets": []
     },
     {
@@ -177,6 +177,15 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "friday|grassvalley",
+      "venue_name": "Friday",
+      "venue_city": "Grass Valley",
+      "count": 3,
+      "sample_event_id": "trumba-210012328",
+      "sample_title": "The Future We Create: Legacy Giving for the Arts in Nevada County",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "saturday|grassvalley",
       "venue_name": "Saturday",
       "venue_city": "Grass Valley",
@@ -201,15 +210,6 @@
       "count": 2,
       "sample_event_id": "trumba-209055448",
       "sample_title": "Ekphrastic Poetry Workshop",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "friday|grassvalley",
-      "venue_name": "Friday",
-      "venue_city": "Grass Valley",
-      "count": 2,
-      "sample_event_id": "trumba-210012328",
-      "sample_title": "The Future We Create: Legacy Giving for the Arts in Nevada County",
       "candidate_assets": []
     },
     {
