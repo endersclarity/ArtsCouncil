@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-10-14T12:38:51.584379+00:00",
+  "generated_at": "2026-10-15T12:27:07.734528+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 260,
-    "matched_events": 135,
-    "unmatched_events": 125,
+    "total_events": 263,
+    "matched_events": 132,
+    "unmatched_events": 131,
     "matched_by_pid": 0,
     "matched_by_alias": 6,
-    "matched_by_name_city": 22,
-    "matched_by_name_city_fuzzy": 107,
-    "upcoming_14d": 107
+    "matched_by_name_city": 23,
+    "matched_by_name_city_fuzzy": 103,
+    "upcoming_14d": 110
   },
   "unmatched_venues": [
     {
@@ -60,38 +60,11 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "mcknightcrossingshoppingcenter|grassvalley",
-      "venue_name": "Mcknight crossing shopping center",
-      "venue_city": "Grass Valley",
-      "count": 6,
-      "sample_event_id": "gvda-191631909",
-      "sample_title": "Cars and coffee grass valley",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "wednesday|nevadacity",
-      "venue_name": "Wednesday",
-      "venue_city": "Nevada City",
-      "count": 6,
-      "sample_event_id": "trumba-208494231",
-      "sample_title": "175 | Land, People, Culture",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "saturday|nevadacity",
       "venue_name": "Saturday",
       "venue_city": "Nevada City",
       "count": 6,
       "sample_event_id": "trumba-207183484",
-      "sample_title": "Open Studios Tour at The Curious Forge",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "sunday|nevadacity",
-      "venue_name": "Sunday",
-      "venue_city": "Nevada City",
-      "count": 6,
-      "sample_event_id": "trumba-207183485",
       "sample_title": "Open Studios Tour at The Curious Forge",
       "candidate_assets": []
     },
@@ -105,21 +78,61 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "mcknightcrossingshoppingcenter|",
+      "venue_name": "McKnight crossing shopping center",
+      "venue_city": "",
+      "count": 5,
+      "sample_event_id": "trumba-191631939",
+      "sample_title": "Cars and coffee grass valley",
+      "candidate_assets": [
+        {
+          "asset_idx": 455,
+          "asset_name": "Pine Street Crossing at Nevada City",
+          "asset_city": "",
+          "asset_category": "Historic Landmarks",
+          "score": 18
+        },
+        {
+          "asset_idx": 459,
+          "asset_name": "Purdon Crossing Bridge",
+          "asset_city": "",
+          "asset_category": "Historic Landmarks",
+          "score": 18
+        },
+        {
+          "asset_idx": 469,
+          "asset_name": "Edwards Crossing Bridge",
+          "asset_city": "",
+          "asset_category": "Historic Landmarks",
+          "score": 18
+        }
+      ]
+    },
+    {
+      "venue_key": "sunday|nevadacity",
+      "venue_name": "Sunday",
+      "venue_city": "Nevada City",
+      "count": 5,
+      "sample_event_id": "trumba-207183485",
+      "sample_title": "Open Studios Tour at The Curious Forge",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "wednesday|nevadacity",
+      "venue_name": "Wednesday",
+      "venue_city": "Nevada City",
+      "count": 5,
+      "sample_event_id": "trumba-208494236",
+      "sample_title": "175 | Land, People, Culture",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "axisgallery|nevadacounty",
       "venue_name": "Axis Gallery",
       "venue_city": "Nevada County",
       "count": 4,
       "sample_event_id": "kvmr-348660-1772884800-1772902800-20260307",
       "sample_title": "\"The Winters Where Catfish Sings\": Exhibition by Sokthea Chan at Axis Gallery",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "unknownvenue|nevadacity",
-      "venue_name": "Unknown venue",
-      "venue_city": "Nevada City",
-      "count": 4,
-      "sample_event_id": "gvda-198326438",
-      "sample_title": "Fogelberg Revisited &#8211; A Tribute to Dan Fogelberg",
       "candidate_assets": []
     },
     {
@@ -141,12 +154,21 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "oddfellowshall|nevadacity",
-      "venue_name": "Oddfellows Hall",
+      "venue_key": "thursday|grassvalley",
+      "venue_name": "Thursday",
+      "venue_city": "Grass Valley",
+      "count": 4,
+      "sample_event_id": "trumba-206769357",
+      "sample_title": "An Evening with Celtic Thunder at The Center for the Arts",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "unknownvenue|nevadacity",
+      "venue_name": "Unknown venue",
       "venue_city": "Nevada City",
       "count": 3,
-      "sample_event_id": "gvda-196396181",
-      "sample_title": "Motion Theater",
+      "sample_event_id": "gvda-198326438",
+      "sample_title": "Fogelberg Revisited &#8211; A Tribute to Dan Fogelberg",
       "candidate_assets": []
     },
     {
@@ -156,24 +178,6 @@
       "count": 3,
       "sample_event_id": "gvda-173596655",
       "sample_title": "STEAM Exploration Saturdays",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "membershomes|grassvalley",
-      "venue_name": "Members homes",
-      "venue_city": "Grass Valley",
-      "count": 3,
-      "sample_event_id": "gvda-183038851",
-      "sample_title": "Playwriting Group",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "thursday|grassvalley",
-      "venue_name": "Thursday",
-      "venue_city": "Grass Valley",
-      "count": 3,
-      "sample_event_id": "trumba-206769357",
-      "sample_title": "An Evening with Celtic Thunder at The Center for the Arts",
       "candidate_assets": []
     },
     {
@@ -190,8 +194,8 @@
       "venue_name": "Saturday",
       "venue_city": "Grass Valley",
       "count": 3,
-      "sample_event_id": "trumba-210941402",
-      "sample_title": "Grass Valley Poetry Crawl",
+      "sample_event_id": "trumba-210015717",
+      "sample_title": "Music in the Mountains Fall Gala: Moonlight Masquerade",
       "candidate_assets": []
     },
     {
@@ -204,12 +208,30 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "wednesday|grassvalley",
-      "venue_name": "Wednesday",
+      "venue_key": "oddfellowshall|nevadacity",
+      "venue_name": "Oddfellows Hall",
+      "venue_city": "Nevada City",
+      "count": 2,
+      "sample_event_id": "gvda-196396181",
+      "sample_title": "Motion Theater",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "mcknightcrossingshoppingcenter|grassvalley",
+      "venue_name": "Mcknight crossing shopping center",
       "venue_city": "Grass Valley",
       "count": 2,
-      "sample_event_id": "trumba-209055448",
-      "sample_title": "Ekphrastic Poetry Workshop",
+      "sample_event_id": "gvda-191631909",
+      "sample_title": "Cars and coffee grass valley",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "membershomes|",
+      "venue_name": "Members homes",
+      "venue_city": "",
+      "count": 2,
+      "sample_event_id": "trumba-183038866",
+      "sample_title": "Playwriting Group",
       "candidate_assets": []
     },
     {
@@ -285,12 +307,132 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "seventhdayadventistchurch|grassvalley",
-      "venue_name": "Seventh-day Adventist Church",
+      "venue_key": "membershomes|grassvalley",
+      "venue_name": "Members homes",
       "venue_city": "Grass Valley",
+      "count": 1,
+      "sample_event_id": "gvda-183038851",
+      "sample_title": "Playwriting Group",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "moonriseonmillstreetinn|",
+      "venue_name": "Moonrise on Mill Street Inn",
+      "venue_city": "",
+      "count": 1,
+      "sample_event_id": "trumba-208877039",
+      "sample_title": "Know Thyself Retreat - Founder's Cohort",
+      "candidate_assets": [
+        {
+          "asset_idx": 336,
+          "asset_name": "Rowe Saw Mill",
+          "asset_city": "",
+          "asset_category": "Historic Landmarks",
+          "score": 14
+        },
+        {
+          "asset_idx": 360,
+          "asset_name": "Red Ledge Stamp Mill",
+          "asset_city": "",
+          "asset_category": "Historic Landmarks",
+          "score": 14
+        },
+        {
+          "asset_idx": 415,
+          "asset_name": "Five-Stamp Mill 1893",
+          "asset_city": "",
+          "asset_category": "Historic Landmarks",
+          "score": 14
+        }
+      ]
+    },
+    {
+      "venue_key": "seventhdayadventistchurch|",
+      "venue_name": "Seventh-day Adventist Church",
+      "venue_city": "",
       "count": 1,
       "sample_event_id": "trumba-205166574",
       "sample_title": "Tony Yun, piano presented by InConcert Sierra",
+      "candidate_assets": [
+        {
+          "asset_idx": 349,
+          "asset_name": "Saint Paul Lutheran Church Site",
+          "asset_city": "",
+          "asset_category": "Historic Landmarks",
+          "score": 16
+        },
+        {
+          "asset_idx": 373,
+          "asset_name": "Emmanuel Episcopal Church",
+          "asset_city": "",
+          "asset_category": "Historic Landmarks",
+          "score": 16
+        },
+        {
+          "asset_idx": 407,
+          "asset_name": "Saint Canice Catholic Church",
+          "asset_city": "",
+          "asset_category": "Historic Landmarks",
+          "score": 16
+        }
+      ]
+    },
+    {
+      "venue_key": "oddfellowshall|",
+      "venue_name": "Odd Fellows Hall",
+      "venue_city": "",
+      "count": 1,
+      "sample_event_id": "trumba-191712438",
+      "sample_title": "Spring Street Swing Out",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "sirensongfleeceworksatlucchesivineyards|",
+      "venue_name": "Siren Song Fleece Works at Lucchesi Vineyards",
+      "venue_city": "",
+      "count": 1,
+      "sample_event_id": "trumba-206576774",
+      "sample_title": "Macrame a Market Bag",
+      "candidate_assets": [
+        {
+          "asset_idx": 549,
+          "asset_name": "Lucchesi Vineyards & Winery",
+          "asset_city": "Grass Valley",
+          "asset_category": "Performance Spaces",
+          "score": 29
+        },
+        {
+          "asset_idx": 293,
+          "asset_name": "Lucchesi Vineyards Tasting Room",
+          "asset_city": "Grass Valley",
+          "asset_category": "Galleries & Museums",
+          "score": 29
+        },
+        {
+          "asset_idx": 42,
+          "asset_name": "Lucchesi Vineyards Tasting Room",
+          "asset_city": "Grass Valley",
+          "asset_category": "Eat, Drink & Stay",
+          "score": 29
+        }
+      ]
+    },
+    {
+      "venue_key": "saturday|",
+      "venue_name": "Saturday",
+      "venue_city": "",
+      "count": 1,
+      "sample_event_id": "trumba-210941402",
+      "sample_title": "Grass Valley Poetry Crawl",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "sunday|",
+      "venue_name": "Sunday",
+      "venue_city": "",
+      "count": 1,
+      "sample_event_id": "trumba-210845227",
+      "sample_title": "Family Craft Day – Tie dye & Screen Printing T-shirts",
       "candidate_assets": []
     },
     {
@@ -303,22 +445,118 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "thursday|grassvalleynevadacity",
-      "venue_name": "Thursday",
-      "venue_city": "Grass Valley, Nevada City",
+      "venue_key": "downtowngrassvalley|",
+      "venue_name": "Downtown Grass Valley",
+      "venue_city": "",
       "count": 1,
-      "sample_event_id": "trumba-210997678",
-      "sample_title": "Muse Lab - A Generative Writing Group + Open Mic",
+      "sample_event_id": "trumba-169823432",
+      "sample_title": "SAFE TRICK or TREAT for Preschoolers",
+      "candidate_assets": [
+        {
+          "asset_idx": 548,
+          "asset_name": "Grass Valley Veterans Memorial Hall",
+          "asset_city": "Grass Valley",
+          "asset_category": "Performance Spaces",
+          "score": 26
+        },
+        {
+          "asset_idx": 105,
+          "asset_name": "Grass Valley Male Voice Choir",
+          "asset_city": "Grass Valley",
+          "asset_category": "Arts Organizations",
+          "score": 26
+        },
+        {
+          "asset_idx": 106,
+          "asset_name": "Grass Valley Taiko",
+          "asset_city": "Grass Valley",
+          "asset_category": "Arts Organizations",
+          "score": 26
+        }
+      ]
+    },
+    {
+      "venue_key": "friday|",
+      "venue_name": "Friday",
+      "venue_city": "",
+      "count": 1,
+      "sample_event_id": "trumba-209230504",
+      "sample_title": "High Relief Wood Carving 3-day Workshop",
+      "candidate_assets": [
+        {
+          "asset_idx": 236,
+          "asset_name": "First Friday Art Walk",
+          "asset_city": "Nevada City",
+          "asset_category": "Fairs & Festivals",
+          "score": 16
+        }
+      ]
+    },
+    {
+      "venue_key": "unknownvenue|",
+      "venue_name": "Unknown venue",
+      "venue_city": "",
+      "count": 1,
+      "sample_event_id": "trumba-210717603",
+      "sample_title": "Natural Cheesemaking Workshops",
       "candidate_assets": []
     },
     {
-      "venue_key": "northwoodsclubhouse|truckee",
+      "venue_key": "northwoodsclubhouse|",
       "venue_name": "Northwoods Clubhouse",
-      "venue_city": "Truckee",
+      "venue_city": "",
       "count": 1,
       "sample_event_id": "trumba-113922963",
       "sample_title": "Kids Night Out",
       "candidate_assets": []
+    },
+    {
+      "venue_key": "atelier|",
+      "venue_name": "Atelier",
+      "venue_city": "",
+      "count": 1,
+      "sample_event_id": "trumba-114306318",
+      "sample_title": "#socialsketch + #write_on",
+      "candidate_assets": [
+        {
+          "asset_idx": 275,
+          "asset_name": "Atelier",
+          "asset_city": "Truckee",
+          "asset_category": "Galleries & Museums",
+          "score": 17
+        }
+      ]
+    },
+    {
+      "venue_key": "historicdowntowntruckee|",
+      "venue_name": "Historic Downtown Truckee",
+      "venue_city": "",
+      "count": 1,
+      "sample_event_id": "trumba-101048724",
+      "sample_title": "First Fridays",
+      "candidate_assets": [
+        {
+          "asset_idx": 574,
+          "asset_name": "Historic Mount St. Mary’s Preservation Committee",
+          "asset_city": "Grass Valley",
+          "asset_category": "Preservation & Culture",
+          "score": 18
+        },
+        {
+          "asset_idx": 583,
+          "asset_name": "North Star Historic Conservancy",
+          "asset_city": "Grass Valley",
+          "asset_category": "Preservation & Culture",
+          "score": 18
+        },
+        {
+          "asset_idx": 346,
+          "asset_name": "Chicago Park Historic Agricultural Community",
+          "asset_city": "",
+          "asset_category": "Historic Landmarks",
+          "score": 18
+        }
+      ]
     },
     {
       "venue_key": "darkhosecoffee|truckee",
@@ -327,6 +565,15 @@
       "count": 1,
       "sample_event_id": "trumba-116325481",
       "sample_title": "Word Jam",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "wednesday|grassvalley",
+      "venue_name": "Wednesday",
+      "venue_city": "Grass Valley",
+      "count": 1,
+      "sample_event_id": "trumba-208301050",
+      "sample_title": "Marc Broussard at The Center for the Arts",
       "candidate_assets": []
     }
   ],
@@ -350,7 +597,6 @@
       "Galleries & Museums",
       "Preservation & Culture",
       "Cultural Resources",
-      "Public Art",
       "Eat, Drink & Stay",
       "Walks & Trails"
     ],
