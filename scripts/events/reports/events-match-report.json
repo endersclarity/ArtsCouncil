@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-15T12:27:07.734528+00:00",
+  "generated_at": "2026-10-16T12:05:43.617943+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
@@ -24,15 +24,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "thursday|nevadacity",
-      "venue_name": "Thursday",
-      "venue_city": "Nevada City",
-      "count": 9,
-      "sample_event_id": "trumba-208494232",
-      "sample_title": "175 | Land, People, Culture",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "monday|nevadacity",
       "venue_name": "Monday",
       "venue_city": "Nevada City",
@@ -51,6 +42,15 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "thursday|nevadacity",
+      "venue_name": "Thursday",
+      "venue_city": "Nevada City",
+      "count": 8,
+      "sample_event_id": "trumba-208494237",
+      "sample_title": "175 | Land, People, Culture",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "ctcclassroom|nevadacity",
       "venue_name": "CTC Classroom",
       "venue_city": "Nevada City",
@@ -60,21 +60,21 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "sunday|nevadacity",
+      "venue_name": "Sunday",
+      "venue_city": "Nevada City",
+      "count": 7,
+      "sample_event_id": "trumba-207183485",
+      "sample_title": "Open Studios Tour at The Curious Forge",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "saturday|nevadacity",
       "venue_name": "Saturday",
       "venue_city": "Nevada City",
       "count": 6,
       "sample_event_id": "trumba-207183484",
       "sample_title": "Open Studios Tour at The Curious Forge",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "theoctabarn|nevadacity",
-      "venue_name": "The Octabarn",
-      "venue_city": "Nevada City",
-      "count": 5,
-      "sample_event_id": "trumba-207629610",
-      "sample_title": "Improverse: Improv for the Senses Class",
       "candidate_assets": []
     },
     {
@@ -107,15 +107,6 @@
           "score": 18
         }
       ]
-    },
-    {
-      "venue_key": "sunday|nevadacity",
-      "venue_name": "Sunday",
-      "venue_city": "Nevada City",
-      "count": 5,
-      "sample_event_id": "trumba-207183485",
-      "sample_title": "Open Studios Tour at The Curious Forge",
-      "candidate_assets": []
     },
     {
       "venue_key": "wednesday|nevadacity",
@@ -151,6 +142,15 @@
       "count": 4,
       "sample_event_id": "trumba-206663283",
       "sample_title": "Fall 2026 Youth Classes at The Center for the Arts",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "theoctabarn|nevadacity",
+      "venue_name": "The Octabarn",
+      "venue_city": "Nevada City",
+      "count": 4,
+      "sample_event_id": "trumba-207629611",
+      "sample_title": "Improverse: Improv for the Senses Class",
       "candidate_assets": []
     },
     {
@@ -190,15 +190,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "saturday|grassvalley",
-      "venue_name": "Saturday",
-      "venue_city": "Grass Valley",
-      "count": 3,
-      "sample_event_id": "trumba-210015717",
-      "sample_title": "Music in the Mountains Fall Gala: Moonlight Masquerade",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "meetingroom|pennvalley",
       "venue_name": "Meeting Room",
       "venue_city": "Penn Valley",
@@ -226,12 +217,52 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "seventhdayadventistchurch|",
+      "venue_name": "Seventh-day Adventist Church",
+      "venue_city": "",
+      "count": 2,
+      "sample_event_id": "trumba-205166574",
+      "sample_title": "Tony Yun, piano presented by InConcert Sierra",
+      "candidate_assets": [
+        {
+          "asset_idx": 349,
+          "asset_name": "Saint Paul Lutheran Church Site",
+          "asset_city": "",
+          "asset_category": "Historic Landmarks",
+          "score": 16
+        },
+        {
+          "asset_idx": 373,
+          "asset_name": "Emmanuel Episcopal Church",
+          "asset_city": "",
+          "asset_category": "Historic Landmarks",
+          "score": 16
+        },
+        {
+          "asset_idx": 407,
+          "asset_name": "Saint Canice Catholic Church",
+          "asset_city": "",
+          "asset_category": "Historic Landmarks",
+          "score": 16
+        }
+      ]
+    },
+    {
       "venue_key": "membershomes|",
       "venue_name": "Members homes",
       "venue_city": "",
       "count": 2,
       "sample_event_id": "trumba-183038866",
       "sample_title": "Playwriting Group",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "saturday|grassvalley",
+      "venue_name": "Saturday",
+      "venue_city": "Grass Valley",
+      "count": 2,
+      "sample_event_id": "trumba-210015717",
+      "sample_title": "Music in the Mountains Fall Gala: Moonlight Masquerade",
       "candidate_assets": []
     },
     {
@@ -343,37 +374,6 @@
           "asset_city": "",
           "asset_category": "Historic Landmarks",
           "score": 14
-        }
-      ]
-    },
-    {
-      "venue_key": "seventhdayadventistchurch|",
-      "venue_name": "Seventh-day Adventist Church",
-      "venue_city": "",
-      "count": 1,
-      "sample_event_id": "trumba-205166574",
-      "sample_title": "Tony Yun, piano presented by InConcert Sierra",
-      "candidate_assets": [
-        {
-          "asset_idx": 349,
-          "asset_name": "Saint Paul Lutheran Church Site",
-          "asset_city": "",
-          "asset_category": "Historic Landmarks",
-          "score": 16
-        },
-        {
-          "asset_idx": 373,
-          "asset_name": "Emmanuel Episcopal Church",
-          "asset_city": "",
-          "asset_category": "Historic Landmarks",
-          "score": 16
-        },
-        {
-          "asset_idx": 407,
-          "asset_name": "Saint Canice Catholic Church",
-          "asset_city": "",
-          "asset_category": "Historic Landmarks",
-          "score": 16
         }
       ]
     },
