@@ -1,19 +1,28 @@
 {
-  "generated_at": "2026-10-16T12:05:43.617943+00:00",
+  "generated_at": "2026-10-17T11:21:56.322393+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
     "total_events": 263,
-    "matched_events": 132,
-    "unmatched_events": 131,
+    "matched_events": 130,
+    "unmatched_events": 133,
     "matched_by_pid": 0,
     "matched_by_alias": 6,
     "matched_by_name_city": 23,
-    "matched_by_name_city_fuzzy": 103,
+    "matched_by_name_city_fuzzy": 101,
     "upcoming_14d": 110
   },
   "unmatched_venues": [
+    {
+      "venue_key": "monday|nevadacity",
+      "venue_name": "Monday",
+      "venue_city": "Nevada City",
+      "count": 11,
+      "sample_event_id": "trumba-208494234",
+      "sample_title": "175 | Land, People, Culture",
+      "candidate_assets": []
+    },
     {
       "venue_key": "unknownvenue|grassvalley",
       "venue_name": "Unknown venue",
@@ -21,15 +30,6 @@
       "count": 10,
       "sample_event_id": "gvda-197068116",
       "sample_title": "Reluctant Reformers: Mary Hallock Foote and Julia Morgan in the Progressive Era by Mary-Jo Wainwright",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "monday|nevadacity",
-      "venue_name": "Monday",
-      "venue_city": "Nevada City",
-      "count": 9,
-      "sample_event_id": "trumba-208494234",
-      "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
     },
     {
@@ -109,6 +109,15 @@
       ]
     },
     {
+      "venue_key": "monday|grassvalley",
+      "venue_name": "Monday",
+      "venue_city": "Grass Valley",
+      "count": 5,
+      "sample_event_id": "trumba-206663283",
+      "sample_title": "Fall 2026 Youth Classes at The Center for the Arts",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "wednesday|nevadacity",
       "venue_name": "Wednesday",
       "venue_city": "Nevada City",
@@ -133,15 +142,6 @@
       "count": 4,
       "sample_event_id": "libcal-LibCal-20247-15952664-20260317",
       "sample_title": "English Language Class",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "monday|grassvalley",
-      "venue_name": "Monday",
-      "venue_city": "Grass Valley",
-      "count": 4,
-      "sample_event_id": "trumba-206663283",
-      "sample_title": "Fall 2026 Youth Classes at The Center for the Arts",
       "candidate_assets": []
     },
     {
@@ -345,37 +345,6 @@
       "sample_event_id": "gvda-183038851",
       "sample_title": "Playwriting Group",
       "candidate_assets": []
-    },
-    {
-      "venue_key": "moonriseonmillstreetinn|",
-      "venue_name": "Moonrise on Mill Street Inn",
-      "venue_city": "",
-      "count": 1,
-      "sample_event_id": "trumba-208877039",
-      "sample_title": "Know Thyself Retreat - Founder's Cohort",
-      "candidate_assets": [
-        {
-          "asset_idx": 336,
-          "asset_name": "Rowe Saw Mill",
-          "asset_city": "",
-          "asset_category": "Historic Landmarks",
-          "score": 14
-        },
-        {
-          "asset_idx": 360,
-          "asset_name": "Red Ledge Stamp Mill",
-          "asset_city": "",
-          "asset_category": "Historic Landmarks",
-          "score": 14
-        },
-        {
-          "asset_idx": 415,
-          "asset_name": "Five-Stamp Mill 1893",
-          "asset_city": "",
-          "asset_category": "Historic Landmarks",
-          "score": 14
-        }
-      ]
     },
     {
       "venue_key": "oddfellowshall|",
