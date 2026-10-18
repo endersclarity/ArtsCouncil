@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-10-17T11:21:56.322393+00:00",
+  "generated_at": "2026-10-18T11:56:29.479030+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
     "total_events": 263,
-    "matched_events": 130,
-    "unmatched_events": 133,
+    "matched_events": 129,
+    "unmatched_events": 134,
     "matched_by_pid": 0,
     "matched_by_alias": 6,
     "matched_by_name_city": 23,
-    "matched_by_name_city_fuzzy": 101,
+    "matched_by_name_city_fuzzy": 100,
     "upcoming_14d": 110
   },
   "unmatched_venues": [
@@ -24,21 +24,21 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "tuesday|nevadacity",
+      "venue_name": "Tuesday",
+      "venue_city": "Nevada City",
+      "count": 11,
+      "sample_event_id": "trumba-208494235",
+      "sample_title": "175 | Land, People, Culture",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "unknownvenue|grassvalley",
       "venue_name": "Unknown venue",
       "venue_city": "Grass Valley",
       "count": 10,
       "sample_event_id": "gvda-197068116",
       "sample_title": "Reluctant Reformers: Mary Hallock Foote and Julia Morgan in the Progressive Era by Mary-Jo Wainwright",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "tuesday|nevadacity",
-      "venue_name": "Tuesday",
-      "venue_city": "Nevada City",
-      "count": 9,
-      "sample_event_id": "trumba-208494235",
-      "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
     },
     {
@@ -67,46 +67,6 @@
       "sample_event_id": "trumba-207183485",
       "sample_title": "Open Studios Tour at The Curious Forge",
       "candidate_assets": []
-    },
-    {
-      "venue_key": "saturday|nevadacity",
-      "venue_name": "Saturday",
-      "venue_city": "Nevada City",
-      "count": 6,
-      "sample_event_id": "trumba-207183484",
-      "sample_title": "Open Studios Tour at The Curious Forge",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "mcknightcrossingshoppingcenter|",
-      "venue_name": "McKnight crossing shopping center",
-      "venue_city": "",
-      "count": 5,
-      "sample_event_id": "trumba-191631939",
-      "sample_title": "Cars and coffee grass valley",
-      "candidate_assets": [
-        {
-          "asset_idx": 455,
-          "asset_name": "Pine Street Crossing at Nevada City",
-          "asset_city": "",
-          "asset_category": "Historic Landmarks",
-          "score": 18
-        },
-        {
-          "asset_idx": 459,
-          "asset_name": "Purdon Crossing Bridge",
-          "asset_city": "",
-          "asset_category": "Historic Landmarks",
-          "score": 18
-        },
-        {
-          "asset_idx": 469,
-          "asset_name": "Edwards Crossing Bridge",
-          "asset_city": "",
-          "asset_category": "Historic Landmarks",
-          "score": 18
-        }
-      ]
     },
     {
       "venue_key": "monday|grassvalley",
@@ -160,6 +120,46 @@
       "count": 4,
       "sample_event_id": "trumba-206769357",
       "sample_title": "An Evening with Celtic Thunder at The Center for the Arts",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "mcknightcrossingshoppingcenter|",
+      "venue_name": "McKnight crossing shopping center",
+      "venue_city": "",
+      "count": 4,
+      "sample_event_id": "trumba-191631940",
+      "sample_title": "Cars and coffee grass valley",
+      "candidate_assets": [
+        {
+          "asset_idx": 455,
+          "asset_name": "Pine Street Crossing at Nevada City",
+          "asset_city": "",
+          "asset_category": "Historic Landmarks",
+          "score": 18
+        },
+        {
+          "asset_idx": 459,
+          "asset_name": "Purdon Crossing Bridge",
+          "asset_city": "",
+          "asset_category": "Historic Landmarks",
+          "score": 18
+        },
+        {
+          "asset_idx": 469,
+          "asset_name": "Edwards Crossing Bridge",
+          "asset_city": "",
+          "asset_category": "Historic Landmarks",
+          "score": 18
+        }
+      ]
+    },
+    {
+      "venue_key": "saturday|nevadacity",
+      "venue_name": "Saturday",
+      "venue_city": "Nevada City",
+      "count": 4,
+      "sample_event_id": "trumba-207189962",
+      "sample_title": "Saturday Get Behind the Wheel Ceramics",
       "candidate_assets": []
     },
     {
@@ -248,6 +248,15 @@
       ]
     },
     {
+      "venue_key": "oddfellowshall|",
+      "venue_name": "Odd Fellows Hall",
+      "venue_city": "",
+      "count": 2,
+      "sample_event_id": "trumba-191712438",
+      "sample_title": "Spring Street Swing Out",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "membershomes|",
       "venue_name": "Members homes",
       "venue_city": "",
@@ -263,6 +272,15 @@
       "count": 2,
       "sample_event_id": "trumba-210015717",
       "sample_title": "Music in the Mountains Fall Gala: Moonlight Masquerade",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "tuesday|grassvalley",
+      "venue_name": "Tuesday",
+      "venue_city": "Grass Valley",
+      "count": 2,
+      "sample_event_id": "trumba-207242192",
+      "sample_title": "Paul Thorn at The Center for the Arts",
       "candidate_assets": []
     },
     {
@@ -347,15 +365,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "oddfellowshall|",
-      "venue_name": "Odd Fellows Hall",
-      "venue_city": "",
-      "count": 1,
-      "sample_event_id": "trumba-191712438",
-      "sample_title": "Spring Street Swing Out",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "sirensongfleeceworksatlucchesivineyards|",
       "venue_name": "Siren Song Fleece Works at Lucchesi Vineyards",
       "venue_city": "",
@@ -402,15 +411,6 @@
       "count": 1,
       "sample_event_id": "trumba-210845227",
       "sample_title": "Family Craft Day – Tie dye & Screen Printing T-shirts",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "tuesday|grassvalley",
-      "venue_name": "Tuesday",
-      "venue_city": "Grass Valley",
-      "count": 1,
-      "sample_event_id": "trumba-207242192",
-      "sample_title": "Paul Thorn at The Center for the Arts",
       "candidate_assets": []
     },
     {
