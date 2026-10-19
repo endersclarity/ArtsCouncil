@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-10-18T11:56:29.479030+00:00",
+  "generated_at": "2026-10-19T14:20:07.550945+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 263,
-    "matched_events": 129,
+    "total_events": 262,
+    "matched_events": 128,
     "unmatched_events": 134,
     "matched_by_pid": 0,
     "matched_by_alias": 6,
     "matched_by_name_city": 23,
-    "matched_by_name_city_fuzzy": 100,
-    "upcoming_14d": 110
+    "matched_by_name_city_fuzzy": 99,
+    "upcoming_14d": 109
   },
   "unmatched_venues": [
     {
@@ -60,12 +60,12 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "sunday|nevadacity",
-      "venue_name": "Sunday",
+      "venue_key": "wednesday|nevadacity",
+      "venue_name": "Wednesday",
       "venue_city": "Nevada City",
-      "count": 7,
-      "sample_event_id": "trumba-207183485",
-      "sample_title": "Open Studios Tour at The Curious Forge",
+      "count": 6,
+      "sample_event_id": "trumba-208494236",
+      "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
     },
     {
@@ -78,12 +78,12 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "wednesday|nevadacity",
-      "venue_name": "Wednesday",
+      "venue_key": "sunday|nevadacity",
+      "venue_name": "Sunday",
       "venue_city": "Nevada City",
       "count": 5,
-      "sample_event_id": "trumba-208494236",
-      "sample_title": "175 | Land, People, Culture",
+      "sample_event_id": "trumba-209748987",
+      "sample_title": "Jennifer’s Body",
       "candidate_assets": []
     },
     {
@@ -181,6 +181,15 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "membershomes|",
+      "venue_name": "Members homes",
+      "venue_city": "",
+      "count": 3,
+      "sample_event_id": "trumba-183038866",
+      "sample_title": "Playwriting Group",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "friday|grassvalley",
       "venue_name": "Friday",
       "venue_city": "Grass Valley",
@@ -217,52 +226,12 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "seventhdayadventistchurch|",
-      "venue_name": "Seventh-day Adventist Church",
-      "venue_city": "",
-      "count": 2,
-      "sample_event_id": "trumba-205166574",
-      "sample_title": "Tony Yun, piano presented by InConcert Sierra",
-      "candidate_assets": [
-        {
-          "asset_idx": 349,
-          "asset_name": "Saint Paul Lutheran Church Site",
-          "asset_city": "",
-          "asset_category": "Historic Landmarks",
-          "score": 16
-        },
-        {
-          "asset_idx": 373,
-          "asset_name": "Emmanuel Episcopal Church",
-          "asset_city": "",
-          "asset_category": "Historic Landmarks",
-          "score": 16
-        },
-        {
-          "asset_idx": 407,
-          "asset_name": "Saint Canice Catholic Church",
-          "asset_city": "",
-          "asset_category": "Historic Landmarks",
-          "score": 16
-        }
-      ]
-    },
-    {
       "venue_key": "oddfellowshall|",
       "venue_name": "Odd Fellows Hall",
       "venue_city": "",
       "count": 2,
       "sample_event_id": "trumba-191712438",
       "sample_title": "Spring Street Swing Out",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "membershomes|",
-      "venue_name": "Members homes",
-      "venue_city": "",
-      "count": 2,
-      "sample_event_id": "trumba-183038866",
-      "sample_title": "Playwriting Group",
       "candidate_assets": []
     },
     {
@@ -290,6 +259,15 @@
       "count": 2,
       "sample_event_id": "trumba-210688387",
       "sample_title": "Amelia Zitoun, Cello, with Minhye Choi, Piano",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "wednesday|grassvalley",
+      "venue_name": "Wednesday",
+      "venue_city": "Grass Valley",
+      "count": 2,
+      "sample_event_id": "trumba-208301050",
+      "sample_title": "Marc Broussard at The Center for the Arts",
       "candidate_assets": []
     },
     {
@@ -537,13 +515,35 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "wednesday|grassvalley",
-      "venue_name": "Wednesday",
-      "venue_city": "Grass Valley",
+      "venue_key": "seventhdayadventistchurch|",
+      "venue_name": "Seventh-day Adventist Church",
+      "venue_city": "",
       "count": 1,
-      "sample_event_id": "trumba-208301050",
-      "sample_title": "Marc Broussard at The Center for the Arts",
-      "candidate_assets": []
+      "sample_event_id": "trumba-205229336",
+      "sample_title": "Valencia Baryton Project presented by InConcert Sierra",
+      "candidate_assets": [
+        {
+          "asset_idx": 349,
+          "asset_name": "Saint Paul Lutheran Church Site",
+          "asset_city": "",
+          "asset_category": "Historic Landmarks",
+          "score": 16
+        },
+        {
+          "asset_idx": 373,
+          "asset_name": "Emmanuel Episcopal Church",
+          "asset_city": "",
+          "asset_category": "Historic Landmarks",
+          "score": 16
+        },
+        {
+          "asset_idx": 407,
+          "asset_name": "Saint Canice Catholic Church",
+          "asset_city": "",
+          "asset_category": "Historic Landmarks",
+          "score": 16
+        }
+      ]
     }
   ],
   "category_coverage": {
