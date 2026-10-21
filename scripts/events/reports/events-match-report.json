@@ -1,28 +1,19 @@
 {
-  "generated_at": "2026-10-20T12:31:57.422051+00:00",
+  "generated_at": "2026-10-21T12:42:46.855265+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 261,
-    "matched_events": 129,
-    "unmatched_events": 132,
+    "total_events": 259,
+    "matched_events": 130,
+    "unmatched_events": 129,
     "matched_by_pid": 0,
     "matched_by_alias": 7,
     "matched_by_name_city": 23,
-    "matched_by_name_city_fuzzy": 99,
-    "upcoming_14d": 108
+    "matched_by_name_city_fuzzy": 100,
+    "upcoming_14d": 106
   },
   "unmatched_venues": [
-    {
-      "venue_key": "tuesday|nevadacity",
-      "venue_name": "Tuesday",
-      "venue_city": "Nevada City",
-      "count": 11,
-      "sample_event_id": "trumba-208494235",
-      "sample_title": "175 | Land, People, Culture",
-      "candidate_assets": []
-    },
     {
       "venue_key": "unknownvenue|grassvalley",
       "venue_name": "Unknown venue",
@@ -38,6 +29,15 @@
       "venue_city": "Nevada City",
       "count": 9,
       "sample_event_id": "trumba-208494237",
+      "sample_title": "175 | Land, People, Culture",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "tuesday|nevadacity",
+      "venue_name": "Tuesday",
+      "venue_city": "Nevada City",
+      "count": 9,
+      "sample_event_id": "trumba-208494240",
       "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
     },
@@ -223,15 +223,6 @@
       "count": 2,
       "sample_event_id": "gvda-191631909",
       "sample_title": "Cars and coffee grass valley",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "oddfellowshall|",
-      "venue_name": "Odd Fellows Hall",
-      "venue_city": "",
-      "count": 2,
-      "sample_event_id": "trumba-191712438",
-      "sample_title": "Spring Street Swing Out",
       "candidate_assets": []
     },
     {
@@ -544,6 +535,15 @@
           "score": 16
         }
       ]
+    },
+    {
+      "venue_key": "oddfellowshall|",
+      "venue_name": "Odd Fellows Hall",
+      "venue_city": "",
+      "count": 1,
+      "sample_event_id": "trumba-191712439",
+      "sample_title": "Spring Street Swing Out",
+      "candidate_assets": []
     }
   ],
   "category_coverage": {
