@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-10-21T12:42:46.855265+00:00",
+  "generated_at": "2026-10-22T12:46:38.646716+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 259,
-    "matched_events": 130,
-    "unmatched_events": 129,
+    "total_events": 264,
+    "matched_events": 131,
+    "unmatched_events": 133,
     "matched_by_pid": 0,
     "matched_by_alias": 7,
     "matched_by_name_city": 23,
-    "matched_by_name_city_fuzzy": 100,
-    "upcoming_14d": 106
+    "matched_by_name_city_fuzzy": 101,
+    "upcoming_14d": 111
   },
   "unmatched_venues": [
     {
@@ -27,7 +27,7 @@
       "venue_key": "thursday|nevadacity",
       "venue_name": "Thursday",
       "venue_city": "Nevada City",
-      "count": 9,
+      "count": 10,
       "sample_event_id": "trumba-208494237",
       "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
@@ -36,7 +36,7 @@
       "venue_key": "tuesday|nevadacity",
       "venue_name": "Tuesday",
       "venue_city": "Nevada City",
-      "count": 9,
+      "count": 10,
       "sample_event_id": "trumba-208494240",
       "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
@@ -60,15 +60,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "wednesday|nevadacity",
-      "venue_name": "Wednesday",
-      "venue_city": "Nevada City",
-      "count": 6,
-      "sample_event_id": "trumba-208494236",
-      "sample_title": "175 | Land, People, Culture",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "theoctabarn|nevadacity",
       "venue_name": "The Octabarn",
       "venue_city": "Nevada City",
@@ -78,46 +69,10 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "sunday|nevadacity",
-      "venue_name": "Sunday",
-      "venue_city": "Nevada City",
-      "count": 5,
-      "sample_event_id": "trumba-209748987",
-      "sample_title": "Jennifer’s Body",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "axisgallery|nevadacounty",
-      "venue_name": "Axis Gallery",
-      "venue_city": "Nevada County",
-      "count": 4,
-      "sample_event_id": "kvmr-348660-1772884800-1772902800-20260307",
-      "sample_title": "\"The Winters Where Catfish Sings\": Exhibition by Sokthea Chan at Axis Gallery",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "studynook|grassvalley",
-      "venue_name": "Study Nook",
-      "venue_city": "Grass Valley",
-      "count": 4,
-      "sample_event_id": "libcal-LibCal-20247-15952664-20260317",
-      "sample_title": "English Language Class",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "thursday|grassvalley",
-      "venue_name": "Thursday",
-      "venue_city": "Grass Valley",
-      "count": 4,
-      "sample_event_id": "trumba-206769357",
-      "sample_title": "An Evening with Celtic Thunder at The Center for the Arts",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "mcknightcrossingshoppingcenter|",
       "venue_name": "McKnight crossing shopping center",
       "venue_city": "",
-      "count": 4,
+      "count": 5,
       "sample_event_id": "trumba-191631940",
       "sample_title": "Cars and coffee grass valley",
       "candidate_assets": [
@@ -148,9 +103,54 @@
       "venue_key": "saturday|nevadacity",
       "venue_name": "Saturday",
       "venue_city": "Nevada City",
-      "count": 4,
+      "count": 5,
       "sample_event_id": "trumba-207189962",
       "sample_title": "Saturday Get Behind the Wheel Ceramics",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "sunday|nevadacity",
+      "venue_name": "Sunday",
+      "venue_city": "Nevada City",
+      "count": 5,
+      "sample_event_id": "trumba-209748987",
+      "sample_title": "Jennifer’s Body",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "wednesday|nevadacity",
+      "venue_name": "Wednesday",
+      "venue_city": "Nevada City",
+      "count": 5,
+      "sample_event_id": "trumba-208494241",
+      "sample_title": "175 | Land, People, Culture",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "axisgallery|nevadacounty",
+      "venue_name": "Axis Gallery",
+      "venue_city": "Nevada County",
+      "count": 4,
+      "sample_event_id": "kvmr-348660-1772884800-1772902800-20260307",
+      "sample_title": "\"The Winters Where Catfish Sings\": Exhibition by Sokthea Chan at Axis Gallery",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "studynook|grassvalley",
+      "venue_name": "Study Nook",
+      "venue_city": "Grass Valley",
+      "count": 4,
+      "sample_event_id": "libcal-LibCal-20247-15952664-20260317",
+      "sample_title": "English Language Class",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "thursday|grassvalley",
+      "venue_name": "Thursday",
+      "venue_city": "Grass Valley",
+      "count": 4,
+      "sample_event_id": "trumba-206769357",
+      "sample_title": "An Evening with Celtic Thunder at The Center for the Arts",
       "candidate_assets": []
     },
     {
@@ -181,21 +181,21 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "membershomes|",
-      "venue_name": "Members homes",
-      "venue_city": "",
-      "count": 3,
-      "sample_event_id": "trumba-183038866",
-      "sample_title": "Playwriting Group",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "friday|grassvalley",
       "venue_name": "Friday",
       "venue_city": "Grass Valley",
       "count": 3,
       "sample_event_id": "trumba-210012328",
       "sample_title": "The Future We Create: Legacy Giving for the Arts in Nevada County",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "saturday|grassvalley",
+      "venue_name": "Saturday",
+      "venue_city": "Grass Valley",
+      "count": 3,
+      "sample_event_id": "trumba-210015717",
+      "sample_title": "Music in the Mountains Fall Gala: Moonlight Masquerade",
       "candidate_assets": []
     },
     {
@@ -226,12 +226,12 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "saturday|grassvalley",
+      "venue_key": "saturday|",
       "venue_name": "Saturday",
-      "venue_city": "Grass Valley",
+      "venue_city": "",
       "count": 2,
-      "sample_event_id": "trumba-210015717",
-      "sample_title": "Music in the Mountains Fall Gala: Moonlight Masquerade",
+      "sample_event_id": "trumba-210941402",
+      "sample_title": "Grass Valley Poetry Crawl",
       "candidate_assets": []
     },
     {
@@ -250,6 +250,15 @@
       "count": 2,
       "sample_event_id": "trumba-210688387",
       "sample_title": "Amelia Zitoun, Cello, with Minhye Choi, Piano",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "membershomes|",
+      "venue_name": "Members homes",
+      "venue_city": "",
+      "count": 2,
+      "sample_event_id": "trumba-183038867",
+      "sample_title": "Playwriting Group",
       "candidate_assets": []
     },
     {
@@ -363,15 +372,6 @@
           "score": 29
         }
       ]
-    },
-    {
-      "venue_key": "saturday|",
-      "venue_name": "Saturday",
-      "venue_city": "",
-      "count": 1,
-      "sample_event_id": "trumba-210941402",
-      "sample_title": "Grass Valley Poetry Crawl",
-      "candidate_assets": []
     },
     {
       "venue_key": "sunday|",
