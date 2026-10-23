@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-10-22T12:46:38.646716+00:00",
+  "generated_at": "2026-10-23T12:24:44.820309+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 264,
-    "matched_events": 131,
-    "unmatched_events": 133,
+    "total_events": 260,
+    "matched_events": 130,
+    "unmatched_events": 130,
     "matched_by_pid": 0,
-    "matched_by_alias": 7,
+    "matched_by_alias": 6,
     "matched_by_name_city": 23,
     "matched_by_name_city_fuzzy": 101,
-    "upcoming_14d": 111
+    "upcoming_14d": 107
   },
   "unmatched_venues": [
     {
@@ -21,15 +21,6 @@
       "count": 10,
       "sample_event_id": "gvda-197068116",
       "sample_title": "Reluctant Reformers: Mary Hallock Foote and Julia Morgan in the Progressive Era by Mary-Jo Wainwright",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "thursday|nevadacity",
-      "venue_name": "Thursday",
-      "venue_city": "Nevada City",
-      "count": 10,
-      "sample_event_id": "trumba-208494237",
-      "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
     },
     {
@@ -60,12 +51,21 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "theoctabarn|nevadacity",
-      "venue_name": "The Octabarn",
+      "venue_key": "sunday|nevadacity",
+      "venue_name": "Sunday",
       "venue_city": "Nevada City",
-      "count": 5,
-      "sample_event_id": "trumba-207629611",
-      "sample_title": "Improverse: Improv for the Senses Class",
+      "count": 7,
+      "sample_event_id": "trumba-210845227",
+      "sample_title": "Family Craft Day – Tie dye & Screen Printing T-shirts",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "thursday|nevadacity",
+      "venue_name": "Thursday",
+      "venue_city": "Nevada City",
+      "count": 7,
+      "sample_event_id": "trumba-208494242",
+      "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
     },
     {
@@ -109,15 +109,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "sunday|nevadacity",
-      "venue_name": "Sunday",
-      "venue_city": "Nevada City",
-      "count": 5,
-      "sample_event_id": "trumba-209748987",
-      "sample_title": "Jennifer’s Body",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "wednesday|nevadacity",
       "venue_name": "Wednesday",
       "venue_city": "Nevada City",
@@ -145,21 +136,21 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "thursday|grassvalley",
-      "venue_name": "Thursday",
-      "venue_city": "Grass Valley",
-      "count": 4,
-      "sample_event_id": "trumba-206769357",
-      "sample_title": "An Evening with Celtic Thunder at The Center for the Arts",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "monday|grassvalley",
       "venue_name": "Monday",
       "venue_city": "Grass Valley",
       "count": 4,
       "sample_event_id": "trumba-206663284",
       "sample_title": "Fall 2026 Youth Classes at The Center for the Arts",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "theoctabarn|nevadacity",
+      "venue_name": "The Octabarn",
+      "venue_city": "Nevada City",
+      "count": 4,
+      "sample_event_id": "trumba-207629612",
+      "sample_title": "Improverse: Improv for the Senses Class",
       "candidate_assets": []
     },
     {
@@ -196,6 +187,15 @@
       "count": 3,
       "sample_event_id": "trumba-210015717",
       "sample_title": "Music in the Mountains Fall Gala: Moonlight Masquerade",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "thursday|grassvalley",
+      "venue_name": "Thursday",
+      "venue_city": "Grass Valley",
+      "count": 3,
+      "sample_event_id": "trumba-208872880",
+      "sample_title": "Small Wonder Gallery Opening Reception",
       "candidate_assets": []
     },
     {
@@ -374,15 +374,6 @@
       ]
     },
     {
-      "venue_key": "sunday|",
-      "venue_name": "Sunday",
-      "venue_city": "",
-      "count": 1,
-      "sample_event_id": "trumba-210845227",
-      "sample_title": "Family Craft Day – Tie dye & Screen Printing T-shirts",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "downtowngrassvalley|",
       "venue_name": "Downtown Grass Valley",
       "venue_city": "",
@@ -544,6 +535,37 @@
       "sample_event_id": "trumba-191712439",
       "sample_title": "Spring Street Swing Out",
       "candidate_assets": []
+    },
+    {
+      "venue_key": "goldenempiregrange|",
+      "venue_name": "Golden Empire Grange",
+      "venue_city": "",
+      "count": 1,
+      "sample_event_id": "trumba-210717608",
+      "sample_title": "Natural Cheesemaking Workshops",
+      "candidate_assets": [
+        {
+          "asset_idx": 241,
+          "asset_name": "Holidays at the Empire Mine",
+          "asset_city": "Grass Valley",
+          "asset_category": "Fairs & Festivals",
+          "score": 16
+        },
+        {
+          "asset_idx": 261,
+          "asset_name": "Mothers Day Springtime Event at Empire Mine",
+          "asset_city": "Grass Valley",
+          "asset_category": "Fairs & Festivals",
+          "score": 16
+        },
+        {
+          "asset_idx": 572,
+          "asset_name": "Empire Mine Park Association",
+          "asset_city": "Grass Valley",
+          "asset_category": "Preservation & Culture",
+          "score": 16
+        }
+      ]
     }
   ],
   "category_coverage": {
