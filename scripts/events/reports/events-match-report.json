@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-10-23T12:24:44.820309+00:00",
+  "generated_at": "2026-10-24T11:50:30.585554+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 260,
-    "matched_events": 130,
-    "unmatched_events": 130,
+    "total_events": 259,
+    "matched_events": 128,
+    "unmatched_events": 131,
     "matched_by_pid": 0,
     "matched_by_alias": 6,
     "matched_by_name_city": 23,
-    "matched_by_name_city_fuzzy": 101,
-    "upcoming_14d": 107
+    "matched_by_name_city_fuzzy": 99,
+    "upcoming_14d": 106
   },
   "unmatched_venues": [
     {
@@ -24,20 +24,20 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "monday|nevadacity",
+      "venue_name": "Monday",
+      "venue_city": "Nevada City",
+      "count": 10,
+      "sample_event_id": "trumba-208494239",
+      "sample_title": "175 | Land, People, Culture",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "tuesday|nevadacity",
       "venue_name": "Tuesday",
       "venue_city": "Nevada City",
       "count": 10,
       "sample_event_id": "trumba-208494240",
-      "sample_title": "175 | Land, People, Culture",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "monday|nevadacity",
-      "venue_name": "Monday",
-      "venue_city": "Nevada City",
-      "count": 8,
-      "sample_event_id": "trumba-208494239",
       "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
     },
@@ -172,15 +172,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "friday|grassvalley",
-      "venue_name": "Friday",
-      "venue_city": "Grass Valley",
-      "count": 3,
-      "sample_event_id": "trumba-210012328",
-      "sample_title": "The Future We Create: Legacy Giving for the Arts in Nevada County",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "saturday|grassvalley",
       "venue_name": "Saturday",
       "venue_city": "Grass Valley",
@@ -259,6 +250,15 @@
       "count": 2,
       "sample_event_id": "trumba-183038867",
       "sample_title": "Playwriting Group",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "friday|grassvalley",
+      "venue_name": "Friday",
+      "venue_city": "Grass Valley",
+      "count": 2,
+      "sample_event_id": "trumba-207562441",
+      "sample_title": "Henry Diltz: Behind the Lens at The Center for the Arts",
       "candidate_assets": []
     },
     {
