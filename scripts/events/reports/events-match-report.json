@@ -1,19 +1,28 @@
 {
-  "generated_at": "2026-10-24T11:50:30.585554+00:00",
+  "generated_at": "2026-10-25T12:20:20.597338+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 259,
-    "matched_events": 128,
-    "unmatched_events": 131,
+    "total_events": 251,
+    "matched_events": 125,
+    "unmatched_events": 126,
     "matched_by_pid": 0,
     "matched_by_alias": 6,
-    "matched_by_name_city": 23,
-    "matched_by_name_city_fuzzy": 99,
-    "upcoming_14d": 106
+    "matched_by_name_city": 22,
+    "matched_by_name_city_fuzzy": 97,
+    "upcoming_14d": 98
   },
   "unmatched_venues": [
+    {
+      "venue_key": "tuesday|nevadacity",
+      "venue_name": "Tuesday",
+      "venue_city": "Nevada City",
+      "count": 12,
+      "sample_event_id": "trumba-208494240",
+      "sample_title": "175 | Land, People, Culture",
+      "candidate_assets": []
+    },
     {
       "venue_key": "unknownvenue|grassvalley",
       "venue_name": "Unknown venue",
@@ -29,15 +38,6 @@
       "venue_city": "Nevada City",
       "count": 10,
       "sample_event_id": "trumba-208494239",
-      "sample_title": "175 | Land, People, Culture",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "tuesday|nevadacity",
-      "venue_name": "Tuesday",
-      "venue_city": "Nevada City",
-      "count": 10,
-      "sample_event_id": "trumba-208494240",
       "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
     },
@@ -66,46 +66,6 @@
       "count": 7,
       "sample_event_id": "trumba-208494242",
       "sample_title": "175 | Land, People, Culture",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "mcknightcrossingshoppingcenter|",
-      "venue_name": "McKnight crossing shopping center",
-      "venue_city": "",
-      "count": 5,
-      "sample_event_id": "trumba-191631940",
-      "sample_title": "Cars and coffee grass valley",
-      "candidate_assets": [
-        {
-          "asset_idx": 455,
-          "asset_name": "Pine Street Crossing at Nevada City",
-          "asset_city": "",
-          "asset_category": "Historic Landmarks",
-          "score": 18
-        },
-        {
-          "asset_idx": 459,
-          "asset_name": "Purdon Crossing Bridge",
-          "asset_city": "",
-          "asset_category": "Historic Landmarks",
-          "score": 18
-        },
-        {
-          "asset_idx": 469,
-          "asset_name": "Edwards Crossing Bridge",
-          "asset_city": "",
-          "asset_category": "Historic Landmarks",
-          "score": 18
-        }
-      ]
-    },
-    {
-      "venue_key": "saturday|nevadacity",
-      "venue_name": "Saturday",
-      "venue_city": "Nevada City",
-      "count": 5,
-      "sample_event_id": "trumba-207189962",
-      "sample_title": "Saturday Get Behind the Wheel Ceramics",
       "candidate_assets": []
     },
     {
@@ -154,6 +114,37 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "mcknightcrossingshoppingcenter|",
+      "venue_name": "McKnight crossing shopping center",
+      "venue_city": "",
+      "count": 4,
+      "sample_event_id": "trumba-191631941",
+      "sample_title": "Cars and coffee grass valley",
+      "candidate_assets": [
+        {
+          "asset_idx": 455,
+          "asset_name": "Pine Street Crossing at Nevada City",
+          "asset_city": "",
+          "asset_category": "Historic Landmarks",
+          "score": 18
+        },
+        {
+          "asset_idx": 459,
+          "asset_name": "Purdon Crossing Bridge",
+          "asset_city": "",
+          "asset_category": "Historic Landmarks",
+          "score": 18
+        },
+        {
+          "asset_idx": 469,
+          "asset_name": "Edwards Crossing Bridge",
+          "asset_city": "",
+          "asset_category": "Historic Landmarks",
+          "score": 18
+        }
+      ]
+    },
+    {
       "venue_key": "unknownvenue|nevadacity",
       "venue_name": "Unknown venue",
       "venue_city": "Nevada City",
@@ -169,15 +160,6 @@
       "count": 3,
       "sample_event_id": "gvda-173596655",
       "sample_title": "STEAM Exploration Saturdays",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "saturday|grassvalley",
-      "venue_name": "Saturday",
-      "venue_city": "Grass Valley",
-      "count": 3,
-      "sample_event_id": "trumba-210015717",
-      "sample_title": "Music in the Mountains Fall Gala: Moonlight Masquerade",
       "candidate_assets": []
     },
     {
@@ -217,15 +199,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "saturday|",
-      "venue_name": "Saturday",
-      "venue_city": "",
-      "count": 2,
-      "sample_event_id": "trumba-210941402",
-      "sample_title": "Grass Valley Poetry Crawl",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "tuesday|grassvalley",
       "venue_name": "Tuesday",
       "venue_city": "Grass Valley",
@@ -259,6 +232,24 @@
       "count": 2,
       "sample_event_id": "trumba-207562441",
       "sample_title": "Henry Diltz: Behind the Lens at The Center for the Arts",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "saturday|nevadacity",
+      "venue_name": "Saturday",
+      "venue_city": "Nevada City",
+      "count": 2,
+      "sample_event_id": "trumba-207024572",
+      "sample_title": "Watercolor Exploration with Chappy Valente",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "saturday|grassvalley",
+      "venue_name": "Saturday",
+      "venue_city": "Grass Valley",
+      "count": 2,
+      "sample_event_id": "trumba-208201960",
+      "sample_title": "Solas: 30th Anniversary Tour at The Center for the Arts",
       "candidate_assets": []
     },
     {
@@ -341,37 +332,6 @@
       "sample_event_id": "gvda-183038851",
       "sample_title": "Playwriting Group",
       "candidate_assets": []
-    },
-    {
-      "venue_key": "sirensongfleeceworksatlucchesivineyards|",
-      "venue_name": "Siren Song Fleece Works at Lucchesi Vineyards",
-      "venue_city": "",
-      "count": 1,
-      "sample_event_id": "trumba-206576774",
-      "sample_title": "Macrame a Market Bag",
-      "candidate_assets": [
-        {
-          "asset_idx": 549,
-          "asset_name": "Lucchesi Vineyards & Winery",
-          "asset_city": "Grass Valley",
-          "asset_category": "Performance Spaces",
-          "score": 29
-        },
-        {
-          "asset_idx": 293,
-          "asset_name": "Lucchesi Vineyards Tasting Room",
-          "asset_city": "Grass Valley",
-          "asset_category": "Galleries & Museums",
-          "score": 29
-        },
-        {
-          "asset_idx": 42,
-          "asset_name": "Lucchesi Vineyards Tasting Room",
-          "asset_city": "Grass Valley",
-          "asset_category": "Eat, Drink & Stay",
-          "score": 29
-        }
-      ]
     },
     {
       "venue_key": "downtowngrassvalley|",
@@ -486,6 +446,15 @@
           "score": 18
         }
       ]
+    },
+    {
+      "venue_key": "saturday|",
+      "venue_name": "Saturday",
+      "venue_city": "",
+      "count": 1,
+      "sample_event_id": "trumba-211569732",
+      "sample_title": "Glassblowing for Beginners – Make a Paperweight",
+      "candidate_assets": []
     },
     {
       "venue_key": "darkhosecoffee|truckee",
