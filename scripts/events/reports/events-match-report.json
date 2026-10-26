@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-10-25T12:20:20.597338+00:00",
+  "generated_at": "2026-10-26T13:53:05.516545+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 251,
+    "total_events": 249,
     "matched_events": 125,
-    "unmatched_events": 126,
+    "unmatched_events": 124,
     "matched_by_pid": 0,
     "matched_by_alias": 6,
     "matched_by_name_city": 22,
     "matched_by_name_city_fuzzy": 97,
-    "upcoming_14d": 98
+    "upcoming_14d": 96
   },
   "unmatched_venues": [
     {
@@ -24,15 +24,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "unknownvenue|grassvalley",
-      "venue_name": "Unknown venue",
-      "venue_city": "Grass Valley",
-      "count": 10,
-      "sample_event_id": "gvda-197068116",
-      "sample_title": "Reluctant Reformers: Mary Hallock Foote and Julia Morgan in the Progressive Era by Mary-Jo Wainwright",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "monday|nevadacity",
       "venue_name": "Monday",
       "venue_city": "Nevada City",
@@ -42,21 +33,21 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "unknownvenue|grassvalley",
+      "venue_name": "Unknown venue",
+      "venue_city": "Grass Valley",
+      "count": 9,
+      "sample_event_id": "gvda-197068116",
+      "sample_title": "Reluctant Reformers: Mary Hallock Foote and Julia Morgan in the Progressive Era by Mary-Jo Wainwright",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "ctcclassroom|nevadacity",
       "venue_name": "CTC Classroom",
       "venue_city": "Nevada City",
       "count": 7,
       "sample_event_id": "libcal-LibCal-20247-16035875-20260316",
       "sample_title": "Ukulele for the People",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "sunday|nevadacity",
-      "venue_name": "Sunday",
-      "venue_city": "Nevada City",
-      "count": 7,
-      "sample_event_id": "trumba-210845227",
-      "sample_title": "Family Craft Day – Tie dye & Screen Printing T-shirts",
       "candidate_assets": []
     },
     {
@@ -72,9 +63,18 @@
       "venue_key": "wednesday|nevadacity",
       "venue_name": "Wednesday",
       "venue_city": "Nevada City",
-      "count": 5,
+      "count": 6,
       "sample_event_id": "trumba-208494241",
       "sample_title": "175 | Land, People, Culture",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "sunday|nevadacity",
+      "venue_name": "Sunday",
+      "venue_city": "Nevada City",
+      "count": 5,
+      "sample_event_id": "trumba-209749216",
+      "sample_title": "Victor Victoria",
       "candidate_assets": []
     },
     {
