@@ -1,24 +1,24 @@
 {
-  "generated_at": "2026-10-26T13:53:05.516545+00:00",
+  "generated_at": "2026-10-27T12:58:24.819367+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 249,
+    "total_events": 262,
     "matched_events": 125,
-    "unmatched_events": 124,
+    "unmatched_events": 137,
     "matched_by_pid": 0,
     "matched_by_alias": 6,
     "matched_by_name_city": 22,
     "matched_by_name_city_fuzzy": 97,
-    "upcoming_14d": 96
+    "upcoming_14d": 109
   },
   "unmatched_venues": [
     {
       "venue_key": "tuesday|nevadacity",
       "venue_name": "Tuesday",
       "venue_city": "Nevada City",
-      "count": 12,
+      "count": 14,
       "sample_event_id": "trumba-208494240",
       "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
@@ -28,7 +28,7 @@
       "venue_name": "Monday",
       "venue_city": "Nevada City",
       "count": 10,
-      "sample_event_id": "trumba-208494239",
+      "sample_event_id": "trumba-208494244",
       "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
     },
@@ -42,6 +42,24 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "thursday|nevadacity",
+      "venue_name": "Thursday",
+      "venue_city": "Nevada City",
+      "count": 8,
+      "sample_event_id": "trumba-208494242",
+      "sample_title": "175 | Land, People, Culture",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "sunday|nevadacity",
+      "venue_name": "Sunday",
+      "venue_city": "Nevada City",
+      "count": 8,
+      "sample_event_id": "trumba-209749216",
+      "sample_title": "Victor Victoria",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "ctcclassroom|nevadacity",
       "venue_name": "CTC Classroom",
       "venue_city": "Nevada City",
@@ -51,30 +69,12 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "thursday|nevadacity",
-      "venue_name": "Thursday",
-      "venue_city": "Nevada City",
-      "count": 7,
-      "sample_event_id": "trumba-208494242",
-      "sample_title": "175 | Land, People, Culture",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "wednesday|nevadacity",
       "venue_name": "Wednesday",
       "venue_city": "Nevada City",
       "count": 6,
       "sample_event_id": "trumba-208494241",
       "sample_title": "175 | Land, People, Culture",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "sunday|nevadacity",
-      "venue_name": "Sunday",
-      "venue_city": "Nevada City",
-      "count": 5,
-      "sample_event_id": "trumba-209749216",
-      "sample_title": "Victor Victoria",
       "candidate_assets": []
     },
     {
@@ -93,15 +93,6 @@
       "count": 4,
       "sample_event_id": "libcal-LibCal-20247-15952664-20260317",
       "sample_title": "English Language Class",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "monday|grassvalley",
-      "venue_name": "Monday",
-      "venue_city": "Grass Valley",
-      "count": 4,
-      "sample_event_id": "trumba-206663284",
-      "sample_title": "Fall 2026 Youth Classes at The Center for the Arts",
       "candidate_assets": []
     },
     {
@@ -145,6 +136,24 @@
       ]
     },
     {
+      "venue_key": "saturday|grassvalley",
+      "venue_name": "Saturday",
+      "venue_city": "Grass Valley",
+      "count": 4,
+      "sample_event_id": "trumba-212035649",
+      "sample_title": "Hadestown: Teen Edition",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "sunday|grassvalley",
+      "venue_name": "Sunday",
+      "venue_city": "Grass Valley",
+      "count": 4,
+      "sample_event_id": "trumba-212035650",
+      "sample_title": "Hadestown: Teen Edition",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "unknownvenue|nevadacity",
       "venue_name": "Unknown venue",
       "venue_city": "Nevada City",
@@ -163,12 +172,39 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "monday|grassvalley",
+      "venue_name": "Monday",
+      "venue_city": "Grass Valley",
+      "count": 3,
+      "sample_event_id": "trumba-206663285",
+      "sample_title": "Fall 2026 Youth Classes at The Center for the Arts",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "thursday|grassvalley",
       "venue_name": "Thursday",
       "venue_city": "Grass Valley",
       "count": 3,
       "sample_event_id": "trumba-208872880",
       "sample_title": "Small Wonder Gallery Opening Reception",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "friday|grassvalley",
+      "venue_name": "Friday",
+      "venue_city": "Grass Valley",
+      "count": 3,
+      "sample_event_id": "trumba-212035651",
+      "sample_title": "Hadestown: Teen Edition",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "saturday|nevadacity",
+      "venue_name": "Saturday",
+      "venue_city": "Nevada City",
+      "count": 3,
+      "sample_event_id": "trumba-207024572",
+      "sample_title": "Watercolor Exploration with Chappy Valente",
       "candidate_assets": []
     },
     {
@@ -208,48 +244,12 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "sunday|grassvalley",
-      "venue_name": "Sunday",
-      "venue_city": "Grass Valley",
-      "count": 2,
-      "sample_event_id": "trumba-210688387",
-      "sample_title": "Amelia Zitoun, Cello, with Minhye Choi, Piano",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "membershomes|",
       "venue_name": "Members homes",
       "venue_city": "",
       "count": 2,
       "sample_event_id": "trumba-183038867",
       "sample_title": "Playwriting Group",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "friday|grassvalley",
-      "venue_name": "Friday",
-      "venue_city": "Grass Valley",
-      "count": 2,
-      "sample_event_id": "trumba-207562441",
-      "sample_title": "Henry Diltz: Behind the Lens at The Center for the Arts",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "saturday|nevadacity",
-      "venue_name": "Saturday",
-      "venue_city": "Nevada City",
-      "count": 2,
-      "sample_event_id": "trumba-207024572",
-      "sample_title": "Watercolor Exploration with Chappy Valente",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "saturday|grassvalley",
-      "venue_name": "Saturday",
-      "venue_city": "Grass Valley",
-      "count": 2,
-      "sample_event_id": "trumba-208201960",
-      "sample_title": "Solas: 30th Anniversary Tour at The Center for the Arts",
       "candidate_assets": []
     },
     {
@@ -457,6 +457,15 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "sunday|",
+      "venue_name": "Sunday",
+      "venue_city": "",
+      "count": 1,
+      "sample_event_id": "trumba-211900687",
+      "sample_title": "Glassblowing Experience 30-minute Taster Sessions – Make Holiday Ornaments!",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "darkhosecoffee|truckee",
       "venue_name": "Dark Hose Coffee",
       "venue_city": "Truckee",
@@ -464,6 +473,37 @@
       "sample_event_id": "trumba-116325481",
       "sample_title": "Word Jam",
       "candidate_assets": []
+    },
+    {
+      "venue_key": "lucchesivineyards|",
+      "venue_name": "Lucchesi Vineyards",
+      "venue_city": "",
+      "count": 1,
+      "sample_event_id": "trumba-211630969",
+      "sample_title": "Stash Dash Extravaganza!",
+      "candidate_assets": [
+        {
+          "asset_idx": 549,
+          "asset_name": "Lucchesi Vineyards & Winery",
+          "asset_city": "Grass Valley",
+          "asset_category": "Performance Spaces",
+          "score": 29
+        },
+        {
+          "asset_idx": 293,
+          "asset_name": "Lucchesi Vineyards Tasting Room",
+          "asset_city": "Grass Valley",
+          "asset_category": "Galleries & Museums",
+          "score": 29
+        },
+        {
+          "asset_idx": 42,
+          "asset_name": "Lucchesi Vineyards Tasting Room",
+          "asset_city": "Grass Valley",
+          "asset_category": "Eat, Drink & Stay",
+          "score": 29
+        }
+      ]
     },
     {
       "venue_key": "seventhdayadventistchurch|",
