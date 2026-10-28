@@ -1,25 +1,25 @@
 {
-  "generated_at": "2026-10-27T12:58:24.819367+00:00",
+  "generated_at": "2026-10-28T13:49:28.755089+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 262,
-    "matched_events": 125,
-    "unmatched_events": 137,
+    "total_events": 260,
+    "matched_events": 126,
+    "unmatched_events": 134,
     "matched_by_pid": 0,
     "matched_by_alias": 6,
     "matched_by_name_city": 22,
-    "matched_by_name_city_fuzzy": 97,
-    "upcoming_14d": 109
+    "matched_by_name_city_fuzzy": 98,
+    "upcoming_14d": 107
   },
   "unmatched_venues": [
     {
       "venue_key": "tuesday|nevadacity",
       "venue_name": "Tuesday",
       "venue_city": "Nevada City",
-      "count": 14,
-      "sample_event_id": "trumba-208494240",
+      "count": 11,
+      "sample_event_id": "trumba-208494245",
       "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
     },
@@ -235,13 +235,21 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "tuesday|grassvalley",
-      "venue_name": "Tuesday",
-      "venue_city": "Grass Valley",
+      "venue_key": "friday|",
+      "venue_name": "Friday",
+      "venue_city": "",
       "count": 2,
-      "sample_event_id": "trumba-207242192",
-      "sample_title": "Paul Thorn at The Center for the Arts",
-      "candidate_assets": []
+      "sample_event_id": "trumba-209230504",
+      "sample_title": "High Relief Wood Carving 3-day Workshop",
+      "candidate_assets": [
+        {
+          "asset_idx": 236,
+          "asset_name": "First Friday Art Walk",
+          "asset_city": "Nevada City",
+          "asset_category": "Fairs & Festivals",
+          "score": 16
+        }
+      ]
     },
     {
       "venue_key": "membershomes|",
@@ -361,23 +369,6 @@
           "asset_city": "Grass Valley",
           "asset_category": "Arts Organizations",
           "score": 26
-        }
-      ]
-    },
-    {
-      "venue_key": "friday|",
-      "venue_name": "Friday",
-      "venue_city": "",
-      "count": 1,
-      "sample_event_id": "trumba-209230504",
-      "sample_title": "High Relief Wood Carving 3-day Workshop",
-      "candidate_assets": [
-        {
-          "asset_idx": 236,
-          "asset_name": "First Friday Art Walk",
-          "asset_city": "Nevada City",
-          "asset_category": "Fairs & Festivals",
-          "score": 16
         }
       ]
     },
@@ -543,6 +534,15 @@
       "count": 1,
       "sample_event_id": "trumba-191712439",
       "sample_title": "Spring Street Swing Out",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "tuesday|grassvalley",
+      "venue_name": "Tuesday",
+      "venue_city": "Grass Valley",
+      "count": 1,
+      "sample_event_id": "trumba-208953401",
+      "sample_title": "Joanne Shaw Taylor at The Center for the Arts",
       "candidate_assets": []
     },
     {
