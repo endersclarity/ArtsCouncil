@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-10-28T13:49:28.755089+00:00",
+  "generated_at": "2026-10-29T13:56:03.260892+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 260,
-    "matched_events": 126,
-    "unmatched_events": 134,
+    "total_events": 263,
+    "matched_events": 128,
+    "unmatched_events": 135,
     "matched_by_pid": 0,
     "matched_by_alias": 6,
     "matched_by_name_city": 22,
-    "matched_by_name_city_fuzzy": 98,
-    "upcoming_14d": 107
+    "matched_by_name_city_fuzzy": 100,
+    "upcoming_14d": 110
   },
   "unmatched_venues": [
     {
@@ -69,46 +69,10 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "wednesday|nevadacity",
-      "venue_name": "Wednesday",
-      "venue_city": "Nevada City",
-      "count": 6,
-      "sample_event_id": "trumba-208494241",
-      "sample_title": "175 | Land, People, Culture",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "axisgallery|nevadacounty",
-      "venue_name": "Axis Gallery",
-      "venue_city": "Nevada County",
-      "count": 4,
-      "sample_event_id": "kvmr-348660-1772884800-1772902800-20260307",
-      "sample_title": "\"The Winters Where Catfish Sings\": Exhibition by Sokthea Chan at Axis Gallery",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "studynook|grassvalley",
-      "venue_name": "Study Nook",
-      "venue_city": "Grass Valley",
-      "count": 4,
-      "sample_event_id": "libcal-LibCal-20247-15952664-20260317",
-      "sample_title": "English Language Class",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "theoctabarn|nevadacity",
-      "venue_name": "The Octabarn",
-      "venue_city": "Nevada City",
-      "count": 4,
-      "sample_event_id": "trumba-207629612",
-      "sample_title": "Improverse: Improv for the Senses Class",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "mcknightcrossingshoppingcenter|",
       "venue_name": "McKnight crossing shopping center",
       "venue_city": "",
-      "count": 4,
+      "count": 5,
       "sample_event_id": "trumba-191631941",
       "sample_title": "Cars and coffee grass valley",
       "candidate_assets": [
@@ -139,9 +103,45 @@
       "venue_key": "saturday|grassvalley",
       "venue_name": "Saturday",
       "venue_city": "Grass Valley",
-      "count": 4,
+      "count": 5,
       "sample_event_id": "trumba-212035649",
       "sample_title": "Hadestown: Teen Edition",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "wednesday|nevadacity",
+      "venue_name": "Wednesday",
+      "venue_city": "Nevada City",
+      "count": 5,
+      "sample_event_id": "trumba-208494246",
+      "sample_title": "175 | Land, People, Culture",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "axisgallery|nevadacounty",
+      "venue_name": "Axis Gallery",
+      "venue_city": "Nevada County",
+      "count": 4,
+      "sample_event_id": "kvmr-348660-1772884800-1772902800-20260307",
+      "sample_title": "\"The Winters Where Catfish Sings\": Exhibition by Sokthea Chan at Axis Gallery",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "studynook|grassvalley",
+      "venue_name": "Study Nook",
+      "venue_city": "Grass Valley",
+      "count": 4,
+      "sample_event_id": "libcal-LibCal-20247-15952664-20260317",
+      "sample_title": "English Language Class",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "theoctabarn|nevadacity",
+      "venue_name": "The Octabarn",
+      "venue_city": "Nevada City",
+      "count": 4,
+      "sample_event_id": "trumba-207629612",
+      "sample_title": "Improverse: Improv for the Senses Class",
       "candidate_assets": []
     },
     {
