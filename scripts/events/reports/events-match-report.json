@@ -1,34 +1,34 @@
 {
-  "generated_at": "2026-10-30T13:50:58.358514+00:00",
+  "generated_at": "2026-10-31T13:17:45.681969+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 260,
-    "matched_events": 128,
+    "total_events": 258,
+    "matched_events": 126,
     "unmatched_events": 132,
     "matched_by_pid": 0,
     "matched_by_alias": 6,
     "matched_by_name_city": 22,
-    "matched_by_name_city_fuzzy": 100,
-    "upcoming_14d": 107
+    "matched_by_name_city_fuzzy": 98,
+    "upcoming_14d": 105
   },
   "unmatched_venues": [
+    {
+      "venue_key": "monday|nevadacity",
+      "venue_name": "Monday",
+      "venue_city": "Nevada City",
+      "count": 12,
+      "sample_event_id": "trumba-208494244",
+      "sample_title": "175 | Land, People, Culture",
+      "candidate_assets": []
+    },
     {
       "venue_key": "tuesday|nevadacity",
       "venue_name": "Tuesday",
       "venue_city": "Nevada City",
       "count": 11,
       "sample_event_id": "trumba-208494245",
-      "sample_title": "175 | Land, People, Culture",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "monday|nevadacity",
-      "venue_name": "Monday",
-      "venue_city": "Nevada City",
-      "count": 10,
-      "sample_event_id": "trumba-208494244",
       "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
     },
@@ -235,23 +235,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "friday|",
-      "venue_name": "Friday",
-      "venue_city": "",
-      "count": 2,
-      "sample_event_id": "trumba-209230504",
-      "sample_title": "High Relief Wood Carving 3-day Workshop",
-      "candidate_assets": [
-        {
-          "asset_idx": 236,
-          "asset_name": "First Friday Art Walk",
-          "asset_city": "Nevada City",
-          "asset_category": "Fairs & Festivals",
-          "score": 16
-        }
-      ]
-    },
-    {
       "venue_key": "membershomes|",
       "venue_name": "Members homes",
       "venue_city": "",
@@ -340,37 +323,6 @@
       "sample_event_id": "gvda-183038851",
       "sample_title": "Playwriting Group",
       "candidate_assets": []
-    },
-    {
-      "venue_key": "downtowngrassvalley|",
-      "venue_name": "Downtown Grass Valley",
-      "venue_city": "",
-      "count": 1,
-      "sample_event_id": "trumba-169823432",
-      "sample_title": "SAFE TRICK or TREAT for Preschoolers",
-      "candidate_assets": [
-        {
-          "asset_idx": 548,
-          "asset_name": "Grass Valley Veterans Memorial Hall",
-          "asset_city": "Grass Valley",
-          "asset_category": "Performance Spaces",
-          "score": 26
-        },
-        {
-          "asset_idx": 105,
-          "asset_name": "Grass Valley Male Voice Choir",
-          "asset_city": "Grass Valley",
-          "asset_category": "Arts Organizations",
-          "score": 26
-        },
-        {
-          "asset_idx": 106,
-          "asset_name": "Grass Valley Taiko",
-          "asset_city": "Grass Valley",
-          "asset_category": "Arts Organizations",
-          "score": 26
-        }
-      ]
     },
     {
       "venue_key": "unknownvenue|",
@@ -572,6 +524,23 @@
           "asset_name": "Empire Mine Park Association",
           "asset_city": "Grass Valley",
           "asset_category": "Preservation & Culture",
+          "score": 16
+        }
+      ]
+    },
+    {
+      "venue_key": "friday|",
+      "venue_name": "Friday",
+      "venue_city": "",
+      "count": 1,
+      "sample_event_id": "trumba-195220568",
+      "sample_title": "58th Annual Cornish Christmas",
+      "candidate_assets": [
+        {
+          "asset_idx": 236,
+          "asset_name": "First Friday Art Walk",
+          "asset_city": "Nevada City",
+          "asset_category": "Fairs & Festivals",
           "score": 16
         }
       ]
