@@ -1,28 +1,19 @@
 {
-  "generated_at": "2026-11-01T14:01:50.379069+00:00",
+  "generated_at": "2026-11-02T16:49:15.528325+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 255,
-    "matched_events": 124,
-    "unmatched_events": 131,
+    "total_events": 252,
+    "matched_events": 123,
+    "unmatched_events": 129,
     "matched_by_pid": 0,
     "matched_by_alias": 6,
     "matched_by_name_city": 22,
-    "matched_by_name_city_fuzzy": 96,
-    "upcoming_14d": 102
+    "matched_by_name_city_fuzzy": 95,
+    "upcoming_14d": 99
   },
   "unmatched_venues": [
-    {
-      "venue_key": "monday|nevadacity",
-      "venue_name": "Monday",
-      "venue_city": "Nevada City",
-      "count": 12,
-      "sample_event_id": "trumba-208494244",
-      "sample_title": "175 | Land, People, Culture",
-      "candidate_assets": []
-    },
     {
       "venue_key": "tuesday|nevadacity",
       "venue_name": "Tuesday",
@@ -33,21 +24,21 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "monday|nevadacity",
+      "venue_name": "Monday",
+      "venue_city": "Nevada City",
+      "count": 11,
+      "sample_event_id": "trumba-195322420",
+      "sample_title": "Nevada City Odd Fellows Open Mic",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "unknownvenue|grassvalley",
       "venue_name": "Unknown venue",
       "venue_city": "Grass Valley",
       "count": 9,
       "sample_event_id": "gvda-197068116",
       "sample_title": "Reluctant Reformers: Mary Hallock Foote and Julia Morgan in the Progressive Era by Mary-Jo Wainwright",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "sunday|nevadacity",
-      "venue_name": "Sunday",
-      "venue_city": "Nevada City",
-      "count": 8,
-      "sample_event_id": "trumba-209749216",
-      "sample_title": "Victor Victoria",
       "candidate_assets": []
     },
     {
@@ -63,16 +54,25 @@
       "venue_key": "thursday|nevadacity",
       "venue_name": "Thursday",
       "venue_city": "Nevada City",
-      "count": 6,
+      "count": 7,
       "sample_event_id": "trumba-208494247",
       "sample_title": "175 | Land, People, Culture",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "sunday|nevadacity",
+      "venue_name": "Sunday",
+      "venue_city": "Nevada City",
+      "count": 7,
+      "sample_event_id": "trumba-211901021",
+      "sample_title": "Woodturning 101 – Craft a Beautiful Wooden Bowl",
       "candidate_assets": []
     },
     {
       "venue_key": "wednesday|nevadacity",
       "venue_name": "Wednesday",
       "venue_city": "Nevada City",
-      "count": 5,
+      "count": 6,
       "sample_event_id": "trumba-208494246",
       "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
@@ -93,15 +93,6 @@
       "count": 4,
       "sample_event_id": "libcal-LibCal-20247-15952664-20260317",
       "sample_title": "English Language Class",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "sunday|grassvalley",
-      "venue_name": "Sunday",
-      "venue_city": "Grass Valley",
-      "count": 4,
-      "sample_event_id": "trumba-212035650",
-      "sample_title": "Hadestown: Teen Edition",
       "candidate_assets": []
     },
     {
@@ -172,6 +163,15 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "membershomes|",
+      "venue_name": "Members homes",
+      "venue_city": "",
+      "count": 3,
+      "sample_event_id": "trumba-183038867",
+      "sample_title": "Playwriting Group",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "thursday|grassvalley",
       "venue_name": "Thursday",
       "venue_city": "Grass Valley",
@@ -235,12 +235,12 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "membershomes|",
-      "venue_name": "Members homes",
-      "venue_city": "",
+      "venue_key": "sunday|grassvalley",
+      "venue_name": "Sunday",
+      "venue_city": "Grass Valley",
       "count": 2,
-      "sample_event_id": "trumba-183038867",
-      "sample_title": "Playwriting Group",
+      "sample_event_id": "trumba-212035653",
+      "sample_title": "Hadestown: Teen Edition",
       "candidate_assets": []
     },
     {
@@ -322,15 +322,6 @@
       "count": 1,
       "sample_event_id": "gvda-183038851",
       "sample_title": "Playwriting Group",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "unknownvenue|",
-      "venue_name": "Unknown venue",
-      "venue_city": "",
-      "count": 1,
-      "sample_event_id": "trumba-210717603",
-      "sample_title": "Natural Cheesemaking Workshops",
       "candidate_assets": []
     },
     {
