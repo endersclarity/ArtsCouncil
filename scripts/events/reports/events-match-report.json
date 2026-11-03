@@ -1,14 +1,14 @@
 {
-  "generated_at": "2026-11-02T16:49:15.528325+00:00",
+  "generated_at": "2026-11-03T14:50:56.221893+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
     "total_events": 252,
-    "matched_events": 123,
-    "unmatched_events": 129,
+    "matched_events": 124,
+    "unmatched_events": 128,
     "matched_by_pid": 0,
-    "matched_by_alias": 6,
+    "matched_by_alias": 7,
     "matched_by_name_city": 22,
     "matched_by_name_city_fuzzy": 95,
     "upcoming_14d": 99
@@ -27,9 +27,9 @@
       "venue_key": "monday|nevadacity",
       "venue_name": "Monday",
       "venue_city": "Nevada City",
-      "count": 11,
-      "sample_event_id": "trumba-195322420",
-      "sample_title": "Nevada City Odd Fellows Open Mic",
+      "count": 10,
+      "sample_event_id": "trumba-208494249",
+      "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
     },
     {
@@ -96,6 +96,15 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "thursday|grassvalley",
+      "venue_name": "Thursday",
+      "venue_city": "Grass Valley",
+      "count": 4,
+      "sample_event_id": "trumba-208872880",
+      "sample_title": "Small Wonder Gallery Opening Reception",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "mcknightcrossingshoppingcenter|",
       "venue_name": "McKnight crossing shopping center",
       "venue_city": "",
@@ -154,30 +163,12 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "monday|grassvalley",
-      "venue_name": "Monday",
-      "venue_city": "Grass Valley",
-      "count": 3,
-      "sample_event_id": "trumba-206663285",
-      "sample_title": "Fall 2026 Youth Classes at The Center for the Arts",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "membershomes|",
       "venue_name": "Members homes",
       "venue_city": "",
       "count": 3,
       "sample_event_id": "trumba-183038867",
       "sample_title": "Playwriting Group",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "thursday|grassvalley",
-      "venue_name": "Thursday",
-      "venue_city": "Grass Valley",
-      "count": 3,
-      "sample_event_id": "trumba-208872880",
-      "sample_title": "Small Wonder Gallery Opening Reception",
       "candidate_assets": []
     },
     {
@@ -241,6 +232,15 @@
       "count": 2,
       "sample_event_id": "trumba-212035653",
       "sample_title": "Hadestown: Teen Edition",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "monday|grassvalley",
+      "venue_name": "Monday",
+      "venue_city": "Grass Valley",
+      "count": 2,
+      "sample_event_id": "trumba-206663286",
+      "sample_title": "Fall 2026 Youth Classes at The Center for the Arts",
       "candidate_assets": []
     },
     {
