@@ -1,34 +1,34 @@
 {
-  "generated_at": "2026-11-03T14:50:56.221893+00:00",
+  "generated_at": "2026-11-04T15:05:32.786781+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 252,
-    "matched_events": 124,
-    "unmatched_events": 128,
+    "total_events": 256,
+    "matched_events": 125,
+    "unmatched_events": 131,
     "matched_by_pid": 0,
     "matched_by_alias": 7,
     "matched_by_name_city": 22,
-    "matched_by_name_city_fuzzy": 95,
-    "upcoming_14d": 99
+    "matched_by_name_city_fuzzy": 96,
+    "upcoming_14d": 103
   },
   "unmatched_venues": [
-    {
-      "venue_key": "tuesday|nevadacity",
-      "venue_name": "Tuesday",
-      "venue_city": "Nevada City",
-      "count": 12,
-      "sample_event_id": "trumba-208494245",
-      "sample_title": "175 | Land, People, Culture",
-      "candidate_assets": []
-    },
     {
       "venue_key": "monday|nevadacity",
       "venue_name": "Monday",
       "venue_city": "Nevada City",
       "count": 10,
       "sample_event_id": "trumba-208494249",
+      "sample_title": "175 | Land, People, Culture",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "tuesday|nevadacity",
+      "venue_name": "Tuesday",
+      "venue_city": "Nevada City",
+      "count": 10,
+      "sample_event_id": "trumba-208494250",
       "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
     },
@@ -78,37 +78,10 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "axisgallery|nevadacounty",
-      "venue_name": "Axis Gallery",
-      "venue_city": "Nevada County",
-      "count": 4,
-      "sample_event_id": "kvmr-348660-1772884800-1772902800-20260307",
-      "sample_title": "\"The Winters Where Catfish Sings\": Exhibition by Sokthea Chan at Axis Gallery",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "studynook|grassvalley",
-      "venue_name": "Study Nook",
-      "venue_city": "Grass Valley",
-      "count": 4,
-      "sample_event_id": "libcal-LibCal-20247-15952664-20260317",
-      "sample_title": "English Language Class",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "thursday|grassvalley",
-      "venue_name": "Thursday",
-      "venue_city": "Grass Valley",
-      "count": 4,
-      "sample_event_id": "trumba-208872880",
-      "sample_title": "Small Wonder Gallery Opening Reception",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "mcknightcrossingshoppingcenter|",
       "venue_name": "McKnight crossing shopping center",
       "venue_city": "",
-      "count": 4,
+      "count": 5,
       "sample_event_id": "trumba-191631942",
       "sample_title": "Cars and coffee grass valley",
       "candidate_assets": [
@@ -134,6 +107,33 @@
           "score": 18
         }
       ]
+    },
+    {
+      "venue_key": "axisgallery|nevadacounty",
+      "venue_name": "Axis Gallery",
+      "venue_city": "Nevada County",
+      "count": 4,
+      "sample_event_id": "kvmr-348660-1772884800-1772902800-20260307",
+      "sample_title": "\"The Winters Where Catfish Sings\": Exhibition by Sokthea Chan at Axis Gallery",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "studynook|grassvalley",
+      "venue_name": "Study Nook",
+      "venue_city": "Grass Valley",
+      "count": 4,
+      "sample_event_id": "libcal-LibCal-20247-15952664-20260317",
+      "sample_title": "English Language Class",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "thursday|grassvalley",
+      "venue_name": "Thursday",
+      "venue_city": "Grass Valley",
+      "count": 4,
+      "sample_event_id": "trumba-208872880",
+      "sample_title": "Small Wonder Gallery Opening Reception",
+      "candidate_assets": []
     },
     {
       "venue_key": "saturday|grassvalley",
@@ -226,6 +226,63 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "northwoodsclubhouse|",
+      "venue_name": "Northwoods Clubhouse",
+      "venue_city": "",
+      "count": 2,
+      "sample_event_id": "trumba-113922963",
+      "sample_title": "Kids Night Out",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "atelier|",
+      "venue_name": "Atelier",
+      "venue_city": "",
+      "count": 2,
+      "sample_event_id": "trumba-114306318",
+      "sample_title": "#socialsketch + #write_on",
+      "candidate_assets": [
+        {
+          "asset_idx": 275,
+          "asset_name": "Atelier",
+          "asset_city": "Truckee",
+          "asset_category": "Galleries & Museums",
+          "score": 17
+        }
+      ]
+    },
+    {
+      "venue_key": "historicdowntowntruckee|",
+      "venue_name": "Historic Downtown Truckee",
+      "venue_city": "",
+      "count": 2,
+      "sample_event_id": "trumba-101048724",
+      "sample_title": "First Fridays",
+      "candidate_assets": [
+        {
+          "asset_idx": 574,
+          "asset_name": "Historic Mount St. Mary’s Preservation Committee",
+          "asset_city": "Grass Valley",
+          "asset_category": "Preservation & Culture",
+          "score": 18
+        },
+        {
+          "asset_idx": 583,
+          "asset_name": "North Star Historic Conservancy",
+          "asset_city": "Grass Valley",
+          "asset_category": "Preservation & Culture",
+          "score": 18
+        },
+        {
+          "asset_idx": 346,
+          "asset_name": "Chicago Park Historic Agricultural Community",
+          "asset_city": "",
+          "asset_category": "Historic Landmarks",
+          "score": 18
+        }
+      ]
+    },
+    {
       "venue_key": "sunday|grassvalley",
       "venue_name": "Sunday",
       "venue_city": "Grass Valley",
@@ -251,6 +308,23 @@
       "sample_event_id": "trumba-208301050",
       "sample_title": "Marc Broussard at The Center for the Arts",
       "candidate_assets": []
+    },
+    {
+      "venue_key": "friday|",
+      "venue_name": "Friday",
+      "venue_city": "",
+      "count": 2,
+      "sample_event_id": "trumba-195220568",
+      "sample_title": "58th Annual Cornish Christmas",
+      "candidate_assets": [
+        {
+          "asset_idx": 236,
+          "asset_name": "First Friday Art Walk",
+          "asset_city": "Nevada City",
+          "asset_category": "Fairs & Festivals",
+          "score": 16
+        }
+      ]
     },
     {
       "venue_key": "suttercreektheatre|nevadacounty",
@@ -323,63 +397,6 @@
       "sample_event_id": "gvda-183038851",
       "sample_title": "Playwriting Group",
       "candidate_assets": []
-    },
-    {
-      "venue_key": "northwoodsclubhouse|",
-      "venue_name": "Northwoods Clubhouse",
-      "venue_city": "",
-      "count": 1,
-      "sample_event_id": "trumba-113922963",
-      "sample_title": "Kids Night Out",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "atelier|",
-      "venue_name": "Atelier",
-      "venue_city": "",
-      "count": 1,
-      "sample_event_id": "trumba-114306318",
-      "sample_title": "#socialsketch + #write_on",
-      "candidate_assets": [
-        {
-          "asset_idx": 275,
-          "asset_name": "Atelier",
-          "asset_city": "Truckee",
-          "asset_category": "Galleries & Museums",
-          "score": 17
-        }
-      ]
-    },
-    {
-      "venue_key": "historicdowntowntruckee|",
-      "venue_name": "Historic Downtown Truckee",
-      "venue_city": "",
-      "count": 1,
-      "sample_event_id": "trumba-101048724",
-      "sample_title": "First Fridays",
-      "candidate_assets": [
-        {
-          "asset_idx": 574,
-          "asset_name": "Historic Mount St. Mary’s Preservation Committee",
-          "asset_city": "Grass Valley",
-          "asset_category": "Preservation & Culture",
-          "score": 18
-        },
-        {
-          "asset_idx": 583,
-          "asset_name": "North Star Historic Conservancy",
-          "asset_city": "Grass Valley",
-          "asset_category": "Preservation & Culture",
-          "score": 18
-        },
-        {
-          "asset_idx": 346,
-          "asset_name": "Chicago Park Historic Agricultural Community",
-          "asset_city": "",
-          "asset_category": "Historic Landmarks",
-          "score": 18
-        }
-      ]
     },
     {
       "venue_key": "saturday|",
@@ -515,23 +532,6 @@
           "asset_name": "Empire Mine Park Association",
           "asset_city": "Grass Valley",
           "asset_category": "Preservation & Culture",
-          "score": 16
-        }
-      ]
-    },
-    {
-      "venue_key": "friday|",
-      "venue_name": "Friday",
-      "venue_city": "",
-      "count": 1,
-      "sample_event_id": "trumba-195220568",
-      "sample_title": "58th Annual Cornish Christmas",
-      "candidate_assets": [
-        {
-          "asset_idx": 236,
-          "asset_name": "First Friday Art Walk",
-          "asset_city": "Nevada City",
-          "asset_category": "Fairs & Festivals",
           "score": 16
         }
       ]
