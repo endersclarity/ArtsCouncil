@@ -1,24 +1,24 @@
 {
-  "generated_at": "2026-11-04T15:05:32.786781+00:00",
+  "generated_at": "2026-11-05T15:09:53.467117+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 256,
-    "matched_events": 125,
-    "unmatched_events": 131,
+    "total_events": 265,
+    "matched_events": 126,
+    "unmatched_events": 139,
     "matched_by_pid": 0,
     "matched_by_alias": 7,
     "matched_by_name_city": 22,
-    "matched_by_name_city_fuzzy": 96,
-    "upcoming_14d": 103
+    "matched_by_name_city_fuzzy": 97,
+    "upcoming_14d": 112
   },
   "unmatched_venues": [
     {
       "venue_key": "monday|nevadacity",
       "venue_name": "Monday",
       "venue_city": "Nevada City",
-      "count": 10,
+      "count": 11,
       "sample_event_id": "trumba-208494249",
       "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
@@ -42,6 +42,15 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "sunday|nevadacity",
+      "venue_name": "Sunday",
+      "venue_city": "Nevada City",
+      "count": 9,
+      "sample_event_id": "trumba-211901021",
+      "sample_title": "Woodturning 101 – Craft a Beautiful Wooden Bowl",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "ctcclassroom|nevadacity",
       "venue_name": "CTC Classroom",
       "venue_city": "Nevada City",
@@ -60,21 +69,12 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "sunday|nevadacity",
-      "venue_name": "Sunday",
-      "venue_city": "Nevada City",
-      "count": 7,
-      "sample_event_id": "trumba-211901021",
-      "sample_title": "Woodturning 101 – Craft a Beautiful Wooden Bowl",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "wednesday|nevadacity",
-      "venue_name": "Wednesday",
+      "venue_key": "saturday|nevadacity",
+      "venue_name": "Saturday",
       "venue_city": "Nevada City",
       "count": 6,
-      "sample_event_id": "trumba-208494246",
-      "sample_title": "175 | Land, People, Culture",
+      "sample_event_id": "trumba-207024572",
+      "sample_title": "Watercolor Exploration with Chappy Valente",
       "candidate_assets": []
     },
     {
@@ -107,6 +107,15 @@
           "score": 18
         }
       ]
+    },
+    {
+      "venue_key": "wednesday|nevadacity",
+      "venue_name": "Wednesday",
+      "venue_city": "Nevada City",
+      "count": 5,
+      "sample_event_id": "trumba-208494251",
+      "sample_title": "175 | Land, People, Culture",
+      "candidate_assets": []
     },
     {
       "venue_key": "axisgallery|nevadacounty",
@@ -163,15 +172,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "membershomes|",
-      "venue_name": "Members homes",
-      "venue_city": "",
-      "count": 3,
-      "sample_event_id": "trumba-183038867",
-      "sample_title": "Playwriting Group",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "theoctabarn|nevadacity",
       "venue_name": "The Octabarn",
       "venue_city": "Nevada City",
@@ -190,12 +190,12 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "saturday|nevadacity",
-      "venue_name": "Saturday",
-      "venue_city": "Nevada City",
+      "venue_key": "nativewren|grassvalley",
+      "venue_name": "Native Wren",
+      "venue_city": "Grass Valley",
       "count": 3,
-      "sample_event_id": "trumba-207024572",
-      "sample_title": "Watercolor Exploration with Chappy Valente",
+      "sample_event_id": "trumba-211897436",
+      "sample_title": "Local Artisan Showcase at Native Wren",
       "candidate_assets": []
     },
     {
@@ -307,6 +307,15 @@
       "count": 2,
       "sample_event_id": "trumba-208301050",
       "sample_title": "Marc Broussard at The Center for the Arts",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "membershomes|",
+      "venue_name": "Members homes",
+      "venue_city": "",
+      "count": 2,
+      "sample_event_id": "trumba-183038868",
+      "sample_title": "Playwriting Group",
       "candidate_assets": []
     },
     {
@@ -535,6 +544,15 @@
           "score": 16
         }
       ]
+    },
+    {
+      "venue_key": "gracelutheranchurch|grassvalley",
+      "venue_name": "Grace Lutheran Church",
+      "venue_city": "Grass Valley",
+      "count": 1,
+      "sample_event_id": "trumba-212272269",
+      "sample_title": "Light & Joy: Free Holiday Concert -- Grass Valley Male Voice Choir",
+      "candidate_assets": []
     }
   ],
   "category_coverage": {
