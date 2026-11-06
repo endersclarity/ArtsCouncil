@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-11-05T15:09:53.467117+00:00",
+  "generated_at": "2026-11-06T14:46:50.696627+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 265,
+    "total_events": 259,
     "matched_events": 126,
-    "unmatched_events": 139,
+    "unmatched_events": 133,
     "matched_by_pid": 0,
-    "matched_by_alias": 7,
+    "matched_by_alias": 6,
     "matched_by_name_city": 22,
-    "matched_by_name_city_fuzzy": 97,
-    "upcoming_14d": 112
+    "matched_by_name_city_fuzzy": 98,
+    "upcoming_14d": 106
   },
   "unmatched_venues": [
     {
@@ -57,15 +57,6 @@
       "count": 7,
       "sample_event_id": "libcal-LibCal-20247-16035875-20260316",
       "sample_title": "Ukulele for the People",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "thursday|nevadacity",
-      "venue_name": "Thursday",
-      "venue_city": "Nevada City",
-      "count": 7,
-      "sample_event_id": "trumba-208494247",
-      "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
     },
     {
@@ -118,6 +109,15 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "thursday|nevadacity",
+      "venue_name": "Thursday",
+      "venue_city": "Nevada City",
+      "count": 5,
+      "sample_event_id": "trumba-208494252",
+      "sample_title": "175 | Land, People, Culture",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "axisgallery|nevadacounty",
       "venue_name": "Axis Gallery",
       "venue_city": "Nevada County",
@@ -133,15 +133,6 @@
       "count": 4,
       "sample_event_id": "libcal-LibCal-20247-15952664-20260317",
       "sample_title": "English Language Class",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "thursday|grassvalley",
-      "venue_name": "Thursday",
-      "venue_city": "Grass Valley",
-      "count": 4,
-      "sample_event_id": "trumba-208872880",
-      "sample_title": "Small Wonder Gallery Opening Reception",
       "candidate_assets": []
     },
     {
@@ -169,15 +160,6 @@
       "count": 3,
       "sample_event_id": "gvda-173596655",
       "sample_title": "STEAM Exploration Saturdays",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "theoctabarn|nevadacity",
-      "venue_name": "The Octabarn",
-      "venue_city": "Nevada City",
-      "count": 3,
-      "sample_event_id": "trumba-207629613",
-      "sample_title": "Improverse: Improv for the Senses Class",
       "candidate_assets": []
     },
     {
@@ -223,15 +205,6 @@
       "count": 2,
       "sample_event_id": "gvda-191631909",
       "sample_title": "Cars and coffee grass valley",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "northwoodsclubhouse|",
-      "venue_name": "Northwoods Clubhouse",
-      "venue_city": "",
-      "count": 2,
-      "sample_event_id": "trumba-113922963",
-      "sample_title": "Kids Night Out",
       "candidate_assets": []
     },
     {
@@ -307,6 +280,24 @@
       "count": 2,
       "sample_event_id": "trumba-208301050",
       "sample_title": "Marc Broussard at The Center for the Arts",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "theoctabarn|nevadacity",
+      "venue_name": "The Octabarn",
+      "venue_city": "Nevada City",
+      "count": 2,
+      "sample_event_id": "trumba-207629614",
+      "sample_title": "Improverse: Improv for the Senses Class",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "thursday|grassvalley",
+      "venue_name": "Thursday",
+      "venue_city": "Grass Valley",
+      "count": 2,
+      "sample_event_id": "trumba-208477236",
+      "sample_title": "An Evening with David Sedaris at The Center for the Arts",
       "candidate_assets": []
     },
     {
@@ -552,6 +543,15 @@
       "count": 1,
       "sample_event_id": "trumba-212272269",
       "sample_title": "Light & Joy: Free Holiday Concert -- Grass Valley Male Voice Choir",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "northwoodsclubhouse|",
+      "venue_name": "Northwoods Clubhouse",
+      "venue_city": "",
+      "count": 1,
+      "sample_event_id": "trumba-113922964",
+      "sample_title": "Kids Night Out",
       "candidate_assets": []
     }
   ],
