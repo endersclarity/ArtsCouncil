@@ -1,24 +1,24 @@
 {
-  "generated_at": "2026-11-06T14:46:50.696627+00:00",
+  "generated_at": "2026-11-07T13:44:34.629004+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 259,
-    "matched_events": 126,
-    "unmatched_events": 133,
+    "total_events": 255,
+    "matched_events": 124,
+    "unmatched_events": 131,
     "matched_by_pid": 0,
     "matched_by_alias": 6,
     "matched_by_name_city": 22,
-    "matched_by_name_city_fuzzy": 98,
-    "upcoming_14d": 106
+    "matched_by_name_city_fuzzy": 96,
+    "upcoming_14d": 102
   },
   "unmatched_venues": [
     {
       "venue_key": "monday|nevadacity",
       "venue_name": "Monday",
       "venue_city": "Nevada City",
-      "count": 11,
+      "count": 13,
       "sample_event_id": "trumba-208494249",
       "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
@@ -163,15 +163,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "friday|grassvalley",
-      "venue_name": "Friday",
-      "venue_city": "Grass Valley",
-      "count": 3,
-      "sample_event_id": "trumba-212035651",
-      "sample_title": "Hadestown: Teen Edition",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "nativewren|grassvalley",
       "venue_name": "Native Wren",
       "venue_city": "Grass Valley",
@@ -206,54 +197,6 @@
       "sample_event_id": "gvda-191631909",
       "sample_title": "Cars and coffee grass valley",
       "candidate_assets": []
-    },
-    {
-      "venue_key": "atelier|",
-      "venue_name": "Atelier",
-      "venue_city": "",
-      "count": 2,
-      "sample_event_id": "trumba-114306318",
-      "sample_title": "#socialsketch + #write_on",
-      "candidate_assets": [
-        {
-          "asset_idx": 275,
-          "asset_name": "Atelier",
-          "asset_city": "Truckee",
-          "asset_category": "Galleries & Museums",
-          "score": 17
-        }
-      ]
-    },
-    {
-      "venue_key": "historicdowntowntruckee|",
-      "venue_name": "Historic Downtown Truckee",
-      "venue_city": "",
-      "count": 2,
-      "sample_event_id": "trumba-101048724",
-      "sample_title": "First Fridays",
-      "candidate_assets": [
-        {
-          "asset_idx": 574,
-          "asset_name": "Historic Mount St. Mary’s Preservation Committee",
-          "asset_city": "Grass Valley",
-          "asset_category": "Preservation & Culture",
-          "score": 18
-        },
-        {
-          "asset_idx": 583,
-          "asset_name": "North Star Historic Conservancy",
-          "asset_city": "Grass Valley",
-          "asset_category": "Preservation & Culture",
-          "score": 18
-        },
-        {
-          "asset_idx": 346,
-          "asset_name": "Chicago Park Historic Agricultural Community",
-          "asset_city": "",
-          "asset_category": "Historic Landmarks",
-          "score": 18
-        }
-      ]
     },
     {
       "venue_key": "sunday|grassvalley",
@@ -426,6 +369,15 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "friday|grassvalley",
+      "venue_name": "Friday",
+      "venue_city": "Grass Valley",
+      "count": 1,
+      "sample_event_id": "trumba-208477634",
+      "sample_title": "Tuba Skinny at The Center for the Arts",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "lucchesivineyards|",
       "venue_name": "Lucchesi Vineyards",
       "venue_city": "",
@@ -553,6 +505,54 @@
       "sample_event_id": "trumba-113922964",
       "sample_title": "Kids Night Out",
       "candidate_assets": []
+    },
+    {
+      "venue_key": "atelier|",
+      "venue_name": "Atelier",
+      "venue_city": "",
+      "count": 1,
+      "sample_event_id": "trumba-114306319",
+      "sample_title": "#socialsketch + #write_on",
+      "candidate_assets": [
+        {
+          "asset_idx": 275,
+          "asset_name": "Atelier",
+          "asset_city": "Truckee",
+          "asset_category": "Galleries & Museums",
+          "score": 17
+        }
+      ]
+    },
+    {
+      "venue_key": "historicdowntowntruckee|",
+      "venue_name": "Historic Downtown Truckee",
+      "venue_city": "",
+      "count": 1,
+      "sample_event_id": "trumba-101048725",
+      "sample_title": "First Fridays",
+      "candidate_assets": [
+        {
+          "asset_idx": 574,
+          "asset_name": "Historic Mount St. Mary’s Preservation Committee",
+          "asset_city": "Grass Valley",
+          "asset_category": "Preservation & Culture",
+          "score": 18
+        },
+        {
+          "asset_idx": 583,
+          "asset_name": "North Star Historic Conservancy",
+          "asset_city": "Grass Valley",
+          "asset_category": "Preservation & Culture",
+          "score": 18
+        },
+        {
+          "asset_idx": 346,
+          "asset_name": "Chicago Park Historic Agricultural Community",
+          "asset_city": "",
+          "asset_category": "Historic Landmarks",
+          "score": 18
+        }
+      ]
     }
   ],
   "category_coverage": {
