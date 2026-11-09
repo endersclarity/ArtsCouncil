@@ -1,26 +1,26 @@
 {
-  "generated_at": "2026-11-08T14:03:30.304754+00:00",
+  "generated_at": "2026-11-09T17:09:13.559183+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 249,
+    "total_events": 243,
     "matched_events": 123,
-    "unmatched_events": 126,
+    "unmatched_events": 120,
     "matched_by_pid": 0,
     "matched_by_alias": 6,
     "matched_by_name_city": 22,
     "matched_by_name_city_fuzzy": 95,
-    "upcoming_14d": 96
+    "upcoming_14d": 90
   },
   "unmatched_venues": [
     {
       "venue_key": "monday|nevadacity",
       "venue_name": "Monday",
       "venue_city": "Nevada City",
-      "count": 13,
-      "sample_event_id": "trumba-208494249",
-      "sample_title": "175 | Land, People, Culture",
+      "count": 12,
+      "sample_event_id": "trumba-211900688",
+      "sample_title": "Glassblowing Experience 30-minute Taster Sessions – Make Holiday Ornaments!",
       "candidate_assets": []
     },
     {
@@ -42,15 +42,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "sunday|nevadacity",
-      "venue_name": "Sunday",
-      "venue_city": "Nevada City",
-      "count": 9,
-      "sample_event_id": "trumba-211901021",
-      "sample_title": "Woodturning 101 – Craft a Beautiful Wooden Bowl",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "ctcclassroom|nevadacity",
       "venue_name": "CTC Classroom",
       "venue_city": "Nevada City",
@@ -63,7 +54,7 @@
       "venue_key": "wednesday|nevadacity",
       "venue_name": "Wednesday",
       "venue_city": "Nevada City",
-      "count": 5,
+      "count": 6,
       "sample_event_id": "trumba-208494251",
       "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
@@ -72,9 +63,18 @@
       "venue_key": "thursday|nevadacity",
       "venue_name": "Thursday",
       "venue_city": "Nevada City",
-      "count": 5,
+      "count": 6,
       "sample_event_id": "trumba-208494252",
       "sample_title": "175 | Land, People, Culture",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "sunday|nevadacity",
+      "venue_name": "Sunday",
+      "venue_city": "Nevada City",
+      "count": 6,
+      "sample_event_id": "trumba-206314627",
+      "sample_title": "Hand-Carved Wooden Utensils--make a spoon",
       "candidate_assets": []
     },
     {
@@ -187,15 +187,6 @@
       "count": 2,
       "sample_event_id": "gvda-191631909",
       "sample_title": "Cars and coffee grass valley",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "sunday|grassvalley",
-      "venue_name": "Sunday",
-      "venue_city": "Grass Valley",
-      "count": 2,
-      "sample_event_id": "trumba-212035653",
-      "sample_title": "Hadestown: Teen Edition",
       "candidate_assets": []
     },
     {
@@ -339,24 +330,6 @@
       "count": 1,
       "sample_event_id": "gvda-183038851",
       "sample_title": "Playwriting Group",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "sunday|",
-      "venue_name": "Sunday",
-      "venue_city": "",
-      "count": 1,
-      "sample_event_id": "trumba-211900687",
-      "sample_title": "Glassblowing Experience 30-minute Taster Sessions – Make Holiday Ornaments!",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "darkhosecoffee|truckee",
-      "venue_name": "Dark Hose Coffee",
-      "venue_city": "Truckee",
-      "count": 1,
-      "sample_event_id": "trumba-116325481",
-      "sample_title": "Word Jam",
       "candidate_assets": []
     },
     {
