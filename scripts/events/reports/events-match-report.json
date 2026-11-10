@@ -1,28 +1,19 @@
 {
-  "generated_at": "2026-11-09T17:09:13.559183+00:00",
+  "generated_at": "2026-11-10T15:24:39.696617+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 243,
-    "matched_events": 123,
-    "unmatched_events": 120,
+    "total_events": 241,
+    "matched_events": 124,
+    "unmatched_events": 117,
     "matched_by_pid": 0,
     "matched_by_alias": 6,
     "matched_by_name_city": 22,
-    "matched_by_name_city_fuzzy": 95,
-    "upcoming_14d": 90
+    "matched_by_name_city_fuzzy": 96,
+    "upcoming_14d": 88
   },
   "unmatched_venues": [
-    {
-      "venue_key": "monday|nevadacity",
-      "venue_name": "Monday",
-      "venue_city": "Nevada City",
-      "count": 12,
-      "sample_event_id": "trumba-211900688",
-      "sample_title": "Glassblowing Experience 30-minute Taster Sessions – Make Holiday Ornaments!",
-      "candidate_assets": []
-    },
     {
       "venue_key": "tuesday|nevadacity",
       "venue_name": "Tuesday",
@@ -39,6 +30,15 @@
       "count": 9,
       "sample_event_id": "gvda-197068116",
       "sample_title": "Reluctant Reformers: Mary Hallock Foote and Julia Morgan in the Progressive Era by Mary-Jo Wainwright",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "monday|nevadacity",
+      "venue_name": "Monday",
+      "venue_city": "Nevada City",
+      "count": 9,
+      "sample_event_id": "trumba-208494254",
+      "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
     },
     {
@@ -96,6 +96,15 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "unknownvenue|truckee",
+      "venue_name": "Unknown venue",
+      "venue_city": "Truckee",
+      "count": 4,
+      "sample_event_id": "gvda-173596655",
+      "sample_title": "STEAM Exploration Saturdays",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "mcknightcrossingshoppingcenter|",
       "venue_name": "McKnight crossing shopping center",
       "venue_city": "",
@@ -145,15 +154,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "unknownvenue|truckee",
-      "venue_name": "Unknown venue",
-      "venue_city": "Truckee",
-      "count": 3,
-      "sample_event_id": "gvda-173596655",
-      "sample_title": "STEAM Exploration Saturdays",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "nativewren|grassvalley",
       "venue_name": "Native Wren",
       "venue_city": "Grass Valley",
@@ -187,15 +187,6 @@
       "count": 2,
       "sample_event_id": "gvda-191631909",
       "sample_title": "Cars and coffee grass valley",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "monday|grassvalley",
-      "venue_name": "Monday",
-      "venue_city": "Grass Valley",
-      "count": 2,
-      "sample_event_id": "trumba-206663286",
-      "sample_title": "Fall 2026 Youth Classes at The Center for the Arts",
       "candidate_assets": []
     },
     {
@@ -402,6 +393,15 @@
           "score": 16
         }
       ]
+    },
+    {
+      "venue_key": "monday|grassvalley",
+      "venue_name": "Monday",
+      "venue_city": "Grass Valley",
+      "count": 1,
+      "sample_event_id": "trumba-206663287",
+      "sample_title": "Fall 2026 Youth Classes at The Center for the Arts",
+      "candidate_assets": []
     },
     {
       "venue_key": "oddfellowshall|",
