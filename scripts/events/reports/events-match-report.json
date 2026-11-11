@@ -1,28 +1,19 @@
 {
-  "generated_at": "2026-11-10T15:24:39.696617+00:00",
+  "generated_at": "2026-11-11T14:54:54.347349+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 241,
-    "matched_events": 124,
-    "unmatched_events": 117,
+    "total_events": 238,
+    "matched_events": 125,
+    "unmatched_events": 113,
     "matched_by_pid": 0,
     "matched_by_alias": 6,
     "matched_by_name_city": 22,
-    "matched_by_name_city_fuzzy": 96,
-    "upcoming_14d": 88
+    "matched_by_name_city_fuzzy": 97,
+    "upcoming_14d": 85
   },
   "unmatched_venues": [
-    {
-      "venue_key": "tuesday|nevadacity",
-      "venue_name": "Tuesday",
-      "venue_city": "Nevada City",
-      "count": 11,
-      "sample_event_id": "trumba-208494250",
-      "sample_title": "175 | Land, People, Culture",
-      "candidate_assets": []
-    },
     {
       "venue_key": "unknownvenue|grassvalley",
       "venue_name": "Unknown venue",
@@ -75,6 +66,15 @@
       "count": 6,
       "sample_event_id": "trumba-206314627",
       "sample_title": "Hand-Carved Wooden Utensils--make a spoon",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "tuesday|nevadacity",
+      "venue_name": "Tuesday",
+      "venue_city": "Nevada City",
+      "count": 6,
+      "sample_event_id": "trumba-208494255",
+      "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
     },
     {
@@ -163,6 +163,23 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "friday|",
+      "venue_name": "Friday",
+      "venue_city": "",
+      "count": 3,
+      "sample_event_id": "trumba-195220568",
+      "sample_title": "58th Annual Cornish Christmas",
+      "candidate_assets": [
+        {
+          "asset_idx": 236,
+          "asset_name": "First Friday Art Walk",
+          "asset_city": "Nevada City",
+          "asset_category": "Fairs & Festivals",
+          "score": 16
+        }
+      ]
+    },
+    {
       "venue_key": "meetingroom|pennvalley",
       "venue_name": "Meeting Room",
       "venue_city": "Penn Valley",
@@ -233,23 +250,6 @@
       "sample_event_id": "trumba-209159646",
       "sample_title": "Two Runner at The Center for the Arts",
       "candidate_assets": []
-    },
-    {
-      "venue_key": "friday|",
-      "venue_name": "Friday",
-      "venue_city": "",
-      "count": 2,
-      "sample_event_id": "trumba-195220568",
-      "sample_title": "58th Annual Cornish Christmas",
-      "candidate_assets": [
-        {
-          "asset_idx": 236,
-          "asset_name": "First Friday Art Walk",
-          "asset_city": "Nevada City",
-          "asset_category": "Fairs & Festivals",
-          "score": 16
-        }
-      ]
     },
     {
       "venue_key": "suttercreektheatre|nevadacounty",
