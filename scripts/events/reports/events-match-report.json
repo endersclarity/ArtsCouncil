@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-11-11T14:54:54.347349+00:00",
+  "generated_at": "2026-11-12T15:45:57.713054+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 238,
-    "matched_events": 125,
+    "total_events": 237,
+    "matched_events": 124,
     "unmatched_events": 113,
     "matched_by_pid": 0,
     "matched_by_alias": 6,
-    "matched_by_name_city": 22,
-    "matched_by_name_city_fuzzy": 97,
-    "upcoming_14d": 85
+    "matched_by_name_city": 20,
+    "matched_by_name_city_fuzzy": 98,
+    "upcoming_14d": 84
   },
   "unmatched_venues": [
     {
@@ -42,21 +42,21 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "wednesday|nevadacity",
-      "venue_name": "Wednesday",
-      "venue_city": "Nevada City",
-      "count": 6,
-      "sample_event_id": "trumba-208494251",
-      "sample_title": "175 | Land, People, Culture",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "thursday|nevadacity",
       "venue_name": "Thursday",
       "venue_city": "Nevada City",
       "count": 6,
       "sample_event_id": "trumba-208494252",
       "sample_title": "175 | Land, People, Culture",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "saturday|nevadacity",
+      "venue_name": "Saturday",
+      "venue_city": "Nevada City",
+      "count": 6,
+      "sample_event_id": "trumba-210694069",
+      "sample_title": "Tuesday Morning Ceramics – Hand-Building Techniques",
       "candidate_assets": []
     },
     {
@@ -76,6 +76,37 @@
       "sample_event_id": "trumba-208494255",
       "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
+    },
+    {
+      "venue_key": "mcknightcrossingshoppingcenter|",
+      "venue_name": "McKnight crossing shopping center",
+      "venue_city": "",
+      "count": 5,
+      "sample_event_id": "trumba-191631943",
+      "sample_title": "Cars and coffee grass valley",
+      "candidate_assets": [
+        {
+          "asset_idx": 455,
+          "asset_name": "Pine Street Crossing at Nevada City",
+          "asset_city": "",
+          "asset_category": "Historic Landmarks",
+          "score": 18
+        },
+        {
+          "asset_idx": 459,
+          "asset_name": "Purdon Crossing Bridge",
+          "asset_city": "",
+          "asset_category": "Historic Landmarks",
+          "score": 18
+        },
+        {
+          "asset_idx": 469,
+          "asset_name": "Edwards Crossing Bridge",
+          "asset_city": "",
+          "asset_category": "Historic Landmarks",
+          "score": 18
+        }
+      ]
     },
     {
       "venue_key": "axisgallery|nevadacounty",
@@ -105,43 +136,12 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "mcknightcrossingshoppingcenter|",
-      "venue_name": "McKnight crossing shopping center",
-      "venue_city": "",
-      "count": 4,
-      "sample_event_id": "trumba-191631943",
-      "sample_title": "Cars and coffee grass valley",
-      "candidate_assets": [
-        {
-          "asset_idx": 455,
-          "asset_name": "Pine Street Crossing at Nevada City",
-          "asset_city": "",
-          "asset_category": "Historic Landmarks",
-          "score": 18
-        },
-        {
-          "asset_idx": 459,
-          "asset_name": "Purdon Crossing Bridge",
-          "asset_city": "",
-          "asset_category": "Historic Landmarks",
-          "score": 18
-        },
-        {
-          "asset_idx": 469,
-          "asset_name": "Edwards Crossing Bridge",
-          "asset_city": "",
-          "asset_category": "Historic Landmarks",
-          "score": 18
-        }
-      ]
-    },
-    {
-      "venue_key": "saturday|nevadacity",
-      "venue_name": "Saturday",
+      "venue_key": "wednesday|nevadacity",
+      "venue_name": "Wednesday",
       "venue_city": "Nevada City",
       "count": 4,
-      "sample_event_id": "trumba-212252920",
-      "sample_title": "Holly Tornheim Works in Wood Show & Sale",
+      "sample_event_id": "trumba-208494256",
+      "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
     },
     {
@@ -204,15 +204,6 @@
       "count": 2,
       "sample_event_id": "gvda-191631909",
       "sample_title": "Cars and coffee grass valley",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "wednesday|grassvalley",
-      "venue_name": "Wednesday",
-      "venue_city": "Grass Valley",
-      "count": 2,
-      "sample_event_id": "trumba-208301050",
-      "sample_title": "Marc Broussard at The Center for the Arts",
       "candidate_assets": []
     },
     {
@@ -419,6 +410,15 @@
       "count": 1,
       "sample_event_id": "trumba-208953401",
       "sample_title": "Joanne Shaw Taylor at The Center for the Arts",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "wednesday|grassvalley",
+      "venue_name": "Wednesday",
+      "venue_city": "Grass Valley",
+      "count": 1,
+      "sample_event_id": "trumba-209159657",
+      "sample_title": "HUG w/ Devendra Banhart, Noah Georgeson & Gyan Riley at The Center for the Arts",
       "candidate_assets": []
     },
     {
