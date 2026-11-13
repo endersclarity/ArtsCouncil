@@ -1,19 +1,28 @@
 {
-  "generated_at": "2026-11-12T15:45:57.713054+00:00",
+  "generated_at": "2026-11-13T15:05:42.949085+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 237,
-    "matched_events": 124,
-    "unmatched_events": 113,
+    "total_events": 261,
+    "matched_events": 123,
+    "unmatched_events": 138,
     "matched_by_pid": 0,
     "matched_by_alias": 6,
     "matched_by_name_city": 20,
-    "matched_by_name_city_fuzzy": 98,
-    "upcoming_14d": 84
+    "matched_by_name_city_fuzzy": 97,
+    "upcoming_14d": 108
   },
   "unmatched_venues": [
+    {
+      "venue_key": "saturday|nevadacity",
+      "venue_name": "Saturday",
+      "venue_city": "Nevada City",
+      "count": 10,
+      "sample_event_id": "trumba-210694069",
+      "sample_title": "Tuesday Morning Ceramics – Hand-Building Techniques",
+      "candidate_assets": []
+    },
     {
       "venue_key": "unknownvenue|grassvalley",
       "venue_name": "Unknown venue",
@@ -21,6 +30,15 @@
       "count": 9,
       "sample_event_id": "gvda-197068116",
       "sample_title": "Reluctant Reformers: Mary Hallock Foote and Julia Morgan in the Progressive Era by Mary-Jo Wainwright",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "sunday|nevadacity",
+      "venue_name": "Sunday",
+      "venue_city": "Nevada City",
+      "count": 9,
+      "sample_event_id": "trumba-206314627",
+      "sample_title": "Hand-Carved Wooden Utensils--make a spoon",
       "candidate_assets": []
     },
     {
@@ -33,6 +51,15 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "saturday|grassvalley",
+      "venue_name": "Saturday",
+      "venue_city": "Grass Valley",
+      "count": 8,
+      "sample_event_id": "trumba-213040724",
+      "sample_title": "ASiF's 18th Annual Smallworks Holiday Show Opening Reception",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "ctcclassroom|nevadacity",
       "venue_name": "CTC Classroom",
       "venue_city": "Nevada City",
@@ -42,30 +69,12 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "thursday|nevadacity",
-      "venue_name": "Thursday",
-      "venue_city": "Nevada City",
+      "venue_key": "friday|grassvalley",
+      "venue_name": "Friday",
+      "venue_city": "Grass Valley",
       "count": 6,
-      "sample_event_id": "trumba-208494252",
-      "sample_title": "175 | Land, People, Culture",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "saturday|nevadacity",
-      "venue_name": "Saturday",
-      "venue_city": "Nevada City",
-      "count": 6,
-      "sample_event_id": "trumba-210694069",
-      "sample_title": "Tuesday Morning Ceramics – Hand-Building Techniques",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "sunday|nevadacity",
-      "venue_name": "Sunday",
-      "venue_city": "Nevada City",
-      "count": 6,
-      "sample_event_id": "trumba-206314627",
-      "sample_title": "Hand-Carved Wooden Utensils--make a spoon",
+      "sample_event_id": "trumba-213040723",
+      "sample_title": "ASiF's 18th Annual Smallworks Holiday Show Opening Reception",
       "candidate_assets": []
     },
     {
@@ -109,6 +118,15 @@
       ]
     },
     {
+      "venue_key": "thursday|grassvalley",
+      "venue_name": "Thursday",
+      "venue_city": "Grass Valley",
+      "count": 5,
+      "sample_event_id": "trumba-213040725",
+      "sample_title": "ASiF's 18th Annual Smallworks Holiday Show Opening Reception",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "axisgallery|nevadacounty",
       "venue_name": "Axis Gallery",
       "venue_city": "Nevada County",
@@ -145,6 +163,32 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "thursday|nevadacity",
+      "venue_name": "Thursday",
+      "venue_city": "Nevada City",
+      "count": 4,
+      "sample_event_id": "trumba-208494257",
+      "sample_title": "175 | Land, People, Culture",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "friday|",
+      "venue_name": "Friday",
+      "venue_city": "",
+      "count": 4,
+      "sample_event_id": "trumba-195220568",
+      "sample_title": "58th Annual Cornish Christmas",
+      "candidate_assets": [
+        {
+          "asset_idx": 236,
+          "asset_name": "First Friday Art Walk",
+          "asset_city": "Nevada City",
+          "asset_category": "Fairs & Festivals",
+          "score": 16
+        }
+      ]
+    },
+    {
       "venue_key": "unknownvenue|nevadacity",
       "venue_name": "Unknown venue",
       "venue_city": "Nevada City",
@@ -161,23 +205,6 @@
       "sample_event_id": "trumba-211897436",
       "sample_title": "Local Artisan Showcase at Native Wren",
       "candidate_assets": []
-    },
-    {
-      "venue_key": "friday|",
-      "venue_name": "Friday",
-      "venue_city": "",
-      "count": 3,
-      "sample_event_id": "trumba-195220568",
-      "sample_title": "58th Annual Cornish Christmas",
-      "candidate_assets": [
-        {
-          "asset_idx": 236,
-          "asset_name": "First Friday Art Walk",
-          "asset_city": "Nevada City",
-          "asset_category": "Fairs & Festivals",
-          "score": 16
-        }
-      ]
     },
     {
       "venue_key": "meetingroom|pennvalley",
@@ -207,21 +234,43 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "theoctabarn|nevadacity",
-      "venue_name": "The Octabarn",
-      "venue_city": "Nevada City",
+      "venue_key": "lucchesivineyards|",
+      "venue_name": "Lucchesi Vineyards",
+      "venue_city": "",
       "count": 2,
-      "sample_event_id": "trumba-207629614",
-      "sample_title": "Improverse: Improv for the Senses Class",
-      "candidate_assets": []
+      "sample_event_id": "trumba-211630969",
+      "sample_title": "Stash Dash Extravaganza!",
+      "candidate_assets": [
+        {
+          "asset_idx": 549,
+          "asset_name": "Lucchesi Vineyards & Winery",
+          "asset_city": "Grass Valley",
+          "asset_category": "Performance Spaces",
+          "score": 29
+        },
+        {
+          "asset_idx": 293,
+          "asset_name": "Lucchesi Vineyards Tasting Room",
+          "asset_city": "Grass Valley",
+          "asset_category": "Galleries & Museums",
+          "score": 29
+        },
+        {
+          "asset_idx": 42,
+          "asset_name": "Lucchesi Vineyards Tasting Room",
+          "asset_city": "Grass Valley",
+          "asset_category": "Eat, Drink & Stay",
+          "score": 29
+        }
+      ]
     },
     {
-      "venue_key": "thursday|grassvalley",
-      "venue_name": "Thursday",
-      "venue_city": "Grass Valley",
+      "venue_key": "sunday|",
+      "venue_name": "Sunday",
+      "venue_city": "",
       "count": 2,
-      "sample_event_id": "trumba-208477236",
-      "sample_title": "An Evening with David Sedaris at The Center for the Arts",
+      "sample_event_id": "trumba-213284772",
+      "sample_title": "Jazz - From Bach To Brubeck to The Beatles",
       "candidate_assets": []
     },
     {
@@ -234,12 +283,12 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "saturday|grassvalley",
-      "venue_name": "Saturday",
+      "venue_key": "gracelutheranchurch|grassvalley",
+      "venue_name": "Grace Lutheran Church",
       "venue_city": "Grass Valley",
       "count": 2,
-      "sample_event_id": "trumba-209159646",
-      "sample_title": "Two Runner at The Center for the Arts",
+      "sample_event_id": "trumba-212272269",
+      "sample_title": "Light & Joy: Free Holiday Concert -- Grass Valley Male Voice Choir",
       "candidate_assets": []
     },
     {
@@ -315,46 +364,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "friday|grassvalley",
-      "venue_name": "Friday",
-      "venue_city": "Grass Valley",
-      "count": 1,
-      "sample_event_id": "trumba-208477634",
-      "sample_title": "Tuba Skinny at The Center for the Arts",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "lucchesivineyards|",
-      "venue_name": "Lucchesi Vineyards",
-      "venue_city": "",
-      "count": 1,
-      "sample_event_id": "trumba-211630969",
-      "sample_title": "Stash Dash Extravaganza!",
-      "candidate_assets": [
-        {
-          "asset_idx": 549,
-          "asset_name": "Lucchesi Vineyards & Winery",
-          "asset_city": "Grass Valley",
-          "asset_category": "Performance Spaces",
-          "score": 29
-        },
-        {
-          "asset_idx": 293,
-          "asset_name": "Lucchesi Vineyards Tasting Room",
-          "asset_city": "Grass Valley",
-          "asset_category": "Galleries & Museums",
-          "score": 29
-        },
-        {
-          "asset_idx": 42,
-          "asset_name": "Lucchesi Vineyards Tasting Room",
-          "asset_city": "Grass Valley",
-          "asset_category": "Eat, Drink & Stay",
-          "score": 29
-        }
-      ]
-    },
-    {
       "venue_key": "seventhdayadventistchurch|",
       "venue_name": "Seventh-day Adventist Church",
       "venue_city": "",
@@ -422,6 +431,15 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "theoctabarn|nevadacity",
+      "venue_name": "The Octabarn",
+      "venue_city": "Nevada City",
+      "count": 1,
+      "sample_event_id": "trumba-207629615",
+      "sample_title": "Improverse: Improv for the Senses Class",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "goldenempiregrange|",
       "venue_name": "Golden Empire Grange",
       "venue_city": "",
@@ -451,15 +469,6 @@
           "score": 16
         }
       ]
-    },
-    {
-      "venue_key": "gracelutheranchurch|grassvalley",
-      "venue_name": "Grace Lutheran Church",
-      "venue_city": "Grass Valley",
-      "count": 1,
-      "sample_event_id": "trumba-212272269",
-      "sample_title": "Light & Joy: Free Holiday Concert -- Grass Valley Male Voice Choir",
-      "candidate_assets": []
     },
     {
       "venue_key": "northwoodsclubhouse|",
@@ -517,6 +526,24 @@
           "score": 18
         }
       ]
+    },
+    {
+      "venue_key": "darkhosecoffee|truckee",
+      "venue_name": "Dark Hose Coffee",
+      "venue_city": "Truckee",
+      "count": 1,
+      "sample_event_id": "trumba-116325482",
+      "sample_title": "Word Jam",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "sunday|grassvalley",
+      "venue_name": "Sunday",
+      "venue_city": "Grass Valley",
+      "count": 1,
+      "sample_event_id": "trumba-213278407",
+      "sample_title": "Happy Holidays Concerts",
+      "candidate_assets": []
     }
   ],
   "category_coverage": {
