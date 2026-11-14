@@ -1,19 +1,28 @@
 {
-  "generated_at": "2026-11-13T15:05:42.949085+00:00",
+  "generated_at": "2026-11-14T13:56:54.171392+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
     "total_events": 261,
-    "matched_events": 123,
-    "unmatched_events": 138,
+    "matched_events": 121,
+    "unmatched_events": 140,
     "matched_by_pid": 0,
     "matched_by_alias": 6,
     "matched_by_name_city": 20,
-    "matched_by_name_city_fuzzy": 97,
+    "matched_by_name_city_fuzzy": 95,
     "upcoming_14d": 108
   },
   "unmatched_venues": [
+    {
+      "venue_key": "monday|nevadacity",
+      "venue_name": "Monday",
+      "venue_city": "Nevada City",
+      "count": 13,
+      "sample_event_id": "trumba-208494254",
+      "sample_title": "175 | Land, People, Culture",
+      "candidate_assets": []
+    },
     {
       "venue_key": "saturday|nevadacity",
       "venue_name": "Saturday",
@@ -42,15 +51,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "monday|nevadacity",
-      "venue_name": "Monday",
-      "venue_city": "Nevada City",
-      "count": 9,
-      "sample_event_id": "trumba-208494254",
-      "sample_title": "175 | Land, People, Culture",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "saturday|grassvalley",
       "venue_name": "Saturday",
       "venue_city": "Grass Valley",
@@ -66,15 +66,6 @@
       "count": 7,
       "sample_event_id": "libcal-LibCal-20247-16035875-20260316",
       "sample_title": "Ukulele for the People",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "friday|grassvalley",
-      "venue_name": "Friday",
-      "venue_city": "Grass Valley",
-      "count": 6,
-      "sample_event_id": "trumba-213040723",
-      "sample_title": "ASiF's 18th Annual Smallworks Holiday Show Opening Reception",
       "candidate_assets": []
     },
     {
@@ -169,6 +160,15 @@
       "count": 4,
       "sample_event_id": "trumba-208494257",
       "sample_title": "175 | Land, People, Culture",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "friday|grassvalley",
+      "venue_name": "Friday",
+      "venue_city": "Grass Valley",
+      "count": 4,
+      "sample_event_id": "trumba-213040726",
+      "sample_title": "ASiF's 18th Annual Smallworks Holiday Show Opening Reception",
       "candidate_assets": []
     },
     {
