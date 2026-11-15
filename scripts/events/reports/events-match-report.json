@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-11-14T13:56:54.171392+00:00",
+  "generated_at": "2026-11-15T14:30:38.571843+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 261,
-    "matched_events": 121,
-    "unmatched_events": 140,
+    "total_events": 258,
+    "matched_events": 120,
+    "unmatched_events": 138,
     "matched_by_pid": 0,
     "matched_by_alias": 6,
     "matched_by_name_city": 20,
-    "matched_by_name_city_fuzzy": 95,
-    "upcoming_14d": 108
+    "matched_by_name_city_fuzzy": 94,
+    "upcoming_14d": 105
   },
   "unmatched_venues": [
     {
@@ -21,15 +21,6 @@
       "count": 13,
       "sample_event_id": "trumba-208494254",
       "sample_title": "175 | Land, People, Culture",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "saturday|nevadacity",
-      "venue_name": "Saturday",
-      "venue_city": "Nevada City",
-      "count": 10,
-      "sample_event_id": "trumba-210694069",
-      "sample_title": "Tuesday Morning Ceramics – Hand-Building Techniques",
       "candidate_assets": []
     },
     {
@@ -51,12 +42,12 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "saturday|grassvalley",
-      "venue_name": "Saturday",
-      "venue_city": "Grass Valley",
+      "venue_key": "tuesday|nevadacity",
+      "venue_name": "Tuesday",
+      "venue_city": "Nevada City",
       "count": 8,
-      "sample_event_id": "trumba-213040724",
-      "sample_title": "ASiF's 18th Annual Smallworks Holiday Show Opening Reception",
+      "sample_event_id": "trumba-208494255",
+      "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
     },
     {
@@ -69,44 +60,22 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "tuesday|nevadacity",
-      "venue_name": "Tuesday",
+      "venue_key": "saturday|nevadacity",
+      "venue_name": "Saturday",
       "venue_city": "Nevada City",
-      "count": 6,
-      "sample_event_id": "trumba-208494255",
-      "sample_title": "175 | Land, People, Culture",
+      "count": 7,
+      "sample_event_id": "trumba-211830583",
+      "sample_title": "Conservation Awards & Gratitude Breakfast",
       "candidate_assets": []
     },
     {
-      "venue_key": "mcknightcrossingshoppingcenter|",
-      "venue_name": "McKnight crossing shopping center",
-      "venue_city": "",
-      "count": 5,
-      "sample_event_id": "trumba-191631943",
-      "sample_title": "Cars and coffee grass valley",
-      "candidate_assets": [
-        {
-          "asset_idx": 455,
-          "asset_name": "Pine Street Crossing at Nevada City",
-          "asset_city": "",
-          "asset_category": "Historic Landmarks",
-          "score": 18
-        },
-        {
-          "asset_idx": 459,
-          "asset_name": "Purdon Crossing Bridge",
-          "asset_city": "",
-          "asset_category": "Historic Landmarks",
-          "score": 18
-        },
-        {
-          "asset_idx": 469,
-          "asset_name": "Edwards Crossing Bridge",
-          "asset_city": "",
-          "asset_category": "Historic Landmarks",
-          "score": 18
-        }
-      ]
+      "venue_key": "saturday|grassvalley",
+      "venue_name": "Saturday",
+      "venue_city": "Grass Valley",
+      "count": 7,
+      "sample_event_id": "trumba-213040727",
+      "sample_title": "ASiF's 18th Annual Smallworks Holiday Show Opening Reception",
+      "candidate_assets": []
     },
     {
       "venue_key": "thursday|grassvalley",
@@ -172,6 +141,37 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "mcknightcrossingshoppingcenter|",
+      "venue_name": "McKnight crossing shopping center",
+      "venue_city": "",
+      "count": 4,
+      "sample_event_id": "trumba-191631944",
+      "sample_title": "Cars and coffee grass valley",
+      "candidate_assets": [
+        {
+          "asset_idx": 455,
+          "asset_name": "Pine Street Crossing at Nevada City",
+          "asset_city": "",
+          "asset_category": "Historic Landmarks",
+          "score": 18
+        },
+        {
+          "asset_idx": 459,
+          "asset_name": "Purdon Crossing Bridge",
+          "asset_city": "",
+          "asset_category": "Historic Landmarks",
+          "score": 18
+        },
+        {
+          "asset_idx": 469,
+          "asset_name": "Edwards Crossing Bridge",
+          "asset_city": "",
+          "asset_category": "Historic Landmarks",
+          "score": 18
+        }
+      ]
+    },
+    {
       "venue_key": "friday|",
       "venue_name": "Friday",
       "venue_city": "",
@@ -234,43 +234,21 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "lucchesivineyards|",
-      "venue_name": "Lucchesi Vineyards",
-      "venue_city": "",
-      "count": 2,
-      "sample_event_id": "trumba-211630969",
-      "sample_title": "Stash Dash Extravaganza!",
-      "candidate_assets": [
-        {
-          "asset_idx": 549,
-          "asset_name": "Lucchesi Vineyards & Winery",
-          "asset_city": "Grass Valley",
-          "asset_category": "Performance Spaces",
-          "score": 29
-        },
-        {
-          "asset_idx": 293,
-          "asset_name": "Lucchesi Vineyards Tasting Room",
-          "asset_city": "Grass Valley",
-          "asset_category": "Galleries & Museums",
-          "score": 29
-        },
-        {
-          "asset_idx": 42,
-          "asset_name": "Lucchesi Vineyards Tasting Room",
-          "asset_city": "Grass Valley",
-          "asset_category": "Eat, Drink & Stay",
-          "score": 29
-        }
-      ]
-    },
-    {
       "venue_key": "sunday|",
       "venue_name": "Sunday",
       "venue_city": "",
       "count": 2,
       "sample_event_id": "trumba-213284772",
       "sample_title": "Jazz - From Bach To Brubeck to The Beatles",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "oddfellowshall|",
+      "venue_name": "Odd Fellows Hall",
+      "venue_city": "",
+      "count": 2,
+      "sample_event_id": "trumba-191712439",
+      "sample_title": "Spring Street Swing Out",
       "candidate_assets": []
     },
     {
@@ -404,15 +382,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "oddfellowshall|",
-      "venue_name": "Odd Fellows Hall",
-      "venue_city": "",
-      "count": 1,
-      "sample_event_id": "trumba-191712439",
-      "sample_title": "Spring Street Swing Out",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "tuesday|grassvalley",
       "venue_name": "Tuesday",
       "venue_city": "Grass Valley",
@@ -528,6 +497,37 @@
       ]
     },
     {
+      "venue_key": "lucchesivineyards|",
+      "venue_name": "Lucchesi Vineyards",
+      "venue_city": "",
+      "count": 1,
+      "sample_event_id": "trumba-213299388",
+      "sample_title": "Make a Fresh and Festive Holiday Wreath",
+      "candidate_assets": [
+        {
+          "asset_idx": 549,
+          "asset_name": "Lucchesi Vineyards & Winery",
+          "asset_city": "Grass Valley",
+          "asset_category": "Performance Spaces",
+          "score": 29
+        },
+        {
+          "asset_idx": 293,
+          "asset_name": "Lucchesi Vineyards Tasting Room",
+          "asset_city": "Grass Valley",
+          "asset_category": "Galleries & Museums",
+          "score": 29
+        },
+        {
+          "asset_idx": 42,
+          "asset_name": "Lucchesi Vineyards Tasting Room",
+          "asset_city": "Grass Valley",
+          "asset_category": "Eat, Drink & Stay",
+          "score": 29
+        }
+      ]
+    },
+    {
       "venue_key": "darkhosecoffee|truckee",
       "venue_name": "Dark Hose Coffee",
       "venue_city": "Truckee",
@@ -543,6 +543,15 @@
       "count": 1,
       "sample_event_id": "trumba-213278407",
       "sample_title": "Happy Holidays Concerts",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "tuesday|",
+      "venue_name": "Tuesday",
+      "venue_city": "",
+      "count": 1,
+      "sample_event_id": "trumba-213116143",
+      "sample_title": "Glassblowing Experience 30-minute Taster Sessions – Make a Holiday Ornament",
       "candidate_assets": []
     }
   ],
