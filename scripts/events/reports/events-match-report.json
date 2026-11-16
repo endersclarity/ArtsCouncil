@@ -1,26 +1,26 @@
 {
-  "generated_at": "2026-11-15T14:30:38.571843+00:00",
+  "generated_at": "2026-11-16T16:45:07.115845+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 258,
+    "total_events": 255,
     "matched_events": 120,
-    "unmatched_events": 138,
+    "unmatched_events": 135,
     "matched_by_pid": 0,
     "matched_by_alias": 6,
     "matched_by_name_city": 20,
     "matched_by_name_city_fuzzy": 94,
-    "upcoming_14d": 105
+    "upcoming_14d": 102
   },
   "unmatched_venues": [
     {
       "venue_key": "monday|nevadacity",
       "venue_name": "Monday",
       "venue_city": "Nevada City",
-      "count": 13,
-      "sample_event_id": "trumba-208494254",
-      "sample_title": "175 | Land, People, Culture",
+      "count": 12,
+      "sample_event_id": "trumba-212426220",
+      "sample_title": "MIG Welding for Beginners and Artists Workshop",
       "candidate_assets": []
     },
     {
@@ -30,15 +30,6 @@
       "count": 9,
       "sample_event_id": "gvda-197068116",
       "sample_title": "Reluctant Reformers: Mary Hallock Foote and Julia Morgan in the Progressive Era by Mary-Jo Wainwright",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "sunday|nevadacity",
-      "venue_name": "Sunday",
-      "venue_city": "Nevada City",
-      "count": 9,
-      "sample_event_id": "trumba-206314627",
-      "sample_title": "Hand-Carved Wooden Utensils--make a spoon",
       "candidate_assets": []
     },
     {
@@ -78,12 +69,39 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "wednesday|nevadacity",
+      "venue_name": "Wednesday",
+      "venue_city": "Nevada City",
+      "count": 6,
+      "sample_event_id": "trumba-208494256",
+      "sample_title": "175 | Land, People, Culture",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "thursday|nevadacity",
+      "venue_name": "Thursday",
+      "venue_city": "Nevada City",
+      "count": 5,
+      "sample_event_id": "trumba-208494257",
+      "sample_title": "175 | Land, People, Culture",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "thursday|grassvalley",
       "venue_name": "Thursday",
       "venue_city": "Grass Valley",
       "count": 5,
       "sample_event_id": "trumba-213040725",
       "sample_title": "ASiF's 18th Annual Smallworks Holiday Show Opening Reception",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "sunday|nevadacity",
+      "venue_name": "Sunday",
+      "venue_city": "Nevada City",
+      "count": 5,
+      "sample_event_id": "trumba-212044819",
+      "sample_title": "Woodturning Adventures – Create a Stunning Wooden Vase or Candlestick Holder",
       "candidate_assets": []
     },
     {
@@ -111,24 +129,6 @@
       "count": 4,
       "sample_event_id": "gvda-173596655",
       "sample_title": "STEAM Exploration Saturdays",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "wednesday|nevadacity",
-      "venue_name": "Wednesday",
-      "venue_city": "Nevada City",
-      "count": 4,
-      "sample_event_id": "trumba-208494256",
-      "sample_title": "175 | Land, People, Culture",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "thursday|nevadacity",
-      "venue_name": "Thursday",
-      "venue_city": "Nevada City",
-      "count": 4,
-      "sample_event_id": "trumba-208494257",
-      "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
     },
     {
@@ -198,6 +198,15 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "membershomes|",
+      "venue_name": "Members homes",
+      "venue_city": "",
+      "count": 3,
+      "sample_event_id": "trumba-183038868",
+      "sample_title": "Playwriting Group",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "nativewren|grassvalley",
       "venue_name": "Native Wren",
       "venue_city": "Grass Valley",
@@ -234,30 +243,12 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "sunday|",
-      "venue_name": "Sunday",
-      "venue_city": "",
-      "count": 2,
-      "sample_event_id": "trumba-213284772",
-      "sample_title": "Jazz - From Bach To Brubeck to The Beatles",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "oddfellowshall|",
       "venue_name": "Odd Fellows Hall",
       "venue_city": "",
       "count": 2,
       "sample_event_id": "trumba-191712439",
       "sample_title": "Spring Street Swing Out",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "membershomes|",
-      "venue_name": "Members homes",
-      "venue_city": "",
-      "count": 2,
-      "sample_event_id": "trumba-183038868",
-      "sample_title": "Playwriting Group",
       "candidate_assets": []
     },
     {
@@ -340,37 +331,6 @@
       "sample_event_id": "gvda-183038851",
       "sample_title": "Playwriting Group",
       "candidate_assets": []
-    },
-    {
-      "venue_key": "seventhdayadventistchurch|",
-      "venue_name": "Seventh-day Adventist Church",
-      "venue_city": "",
-      "count": 1,
-      "sample_event_id": "trumba-205229336",
-      "sample_title": "Valencia Baryton Project presented by InConcert Sierra",
-      "candidate_assets": [
-        {
-          "asset_idx": 349,
-          "asset_name": "Saint Paul Lutheran Church Site",
-          "asset_city": "",
-          "asset_category": "Historic Landmarks",
-          "score": 16
-        },
-        {
-          "asset_idx": 373,
-          "asset_name": "Emmanuel Episcopal Church",
-          "asset_city": "",
-          "asset_category": "Historic Landmarks",
-          "score": 16
-        },
-        {
-          "asset_idx": 407,
-          "asset_name": "Saint Canice Catholic Church",
-          "asset_city": "",
-          "asset_category": "Historic Landmarks",
-          "score": 16
-        }
-      ]
     },
     {
       "venue_key": "monday|grassvalley",
@@ -526,6 +486,15 @@
           "score": 29
         }
       ]
+    },
+    {
+      "venue_key": "sunday|",
+      "venue_name": "Sunday",
+      "venue_city": "",
+      "count": 1,
+      "sample_event_id": "trumba-213116141",
+      "sample_title": "Glassblowing Experience 30-minute Taster Sessions – Make a Holiday Ornament",
+      "candidate_assets": []
     },
     {
       "venue_key": "darkhosecoffee|truckee",
