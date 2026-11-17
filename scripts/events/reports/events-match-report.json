@@ -1,26 +1,35 @@
 {
-  "generated_at": "2026-11-16T16:45:07.115845+00:00",
+  "generated_at": "2026-11-17T16:40:33.723617+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 255,
-    "matched_events": 120,
-    "unmatched_events": 135,
+    "total_events": 265,
+    "matched_events": 124,
+    "unmatched_events": 141,
     "matched_by_pid": 0,
-    "matched_by_alias": 6,
+    "matched_by_alias": 7,
     "matched_by_name_city": 20,
-    "matched_by_name_city_fuzzy": 94,
-    "upcoming_14d": 102
+    "matched_by_name_city_fuzzy": 97,
+    "upcoming_14d": 112
   },
   "unmatched_venues": [
+    {
+      "venue_key": "saturday|nevadacity",
+      "venue_name": "Saturday",
+      "venue_city": "Nevada City",
+      "count": 11,
+      "sample_event_id": "trumba-211830583",
+      "sample_title": "Conservation Awards & Gratitude Breakfast",
+      "candidate_assets": []
+    },
     {
       "venue_key": "monday|nevadacity",
       "venue_name": "Monday",
       "venue_city": "Nevada City",
-      "count": 12,
-      "sample_event_id": "trumba-212426220",
-      "sample_title": "MIG Welding for Beginners and Artists Workshop",
+      "count": 10,
+      "sample_event_id": "trumba-208494259",
+      "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
     },
     {
@@ -33,15 +42,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "tuesday|nevadacity",
-      "venue_name": "Tuesday",
-      "venue_city": "Nevada City",
-      "count": 8,
-      "sample_event_id": "trumba-208494255",
-      "sample_title": "175 | Land, People, Culture",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "ctcclassroom|nevadacity",
       "venue_name": "CTC Classroom",
       "venue_city": "Nevada City",
@@ -51,12 +51,12 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "saturday|nevadacity",
-      "venue_name": "Saturday",
+      "venue_key": "tuesday|nevadacity",
+      "venue_name": "Tuesday",
       "venue_city": "Nevada City",
       "count": 7,
-      "sample_event_id": "trumba-211830583",
-      "sample_title": "Conservation Awards & Gratitude Breakfast",
+      "sample_event_id": "trumba-195673558",
+      "sample_title": "African Drum and Dance of Nevada County",
       "candidate_assets": []
     },
     {
@@ -78,21 +78,21 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "thursday|grassvalley",
+      "venue_name": "Thursday",
+      "venue_city": "Grass Valley",
+      "count": 6,
+      "sample_event_id": "trumba-213040725",
+      "sample_title": "ASiF's 18th Annual Smallworks Holiday Show Opening Reception",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "thursday|nevadacity",
       "venue_name": "Thursday",
       "venue_city": "Nevada City",
       "count": 5,
       "sample_event_id": "trumba-208494257",
       "sample_title": "175 | Land, People, Culture",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "thursday|grassvalley",
-      "venue_name": "Thursday",
-      "venue_city": "Grass Valley",
-      "count": 5,
-      "sample_event_id": "trumba-213040725",
-      "sample_title": "ASiF's 18th Annual Smallworks Holiday Show Opening Reception",
       "candidate_assets": []
     },
     {
@@ -216,6 +216,37 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "easttruckeeglenshireneighborhoodmapinlink|",
+      "venue_name": "East Truckee - Glenshire Neighborhood (map in link)",
+      "venue_city": "",
+      "count": 3,
+      "sample_event_id": "trumba-213709158",
+      "sample_title": "Glenshire Holiday Open Studio Tour",
+      "candidate_assets": [
+        {
+          "asset_idx": 117,
+          "asset_name": "Neighborhood Center of the Arts",
+          "asset_city": "Grass Valley",
+          "asset_category": "Arts Organizations",
+          "score": 22
+        },
+        {
+          "asset_idx": 541,
+          "asset_name": "Art Truckee",
+          "asset_city": "Truckee",
+          "asset_category": "Performance Spaces",
+          "score": 17
+        },
+        {
+          "asset_idx": 560,
+          "asset_name": "Salty Gebhardt Amphitheater -Truckee River Park",
+          "asset_city": "Truckee",
+          "asset_category": "Performance Spaces",
+          "score": 17
+        }
+      ]
+    },
+    {
       "venue_key": "meetingroom|pennvalley",
       "venue_name": "Meeting Room",
       "venue_city": "Penn Valley",
@@ -333,15 +364,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "monday|grassvalley",
-      "venue_name": "Monday",
-      "venue_city": "Grass Valley",
-      "count": 1,
-      "sample_event_id": "trumba-206663287",
-      "sample_title": "Fall 2026 Youth Classes at The Center for the Arts",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "tuesday|grassvalley",
       "venue_name": "Tuesday",
       "venue_city": "Grass Valley",
@@ -366,6 +388,15 @@
       "count": 1,
       "sample_event_id": "trumba-207629615",
       "sample_title": "Improverse: Improv for the Senses Class",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "friday|formerlylocatedinsanfrancisco",
+      "venue_name": "Friday",
+      "venue_city": "formerly located in San Francisco",
+      "count": 1,
+      "sample_event_id": "trumba-213766008",
+      "sample_title": "Artist Reception - Martha Jones",
       "candidate_assets": []
     },
     {
@@ -396,6 +427,37 @@
           "asset_city": "Grass Valley",
           "asset_category": "Preservation & Culture",
           "score": 16
+        }
+      ]
+    },
+    {
+      "venue_key": "neighborhoodcenteroftheartslocatedinthelittonbuilding|",
+      "venue_name": "Neighborhood Center of the Arts- Located in the Litton Building",
+      "venue_city": "",
+      "count": 1,
+      "sample_event_id": "trumba-213771827",
+      "sample_title": "Holiday Show and Sale",
+      "candidate_assets": [
+        {
+          "asset_idx": 117,
+          "asset_name": "Neighborhood Center of the Arts",
+          "asset_city": "Grass Valley",
+          "asset_category": "Arts Organizations",
+          "score": 32
+        },
+        {
+          "asset_idx": 656,
+          "asset_name": "Litton Trail",
+          "asset_city": "Nevada City",
+          "asset_category": "Walks & Trails",
+          "score": 16
+        },
+        {
+          "asset_idx": 542,
+          "asset_name": "Center for the Arts",
+          "asset_city": "Grass Valley",
+          "asset_category": "Performance Spaces",
+          "score": 14
         }
       ]
     },
