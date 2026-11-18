@@ -1,16 +1,16 @@
 {
-  "generated_at": "2026-11-17T16:40:33.723617+00:00",
+  "generated_at": "2026-11-18T16:10:15.746833+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
     "total_events": 265,
-    "matched_events": 124,
-    "unmatched_events": 141,
+    "matched_events": 125,
+    "unmatched_events": 140,
     "matched_by_pid": 0,
     "matched_by_alias": 7,
     "matched_by_name_city": 20,
-    "matched_by_name_city_fuzzy": 97,
+    "matched_by_name_city_fuzzy": 98,
     "upcoming_14d": 112
   },
   "unmatched_venues": [
@@ -51,30 +51,12 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "tuesday|nevadacity",
-      "venue_name": "Tuesday",
-      "venue_city": "Nevada City",
-      "count": 7,
-      "sample_event_id": "trumba-195673558",
-      "sample_title": "African Drum and Dance of Nevada County",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "saturday|grassvalley",
       "venue_name": "Saturday",
       "venue_city": "Grass Valley",
       "count": 7,
       "sample_event_id": "trumba-213040727",
       "sample_title": "ASiF's 18th Annual Smallworks Holiday Show Opening Reception",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "wednesday|nevadacity",
-      "venue_name": "Wednesday",
-      "venue_city": "Nevada City",
-      "count": 6,
-      "sample_event_id": "trumba-208494256",
-      "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
     },
     {
@@ -87,6 +69,15 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "tuesday|nevadacity",
+      "venue_name": "Tuesday",
+      "venue_city": "Nevada City",
+      "count": 6,
+      "sample_event_id": "trumba-208494260",
+      "sample_title": "175 | Land, People, Culture",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "thursday|nevadacity",
       "venue_name": "Thursday",
       "venue_city": "Nevada City",
@@ -96,46 +87,10 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "sunday|nevadacity",
-      "venue_name": "Sunday",
-      "venue_city": "Nevada City",
-      "count": 5,
-      "sample_event_id": "trumba-212044819",
-      "sample_title": "Woodturning Adventures – Create a Stunning Wooden Vase or Candlestick Holder",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "axisgallery|nevadacounty",
-      "venue_name": "Axis Gallery",
-      "venue_city": "Nevada County",
-      "count": 4,
-      "sample_event_id": "kvmr-348660-1772884800-1772902800-20260307",
-      "sample_title": "\"The Winters Where Catfish Sings\": Exhibition by Sokthea Chan at Axis Gallery",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "studynook|grassvalley",
-      "venue_name": "Study Nook",
-      "venue_city": "Grass Valley",
-      "count": 4,
-      "sample_event_id": "libcal-LibCal-20247-15952664-20260317",
-      "sample_title": "English Language Class",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "unknownvenue|truckee",
-      "venue_name": "Unknown venue",
-      "venue_city": "Truckee",
-      "count": 4,
-      "sample_event_id": "gvda-173596655",
-      "sample_title": "STEAM Exploration Saturdays",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "friday|grassvalley",
       "venue_name": "Friday",
       "venue_city": "Grass Valley",
-      "count": 4,
+      "count": 5,
       "sample_event_id": "trumba-213040726",
       "sample_title": "ASiF's 18th Annual Smallworks Holiday Show Opening Reception",
       "candidate_assets": []
@@ -144,7 +99,7 @@
       "venue_key": "mcknightcrossingshoppingcenter|",
       "venue_name": "McKnight crossing shopping center",
       "venue_city": "",
-      "count": 4,
+      "count": 5,
       "sample_event_id": "trumba-191631944",
       "sample_title": "Cars and coffee grass valley",
       "candidate_assets": [
@@ -172,10 +127,28 @@
       ]
     },
     {
+      "venue_key": "sunday|nevadacity",
+      "venue_name": "Sunday",
+      "venue_city": "Nevada City",
+      "count": 5,
+      "sample_event_id": "trumba-212044819",
+      "sample_title": "Woodturning Adventures – Create a Stunning Wooden Vase or Candlestick Holder",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "wednesday|nevadacity",
+      "venue_name": "Wednesday",
+      "venue_city": "Nevada City",
+      "count": 5,
+      "sample_event_id": "trumba-208494261",
+      "sample_title": "175 | Land, People, Culture",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "friday|",
       "venue_name": "Friday",
       "venue_city": "",
-      "count": 4,
+      "count": 5,
       "sample_event_id": "trumba-195220568",
       "sample_title": "58th Annual Cornish Christmas",
       "candidate_assets": [
@@ -187,6 +160,33 @@
           "score": 16
         }
       ]
+    },
+    {
+      "venue_key": "axisgallery|nevadacounty",
+      "venue_name": "Axis Gallery",
+      "venue_city": "Nevada County",
+      "count": 4,
+      "sample_event_id": "kvmr-348660-1772884800-1772902800-20260307",
+      "sample_title": "\"The Winters Where Catfish Sings\": Exhibition by Sokthea Chan at Axis Gallery",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "studynook|grassvalley",
+      "venue_name": "Study Nook",
+      "venue_city": "Grass Valley",
+      "count": 4,
+      "sample_event_id": "libcal-LibCal-20247-15952664-20260317",
+      "sample_title": "English Language Class",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "unknownvenue|truckee",
+      "venue_name": "Unknown venue",
+      "venue_city": "Truckee",
+      "count": 4,
+      "sample_event_id": "gvda-173596655",
+      "sample_title": "STEAM Exploration Saturdays",
+      "candidate_assets": []
     },
     {
       "venue_key": "unknownvenue|nevadacity",
@@ -274,15 +274,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "oddfellowshall|",
-      "venue_name": "Odd Fellows Hall",
-      "venue_city": "",
-      "count": 2,
-      "sample_event_id": "trumba-191712439",
-      "sample_title": "Spring Street Swing Out",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "gracelutheranchurch|grassvalley",
       "venue_name": "Grace Lutheran Church",
       "venue_city": "Grass Valley",
@@ -361,15 +352,6 @@
       "count": 1,
       "sample_event_id": "gvda-183038851",
       "sample_title": "Playwriting Group",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "tuesday|grassvalley",
-      "venue_name": "Tuesday",
-      "venue_city": "Grass Valley",
-      "count": 1,
-      "sample_event_id": "trumba-208953401",
-      "sample_title": "Joanne Shaw Taylor at The Center for the Arts",
       "candidate_assets": []
     },
     {
@@ -583,6 +565,15 @@
       "count": 1,
       "sample_event_id": "trumba-213116143",
       "sample_title": "Glassblowing Experience 30-minute Taster Sessions – Make a Holiday Ornament",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "oddfellowshall|",
+      "venue_name": "Odd Fellows Hall",
+      "venue_city": "",
+      "count": 1,
+      "sample_event_id": "trumba-191712440",
+      "sample_title": "Spring Street Swing Out",
       "candidate_assets": []
     }
   ],
