@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-11-18T16:10:15.746833+00:00",
+  "generated_at": "2026-11-19T16:17:46.853940+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
@@ -18,7 +18,7 @@
       "venue_key": "saturday|nevadacity",
       "venue_name": "Saturday",
       "venue_city": "Nevada City",
-      "count": 11,
+      "count": 12,
       "sample_event_id": "trumba-211830583",
       "sample_title": "Conservation Awards & Gratitude Breakfast",
       "candidate_assets": []
@@ -42,21 +42,21 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "saturday|grassvalley",
+      "venue_name": "Saturday",
+      "venue_city": "Grass Valley",
+      "count": 8,
+      "sample_event_id": "trumba-213040727",
+      "sample_title": "ASiF's 18th Annual Smallworks Holiday Show Opening Reception",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "ctcclassroom|nevadacity",
       "venue_name": "CTC Classroom",
       "venue_city": "Nevada City",
       "count": 7,
       "sample_event_id": "libcal-LibCal-20247-16035875-20260316",
       "sample_title": "Ukulele for the People",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "saturday|grassvalley",
-      "venue_name": "Saturday",
-      "venue_city": "Grass Valley",
-      "count": 7,
-      "sample_event_id": "trumba-213040727",
-      "sample_title": "ASiF's 18th Annual Smallworks Holiday Show Opening Reception",
       "candidate_assets": []
     },
     {
@@ -74,15 +74,6 @@
       "venue_city": "Nevada City",
       "count": 6,
       "sample_event_id": "trumba-208494260",
-      "sample_title": "175 | Land, People, Culture",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "thursday|nevadacity",
-      "venue_name": "Thursday",
-      "venue_city": "Nevada City",
-      "count": 5,
-      "sample_event_id": "trumba-208494257",
       "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
     },
@@ -189,21 +180,21 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "thursday|nevadacity",
+      "venue_name": "Thursday",
+      "venue_city": "Nevada City",
+      "count": 4,
+      "sample_event_id": "trumba-208494262",
+      "sample_title": "175 | Land, People, Culture",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "unknownvenue|nevadacity",
       "venue_name": "Unknown venue",
       "venue_city": "Nevada City",
       "count": 3,
       "sample_event_id": "gvda-198326438",
       "sample_title": "Fogelberg Revisited &#8211; A Tribute to Dan Fogelberg",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "membershomes|",
-      "venue_name": "Members homes",
-      "venue_city": "",
-      "count": 3,
-      "sample_event_id": "trumba-183038868",
-      "sample_title": "Playwriting Group",
       "candidate_assets": []
     },
     {
@@ -283,6 +274,15 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "membershomes|",
+      "venue_name": "Members homes",
+      "venue_city": "",
+      "count": 2,
+      "sample_event_id": "trumba-183038869",
+      "sample_title": "Playwriting Group",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "suttercreektheatre|nevadacounty",
       "venue_name": "Sutter Creek Theatre",
       "venue_city": "Nevada County",
@@ -352,15 +352,6 @@
       "count": 1,
       "sample_event_id": "gvda-183038851",
       "sample_title": "Playwriting Group",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "wednesday|grassvalley",
-      "venue_name": "Wednesday",
-      "venue_city": "Grass Valley",
-      "count": 1,
-      "sample_event_id": "trumba-209159657",
-      "sample_title": "HUG w/ Devendra Banhart, Noah Georgeson & Gyan Riley at The Center for the Arts",
       "candidate_assets": []
     },
     {
@@ -575,6 +566,37 @@
       "sample_event_id": "trumba-191712440",
       "sample_title": "Spring Street Swing Out",
       "candidate_assets": []
+    },
+    {
+      "venue_key": "seventhdayadventistchurch|",
+      "venue_name": "Seventh-day Adventist Church",
+      "venue_city": "",
+      "count": 1,
+      "sample_event_id": "trumba-205229869",
+      "sample_title": "Sierra Master Chorale and Orchestra presented by InConcert Sierra",
+      "candidate_assets": [
+        {
+          "asset_idx": 349,
+          "asset_name": "Saint Paul Lutheran Church Site",
+          "asset_city": "",
+          "asset_category": "Historic Landmarks",
+          "score": 16
+        },
+        {
+          "asset_idx": 373,
+          "asset_name": "Emmanuel Episcopal Church",
+          "asset_city": "",
+          "asset_category": "Historic Landmarks",
+          "score": 16
+        },
+        {
+          "asset_idx": 407,
+          "asset_name": "Saint Canice Catholic Church",
+          "asset_city": "",
+          "asset_category": "Historic Landmarks",
+          "score": 16
+        }
+      ]
     }
   ],
   "category_coverage": {
