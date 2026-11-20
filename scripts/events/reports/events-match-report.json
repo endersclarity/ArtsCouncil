@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-11-19T16:17:46.853940+00:00",
+  "generated_at": "2026-11-20T15:54:53.758619+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 265,
-    "matched_events": 125,
+    "total_events": 264,
+    "matched_events": 124,
     "unmatched_events": 140,
     "matched_by_pid": 0,
-    "matched_by_alias": 7,
+    "matched_by_alias": 6,
     "matched_by_name_city": 20,
     "matched_by_name_city_fuzzy": 98,
-    "upcoming_14d": 112
+    "upcoming_14d": 111
   },
   "unmatched_venues": [
     {
@@ -60,12 +60,12 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "thursday|grassvalley",
-      "venue_name": "Thursday",
-      "venue_city": "Grass Valley",
+      "venue_key": "sunday|nevadacity",
+      "venue_name": "Sunday",
+      "venue_city": "Nevada City",
       "count": 6,
-      "sample_event_id": "trumba-213040725",
-      "sample_title": "ASiF's 18th Annual Smallworks Holiday Show Opening Reception",
+      "sample_event_id": "trumba-212044819",
+      "sample_title": "Woodturning Adventures – Create a Stunning Wooden Vase or Candlestick Holder",
       "candidate_assets": []
     },
     {
@@ -118,21 +118,21 @@
       ]
     },
     {
-      "venue_key": "sunday|nevadacity",
-      "venue_name": "Sunday",
-      "venue_city": "Nevada City",
-      "count": 5,
-      "sample_event_id": "trumba-212044819",
-      "sample_title": "Woodturning Adventures – Create a Stunning Wooden Vase or Candlestick Holder",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "wednesday|nevadacity",
       "venue_name": "Wednesday",
       "venue_city": "Nevada City",
       "count": 5,
       "sample_event_id": "trumba-208494261",
       "sample_title": "175 | Land, People, Culture",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "thursday|grassvalley",
+      "venue_name": "Thursday",
+      "venue_city": "Grass Valley",
+      "count": 5,
+      "sample_event_id": "trumba-213040728",
+      "sample_title": "ASiF's 18th Annual Smallworks Holiday Show Opening Reception",
       "candidate_assets": []
     },
     {
@@ -283,6 +283,37 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "seventhdayadventistchurch|",
+      "venue_name": "Seventh-day Adventist Church",
+      "venue_city": "",
+      "count": 2,
+      "sample_event_id": "trumba-205229869",
+      "sample_title": "Sierra Master Chorale and Orchestra presented by InConcert Sierra",
+      "candidate_assets": [
+        {
+          "asset_idx": 349,
+          "asset_name": "Saint Paul Lutheran Church Site",
+          "asset_city": "",
+          "asset_category": "Historic Landmarks",
+          "score": 16
+        },
+        {
+          "asset_idx": 373,
+          "asset_name": "Emmanuel Episcopal Church",
+          "asset_city": "",
+          "asset_category": "Historic Landmarks",
+          "score": 16
+        },
+        {
+          "asset_idx": 407,
+          "asset_name": "Saint Canice Catholic Church",
+          "asset_city": "",
+          "asset_category": "Historic Landmarks",
+          "score": 16
+        }
+      ]
+    },
+    {
       "venue_key": "suttercreektheatre|nevadacounty",
       "venue_name": "Sutter Creek Theatre",
       "venue_city": "Nevada County",
@@ -352,15 +383,6 @@
       "count": 1,
       "sample_event_id": "gvda-183038851",
       "sample_title": "Playwriting Group",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "theoctabarn|nevadacity",
-      "venue_name": "The Octabarn",
-      "venue_city": "Nevada City",
-      "count": 1,
-      "sample_event_id": "trumba-207629615",
-      "sample_title": "Improverse: Improv for the Senses Class",
       "candidate_assets": []
     },
     {
@@ -566,37 +588,6 @@
       "sample_event_id": "trumba-191712440",
       "sample_title": "Spring Street Swing Out",
       "candidate_assets": []
-    },
-    {
-      "venue_key": "seventhdayadventistchurch|",
-      "venue_name": "Seventh-day Adventist Church",
-      "venue_city": "",
-      "count": 1,
-      "sample_event_id": "trumba-205229869",
-      "sample_title": "Sierra Master Chorale and Orchestra presented by InConcert Sierra",
-      "candidate_assets": [
-        {
-          "asset_idx": 349,
-          "asset_name": "Saint Paul Lutheran Church Site",
-          "asset_city": "",
-          "asset_category": "Historic Landmarks",
-          "score": 16
-        },
-        {
-          "asset_idx": 373,
-          "asset_name": "Emmanuel Episcopal Church",
-          "asset_city": "",
-          "asset_category": "Historic Landmarks",
-          "score": 16
-        },
-        {
-          "asset_idx": 407,
-          "asset_name": "Saint Canice Catholic Church",
-          "asset_city": "",
-          "asset_category": "Historic Landmarks",
-          "score": 16
-        }
-      ]
     }
   ],
   "category_coverage": {
