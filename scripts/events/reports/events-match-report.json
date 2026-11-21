@@ -1,17 +1,17 @@
 {
-  "generated_at": "2026-11-20T15:54:53.758619+00:00",
+  "generated_at": "2026-11-21T15:05:30.352954+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 264,
+    "total_events": 265,
     "matched_events": 124,
-    "unmatched_events": 140,
+    "unmatched_events": 141,
     "matched_by_pid": 0,
     "matched_by_alias": 6,
-    "matched_by_name_city": 20,
-    "matched_by_name_city_fuzzy": 98,
-    "upcoming_14d": 111
+    "matched_by_name_city": 21,
+    "matched_by_name_city_fuzzy": 97,
+    "upcoming_14d": 112
   },
   "unmatched_venues": [
     {
@@ -27,7 +27,7 @@
       "venue_key": "monday|nevadacity",
       "venue_name": "Monday",
       "venue_city": "Nevada City",
-      "count": 10,
+      "count": 12,
       "sample_event_id": "trumba-208494259",
       "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
@@ -60,6 +60,15 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "tuesday|nevadacity",
+      "venue_name": "Tuesday",
+      "venue_city": "Nevada City",
+      "count": 7,
+      "sample_event_id": "trumba-208494260",
+      "sample_title": "175 | Land, People, Culture",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "sunday|nevadacity",
       "venue_name": "Sunday",
       "venue_city": "Nevada City",
@@ -67,55 +76,6 @@
       "sample_event_id": "trumba-212044819",
       "sample_title": "Woodturning Adventures – Create a Stunning Wooden Vase or Candlestick Holder",
       "candidate_assets": []
-    },
-    {
-      "venue_key": "tuesday|nevadacity",
-      "venue_name": "Tuesday",
-      "venue_city": "Nevada City",
-      "count": 6,
-      "sample_event_id": "trumba-208494260",
-      "sample_title": "175 | Land, People, Culture",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "friday|grassvalley",
-      "venue_name": "Friday",
-      "venue_city": "Grass Valley",
-      "count": 5,
-      "sample_event_id": "trumba-213040726",
-      "sample_title": "ASiF's 18th Annual Smallworks Holiday Show Opening Reception",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "mcknightcrossingshoppingcenter|",
-      "venue_name": "McKnight crossing shopping center",
-      "venue_city": "",
-      "count": 5,
-      "sample_event_id": "trumba-191631944",
-      "sample_title": "Cars and coffee grass valley",
-      "candidate_assets": [
-        {
-          "asset_idx": 455,
-          "asset_name": "Pine Street Crossing at Nevada City",
-          "asset_city": "",
-          "asset_category": "Historic Landmarks",
-          "score": 18
-        },
-        {
-          "asset_idx": 459,
-          "asset_name": "Purdon Crossing Bridge",
-          "asset_city": "",
-          "asset_category": "Historic Landmarks",
-          "score": 18
-        },
-        {
-          "asset_idx": 469,
-          "asset_name": "Edwards Crossing Bridge",
-          "asset_city": "",
-          "asset_category": "Historic Landmarks",
-          "score": 18
-        }
-      ]
     },
     {
       "venue_key": "wednesday|nevadacity",
@@ -189,21 +149,52 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "friday|grassvalley",
+      "venue_name": "Friday",
+      "venue_city": "Grass Valley",
+      "count": 4,
+      "sample_event_id": "trumba-213040729",
+      "sample_title": "ASiF's 18th Annual Smallworks Holiday Show Opening Reception",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "mcknightcrossingshoppingcenter|",
+      "venue_name": "McKnight crossing shopping center",
+      "venue_city": "",
+      "count": 4,
+      "sample_event_id": "trumba-191631945",
+      "sample_title": "Cars and coffee grass valley",
+      "candidate_assets": [
+        {
+          "asset_idx": 455,
+          "asset_name": "Pine Street Crossing at Nevada City",
+          "asset_city": "",
+          "asset_category": "Historic Landmarks",
+          "score": 18
+        },
+        {
+          "asset_idx": 459,
+          "asset_name": "Purdon Crossing Bridge",
+          "asset_city": "",
+          "asset_category": "Historic Landmarks",
+          "score": 18
+        },
+        {
+          "asset_idx": 469,
+          "asset_name": "Edwards Crossing Bridge",
+          "asset_city": "",
+          "asset_category": "Historic Landmarks",
+          "score": 18
+        }
+      ]
+    },
+    {
       "venue_key": "unknownvenue|nevadacity",
       "venue_name": "Unknown venue",
       "venue_city": "Nevada City",
       "count": 3,
       "sample_event_id": "gvda-198326438",
       "sample_title": "Fogelberg Revisited &#8211; A Tribute to Dan Fogelberg",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "nativewren|grassvalley",
-      "venue_name": "Native Wren",
-      "venue_city": "Grass Valley",
-      "count": 3,
-      "sample_event_id": "trumba-211897436",
-      "sample_title": "Local Artisan Showcase at Native Wren",
       "candidate_assets": []
     },
     {
@@ -265,6 +256,15 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "nativewren|grassvalley",
+      "venue_name": "Native Wren",
+      "venue_city": "Grass Valley",
+      "count": 2,
+      "sample_event_id": "trumba-211897437",
+      "sample_title": "Local Artisan Showcase at Native Wren",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "gracelutheranchurch|grassvalley",
       "venue_name": "Grace Lutheran Church",
       "venue_city": "Grass Valley",
@@ -281,6 +281,37 @@
       "sample_event_id": "trumba-183038869",
       "sample_title": "Playwriting Group",
       "candidate_assets": []
+    },
+    {
+      "venue_key": "nevadaunionhighschooldonbaggetttheater|",
+      "venue_name": "Nevada Union High School Don Baggett Theater",
+      "venue_city": "",
+      "count": 2,
+      "sample_event_id": "trumba-213769201",
+      "sample_title": "The Nutcracker",
+      "candidate_assets": [
+        {
+          "asset_idx": 192,
+          "asset_name": "Nevada Union High School",
+          "asset_city": "Grass Valley",
+          "asset_category": "Cultural Resources",
+          "score": 46
+        },
+        {
+          "asset_idx": 193,
+          "asset_name": "Nevada Union High School Library",
+          "asset_city": "Grass Valley",
+          "asset_category": "Cultural Resources",
+          "score": 46
+        },
+        {
+          "asset_idx": 600,
+          "asset_name": "Miner statue -- Nevada Union High School",
+          "asset_city": "Grass Valley",
+          "asset_category": "Public Art",
+          "score": 46
+        }
+      ]
     },
     {
       "venue_key": "seventhdayadventistchurch|",
@@ -383,15 +414,6 @@
       "count": 1,
       "sample_event_id": "gvda-183038851",
       "sample_title": "Playwriting Group",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "friday|formerlylocatedinsanfrancisco",
-      "venue_name": "Friday",
-      "venue_city": "formerly located in San Francisco",
-      "count": 1,
-      "sample_event_id": "trumba-213766008",
-      "sample_title": "Artist Reception - Martha Jones",
       "candidate_assets": []
     },
     {
