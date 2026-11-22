@@ -1,28 +1,19 @@
 {
-  "generated_at": "2026-11-21T15:05:30.352954+00:00",
+  "generated_at": "2026-11-22T15:02:50.241374+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 265,
-    "matched_events": 124,
-    "unmatched_events": 141,
+    "total_events": 259,
+    "matched_events": 123,
+    "unmatched_events": 136,
     "matched_by_pid": 0,
     "matched_by_alias": 6,
     "matched_by_name_city": 21,
-    "matched_by_name_city_fuzzy": 97,
-    "upcoming_14d": 112
+    "matched_by_name_city_fuzzy": 96,
+    "upcoming_14d": 106
   },
   "unmatched_venues": [
-    {
-      "venue_key": "saturday|nevadacity",
-      "venue_name": "Saturday",
-      "venue_city": "Nevada City",
-      "count": 12,
-      "sample_event_id": "trumba-211830583",
-      "sample_title": "Conservation Awards & Gratitude Breakfast",
-      "candidate_assets": []
-    },
     {
       "venue_key": "monday|nevadacity",
       "venue_name": "Monday",
@@ -42,12 +33,21 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "saturday|grassvalley",
+      "venue_key": "saturday|nevadacity",
       "venue_name": "Saturday",
-      "venue_city": "Grass Valley",
+      "venue_city": "Nevada City",
+      "count": 9,
+      "sample_event_id": "trumba-213553253",
+      "sample_title": "LeGacy Presents \"Divas of Rock and Pop\"",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "tuesday|nevadacity",
+      "venue_name": "Tuesday",
+      "venue_city": "Nevada City",
       "count": 8,
-      "sample_event_id": "trumba-213040727",
-      "sample_title": "ASiF's 18th Annual Smallworks Holiday Show Opening Reception",
+      "sample_event_id": "trumba-208494260",
+      "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
     },
     {
@@ -60,21 +60,21 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "tuesday|nevadacity",
-      "venue_name": "Tuesday",
-      "venue_city": "Nevada City",
-      "count": 7,
-      "sample_event_id": "trumba-208494260",
-      "sample_title": "175 | Land, People, Culture",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "sunday|nevadacity",
       "venue_name": "Sunday",
       "venue_city": "Nevada City",
       "count": 6,
       "sample_event_id": "trumba-212044819",
       "sample_title": "Woodturning Adventures – Create a Stunning Wooden Vase or Candlestick Holder",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "saturday|grassvalley",
+      "venue_name": "Saturday",
+      "venue_city": "Grass Valley",
+      "count": 6,
+      "sample_event_id": "trumba-213040730",
+      "sample_title": "ASiF's 18th Annual Smallworks Holiday Show Opening Reception",
       "candidate_assets": []
     },
     {
@@ -253,15 +253,6 @@
       "count": 2,
       "sample_event_id": "gvda-191631909",
       "sample_title": "Cars and coffee grass valley",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "nativewren|grassvalley",
-      "venue_name": "Native Wren",
-      "venue_city": "Grass Valley",
-      "count": 2,
-      "sample_event_id": "trumba-211897437",
-      "sample_title": "Local Artisan Showcase at Native Wren",
       "candidate_assets": []
     },
     {
@@ -446,6 +437,15 @@
           "score": 16
         }
       ]
+    },
+    {
+      "venue_key": "nativewren|grassvalley",
+      "venue_name": "Native Wren",
+      "venue_city": "Grass Valley",
+      "count": 1,
+      "sample_event_id": "trumba-211897438",
+      "sample_title": "Local Artisan Showcase at Native Wren",
+      "candidate_assets": []
     },
     {
       "venue_key": "neighborhoodcenteroftheartslocatedinthelittonbuilding|",
