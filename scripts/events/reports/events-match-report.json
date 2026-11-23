@@ -1,26 +1,26 @@
 {
-  "generated_at": "2026-11-22T15:02:50.241374+00:00",
+  "generated_at": "2026-11-23T18:58:26.580031+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 259,
+    "total_events": 256,
     "matched_events": 123,
-    "unmatched_events": 136,
+    "unmatched_events": 133,
     "matched_by_pid": 0,
     "matched_by_alias": 6,
     "matched_by_name_city": 21,
     "matched_by_name_city_fuzzy": 96,
-    "upcoming_14d": 106
+    "upcoming_14d": 103
   },
   "unmatched_venues": [
     {
       "venue_key": "monday|nevadacity",
       "venue_name": "Monday",
       "venue_city": "Nevada City",
-      "count": 12,
-      "sample_event_id": "trumba-208494259",
-      "sample_title": "175 | Land, People, Culture",
+      "count": 11,
+      "sample_event_id": "trumba-195322423",
+      "sample_title": "Nevada City Odd Fellows Open Mic",
       "candidate_assets": []
     },
     {
@@ -60,12 +60,12 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "sunday|nevadacity",
-      "venue_name": "Sunday",
+      "venue_key": "wednesday|nevadacity",
+      "venue_name": "Wednesday",
       "venue_city": "Nevada City",
       "count": 6,
-      "sample_event_id": "trumba-212044819",
-      "sample_title": "Woodturning Adventures – Create a Stunning Wooden Vase or Candlestick Holder",
+      "sample_event_id": "trumba-208494261",
+      "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
     },
     {
@@ -78,11 +78,11 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "wednesday|nevadacity",
-      "venue_name": "Wednesday",
+      "venue_key": "thursday|nevadacity",
+      "venue_name": "Thursday",
       "venue_city": "Nevada City",
       "count": 5,
-      "sample_event_id": "trumba-208494261",
+      "sample_event_id": "trumba-208494262",
       "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
     },
@@ -140,15 +140,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "thursday|nevadacity",
-      "venue_name": "Thursday",
-      "venue_city": "Nevada City",
-      "count": 4,
-      "sample_event_id": "trumba-208494262",
-      "sample_title": "175 | Land, People, Culture",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "friday|grassvalley",
       "venue_name": "Friday",
       "venue_city": "Grass Valley",
@@ -187,6 +178,15 @@
           "score": 18
         }
       ]
+    },
+    {
+      "venue_key": "sunday|nevadacity",
+      "venue_name": "Sunday",
+      "venue_city": "Nevada City",
+      "count": 4,
+      "sample_event_id": "trumba-213116093",
+      "sample_title": "Carve, Ink, & Paint! An Introduction to Relief Printmaking",
+      "candidate_assets": []
     },
     {
       "venue_key": "unknownvenue|nevadacity",
@@ -405,46 +405,6 @@
       "count": 1,
       "sample_event_id": "gvda-183038851",
       "sample_title": "Playwriting Group",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "goldenempiregrange|",
-      "venue_name": "Golden Empire Grange",
-      "venue_city": "",
-      "count": 1,
-      "sample_event_id": "trumba-210717608",
-      "sample_title": "Natural Cheesemaking Workshops",
-      "candidate_assets": [
-        {
-          "asset_idx": 241,
-          "asset_name": "Holidays at the Empire Mine",
-          "asset_city": "Grass Valley",
-          "asset_category": "Fairs & Festivals",
-          "score": 16
-        },
-        {
-          "asset_idx": 261,
-          "asset_name": "Mothers Day Springtime Event at Empire Mine",
-          "asset_city": "Grass Valley",
-          "asset_category": "Fairs & Festivals",
-          "score": 16
-        },
-        {
-          "asset_idx": 572,
-          "asset_name": "Empire Mine Park Association",
-          "asset_city": "Grass Valley",
-          "asset_category": "Preservation & Culture",
-          "score": 16
-        }
-      ]
-    },
-    {
-      "venue_key": "nativewren|grassvalley",
-      "venue_name": "Native Wren",
-      "venue_city": "Grass Valley",
-      "count": 1,
-      "sample_event_id": "trumba-211897438",
-      "sample_title": "Local Artisan Showcase at Native Wren",
       "candidate_assets": []
     },
     {
