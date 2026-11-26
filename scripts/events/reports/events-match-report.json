@@ -1,19 +1,28 @@
 {
-  "generated_at": "2026-11-25T17:47:50.645014+00:00",
+  "generated_at": "2026-11-26T17:31:23.860434+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 255,
-    "matched_events": 125,
+    "total_events": 256,
+    "matched_events": 126,
     "unmatched_events": 130,
     "matched_by_pid": 0,
     "matched_by_alias": 6,
     "matched_by_name_city": 21,
-    "matched_by_name_city_fuzzy": 98,
-    "upcoming_14d": 102
+    "matched_by_name_city_fuzzy": 99,
+    "upcoming_14d": 103
   },
   "unmatched_venues": [
+    {
+      "venue_key": "saturday|nevadacity",
+      "venue_name": "Saturday",
+      "venue_city": "Nevada City",
+      "count": 10,
+      "sample_event_id": "trumba-213553253",
+      "sample_title": "LeGacy Presents \"Divas of Rock and Pop\"",
+      "candidate_assets": []
+    },
     {
       "venue_key": "monday|nevadacity",
       "venue_name": "Monday",
@@ -30,15 +39,6 @@
       "count": 9,
       "sample_event_id": "gvda-197068116",
       "sample_title": "Reluctant Reformers: Mary Hallock Foote and Julia Morgan in the Progressive Era by Mary-Jo Wainwright",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "saturday|nevadacity",
-      "venue_name": "Saturday",
-      "venue_city": "Nevada City",
-      "count": 9,
-      "sample_event_id": "trumba-213553253",
-      "sample_title": "LeGacy Presents \"Divas of Rock and Pop\"",
       "candidate_assets": []
     },
     {
@@ -65,15 +65,6 @@
       "venue_city": "Nevada City",
       "count": 6,
       "sample_event_id": "trumba-208494265",
-      "sample_title": "175 | Land, People, Culture",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "thursday|nevadacity",
-      "venue_name": "Thursday",
-      "venue_city": "Nevada City",
-      "count": 5,
-      "sample_event_id": "trumba-208494262",
       "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
     },
@@ -177,6 +168,15 @@
       "count": 4,
       "sample_event_id": "trumba-213040729",
       "sample_title": "ASiF's 18th Annual Smallworks Holiday Show Opening Reception",
+      "candidate_assets": []
+    },
+    {
+      "venue_key": "thursday|nevadacity",
+      "venue_name": "Thursday",
+      "venue_city": "Nevada City",
+      "count": 4,
+      "sample_event_id": "trumba-208494267",
+      "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
     },
     {
