@@ -1,19 +1,28 @@
 {
-  "generated_at": "2026-11-26T17:31:23.860434+00:00",
+  "generated_at": "2026-11-27T17:13:27.021867+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
     "total_events": 256,
-    "matched_events": 126,
-    "unmatched_events": 130,
+    "matched_events": 125,
+    "unmatched_events": 131,
     "matched_by_pid": 0,
     "matched_by_alias": 6,
     "matched_by_name_city": 21,
-    "matched_by_name_city_fuzzy": 99,
+    "matched_by_name_city_fuzzy": 98,
     "upcoming_14d": 103
   },
   "unmatched_venues": [
+    {
+      "venue_key": "monday|nevadacity",
+      "venue_name": "Monday",
+      "venue_city": "Nevada City",
+      "count": 11,
+      "sample_event_id": "trumba-208494264",
+      "sample_title": "175 | Land, People, Culture",
+      "candidate_assets": []
+    },
     {
       "venue_key": "saturday|nevadacity",
       "venue_name": "Saturday",
@@ -21,15 +30,6 @@
       "count": 10,
       "sample_event_id": "trumba-213553253",
       "sample_title": "LeGacy Presents \"Divas of Rock and Pop\"",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "monday|nevadacity",
-      "venue_name": "Monday",
-      "venue_city": "Nevada City",
-      "count": 10,
-      "sample_event_id": "trumba-208494264",
-      "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
     },
     {
@@ -66,15 +66,6 @@
       "count": 6,
       "sample_event_id": "trumba-208494265",
       "sample_title": "175 | Land, People, Culture",
-      "candidate_assets": []
-    },
-    {
-      "venue_key": "thursday|grassvalley",
-      "venue_name": "Thursday",
-      "venue_city": "Grass Valley",
-      "count": 5,
-      "sample_event_id": "trumba-213040728",
-      "sample_title": "ASiF's 18th Annual Smallworks Holiday Show Opening Reception",
       "candidate_assets": []
     },
     {
@@ -135,6 +126,15 @@
       "candidate_assets": []
     },
     {
+      "venue_key": "sunday|nevadacity",
+      "venue_name": "Sunday",
+      "venue_city": "Nevada City",
+      "count": 5,
+      "sample_event_id": "trumba-213116093",
+      "sample_title": "Carve, Ink, & Paint! An Introduction to Relief Printmaking",
+      "candidate_assets": []
+    },
+    {
       "venue_key": "axisgallery|nevadacounty",
       "venue_name": "Axis Gallery",
       "venue_city": "Nevada County",
@@ -180,12 +180,12 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "sunday|nevadacity",
-      "venue_name": "Sunday",
-      "venue_city": "Nevada City",
+      "venue_key": "thursday|grassvalley",
+      "venue_name": "Thursday",
+      "venue_city": "Grass Valley",
       "count": 4,
-      "sample_event_id": "trumba-213116093",
-      "sample_title": "Carve, Ink, & Paint! An Introduction to Relief Printmaking",
+      "sample_event_id": "trumba-213040731",
+      "sample_title": "ASiF's 18th Annual Smallworks Holiday Show Opening Reception",
       "candidate_assets": []
     },
     {
