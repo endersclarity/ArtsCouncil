@@ -1,24 +1,24 @@
 {
-  "generated_at": "2026-11-27T17:13:27.021867+00:00",
+  "generated_at": "2026-11-28T15:57:41.971532+00:00",
   "source_events_file": "website/cultural-map-redesign/events-merged-flat.json",
   "source_data_file": "website/cultural-map-redesign/data.json",
   "source_aliases_file": "scripts/events/venue_aliases.json",
   "stats": {
-    "total_events": 256,
+    "total_events": 254,
     "matched_events": 125,
-    "unmatched_events": 131,
+    "unmatched_events": 129,
     "matched_by_pid": 0,
     "matched_by_alias": 6,
     "matched_by_name_city": 21,
     "matched_by_name_city_fuzzy": 98,
-    "upcoming_14d": 103
+    "upcoming_14d": 101
   },
   "unmatched_venues": [
     {
       "venue_key": "monday|nevadacity",
       "venue_name": "Monday",
       "venue_city": "Nevada City",
-      "count": 11,
+      "count": 12,
       "sample_event_id": "trumba-208494264",
       "sample_title": "175 | Land, People, Culture",
       "candidate_assets": []
@@ -69,54 +69,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "friday|",
-      "venue_name": "Friday",
-      "venue_city": "",
-      "count": 5,
-      "sample_event_id": "trumba-195220568",
-      "sample_title": "58th Annual Cornish Christmas",
-      "candidate_assets": [
-        {
-          "asset_idx": 236,
-          "asset_name": "First Friday Art Walk",
-          "asset_city": "Nevada City",
-          "asset_category": "Fairs & Festivals",
-          "score": 16
-        }
-      ]
-    },
-    {
-      "venue_key": "mcknightcrossingshoppingcenter|",
-      "venue_name": "McKnight crossing shopping center",
-      "venue_city": "",
-      "count": 5,
-      "sample_event_id": "trumba-191631945",
-      "sample_title": "Cars and coffee grass valley",
-      "candidate_assets": [
-        {
-          "asset_idx": 455,
-          "asset_name": "Pine Street Crossing at Nevada City",
-          "asset_city": "",
-          "asset_category": "Historic Landmarks",
-          "score": 18
-        },
-        {
-          "asset_idx": 459,
-          "asset_name": "Purdon Crossing Bridge",
-          "asset_city": "",
-          "asset_category": "Historic Landmarks",
-          "score": 18
-        },
-        {
-          "asset_idx": 469,
-          "asset_name": "Edwards Crossing Bridge",
-          "asset_city": "",
-          "asset_category": "Historic Landmarks",
-          "score": 18
-        }
-      ]
-    },
-    {
       "venue_key": "wednesday|nevadacity",
       "venue_name": "Wednesday",
       "venue_city": "Nevada City",
@@ -162,15 +114,6 @@
       "candidate_assets": []
     },
     {
-      "venue_key": "friday|grassvalley",
-      "venue_name": "Friday",
-      "venue_city": "Grass Valley",
-      "count": 4,
-      "sample_event_id": "trumba-213040729",
-      "sample_title": "ASiF's 18th Annual Smallworks Holiday Show Opening Reception",
-      "candidate_assets": []
-    },
-    {
       "venue_key": "thursday|nevadacity",
       "venue_name": "Thursday",
       "venue_city": "Nevada City",
@@ -187,6 +130,54 @@
       "sample_event_id": "trumba-213040731",
       "sample_title": "ASiF's 18th Annual Smallworks Holiday Show Opening Reception",
       "candidate_assets": []
+    },
+    {
+      "venue_key": "friday|",
+      "venue_name": "Friday",
+      "venue_city": "",
+      "count": 4,
+      "sample_event_id": "trumba-211476824",
+      "sample_title": "2026 Glenshire Holiday Open Studios",
+      "candidate_assets": [
+        {
+          "asset_idx": 236,
+          "asset_name": "First Friday Art Walk",
+          "asset_city": "Nevada City",
+          "asset_category": "Fairs & Festivals",
+          "score": 16
+        }
+      ]
+    },
+    {
+      "venue_key": "mcknightcrossingshoppingcenter|",
+      "venue_name": "McKnight crossing shopping center",
+      "venue_city": "",
+      "count": 4,
+      "sample_event_id": "trumba-191631946",
+      "sample_title": "Cars and coffee grass valley",
+      "candidate_assets": [
+        {
+          "asset_idx": 455,
+          "asset_name": "Pine Street Crossing at Nevada City",
+          "asset_city": "",
+          "asset_category": "Historic Landmarks",
+          "score": 18
+        },
+        {
+          "asset_idx": 459,
+          "asset_name": "Purdon Crossing Bridge",
+          "asset_city": "",
+          "asset_category": "Historic Landmarks",
+          "score": 18
+        },
+        {
+          "asset_idx": 469,
+          "asset_name": "Edwards Crossing Bridge",
+          "asset_city": "",
+          "asset_category": "Historic Landmarks",
+          "score": 18
+        }
+      ]
     },
     {
       "venue_key": "unknownvenue|nevadacity",
@@ -227,6 +218,15 @@
           "score": 17
         }
       ]
+    },
+    {
+      "venue_key": "friday|grassvalley",
+      "venue_name": "Friday",
+      "venue_city": "Grass Valley",
+      "count": 3,
+      "sample_event_id": "trumba-213040732",
+      "sample_title": "ASiF's 18th Annual Smallworks Holiday Show Opening Reception",
+      "candidate_assets": []
     },
     {
       "venue_key": "meetingroom|pennvalley",
